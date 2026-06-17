@@ -1,12 +1,36 @@
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const kpis = [
-  { value: '24+', label: 'Yrs\nIn Operation' },
-  { value: '300+', label: 'Recovery\nProfessionals' },
-  { value: '5+', label: 'Major Banks\nServed' },
-  { value: '5', label: 'Core Service\nLines' }
+  { value: 24, suffix: '+', label: 'Years of\nRecovery Excellence' },
+  { value: 1200, suffix: '+', label: 'Recovery\nProfessionals' },
+  { value: 20, suffix: '+', label: 'Major Banks & NBFCs\nServed' },
+  { value: 5, suffix: '', label: 'Core Service\nVerticals' }
 ];
+
+function CountUp({ value, suffix, delay = 0 }) {
+  const count = useMotionValue(0);
+  const rounded = useSpring(count, { damping: 20, stiffness: 50 });
+  const [display, setDisplay] = useState('0');
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      count.set(value);
+    }, delay);
+    rounded.on('change', latest => {
+      setDisplay(Math.floor(latest).toLocaleString('en-IN'));
+    });
+    return () => clearTimeout(timer);
+  }, [count, rounded, value, delay]);
+
+  return (
+    <span className="tabular-nums text-4xl font-bold text-blue-950 sm:text-5xl">
+      {display}
+      {suffix}
+    </span>
+  );
+}
 
 export default function HeroSection() {
   return (
@@ -49,7 +73,7 @@ export default function HeroSection() {
           </Link>
         </div>
 
-        <div className="mt-16 grid justify-center gap-4 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+<div className="mt-16 grid justify-center gap-4 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
           {kpis.map((kpi, index) => (
             <motion.div
               key={kpi.label}
@@ -58,7 +82,7 @@ export default function HeroSection() {
               transition={{ delay: 0.4 + index * 0.1 }}
               className="flex flex-col items-center rounded-2xl bg-transparent px-6 py-8"
             >
-              <span className="text-4xl font-bold text-blue-950 sm:text-5xl">{kpi.value}</span>
+              <CountUp value={kpi.value} suffix={kpi.suffix} delay={400 + index * 100} />
               <span className="mt-2 whitespace-pre-line text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
                 {kpi.label}
               </span>

@@ -68,10 +68,10 @@ export const industriesMenu = [
 ];
 
 export const heroBadges = [
-  '20+ Years of Recovery Excellence',
-  '300+ Employees',
+  '24+ Years of Recovery Excellence',
+  '1200+ Recovery Professionals',
   'Pan Tamil Nadu Operations',
-  'Trusted by Financial Institutions'
+  'Trusted by Major Banks & NBFCs'
 ];
 
 export const trustLogos = [
@@ -94,11 +94,11 @@ export const trustLogos = [
 ];
 
 export const kpis = [
-  { value: 20, suffix: '+', label: 'Years of Recovery Excellence', description: 'Operating across recovery, collections and financial risk services.', size: 'large' },
-  { value: 300, suffix: '+', label: 'Employees', description: 'Field, verification, operations and coordination professionals.', size: 'tall' },
+  { value: 24, suffix: '+', label: 'Years of Recovery Excellence', description: 'Operating across recovery, collections and financial risk services.', size: 'large' },
+  { value: 1200, suffix: '+', label: 'Recovery Professionals', description: 'Field, verification, operations and coordination professionals.', size: 'tall' },
   { label: 'Tamil Nadu Wide', description: 'District-level recovery and collections coverage.', size: 'wide' },
-  { value: 1000, suffix: '+', label: 'Cases Managed', description: 'Across secured and unsecured lending portfolios.', size: 'standard' },
-  { value: 50, suffix: '+', label: 'Financial Partners', description: 'Banks, NBFCs, HFCs, ARCs and lending organizations.', size: 'standard' }
+  { value: 20, suffix: '+', label: 'Major Banks & NBFC Partners', description: 'Trusted partners across banking and NBFC sectors.', size: 'standard' },
+  { value: 5, suffix: '', label: 'Core Service Verticals', description: 'Recovery, Collections, Verification, Legal, Fraud Control.', size: 'standard' }
 ];
 
 export const recoveryModules = [
@@ -265,7 +265,7 @@ export const coverageNodes = [
 ];
 
 export const coverageStats = [
-  { value: '300+', label: 'Employees', description: 'Field and operations strength across Tamil Nadu.' },
+  { value: '1200+', label: 'Recovery Professionals', description: 'Field and operations strength across Tamil Nadu.' },
   { value: 'Pan Tamil Nadu', label: 'Operational Reach', description: 'District-level recovery, collection and verification coverage.' },
   { value: 'Multi-product', label: 'Portfolio Coverage', description: 'Secured, unsecured, retail, SME and specialized lending assets.' }
 ];
