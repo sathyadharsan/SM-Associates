@@ -1,0 +1,22 @@
+export const clientLogos = [
+  { id: 1, name: 'State Bank of India', logo: 'SBI', website: '#' },
+  { id: 2, name: 'Indian Bank', logo: 'Indian Bank', website: '#' },
+  { id: 3, name: 'Punjab National Bank', logo: 'PNB', website: '#' },
+  { id: 4, name: 'Bank of Baroda', logo: 'BOB', website: '#' },
+  { id: 5, name: 'Canara Bank', logo: 'Canara', website: '#' },
+  { id: 6, name: 'ICICI Bank', logo: 'ICICI', website: '#' },
+  { id: 7, name: 'HDFC Bank', logo: 'HDFC', website: '#' },
+  { id: 8, name: 'Axis Bank', logo: 'Axis', website: '#' },
+  { id: 9, name: 'Union Bank of India', logo: 'UBI', website: '#' },
+  { id: 10, name: 'Kotak Mahindra', logo: 'Kotak', website: '#' },
+  { id: 11, name: 'Bajaj Finserv', logo: 'Bajaj', website: '#' },
+  { id: 12, name: 'Mahindra Finance', logo: 'Mahindra', website: '#' },
+  { id: 13, name: 'L&T Finance', logo: 'L&T', website: '#' },
+  { id: 14, name: 'Fullerton India', logo: 'Fullerton', website: '#' },
+  { id: 15, name: 'Manappuram Finance', logo: 'Manappuram', website: '#' },
+  { id: 16, name: 'Muthoot Finance', logo: 'Muthoot', website: '#' },
+  { id: 17, name: 'Home First', logo: 'HomeFirst', website: '#' },
+  { id: 18, name: 'PNB Housing', logo: 'PNB Housing', website: '#' },
+  { id: 19, name: 'Citibank', logo: 'Citi', website: '#' },
+  { id: 20, name: 'IDFC First', logo: 'IDFC', website: '#' }
+];
