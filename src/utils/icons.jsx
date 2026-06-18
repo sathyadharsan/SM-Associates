@@ -5,6 +5,7 @@ import {
   Car,
   ClipboardCheck,
   CreditCard,
+  Download,
   FileText,
   Gavel,
   Handshake,
@@ -22,7 +23,9 @@ import {
   Sprout,
   Target,
   TrendingUp,
-  UserCheck
+  UserCheck,
+  Users,
+  Calendar
 } from 'lucide-react';
 
 export const iconMap = {
@@ -32,6 +35,7 @@ export const iconMap = {
   Car,
   ClipboardCheck,
   CreditCard,
+  Download,
   FileText,
   Gavel,
   Handshake,
@@ -49,7 +53,9 @@ export const iconMap = {
   Sprout,
   Target,
   TrendingUp,
-  UserCheck
+  UserCheck,
+  Users,
+  Calendar
 };
 
 export function getIcon(name) {

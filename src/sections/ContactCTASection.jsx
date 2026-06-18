@@ -1,8 +1,16 @@
 import { motion } from 'framer-motion';
 import { Download, Mail } from 'lucide-react';
-import Button from '../components/Button';
 
 export default function ContactCTASection() {
+  const handleScrollTo = (href) => (e) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      const offsetTop = target.offsetTop - 80;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="contact" className="bg-white py-20 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -27,14 +35,22 @@ export default function ContactCTASection() {
                 requirements with our risk management team.
               </p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <Button href="mailto:smarmpl.ho@gmail.com" icon={false}>
+                <a
+                  href="mailto:smarmpl.ho@gmail.com"
+                  onClick={handleScrollTo('#contact')}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-6 py-3 text-sm font-semibold text-navy-950 shadow-soft transition hover:bg-slate-200 hover:shadow-enterpriseHover"
+                >
                   <Mail className="h-4 w-4" />
                   Request Consultation
-                </Button>
-                <Button variant="secondary" href="#contact" icon={false}>
+                </a>
+                <a
+                  href="#contact"
+                  onClick={handleScrollTo('#contact')}
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-navy-900 bg-white px-6 py-3 text-sm font-semibold text-navy-950 transition hover:border-gold-500 hover:bg-slate-50"
+                >
                   <Download className="h-4 w-4" />
                   Download Company Profile
-                </Button>
+                </a>
               </div>
             </motion.div>
 

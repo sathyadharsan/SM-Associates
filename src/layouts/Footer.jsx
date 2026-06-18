@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Globe, Link2, Mail, MapPin, Phone, Share2 } from 'lucide-react';
+import { servicesMenu, industries } from '../data/homeData';
 
 const quickLinks = [
   { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
+  { label: 'About Us', to: '/about' },
   { label: 'Services', to: '/services' },
   { label: 'Industries', to: '/industries' },
   { label: 'Capabilities', to: '/capabilities' },
@@ -12,24 +13,8 @@ const quickLinks = [
   { label: 'Contact', to: '/contact' }
 ];
 
-const services = [
-  { label: 'Recovery Services', to: '/services/recovery-services' },
-  { label: 'SARFAESI Services', to: '/services/sarfaesi-services' },
-  { label: 'Field Collections', to: '/services/field-collections' },
-  { label: 'Verification Services', to: '/services/verification-services' },
-  { label: 'Fraud Control', to: '/services/fraud-control' },
-  { label: 'Legal Services', to: '/services/legal-services' },
-  { label: 'Auction Services', to: '/services/auction-services' },
-  { label: 'Asset Repossession', to: '/services/asset-repossession' }
-];
-
-const industries = [
-  { label: 'Banking', to: '/industries/banking' },
-  { label: 'NBFC', to: '/industries/nbfc' },
-  { label: 'Housing Finance', to: '/industries/housing-finance' },
-  { label: 'Fintech', to: '/industries/fintech' },
-  { label: 'ARC', to: '/industries/arc' }
-];
+const services = servicesMenu.map(s => ({ label: s.title, to: '/services' }));
+const industriesLinks = industries.map(i => ({ label: i.title, to: '/industries' }));
 
 const socialLinks = [
   { label: 'LinkedIn', href: '#', icon: Link2 },
@@ -90,7 +75,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-bold uppercase tracking-[0.22em] text-yellow-400">Industries</h3>
             <div className="mt-5 grid gap-3">
-              {industries.map(industry => (
+              {industriesLinks.map(industry => (
                 <Link key={industry.label} to={industry.to} className="text-sm text-white/68 transition hover:text-white">
                   {industry.label}
                 </Link>

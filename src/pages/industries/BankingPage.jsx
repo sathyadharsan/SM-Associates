@@ -1,36 +1,57 @@
 import { motion } from 'framer-motion';
-import PageLayout from '../../components/PageLayout';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function BankingPage() {
   return (
-    <div className="space-y-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="glass-card rounded-[24px] p-8"
-      >
-        <h3 className="text-2xl font-semibold text-blue-950">Banking</h3>
-        <p className="mt-4 text-slate-500 leading-7">
-          Specialized recovery and collections services for public sector banks, private banks, and cooperative banks
-          across retail loans, corporate credit, and agricultural financing portfolios.
-        </p>
-      </motion.div>
+    <div className="min-h-screen bg-white">
+      <section className="relative flex min-h-[60vh] items-center justify-center bg-slate-50">
+        <div className="mx-auto max-w-4xl px-4 py-20 text-center">
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.22em] text-gold-500">
+            Banking
+          </span>
+          <h1 className="mt-6 text-4xl font-semibold tracking-tight text-blue-950 sm:text-5xl">
+            Recovery Solutions for Banks
+          </h1>
+        </div>
+      </section>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        className="glass-card rounded-[24px] p-8"
-      >
-        <h4 className="text-xl font-semibold text-blue-950">Banking Solutions</h4>
-        <ul className="mt-4 space-y-2 text-slate-500">
-          <li>• Retail loan recovery programs</li>
-          <li>• Corporate and SME portfolio management</li>
-          <li>• Agricultural and rural loan resolution</li>
-          <li>• SARFAESI enforcement for secured loans</li>
-        </ul>
-      </motion.div>
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="glass-card rounded-[24px] p-8"
+          >
+            <h3 className="text-2xl font-semibold text-blue-950">Services for Banking</h3>
+            <ul className="mt-6 space-y-4">
+              {['Recovery &amp; Collections', 'Verification Services', 'SARFAESI Enforcement', 'Legal Coordination', 'Asset Repossession', 'Auction Services'].map(item => (
+                <li key={item} className="flex items-start gap-3">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 text-gold-500" />
+                  <span className="text-slate-600">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="glass-card rounded-[24px] p-8"
+          >
+            <h3 className="text-2xl font-semibold text-blue-950">Trusted Partners</h3>
+            <p className="mt-4 text-slate-500">
+              Empanelled with leading nationalized banks including SBI, Indian Bank, Canara Bank, PNB, and Bank of Baroda.
+            </p>
+            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-950">
+              Discuss Requirements <ArrowRight className="h-4 w-4" />
+            </Link>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 }

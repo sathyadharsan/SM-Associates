@@ -5,7 +5,7 @@ import { getIcon } from '../utils/icons.jsx';
 
 export default function ProductsSection() {
   return (
-    <section className="bg-slate-100 py-20 sm:py-24 lg:py-28">
+    <section className="bg-white py-20 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Portfolio Coverage"

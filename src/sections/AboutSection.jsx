@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Award, MapPin, ShieldCheck, Target } from 'lucide-react';
+import { Award, MapPin, ShieldCheck, Target, Users, Calendar, Building2 } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 
 const aboutCards = [
@@ -9,19 +9,39 @@ const aboutCards = [
     icon: ShieldCheck
   },
   {
-    title: 'Vision & Mission',
-    description: 'To build trusted recovery infrastructure that improves outcomes while maintaining professionalism, documentation discipline and operational transparency.',
-    icon: Target
+    title: '25+ Years Experience',
+    description: 'Two decades of continuous service in recovery operations across Tamil Nadu with proven methodologies.',
+    icon: Calendar
   },
   {
-    title: 'Leadership Team',
-    description: 'Experienced operational leadership across recovery strategy, field coordination, verification, SARFAESI support and legal coordination.',
+    title: '300+ Employees',
+    description: 'Skilled workforce of professionals, advocates, CAs and ex-bankers dedicated to recovery excellence.',
+    icon: Users
+  },
+  {
+    title: '20+ Industry Experts',
+    description: 'Experienced leadership team with backgrounds in banking, legal, and recovery operations.',
     icon: Award
   },
   {
-    title: 'Operational Presence',
-    description: 'Pan Tamil Nadu operations supported by field teams, verification resources, recovery coordinators and legal coordination partners.',
+    title: 'Leading Banks & NBFC Partnerships',
+    description: 'Empanelled with SBI, Indian Bank, Canara Bank, PNB, BOB and other major financial institutions.',
+    icon: Building2
+  },
+  {
+    title: 'Trust Indicators',
+    description: 'Professional integrity, transparent operations, and consistent delivery across portfolios.',
+    icon: Target
+  },
+  {
+    title: 'Our Journey Since 2000',
+    description: 'Started in Chennai with a small team, now serving 300+ professionals across Tamil Nadu recovery markets.',
     icon: MapPin
+  },
+  {
+    title: 'Vision & Mission',
+    description: 'To build trusted recovery infrastructure that improves outcomes while maintaining professionalism and compliance.',
+    icon: Target
   }
 ];
 
@@ -31,11 +51,11 @@ export default function AboutSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="About SM Associates"
-          title="A recovery operations partner built for financial institutions."
+          title="India's Trusted Recovery Partner Since 2000"
           description="SM Associates combines two decades of field execution, verification discipline, legal coordination and recovery strategy to support India's lending ecosystem."
         />
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-4">
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {aboutCards.map((card, index) => (
             <motion.div
               key={card.title}

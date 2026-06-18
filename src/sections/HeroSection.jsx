@@ -1,11 +1,10 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 const kpis = [
   { value: 24, suffix: '+', label: 'Years of\nRecovery Excellence' },
   { value: 1200, suffix: '+', label: 'Recovery\nProfessionals' },
-  { value: 20, suffix: '+', label: 'Major Banks & NBFCs\nServed' },
+  { value: 20, suffix: '+', label: 'Major Banks &\nNBFCs Served' },
   { value: 5, suffix: '', label: 'Core Service\nVerticals' }
 ];
 
@@ -33,8 +32,17 @@ function CountUp({ value, suffix, delay = 0 }) {
 }
 
 export default function HeroSection() {
+  const handleScrollTo = (href) => (e) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      const offsetTop = target.offsetTop - 80;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="relative flex min-h-[80vh] items-center justify-center bg-white px-4 py-20">
+    <section id="home" className="relative flex min-h-[80vh] items-center justify-center bg-white px-4 py-20">
       <div className="noise-overlay absolute inset-0 opacity-70" />
 
       <motion.div
@@ -48,32 +56,34 @@ export default function HeroSection() {
         </span>
 
         <h1 className="mt-8 text-balance text-4xl font-semibold leading-tight tracking-[-0.03em] text-blue-950 sm:text-5xl lg:text-6xl">
-          Risk Management, Recovery & Legal Execution
+          Risk Management, Recovery &amp; Legal Execution
           <br />
           <span className="text-blue-700">for Banks and NBFCs</span>
         </h1>
 
         <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-slate-500 sm:text-xl">
-          SARFAESI possession, field collections, repossession and legal services — managed end-to-end
+          SARFAESI possession, field collections, repossession and legal services &mdash; managed end-to-end
           by ex-bankers, advocates and chartered accountants since 2000.
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link
-            to="/contact"
+          <a
+            href="#contact"
+            onClick={handleScrollTo('#contact')}
             className="inline-flex items-center justify-center rounded-full bg-blue-950 px-8 py-3.5 text-sm font-bold text-white shadow-soft transition hover:bg-blue-700"
           >
             Talk To Our Team
-          </Link>
-          <Link
-            to="/services"
+          </a>
+          <a
+            href="#services-detailed"
+            onClick={handleScrollTo('#services-detailed')}
             className="inline-flex items-center justify-center rounded-full border-2 border-blue-950 px-8 py-3.5 text-sm font-bold text-blue-950 transition hover:bg-blue-50"
           >
             View Our Services
-          </Link>
+          </a>
         </div>
 
-<div className="mt-16 grid justify-center gap-4 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid justify-center gap-4 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
           {kpis.map((kpi, index) => (
             <motion.div
               key={kpi.label}

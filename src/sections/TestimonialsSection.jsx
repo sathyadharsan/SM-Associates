@@ -5,7 +5,7 @@ import { testimonials } from '../data/homeData';
 
 export default function TestimonialsSection() {
   return (
-    <section className="bg-slate-50 py-20 sm:py-24 lg:py-28">
+    <section id="testimonials" className="bg-slate-50 py-20 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Executive Testimonials"

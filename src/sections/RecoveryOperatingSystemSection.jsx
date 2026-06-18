@@ -9,6 +9,15 @@ export default function RecoveryOperatingSystemSection() {
   const [activeModule, setActiveModule] = useState(0);
   const active = recoveryModules[activeModule];
 
+  const handleScrollTo = (href) => (e) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      const offsetTop = target.offsetTop - 80;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="recovery-os" className="bg-white py-20 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -66,7 +75,7 @@ export default function RecoveryOperatingSystemSection() {
                 </p>
               </div>
 
-              <a href="#contact" className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-blue-950 transition hover:text-gold-500">
+              <a href="#contact" onClick={handleScrollTo('#contact')} className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-blue-950 transition hover:text-gold-500">
                 Discuss this capability <ArrowRight className="h-4 w-4" />
               </a>
             </div>

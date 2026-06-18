@@ -1,96 +1,235 @@
+import { Award, Briefcase, Building2, Car, CreditCard, FileText, Gavel, Handshake, Landmark, MonitorSmartphone, Percent, Repeat, Scale, ShieldCheck, ShieldAlert, Smartphone, Sprout, Target, TrendingUp, UserCheck } from 'lucide-react';
+
 export const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About Us', href: '#about' },
-  { label: 'Services', href: '#capabilities' },
+  { label: 'Services', href: '#services-detailed' },
   { label: 'Industries', href: '#industries' },
-  { label: 'Capabilities', href: '#recovery-os' },
-  { label: 'Resources', href: '#case-studies' },
-  { label: 'Careers', href: '#contact' },
+  { label: 'Capabilities', href: '#capabilities' },
+  { label: 'Resources', href: '#resources' },
+  { label: 'Careers', href: '#careers' },
   { label: 'Contact', href: '#contact' }
 ];
 
 export const megaMenu = {
   about: [
     { title: 'Company Overview', href: '#about', description: 'Two decades of recovery and risk management execution.' },
-    { title: 'Vision & Mission', href: '#about', description: 'Building trusted recovery infrastructure for financial institutions.' },
-    { title: 'Leadership Team', href: '#contact', description: 'Operational leadership across recovery, verification and legal coordination.' },
-    { title: 'Operational Presence', href: '#coverage', description: 'Tamil Nadu-wide field and coordination coverage.' }
+    { title: 'Our Journey Since 2000', href: '#about', description: 'Building trusted recovery infrastructure for financial institutions.' },
+    { title: 'Leadership Team', href: '#about', description: 'Operational leadership across recovery, verification and legal coordination.' },
+    { title: 'Why SM Associates', href: '#why', description: 'Professional integrity and client-first approach.' },
+    { title: 'Vision & Mission', href: '#about', description: 'Building trusted recovery infrastructure for financial institutions.' }
   ],
   services: [
-    { title: 'Recovery Services', href: '#capabilities', description: 'Portfolio-led recovery strategies for measurable outcomes.' },
-    { title: 'SARFAESI Services', href: '#capabilities', description: 'Enforcement, possession and legal recovery coordination.' },
-    { title: 'Field Collections', href: '#capabilities', description: 'Disciplined field operations across geographies.' },
-    { title: 'Verification Services', href: '#capabilities', description: 'Pre and post-disbursal borrower and asset validation.' },
-    { title: 'Fraud Control', href: '#capabilities', description: 'Investigation-led fraud prevention and risk intelligence.' },
-    { title: 'Legal Services', href: '#capabilities', description: 'Court, advocate and documentation coordination.' },
-    { title: 'Auction Services', href: '#capabilities', description: 'Auction coordination and bidder engagement.' },
-    { title: 'Asset Repossession', href: '#capabilities', description: 'Secured asset recovery with documented workflows.' }
+    { title: 'Pre Disbursal Services', href: '#services-detailed', description: 'CPV, CPA, Telephone Verification, Seeding, skip tracing.' },
+    { title: 'Post Disbursal Services', href: '#services-detailed', description: 'Field collections, payment pickup, recovery follow-up.' },
+    { title: 'Fraud Control Services', href: '#services-detailed', description: 'Investigation-led fraud prevention and risk intelligence.' },
+    { title: 'SARFAESI Services', href: '#services-detailed', description: 'Enforcement, possession and legal recovery coordination.' },
+    { title: 'Legal Services', href: '#services-detailed', description: 'Court, advocate and documentation coordination.' },
+    { title: 'Field Collections', href: '#services-detailed', description: 'Disciplined field operations across geographies.' },
+    { title: 'Yard Management Services', href: '#services-detailed', description: 'Authorized yard services for asset custody.' },
+    { title: 'Manpower Solutions', href: '#services-detailed', description: 'Trained manpower for recovery operations.' }
   ],
   industries: [
     { title: 'Banking', href: '#industries', description: 'Recovery and collections for banking portfolios.' },
     { title: 'NBFC', href: '#industries', description: 'Scalable operations for high-volume lending portfolios.' },
     { title: 'Housing Finance', href: '#industries', description: 'Mortgage and housing loan recovery support.' },
-    { title: 'Fintech', href: '#industries', description: 'Digital lender recovery and verification workflows.' },
-    { title: 'ARC', href: '#industries', description: 'Stressed asset and enforcement execution support.' }
+    { title: 'Asset Reconstruction Companies', href: '#industries', description: 'Stress asset and enforcement execution support.' },
+    { title: 'Insurance', href: '#industries', description: 'Claims investigation and recovery support.' },
+    { title: 'FinTech', href: '#industries', description: 'Digital lender recovery and verification workflows.' }
   ],
   capabilities: [
-    { title: 'Recovery OS', href: '#recovery-os', description: 'Integrated recovery operating ecosystem.' },
-    { title: 'Collections Workflow', href: '#workflow', description: 'Lifecycle workflow from verification to resolution.' },
-    { title: 'Risk Operations', href: '#recovery-os', description: 'Fraud control, verification and portfolio risk support.' },
-    { title: 'Legal Coordination', href: '#workflow', description: 'SARFAESI, legal and enforcement coordination.' }
+    { title: 'Pan India Operations', href: '#capabilities', description: 'District-level recovery and collections coverage.' },
+    { title: 'Risk Management', href: '#recovery-os', description: 'Fraud control, verification and portfolio risk support.' },
+    { title: 'Recovery Operations', href: '#capabilities', description: 'Portfolio-led recovery strategies for measurable outcomes.' },
+    { title: 'Legal Expertise', href: '#capabilities', description: 'SARFAESI, legal and enforcement coordination.' },
+    { title: 'Field Investigation', href: '#recovery-os', description: 'Professional investigation and skip tracing.' },
+    { title: 'Technology Enabled Tracking', href: '#recovery-os', description: 'Digital monitoring and field operations.' },
+    { title: 'Workforce Strength', href: '#capabilities', description: '300+ trained professionals across operations.' }
   ],
   resources: [
     { title: 'Case Studies', href: '#case-studies', description: 'Anonymized recovery execution examples.' },
-    { title: 'Insights', href: '#contact', description: 'Operational insights for recovery leaders.' },
-    { title: 'Blogs', href: '#contact', description: 'Thought leadership for financial risk operations.' }
+    { title: 'Success Stories', href: '#testimonials', description: 'Client success stories and testimonials.' },
+    { title: 'Industry Insights', href: '#resources', description: 'Operational insights for recovery leaders.' },
+    { title: 'Regulatory Updates', href: '#resources', description: 'Latest RBI guidelines and compliance updates.' },
+    { title: 'Download Brochures', href: '#contact', description: 'Company profile and service brochures.' },
+    { title: 'FAQ', href: '#contact', description: 'Frequently asked questions.' }
   ]
 };
 
 export const servicesMenu = [
-  { title: 'Recovery Services', description: 'Portfolio-led recovery strategies for measurable collections.' },
-  { title: 'SARFAESI Services', description: 'Enforcement, possession and legal recovery coordination.' },
-  { title: 'Field Collections', description: 'Disciplined field operations across geographies.' },
-  { title: 'Asset Repossession', description: 'Secured asset recovery with documented workflows.' },
-  { title: 'Auction Services', description: 'Auction coordination and bidder engagement.' },
-  { title: 'Legal Services', description: 'Court, advocate and documentation coordination.' },
-  { title: 'Verification Services', description: 'Pre and post-disbursal risk validation.' },
-  { title: 'Fraud Control', description: 'Investigation-led fraud prevention and risk intelligence.' },
-  { title: 'Call Centre Services', description: 'Structured communication workflows for recovery operations.' }
-];
-
-export const industriesMenu = [
-  'Banking',
-  'NBFC',
-  'Housing Finance',
-  'Fintech',
-  'ARC',
-  'Corporate Lending'
-];
-
-export const heroBadges = [
-  '24+ Years of Recovery Excellence',
-  '1200+ Recovery Professionals',
-  'Pan Tamil Nadu Operations',
-  'Trusted by Major Banks & NBFCs'
+  { title: 'Recovery Services', description: 'Portfolio-led recovery strategies for measurable collections.', benefits: ['Account-level recovery planning', 'Risk bucket segmentation', 'Performance tracking'] },
+  { title: 'SARFAESI Services', description: 'Enforcement, possession and legal recovery coordination.', benefits: ['Sec 13(2) & 13(4) execution', 'Asset possession support', 'Legal documentation'] },
+  { title: 'Field Collections', description: 'Disciplined field operations across geographies.', benefits: ['50 accounts/executive/month', 'Daily reporting system', 'Escalation protocols'] },
+  { title: 'Asset Repossession', description: 'Secured asset recovery with documented workflows.', benefits: ['Cars, tractors, excavators', 'Notarized inventory reports', 'Legal compliance'] },
+  { title: 'Auction Services', description: 'Auction coordination and bidder engagement.', benefits: ['Fair valuation', 'Transparent process', 'Bidders network'] },
+  { title: 'Legal Services', description: 'Court, advocate and documentation coordination.', benefits: ['DRT case follow-up', 'Warrant execution', 'Police coordination'] },
+  { title: 'Verification Services', description: 'Pre and post-disbursal risk validation.', benefits: ['CPV & CPA checks', 'Telephone verification', 'Skip tracing'] },
+  { title: 'Fraud Control', description: 'Investigation-led fraud prevention and risk intelligence.', benefits: ['ITR verification', 'Title deed checks', 'Warrant execution'] },
+  { title: 'Call Centre Services', description: 'Structured communication workflows for recovery operations.', benefits: ['30-90 day accounts', 'Professional follow-up', 'Documented calls'] },
+  { title: 'Yard Management Services', description: 'Secure asset custody and management.', benefits: ['Authorized yards', 'Insurance coverage', 'Regular audits'] },
+  { title: 'Manpower Solutions', description: 'Trained manpower for recovery operations.', benefits: ['Experienced professionals', 'Background verified', 'Skilled teams'] }
 ];
 
 export const trustLogos = [
-  'State Bank of India',
-  'Indian Bank',
-  'Punjab National Bank',
-  'Bank of Baroda',
-  'Canara Bank',
-  'ICICI Bank',
-  'HDFC Bank',
-  'Citibank',
-  'Andhra Bank',
-  'Union Bank',
-  'PNB Housing',
-  'L&T Finance',
-  'Mahindra Finance',
-  'Fullerton India',
-  'Bajaj Finserv',
-  'Manappuram Finance'
+  { name: 'SBI', fullName: 'State Bank of India' },
+  { name: 'Indian Bank', fullName: 'Indian Bank' },
+  { name: 'Canara Bank', fullName: 'Canara Bank' },
+  { name: 'Union Bank', fullName: 'Union Bank of India' },
+  { name: 'Punjab National Bank', fullName: 'Punjab National Bank' },
+  { name: 'Bank of Baroda', fullName: 'Bank of Baroda' },
+  { name: 'UCO Bank', fullName: 'UCO Bank' },
+  { name: 'LIC Housing', fullName: 'LIC Housing Finance' },
+  { name: 'Repco Home', fullName: 'Repco Home Finance' },
+  { name: 'ICICI Bank', fullName: 'ICICI Bank' },
+  { name: 'HDFC Bank', fullName: 'HDFC Bank' },
+  { name: 'Citibank', fullName: 'Citibank' }
+];
+
+export const whyCards = [
+  {
+    title: 'Professional Integrity',
+    description: 'Operating with highest ethical standards since 2000.',
+    icon: UserCheck
+  },
+  {
+    title: 'Genuine Client Approach',
+    description: 'Client-first strategy with transparent operations.',
+    icon: Handshake
+  },
+  {
+    title: 'Excellence in Execution',
+    description: 'Consistent delivery across recovery and verification workflows.',
+    icon: Award
+  },
+  {
+    title: 'Premier Market Position',
+    description: 'Trusted by leading banks and NBFCs for recovery operations.',
+    icon: Sprout
+  }
+];
+
+export const products = [
+  {
+    title: 'Corporate / SME Loans',
+    icon: Briefcase
+  },
+  {
+    title: 'Housing Loans',
+    icon: Landmark
+  },
+  {
+    title: 'Credit Cards',
+    icon: CreditCard
+  },
+  {
+    title: 'Auto Loans',
+    icon: Car
+  },
+  {
+    title: 'Consumer Durables',
+    icon: MonitorSmartphone
+  },
+  {
+    title: 'Personal Loans',
+    icon: Handshake
+  },
+  {
+    title: 'Mortgage Loans',
+    icon: FileText
+  },
+  {
+    title: 'Agricultural Loans',
+    icon: Sprout
+  }
+];
+
+export const capabilityTabs = [
+  {
+    title: 'Recovery OS',
+    description: 'Integrated recovery operating ecosystem for portfolio management.',
+    points: ['Portfolio-level strategy', 'Risk segmentation', 'Performance tracking', 'Compliance control']
+  },
+  {
+    title: 'Collections Workflow',
+    description: 'Lifecycle workflow from verification to resolution.',
+    points: ['Field collections', 'Call centre support', 'Escalation control', 'Daily reporting']
+  },
+  {
+    title: 'Risk Operations',
+    description: 'Fraud control, verification and portfolio risk support.',
+    points: ['Pre-disbursal checks', 'Post-disbursal verification', 'Fraud investigation', 'Risk reporting']
+  },
+  {
+    title: 'Legal Coordination',
+    description: 'SARFAESI, legal and enforcement coordination.',
+    points: ['Court coordination', 'Advocate support', 'Documentation', 'Warrant execution']
+  }
+];
+
+export const resourceCards = [
+  {
+    title: 'Case Studies',
+    description: 'Anonymized recovery execution examples showing our methodology.',
+    icon: 'FileText',
+    href: '#case-studies'
+  },
+  {
+    title: 'Success Stories',
+    description: 'Client testimonials and outcome highlights.',
+    icon: 'ShieldCheck',
+    href: '#testimonials'
+  },
+  {
+    title: 'Industry Insights',
+    description: 'Operational insights for recovery leaders.',
+    icon: 'TrendingUp',
+    href: '#recovery-os'
+  },
+  {
+    title: 'Regulatory Updates',
+    description: 'Latest RBI guidelines and compliance updates.',
+    icon: 'FileText',
+    href: '#contact'
+  },
+  {
+    title: 'Download Brochures',
+    description: 'Company profile and service brochures.',
+    icon: 'Download',
+    href: '#contact'
+  },
+  {
+    title: 'FAQ',
+    description: 'Frequently asked questions about our services.',
+    icon: 'ClipboardCheck',
+    href: '#contact'
+  }
+];
+
+export const careerPositions = [
+  {
+    title: 'Recovery Officer',
+    department: 'Field Operations',
+    location: 'Chennai',
+    type: 'Full-time'
+  },
+  {
+    title: 'Legal Coordinator',
+    department: 'Legal',
+    location: 'Chennai',
+    type: 'Full-time'
+  },
+  {
+    title: 'Verification Executive',
+    department: 'Verification',
+    location: 'Tamil Nadu',
+    type: 'Full-time'
+  },
+  {
+    title: 'Call Centre Agent',
+    department: 'Collections',
+    location: 'Chennai',
+    type: 'Full-time'
+  }
 ];
 
 export const kpis = [

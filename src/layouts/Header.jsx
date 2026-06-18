@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, X } from 'lucide-react';
-import { megaMenu } from '../data/homeData';
+import { navItems, megaMenu } from '../data/homeData';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
   const [mobileOpenMenu, setMobileOpenMenu] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 16);
@@ -25,52 +26,58 @@ export default function Header() {
     setMobileOpenMenu(null);
   };
 
-  const navItems = [
-    { label: 'Home', to: '/' },
-    { label: 'About Us', menuKey: 'about' },
-    { label: 'Services', menuKey: 'services' },
-    { label: 'Industries', menuKey: 'industries' },
-    { label: 'Capabilities', menuKey: 'capabilities' },
-    { label: 'Resources', menuKey: 'resources' },
-    { label: 'Careers', to: '/careers' },
-    { label: 'Contact', to: '/contact' }
-  ];
-
   const menuItems = {
     about: [
-      { title: 'Company Overview', to: '/about/company-overview' },
-      { title: 'Vision & Mission', to: '/about/vision-mission' },
-      { title: 'Leadership Team', to: '/about/leadership' },
-      { title: 'Operational Presence', to: '/about/operational-presence' }
+      { title: 'Company Overview', to: '/about/company-overview', description: 'Two decades of recovery and risk management execution.' },
+      { title: 'Our Journey Since 2000', to: '/about/our-journey', description: 'Building trusted recovery infrastructure for financial institutions.' },
+      { title: 'Leadership Team', to: '/about/leadership', description: 'Operational leadership across recovery, verification and legal coordination.' },
+      { title: 'Why SM Associates', to: '/#why', description: 'Professional integrity and client-first approach.' },
+      { title: 'Vision & Mission', to: '/about/vision-mission', description: 'Building trusted recovery infrastructure for financial institutions.' }
     ],
     services: [
-      { title: 'Recovery Services', to: '/services/recovery-services' },
-      { title: 'SARFAESI Services', to: '/services/sarfaesi-services' },
-      { title: 'Verification Services', to: '/services/verification-services' },
-      { title: 'Fraud Control', to: '/services/fraud-control' },
-      { title: 'Legal Services', to: '/services/legal-services' },
-      { title: 'Auction Services', to: '/services/auction-services' },
-      { title: 'Asset Repossession', to: '/services/asset-repossession' },
-      { title: 'Field Collections', to: '/services/field-collections' }
+      { title: 'Pre Disbursal Services', to: '/services/pre-disbursal', description: 'CPV, CPA, Telephone Verification, Seeding, skip tracing.' },
+      { title: 'Post Disbursal Services', to: '/services/post-disbursal', description: 'Field collections, payment pickup, recovery follow-up.' },
+      { title: 'Fraud Control Services', to: '/services/fraud-control', description: 'Investigation-led fraud prevention and risk intelligence.' },
+      { title: 'SARFAESI Services', to: '/services/sarfaesi', description: 'Enforcement, possession and legal recovery coordination.' },
+      { title: 'Legal Services', to: '/services/legal', description: 'Court, advocate and documentation coordination.' },
+      { title: 'Field Collections', to: '/services/field-collections', description: 'Disciplined field operations across geographies.' },
+      { title: 'Yard Management Services', to: '/services/yard-management', description: 'Authorized yard services for asset custody.' },
+      { title: 'Manpower Solutions', to: '/services/manpower', description: 'Trained manpower for recovery operations.' }
     ],
     industries: [
-      { title: 'Banking', to: '/industries/banking' },
-      { title: 'NBFC', to: '/industries/nbfc' },
-      { title: 'Housing Finance', to: '/industries/housing-finance' },
-      { title: 'Fintech', to: '/industries/fintech' },
-      { title: 'ARC', to: '/industries/arc' }
+      { title: 'Banking', to: '/industries/banking', description: 'Recovery and collections for banking portfolios.' },
+      { title: 'NBFC', to: '/industries/nbfc', description: 'Scalable operations for high-volume lending portfolios.' },
+      { title: 'Housing Finance', to: '/industries/housing-finance', description: 'Mortgage and housing loan recovery support.' },
+      { title: 'Asset Reconstruction Companies', to: '/industries/arc', description: 'Stress asset and enforcement execution support.' },
+      { title: 'Insurance', to: '/industries/insurance', description: 'Claims investigation and recovery support.' },
+      { title: 'FinTech', to: '/industries/fintech', description: 'Digital lender recovery and verification workflows.' }
     ],
     capabilities: [
-      { title: 'Recovery OS', to: '/capabilities/recovery-os' },
-      { title: 'Collections Workflow', to: '/capabilities/collections-workflow' },
-      { title: 'Legal Coordination', to: '/capabilities/legal-coordination' },
-      { title: 'Risk Operations', to: '/capabilities/risk-operations' }
+      { title: 'Pan India Operations', to: '/capabilities/operations', description: 'District-level recovery and collections coverage.' },
+      { title: 'Risk Management', to: '/capabilities/risk', description: 'Fraud control, verification and portfolio risk support.' },
+      { title: 'Recovery Operations', to: '/capabilities/recovery', description: 'Portfolio-led recovery strategies for measurable outcomes.' },
+      { title: 'Legal Expertise', to: '/capabilities/legal', description: 'SARFAESI, legal and enforcement coordination.' },
+      { title: 'Field Investigation', to: '/capabilities/investigation', description: 'Professional investigation and skip tracing.' },
+      { title: 'Technology Enabled Tracking', to: '/capabilities/technology', description: 'Digital monitoring and field operations.' },
+      { title: 'Workforce Strength', to: '/capabilities/workforce', description: '300+ trained professionals across operations.' }
     ],
     resources: [
-      { title: 'Case Studies', to: '/resources/case-studies' },
-      { title: 'Blogs', to: '/resources/blogs' },
-      { title: 'Insights', to: '/resources/insights' }
+      { title: 'Case Studies', to: '/resources/case-studies', description: 'Anonymized recovery execution examples.' },
+      { title: 'Success Stories', to: '/resources/success-stories', description: 'Client success stories and testimonials.' },
+      { title: 'Industry Insights', to: '/resources/insights', description: 'Operational insights for recovery leaders.' },
+      { title: 'Regulatory Updates', to: '/resources/regulatory', description: 'Latest RBI guidelines and compliance updates.' },
+      { title: 'Download Brochures', to: '/resources/brochures', description: 'Company profile and service brochures.' },
+      { title: 'FAQ', to: '/resources/faq', description: 'Frequently asked questions.' }
     ]
+  };
+
+  const getMenuKey = (item) => {
+    if (item.label === 'About Us') return 'about';
+    if (item.label === 'Services') return 'services';
+    if (item.label === 'Industries') return 'industries';
+    if (item.label === 'Capabilities') return 'capabilities';
+    if (item.label === 'Resources') return 'resources';
+    return null;
   };
 
   return (
@@ -88,39 +95,51 @@ export default function Header() {
 
         <nav className="hidden items-center gap-7 xl:flex">
           {navItems.map(item => {
-            const hasMenu = Boolean(item.menuKey);
+            const menuKey = getMenuKey(item);
+            const hasMenu = Boolean(menuKey);
+            
             return (
               <div key={item.label} className="relative">
                 {hasMenu ? (
                   <button
-                    onMouseEnter={() => setActiveMenu(item.menuKey)}
+                    onMouseEnter={() => setActiveMenu(menuKey)}
                     onMouseLeave={() => setActiveMenu(null)}
-                    onFocus={() => setActiveMenu(item.menuKey)}
+                    onFocus={() => setActiveMenu(menuKey)}
                     onBlur={() => setActiveMenu(null)}
                     className="inline-flex items-center gap-1 text-sm font-semibold text-slate-600 transition hover:text-blue-950"
+                    aria-haspopup="true"
+                    aria-expanded={activeMenu === menuKey}
                   >
                     {item.label} <ChevronDown className="h-4 w-4" />
                   </button>
                 ) : (
-                  <Link to={item.to} className="text-sm font-semibold text-slate-600 transition hover:text-blue-950">
+                  <Link to={item.href.replace('#', '/')} className="text-sm font-semibold text-slate-600 transition hover:text-blue-950">
                     {item.label}
                   </Link>
                 )}
 
                 <AnimatePresence>
-                  {activeMenu === item.menuKey && (
+                  {activeMenu === menuKey && menuItems[menuKey] && (
                     <motion.div
                       initial={{ opacity: 0, y: 14 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 14 }}
-                      onMouseEnter={() => setActiveMenu(item.menuKey)}
+                      onMouseEnter={() => setActiveMenu(menuKey)}
                       onMouseLeave={() => setActiveMenu(null)}
-                      className="absolute left-1/2 top-8 w-[560px] -translate-x-1/2 rounded-[28px] border border-slate-200 bg-white p-4 shadow-enterprise"
+                      className="absolute left-1/2 top-8 w-[560px] -translate-x-1/2 rounded-[28px] border border-slate-200 bg-white p-6 shadow-enterprise"
+                      role="menu"
                     >
-                      <div className="grid gap-2">
-                        {menuItems[item.menuKey].map(menuItem => (
-                          <Link key={menuItem.title} to={menuItem.to} className="rounded-2xl p-3 transition hover:bg-blue-50">
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        {menuItems[menuKey].map(menuItem => (
+                          <Link
+                            key={menuItem.title}
+                            to={menuItem.to}
+                            onClick={closeMenus}
+                            className="rounded-2xl p-3 transition hover:bg-blue-50 block"
+                            role="menuitem"
+                          >
                             <p className="text-sm font-bold text-blue-950">{menuItem.title}</p>
+                            <p className="mt-1 text-xs leading-5 text-slate-500">{menuItem.description}</p>
                           </Link>
                         ))}
                       </div>
@@ -166,27 +185,30 @@ export default function Header() {
 
             <div className="mx-auto mt-4 max-w-7xl space-y-2">
               {navItems.map(item => {
-                const hasMenu = Boolean(item.menuKey);
+                const menuKey = getMenuKey(item);
+                const hasMenu = Boolean(menuKey);
+                
                 return (
                   <div key={item.label}>
                     {hasMenu ? (
                       <div>
                         <button
-                          onClick={() => setMobileOpenMenu(mobileOpenMenu === item.menuKey ? null : item.menuKey)}
+                          onClick={() => setMobileOpenMenu(mobileOpenMenu === menuKey ? null : menuKey)}
                           className="flex w-full items-center justify-between rounded-2xl px-3 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-blue-950"
+                          aria-expanded={mobileOpenMenu === menuKey}
                         >
                           {item.label} <ChevronDown className="h-4 w-4" />
                         </button>
                         <AnimatePresence>
-                          {mobileOpenMenu === item.menuKey && (
+                          {mobileOpenMenu === menuKey && menuItems[menuKey] && (
                             <motion.div
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: 'auto', opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
                               className="overflow-hidden"
                             >
-                              <div className="rounded-2xl bg-blue-50 p-3">
-                                {menuItems[item.menuKey].map(menuItem => (
+                              <div className="rounded-2xl bg-blue-50 p-3 mt-2 space-y-1">
+                                {menuItems[menuKey].map(menuItem => (
                                   <Link
                                     key={menuItem.title}
                                     to={menuItem.to}
@@ -203,7 +225,7 @@ export default function Header() {
                       </div>
                     ) : (
                       <Link
-                        to={item.to}
+                        to={item.href.replace('#', '/')}
                         onClick={() => setIsMobileOpen(false)}
                         className="block rounded-2xl px-3 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-blue-950"
                       >

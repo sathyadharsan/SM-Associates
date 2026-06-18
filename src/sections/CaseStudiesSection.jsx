@@ -4,6 +4,15 @@ import SectionHeader from '../components/SectionHeader';
 import { caseStudies } from '../data/homeData';
 
 export default function CaseStudiesSection() {
+  const handleScrollTo = (href) => (e) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      const offsetTop = target.offsetTop - 80;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="case-studies" className="bg-slate-50 py-20 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -41,7 +50,7 @@ export default function CaseStudiesSection() {
                   <p className="mt-2 text-sm leading-7 text-slate-500">{study.outcome}</p>
                 </div>
               </div>
-              <a href="#contact" className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-blue-950 transition group-hover:text-gold-500">
+              <a href="#contact" onClick={handleScrollTo('#contact')} className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-blue-950 transition group-hover:text-gold-500">
                 Discuss similar mandate <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
               </a>
             </motion.article>
