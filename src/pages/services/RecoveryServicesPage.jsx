@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import PageLayout from '../../components/PageLayout';
 
 export default function RecoveryServicesPage() {
@@ -10,7 +10,7 @@ export default function RecoveryServicesPage() {
         transition={{ duration: 0.6 }}
         className="glass-card rounded-[24px] p-8"
       >
-        <h3 className="text-2xl font-semibold text-blue-950">Recovery Services</h3>
+        <h3 className="text-2xl font-semibold text-gray-950">Recovery Services</h3>
         <p className="mt-4 text-slate-500 leading-7">
           Portfolio-led recovery strategies designed for measurable collections with compliant execution across
           secured and unsecured lending portfolios. Our approach combines behavioral analysis, risk segmentation,
@@ -24,7 +24,7 @@ export default function RecoveryServicesPage() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="glass-card rounded-[24px] p-8"
       >
-        <h4 className="text-xl font-semibold text-blue-950">Key Features</h4>
+        <h4 className="text-xl font-semibold text-gray-950">Key Features</h4>
         <ul className="mt-4 space-y-2 text-slate-500">
           <li>• Risk-based account segmentation</li>
           <li>• Multi-channel collection workflows</li>

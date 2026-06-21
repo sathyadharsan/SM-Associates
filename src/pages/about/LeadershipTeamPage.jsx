@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import PageLayout from '../../components/PageLayout';
 
 const leadership = [
@@ -16,7 +16,7 @@ export default function LeadershipTeamPage() {
         transition={{ duration: 0.6 }}
         className="glass-card rounded-[24px] p-8"
       >
-        <h3 className="text-2xl font-semibold text-blue-950">Leadership Team</h3>
+        <h3 className="text-2xl font-semibold text-gray-950">Leadership Team</h3>
         <p className="mt-4 text-slate-500 leading-7">
           Our leadership brings decades of experience in recovery, legal coordination, and risk operations across
           financial institutions.
@@ -32,10 +32,10 @@ export default function LeadershipTeamPage() {
             transition={{ delay: 0.1 + index * 0.08 }}
             className="glass-card rounded-[24px] p-6 text-center"
           >
-            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-blue-950 text-2xl font-bold text-white">
+            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#3366FF] text-2xl font-bold text-white">
               {member.name.split(' ').map(n => n[0]).join('')}
             </div>
-            <h4 className="mt-4 text-lg font-semibold text-blue-950">{member.name}</h4>
+            <h4 className="mt-4 text-lg font-semibold text-gray-950">{member.name}</h4>
             <p className="text-sm font-medium text-blue-700">{member.role}</p>
             <p className="mt-2 text-sm text-slate-500">{member.expertise}</p>
           </motion.div>

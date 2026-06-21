@@ -1,11 +1,10 @@
-import { motion } from 'framer-motion';
-import { Banknote } from 'lucide-react';
+﻿import { motion } from 'framer-motion';
 import SectionHeader from '../components/SectionHeader';
 import { trustLogos } from '../data/homeData';
 
 export default function TrustSection() {
   return (
-    <section id="trust" className="border-y border-slate-200 bg-white py-14 sm:py-16">
+    <section id="trust" className="relative py-14 sm:py-16" style={{ background: '#ffffff' }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Institutional Trust"
@@ -21,12 +20,9 @@ export default function TrustSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.03, duration: 0.5 }}
-              className="glass-card flex h-20 items-center justify-center rounded-[18px] border border-slate-200 bg-white p-4 grayscale transition duration-300 hover:grayscale-0 hover:shadow-enterpriseHover"
+              className="glass-card flex h-20 items-center justify-center rounded-[18px] border border-slate-200 bg-white p-4 transition duration-300 hover:shadow-enterpriseHover"
             >
-              <div className="flex flex-col items-center">
-                <Banknote className="h-6 w-6 text-blue-950" />
-                <span className="mt-1 text-xs font-bold tracking-[0.15em] text-slate-500">{logo.name}</span>
-              </div>
+              <img src={logo.logo} alt={logo.fullName} className="h-9 w-auto max-w-[140px] object-contain" />
             </motion.div>
           ))}
         </div>

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ export default function PageLayout({ eyebrow, title, description, children, cta 
         {eyebrow && (
           <p className="text-xs font-bold uppercase tracking-[0.32em] text-blue-700">{eyebrow}</p>
         )}
-        <h1 className="mt-5 text-balance text-4xl font-semibold tracking-[-0.055em] text-blue-950 sm:text-5xl lg:text-7xl">
+        <h1 className="mt-5 text-balance text-4xl font-semibold tracking-[-0.055em] text-gray-950 sm:text-5xl lg:text-7xl">
           {title}
         </h1>
         {description && (
@@ -29,13 +29,13 @@ export default function PageLayout({ eyebrow, title, description, children, cta 
             transition={{ duration: 0.6 }}
             className="glass-card mt-16 rounded-[32px] p-8 sm:p-12 lg:p-14"
           >
-            <h2 className="text-3xl font-semibold tracking-[-0.03em] text-blue-950 sm:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-[-0.03em] text-gray-950 sm:text-4xl">
               {cta.heading}
             </h2>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-500">{cta.subheading}</p>
             <Link
               to={cta.href}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-blue-950 px-6 py-3 font-bold text-white shadow-soft transition hover:bg-blue-700"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#3366FF] px-6 py-3 font-bold text-white shadow-soft transition hover:bg-blue-700"
             >
               {cta.buttonText} <ArrowRight className="h-4 w-4" />
             </Link>

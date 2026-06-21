@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import PageLayout from '../../components/PageLayout';
 
 export default function AssetRepossessionPage() {
@@ -10,7 +10,7 @@ export default function AssetRepossessionPage() {
         transition={{ duration: 0.6 }}
         className="glass-card rounded-[24px] p-8"
       >
-        <h3 className="text-2xl font-semibold text-blue-950">Asset Repossession</h3>
+        <h3 className="text-2xl font-semibold text-gray-950">Asset Repossession</h3>
         <p className="mt-4 text-slate-500 leading-7">
           Professional repossession services for secured assets including vehicles, equipment, inventory,
           and real estate with documented workflows and regulatory compliance.
@@ -23,7 +23,7 @@ export default function AssetRepossessionPage() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="glass-card rounded-[24px] p-8"
       >
-        <h4 className="text-xl font-semibold text-blue-950">Asset Types</h4>
+        <h4 className="text-xl font-semibold text-gray-950">Asset Types</h4>
         <ul className="mt-4 space-y-2 text-slate-500">
           <li>• Vehicle repossession</li>
           <li>• Equipment and machinery recovery</li>

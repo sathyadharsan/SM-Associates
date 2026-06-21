@@ -17,6 +17,16 @@ import HousingFinancePage from '../pages/industries/HousingFinancePage';
 import ArcPage from '../pages/industries/ArcPage';
 import FintechPage from '../pages/industries/FintechPage';
 import InsurancePage from '../pages/industries/InsurancePage';
+import AboutIndex from '../pages/about/AboutIndex';
+import CompanyOverviewPage from '../pages/about/CompanyOverviewPage';
+import LeadershipTeamPage from '../pages/about/LeadershipTeamPage';
+import VisionMissionPage from '../pages/about/VisionMissionPage';
+import ResourcesIndex from '../pages/resources/ResourcesIndex';
+import CaseStudiesPage from '../pages/resources/CaseStudiesPage';
+import BlogsPage from '../pages/resources/BlogsPage';
+import InsightsPage from '../pages/resources/InsightsPage';
+import CareersPage from '../pages/CareersPage';
+import ContactPage from '../pages/ContactPage';
 
 export default function AppRoutes() {
   return (
@@ -32,14 +42,24 @@ export default function AppRoutes() {
         <Route path="/services/field-collections" element={<FieldCollectionsPage />} />
         <Route path="/services/yard-management" element={<YardManagementPage />} />
         <Route path="/services/manpower" element={<ManpowerSolutionsPage />} />
+        <Route path="/industries" element={<IndustriesIndex />} />
+        <Route path="/industries/banking" element={<BankingPage />} />
+        <Route path="/industries/nbfc" element={<NbfcPage />} />
+        <Route path="/industries/housing-finance" element={<HousingFinancePage />} />
+        <Route path="/industries/arc" element={<ArcPage />} />
+        <Route path="/industries/fintech" element={<FintechPage />} />
+        <Route path="/industries/insurance" element={<InsurancePage />} />
+        <Route path="/about" element={<AboutIndex />} />
+        <Route path="/about/company-overview" element={<CompanyOverviewPage />} />
+        <Route path="/about/vision-mission" element={<VisionMissionPage />} />
+        <Route path="/about/leadership" element={<LeadershipTeamPage />} />
+        <Route path="/resources" element={<ResourcesIndex />} />
+        <Route path="/resources/case-studies" element={<CaseStudiesPage />} />
+        <Route path="/resources/blogs" element={<BlogsPage />} />
+        <Route path="/resources/insights" element={<InsightsPage />} />
+        <Route path="/careers" element={<CareersPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Route>
-      <Route path="/industries" element={<IndustriesIndex />} />
-      <Route path="/industries/banking" element={<BankingPage />} />
-      <Route path="/industries/nbfc" element={<NbfcPage />} />
-      <Route path="/industries/housing-finance" element={<HousingFinancePage />} />
-      <Route path="/industries/arc" element={<ArcPage />} />
-      <Route path="/industries/fintech" element={<FintechPage />} />
-      <Route path="/industries/insurance" element={<InsurancePage />} />
     </Routes>
   );
 }

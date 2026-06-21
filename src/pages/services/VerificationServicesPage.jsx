@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import PageLayout from '../../components/PageLayout';
 
 export default function VerificationServicesPage() {
@@ -10,7 +10,7 @@ export default function VerificationServicesPage() {
         transition={{ duration: 0.6 }}
         className="glass-card rounded-[24px] p-8"
       >
-        <h3 className="text-2xl font-semibold text-blue-950">Verification Services</h3>
+        <h3 className="text-2xl font-semibold text-gray-950">Verification Services</h3>
         <p className="mt-4 text-slate-500 leading-7">
           Pre-disbursal and post-disbursal borrower validation including address verification, business authenticity
           checks, asset inspection, and risk signal reporting. Our field verification teams provide rapid turnaround
@@ -24,7 +24,7 @@ export default function VerificationServicesPage() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="glass-card rounded-[24px] p-8"
       >
-        <h4 className="text-xl font-semibold text-blue-950">Verification Types</h4>
+        <h4 className="text-xl font-semibold text-gray-950">Verification Types</h4>
         <ul className="mt-4 space-y-2 text-slate-500">
           <li>• Residential address verification</li>
           <li>• Business and employment validation</li>

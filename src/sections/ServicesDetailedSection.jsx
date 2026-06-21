@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+﻿import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 import { servicesMenu } from '../data/homeData';
 import { getIcon } from '../utils/icons.jsx';
@@ -15,7 +15,7 @@ export default function ServicesDetailedSection() {
   };
 
   return (
-    <section id="services-detailed" className="bg-slate-50 py-20 sm:py-24 lg:py-28">
+    <section id="services-detailed" className="relative py-20 sm:py-24 lg:py-28" style={{ background: '#ffffff' }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeader
@@ -27,48 +27,45 @@ export default function ServicesDetailedSection() {
           />
           <button
             onClick={handleScrollTo('#contact')}
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-navy-900 bg-white px-6 py-3 text-sm font-semibold text-navy-950 transition hover:border-gold-500 hover:bg-slate-50"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-navy-900 bg-white px-6 py-3 text-sm font-semibold text-gray-950 transition hover:border-[#3366FF] hover:bg-slate-50"
           >
             Discuss Your Portfolio
           </button>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {servicesMenu.map((service, index) => (
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {servicesMenu.slice(0, 6).map((service, index) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
-              transition={{ delay: index * 0.05, duration: 0.55 }}
-              className="glass-card group rounded-[24px] p-7 transition duration-300 hover:border-gold-400/45 hover:shadow-enterpriseHover"
+              transition={{ delay: index * 0.05, duration: 0.5 }}
+              className="glass-card group rounded-[20px] p-6 transition duration-300 hover:border-[#3366FF]/40 hover:shadow-enterpriseHover"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-950 text-white transition group-hover:bg-blue-600">
+              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#3366FF] text-white transition group-hover:bg-[#3366FF]">
                 {getIcon(service.icon)}
               </div>
-              <h3 className="text-2xl font-semibold tracking-[-0.025em] text-blue-950">{service.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-500">{service.description}</p>
-
-              {service.benefits && (
-                <div className="mt-6 space-y-3">
-                  {service.benefits.map(benefit => (
-                    <div key={benefit} className="flex items-start gap-2">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
-                      <span className="text-sm text-slate-600">{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-
+              <h3 className="text-lg font-semibold tracking-[-0.02em] text-gray-950">{service.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-500 line-clamp-2">{service.description}</p>
               <a
                 href="#contact"
                 onClick={handleScrollTo('#contact')}
-                className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-950 transition group-hover:text-gold-500"
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-gray-950 transition group-hover:text-[#3366FF]"
               >
-                Contact Specialist <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                Learn More <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-1" />
               </a>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-8 text-center">
+          <a
+            href="/services"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-gray-950 shadow-soft transition hover:border-blue-950"
+          >
+            View All Services <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
       </div>
     </section>

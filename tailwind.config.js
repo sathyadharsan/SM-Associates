@@ -5,21 +5,31 @@ export default {
     extend: {
       colors: {
         navy: {
-          950: '#2563EB',
-          900: '#2563EB',
-          800: '#3B82F6'
+          950: '#0e0818',
+          900: '#130b2e',
+          800: '#2d1654'
         },
         blue: {
-          950: '#2563EB',
-          900: '#2563EB',
-          800: '#3B82F6',
-          700: '#2563EB',
-          600: '#2563EB',
-          500: '#2563EB'
+          950: '#0e0818',
+          900: '#130b2e',
+          800: '#2d1654',
+          700: '#3d1f7a',
+          600: '#5a2eb5',
+          500: '#3366FF',
+          100: '#ede5ff',
+          50:  '#f5f0ff'
+        },
+        brand: {
+          600: '#6622dd',
+          500: '#3366FF',
+          400: '#a366ff',
+          100: '#ede5ff',
+          50:  '#f5f0ff'
         },
         gold: {
           500: '#C8A45D',
-          400: '#E6C87A'
+          400: '#E6C87A',
+          300: '#f0d89a'
         },
         slate: {
           50: '#FAFBFC',
@@ -27,9 +37,9 @@ export default {
         }
       },
       boxShadow: {
-        enterprise: '0 24px 80px rgba(37, 99, 235, 0.08)',
-        enterpriseHover: '0 32px 90px rgba(37, 99, 235, 0.14)',
-        soft: '0 12px 40px rgba(37, 99, 235, 0.06)'
+        enterprise: '0 24px 80px rgba(10, 22, 40, 0.12)',
+        enterpriseHover: '0 32px 90px rgba(10, 22, 40, 0.20)',
+        soft: '0 12px 40px rgba(10, 22, 40, 0.08)'
       },
       borderRadius: {
         enterprise: '20px'

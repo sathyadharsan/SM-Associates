@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export default function SectionHeader({ eyebrow, title, description, align = 'center', className = '' }) {
+export default function SectionHeader({ eyebrow, title, description, align = 'center', className = '', inverted = false }) {
   const alignClass = align === 'left' ? 'text-left items-start' : 'text-center items-center';
 
   return (
@@ -11,12 +11,12 @@ export default function SectionHeader({ eyebrow, title, description, align = 'ce
       transition={{ duration: 0.7 }}
       className={`mx-auto flex max-w-4xl flex-col gap-4 ${alignClass} ${className}`}
     >
-      <span className="text-xs font-bold uppercase tracking-[0.28em] text-gold-500">{eyebrow}</span>
-      <h2 className="text-balance text-3xl font-semibold tracking-tight text-navy-900 sm:text-4xl lg:text-5xl">
+      <span className="text-xs font-bold uppercase tracking-[0.28em]" style={{ color: '#3366FF' }}>{eyebrow}</span>
+      <h2 className={`font-sora text-balance text-3xl font-bold tracking-[-0.03em] sm:text-4xl lg:text-5xl ${inverted ? 'text-white' : 'text-gray-950'}`}>
         {title}
       </h2>
       {description && (
-        <p className="max-w-2xl text-base leading-8 text-slate-500 sm:text-lg">{description}</p>
+        <p className={`max-w-2xl text-base leading-8 sm:text-lg ${inverted ? 'text-white/65' : 'text-slate-500'}`}>{description}</p>
       )}
     </motion.div>
   );

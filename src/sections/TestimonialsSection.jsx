@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 import { testimonials } from '../data/homeData';
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="bg-slate-50 py-20 sm:py-24 lg:py-28">
+    <section id="testimonials" className="relative py-20 sm:py-24 lg:py-28" style={{ background: '#f1f5f9' }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Executive Testimonials"
@@ -21,16 +21,16 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.08, duration: 0.55 }}
-              className="glass-card group rounded-[24px] p-8 transition duration-300 hover:-translate-y-1 hover:border-gold-400/45 hover:shadow-enterpriseHover"
+              className="glass-card group rounded-[24px] p-8 transition duration-300 hover:-translate-y-1 hover:border-[#3366FF]/40 hover:shadow-enterpriseHover"
             >
-              <div className="mb-7 flex h-12 w-12 items-center justify-center rounded-2xl bg-gold-400/15 text-gold-500">
+              <div className="mb-7 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3366FF]/10 text-[#3366FF]">
                 <Quote className="h-6 w-6" />
               </div>
-              <p className="text-lg leading-8 text-navy-900">{testimonial.quote}</p>
+              <p className="text-lg leading-8 text-gray-900">{testimonial.quote}</p>
               <div className="mt-8 border-t border-slate-200 pt-6">
-                <p className="font-semibold text-navy-900">{testimonial.name}</p>
+                <p className="font-semibold text-gray-900">{testimonial.name}</p>
                 <p className="mt-1 text-sm font-medium text-slate-500">{testimonial.role}</p>
-                <p className="mt-2 inline-flex rounded-full bg-navy-900 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-navy-950">
+                <p className="mt-2 inline-flex rounded-full bg-[#3366FF] px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-gray-950">
                   {testimonial.institution}
                 </p>
               </div>

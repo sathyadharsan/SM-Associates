@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { Globe, Link2, Mail, MapPin, Phone, Share2 } from 'lucide-react';
 import { servicesMenu, industries } from '../data/homeData';
 
@@ -24,12 +24,12 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-blue-950 text-white">
+    <footer className="bg-[#3366FF] text-white">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.25fr_0.85fr_0.95fr_0.95fr_1.2fr]">
           <div>
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-sm font-bold text-blue-950">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-sm font-bold text-gray-950">
                 SM
               </div>
               <div>
@@ -43,7 +43,7 @@ export default function Footer() {
             </p>
             <div className="mt-7 flex gap-3">
               {socialLinks.map(link => (
-                <a key={link.label} href={link.href} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition hover:border-yellow-400 hover:bg-yellow-400 hover:text-blue-950" aria-label={link.label}>
+                <a key={link.label} href={link.href} className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition hover:border-yellow-400 hover:bg-yellow-400 hover:text-gray-950" aria-label={link.label}>
                   <link.icon className="h-4 w-4" />
                 </a>
               ))}

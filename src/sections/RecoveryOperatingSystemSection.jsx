@@ -5,82 +5,161 @@ import SectionHeader from '../components/SectionHeader';
 import { recoveryModules } from '../data/homeData';
 import { getIcon } from '../utils/icons.jsx';
 
-export default function RecoveryOperatingSystemSection() {
-  const [activeModule, setActiveModule] = useState(0);
-  const active = recoveryModules[activeModule];
+const B = '#3366FF';
+const V = '#7C3AED';
+const RADIUS = 230;
 
-  const handleScrollTo = (href) => (e) => {
+export default function RecoveryOperatingSystemSection() {
+  const [active, setActive] = useState(0);
+  const node = recoveryModules[active];
+  const n = recoveryModules.length;
+
+  const go = (id) => (e) => {
     e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      const offsetTop = target.offsetTop - 80;
-      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-    }
+    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Node positions around a circle, starting at top (-90deg)
+  const positions = recoveryModules.map((_, i) => {
+    const angle = (i / n) * 2 * Math.PI - Math.PI / 2;
+    return { x: Math.cos(angle) * RADIUS, y: Math.sin(angle) * RADIUS };
+  });
+
   return (
-    <section id="recovery-os" className="bg-white py-20 sm:py-24 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="recovery-os" className="relative overflow-hidden py-20 sm:py-24 lg:py-28" style={{ background: '#ffffff' }}>
+      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${B}, transparent)` }} />
+      <div className="pointer-events-none absolute right-0 top-1/4 h-[460px] w-[460px] rounded-full opacity-[0.05] blur-[120px]" style={{ background: V }} />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Recovery Operating System"
           title="One operating layer for debt recovery, collections and risk execution."
           description="SM Associates brings verification, collections, fraud control, SARFAESI, legal coordination, asset recovery and auction execution into one controlled operating ecosystem."
         />
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-[0.92fr_1.08fr]">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
-            {recoveryModules.map((module, index) => (
-              <motion.button
-                key={module.title}
-                onClick={() => setActiveModule(index)}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: index * 0.05, duration: 0.45 }}
-                className={`glass-card group rounded-[24px] p-5 text-left transition duration-300 hover:-translate-y-1 hover:shadow-enterpriseHover ${
-                  activeModule === index ? 'border-blue-500 bg-blue-50 shadow-enterprise' : 'border-slate-200 bg-white'
-                }`}
-              >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-950 text-white transition group-hover:bg-blue-600">
-                  {getIcon(module.icon)}
-                </div>
-                <h3 className="text-lg font-semibold text-blue-950">{module.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-500">{module.description}</p>
-              </motion.button>
-            ))}
-          </div>
+        {/* ── Desktop: radial node graph ── */}
+        <div className="mt-16 hidden justify-center lg:flex">
+          <div className="relative" style={{ width: RADIUS * 2 + 160, height: RADIUS * 2 + 160 }}>
 
-          <motion.div
-            key={active.title}
-            initial={{ opacity: 0, x: 28, scale: 0.98 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: -28, scale: 0.98 }}
-            transition={{ duration: 0.35 }}
-            className="glass-card relative overflow-hidden rounded-[32px] p-8 sm:p-10"
-          >
-            <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-blue-400/10 blur-3xl" />
-            <div className="relative">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-950 text-white">
-                {getIcon(active.icon)}
-              </div>
-              <p className="mt-7 text-xs font-bold uppercase tracking-[0.26em] text-gold-500">{active.signal}</p>
-              <h3 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-blue-950">{active.title}</h3>
-              <p className="mt-5 text-lg leading-8 text-slate-500">{active.description}</p>
+            {/* Connection lines */}
+            <svg className="absolute inset-0 h-full w-full" style={{ overflow: 'visible' }}>
+              <g transform={`translate(${RADIUS + 80}, ${RADIUS + 80})`}>
+                {positions.map((p, i) => (
+                  <motion.line
+                    key={i}
+                    x1={0} y1={0} x2={p.x} y2={p.y}
+                    stroke={i === active ? B : 'rgba(15,23,42,0.10)'}
+                    strokeWidth={i === active ? 2 : 1}
+                    initial={false}
+                    animate={{ opacity: i === active ? 1 : 0.5 }}
+                    style={i === active ? { filter: `drop-shadow(0 0 6px ${B})` } : {}}
+                  />
+                ))}
+              </g>
+            </svg>
 
-              <div className="mt-8 rounded-[24px] border border-slate-200 bg-white p-6">
-                <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-950">Operating Outcome</p>
-                <p className="mt-3 text-2xl font-semibold tracking-tight text-blue-950">{active.outcome}</p>
-                <p className="mt-3 text-sm leading-7 text-slate-500">
-                  Controlled workflows, field visibility and institutional reporting designed for sensitive recovery operations.
-                </p>
-              </div>
-
-              <a href="#contact" onClick={handleScrollTo('#contact')} className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-blue-950 transition hover:text-gold-500">
-                Discuss this capability <ArrowRight className="h-4 w-4" />
-              </a>
+            {/* Center hub */}
+            <div className="absolute flex flex-col items-center justify-center rounded-full text-center"
+              style={{
+                left: RADIUS + 80 - 56, top: RADIUS + 80 - 56, width: 112, height: 112,
+                background: `linear-gradient(135deg, ${B}, ${V})`,
+                boxShadow: `0 0 0 1px rgba(255,255,255,0.2), 0 12px 36px -8px ${B}55`,
+              }}>
+              <span className="font-sora text-[13px] font-extrabold leading-tight text-white">SM<br/>Recovery OS</span>
             </div>
-          </motion.div>
+
+            {/* Pulse ring around hub */}
+            <motion.div
+              className="absolute rounded-full"
+              style={{ left: RADIUS + 80 - 56, top: RADIUS + 80 - 56, width: 112, height: 112, border: `1px solid ${B}` }}
+              animate={{ scale: [1, 1.6], opacity: [0.5, 0] }}
+              transition={{ duration: 2.2, repeat: Infinity, ease: 'easeOut' }}
+            />
+
+            {/* Nodes */}
+            {recoveryModules.map((m, i) => {
+              const p = positions[i];
+              const isActive = i === active;
+              return (
+                <motion.button
+                  key={m.title}
+                  onClick={() => setActive(i)}
+                  className="absolute flex flex-col items-center gap-2"
+                  style={{ left: RADIUS + 80 + p.x - 44, top: RADIUS + 80 + p.y - 44, width: 88 }}
+                  whileHover={{ scale: 1.06 }}
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06, duration: 0.4 }}
+                >
+                  <div
+                    className="flex h-14 w-14 items-center justify-center rounded-2xl transition-all duration-300"
+                    style={{
+                      background: isActive ? `linear-gradient(135deg, ${B}, ${V})` : '#f6f8fb',
+                      border: isActive ? 'none' : '1px solid #e2e8f0',
+                      color: isActive ? '#fff' : '#536070',
+                      boxShadow: isActive ? `0 8px 24px -4px ${B}55` : 'none',
+                    }}
+                  >
+                    {getIcon(m.icon)}
+                  </div>
+                  <span className={`text-center text-[11px] font-semibold leading-tight ${isActive ? 'text-gray-950' : 'text-gray-400'}`}>
+                    {m.title}
+                  </span>
+                </motion.button>
+              );
+            })}
+          </div>
         </div>
+
+        {/* ── Mobile fallback: simple chips ── */}
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:hidden">
+          {recoveryModules.map((m, i) => (
+            <button
+              key={m.title}
+              onClick={() => setActive(i)}
+              className="flex flex-col items-center gap-2 rounded-xl p-4 transition"
+              style={{
+                background: i === active ? `${B}14` : '#f6f8fb',
+                border: `1px solid ${i === active ? B + '55' : '#e2e8f0'}`,
+              }}
+            >
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg" style={{ background: i === active ? B : '#e8ecf4', color: i === active ? '#fff' : '#536070' }}>
+                {getIcon(m.icon)}
+              </div>
+              <span className="text-center text-[11px] font-semibold text-gray-700">{m.title}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* ── Active node detail panel ── */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={node.title}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.35 }}
+            className="relative mx-auto mt-12 max-w-2xl overflow-hidden rounded-2xl p-8 text-center sm:p-10"
+            style={{ background: '#f6f8fb', border: '1px solid #e2e8f0' }}
+          >
+            <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full opacity-10 blur-3xl" style={{ background: B }} />
+            <p className="relative text-[11px] font-bold uppercase tracking-[0.26em]" style={{ color: B }}>{node.signal}</p>
+            <h3 className="font-sora relative mt-3 text-[28px] font-bold tracking-[-0.02em] text-gray-950">{node.title}</h3>
+            <p className="relative mx-auto mt-4 max-w-lg text-[15px] leading-7 text-gray-500">{node.description}</p>
+
+            <div className="relative mx-auto mt-7 inline-flex items-center gap-3 rounded-xl px-5 py-3"
+              style={{ background: `${B}10`, border: `1px solid ${B}25` }}>
+              <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-gray-400">Outcome</span>
+              <span className="text-[15px] font-bold text-gray-950">{node.outcome}</span>
+            </div>
+
+            <a href="#contact" onClick={go('#contact')}
+              className="relative mt-7 inline-flex items-center gap-2 text-sm font-semibold text-gray-500 transition hover:text-gray-950">
+              Discuss this capability <ArrowRight className="h-4 w-4" />
+            </a>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

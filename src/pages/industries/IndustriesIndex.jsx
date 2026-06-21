@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionHeader from '../../components/SectionHeader';
@@ -8,10 +8,10 @@ export default function IndustriesIndex() {
     <div className="min-h-screen bg-white">
       <section className="relative flex min-h-[60vh] items-center justify-center bg-slate-50">
         <div className="mx-auto max-w-4xl px-4 py-20 text-center">
-          <span className="inline-block text-xs font-bold uppercase tracking-[0.22em] text-gold-500">
+          <span className="inline-block text-xs font-bold uppercase tracking-[0.22em] text-[#3366FF]">
             Industries We Serve
           </span>
-          <h1 className="mt-6 text-4xl font-semibold tracking-tight text-blue-950 sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl lg:text-6xl">
             Recovery Solutions for Every Lending Segment
           </h1>
           <p className="mt-6 text-lg leading-8 text-slate-500">
@@ -42,13 +42,13 @@ export default function IndustriesIndex() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05, duration: 0.55 }}
-              className="glass-card group rounded-[24px] p-7 transition duration-300 hover:border-gold-400/45 hover:shadow-enterpriseHover"
+              className="glass-card group rounded-[24px] p-7 transition duration-300 hover:border-[#3366FF]/40 hover:shadow-enterpriseHover"
             >
-              <h3 className="text-2xl font-semibold text-blue-950">{industry.title}</h3>
+              <h3 className="text-2xl font-semibold text-gray-950">{industry.title}</h3>
               <p className="mt-3 text-sm leading-7 text-slate-500">{industry.desc}</p>
               <Link
                 to={industry.to}
-                className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-blue-950 transition group-hover:text-gold-500"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-gray-950 transition group-hover:text-[#3366FF]"
               >
                 Explore <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
               </Link>

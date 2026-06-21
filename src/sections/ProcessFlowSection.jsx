@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionHeader from '../components/SectionHeader';
 import { processSteps } from '../data/homeData';
@@ -43,13 +43,13 @@ export default function ProcessFlowSection() {
                 >
                   <div
                     className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-sm font-bold transition duration-300 ${
-                      activeStep === index ? 'bg-navy-900 text-navy-950' : 'bg-slate-100 text-slate-500'
+                      activeStep === index ? 'bg-[#3366FF] text-gray-950' : 'bg-slate-100 text-slate-500'
                     }`}
                   >
                     {step.step}
                   </div>
                   <div>
-                    <h3 className="font-semibold text-navy-900">{step.title}</h3>
+                    <h3 className="font-semibold text-gray-900">{step.title}</h3>
                     <p className="mt-1 text-sm text-slate-500">Click to view workflow detail</p>
                   </div>
                 </motion.button>
@@ -66,10 +66,10 @@ export default function ProcessFlowSection() {
               transition={{ duration: 0.35 }}
               className="glass-card rounded-[28px] p-8 sm:p-10"
             >
-              <span className="text-xs font-bold uppercase tracking-[0.26em] text-gold-500">
+              <span className="text-xs font-bold uppercase tracking-[0.26em] text-[#3366FF]">
                 Workflow Stage {processSteps[activeStep].step}
               </span>
-              <h3 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-navy-900">
+              <h3 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-gray-900">
                 {processSteps[activeStep].title}
               </h3>
               <p className="mt-5 text-base leading-8 text-slate-500">{processSteps[activeStep].description}</p>
@@ -77,7 +77,7 @@ export default function ProcessFlowSection() {
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {['Field Execution', 'Documentation', 'Escalation Control', 'Outcome Tracking'].map(item => (
                   <div key={item} className="rounded-2xl border border-slate-200 bg-white p-5">
-                    <p className="text-sm font-semibold text-navy-900">{item}</p>
+                    <p className="text-sm font-semibold text-gray-900">{item}</p>
                     <p className="mt-2 text-sm leading-6 text-slate-500">Controlled workflow layer for recovery visibility.</p>
                   </div>
                 ))}
@@ -89,7 +89,7 @@ export default function ProcessFlowSection() {
                   initial={{ width: '0%' }}
                   animate={{ width: `${((activeStep + 1) / processSteps.length) * 100}%` }}
                   transition={{ duration: 0.5 }}
-                  className="h-full rounded-full bg-navy-900"
+                  className="h-full rounded-full bg-[#3366FF]"
                 />
               </div>
             </motion.div>

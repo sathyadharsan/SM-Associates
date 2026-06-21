@@ -1,105 +1,225 @@
-import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Trophy, ShieldCheck, BadgeCheck } from 'lucide-react';
 
-const kpis = [
-  { value: 24, suffix: '+', label: 'Years of\nRecovery Excellence' },
-  { value: 1200, suffix: '+', label: 'Recovery\nProfessionals' },
-  { value: 20, suffix: '+', label: 'Major Banks &\nNBFCs Served' },
-  { value: 5, suffix: '', label: 'Core Service\nVerticals' }
+const B = '#3366FF';
+const C = {
+  ink:     '#0a0e1a',
+  sub:     '#536070',
+  muted:   '#8d9aaa',
+  border:  '#e2e8f0',
+  surface: '#f6f8fb',
+};
+
+const trustCards = [
+  {
+    icon: Trophy,
+    title: "Voted India's Leading Recovery Firm",
+    sub: 'in Tamil Nadu',
+    copy: 'A reputation built on two decades of disciplined, compliant recovery execution.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'RBI & SARFAESI Compliant',
+    sub: 'Industry experts in recovery law',
+    copy: 'Every engagement structured around regulatory and legal compliance.',
+  },
+  {
+    icon: BadgeCheck,
+    title: 'Trusted by 20+ Banks & NBFCs',
+    sub: 'Operating since 2000',
+    copy: 'Empanelled with leading nationalized banks and lending institutions.',
+  },
 ];
 
-function CountUp({ value, suffix, delay = 0 }) {
-  const count = useMotionValue(0);
-  const rounded = useSpring(count, { damping: 20, stiffness: 50 });
-  const [display, setDisplay] = useState('0');
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      count.set(value);
-    }, delay);
-    rounded.on('change', latest => {
-      setDisplay(Math.floor(latest).toLocaleString('en-IN'));
-    });
-    return () => clearTimeout(timer);
-  }, [count, rounded, value, delay]);
+// ─── Cinematic aurora background ───────────────────────────────────
+function AuroraBackground() {
+  const particles = Array.from({ length: 24 }, (_, i) => ({
+    id: i,
+    left: Math.random() * 100,
+    top: 40 + Math.random() * 55,
+    size: 1 + Math.random() * 2,
+    dur: 14 + Math.random() * 16,
+    delay: Math.random() * -20,
+    op: 0.25 + Math.random() * 0.45,
+  }));
 
   return (
-    <span className="tabular-nums text-4xl font-bold text-blue-950 sm:text-5xl">
-      {display}
-      {suffix}
-    </span>
+    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      {/* Base white */}
+      <div className="absolute inset-0" style={{ background: '#ffffff' }} />
+
+      {/* Soft aurora blobs — much lower opacity on white */}
+      <div className="aurora-a absolute left-[10%] top-[-10%] h-[600px] w-[600px] rounded-full blur-[110px]"
+        style={{ background: 'radial-gradient(circle, rgba(51,102,255,0.10), transparent 70%)' }} />
+      <div className="aurora-b absolute right-[5%] top-[5%] h-[520px] w-[520px] rounded-full blur-[100px]"
+        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.08), transparent 70%)' }} />
+      <div className="aurora-c absolute left-[35%] top-[30%] h-[480px] w-[480px] rounded-full blur-[120px]"
+        style={{ background: 'radial-gradient(circle, rgba(56,189,248,0.06), transparent 70%)' }} />
+      <div className="aurora-a absolute bottom-[-15%] right-[20%] h-[460px] w-[460px] rounded-full blur-[110px]"
+        style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.07), transparent 70%)', animationDelay: '-8s' }} />
+
+      {/* Fading technical grid */}
+      <div className="absolute inset-0 opacity-[0.05]" style={{
+        backgroundImage: 'linear-gradient(#3366FF 1px, transparent 1px), linear-gradient(90deg, #3366FF 1px, transparent 1px)',
+        backgroundSize: '54px 54px',
+        maskImage: 'radial-gradient(ellipse 70% 60% at 50% 35%, black 0%, transparent 75%)',
+        WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 35%, black 0%, transparent 75%)',
+      }} />
+
+      {/* Floating particles — soft blue */}
+      {particles.map(p => (
+        <span
+          key={p.id}
+          className="hero-particle absolute rounded-full"
+          style={{
+            left: `${p.left}%`,
+            top: `${p.top}%`,
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            background: '#3366FF',
+            animationDuration: `${p.dur}s`,
+            animationDelay: `${p.delay}s`,
+            '--p-op': p.op * 0.5,
+          }}
+        />
+      ))}
+    </div>
   );
 }
 
+const Seq = ({ children, stagger = 0.09, delay = 0 }) => (
+  <motion.div
+    initial="hidden"
+    animate="show"
+    variants={{ show: { transition: { staggerChildren: stagger, delayChildren: delay } } }}
+  >
+    {children}
+  </motion.div>
+);
+const Fade = ({ children, y = 16, className = '' }) => (
+  <motion.div
+    className={className}
+    variants={{ hidden: { opacity: 0, y }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } } }}
+  >
+    {children}
+  </motion.div>
+);
+
 export default function HeroSection() {
-  const handleScrollTo = (href) => (e) => {
+  const go = (id) => (e) => {
     e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      const offsetTop = target.offsetTop - 80;
-      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-    }
+    document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="home" className="relative flex min-h-[80vh] items-center justify-center bg-white px-4 py-20">
-      <div className="noise-overlay absolute inset-0 opacity-70" />
+    <section
+      id="home"
+      className="relative overflow-hidden"
+      style={{ paddingTop: '76px', background: '#ffffff' }}
+    >
 
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative mx-auto max-w-4xl text-center"
-      >
-        <span className="inline-block text-xs font-bold uppercase tracking-[0.22em] text-gold-500">
-          Empanelled with Leading Nationalized Banks & NBFCs
-        </span>
+      {/* ═══ Cinematic white hero backdrop ═══ */}
+      <div className="relative">
+        <AuroraBackground />
 
-        <h1 className="mt-8 text-balance text-4xl font-semibold leading-tight tracking-[-0.03em] text-blue-950 sm:text-5xl lg:text-6xl">
-          Risk Management, Recovery &amp; Legal Execution
-          <br />
-          <span className="text-blue-700">for Banks and NBFCs</span>
-        </h1>
+        {/* ── Hero content ── */}
+        <div className="relative mx-auto max-w-[1360px] px-6 py-20 lg:px-10 lg:py-28">
+          <Seq>
+            <Fade y={20}>
+              <h1
+                className="font-sora font-extrabold"
+                style={{
+                  fontSize: 'clamp(36px, 4.4vw, 64px)',
+                  letterSpacing: '-0.04em',
+                  lineHeight: 1.08,
+                  color: C.ink,
+                  maxWidth: '720px',
+                }}
+              >
+                Full-Stack Recovery &amp;<br />
+                <span style={{ color: B }}>Risk Management</span> for<br />
+                Growing Financial Institutions.
+              </h1>
+            </Fade>
 
-        <p className="mt-6 max-w-2xl mx-auto text-lg leading-8 text-slate-500 sm:text-xl">
-          SARFAESI possession, field collections, repossession and legal services &mdash; managed end-to-end
-          by ex-bankers, advocates and chartered accountants since 2000.
-        </p>
+            <Fade y={14}>
+              <p className="mt-6 max-w-[480px] text-[15px] leading-[1.75]" style={{ color: C.sub }}>
+                We build compliant, field-ready recovery operations that target your portfolio's exact needs — SARFAESI, collections and legal coordination.
+              </p>
+            </Fade>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
-            href="#contact"
-            onClick={handleScrollTo('#contact')}
-            className="inline-flex items-center justify-center rounded-full bg-blue-950 px-8 py-3.5 text-sm font-bold text-white shadow-soft transition hover:bg-blue-700"
-          >
-            Talk To Our Team
-          </a>
-          <a
-            href="#services-detailed"
-            onClick={handleScrollTo('#services-detailed')}
-            className="inline-flex items-center justify-center rounded-full border-2 border-blue-950 px-8 py-3.5 text-sm font-bold text-blue-950 transition hover:bg-blue-50"
-          >
-            View Our Services
-          </a>
+            <Fade y={10}>
+              <div className="mt-8">
+                <a
+                  href="#contact"
+                  onClick={go('#contact')}
+                  className="inline-flex items-center gap-2 rounded-md border px-6 py-3 text-[13.5px] font-semibold transition hover:bg-blue-50"
+                  style={{ borderColor: B, color: C.ink }}
+                >
+                  Schedule a Consultation
+                  <ArrowRight className="h-4 w-4" style={{ color: B }} />
+                </a>
+              </div>
+            </Fade>
+          </Seq>
         </div>
 
-        <div className="mt-16 grid justify-center gap-4 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
-          {kpis.map((kpi, index) => (
+        {/* Spacer so floating cards have room to overlap */}
+        <div className="h-[64px] lg:h-[78px]" />
+      </div>
+
+      {/* ═══ Floating trust cards — overlap dark/light boundary ═══ */}
+      <div className="relative mx-auto max-w-[1360px] px-6 lg:px-10" style={{ marginTop: '-110px' }}>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {trustCards.map(({ icon: Icon, title, sub, copy }, i) => (
             <motion.div
-              key={kpi.label}
+              key={title}
               initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + index * 0.1 }}
-              className="flex flex-col items-center rounded-2xl bg-transparent px-6 py-8"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              className="rounded-xl border bg-white p-5 shadow-[0_20px_50px_-12px_rgba(10,14,26,0.18)]"
+              style={{ borderColor: C.border }}
             >
-              <CountUp value={kpi.value} suffix={kpi.suffix} delay={400 + index * 100} />
-              <span className="mt-2 whitespace-pre-line text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                {kpi.label}
-              </span>
+              <div className="flex items-start gap-3">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
+                  style={{ background: `${B}12` }}>
+                  <Icon className="h-4.5 w-4.5" style={{ color: B }} />
+                </div>
+                <div>
+                  <p className="text-[14px] font-bold leading-snug" style={{ color: C.ink }}>{title}</p>
+                  <p className="text-[12px] font-semibold" style={{ color: B }}>{sub}</p>
+                </div>
+              </div>
+              <p className="mt-3 text-[12.5px] leading-[1.6]" style={{ color: C.sub }}>{copy}</p>
             </motion.div>
           ))}
         </div>
-      </motion.div>
+      </div>
+
+      {/* ═══ Stats strip ═══ */}
+      <div className="mt-12 lg:mt-16" style={{ borderTop: `1px solid ${C.border}`, background: C.surface }}>
+        <div className="mx-auto max-w-[1360px] px-6 lg:px-10">
+          <div className="grid grid-cols-2 gap-6 py-6 sm:grid-cols-4">
+            {[
+              { v: '24+',     l: 'Years in Recovery'    },
+              { v: '₹500Cr+', l: 'Portfolio Recovered'  },
+              { v: '1,200+',  l: 'Field Professionals'  },
+              { v: '98%',     l: 'Client Retention'     },
+            ].map((s, i) => (
+              <motion.div key={s.l}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06, duration: 0.4 }}
+                className="text-center sm:text-left">
+                <p className="text-[20px] font-extrabold tracking-[-0.025em]" style={{ color: C.ink }}>{s.v}</p>
+                <p className="mt-0.5 text-[11px] font-semibold uppercase tracking-[0.13em]" style={{ color: C.muted }}>{s.l}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

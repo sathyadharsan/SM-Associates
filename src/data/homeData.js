@@ -71,18 +71,18 @@ export const servicesMenu = [
 ];
 
 export const trustLogos = [
-  { name: 'SBI', fullName: 'State Bank of India' },
-  { name: 'Indian Bank', fullName: 'Indian Bank' },
-  { name: 'Canara Bank', fullName: 'Canara Bank' },
-  { name: 'Union Bank', fullName: 'Union Bank of India' },
-  { name: 'Punjab National Bank', fullName: 'Punjab National Bank' },
-  { name: 'Bank of Baroda', fullName: 'Bank of Baroda' },
-  { name: 'UCO Bank', fullName: 'UCO Bank' },
-  { name: 'LIC Housing', fullName: 'LIC Housing Finance' },
-  { name: 'Repco Home', fullName: 'Repco Home Finance' },
-  { name: 'ICICI Bank', fullName: 'ICICI Bank' },
-  { name: 'HDFC Bank', fullName: 'HDFC Bank' },
-  { name: 'Citibank', fullName: 'Citibank' }
+  { name: 'SBI', fullName: 'State Bank of India', logo: '/logos/sbi.svg' },
+  { name: 'Indian Bank', fullName: 'Indian Bank', logo: '/logos/indianbank.svg' },
+  { name: 'Canara Bank', fullName: 'Canara Bank', logo: '/logos/canara.svg' },
+  { name: 'Union Bank', fullName: 'Union Bank of India', logo: '/logos/unionbank.svg' },
+  { name: 'Punjab National Bank', fullName: 'Punjab National Bank', logo: '/logos/pnb.svg' },
+  { name: 'Bank of Baroda', fullName: 'Bank of Baroda', logo: '/logos/bob.svg' },
+  { name: 'UCO Bank', fullName: 'UCO Bank', logo: '/logos/uco.svg' },
+  { name: 'LIC Housing', fullName: 'LIC Housing Finance', logo: '/logos/lichousing.svg' },
+  { name: 'Repco Home', fullName: 'Repco Home Finance', logo: '/logos/repcohome.svg' },
+  { name: 'ICICI Bank', fullName: 'ICICI Bank', logo: '/logos/icici.svg' },
+  { name: 'HDFC Bank', fullName: 'HDFC Bank', logo: '/logos/hdfc.svg' },
+  { name: 'Citibank', fullName: 'Citibank', logo: '/logos/citi.svg' }
 ];
 
 export const whyCards = [
