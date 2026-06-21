@@ -1,37 +1,32 @@
-import HeroSection from '../sections/HeroSection';
-import ClientLogoCarousel from '../components/ClientLogoCarousel';
-import AboutSection from '../sections/AboutSection';
-import WhySection from '../sections/WhySection';
-import RecoveryOperatingSystemSection from '../sections/RecoveryOperatingSystemSection';
-import IndustriesSection from '../sections/IndustriesSection';
-import ServicesDetailedSection from '../sections/ServicesDetailedSection';
-import ProcessFlowSection from '../sections/ProcessFlowSection';
-import TamilNaduCoverageSection from '../sections/TamilNaduCoverageSection';
-import TrustSection from '../sections/TrustSection';
-import CaseStudiesSection from '../sections/CaseStudiesSection';
-import TestimonialsSection from '../sections/TestimonialsSection';
-import ResourcesSection from '../sections/ResourcesSection';
-import CareersSection from '../sections/CareersSection';
-import ContactCTASection from '../sections/ContactCTASection';
+import '../styles/homepage-v6.css';
+import ScrollProgressBar from '../components/ScrollProgressBar';
+import HeroFlagshipSection from '../sections/HeroFlagshipSection';
+import TrustMarqueeSection from '../sections/TrustMarqueeSection';
+import MetricsSection from '../sections/MetricsSection';
+import OperatingModelSection from '../sections/OperatingModelSection';
+import CapabilitiesRadialSection from '../sections/CapabilitiesRadialSection';
+import CommandCenterSection from '../sections/CommandCenterSection';
+import RecoveryOsArchitectureSection from '../sections/RecoveryOsArchitectureSection';
+import OutcomesSection from '../sections/OutcomesSection';
+import ComplianceScanSection from '../sections/ComplianceScanSection';
+import FaqSection from '../sections/FaqSection';
+import FlagshipCtaSection from '../sections/FlagshipCtaSection';
 
 export default function HomePage() {
   return (
-    <>
-      <HeroSection />
-      <ClientLogoCarousel />
-      <AboutSection />
-      <WhySection />
-      <RecoveryOperatingSystemSection />
-      <IndustriesSection />
-      <ServicesDetailedSection />
-      <ProcessFlowSection />
-      <TamilNaduCoverageSection />
-      <TrustSection />
-      <CaseStudiesSection />
-      <TestimonialsSection />
-      <ResourcesSection />
-      <CareersSection />
-      <ContactCTASection />
-    </>
+    <div className="fg-home">
+      <ScrollProgressBar />
+      <HeroFlagshipSection />
+      <TrustMarqueeSection />
+      <MetricsSection />
+      <OperatingModelSection />
+      <CapabilitiesRadialSection />
+      <CommandCenterSection />
+      <RecoveryOsArchitectureSection />
+      <OutcomesSection />
+      <ComplianceScanSection />
+      <FaqSection />
+      <FlagshipCtaSection />
+    </div>
   );
 }
