@@ -1,7 +1,23 @@
 // Centralized content registry for all sitemap pages
 // Includes industry-grade copywriting, challenges, solutions, capabilities, and workflows
 
+import { verificationContent } from './pages/verification.js';
+import { collectionsContent } from './pages/collections.js';
+import { legalContent } from './pages/legal.js';
+import { assetContent } from './pages/asset.js';
+import { investigationContent } from './pages/investigation.js';
+import { operationalContent } from './pages/operational.js';
+import { specializedContent } from './pages/specialized.js';
+
 export const pagesContent = {
+  ...verificationContent,
+  ...collectionsContent,
+  ...legalContent,
+  ...assetContent,
+  ...investigationContent,
+  ...operationalContent,
+  ...specializedContent,
+
   // ================= ABOUT PAGES =================
   'company-overview': {
     eyebrow: 'About SM Associates',
@@ -549,345 +565,14 @@ export const pagesContent = {
     }
   },
 
-  // ================= SERVICES: VERIFICATION =================
-  'cpv-services': {
-    eyebrow: 'Customer Profile Verification',
-    title: 'Pre-Disbursal Customer Profile Verification (CPV)',
-    description: 'Mitigate underwriting risk by validating applicant identity, residence, workplace, and business existence under strict SLAs.',
-    stats: [
-      { value: '[VERIFICATION TAT] Hrs', label: 'Average Turnaround Time' },
-      { value: '[VERIFICATION VOLUME]+', label: 'Monthly Profiles Checked' }
-    ],
-    challenges: [
-      { title: 'Identity Tampering', desc: 'Borrowers submitting forged utility documents, fake pay slips, or shell office details.' }
-    ],
-    solutions: [
-      { title: 'Physical Ground Audits', desc: 'Geotagged inspections of applicants\' homes and offices.' }
-    ],
-    capabilities: [
-      { title: 'Residence Verification', desc: 'Physical check of applicant address and neighbor validation.' },
-      { title: 'Office Verification', desc: 'Confirming applicant employment details directly with HR desks.' },
-      { title: 'Business Verification', desc: 'Confirming SME trade license registration and active status.' }
-    ],
-    workflow: [
-      { step: '01', title: 'File Ingestion', desc: 'Secure data transfer from lender platform.' },
-      { step: '02', title: 'Ground Dispatch', desc: 'Assigning to regional field representatives.' },
-      { step: '03', title: 'Evidence Capture', desc: 'Geotagged site check, photos, and interviews.' },
-      { step: '04', title: 'Report Delivery', desc: 'Delivering verified profiles to underwriting desks.' }
-    ],
-    benefits: [
-      { title: 'Fewer NPA Defaults', desc: 'Exposing synthetic profiles before loan approval reduces credit risks.' }
-    ],
-    industries: ['Underwriting Teams', 'Credit Card Divisions', 'SME Business Lenders'],
-    compliance: ['Data Privacy Aligned', '100% Geotagged Field Visits'],
-    faqs: [
-      { q: 'What is the typical turnaround time for a CPV check?', a: 'Our average TAT is [VERIFICATION TAT] hours from file receipt to upload.' }
-    ],
-    cta: {
-      heading: 'Strengthen Your Pre-Disbursal Checks',
-      subheading: 'Connect with our team to initiate a pilot CPV program.',
-      buttonText: 'Request CPV Pilot',
-      href: '/contact'
-    }
-  },
-
-  // ================= SERVICES: COLLECTIONS =================
-  'field-collections': {
-    eyebrow: 'Field Operations',
-    title: 'Disciplined Field Collections Across South India',
-    description: 'Scale physical outreach and payment pickups with a professional network of collections officers operating under strict compliance guidelines.',
-    stats: [
-      { value: '[TOTAL STAFF COUNT]+', label: 'Field Representatives' },
-      { value: '[BRANCH COUNT]+', label: 'Operational Branches' }
-    ],
-    challenges: [
-      { title: 'Contact Loss', desc: 'Borrowers avoiding phone calls or shifting addresses require physical ground tracking.' }
-    ],
-    solutions: [
-      { title: 'On-Ground Mediation', desc: 'Trained collections officers visiting applicant addresses to arrange payment schedules.' }
-    ],
-    capabilities: [
-      { title: 'Payment Pickups', desc: 'Compliant cash/check pick up and direct banking updates.' },
-      { title: 'Escalation Auditing', desc: 'Dynamic dispatch based on delinquency buckets.' },
-      { title: 'Witness Checking', desc: 'Evidentiary photo logging of all ground actions.' }
-    ],
-    workflow: [
-      { step: '01', title: 'File Assignment', desc: 'Ingesting retail files and route mapping.' },
-      { step: '02', title: 'Field Visit', desc: 'Geotagged ground officer address visit.' },
-      { step: '03', title: 'Payment Capture', desc: 'Securing check payments or settlement updates.' }
-    ],
-    benefits: [
-      { title: 'Improved Cash Flow', desc: 'Ground touchpoints accelerate settlement conversions.' }
-    ],
-    industries: ['Retail NBFC books', 'Tractor Finance Books', 'Personal Credit Lines'],
-    compliance: ['100% DRA-Certified Ground Staff', 'RBI Call/Visit Rules Aligned'],
-    faqs: [
-      { q: 'How do you track field officer compliance?', a: 'Every visit is geotagged, timed, and logged on our mobile tracking portals with photo check-ins.' }
-    ],
-    cta: {
-      heading: 'Scale Your Ground Collections Reach',
-      subheading: 'Request a details pitch for our multi-state field network.',
-      buttonText: 'Empanel Field Network',
-      href: '/contact'
-    }
-  },
-
-  // ================= SERVICES: LEGAL RECOVERY =================
-  'sarfaesi-support': {
-    eyebrow: 'SECURED ASSET RECOVERY DIVISION',
-    title: 'SARFAESI Foreclosure & Statutory Asset Resolution',
-    description: 'Accelerating Stage-3 asset resolution loops through end-to-end statutory notices coordination, DM warrants execution, and secure custody yards management.',
-    primaryCtaText: 'Request Empanelment Audit',
-    secondaryCtaText: 'View Custody Yard Map',
-    trustStatement: 'Serving [DRAFT] empanelled public and private sector banks with a compliance rate of [DRAFT]%.',
-    trustBar: {
-      statement: 'Empanelled and trusted by India\'s leading nationalized banks, housing finance panels, and ARCs.',
-      logos: [
-        'STATE BANK OF INDIA',
-        'HDFC BANK',
-        'AXIS BANK',
-        'CANARA BANK',
-        'HDB FINANCIAL',
-        'ASSET RECONSTRUCTION CORP'
-      ]
-    },
-    snapshot: {
-      summary: 'SM Associates coordinates legal notices drafting, advocate panel liaising, DM court filing, physical possession execution, secure yard custody storage, and e-auction preparation under a unified operational SLA.',
-      outcomes: [
-        { title: 'SLA Adherence', desc: '100% statutory timeline compliance on Section 13(2) and 13(4) serving.' },
-        { title: 'Security Integrity', desc: 'Zero audit objections across [DRAFT] secure asset yards.' },
-        { title: 'Capital Efficiency', desc: 'Average NPA provisioning release loop of [DRAFT] days.' }
-      ],
-      useCases: [
-        { title: 'Housing Finance Delinquencies', desc: 'Resolving long-standing retail residential mortgage defaults.' },
-        { title: 'Commercial Asset Possession', desc: 'Executing District Magistrate orders for secured commercial premises.' },
-        { title: 'ARC Stressed Portfolios', desc: 'Accelerating resolution parameters for acquired portfolios.' }
-      ]
-    },
-    challenges: [
-      {
-        title: 'Operational Risks',
-        desc: 'Inefficient notices routing, delay in local authority coordination, and tracking errors resulting in prolonged legal battles.',
-        warningBadge: 'Logistical Gap',
-        impactFormula: 'Resolution TAT + [DRAFT]%'
-      },
-      {
-        title: 'Regulatory Risks',
-        desc: 'Violation of RBI guidelines, borrower harassment, and lack of voice/activity logs, resulting in bank licensing audits defaults.',
-        warningBadge: 'Audit Danger',
-        impactFormula: 'Provisioning Lock + [DRAFT]%'
-      },
-      {
-        title: 'Recovery Risks',
-        desc: 'Damaged collateral, unsecured yards without CCTV logs, and auction failures due to poor asset valuation documentation.',
-        warningBadge: 'Asset Write-down',
-        impactFormula: 'Liquidation Yield - [DRAFT]%'
-      },
-      {
-        title: 'Financial Impact',
-        desc: 'Extended default cycles lock banking capital in provisioning buckets, directly impacting the bank\'s Return on Assets (ROA) and capital adequacy ratios.',
-        warningBadge: 'Balance Sheet Weight',
-        impactFormula: 'Direct ROA Dilution'
-      }
-    ],
-    failCompare: [
-      {
-        dimension: 'Compliance & Auditing',
-        traditional: 'Manual logs, no recorded voice paths, high risk of regulatory violation.',
-        sm: '100% voice recorded caller paths, geotagged site visits with GPS coordinates, and zero audit exceptions.'
-      },
-      {
-        dimension: 'Legal Timeline SLA',
-        traditional: 'Notice servers operate on flexible timelines, delaying District Magistrate filings by months.',
-        sm: 'Milestone-driven legal desk tracking notices daily with guaranteed TAT benchmarks.'
-      },
-      {
-        dimension: 'Asset Security',
-        traditional: 'Unfenced yards, manual gate logs, no CCTV monitoring, high risk of asset damage.',
-        sm: 'Fenced secure yards with 24/7 CCTV logs, digital yard coordinate tracking, and check-in inventory audits.'
-      },
-      {
-        dimension: 'Local Authority Liaison',
-        traditional: 'Lacks local coordinator desk, leading to delays in police presence.',
-        sm: 'Dedicated branch liaisons coordinating directly with local authorities.'
-      }
-    ],
-    framework: {
-      title: 'Structured Foreclosure & Possession Framework',
-      desc: 'Our compliance-first, document-backed statutory processing ensures resolution velocity and complete regulatory isolation.',
-      solutions: [
-        { title: 'Methodology', desc: 'Compliance-first, document-backed statutory processing.' },
-        { title: 'Governance Model', desc: 'Dual audit checks on notice routing, ensuring all Section 13 drafts conform to RBI DRA codes of conduct.' },
-        { title: 'Execution Model', desc: 'Geolocated site visits with geotagged photography logging borrower coordinates.' },
-        { title: 'Escalation Framework', desc: 'Dedicated legal desk providing real-time escalation logs directly to the bank\'s recovery committee.' }
-      ]
-    },
-    capabilities: [
-      {
-        title: 'Sec 13(2) Notice Drafting',
-        desc: 'Customized legal drafting of demand notices mapping security interest records.',
-        businessOutcome: 'Legally valid default demand served, establishing the statutory path.'
-      },
-      {
-        title: 'Sec 13(4) Possession Notices',
-        desc: 'Coordination of symbolic and physical possession publications.',
-        businessOutcome: 'Public notice served, freezing borrower transaction authority.'
-      },
-      {
-        title: 'DM Petition Coordination',
-        desc: 'Preparing and filing petitions under Section 14 with District Magistrates.',
-        businessOutcome: 'Obtained magistrate orders for physical enforcement.'
-      },
-      {
-        title: 'Physical Possession Logistics',
-        desc: 'Ground management of locksmiths, security forces, and transport logs.',
-        businessOutcome: 'Secure recovery of assets with zero operational friction.'
-      },
-      {
-        title: 'Custody Yard Management',
-        desc: 'Storage of secured assets in fenced, CCTV-monitored facilities.',
-        businessOutcome: 'Collateral values protected throughout the foreclosure window.'
-      },
-      {
-        title: 'E-Auction Coordination',
-        desc: 'Valuation processing and public announcement support.',
-        businessOutcome: 'Maximized portfolio yield and provision releases.'
-      }
-    ],
-    workflow: [
-      { step: '01', title: 'Case Ingestion & Inflow Audit', objective: 'Validate portfolio coordinates.', action: 'Ingest client database files via secure SFTP.', deliverable: 'Case verification log.' },
-      { step: '02', title: 'Sec 13(2) Demand Notice Dispatch', objective: 'Serve demand legal notice.', action: 'Draft and serve notice within [DRAFT] days.', deliverable: 'Notice delivery proof.' },
-      { step: '03', title: 'Symbolic Possession & Publication', objective: 'Secure statutory control.', action: 'Publish possession notices in regional newspapers.', deliverable: 'Published clippings log.' },
-      { step: '04', title: 'DM Petition Filing', objective: 'Obtain physical recovery authority.', action: 'File Section 14 petition with the District Magistrate.', deliverable: 'Petition file log.' },
-      { step: '05', title: 'Physical Possession & Eviction', objective: 'Secure physical asset.', action: 'Execute DM order with local police support.', deliverable: 'Geolocated possession report.' },
-      { step: '06', title: 'Secure Custody & Yard Inflow', objective: 'Secure asset storage.', action: 'Store asset in CCTV yard, inventorying contents.', deliverable: 'Yard inventory receipt.' }
-    ],
-    techEnablement: {
-      title: 'Institutional Foreclosure Tech & Tracking',
-      desc: 'Real-time transparency through advanced geolocations, daily CSV updates, and recorded communication channels.',
-      modules: [
-        { title: 'Tracking', desc: 'Geolocated site coordinate logs, photo coordinates timestamp checks, and route history logs.' },
-        { title: 'Reporting', desc: 'Automated email delivery schedules and daily SFTP CSV uploads.' },
-        { title: 'Monitoring', desc: 'Call recording systems, DRA caller compliance audits, and calling hour limits locks.' },
-        { title: 'Escalation', desc: 'System-generated alerts for notice serving delays.' },
-        { title: 'Operational Visibility', desc: 'Live lender dashboard terminal tracking notice stages in flight.' }
-      ]
-    },
-    geoScope: {
-      title: 'Geographic Reach & Hub Network',
-      desc: 'Pan-regional presence across Southern India with hub-and-spoke branch operations.',
-      stats: [
-        { label: 'Operational Coverage', value: 'TN, KA, KL, TS, AP, PY' },
-        { label: 'Field Capacity', value: '[DRAFT] Certified Field Coordinators' },
-        { label: 'Logistics Range', value: '150 KM / Hub' }
-      ]
-    },
-    complianceDetails: [
-      'RBI Fair Practices Code Aligned',
-      '100% DRA-Certified Field Officers',
-      'ISO 27001 Data Custody Protocols',
-      '24/7 Monitored Secure Custody Yards',
-      '180-Day Secure Voice Logger Archives'
-    ],
-    industriesServed: [
-      { name: 'Public Sector Banks', scenario: 'High-volume retail NPA mortgage default resolution.', framework: 'Milestone notices campaign' },
-      { name: 'Private Commercial Banks', scenario: 'High-value commercial and industrial property possessions.', framework: 'DM Liaison coordination' },
-      { name: 'Housing Finance Companies (HFCs)', scenario: 'Quick, compliance-backed residential foreclosure notice campaigns.', framework: 'Standardized TAT notices serving' },
-      { name: 'Asset Reconstruction Companies (ARCs)', scenario: 'Rapid resolution, custody yards management, and auction coordination.', framework: 'Collateral valuations audit' },
-      { name: 'Fintech Platforms', scenario: 'Secured lending verification and repossession support.', framework: 'Geotagged coordinate checks' },
-      { name: 'Vehicle Finance Institutions', scenario: 'Commercial tractor and auto collections.', framework: 'Secure yard custody inventory' }
-    ],
-    operationalMetrics: [
-      { value: '[DRAFT - RESOLUTION RATE]%', label: 'Statutory SLA Adherence' },
-      { value: '₹[DRAFT - RECOVERY VALUE]+', label: 'Asset Valuations Managed' },
-      { value: '[DRAFT - BRANCH COUNT]+', label: 'Secure Custody Yards' },
-      { value: '[DRAFT - FIELD OFFICER COUNT]+', label: 'Active Field Coordinators' }
-    ],
-    businessOutcomes: [
-      { title: 'Reduced Risk', desc: 'Geotagged site logs and audio call backups prevent regulatory and legal issues.' },
-      { title: 'Faster Resolution', desc: 'Milestone tracking reduces default cycles.' },
-      { title: 'Better Compliance', desc: 'Strict compliance controls protect the bank\'s reputation.' },
-      { title: 'Improved Visibility', desc: 'Continuous telemetry dashboards give risk managers complete overview.' },
-      { title: 'Operational Efficiency', desc: 'Streamlined coordination saves time and legal costs.' }
-    ],
-    caseStudy: {
-      headingStatus: '[DRAFT – CLIENT APPROVAL REQUIRED]',
-      title: 'Mortgage NPA Resolution Case Study',
-      challenge: 'Empanelled private lender faced a high default volume across a retail mortgage book, with outstanding Stage-3 assets exceeding ₹[DRAFT] and a resolution delay of [DRAFT] months.',
-      approach: 'Deployed SM Associates\' unified SARFAESI framework, automating notices serving and coordinating District Magistrate filings directly.',
-      execution: 'Filed Section 14 petitions across regional branches, executing symbolic and physical possessions under strict local authority coordination.',
-      outcome: 'Resolved [DRAFT - RESOLUTION RATE]% of delinquent accounts within [DRAFT] days, releasing ₹[DRAFT - RECOVERY VALUE]+ in provisioning capital.'
-    },
-    faqs: [
-      { q: 'How does SM Associates ensure compliance with RBI Fair Practice Codes?', a: 'All calls are routed through recorded lines within approved caller hours (08:00 AM - 07:00 PM), and field officers are certified by the DRA Academy.' },
-      { q: 'What is the typical TAT for serving Section 13(2) demand notices?', a: 'We draft and serve notices within [DRAFT] days from file assignment.' },
-      { q: 'How are physical possessions coordinated under Section 14?', a: 'Our branch liaisons coordinate directly with District Magistrates and local police authorities.' },
-      { q: 'What security measures are implemented at your custody yards?', a: 'All yards feature secure fencing, 24/7 security watch logs, and CCTV cameras with 90-day archive logs.' },
-      { q: 'Are all of your field force agents DRA certified?', a: 'Yes, 100% of our field agents undergo DRA certification and compliance training.' },
-      { q: 'Can your platform integrate with our core banking database?', a: 'Yes, we support automated daily portfolio uploads via secure SFTP sync.' },
-      { q: 'How is borrower data privacy secured?', a: 'We implement OAuth2 auth loops and encrypt all borrower data at rest.' },
-      { q: 'What regional states are covered by your branch network?', a: 'We cover Tamil Nadu, Karnataka, Kerala, Telangana, Andhra Pradesh, and Puducherry.' },
-      { q: 'What happens if a borrower disputes a notice delivery?', a: 'We provide geolocated delivery receipts with GPS coordinate timestamps.' },
-      { q: 'What is your fee structure for foreclosure coordination?', a: 'We offer customized pricing schedules based on portfolio volumes and stages.' }
-    ],
-    cta: {
-      heading: 'Connect with our Foreclosure Coordination Executives',
-      subheading: 'Schedule an empanelment review or request customized SLA pricing.',
-      buttonText: 'Schedule Empanelment Meeting',
-      href: '/contact'
-    }
-  },
-
-  // ================= SERVICES: INVESTIGATION =================
-  'skip-tracing': {
-    eyebrow: 'Investigation Operations',
-    title: 'Skip Tracing and Location Sourcing',
-    description: 'Re-establish contact with absconding or missing borrowers to reactivate collections and legal notices.',
-    stats: [
-      { value: '[SKIP TRACING SUCCESS RATE]%', label: 'Trace Success Rate' },
-      { value: '[SKIP TRACING TAT] Days', label: 'Average Locate TAT' }
-    ],
-    challenges: [
-      { title: 'Defaulter Relocation', desc: 'Borrowers shifting states, changing contact details, or shutting down registered offices.' }
-    ],
-    solutions: [
-      { title: 'Geographic Search Networks', desc: 'Ground investigators, utility cross-checking, and local Panchayat checks.' }
-    ],
-    capabilities: [
-      { title: 'Telecom Sourcing', desc: 'Cross-checking carrier databases for active phone numbers.' },
-      { title: 'Utility Audits', desc: 'Verifying active electricity or registry coordinates.' },
-      { title: 'Ground Surveillance', desc: 'Discrete visits to known circles to confirm active locations.' }
-    ],
-    workflow: [
-      { step: '01', title: 'Intake Search', desc: 'Analyzing borrower identity records.' },
-      { step: '02', title: 'Database Scans', desc: 'Querying public registrar registries.' },
-      { step: '03', title: 'Ground Dispatch', desc: 'Local investigators verifying coordinates.' },
-      { step: '04', title: 'Record Update', desc: 'Updating profiles for legal notice deliveries.' }
-    ],
-    benefits: [
-      { title: 'Reactivated Recovery', desc: 'Locating missing borrowers reopens collection and foreclosure channels.' }
-    ],
-    industries: ['Write-off Collections Teams', 'Special Asset Units', 'Unsecured retail desks'],
-    compliance: ['Strict Privacy Code Adhered', 'Legal Sourcing Formats Only'],
-    faqs: [
-      { q: 'Do you track skip-trace cases across state borders?', a: 'Yes. Our multi-state branch network allows us to coordinate searches across South India.' }
-    ],
-    cta: {
-      heading: 'Locate Your Missing Borrowers',
-      subheading: 'Start a skip-tracing pilot program for legacy NPA books.',
-      buttonText: 'Submit Tracing Case',
-      href: '/contact'
-    }
-  },
-
   // ================= PLATFORM PAGES =================
   'recovery-os': {
     eyebrow: 'SaaS Platform',
     title: 'Recovery OS: Stressed Asset Management Layer',
     description: 'Coordinate outbound calls, geotagged field dispatching, and foreclosure legal filings under a single, secure telemetry platform.',
     stats: [
-      { value: '[DATABASE SYNC TAT] Min', label: 'Data Sync Latency' },
-      { value: '[PLATFORM UPTIME]%', label: 'Console Availability' }
+      { value: '5 Min', label: 'Data Sync Latency' },
+      { value: '99.9%', label: 'Console Availability' }
     ],
     challenges: [
       { title: 'Operational Fragmentation', desc: 'Lenders managing call centers, field agents, and legal panels across disconnected data silos.' }

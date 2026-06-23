@@ -80,308 +80,393 @@ const InstitutionalLogos = () => (
 // 1. COMPANY OVERVIEW LAYOUT (`/about`)
 // ----------------------------------------------------
 export function CompanyOverviewLayout({ content }) {
-  const [activeFaq, setActiveFaq] = useState(null);
-
   return (
     <div className="relative min-h-screen bg-[#FFFFFF] text-[#0F172A] font-inter antialiased">
-      {/* Spacer for navigation */}
       <div className="h-24 bg-[#FFFFFF]" />
 
-      {/* SECTION 1: EDITORIAL HERO */}
-      <section className="relative py-24 md:py-32 bg-[#FFFFFF] border-b border-[#E2E8F0] overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-6 text-left">
+      {/* ── HERO ── */}
+      <section className="relative py-20 bg-[#FFFFFF] border-b border-[#E2E8F0] overflow-hidden min-h-[600px] lg:min-h-[700px] flex items-center">
+        {/* Desktop full bleed absolute building image on the right */}
+        <div className="absolute inset-y-0 right-0 w-[50vw] hidden lg:block -mr-[calc((100vw-100%)/2)] overflow-hidden pointer-events-none">
+          <img 
+            src="/images/sm_hero_building.png" 
+            alt="SM Associates Corporate Office" 
+            className="w-full h-full object-cover" 
+          />
+          {/* Subtle gradient mask to blend building image with the left column background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/10 to-transparent pointer-events-none w-1/4" />
+        </div>
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6 text-left">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-[#2563EB]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#2563EB] font-mono">
-                <Sparkles className="h-3 w-3" />
-                {content.eyebrow}
+                <Sparkles className="h-3 w-3" /> Company Overview
               </span>
               <h1 className="text-4xl font-bold tracking-tight text-[#0F172A] sm:text-5xl lg:text-6xl font-serif leading-tight">
-                {content.title}
+                A Legacy Built on{' '}
+                <span className="text-[#2563EB]">Trust.</span>{' '}
+                Driven by{' '}
+                <span className="text-amber-500">Results.</span>
               </h1>
-              <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
-                {content.description}
+              <p className="text-base text-slate-500 leading-relaxed max-w-xl">
+                India's trusted partner for recovery, verification and risk management solutions for financial institutions.
               </p>
-              <div className="flex flex-wrap gap-4 pt-2">
-                <a href={content.cta?.href || '/contact'} className="inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-6 py-3.5 text-sm font-bold text-white hover:bg-[#1D4ED8] transition-all hover:shadow-lg shadow-[#2563EB]/20">
-                  {content.cta?.buttonText || 'Schedule Consultation'} <ArrowRight className="h-4 w-4" />
-                </a>
-                <a href="#operational-pillars" className="inline-flex items-center gap-2 rounded-xl border border-[#E2E8F0] bg-[#FFFFFF] px-6 py-3.5 text-sm font-bold text-[#0F172A] hover:bg-[#F8FAFC] transition-all">
-                  Explore Capabilities
-                </a>
-              </div>
-            </div>
-            <div className="lg:col-span-5 relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#2563EB]/5 to-transparent rounded-3xl -m-4 pointer-events-none" />
-              <div className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-3xl p-8 space-y-6 text-left shadow-sm">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Corporate Overview</h3>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  SM Associates is empanelled as a high-capacity vendor managing credit verification and statutory debt resolution mandates for India's leading financial networks.
-                </p>
-                <div className="border-t border-[#E2E8F0] pt-6 space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="h-8 w-8 rounded-lg bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB]"><Check className="h-4 w-4" /></div>
-                    <span className="text-xs font-semibold text-slate-700">RBI Fair Practices Aligned</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="h-8 w-8 rounded-lg bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB]"><Check className="h-4 w-4" /></div>
-                    <span className="text-xs font-semibold text-slate-700">ISO 27001 Data Security Verified</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 2: INSTITUTIONAL TRUST BAR */}
-      <section className="py-12 border-b border-[#E2E8F0] bg-[#F8FAFC]">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-6 font-mono">Empanelled Partnerships & Network Trust</p>
-          <InstitutionalLogos />
-        </div>
-      </section>
-
-      {/* SECTION 3: KEY METRICS GRID */}
-      <section className="py-20 bg-[#FFFFFF] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Scale Indicators</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Measurable Risk Operations Standing</h2>
-            <p className="text-sm text-slate-500 leading-relaxed">
-              Our operational footprint provides financial partners with the geographic scale and staffing numbers required to secure large credit portfolios.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {content.stats?.map((stat, i) => (
-              <div key={i} className="border border-[#E2E8F0] bg-[#FFFFFF] rounded-2xl p-8 text-center hover:border-slate-300 transition-all hover:shadow-md">
-                <div className="text-4xl font-extrabold text-[#2563EB] font-serif">{stat.value}</div>
-                <div className="text-xs font-bold text-[#0F172A] uppercase tracking-wider mt-2">{stat.label}</div>
-                <p className="text-xs text-slate-400 mt-2">Verified empanelled capability across Southern districts.</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4: MD NARRATIVE STORYTELLING */}
-      <section className="py-24 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5 relative">
-              <div className="border border-[#E2E8F0] bg-[#FFFFFF] rounded-3xl p-8 space-y-6 text-left shadow-sm">
-                <div className="h-12 w-12 rounded-2xl bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB]">
-                  <Scale className="h-6 w-6" />
-                </div>
-                <blockquote className="text-slate-600 text-xs italic leading-relaxed">
-                  "Our mission is to establish compliance-first credit collection and asset verification operations that isolate our clients from reputational and regulatory exposure."
-                </blockquote>
-                <div className="border-t border-[#E2E8F0] pt-4">
-                  <div className="font-bold text-xs text-[#0F172A]">Shri. M. Jebaraj</div>
-                  <div className="text-[10px] text-slate-400 font-mono uppercase mt-0.5">Managing Director, SM Associates</div>
-                </div>
-              </div>
-            </div>
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Executive Stewardship</span>
-              <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Ensuring Credit System Stability Since 2000</h2>
-              <p className="text-slate-600 text-xs leading-relaxed">
-                SM Associates grew from a localized verification office into a multi-state risk operations firm by adhering to two core principles: transparency of action and absolute compliance. We recognize that field collections and asset repossession represent critical touchpoints for banking brand reputations.
-              </p>
-              <p className="text-slate-600 text-xs leading-relaxed">
-                Our board and compliance departments manage ground coordinators directly out of regional branch offices, enforcing strict ethical rules of outreach.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 5: OPERATIONAL CHALLENGES */}
-      <section className="py-20 bg-[#FFFFFF] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Market Context</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">The Delinquency Management Crisis</h2>
-            <p className="text-sm text-slate-500 leading-relaxed">
-              Financial institutions face critical operational headwinds when coordinating large default books across scattered regions.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {content.challenges?.map((challenge, i) => (
-              <div key={i} className="border border-[#E2E8F0] bg-[#FFFFFF] rounded-2xl p-6 text-left space-y-4 hover:border-slate-300 transition-all">
-                <div className="h-10 w-10 rounded-xl bg-red-50 flex items-center justify-center text-red-600"><AlertCircle className="h-5 w-5" /></div>
-                <h4 className="font-bold text-sm text-[#0F172A] font-serif">{challenge.title}</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">{challenge.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6: SOLUTIONS FRAMEWORK */}
-      <section className="py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Methodology</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Structured Recovery Operations</h2>
-            <p className="text-sm text-slate-500 leading-relaxed">
-              We resolve credit complex challenges through centralized compliance controls and immediate regional deployment.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {content.solutions?.map((sol, i) => (
-              <div key={i} className="border border-[#E2E8F0] bg-[#FFFFFF] rounded-2xl p-6 text-left space-y-4 shadow-sm hover:border-slate-300 transition-all">
-                <div className="h-10 w-10 rounded-xl bg-blue-50 flex items-center justify-center text-[#2563EB]"><FileCheck className="h-5 w-5" /></div>
-                <h4 className="font-bold text-sm text-[#0F172A] font-serif">{sol.title}</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">{sol.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7: CORE CAPABILITIES */}
-      <section id="operational-pillars" className="py-20 bg-[#FFFFFF] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Service Lines</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Comprehensive Risk Management Scope</h2>
-            <p className="text-sm text-slate-500 leading-relaxed">
-              We support the asset lifecycle from credit check verifications to final foreclosure auction coordination.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {content.capabilities?.map((cap, i) => (
-              <div key={i} className="border border-[#E2E8F0] bg-[#FFFFFF] rounded-2xl p-6 text-left space-y-4 hover:border-slate-350 transition-all hover:shadow-sm">
-                <div className="h-10 w-10 rounded-xl bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB]"><Briefcase className="h-5 w-5" /></div>
-                <h4 className="font-bold text-sm text-[#0F172A] font-serif">{cap.title}</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">{cap.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 8: OPERATIONS WORKFLOW TIMELINE */}
-      <section className="py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Accountability Loop</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Structured Engagement Process</h2>
-            <p className="text-sm text-slate-500 leading-relaxed">
-              Our standard integration path ensures clear milestone tracking and strict audit trials for every account.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {content.workflow?.map((step, i) => (
-              <div key={i} className="border border-[#E2E8F0] bg-[#FFFFFF] rounded-2xl p-6 text-left space-y-4 relative shadow-sm hover:border-slate-300 transition-all">
-                <div className="text-3xl font-extrabold text-[#2563EB]/25 font-mono">{step.step}</div>
-                <h4 className="font-bold text-xs text-[#0F172A] font-serif">{step.title}</h4>
-                <p className="text-slate-500 text-[11px] leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 9: QUANTIFIABLE VALUE BENEFITS */}
-      <section className="py-20 bg-[#FFFFFF] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Partner Gains</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">The Value of Institutional Sourcing</h2>
-            <p className="text-sm text-slate-500 leading-relaxed">
-              We maximize portfolio recovery yields while protecting compliance standards across lending classes.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {content.benefits?.map((benefit, i) => (
-              <div key={i} className="border border-[#E2E8F0] bg-[#FFFFFF] rounded-2xl p-6 text-left space-y-4 hover:border-slate-300 transition-all">
-                <div className="h-10 w-10 rounded-xl bg-green-50 flex items-center justify-center text-green-600"><CheckCircle2 className="h-5 w-5" /></div>
-                <h4 className="font-bold text-sm text-[#0F172A] font-serif">{benefit.title}</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">{benefit.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 10: INDUSTRIES SERVED */}
-      <section className="py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6 text-left">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Domain Footprint</span>
-              <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Supporting Every Major Lending Class</h2>
-              <p className="text-slate-500 text-xs leading-relaxed">
-                We calibrate our field outreach, legal notice setups, and verification databases based on the distinct risk profiles of bank portfolios, retail NBFC loan books, and digital FinTech products.
-              </p>
-            </div>
-            <div className="lg:col-span-6">
-              <div className="flex flex-wrap gap-3">
-                {content.industries?.map((ind, i) => (
-                  <span key={i} className="border border-[#E2E8F0] bg-[#FFFFFF] rounded-xl px-4 py-2.5 text-xs font-bold text-[#0F172A] shadow-sm">
-                    {ind}
+              <div className="flex flex-wrap gap-2 pt-1">
+                {['Compliant', 'Ethical', 'Transparent', 'Result Oriented'].map((badge) => (
+                  <span key={badge} className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 bg-[#F8FAFC] border border-[#E2E8F0] rounded-full px-3 py-1.5">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[#2563EB]" /> {badge}
                   </span>
                 ))}
               </div>
+              <div className="flex flex-wrap gap-4 pt-2">
+                <a href="/about/history" className="inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-6 py-3.5 text-sm font-bold text-white hover:bg-[#1D4ED8] transition-all hover:shadow-lg shadow-[#2563EB]/20">
+                  Explore Our Journey <ArrowRight className="h-4 w-4" />
+                </a>
+                <a href="#what-we-do" className="inline-flex items-center gap-2 rounded-xl border border-[#E2E8F0] bg-[#FFFFFF] px-6 py-3.5 text-sm font-bold text-[#0F172A] hover:bg-[#F8FAFC] transition-all">
+                  <span className="h-6 w-6 rounded-full bg-[#2563EB]/10 flex items-center justify-center">
+                    <Volume2 className="h-3.5 w-3.5 text-[#2563EB]" />
+                  </span>
+                  Watch Our Story
+                </a>
+              </div>
+            </div>
+
+            {/* Mobile building image (enclosed card layout) */}
+            <div className="lg:hidden w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative">
+              <img 
+                src="/images/sm_hero_building.png" 
+                alt="SM Associates Corporate Office" 
+                className="w-full h-full object-cover" 
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 11: COMPLIANCE INTEGRITY BLOCK */}
+      {/* ── STATS BAR ── */}
+      <section className="bg-white border-b border-[#E2E8F0]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-3 md:grid-cols-6 divide-x divide-[#E2E8F0]">
+            {[
+              { value: '25+', label: 'Years of Excellence', icon: Clock },
+              { value: '100+', label: 'Banking Relationships', icon: Building2 },
+              { value: '5', label: 'States Covered', icon: MapPin },
+              { value: '1M+', label: 'Cases Handled', icon: FileText },
+              { value: '916+', label: 'Professionals', icon: Users },
+              { value: 'ISO 27001', label: 'Certified Processes', icon: Shield },
+            ].map((stat, i) => {
+              const StatIcon = stat.icon;
+              return (
+                <div key={i} className="flex flex-col items-center py-5 px-2 text-center hover:bg-[#F8FAFC] transition-colors">
+                  <StatIcon className="h-4 w-4 text-[#2563EB] mb-2" />
+                  <div className="text-sm font-extrabold text-[#2563EB] font-serif leading-none">{stat.value}</div>
+                  <div className="text-[8px] font-bold text-slate-500 uppercase tracking-wider mt-1 leading-snug">{stat.label}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHO WE ARE ── */}
       <section className="py-20 bg-[#FFFFFF] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Compliance Governance</span>
-          <h3 className="text-2xl font-bold text-[#0F172A] font-serif">Corporate Adherence and Audit Shields</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {content.compliance?.map((c, i) => (
-              <span key={i} className="border border-[#E2E8F0] bg-[#F8FAFC] px-5 py-2.5 rounded-xl text-xs font-semibold text-[#0F172A]">
-                {c}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 12: STRATEGIC FAQ ACCORDION */}
-      <section className="py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-3xl px-4">
-          <div className="text-center mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Diligence Answers</span>
-            <h2 className="text-2xl font-bold font-serif text-[#0F172A] mt-2">Frequently Asked Questions</h2>
-          </div>
-          <div className="space-y-4">
-            {content.faqs?.map((faq, i) => (
-              <div key={i} className="border border-[#E2E8F0] rounded-2xl p-6 bg-[#FFFFFF] shadow-sm">
-                <button 
-                  onClick={() => setActiveFaq(activeFaq === i ? null : i)} 
-                  className="w-full flex justify-between items-center text-xs font-bold text-[#0F172A] text-left hover:text-[#2563EB] transition-colors"
-                >
-                  <span className="font-serif">{faq.q}</span>
-                  <ChevronDown className={`h-4 w-4 text-slate-400 transition-transform ${activeFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                {activeFaq === i && (
-                  <p className="mt-4 text-xs text-slate-500 border-t border-[#E2E8F0] pt-4 leading-relaxed">
-                    {faq.a}
-                  </p>
-                )}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div className="space-y-6 text-left">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Who We Are</span>
+              <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">
+                Built to Protect Assets<br />and Strengthen Portfolios
+              </h2>
+              <div className="w-12 h-1 bg-[#2563EB] rounded-full" />
+              <p className="text-sm text-slate-600 leading-relaxed">
+                SM Associates delivers end-to-end recovery and risk management solutions that help financial institutions improve asset quality, ensure compliance and maximize recovery outcomes.
+              </p>
+              <div className="space-y-3">
+                <h4 className="text-xs font-bold text-[#0F172A] uppercase tracking-wider font-mono">Key Focus Areas</h4>
+                <div className="grid grid-cols-2 gap-2">
+                  {['Operational & Governance', 'Compliance & Governance', 'Technology Enabled Operations', 'Deep Domain Expertise'].map((focus) => (
+                    <div key={focus} className="flex items-start gap-2 text-xs text-slate-600">
+                      <div className="h-1.5 w-1.5 rounded-full bg-[#2563EB] shrink-0 mt-1.5" />{focus}
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+            </div>
+
+            {/* Visual Network Diagram showing 6 key operational metrics */}
+            <div className="relative w-full h-[380px] bg-slate-50 border border-[#E2E8F0] rounded-[32px] overflow-hidden p-4 flex items-center justify-center">
+              {/* Radial background glow */}
+              <div className="absolute inset-0 bg-radial-gradient from-blue-500/5 via-transparent to-transparent pointer-events-none" />
+              
+              <svg viewBox="0 0 400 360" className="w-full h-full overflow-visible select-none">
+                {/* Connection lines from center to outer cards */}
+                <line x1="200" y1="180" x2="75" y2="45" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
+                <line x1="200" y1="180" x2="325" y2="45" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
+                <line x1="200" y1="180" x2="70" y2="180" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
+                <line x1="200" y1="180" x2="330" y2="180" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
+                <line x1="200" y1="180" x2="75" y2="315" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
+                <line x1="200" y1="180" x2="325" y2="315" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
+
+                {/* Central Star Logo Node */}
+                <g className="filter drop-shadow-md">
+                  <circle cx="200" cy="180" r="32" fill="#FFFFFF" stroke="#2563EB" strokeWidth="2" />
+                  {/* Star icon inside */}
+                  <path 
+                    d="M200 166 L203.5 174 L212 174 L205 179 L207.5 188 L200 183 L192.5 188 L195 179 L188 174 L196.5 174 Z" 
+                    fill="#2563EB" 
+                  />
+                </g>
+
+                {/* Node 1: Field Strength (Top Left) */}
+                <foreignObject x="10" y="10" width="130" height="70">
+                  <div className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm hover:shadow-md hover:border-[#2563EB]/40 transition-all duration-300 flex items-center gap-2 h-full">
+                    <div className="h-8 w-8 rounded-lg bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center shrink-0">
+                      <Users className="h-4 w-4" />
+                    </div>
+                    <div className="text-left leading-none">
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Field Strength</span>
+                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">916+</span>
+                    </div>
+                  </div>
+                </foreignObject>
+
+                {/* Node 2: Daily Field Visits (Top Right) */}
+                <foreignObject x="260" y="10" width="130" height="70">
+                  <div className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm hover:shadow-md hover:border-[#2563EB]/40 transition-all duration-300 flex items-center gap-2 h-full">
+                    <div className="h-8 w-8 rounded-lg bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center shrink-0">
+                      <CalendarDays className="h-4 w-4" />
+                    </div>
+                    <div className="text-left leading-none">
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Daily Visits</span>
+                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">5,000+</span>
+                    </div>
+                  </div>
+                </foreignObject>
+
+                {/* Node 3: Branches (Middle Left) */}
+                <foreignObject x="5" y="145" width="130" height="70">
+                  <div className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm hover:shadow-md hover:border-[#2563EB]/40 transition-all duration-300 flex items-center gap-2 h-full">
+                    <div className="h-8 w-8 rounded-lg bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center shrink-0">
+                      <Building2 className="h-4 w-4" />
+                    </div>
+                    <div className="text-left leading-none">
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Branches</span>
+                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">35</span>
+                    </div>
+                  </div>
+                </foreignObject>
+
+                {/* Node 4: Recovery Success (Middle Right) */}
+                <foreignObject x="265" y="145" width="130" height="70">
+                  <div className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm hover:shadow-md hover:border-[#2563EB]/40 transition-all duration-300 flex items-center gap-2 h-full">
+                    <div className="h-8 w-8 rounded-lg bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center shrink-0">
+                      <TrendingUp className="h-4 w-4" />
+                    </div>
+                    <div className="text-left leading-none">
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Recovery Rate</span>
+                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">98%+</span>
+                    </div>
+                  </div>
+                </foreignObject>
+
+                {/* Node 5: Custody Yards (Bottom Left) */}
+                <foreignObject x="10" y="280" width="130" height="70">
+                  <div className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm hover:shadow-md hover:border-[#2563EB]/40 transition-all duration-300 flex items-center gap-2 h-full">
+                    <div className="h-8 w-8 rounded-lg bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center shrink-0">
+                      <Server className="h-4 w-4" />
+                    </div>
+                    <div className="text-left leading-none">
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Secure Yards</span>
+                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">25+</span>
+                    </div>
+                  </div>
+                </foreignObject>
+
+                {/* Node 6: Client Retention (Bottom Right) */}
+                <foreignObject x="260" y="280" width="130" height="70">
+                  <div className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm hover:shadow-md hover:border-[#2563EB]/40 transition-all duration-300 flex items-center gap-2 h-full">
+                    <div className="h-8 w-8 rounded-lg bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center shrink-0">
+                      <Heart className="h-4 w-4" />
+                    </div>
+                    <div className="text-left leading-none">
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Client Retention</span>
+                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">90%+</span>
+                    </div>
+                  </div>
+                </foreignObject>
+              </svg>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 13: CONVERSION BANNER */}
-      <section className="py-24 bg-[#FFFFFF]">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <div className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-[32px] p-12 space-y-6 shadow-sm">
-            <h2 className="text-3xl font-bold text-[#0F172A] font-serif">{content.cta?.heading}</h2>
-            <p className="text-slate-500 max-w-xl mx-auto text-xs leading-relaxed">{content.cta?.subheading}</p>
-            <Link to={content.cta?.href || '/contact'} className="inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-8 py-3.5 text-sm font-bold text-white hover:bg-[#1D4ED8] transition-all hover:scale-[1.02] shadow-lg shadow-[#2563EB]/15">
-              {content.cta?.buttonText || 'Schedule Consultation'} <ArrowRight className="h-4 w-4" />
-            </Link>
+      {/* ── WHAT WE DO — 5 SERVICE CARDS WITH IMAGES ── */}
+      <section id="what-we-do" className="py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-3 space-y-4 text-left lg:sticky lg:top-32">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">What We Do</span>
+              <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">
+                End-to-End Recovery<br />&amp; Risk Solutions
+              </h2>
+              <div className="w-10 h-1 bg-[#2563EB] rounded-full" />
+            </div>
+            <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {[
+                { title: 'Verification Services', desc: 'Accurate verification with real-time reporting.', img: '/images/sm_service_verification.png', icon: Fingerprint },
+                { title: 'Collections & Recovery', desc: 'Effective collections with ethical approach.', img: '/images/sm_service_collections.png', icon: FileText },
+                { title: 'Legal Recovery', desc: 'Legal expertise for higher recovery.', img: '/images/sm_service_legal.png', icon: Scale },
+                { title: 'Asset Recovery', desc: 'Asset tracing & recovery specialists.', img: '/images/sm_service_asset.png', icon: Database },
+                { title: 'Recovery Analytics', desc: 'Data-driven insights for better decisions.', img: '/images/sm_service_analytics.png', icon: PieChart },
+              ].map((service, i) => {
+                const ServiceIcon = service.icon;
+                return (
+                  <div key={i} className="group bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div className="h-36 overflow-hidden bg-slate-50">
+                      <img src={service.img} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    </div>
+                    <div className="p-5 space-y-2.5">
+                      <div className="flex items-center gap-2">
+                        <div className="h-7 w-7 rounded-lg bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB] shrink-0">
+                          <ServiceIcon className="h-4 w-4" />
+                        </div>
+                        <h4 className="font-bold text-sm text-[#0F172A] font-serif">{service.title}</h4>
+                      </div>
+                      <p className="text-xs text-slate-500 leading-relaxed">{service.desc}</p>
+                      <a href="/services" className="inline-flex items-center gap-1 text-xs font-bold text-[#2563EB] hover:underline group-hover:gap-2 transition-all">
+                        Explore <ArrowRight className="h-3 w-3" />
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SM ADVANTAGE ── */}
+      <section id="operational-pillars" className="py-20 bg-[#FFFFFF] border-b border-[#E2E8F0]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Why SM Associates</span>
+            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">The SM Advantage</h2>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-[28px] p-8 space-y-5">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2.5">
+                  <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wider text-center pb-1 font-mono">Traditional Approach</div>
+                  {['Manual Processes', 'Limited Visibility', 'Reactive Collections', 'Low Success Rate', 'Poor Compliance'].map((item) => (
+                    <div key={item} className="flex items-center gap-2 bg-red-50 border border-red-100 rounded-xl px-3 py-2">
+                      <span className="h-4 w-4 rounded-full bg-red-100 text-red-500 text-[10px] font-bold flex items-center justify-center shrink-0">✕</span>
+                      <span className="text-xs text-slate-600">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-2.5">
+                  <div className="text-[9px] font-bold text-[#2563EB] uppercase tracking-wider text-center pb-1 font-mono">SM Associates Approach</div>
+                  {['Technology Enabled', 'Real-time Visibility', 'Proactive Strategy', 'High Success Rate', 'Strong Compliance'].map((item) => (
+                    <div key={item} className="flex items-center gap-2 bg-blue-50 border border-blue-100 rounded-xl px-3 py-2">
+                      <CheckCircle2 className="h-4 w-4 text-[#2563EB] shrink-0" />
+                      <span className="text-xs text-slate-700 font-medium">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="flex justify-center">
+                <div className="h-12 w-12 rounded-full bg-[#2563EB] text-white flex items-center justify-center font-bold text-sm shadow-lg shadow-[#2563EB]/30">VS</div>
+              </div>
+            </div>
+            <div className="space-y-5">
+              <div className="relative rounded-[28px] overflow-hidden h-60 shadow-xl">
+                <img src="/images/sm_team_commitment.png" alt="Your Success Our Commitment" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/80 via-[#1E3A8A]/10 to-transparent flex flex-col justify-end p-6">
+                  <div className="text-white font-bold text-xl font-serif leading-tight">Your Success<br />Our Commitment</div>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: 'Proven Methodologies', icon: CheckCircle2 },
+                  { label: 'Trained Professionals', icon: Users },
+                  { label: 'Advanced Technology', icon: Server },
+                  { label: 'Ethical & Compliant', icon: Shield },
+                ].map((item) => {
+                  const ItemIcon = item.icon;
+                  return (
+                    <div key={item.label} className="flex items-center gap-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-3">
+                      <div className="h-7 w-7 rounded-lg bg-[#2563EB]/10 flex items-center justify-center text-[#2563EB] shrink-0">
+                        <ItemIcon className="h-3.5 w-3.5" />
+                      </div>
+                      <span className="text-xs font-semibold text-[#0F172A]">{item.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── VISION FORWARD ── */}
+      <section className="py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-4 space-y-4 text-left">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Our Vision Forward</span>
+              <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">
+                Building the Future<br />of Risk Management
+              </h2>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                We continue to innovate and expand our capabilities to create more value for our partners.
+              </p>
+            </div>
+            <div className="lg:col-span-8 flex flex-wrap gap-4">
+              {[
+                { icon: Activity, label: 'Operational\nExcellence', highlight: false },
+                { icon: Server, label: 'Technology\nEnablement', highlight: false },
+                { icon: MapPin, label: 'Geographic\nExpansion', highlight: false },
+                { icon: Database, label: 'AI & Analytics\nDriven Recovery', highlight: false },
+                { icon: TrendingUp, label: '2030 Vision', note: "To be India's most trusted risk management partner", highlight: true },
+              ].map((pillar, i) => {
+                const PillarIcon = pillar.icon;
+                return (
+                  <div key={i} className={`flex-1 min-w-[110px] flex flex-col items-center text-center p-5 rounded-2xl border shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 ${pillar.highlight ? 'bg-[#2563EB] border-[#2563EB]' : 'bg-white border-[#E2E8F0]'}`}>
+                    <div className={`h-10 w-10 rounded-xl flex items-center justify-center mb-3 ${pillar.highlight ? 'bg-white/20 text-white' : 'bg-[#2563EB]/10 text-[#2563EB]'}`}>
+                      <PillarIcon className="h-5 w-5" />
+                    </div>
+                    <div className={`text-xs font-bold leading-snug whitespace-pre-line ${pillar.highlight ? 'text-white' : 'text-[#0F172A]'}`}>{pillar.label}</div>
+                    {pillar.note && <div className="text-[9px] text-white/70 mt-2">{pillar.note}</div>}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── DARK CTA BANNER ── */}
+      <section className="py-20 bg-[#0F172A]">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold text-white font-serif leading-tight">
+                Let's Build Stronger<br />Financial Ecosystems Together
+              </h2>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Partner with SM Associates for ethical, efficient and technology-driven recovery solutions.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-4 lg:justify-end">
+              <Link to={content?.cta?.href || '/contact'} className="inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-7 py-3.5 text-sm font-bold text-white hover:bg-[#1D4ED8] transition-all hover:shadow-xl shadow-[#2563EB]/30">
+                Partner With Us <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-slate-600 bg-transparent px-7 py-3.5 text-sm font-bold text-white hover:bg-slate-800 transition-all">
+                <span className="h-6 w-6 rounded-full bg-white/10 flex items-center justify-center"><Volume2 className="h-3.5 w-3.5" /></span>
+                Talk to an Expert
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -392,6 +477,7 @@ export function CompanyOverviewLayout({ content }) {
 // ----------------------------------------------------
 // 2. LEADERSHIP TEAM LAYOUT (`/about/leadership`)
 // ----------------------------------------------------
+
 export function LeadershipLayout({ content }) {
   const [selectedLeader, setSelectedLeader] = useState(null);
 
@@ -942,6 +1028,7 @@ export function HistoryLayout({ content }) {
   const [activeYear, setActiveYear] = useState('2010');
   const [isPlaying, setIsPlaying] = useState(true);
   const [isManuallyPaused, setIsManuallyPaused] = useState(false);
+  const isHovering = useRef(false);
   const [activeSection, setActiveSection] = useState('journey');
 
   const years = ['2000', '2005', '2010', '2015', '2020', '2025', '2026'];
@@ -953,15 +1040,17 @@ export function HistoryLayout({ content }) {
     ? content.milestonesWall 
     : content.milestonesWall?.filter(m => m.category === activeTag);
 
-  // Auto-play state machine looping every 2s
+  // Auto-play state machine looping every 3s
+  // Respects both manual pause (isManuallyPaused) and hover pause (isHovering ref)
   useEffect(() => {
     if (!isPlaying) return;
     const interval = setInterval(() => {
+      if (isHovering.current) return; // skip tick while hovering
       setActiveYear(prev => {
         const idx = years.indexOf(prev);
         return years[(idx + 1) % years.length];
       });
-    }, 2000);
+    }, 3000);
     return () => clearInterval(interval);
   }, [isPlaying]);
 
@@ -1171,10 +1260,8 @@ export function HistoryLayout({ content }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-6xl mx-auto">
             {/* Center Column: Curved Road Map */}
             <div 
-              onMouseEnter={() => setIsPlaying(false)}
-              onMouseLeave={() => {
-                if (!isManuallyPaused) setIsPlaying(true);
-              }}
+              onMouseEnter={() => { isHovering.current = true; }}
+              onMouseLeave={() => { isHovering.current = false; }}
               className="lg:col-span-5 relative h-[980px] flex items-center justify-center"
             >
               <svg viewBox="0 0 200 1000" className="absolute inset-0 w-full h-full overflow-visible select-none">
@@ -1242,10 +1329,8 @@ export function HistoryLayout({ content }) {
 
             {/* Right Column: Sliding glassmorphism details panel */}
             <div 
-              onMouseEnter={() => setIsPlaying(false)}
-              onMouseLeave={() => {
-                if (!isManuallyPaused) setIsPlaying(true);
-              }}
+              onMouseEnter={() => { isHovering.current = true; }}
+              onMouseLeave={() => { isHovering.current = false; }}
               className="lg:col-span-7 sticky top-32 relative flex gap-6 text-left items-stretch h-fit"
             >
               <AnimatePresence mode="wait">
