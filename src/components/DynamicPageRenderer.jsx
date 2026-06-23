@@ -27,6 +27,7 @@ import {
 import { IndustryLayout } from './layouts/IndustryLayout';
 import { PlatformLayout } from './layouts/PlatformLayout';
 import { CoverageLayout } from './layouts/CoverageLayout';
+import { InsightsLayout } from './layouts/InsightsLayout';
 
 // Utility Layouts
 import { CareersLayout, ContactLayout, LoginLayout } from './layouts/UtilityLayouts';
@@ -106,6 +107,11 @@ export default function DynamicPageRenderer({ pageId }) {
   // 6. COVERAGE / STATES
   if (activePath.startsWith('/coverage')) {
     return <CoverageLayout content={content} />;
+  }
+
+  // 7. INSIGHTS / BLOG
+  if (activePath.startsWith('/insights') || pageId === 'insights') {
+    return <InsightsLayout content={content} />;
   }
 
   // Fallback default layout

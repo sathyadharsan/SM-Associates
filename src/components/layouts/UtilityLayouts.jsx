@@ -50,17 +50,38 @@ export function CareersLayout({ content }) {
   return (
     <div className="relative min-h-screen bg-slate-50 text-[#0a1128] font-inter overflow-hidden">
       {/* SECTION 1: HERO */}
-      <section className="relative pt-36 pb-20 bg-white border-b border-slate-100">
-        <div className="mx-auto max-w-5xl px-4 text-center space-y-6">
-          <span className="inline-block text-xs font-bold uppercase tracking-[0.25em] text-blue-600 font-mono">
+      <section className="relative pt-44 pb-24 bg-slate-950 border-b border-slate-900 text-center overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-35" />
+          <div className="absolute left-[20%] top-[10%] h-[500px] w-[500px] rounded-full bg-blue-600/5 blur-[100px] animate-pulse" />
+          <div className="absolute right-[20%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-violet-600/5 blur-[100px] animate-pulse" />
+        </div>
+
+        <div className="relative mx-auto max-w-5xl px-4 z-10 space-y-6">
+          <motion.span 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-400 font-mono"
+          >
+            <Briefcase className="h-3.5 w-3.5" />
             {content.eyebrow}
-          </span>
-          <h1 className="text-4xl font-extrabold tracking-tight text-[#0a1128] sm:text-5xl lg:text-6xl font-sora leading-tight">
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 70, damping: 14 }}
+            className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl font-sora leading-tight"
+          >
             {content.title}
-          </h1>
-          <p className="text-lg text-slate-500 max-w-3xl mx-auto leading-relaxed">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed"
+          >
             {content.description}
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -252,17 +273,38 @@ export function ContactLayout({ content }) {
   return (
     <div className="relative min-h-screen bg-white text-[#0a1128] font-inter overflow-hidden">
       {/* SECTION 1: HERO */}
-      <section className="relative pt-36 pb-20 bg-slate-50 border-b border-slate-100">
-        <div className="mx-auto max-w-5xl px-4 text-center space-y-6">
-          <span className="inline-block text-xs font-bold uppercase tracking-[0.25em] text-blue-600 font-mono">
+      <section className="relative pt-44 pb-24 bg-slate-950 border-b border-slate-900 text-center overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-35" />
+          <div className="absolute left-[20%] top-[10%] h-[500px] w-[500px] rounded-full bg-blue-600/5 blur-[100px] animate-pulse" />
+          <div className="absolute right-[20%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-violet-600/5 blur-[100px] animate-pulse" />
+        </div>
+
+        <div className="relative mx-auto max-w-5xl px-4 z-10 space-y-6">
+          <motion.span 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-400 font-mono"
+          >
+            <Compass className="h-3.5 w-3.5 animate-pulse" />
             {content.eyebrow}
-          </span>
-          <h1 className="text-4xl font-extrabold tracking-tight text-[#0a1128] sm:text-5xl lg:text-6xl font-sora leading-tight">
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 70, damping: 14 }}
+            className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl font-sora leading-tight"
+          >
             {content.title}
-          </h1>
-          <p className="text-lg text-slate-500 max-w-3xl mx-auto leading-relaxed">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed"
+          >
             {content.description}
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -434,17 +476,37 @@ export function LoginLayout({ content }) {
       <div className="absolute top-[-20%] left-[-20%] h-[600px] w-[600px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
 
       {/* SECTION 1: HERO */}
-      <section className="relative pt-36 pb-20 border-b border-slate-800 bg-[#070b19]/60">
-        <div className="mx-auto max-w-5xl px-4 text-center space-y-6">
-          <span className="inline-flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full text-[10px] font-bold text-blue-400 uppercase font-mono">
+      <section className="relative pt-44 pb-24 bg-slate-950 border-b border-slate-900 text-center overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-35" />
+          <div className="absolute left-[20%] top-[10%] h-[500px] w-[500px] rounded-full bg-blue-600/5 blur-[100px] animate-pulse" />
+          <div className="absolute right-[20%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-indigo-600/5 blur-[100px] animate-pulse" />
+        </div>
+
+        <div className="relative mx-auto max-w-5xl px-4 z-10 space-y-6">
+          <motion.span 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full text-[10px] font-bold text-blue-400 uppercase font-mono"
+          >
             <Lock className="h-3.5 w-3.5" /> Secure Client Console
-          </span>
-          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl font-sora leading-tight">
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 70, damping: 14 }}
+            className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl font-sora leading-tight"
+          >
             Lender Portal Sign-In
-          </h1>
-          <p className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed"
+          >
             Verify credentials and Multi-Factor Auth to access recovery data.
-          </p>
+          </motion.p>
         </div>
       </section>
 

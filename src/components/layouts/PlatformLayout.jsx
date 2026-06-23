@@ -69,37 +69,75 @@ export function PlatformLayout({ content }) {
       <div className="absolute top-[-10%] left-[30%] h-[500px] w-[500px] rounded-full bg-blue-500/10 blur-[100px] pointer-events-none" />
 
       {/* SECTION 1: HERO */}
-      <section className="relative pt-36 pb-20 border-b border-slate-800 bg-[#070b19]/60 text-left">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-44 pb-24 bg-slate-950 border-b border-slate-900 text-left overflow-hidden">
+        {/* Code grids and neon glows */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30" />
+          <div className="absolute left-[20%] top-[10%] h-[500px] w-[500px] rounded-full bg-blue-600/10 blur-[100px] animate-pulse" />
+          <div className="absolute right-[20%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-indigo-600/10 blur-[100px] animate-pulse" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left side text info */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ type: "spring", stiffness: 70, damping: 14 }}
               className="lg:col-span-7 space-y-6"
             >
               <span className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-blue-400 font-mono">
+                <span className="h-2 w-2 rounded-full bg-blue-500 animate-ping" />
                 {content.eyebrow}
               </span>
               <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl font-sora leading-tight">
                 {content.title}
               </h1>
-              <p className="text-lg text-slate-400 max-w-2xl leading-relaxed">
+              <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
                 {content.description}
               </p>
+              <div className="pt-2 flex gap-4">
+                <a href="#playground" className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition-all hover:scale-[1.02]">
+                  Launch Developer Sandbox <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
             </motion.div>
+
+            {/* Right side live diagnostics console */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="lg:col-span-5 bg-white/5 border border-white/10 rounded-3xl p-8 space-y-4 shadow-2xl backdrop-blur-md"
+              transition={{ delay: 0.15, type: "spring", stiffness: 60, damping: 15 }}
+              className="lg:col-span-5 bg-slate-900/60 border border-white/10 rounded-3xl p-6 shadow-2xl backdrop-blur-md relative overflow-hidden"
             >
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">System Telemetry</span>
-              {content.stats.map((stat, i) => (
-                <div key={i} className="flex justify-between border-b border-white/5 pb-2 last:border-0 last:pb-0 text-xs font-mono">
-                  <span className="text-slate-400">{stat.label}</span>
-                  <span className="font-bold text-blue-400">{stat.value}</span>
+              <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 font-mono">Operations Command Telemetry</span>
                 </div>
-              ))}
+                <div className="rounded bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-blue-400 font-mono">
+                  Online
+                </div>
+              </div>
+
+              {/* Key Metrics list */}
+              <div className="space-y-3 font-mono text-xs text-left mb-4">
+                {content.stats.map((stat, i) => (
+                  <div key={i} className="flex justify-between border-b border-white/5 pb-2 last:border-0 last:pb-0">
+                    <span className="text-slate-500">{stat.label}</span>
+                    <span className="font-bold text-white">{stat.value}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Logs terminal box */}
+              <div className="bg-slate-950/80 border border-white/5 rounded-xl p-4 font-mono text-[9px] text-left text-slate-500 space-y-1 max-h-[100px] overflow-hidden">
+                <div>&gt; Connection establishing... OK</div>
+                <div>&gt; Database sync coordinate feed... OK</div>
+                <div className="text-emerald-400">&gt; Webhook receiver listener active.</div>
+              </div>
             </motion.div>
+
           </div>
         </div>
       </section>

@@ -35,17 +35,82 @@ export function IndustryLayout({ content }) {
       <div className="absolute top-[-10%] left-[5%] h-[600px] w-[600px] bg-blue-500/[0.015] rounded-full blur-[100px] pointer-events-none" />
 
       {/* SECTION 1: HERO */}
-      <section className="relative pt-36 pb-20 bg-gradient-to-b from-slate-50 to-white border-b border-slate-100 text-left">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <span className="text-xs font-bold uppercase tracking-[0.25em] text-blue-600 font-mono">
-            {content.eyebrow}
-          </span>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-[#0a1128] sm:text-5xl lg:text-6xl font-sora leading-tight">
-            {content.title}
-          </h1>
-          <p className="mt-6 text-lg text-slate-500 max-w-3xl leading-relaxed">
-            {content.description}
-          </p>
+      <section className="relative pt-44 pb-24 bg-slate-950 border-b border-slate-900 text-left overflow-hidden">
+        {/* Dynamic neon grids */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <div className="absolute left-[5%] top-[10%] h-[500px] w-[500px] rounded-full bg-blue-600/10 blur-[120px] animate-pulse" style={{ animationDuration: '8s' }} />
+          <div className="absolute right-[5%] bottom-[10%] h-[500px] w-[500px] rounded-full bg-red-600/5 blur-[120px] animate-pulse" style={{ animationDuration: '10s' }} />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] opacity-40" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left side text info */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ type: "spring", stiffness: 70, damping: 14 }}
+              className="lg:col-span-7 space-y-6"
+            >
+              <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">
+                <span className="h-2 w-2 rounded-full bg-blue-500 animate-ping" />
+                {content.eyebrow}
+              </div>
+              <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl font-sora leading-tight">
+                {content.title}
+              </h1>
+              <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
+                {content.description}
+              </p>
+              <div className="pt-2 flex gap-4">
+                <a href="#threats" className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition-all hover:scale-[1.02]">
+                  Analyze Risk Delinquencies <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Right side interactive risk visual map */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.15, type: "spring", stiffness: 60, damping: 15 }}
+              className="lg:col-span-5 bg-slate-900/60 border border-white/10 rounded-3xl p-6 shadow-2xl backdrop-blur-md relative overflow-hidden"
+            >
+              <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-4">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 font-mono">Risk Delinquency Heatmap</span>
+                </div>
+                <div className="rounded bg-red-500/10 border border-red-500/20 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-red-400 font-mono">
+                  High Risk Stage
+                </div>
+              </div>
+
+              {/* Heatmap Grid */}
+              <div className="grid grid-cols-3 gap-2 mb-4 text-center text-[10px] font-mono text-slate-400">
+                <div className="bg-red-950/40 border border-red-500/30 p-3 rounded-xl">
+                  <div className="text-red-400 font-bold">STAGE 1</div>
+                  <div className="text-[9px] text-slate-500 mt-0.5">SMA 0-30 Days</div>
+                </div>
+                <div className="bg-red-900/40 border border-red-500/40 p-3 rounded-xl animate-pulse">
+                  <div className="text-red-350 font-bold">STAGE 2</div>
+                  <div className="text-[9px] text-slate-500 mt-0.5">SMA 31-90 Days</div>
+                </div>
+                <div className="bg-red-900 border border-red-500 p-3 rounded-xl">
+                  <div className="text-white font-bold">NPA STAGE</div>
+                  <div className="text-[9px] text-red-200 mt-0.5">90+ Days</div>
+                </div>
+              </div>
+
+              {/* Status and telemetry list */}
+              <div className="space-y-2 text-[10px] font-mono text-left text-slate-400">
+                <div className="flex justify-between border-b border-white/5 pb-2"><span>Risk Delinquency Audit</span><span className="text-red-400">Active</span></div>
+                <div className="flex justify-between border-b border-white/5 pb-2"><span>Sec 13 Notification Warrants</span><span className="text-emerald-400">Compliant</span></div>
+                <div className="flex justify-between"><span>SLA Adherence Rate</span><span className="text-white">[RESOLUTION RATE]%</span></div>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
