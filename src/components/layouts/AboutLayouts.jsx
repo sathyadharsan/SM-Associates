@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useSpring, useTransform, useMotionValue, animate } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { clientLogos } from '../../data/clientLogos';
 import { 
@@ -35,6 +35,8 @@ import {
   HelpCircle,
   Mail
 } from 'lucide-react';
+
+import { INDIA_OUTLINE_PATH, INDIA_PATH_TRANSFORM } from '../../data/LocationData';
 
 const Linkedin = ({ className, ...props }) => (
   <svg 
@@ -910,314 +912,749 @@ export function LeadershipLayout({ content }) {
 }
 
 // ---------------------// 3. OUR JOURNEY LAYOUT (`/about/history`)
-// ----------------------------------------------------
-export function HistoryLayout({ content }) {
-  const [activeEra, setActiveEra] = useState(0);
-  const [activeGrowthIndex, setActiveGrowthIndex] = useState(content.growthData?.length - 1 || 0);
-  const [activeFaq, setActiveFaq] = useState(null);
+// ---------------------------------// Animated Counter Component
+function AnimatedCounter({ targetValue, duration = 1.5 }) {
+  const numericStr = targetValue.replace(/[^0-9]/g, '');
+  const suffix = targetValue.replace(/[0-9]/g, '');
+  const numericVal = parseInt(numericStr, 10) || 0;
 
-  const selectedGrowth = content.growthData?.[activeGrowthIndex] || {};
+  const count = useMotionValue(0);
+  const [val, setVal] = useState(0);
+
+  useEffect(() => {
+    const controls = animate(count, numericVal, {
+      duration,
+      ease: [0.16, 1, 0.3, 1],
+      onUpdate: (latest) => setVal(Math.round(latest))
+    });
+    return () => controls.stop();
+  }, [numericVal, duration]);
 
   return (
-    <div className="relative min-h-screen bg-[#FFFFFF] text-[#0F172A] font-inter antialiased">
+    <span>
+      {val}
+      {suffix}
+    </span>
+  );
+}
+
+export function HistoryLayout({ content }) {
+  const [activeYear, setActiveYear] = useState('2010');
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isManuallyPaused, setIsManuallyPaused] = useState(false);
+  const [activeSection, setActiveSection] = useState('journey');
+
+  const years = ['2000', '2005', '2010', '2015', '2020', '2025', '2026'];
+  const activeMilestone = content.timelineMilestones?.find(m => m.year === activeYear) || content.timelineMilestones?.[0] || {};
+
+  const [activeTag, setActiveTag] = useState('All');
+  const categories = ['All', 'Partnerships', 'Expansion', 'Technology', 'Recognition'];
+  const filteredMilestones = activeTag === 'All' 
+    ? content.milestonesWall 
+    : content.milestonesWall?.filter(m => m.category === activeTag);
+
+  // Auto-play state machine looping every 2s
+  useEffect(() => {
+    if (!isPlaying) return;
+    const interval = setInterval(() => {
+      setActiveYear(prev => {
+        const idx = years.indexOf(prev);
+        return years[(idx + 1) % years.length];
+      });
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [isPlaying]);
+
+  // Scroll spy to update the navigation rail items
+  useEffect(() => {
+    const handleScroll = () => {
+      const railSections = [
+        { id: 'journey', label: 'Company Journey' },
+        { id: 'expansion', label: 'Geographic Expansion' },
+        { id: 'services', label: 'Service Evolution' },
+        { id: 'technology', label: 'Technology Evolution' },
+        { id: 'leadership', label: 'Leadership Evolution' },
+        { id: 'future', label: 'Future Vision' }
+      ];
+
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+      for (const section of railSections) {
+        const el = document.getElementById(section.id);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(section.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Scroll timeline progress drawing setup
+  const roadmapRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: roadmapRef,
+    offset: ["start center", "end center"]
+  });
+  const pathLength = useSpring(scrollYProgress, { stiffness: 60, damping: 20 });
+
+  const renderMiniMap = (activeStates = []) => {
+    let mapSrc = '/images/india_coverage_map.png';
+    if (activeYear === '2000') {
+      mapSrc = '/images/india_coverage_map_2000.png';
+    } else if (activeYear === '2005') {
+      mapSrc = '/images/india_coverage_map_2005.png';
+    } else if (activeYear === '2010' || activeYear === '2015') {
+      mapSrc = '/images/india_coverage_map_2010.png';
+    }
+
+    return (
+      <div className="w-full h-48 flex items-center justify-center overflow-hidden rounded-2xl bg-white p-2 border border-slate-100 shadow-inner">
+        <img 
+          src={mapSrc} 
+          alt={`SM Associates Coverage Map ${activeYear}`}
+          className="h-full w-auto object-contain select-none transition-all duration-300"
+        />
+      </div>
+    );
+  };
+
+  return (
+    <div className="relative min-h-screen bg-[#FFFFFF] text-[#0F172A] font-inter antialiased overflow-x-hidden">
       {/* Spacer for navigation */}
       <div className="h-24 bg-[#FFFFFF]" />
 
-      {/* SECTION 1: EDITORIAL HERO */}
-      <section className="relative py-24 md:py-32 bg-[#FFFFFF] border-b border-[#E2E8F0] overflow-hidden">
+      {/* LEFT SIDE: FIXED NAVIGATION RAIL (Visible on lg viewports) */}
+      <div className="hidden lg:flex fixed left-8 top-1/2 -translate-y-1/2 z-50 flex-col gap-6 p-4 border-l border-slate-200 text-xs text-slate-400 font-medium">
+        {[
+          { id: 'journey', label: 'Company Journey' },
+          { id: 'expansion', label: 'Geographic Expansion' },
+          { id: 'services', label: 'Service Evolution' },
+          { id: 'technology', label: 'Technology Evolution' },
+          { id: 'leadership', label: 'Leadership Evolution' },
+          { id: 'future', label: 'Future Vision' }
+        ].map((item) => (
+          <button
+            key={item.id}
+            onClick={() => {
+              document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }}
+            className={`flex items-center gap-3 transition-colors text-left group hover:text-slate-900 ${
+              activeSection === item.id ? 'text-[#2563EB] font-bold' : ''
+            }`}
+          >
+            <span className={`h-2.5 w-2.5 rounded-full border-2 transition-all ${
+              activeSection === item.id ? 'bg-[#2563EB] border-[#2563EB] scale-110' : 'bg-white border-slate-300 group-hover:border-slate-500'
+            }`} />
+            <span className="font-mono">{item.label}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* SECTION 1: JOURNEY HERO */}
+      <section id="journey" className="relative py-20 bg-[#FFFFFF] overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto space-y-6">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#2563EB]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#2563EB] font-mono">
-              <Clock className="h-3.5 w-3.5" />
-              {content.eyebrow}
-            </span>
-            <h1 className="text-4xl font-bold tracking-tight text-[#0F172A] sm:text-5xl lg:text-6xl font-serif leading-tight">
-              {content.title}
-            </h1>
-            <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              {content.description}
-            </p>
-            <div className="flex justify-center gap-4 pt-2">
-              <a href={content.cta?.href || '/contact'} className="inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-6 py-3.5 text-sm font-bold text-white hover:bg-[#1D4ED8] transition-all hover:shadow-lg shadow-[#2563EB]/25">
-                {content.cta?.buttonText || 'Request Credentials Profile'} <ArrowRight className="h-4 w-4" />
-              </a>
-              <a href="#history-timeline" className="inline-flex items-center gap-2 rounded-xl border border-[#E2E8F0] bg-[#FFFFFF] px-6 py-3.5 text-sm font-bold text-[#0F172A] hover:bg-[#F8FAFC] transition-all">
-                Explore Timeline
-              </a>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Column: Text & Stats */}
+            <div className="lg:col-span-7 space-y-8 text-left">
+              <div className="space-y-4">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#2563EB]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#2563EB] font-mono">
+                  Documentary Narrative
+                </span>
+                <h1 className="text-4xl font-extrabold tracking-tight text-[#0F172A] sm:text-5xl lg:text-6xl font-serif leading-tight">
+                  {content.title}
+                </h1>
+                <p className="text-sm md:text-base text-slate-500 leading-relaxed max-w-2xl">
+                  {content.description}
+                </p>
+              </div>
+
+              {/* Grid of stats counter cards */}
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4 pt-4">
+                {content.stats?.map((stat, i) => {
+                  let StatIcon = Clock;
+                  if (i === 0) StatIcon = Clock;
+                  else if (i === 1) StatIcon = MapPin;
+                  else if (i === 2) StatIcon = Users;
+                  else if (i === 3) StatIcon = Building2;
+                  else if (i === 4) StatIcon = FileText;
+
+                  return (
+                    <div key={i} className="border border-[#E2E8F0] bg-[#FFFFFF] rounded-2xl p-4 shadow-sm hover:border-[#2563EB]/40 transition-colors duration-300">
+                      <div className="h-7 w-7 rounded-lg bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center mb-3">
+                        <StatIcon className="h-4 w-4" />
+                      </div>
+                      <div className="text-xl font-bold text-[#2563EB] font-serif">
+                        <AnimatedCounter targetValue={stat.value} />
+                      </div>
+                      <div className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-1.5 leading-snug">{stat.label}</div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Right Column: Mountain path illustration */}
+            <div className="lg:col-span-5 relative flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent rounded-full blur-3xl -z-10 pointer-events-none" />
+              <svg viewBox="0 0 500 400" className="w-full h-auto overflow-visible select-none max-w-md mx-auto">
+                <polygon points="100,380 250,120 400,380" fill="none" stroke="#E2E8F0" strokeWidth="2" />
+                <polygon points="200,380 300,200 400,380" fill="none" stroke="#E2E8F0" strokeWidth="1" opacity="0.5" />
+                <polygon points="250,120 220,170 280,170" fill="none" stroke="#2563EB" strokeWidth="1" opacity="0.3" />
+
+                {/* Summit Flag */}
+                <line x1="250" y1="120" x2="250" y2="80" stroke="#2563EB" strokeWidth="2" />
+                <polygon points="250,80 290,95 250,110" fill="#2563EB" />
+                
+                {/* Winding climb path line */}
+                <path 
+                  d="M100,380 Q130,340 180,330 T270,280 T260,210 T250,120" 
+                  fill="none" 
+                  stroke="#2563EB" 
+                  strokeWidth="2.5" 
+                  strokeDasharray="6,6"
+                />
+
+                {[
+                  { x: 100, y: 380, yr: '2000' },
+                  { x: 140, y: 345, yr: '2005' },
+                  { x: 200, y: 325, yr: '2010' },
+                  { x: 265, y: 285, yr: '2015' },
+                  { x: 255, y: 215, yr: '2020' },
+                  { x: 250, y: 150, yr: '2025' },
+                  { x: 250, y: 120, yr: '2026' }
+                ].map((pt, idx) => (
+                  <motion.g 
+                    key={idx}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: idx * 0.1 }}
+                  >
+                    <circle cx={pt.x} cy={pt.y} r="10" fill="#FFFFFF" stroke="#2563EB" strokeWidth="2" />
+                    <circle cx={pt.x} cy={pt.y} r="4" fill="#2563EB" />
+                    <text x={pt.x + 14} y={pt.y + 4} fill="#475569" className="text-[9px] font-bold font-mono">{pt.yr}</text>
+                  </motion.g>
+                ))}
+              </svg>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2: INSTITUTIONAL TRUST BAR */}
-      <section className="py-12 border-b border-[#E2E8F0] bg-[#F8FAFC]">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-6 font-mono">Empanelled Panel Longevity Benchmarks</p>
-          <InstitutionalLogos />
-        </div>
-      </section>
-
-      {/* SECTION 3: FOUNDED YEAR CALL STATS */}
-      <section className="py-20 bg-[#FFFFFF] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Operational Standing</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Measurable Longevity Statistics</h2>
+      {/* INTERACTIVE EVOLUTION ROADMAP */}
+      <section ref={roadmapRef} className="py-24 bg-[#F8FAFC] border-y border-[#E2E8F0] relative">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
+          <div className="max-w-2xl mx-auto space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Evolution Journey</span>
+            <h2 className="text-4xl font-extrabold tracking-tight text-[#0F172A] font-serif leading-tight">Our Evolution Roadmap</h2>
+            <div className="flex justify-center items-center gap-4 pt-2">
+              <button 
+                onClick={() => {
+                  const targetState = !isPlaying;
+                  setIsPlaying(targetState);
+                  setIsManuallyPaused(!targetState);
+                }}
+                className="inline-flex items-center gap-2 px-4 py-2 border border-[#E2E8F0] bg-white rounded-full text-xs font-semibold shadow-sm hover:bg-slate-50 transition-colors"
+              >
+                <span className={`h-2.5 w-2.5 rounded-full ${isPlaying ? 'bg-emerald-500 animate-ping' : 'bg-rose-500'}`} />
+                {isPlaying ? 'Timeline Playing (Autoplay)' : 'Timeline Paused'}
+              </button>
+            </div>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {content.stats?.map((stat, i) => (
-              <div key={i} className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-2xl p-6 text-center shadow-sm">
-                <div className="text-3xl font-extrabold text-[#2563EB] font-serif">{stat.value}</div>
-                <div className="text-[10px] font-bold text-[#0F172A] uppercase tracking-wider mt-1.5 leading-snug">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* SECTION 4: SCROLLABLE MILESTONE TIMELINE / EVOLUTION ERAS */}
-      <section id="history-timeline" className="py-24 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-4 space-y-6 text-left">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Regulatory Milestones</span>
-              <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Adaptation Eras</h2>
-              <p className="text-slate-500 text-xs leading-relaxed">
-                Click on any era to see how our operational structures adapted alongside the development of the Indian financial services sector.
-              </p>
-              
-              <div className="space-y-2 pt-4">
-                {content.eras?.map((era, idx) => (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-6xl mx-auto">
+            {/* Center Column: Curved Road Map */}
+            <div 
+              onMouseEnter={() => setIsPlaying(false)}
+              onMouseLeave={() => {
+                if (!isManuallyPaused) setIsPlaying(true);
+              }}
+              className="lg:col-span-5 relative h-[980px] flex items-center justify-center"
+            >
+              <svg viewBox="0 0 200 1000" className="absolute inset-0 w-full h-full overflow-visible select-none">
+                {/* Underlay road outline */}
+                <path 
+                  d="M 100 50 C 30 130 30 170 40 220 C 50 270 150 310 100 360 C 50 410 150 450 160 500 C 170 550 50 590 100 640 C 150 690 50 730 40 780 C 30 830 170 870 100 920"
+                  fill="none" 
+                  stroke="#2563EB" 
+                  strokeWidth="3.5" 
+                  opacity="0.1" 
+                />
+                {/* Continuous dash-offset flow path */}
+                <motion.path 
+                  d="M 100 50 C 30 130 30 170 40 220 C 50 270 150 310 100 360 C 50 410 150 450 160 500 C 170 550 50 590 100 640 C 150 690 50 730 40 780 C 30 830 170 870 100 920"
+                  fill="none" 
+                  stroke="#2563EB" 
+                  strokeWidth="3.5" 
+                  animate={{ strokeDashoffset: [0, -32] }}
+                  transition={{ repeat: Infinity, ease: "linear", duration: 2 }}
+                  strokeDasharray="8,8"
+                  opacity="0.6"
+                />
+                {/* Scroll linked drawing path */}
+                <motion.path 
+                  d="M 100 50 C 30 130 30 170 40 220 C 50 270 150 310 100 360 C 50 410 150 450 160 500 C 170 550 50 590 100 640 C 150 690 50 730 40 780 C 30 830 170 870 100 920"
+                  fill="none" 
+                  stroke="#2563EB" 
+                  strokeWidth="4.5" 
+                  style={{ pathLength }}
+                />
+              </svg>
+
+              {/* Interactive milestones along serpentine road path */}
+              <div className="absolute inset-0 pointer-events-auto">
+                {[
+                  { yr: '2000', y: 44, x: 'calc(50% - 12px)', name: 'The Beginning' },
+                  { yr: '2005', y: 215, x: 'calc(50% - 72px)', name: 'Early Foundation' },
+                  { yr: '2010', y: 355, x: 'calc(50% - 12px)', name: 'Expanding Footprint' },
+                  { yr: '2015', y: 495, x: 'calc(50% + 48px)', name: 'Strategic Scale-Up' },
+                  { yr: '2020', y: 635, x: 'calc(50% - 12px)', name: 'Pan-South India' },
+                  { yr: '2025', y: 775, x: 'calc(50% - 72px)', name: 'Digital Shift' },
+                  { yr: '2026', y: 915, x: 'calc(50% - 12px)', name: 'The Road Ahead' }
+                ].map((node, i) => (
                   <button
-                    key={idx}
-                    onClick={() => setActiveEra(idx)}
-                    className={`w-full text-left px-5 py-3.5 rounded-xl border text-xs font-bold transition-all flex justify-between items-center ${
-                      activeEra === idx
-                        ? 'bg-[#FFFFFF] border-[#2563EB] text-[#2563EB] shadow-sm'
-                        : 'bg-transparent border-[#E2E8F0] text-slate-500 hover:bg-[#FFFFFF]'
+                    key={i}
+                    onMouseEnter={() => {
+                      setActiveYear(node.yr);
+                    }}
+                    onClick={() => {
+                      setActiveYear(node.yr);
+                    }}
+                    style={{ top: `${node.y}px`, left: node.x }}
+                    className={`absolute z-10 flex items-center justify-center rounded-full p-2 transition-all duration-300 ${
+                      activeYear === node.yr
+                        ? 'bg-[#2563EB] text-white ring-4 ring-[#2563EB]/25 scale-110 shadow-lg'
+                        : 'bg-white text-slate-500 border-2 border-[#E2E8F0] hover:border-[#2563EB] hover:scale-105 shadow-sm'
                     }`}
                   >
-                    <span>{era.year}</span>
-                    <ChevronRight className="h-4 w-4" />
+                    <span className="font-mono text-xs font-bold px-2 py-0.5">{node.yr}</span>
+                    <span className="absolute hidden md:block text-[9px] font-bold text-slate-400 whitespace-nowrap top-8 font-mono">{node.name}</span>
                   </button>
                 ))}
               </div>
             </div>
 
-            <div className="lg:col-span-8">
+            {/* Right Column: Sliding glassmorphism details panel */}
+            <div 
+              onMouseEnter={() => setIsPlaying(false)}
+              onMouseLeave={() => {
+                if (!isManuallyPaused) setIsPlaying(true);
+              }}
+              className="lg:col-span-7 sticky top-32 relative flex gap-6 text-left items-stretch h-fit"
+            >
               <AnimatePresence mode="wait">
-                {content.eras?.[activeEra] && (
-                  <motion.div
-                    key={activeEra}
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -15 }}
-                    transition={{ duration: 0.3 }}
-                    className="border border-[#E2E8F0] bg-[#FFFFFF] rounded-3xl p-8 space-y-6 text-left shadow-sm min-h-[300px] flex flex-col justify-between"
-                  >
-                    <div className="space-y-4">
-                      <div className="text-[10px] font-bold text-[#2563EB] font-mono uppercase tracking-widest">
-                        Era Focus: {content.eras[activeEra].year}
-                      </div>
-                      <h3 className="text-2xl font-bold font-serif text-[#0F172A]">
-                        {content.eras[activeEra].title}
-                      </h3>
-                      <p className="text-slate-600 text-xs leading-relaxed">
-                        {content.eras[activeEra].desc}
-                      </p>
+                <motion.div
+                  key={activeYear}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex-grow border border-slate-200 bg-white/95 backdrop-blur-lg rounded-[32px] p-8 shadow-xl flex flex-col md:flex-row gap-8 items-stretch"
+                >
+                  {/* Left inside card: details & Map */}
+                  <div className="w-full md:w-1/2 flex flex-col justify-between space-y-6">
+                    <div className="space-y-3">
+                      <div className="text-5xl font-black text-[#2563EB] font-mono tracking-tight">{activeMilestone.year}</div>
+                      <h3 className="text-2xl font-bold text-[#0F172A] font-serif leading-snug">{activeMilestone.title}</h3>
+                      <p className="text-xs text-slate-500 leading-relaxed font-inter">{activeMilestone.summary}</p>
                     </div>
 
-                    <div className="border-t border-[#E2E8F0] pt-6 space-y-2">
-                      <h4 className="text-[10px] font-bold text-[#0F172A] uppercase tracking-wider font-mono">Key Milestone Accomplished</h4>
-                      <div className="flex items-start gap-2.5 text-xs text-slate-600">
-                        <Check className="h-4 w-4 text-[#2563EB] shrink-0 mt-0.5" />
-                        <span>{content.eras[activeEra].milestone}</span>
+                    <div className="border border-[#E2E8F0] rounded-2xl p-4 bg-[#F8FAFC] flex flex-col items-center justify-center relative">
+                      <div className="text-[8px] font-bold uppercase tracking-wider text-slate-400 font-mono absolute top-2 left-3">Geographic Reach</div>
+                      {renderMiniMap(activeMilestone.activeStates)}
+                    </div>
+                  </div>
+
+                  {/* Right inside card: highlights & impact stats */}
+                  <div className="w-full md:w-1/2 flex flex-col justify-between space-y-6 border-t md:border-t-0 md:border-l border-slate-100 pt-6 md:pt-0 md:pl-8">
+                    <div className="space-y-4">
+                      <h4 className="text-[10px] font-bold text-[#0F172A] uppercase tracking-widest font-mono">Milestone Accomplishments</h4>
+                      <ul className="space-y-2.5">
+                        {activeMilestone.highlights?.map((hl, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5 text-xs text-slate-600">
+                            <CheckCircle2 className="h-4 w-4 text-[#2563EB] shrink-0 mt-0.5" />
+                            <span>{hl}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="space-y-4">
+                      <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-mono">Key Business Impact</h4>
+                      <div className="grid grid-cols-2 gap-3">
+                        {activeMilestone.impact?.map((imp, idx) => (
+                          <div key={idx} className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-left">
+                            <div className="text-base font-bold text-[#2563EB] font-serif leading-none">
+                              <AnimatedCounter targetValue={imp.value} />
+                            </div>
+                            <div className="text-[8px] font-bold text-slate-400 uppercase tracking-wider mt-1">{imp.label}</div>
+                          </div>
+                        ))}
                       </div>
                     </div>
-                  </motion.div>
-                )}
+                  </div>
+                </motion.div>
               </AnimatePresence>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 5: INTERACTIVE GROWTH METRICS PANEL */}
-      <section className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0]">
+      {/* GROWTH VISUALIZATION STRIP */}
+      <section id="expansion" className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Operations Scaling</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Historical Growth Diagnostics</h2>
-            <p className="text-sm text-slate-500 max-w-xl mx-auto">
-              Select a year to see how our ground forces, branch networks, and secure custody yards scaled over the past quarter-century.
-            </p>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Progress Strips</span>
+            <h2 className="text-4xl font-extrabold tracking-tight text-[#0F172A] font-serif leading-tight">Geographic & Sourcing Expansion</h2>
           </div>
 
-          <div className="max-w-4xl mx-auto border border-[#E2E8F0] bg-[#F8FAFC] rounded-3xl p-8 space-y-8">
-            {/* Timeline selector */}
-            <div className="flex justify-between items-center border-b border-[#E2E8F0] pb-6 overflow-x-auto gap-4">
-              {content.growthData?.map((data, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveGrowthIndex(idx)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all shrink-0 ${
-                    activeGrowthIndex === idx
-                      ? 'bg-[#2563EB] text-white shadow-md'
-                      : 'bg-[#FFFFFF] border border-[#E2E8F0] text-slate-500 hover:border-slate-350'
-                  }`}
-                >
-                  {data.year}
-                </button>
-              ))}
-            </div>
-
-            {/* Display metrics */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-              <div className="bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl p-6 space-y-2">
-                <span className="text-slate-400 text-[10px] font-bold uppercase tracking-widest font-mono">Trained Professionals</span>
-                <div className="text-4xl font-extrabold text-[#2563EB] font-serif">{selectedGrowth.staff}</div>
-                <p className="text-[10px] text-slate-500">Certified call handlers and on-ground field executives.</p>
-              </div>
-              <div className="bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl p-6 space-y-2">
-                <span className="text-slate-400 text-[10px] font-bold uppercase tracking-widest font-mono">Active Branches</span>
-                <div className="text-4xl font-extrabold text-[#0F172A] font-serif">{selectedGrowth.branches}</div>
-                <p className="text-[10px] text-slate-500">Fully staffed locations with local compliance desks.</p>
-              </div>
-              <div className="bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl p-6 space-y-2">
-                <span className="text-slate-400 text-[10px] font-bold uppercase tracking-widest font-mono">Secure Yards</span>
-                <div className="text-4xl font-extrabold text-[#0F172A] font-serif">{selectedGrowth.yards}</div>
-                <p className="text-[10px] text-slate-500">CCTV-monitored vehicle repossession custody points.</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left side: India map */}
+            <div className="lg:col-span-6 relative flex items-center justify-center bg-[#F8FAFC] border border-[#E2E8F0] rounded-[32px] p-8 shadow-sm">
+              <div className="absolute top-4 left-6 text-[10px] font-bold uppercase tracking-wider text-slate-400 font-mono">Geographic Rollout</div>
+              <div className="w-full max-w-sm">
+                <img 
+                  src="/images/india_coverage_map.png" 
+                  alt="SM Associates South India Coverage Map"
+                  className="w-full h-auto object-contain rounded-2xl select-none"
+                />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* SECTION 6: EMPANELMENT PROGRESSION */}
-      <section className="py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-left space-y-12">
-          <div className="max-w-2xl space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Banking Panels</span>
-            <h3 className="text-2xl font-bold font-serif text-[#0F172A]">Historical Panel Empanelments</h3>
-          </div>
+            {/* Right side: Checkmarks grid */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <div className="space-y-3">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Territorial Footprint</span>
+                <h3 className="text-2xl font-bold tracking-tight text-[#0F172A] font-serif">Geographic Expansion</h3>
+                <p className="text-xs text-slate-500 leading-relaxed font-inter">
+                  Through a calculated multi-state rollout plan, we expanded our operations state-by-state, ensuring robust regional leadership and regulatory compliance in each territory.
+                </p>
+              </div>
 
-          <div className="border border-[#E2E8F0] bg-[#FFFFFF] rounded-2xl overflow-hidden shadow-sm">
-            <table className="w-full text-xs text-left border-collapse">
-              <thead>
-                <tr className="bg-[#F8FAFC] border-b border-[#E2E8F0] font-mono text-slate-500">
-                  <th className="p-4">YEAR</th>
-                  <th className="p-4">INSTITUTION</th>
-                  <th className="p-4">OPERATIONAL SCOPE</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#E2E8F0]">
-                {content.empanelments?.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-slate-50/50">
-                    <td className="p-4 font-bold text-[#2563EB] font-mono">{row.year}</td>
-                    <td className="p-4 font-bold text-[#0F172A] font-serif">{row.bank}</td>
-                    <td className="p-4 text-slate-500">{row.scope}</td>
-                  </tr>
+              <div className="space-y-3 pt-4">
+                {content.geographicExpansion?.map((exp, idx) => (
+                  <div key={idx} className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-2xl p-4 flex items-center justify-between hover:border-[#2563EB]/30 transition-colors duration-300 shadow-sm">
+                    <div className="flex items-center gap-3">
+                      <div className="h-8 w-8 rounded-full bg-[#2563EB] text-white flex items-center justify-center text-xs font-bold font-mono">
+                        {idx + 1}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-xs text-[#0F172A]">{exp.state}</h4>
+                        <p className="text-[9px] text-slate-400 font-mono">Operations Established</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] font-bold text-[#2563EB] bg-[#2563EB]/10 px-3 py-1 rounded-full font-mono">{exp.year}</span>
+                      <div className="h-6 w-6 rounded-full bg-green-50 text-green-600 flex items-center justify-center shadow-inner"><Check className="h-3.5 w-3.5" /></div>
+                    </div>
+                  </div>
                 ))}
-              </tbody>
-            </table>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 7: INFRASTRUCTURE EVOLUTION / YARDS */}
-      <section className="py-20 bg-[#FFFFFF] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Physical Assets</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Yard Infrastructure Evolution</h2>
+      {/* BANKING RELATIONSHIPS & SERVICE CAPABILITIES */}
+      <section id="services" className="py-24 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: SVG Line Chart of Banking Relationships */}
+            <div className="bg-white border border-[#E2E8F0] rounded-[32px] p-8 shadow-sm text-left space-y-6">
+              <div className="space-y-2">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Scale Indicators</span>
+                <h3 className="text-2xl font-bold font-serif text-[#0F172A]">Banking Relationship Growth</h3>
+                <p className="text-xs text-slate-500 leading-relaxed font-inter">Traced client empanelments scaling over the years to reach over 100+ banking institutions across India.</p>
+              </div>
+
+              <div className="relative h-60 w-full pt-4">
+                <svg className="w-full h-full overflow-visible" viewBox="0 0 500 200">
+                  {/* Grid Lines */}
+                  <line x1="20" y1="180" x2="480" y2="180" stroke="#E2E8F0" strokeWidth="1" strokeDasharray="4" />
+                  <line x1="20" y1="130" x2="480" y2="130" stroke="#E2E8F0" strokeWidth="1" strokeDasharray="4" />
+                  <line x1="20" y1="80" x2="480" y2="80" stroke="#E2E8F0" strokeWidth="1" strokeDasharray="4" />
+                  <line x1="20" y1="30" x2="480" y2="30" stroke="#E2E8F0" strokeWidth="1" strokeDasharray="4" />
+
+                  {/* Growth Path */}
+                  <motion.path 
+                    d="M 20 180 C 100 170 180 130 250 80 T 480 30"
+                    fill="none"
+                    stroke="#2563EB"
+                    strokeWidth="3.5"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1.8, ease: "easeOut" }}
+                  />
+
+                  {/* Nodes along path */}
+                  {[
+                    { x: 20, y: 180, yr: '2000', v: '1' },
+                    { x: 135, y: 155, yr: '2005', v: '12' },
+                    { x: 250, y: 80, yr: '2010', v: '25+' },
+                    { x: 365, y: 55, yr: '2020', v: '75+' },
+                    { x: 480, y: 30, yr: '2026', v: '100+' }
+                  ].map((pt, idx) => (
+                    <g key={idx}>
+                      <circle cx={pt.x} cy={pt.y} r="5" fill="#2563EB" />
+                      <circle cx={pt.x} cy={pt.y} r="8" fill="none" stroke="#2563EB" strokeWidth="1.5" opacity="0.3" />
+                      <text x={pt.x - 10} y={pt.y - 14} fill="#0F172A" className="text-[9px] font-bold font-mono">{pt.v}</text>
+                      <text x={pt.x - 12} y={pt.y + 18} fill="#94A3B8" className="text-[8px] font-bold font-mono">{pt.yr}</text>
+                    </g>
+                  ))}
+                </svg>
+              </div>
+            </div>
+
+            {/* Right: Service capability evolution */}
+            <div className="text-left space-y-6">
+              <div className="space-y-2">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Service Capabilities</span>
+                <h3 className="text-2xl font-bold font-serif text-[#0F172A]">Service Evolution</h3>
+                <p className="text-xs text-slate-500 leading-relaxed font-inter">Continuous capability scaling from retail verification checkpoints up to automated recovery intelligence operations.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {content.serviceEvolution?.map((srv, idx) => {
+                  let SrvIcon = Shield;
+                  if (idx === 0) SrvIcon = UserCheck;
+                  else if (idx === 1) SrvIcon = Users;
+                  else if (idx === 2) SrvIcon = Scale;
+                  else if (idx === 3) SrvIcon = Building2;
+                  else if (idx === 4) SrvIcon = MapPin;
+                  else if (idx === 5) SrvIcon = TrendingUp;
+
+                  return (
+                    <div key={idx} className="border border-[#E2E8F0] bg-white rounded-2xl p-4 flex gap-4 hover:border-[#2563EB]/40 hover:shadow-sm transition-all duration-300">
+                      <div className="h-9 w-9 rounded-xl bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center shrink-0">
+                        <SrvIcon className="h-4.5 w-4.5" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-xs text-[#0F172A] font-serif leading-snug">{srv.name}</h4>
+                        <p className="text-[9px] text-slate-400 font-mono mt-0.5">Launched {srv.year}</p>
+                        <p className="text-[10px] text-slate-500 leading-normal mt-1.5">{srv.desc}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* TECHNOLOGY EVOLUTION */}
+      <section id="technology" className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
+          <div className="max-w-2xl mx-auto space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Infrastructure Epochs</span>
+            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Technology Evolution</h2>
+          </div>
+
+          <div className="relative border border-[#E2E8F0] bg-white rounded-[32px] p-8 max-w-5xl mx-auto shadow-sm">
+            {/* Connecting lines */}
+            <div className="absolute inset-0 pointer-events-none z-0 hidden md:block">
+              <svg className="w-full h-full" viewBox="0 0 800 120" fill="none">
+                <line x1="50" y1="60" x2="750" y2="60" stroke="#2563EB" strokeWidth="1.5" strokeDasharray="4,4" />
+              </svg>
+            </div>
+
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-6 gap-6">
+              {content.technologyEvolution?.map((tech, idx) => {
+                let TechIcon = FileText;
+                if (idx === 0) TechIcon = FileText;
+                else if (idx === 1) TechIcon = Database;
+                else if (idx === 2) TechIcon = Server;
+                else if (idx === 3) TechIcon = Activity;
+                else if (idx === 4) TechIcon = PieChart;
+                else if (idx === 5) TechIcon = Sparkles;
+
+                return (
+                  <div key={idx} className="flex flex-col items-center text-center space-y-3 group">
+                    <div className="h-12 w-12 rounded-full border-2 border-[#E2E8F0] bg-[#FFFFFF] flex items-center justify-center text-[#2563EB] shadow-sm group-hover:border-[#2563EB] group-hover:scale-105 transition-all duration-300">
+                      <TechIcon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-bold text-[#2563EB] font-mono">{tech.year}</div>
+                      <h4 className="font-bold text-xs text-[#0F172A] mt-1">{tech.name}</h4>
+                      <p className="text-[9px] text-slate-400 max-w-[120px] mx-auto mt-0.5">{tech.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MILESTONES WALL */}
+      <section className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
+          <div className="max-w-2xl mx-auto space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Achievements Archive</span>
+            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Milestones Wall</h2>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-2 border-b border-[#E2E8F0] pb-6 max-w-xl mx-auto">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveTag(cat)}
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+                  activeTag === cat
+                    ? 'bg-[#2563EB] text-white shadow-md'
+                    : 'bg-[#F8FAFC] border border-[#E2E8F0] text-slate-500 hover:border-slate-350 shadow-sm'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {content.yardsEvolution?.map((item, idx) => (
-              <div key={idx} className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-2xl p-6 text-left space-y-3 shadow-sm hover:border-slate-350 transition-all">
-                <div className="h-10 w-10 rounded-xl bg-blue-50 flex items-center justify-center text-[#2563EB]"><Building2 className="h-5 w-5" /></div>
-                <h4 className="font-bold text-xs text-[#0F172A] font-serif">{item.stage}</h4>
-                <p className="text-slate-500 text-[11px] leading-relaxed">{item.description}</p>
+            {filteredMilestones?.map((item, idx) => (
+              <div 
+                key={idx} 
+                className="border border-[#E2E8F0] bg-[#FFFFFF] rounded-2xl p-6 text-left space-y-3 shadow-sm hover:border-[#2563EB]/40 hover:shadow-md transition-all duration-300"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-[9px] font-bold text-slate-400 font-mono uppercase">{item.category}</span>
+                  <span className="text-[10px] font-bold text-[#2563EB] bg-[#2563EB]/10 px-2.5 py-0.5 rounded-full font-mono">{item.year}</span>
+                </div>
+                <h4 className="font-bold text-xs text-[#0F172A] font-serif leading-snug">{item.title}</h4>
+                <p className="text-slate-500 text-[10px] leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 8: HISTORICAL COMPLIANCE STANDARDS */}
-      <section className="py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Governance Roots</span>
-          <h3 className="text-2xl font-bold text-[#0F172A] font-serif">Compliance & Audits Checked Over Years</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {content.compliance?.map((c, i) => (
-              <span key={i} className="border border-[#E2E8F0] bg-[#FFFFFF] px-5 py-2.5 rounded-xl text-xs font-semibold text-[#0F172A]">
-                {c}
-              </span>
+      {/* FUTURE VISION */}
+      <section id="future" className="py-24 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
+          <div className="max-w-2xl mx-auto space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Future Roadmap</span>
+            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">The Next Chapter</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {content.futureRoadmap?.map((item, idx) => (
+              <div 
+                key={idx} 
+                className="backdrop-blur-md bg-white/60 border border-[#E2E8F0] rounded-2xl p-6 text-left space-y-3 shadow-sm hover:border-[#2563EB]/40 transition-all duration-300"
+              >
+                <div className="text-lg font-bold text-[#2563EB] font-mono">{item.year}</div>
+                <h4 className="font-bold text-xs text-[#0F172A] font-serif leading-snug">{item.title}</h4>
+                <p className="text-slate-500 text-[10px] leading-relaxed">{item.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SECTION 9: FUTURE ROADMAP */}
-      <section className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Strategic Roadmap</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">The Road Ahead</h2>
-            <p className="text-sm text-slate-500 max-w-xl mx-auto">
-              How SM Associates is incorporating technology to improve recovery yields and maintain regulatory compliance.
+      {/* CINEMATIC LEADERSHIP MORPH TRANSITION */}
+      <section id="leadership" className="py-24 bg-[#FFFFFF] overflow-hidden">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
+          <div className="max-w-3xl mx-auto space-y-4">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Stewardship Morph</span>
+            <h2 className="text-4xl font-extrabold tracking-tight text-[#0F172A] font-serif leading-tight">Company Evolution to Leadership</h2>
+            <p className="text-xs text-slate-500 leading-relaxed font-inter max-w-xl mx-auto">
+              Our continuous history road curves directly into organizational stewardship led by banking, legal compliance, and technological architects.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left">
-            {content.roadmap?.map((item, idx) => (
-              <div key={idx} className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-2xl p-6 space-y-3 relative shadow-sm">
-                <div className="text-xs font-bold text-[#2563EB] font-mono">Phase {item.phase} • {item.year}</div>
-                <h4 className="font-bold text-xs text-[#0F172A] font-serif">{item.title}</h4>
-                <p className="text-slate-500 text-[11px] leading-relaxed">{item.desc}</p>
+          {/* Morphing connectors org tree */}
+          <div className="max-w-3xl mx-auto border border-[#E2E8F0] bg-[#F8FAFC] rounded-[32px] p-8 shadow-sm relative overflow-hidden">
+            {/* Curved continuation roadmap lines morphing to tree */}
+            <div className="absolute inset-0 pointer-events-none z-0 hidden md:block">
+              <svg className="w-full h-full" viewBox="0 0 800 360" fill="none">
+                <path d="M 400 0 L 400 135" stroke="#2563EB" strokeWidth="1.5" strokeDasharray="3" />
+                <path d="M 400 180 L 400 230" stroke="#2563EB" strokeWidth="1.5" strokeDasharray="3" />
+                <path d="M 200 230 L 600 230" stroke="#2563EB" strokeWidth="1.5" strokeDasharray="3" />
+                <path d="M 200 230 L 200 270" stroke="#2563EB" strokeWidth="1.5" strokeDasharray="3" />
+                <path d="M 400 230 L 400 270" stroke="#2563EB" strokeWidth="1.5" strokeDasharray="3" />
+                <path d="M 600 230 L 600 270" stroke="#2563EB" strokeWidth="1.5" strokeDasharray="3" />
+              </svg>
+            </div>
+
+            <div className="relative z-10 space-y-12">
+              {/* Founder Node */}
+              <div className="flex justify-center">
+                <div className="bg-white border border-[#E2E8F0] rounded-2xl px-6 py-3.5 text-center shadow-sm max-w-xs hover:border-[#2563EB] transition-colors duration-300">
+                  <div className="text-[8px] font-bold text-slate-400 uppercase tracking-widest font-mono">Founding Chair • 2000</div>
+                  <h4 className="font-bold text-xs text-[#0F172A] mt-0.5">{content.leadershipEvolution?.founder.name}</h4>
+                  <p className="text-[9px] text-[#2563EB] uppercase font-mono">{content.leadershipEvolution?.founder.role}</p>
+                </div>
               </div>
-            ))}
+
+              {/* MD Node */}
+              <div className="flex justify-center">
+                <div className="bg-white border border-[#2563EB] rounded-2xl px-6 py-3.5 text-center shadow-md max-w-xs hover:scale-[1.02] transition-all duration-300">
+                  <div className="text-[8px] font-bold text-[#2563EB] uppercase tracking-widest font-mono">MD Appointment • 2016</div>
+                  <h4 className="font-bold text-xs text-[#0F172A] mt-0.5">{content.leadershipEvolution?.managingDirector.name}</h4>
+                  <p className="text-[9px] text-slate-500 uppercase font-mono">{content.leadershipEvolution?.managingDirector.role}</p>
+                </div>
+              </div>
+
+              {/* Board Directors Node */}
+              <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-12 pt-4">
+                {content.leadershipEvolution?.directors.map((dir, idx) => (
+                  <div key={idx} className="bg-white border border-[#E2E8F0] rounded-xl px-5 py-3.5 text-center shadow-sm w-full md:w-48 hover:border-[#2563EB] transition-colors duration-300">
+                    <div className="text-[8px] font-bold text-slate-400 uppercase tracking-widest font-mono">Board Join • {dir.year}</div>
+                    <h4 className="font-bold text-xs text-[#0F172A] mt-0.5">{dir.name}</h4>
+                    <p className="text-[9px] text-[#2563EB] uppercase font-mono">{dir.role}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Cinematic preview card & Navigation CTA */}
+          <div className="max-w-4xl mx-auto pt-8">
+            <div className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-[32px] p-12 space-y-6 shadow-sm">
+              <h3 className="text-2xl font-bold font-serif text-[#0F172A]">Stewardship of Decades of Operations</h3>
+              <p className="text-slate-500 text-xs leading-relaxed max-w-xl mx-auto">
+                Explore the executive stewardship directing our compliance operations, legal advisory boards, and recovery intelligence desks.
+              </p>
+              <div className="pt-2">
+                <Link to="/about/leadership" className="inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-8 py-3.5 text-sm font-bold text-white hover:bg-[#1D4ED8] transition-all hover:scale-[1.02] shadow-lg shadow-[#2563EB]/15 group">
+                  Meet the Leadership Team 
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 10: FAQ ACCORDION */}
-      <section className="py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="mx-auto max-w-3xl px-4">
-          <div className="text-center mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">History FAQ</span>
-            <h2 className="text-2xl font-bold font-serif text-[#0F172A] mt-2">Frequently Asked Questions</h2>
-          </div>
-          <div className="space-y-4">
-            {content.faqs?.map((faq, i) => (
-              <div key={i} className="border border-[#E2E8F0] rounded-2xl p-6 bg-[#FFFFFF] shadow-sm">
-                <button 
-                  onClick={() => setActiveFaq(activeFaq === i ? null : i)} 
-                  className="w-full flex justify-between items-center text-xs font-bold text-[#0F172A] text-left hover:text-[#2563EB] transition-colors"
-                >
-                  <span className="font-serif">{faq.q}</span>
-                  <ChevronDown className={`h-4 w-4 text-slate-400 transition-transform ${activeFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                {activeFaq === i && (
-                  <p className="mt-4 text-xs text-slate-500 border-t border-[#E2E8F0] pt-4 leading-relaxed">
-                    {faq.a}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 11: CONVERSION BANNER */}
-      <section className="py-24 bg-[#FFFFFF]">
+      {/* BRAND FOOTER WALL */}
+      <section className="py-20 bg-[#FFFFFF]">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <div className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-[32px] p-12 space-y-6 shadow-sm">
-            <h2 className="text-3xl font-bold text-[#0F172A] font-serif">{content.cta?.heading}</h2>
+            <h2 className="text-3xl font-bold text-[#0F172A] font-serif leading-snug">{content.cta?.heading}</h2>
             <p className="text-slate-500 max-w-xl mx-auto text-xs leading-relaxed">{content.cta?.subheading}</p>
-            <Link to={content.cta?.href || '/contact'} className="inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-8 py-3.5 text-sm font-bold text-white hover:bg-[#1D4ED8] transition-all hover:scale-[1.02]">
-              {content.cta?.buttonText || 'Schedule Consultation'} <ArrowRight className="h-4 w-4" />
-            </Link>
+            <div className="pt-2">
+              <Link to={content.cta?.href || '/contact'} className="inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-8 py-3.5 text-sm font-bold text-white hover:bg-[#1D4ED8] transition-all hover:scale-[1.02] shadow-lg shadow-[#2563EB]/15 group">
+                {content.cta?.buttonText || 'Partner With SM Associates'} 
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </div>
+            
+            <div className="pt-8 border-t border-[#E2E8F0] mt-8 text-center space-y-4">
+              <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400 font-mono">Trusted by Leading Financial Institutions</p>
+              <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 items-center opacity-40 grayscale hover:grayscale-0 transition-all duration-300">
+                {clientLogos.slice(0, 7).map((bank, i) => (
+                  <img key={i} src={bank.logo} alt={bank.name} className="h-5 w-auto object-contain" />
+                ))}
+                <span className="text-[10px] font-bold text-slate-400 font-mono uppercase tracking-wider">Many More</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -191,85 +191,194 @@ export const pagesContent = {
 
   'history': {
     eyebrow: 'Our Journey',
-    title: 'A Quarter-Century of Sustained Growth',
-    description: 'From a regional credit check agency established in the year 2000 to a multi-state B2B risk operations partner empanelled with over [CLIENT COUNT] banks.',
+    title: 'Building Trust Across Financial Institutions Since 2000',
+    description: 'From a regional recovery operation to a trusted risk management partner serving banks, NBFCs and financial institutions across South India.',
     stats: [
-      { value: '2000', label: 'Year Founded' },
-      { value: '[30+]', label: 'Empanelled Banking Partners' },
-      { value: '[5]', label: 'States Governed' },
-      { value: '[₹10,000+] Cr', label: 'NPAs Resolved [PLACEHOLDER]' }
+      { value: '25+', label: 'Years of Legacy' },
+      { value: '5', label: 'States Covered' },
+      { value: '916+', label: 'Field Professionals' },
+      { value: '100+', label: 'Banking Partners' },
+      { value: '1M+', label: 'Accounts Managed' }
     ],
-    eras: [
+    timelineMilestones: [
       {
-        year: '2000 - 2003',
-        title: 'The Genesis Era [PLACEHOLDER]',
-        desc: 'Established Chennai operations focusing on credit check verifications and pre-disbursal contact points (CPV) for retail lenders.',
-        milestone: 'Secured first direct verification panels with local public bank branches.'
+        year: '2000',
+        title: 'The Beginning',
+        summary: 'SM Associates was founded with a mission to bring professionalism and transparency to risk management and recovery operations.',
+        highlights: [
+          'Established Chennai headquarters',
+          'Formed initial pre-disbursal desk',
+          '12 field professionals active',
+          'First municipal bank empanelment'
+        ],
+        activeStates: ['Tamil Nadu'],
+        impact: [
+          { value: '1', label: 'State Covered' },
+          { value: '12', label: 'Field Force' },
+          { value: '1', label: 'Office' },
+          { value: '500+', label: 'Accounts' }
+        ]
       },
       {
-        year: '2004 - 2007',
-        title: 'The SARFAESI Era [PLACEHOLDER]',
-        desc: 'Expanded into legal foreclosure support under the newly implemented Securitization Act, serving statutory Section 13 notices.',
-        milestone: 'First nationalized bank empanelment for symbolic and physical repossession mandates.'
+        year: '2005',
+        title: 'Early Growth & Foundation',
+        summary: 'Expanded operations, built core processes and onboarded initial banking partners across Tamil Nadu.',
+        highlights: [
+          'Onboarded first nationalized bank panels',
+          'Established 3 branch offices in Tamil Nadu',
+          'IIBF DRA training integrated for all agents',
+          '45 field professionals active'
+        ],
+        activeStates: ['Tamil Nadu'],
+        impact: [
+          { value: '1', label: 'State Covered' },
+          { value: '45', label: 'Field Force' },
+          { value: '3', label: 'Offices' },
+          { value: '10K+', label: 'Accounts' }
+        ]
       },
       {
-        year: '2008 - 2012',
-        title: 'The Compliance Transition [PLACEHOLDER]',
-        desc: 'Integrated mandatory IIBF Debt Recovery Agent (DRA) training across all field teams following new RBI directives.',
-        milestone: 'Established internal compliance training centers and standardized calling hour locks.'
+        year: '2010',
+        title: 'Expanding Footprint',
+        summary: 'A defining milestone as we entered Karnataka and Kerala, building strong regional teams and enhancing our field investigation and recovery capabilities.',
+        highlights: [
+          'Entered 2 new states (Karnataka & Kerala)',
+          'Established 6 Regional Offices',
+          'Strengthened field force to 250+ professionals',
+          'Onboarded 25+ new banking partners',
+          'Managed 150K+ accounts successfully'
+        ],
+        activeStates: ['Tamil Nadu', 'Karnataka', 'Kerala'],
+        impact: [
+          { value: '3', label: 'States Covered' },
+          { value: '250+', label: 'Field Force' },
+          { value: '8', label: 'Offices' },
+          { value: '150K+', label: 'Accounts' }
+        ]
       },
       {
-        year: '2013 - 2017',
-        title: 'Multi-State Footprint [PLACEHOLDER]',
-        desc: 'Opened regional offices in Karnataka, Kerala, Andhra Pradesh, and Telangana to support client banks pan-South India.',
-        milestone: 'Secured physical custody yards across 12 strategic logistic hubs.'
+        year: '2015',
+        title: 'Strategic Scale-Up',
+        summary: 'Launched specialized legal recovery vertical and scaled technology enablement for end-to-end visibility.',
+        highlights: [
+          'Launched SARFAESI notices desk',
+          'Built 12 custody yards in South India',
+          'Proprietary CRM tracking integrated',
+          '420 field professionals active'
+        ],
+        activeStates: ['Tamil Nadu', 'Karnataka', 'Kerala'],
+        impact: [
+          { value: '3', label: 'States Covered' },
+          { value: '420', label: 'Field Force' },
+          { value: '18', label: 'Offices' },
+          { value: '500K+', label: 'Accounts' }
+        ]
       },
       {
-        year: '2018 - 2022',
-        title: 'Digital Integration [PLACEHOLDER]',
-        desc: 'Launched secure SFTP data portals, real-time GPS coordinate logging, and 100% voice recorded outbound setups.',
-        milestone: 'Completed ISO 27001 data audit alignment and secure banking console APIs.'
+        year: '2020',
+        title: 'Pan-South India Presence',
+        summary: 'Expanded to Telangana and Andhra Pradesh, establishing regional offices and strengthening local networks.',
+        highlights: [
+          'Opened Hyderabad & Vijayawada offices',
+          'Secured ISO 27001 data certification',
+          '750 field professionals active',
+          '25 custody yards fully audited'
+        ],
+        activeStates: ['Tamil Nadu', 'Karnataka', 'Kerala', 'Telangana', 'Andhra Pradesh'],
+        impact: [
+          { value: '5', label: 'States Covered' },
+          { value: '750', label: 'Field Force' },
+          { value: '27', label: 'Offices' },
+          { value: '800K+', label: 'Accounts' }
+        ]
       },
       {
-        year: '2023 - Present',
-        title: 'FinTech Operations Wave [PLACEHOLDER]',
-        desc: 'Scaled operations to handle high-velocity digital-first microlending books with dynamic settlement SLA TATs.',
-        milestone: 'Integrating automated portfolio segment diagnostics and predictive recovery routing.'
+        year: '2025',
+        title: 'Transformation & Innovation',
+        summary: 'Invested in automation, analytics and digital platforms to drive efficiency, compliance and performance.',
+        highlights: [
+          'Implemented mobile GPS tracking for field visits',
+          'Launched client telemetry SFTP pipelines',
+          '916 field professionals active',
+          'Passed 100% compliance audits'
+        ],
+        activeStates: ['Tamil Nadu', 'Karnataka', 'Kerala', 'Telangana', 'Andhra Pradesh'],
+        impact: [
+          { value: '5', label: 'States Covered' },
+          { value: '916', label: 'Field Force' },
+          { value: '35', label: 'Offices' },
+          { value: '1M+', label: 'Accounts' }
+        ]
+      },
+      {
+        year: '2026',
+        title: 'The Road Ahead',
+        summary: 'Continuing our journey to become India\'s most trusted risk management and recovery partner.',
+        highlights: [
+          'Integrating AI predictive recovery routing',
+          'Adding real-time speech compliance analytics',
+          'Scaling B2B collections to West and North regions',
+          'Launching future platform core'
+        ],
+        activeStates: ['Tamil Nadu', 'Karnataka', 'Kerala', 'Telangana', 'Andhra Pradesh'],
+        impact: [
+          { value: '6', label: 'States (Planned)' },
+          { value: '1000+', label: 'Field Force (Target)' },
+          { value: '40+', label: 'Offices (Target)' },
+          { value: '1.2M+', label: 'Accounts (Target)' }
+        ]
       }
     ],
-    growthData: [
-      { year: '2000', staff: 12, branches: 1, yards: 0 },
-      { year: '2005', staff: 45, branches: 3, yards: 2 },
-      { year: '2010', staff: 180, branches: 8, yards: 5 },
-      { year: '2015', staff: 420, branches: 18, yards: 8 },
-      { year: '2020', staff: 750, branches: 27, yards: 12 },
-      { year: '2026', staff: 916, branches: 35, yards: 15 }
+    geographicExpansion: [
+      { year: '2000', state: 'Tamil Nadu' },
+      { year: '2005', state: 'Karnataka' },
+      { year: '2010', state: 'Kerala' },
+      { year: '2020', state: 'Telangana' },
+      { year: '2020', state: 'Andhra Pradesh' }
     ],
-    empanelments: [
-      { year: '2004', bank: 'State Bank of India [PLACEHOLDER]', scope: 'Retail & Cards Recovery' },
-      { year: '2008', bank: 'HDFC Bank [PLACEHOLDER]', scope: 'Auto Loan Repossessions' },
-      { year: '2012', bank: 'Axis Bank [PLACEHOLDER]', scope: 'Commercial NPA Solutions' },
-      { year: '2016', bank: 'Canara Bank [PLACEHOLDER]', scope: 'SARFAESI Notices Serving' },
-      { year: '2021', bank: 'Bajaj Finance [PLACEHOLDER]', scope: 'Pan-State Ground Collections' }
+    serviceEvolution: [
+      { id: 'verification', name: 'Verification Services', year: '2000', desc: 'Pre-disbursal checking, address verification, and profile checkpoints.' },
+      { id: 'collections', name: 'Collections Management', year: '2005', desc: 'Compliant doorstep collections and digital receipt entries.' },
+      { id: 'legal', name: 'Legal Recovery', year: '2010', desc: 'SARFAESI Act notices and District Magistrate court filings coordination.' },
+      { id: 'asset', name: 'Asset Recovery', year: '2015', desc: 'Symbolic and physical property repossession custody logistics.' },
+      { id: 'investigation', name: 'Investigation Services', year: '2020', desc: 'Skip-tracing, asset tracking, and verification diagnostics.' },
+      { id: 'analytics', name: 'Analytics & Intelligence', year: '2025', desc: 'AI predictive default scoring and real-time speech analytics.' }
     ],
-    yardsEvolution: [
-      { stage: 'Phase 1: Basic Storage (2004)', description: 'Fenced physical plots for holding agricultural repossessions.' },
-      { stage: 'Phase 2: Managed Custody (2012)', description: 'Adding full-time security guards and standardized vehicle check-in reports.' },
-      { stage: 'Phase 3: Secure Audit Yards (2020)', description: 'Fenced locations with 24/7 CCTV feeds, ISO data custody, and digital inventory checkins.' }
+    technologyEvolution: [
+      { name: 'Manual Operations', year: '2000', desc: 'Paper-based reports and physically coordinated file handovers.' },
+      { name: 'Excel Tracking', year: '2005', desc: 'Digitized spreadsheets for case management.' },
+      { name: 'Digital Reporting', year: '2010', desc: 'Centralized database storage and email delivery schedules.' },
+      { name: 'Mobile Operations', year: '2015', desc: 'First mobile apps for field agents with basic GPS logging.' },
+      { name: 'Recovery Analytics', year: '2020', desc: 'Real-time dashboards, SLA TAT tracking, and secure SFTP transfers.' },
+      { name: 'AI Assisted Operations', year: '2025', desc: 'Voice logger analysis and machine learning route mappings.' }
     ],
-    roadmap: [
-      { phase: '01', year: '2026', title: 'Predictive Dialers [PLACEHOLDER]', desc: 'Deploying speech analytics to identify compliance deviations in real-time.' },
-      { phase: '02', year: '2027', title: 'ML Diagnostics [PLACEHOLDER]', desc: 'Building models to score borrower default resolution probabilities automatically.' },
-      { phase: '03', year: '2028', title: 'Asset Tracking [PLACEHOLDER]', desc: 'Deploying smart tags to track collateral locations in secure yards.' }
+    leadershipEvolution: {
+      founder: { name: 'R. S. Venkatesan', role: 'Founder & Board Member', year: '2000' },
+      managingDirector: { name: 'Arun Kumar R.', role: 'Managing Director', year: '2016' },
+      directors: [
+        { name: 'Meera Nair', role: 'ED - Legal & Compliance', year: '2018' },
+        { name: 'Vikram S.', role: 'ED - Strategy & Growth', year: '2017' },
+        { name: 'Sridhar K.', role: 'ED - Technology', year: '2019' }
+      ]
+    },
+    milestonesWall: [
+      { title: 'First Major Bank Partnership', year: '2004', category: 'Partnerships', desc: 'Empanelled with State Bank of India for retail credit card collections.' },
+      { title: 'Entered Karnataka & Kerala', year: '2010', category: 'Expansion', desc: 'Opened regional hubs in Bangalore and Cochin to expand geographic reach.' },
+      { title: 'Launched Legal Recovery Vertical', year: '2012', category: 'Technology', desc: 'Created specialized legal desk coordinating Sec 13 SARFAESI operations.' },
+      { title: 'Pan-South India Presence', year: '2020', category: 'Expansion', desc: 'Expanded physical operations into Hyderabad and Vijayawada.' },
+      { title: 'Digital Platform Launch', year: '2022', category: 'Technology', desc: 'Deployed encrypted banking dashboard terminal for live tracking.' },
+      { title: '1M+ Accounts Milestone', year: '2025', category: 'Recognition', desc: 'Surpassed 1 million retail accounts successfully resolved and managed.' }
     ],
-    faqs: [
-      { q: 'How has SM Associates adapted to historical RBI policy updates?', a: 'Every major policy update (DRA mandates in 2008, caller regulations in 2022) has been integrated into our standard operating procedures within 30 days, backed by mandatory retrainings.' },
-      { q: 'What is the average empanelment tenure with client banks?', a: 'Our average relationship tenure exceeds 8 years, reflecting our reliability, compliance audit passes, and recovery yields.' }
+    futureRoadmap: [
+      { year: '2026', title: 'Strengthen Digital Infrastructure', desc: 'Integrating localized speech analytics to monitor field agent compliance in real-time.' },
+      { year: '2027', title: 'AI Driven Recovery Intelligence', desc: 'Deploying predictive machine learning models to score account settlement probabilities.' },
+      { year: '2028', title: 'National Scale Expansion', desc: 'Scaling B2B collections and repossession logistics network to North and West regions.' },
+      { year: '2030', title: 'Industry-Leading Risk Partner', desc: 'Establishing India\'s most trusted, 100% compliant risk mitigation ecosystem.' }
     ],
     cta: {
-      heading: 'Partner with an Established Leader',
-      subheading: 'Secure your portfolio with a partner that has successfully navigated credit lifecycles and compliance evolutions for over 25 years.',
-      buttonText: 'Request Credentials Profile',
+      heading: 'A Legacy Built Through Trust, Discipline and Results',
+      subheading: 'For over two decades, we have partnered with financial institutions to protect assets, reduce risk and build stronger financial ecosystems.',
+      buttonText: 'Partner With SM Associates',
       href: '/contact'
     }
   },
