@@ -111,10 +111,10 @@
 /* Glass ring / platform — a layered glass "tube" ring + energy arcs sweeping
    around it, drawn as near-circular ellipses then foreshortened by the
    rotateX tilt so it reads as a dish viewed at an angle */
-.orb6-dish{position:absolute;left:50%;top:50%;width:640px;height:420px;transform:translate(-50%,-50%) perspective(900px) rotateX(64deg);pointer-events:none;z-index:1;}
-@media(max-width:1100px){.orb6-dish{width:530px;height:348px;}}
-@media(max-width:960px){.orb6-dish{width:480px;height:315px;}}
-@media(max-width:640px){.orb6-dish{width:400px;height:262px;}}
+.orb6-dish{position:absolute;left:50%;top:50%;width:520px;height:340px;transform:translate(-50%,-50%) perspective(900px) rotateX(20deg);pointer-events:none;z-index:1;}
+@media(max-width:1100px){.orb6-dish{width:435px;height:285px;}}
+@media(max-width:960px){.orb6-dish{width:394px;height:259px;}}
+@media(max-width:640px){.orb6-dish{width:328px;height:215px;}}
 .orb6-dish svg{width:100%;height:100%;overflow:visible;}
 .fg-ring-arc-a{animation:ring-arc-sweep 9s linear infinite;}
 .fg-ring-arc-b{animation:ring-arc-sweep-rev 13s linear infinite;}
@@ -124,8 +124,8 @@
 /* Core cube — bigger, gradient box with specular sweep + cursor tilt
    (tilt applied via inline transform from JS) */
 /* Core cube — centered via negative margins since React mouse hover updates transform directly */
-.orb6-core{position:absolute;left:50%;top:48%;width:232px;height:232px;margin-left:-116px;margin-top:-116px;z-index:6;transform-style:preserve-3d;}
-@media(max-width:640px){.orb6-core{width:182px;height:182px;margin-left:-91px;margin-top:-91px;top:48%;}}
+.orb6-core{position:absolute;left:50%;top:50%;width:232px;height:232px;margin-left:-116px;margin-top:-116px;z-index:6;transform-style:preserve-3d;}
+@media(max-width:640px){.orb6-core{width:182px;height:182px;margin-left:-91px;margin-top:-91px;top:50%;}}
 .orb6-box{width:100%;height:100%;border-radius:40px;background:linear-gradient(148deg,#3a68ec,#1e43c8 55%,#16319e);display:flex;flex-direction:column;align-items:center;justify-content:center;
   box-shadow:0 46px 110px -12px rgba(28,60,180,.55),0 18px 50px -10px rgba(51,102,255,.4),0 0 80px -10px rgba(91,130,255,.55),0 2px 0 rgba(255,255,255,.5) inset,0 -22px 44px -18px rgba(0,0,0,.35) inset;
   position:relative;overflow:hidden;animation:core-float 6s ease-in-out infinite;}
@@ -409,4 +409,57 @@
 .cta6-card p{margin:20px auto 0;max-width:52ch;color:var(--ink-2);font-size:18px;}
 .cta6-actions{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 .cta6-assure{margin-top:22px;font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;}
+
+/* ═══════════════════════════════════════════════
+   11 · TESTIMONIAL VIDEO
+═══════════════════════════════════════════════ */
+.tv6{background:#fff;padding:120px 0;}
+.tv6-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media(max-width:960px){.tv6-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){.tv6-grid{grid-template-columns:1fr;}}
+.tv6-card{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;transition:box-shadow .3s var(--ease),transform .3s var(--ease);}
+.tv6-card:hover{box-shadow:0 24px 60px -16px rgba(20,40,120,.14);transform:translateY(-3px);}
+.tv6-thumb{position:relative;aspect-ratio:16/10;background:linear-gradient(135deg,var(--blue-t),rgba(124,58,237,.08));display:flex;align-items:center;justify-content:center;}
+.tv6-thumb-tag{position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);background:rgba(255,255,255,.85);padding:4px 9px;border-radius:100px;border:1px solid var(--line);}
+.tv6-play{width:52px;height:52px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px -6px rgba(20,40,120,.25);color:var(--blue);}
+.tv6-body{padding:22px 22px 24px;}
+.tv6-quote{font-size:14px;line-height:1.55;color:var(--ink-2);}
+.tv6-who{margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3);}
 @media(max-width:600px){.cta6-card{padding:50px 24px;}}
+
+/* ═══════════════════════════════════════════════
+   12 · HERO DASHBOARD MOCKUP (hero visual)
+═══════════════════════════════════════════════ */
+.dbv6{position:relative;max-width:480px;margin-left:auto;padding:18px 22px 22px;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:0 32px 80px -18px rgba(20,40,120,.18);overflow:hidden;}
+@media(max-width:960px){.dbv6{margin:0 auto;}}
+.dbv6-glow{position:absolute;width:280px;height:280px;left:90%;top:-10%;transform:translateX(-50%);background:radial-gradient(circle,rgba(51,102,255,.12),transparent 70%);filter:blur(40px);pointer-events:none;}
+.dbv6-topbar{position:relative;display:flex;align-items:center;gap:6px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--line);}
+.dbv6-dot{width:8px;height:8px;border-radius:50%;background:var(--line);}
+.dbv6-dot:nth-child(1){background:#ff5f57;}
+.dbv6-dot:nth-child(2){background:#febc2e;}
+.dbv6-dot:nth-child(3){background:#28c840;}
+.dbv6-title{margin-left:8px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-3);}
+.dbv6-tabs{position:relative;display:flex;gap:18px;margin-bottom:18px;}
+.dbv6-tabs button{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:12.5px;font-weight:600;color:var(--ink-3);padding:0 0 8px;border:none;border-bottom:2px solid transparent;background:none;cursor:pointer;transition:color .2s var(--ease);}
+.dbv6-tabs button:hover{color:var(--ink-2);}
+.dbv6-tabs button.on{color:var(--blue);border-color:var(--blue);}
+.dbv6-kpis{position:relative;display:flex;gap:10px;margin-bottom:16px;}
+.dbv6-kpi{flex:1;padding:12px 14px;border-radius:12px;background:var(--line-2);}
+.dbv6-kpi .v{font-family:var(--sans);font-size:19px;font-weight:800;color:var(--ink);}
+.dbv6-kpi .k{font-size:10.5px;color:var(--ink-3);margin-top:2px;}
+.dbv6-chart{position:relative;display:flex;align-items:flex-end;gap:7px;height:64px;margin-bottom:18px;padding:0 2px;}
+.dbv6-chart i{flex:1;background:linear-gradient(180deg,var(--blue-3),var(--blue));border-radius:4px 4px 0 0;transition:height .7s var(--ease-io);}
+.dbv6-table{position:relative;display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.dbv6-row{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;background:var(--line-2);}
+.dbv6-case{font-family:var(--mono);font-size:11px;color:var(--ink-2);min-width:78px;}
+.dbv6-stage{flex:1;font-size:12px;color:var(--ink-3);}
+.dbv6-status{font-family:var(--sans);font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:100px;white-space:nowrap;}
+.dbv6-status.amber{background:rgba(217,119,6,.12);color:#b45309;}
+.dbv6-status.blue{background:var(--blue-t);color:var(--blue);}
+.dbv6-status.gray{background:var(--line-2);color:var(--ink-3);border:1px solid var(--line);}
+.dbv6-status.green{background:var(--green-t);color:var(--green);}
+.dbv6-coverage{position:relative;display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--ink-3);padding-top:14px;border-top:1px solid var(--line);}
+.dbv6-report-row{align-items:center;}
+.dbv6-report-icon{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:var(--blue-t);color:var(--blue);flex-shrink:0;}
+.dbv6-report-meta{font-size:10.5px;color:var(--ink-3);margin-top:2px;}
+

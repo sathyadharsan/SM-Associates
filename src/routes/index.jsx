@@ -71,16 +71,6 @@ import ComplianceMonitoringPage from '../pages/recovery-operations/ComplianceMon
 import OperationsRecoveryAnalyticsPage from '../pages/recovery-operations/RecoveryAnalyticsPage'; // Aliased to avoid clash
 import AiRecoveryPage from '../pages/recovery-operations/AiRecoveryPage';
 
-// Coverage
-import CoverageIndex from '../pages/coverage/CoverageIndex';
-import TamilNaduPage from '../pages/coverage/TamilNaduPage';
-import KarnatakaPage from '../pages/coverage/KarnatakaPage';
-import KeralaPage from '../pages/coverage/KeralaPage';
-import TelanganaPage from '../pages/coverage/TelanganaPage';
-import AndhraPradeshPage from '../pages/coverage/AndhraPradeshPage';
-import PuducherryPage from '../pages/coverage/PuducherryPage';
-import BranchNetworkPage from '../pages/coverage/BranchNetworkPage';
-
 // Insights
 import InsightsIndex from '../pages/insights/InsightsIndex';
 import CaseStudiesPage from '../pages/insights/CaseStudiesPage';
@@ -176,16 +166,6 @@ export default function AppRoutes() {
         <Route path="/recovery-operations/compliance-monitoring" element={<ComplianceMonitoringPage />} />
         <Route path="/recovery-operations/recovery-analytics" element={<OperationsRecoveryAnalyticsPage />} />
         <Route path="/recovery-operations/ai-recovery" element={<AiRecoveryPage />} />
-
-        {/* Coverage */}
-        <Route path="/coverage" element={<CoverageIndex />} />
-        <Route path="/coverage/tamil-nadu" element={<TamilNaduPage />} />
-        <Route path="/coverage/karnataka" element={<KarnatakaPage />} />
-        <Route path="/coverage/kerala" element={<KeralaPage />} />
-        <Route path="/coverage/telangana" element={<TelanganaPage />} />
-        <Route path="/coverage/andhra-pradesh" element={<AndhraPradeshPage />} />
-        <Route path="/coverage/puducherry" element={<PuducherryPage />} />
-        <Route path="/coverage/branch-network" element={<BranchNetworkPage />} />
 
         {/* Insights */}
         <Route path="/insights" element={<InsightsIndex />} />

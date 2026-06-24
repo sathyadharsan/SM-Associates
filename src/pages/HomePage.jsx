@@ -8,6 +8,7 @@ import CapabilitiesRadialSection from '../sections/CapabilitiesRadialSection';
 import CommandCenterSection from '../sections/CommandCenterSection';
 import RecoveryOsArchitectureSection from '../sections/RecoveryOsArchitectureSection';
 import OutcomesSection from '../sections/OutcomesSection';
+import TestimonialVideoSection from '../sections/TestimonialVideoSection';
 import ComplianceScanSection from '../sections/ComplianceScanSection';
 import FaqSection from '../sections/FaqSection';
 import FlagshipCtaSection from '../sections/FlagshipCtaSection';
@@ -24,6 +25,7 @@ export default function HomePage() {
       <CommandCenterSection />
       <RecoveryOsArchitectureSection />
       <OutcomesSection />
+      <TestimonialVideoSection />
       <ComplianceScanSection />
       <FaqSection />
       <FlagshipCtaSection />

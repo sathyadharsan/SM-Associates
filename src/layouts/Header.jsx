@@ -130,12 +130,21 @@ const getItemDescription = (label) => {
   }
 };
 
+const getMenuSubtitle = (label) => {
+  switch (label) {
+    case 'Services': return 'Explore our recovery, verification and risk management capabilities.';
+    case 'Industries': return 'Solutions tailored to your sector and lending product.';
+    default: return '';
+  }
+};
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState(null);
   const [hoverKey, setHoverKey] = useState(null);
+  const [expandedCategory, setExpandedCategory] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -148,6 +157,10 @@ export default function Header() {
     setMobileOpen(false);
     setActiveMenu(null);
   }, [location]);
+
+  useEffect(() => {
+    setExpandedCategory(null);
+  }, [activeMenu]);
 
   // Filter out Home, Careers, Contact from middle nav since they might be standalone or placed elsewhere
   const middleNavItems = navigationData.mainNav.filter(
@@ -209,7 +222,7 @@ export default function Header() {
                       <button
                         onMouseEnter={() => setActiveMenu(key)}
                         onClick={() => setActiveMenu(activeMenu === key ? null : key)}
-                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[14px] font-semibold tracking-[-0.01em] text-gray-900/65 transition-colors duration-200 hover:text-gray-950"
+                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-[-0.01em] text-gray-900/65 transition-colors duration-200 hover:text-gray-950"
                       >
                         {navItem.label}
                         <ChevronDown
@@ -229,7 +242,7 @@ export default function Header() {
                     ) : (
                       <Link
                         to={navItem.href}
-                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[14px] font-semibold tracking-[-0.01em] text-gray-900/65 transition-colors duration-200 hover:text-gray-950"
+                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-[-0.01em] text-gray-900/65 transition-colors duration-200 hover:text-gray-950"
                       >
                         {navItem.label}
                       </Link>
@@ -238,80 +251,120 @@ export default function Header() {
                     <AnimatePresence>
                       {activeMenu === key && hasDropdown && (
                         <motion.div
-                          initial={{ opacity: 0, y: 12, scale: 0.98, x: navItem.isMegaMenu ? "0%" : "-50%" }}
-                          animate={{ opacity: 1, y: 0, scale: 1, x: navItem.isMegaMenu ? "0%" : "-50%" }}
-                          exit={{ opacity: 0, y: 8, scale: 0.98, x: navItem.isMegaMenu ? "0%" : "-50%" }}
+                          initial={{ opacity: 0, y: 12, scale: 0.98, x: "-50%" }}
+                          animate={{ opacity: 1, y: 0, scale: 1, x: "-50%" }}
+                          exit={{ opacity: 0, y: 8, scale: 0.98, x: "-50%" }}
                           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                          className={`absolute top-full pt-4 z-50 ${
-                            navItem.isMegaMenu ? 'left-0 right-0 mx-auto w-full max-w-[1300px]' : 'left-1/2 w-[280px]'
+                          className={`absolute top-full left-1/2 pt-4 z-50 ${
+                            navItem.isMegaMenu ? 'w-[680px]' : navItem.children?.length >= 6 ? 'w-[480px]' : 'w-[280px]'
                           }`}
                         >
                           <div
-                            className={`w-full overflow-hidden rounded-2xl ${
-                              navItem.isMegaMenu ? 'p-8' : 'p-4'
-                            }`}
+                            className={`w-full max-h-[75vh] overflow-y-auto overflow-x-hidden rounded-2xl ${navItem.isMegaMenu ? '' : 'p-3'}`}
                             style={{
-                              background: '#0B1120',
-                              border: '1px solid rgba(255,255,255,0.08)',
-                              boxShadow: `0 32px 64px -12px rgba(0,0,0,0.5), 0 0 40px -10px ${BRAND}40`,
+                              background: '#ffffff',
+                              border: '1px solid rgba(15,23,42,0.08)',
+                              boxShadow: '0 32px 64px -12px rgba(15,23,42,0.20), 0 0 0 1px rgba(15,23,42,0.02)',
                             }}
                           >
                             {navItem.isMegaMenu ? (
-                              <div className={navItem.columns.length === 6 ? "grid grid-cols-3 gap-x-12 gap-y-10" : "grid grid-cols-4 gap-8"}>
-                                {navItem.columns.map((col, idx) => (
-                                  <div key={idx} className="flex-1">
-                                    <div className="mb-4 flex items-center gap-2">
-                                      {getColumnIcon(col.title)}
-                                      <h3 className="text-[11px] font-bold uppercase tracking-widest text-slate-100">
-                                        {col.title}
-                                      </h3>
-                                    </div>
-                                    <div className="flex flex-col gap-2">
-                                      {col.items.map((item) => (
-                                        <Link
-                                          key={item.label}
-                                          to={item.href}
-                                          onClick={() => setActiveMenu(null)}
-                                          className="group flex items-start gap-3 rounded-xl p-2.5 -mx-2.5 transition-all duration-200 hover:bg-white/[0.04] hover:shadow-lg hover:shadow-black/10"
+                              <div className="flex">
+                                <div
+                                  className="w-[240px] shrink-0 p-6"
+                                  style={{ background: `linear-gradient(180deg, ${BRAND}14, ${VIOLET}0F)` }}
+                                >
+                                  <h3 className="font-sora text-2xl font-bold text-slate-900">{navItem.label}</h3>
+                                  <p className="mt-2 text-[13px] leading-snug text-slate-500">
+                                    {getMenuSubtitle(navItem.label)}
+                                  </p>
+
+                                  <div className="mt-6 flex flex-col gap-2">
+                                    {navItem.columns.map((col, idx) => {
+                                      const activeTitle = expandedCategory ?? navItem.columns[0].title;
+                                      const isActive = activeTitle === col.title;
+                                      return (
+                                        <button
+                                          key={idx}
+                                          onMouseEnter={() => setExpandedCategory(col.title)}
+                                          onClick={() => setExpandedCategory(col.title)}
+                                          className={`flex items-center justify-between gap-2 rounded-xl px-4 py-3 text-left text-[15px] font-semibold transition-all ${
+                                            isActive ? 'bg-white text-slate-900 shadow-md' : 'bg-white/50 text-slate-700 hover:bg-white/80'
+                                          }`}
                                         >
-                                          <div className="mt-1 shrink-0 p-1 rounded-lg bg-white/[0.03] group-hover:bg-blue-500/10 transition-colors">
-                                            <ItemIcon />
-                                          </div>
-                                          <div className="flex flex-col">
-                                            <span className="text-[13px] font-semibold text-slate-200 transition-colors group-hover:text-white leading-tight">
-                                              {item.label}
-                                            </span>
-                                            <span className="text-[11px] text-slate-500 transition-colors group-hover:text-slate-400 mt-0.5 leading-snug">
-                                              {getItemDescription(item.label)}
-                                            </span>
-                                          </div>
-                                        </Link>
-                                      ))}
-                                    </div>
+                                          {col.title}
+                                          {!isActive && <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" />}
+                                        </button>
+                                      );
+                                    })}
                                   </div>
-                                ))}
+                                </div>
+
+                                <div className="min-w-[400px] flex-1 p-6">
+                                  {(() => {
+                                    const activeTitle = expandedCategory ?? navItem.columns[0].title;
+                                    const activeCol = navItem.columns.find((c) => c.title === activeTitle);
+                                    return (
+                                      <motion.div
+                                        key={activeTitle}
+                                        initial={{ opacity: 0, y: 4 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.15 }}
+                                      >
+                                        <div className="grid grid-cols-2 gap-x-5 gap-y-2">
+                                          {activeCol.items.map((item) => (
+                                            <Link
+                                              key={item.label}
+                                              to={item.href}
+                                              onClick={() => setActiveMenu(null)}
+                                              className="group flex items-center justify-between gap-2 rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50"
+                                            >
+                                              <span className="text-[15px] font-medium text-slate-700 transition-colors group-hover:text-slate-900">
+                                                {item.label}
+                                              </span>
+                                              <ArrowRight className="h-4 w-4 shrink-0 text-slate-300 transition-all group-hover:translate-x-0.5 group-hover:text-blue-500" />
+                                            </Link>
+                                          ))}
+                                        </div>
+
+                                        <div className="mt-5 flex items-center justify-between gap-4 rounded-xl border border-slate-100 bg-slate-50 px-4 py-3.5">
+                                          <span className="text-[13px] text-slate-500">
+                                            Need help choosing the right {navItem.label.toLowerCase()}?
+                                          </span>
+                                          <Link
+                                            to="/contact"
+                                            onClick={() => setActiveMenu(null)}
+                                            className="shrink-0 rounded-lg px-3.5 py-2 text-[13px] font-semibold text-white transition-transform hover:-translate-y-0.5"
+                                            style={{ background: `linear-gradient(135deg, ${BRAND}, ${VIOLET})` }}
+                                          >
+                                            Contact Us
+                                          </Link>
+                                        </div>
+                                      </motion.div>
+                                    );
+                                  })()}
+                                </div>
                               </div>
                             ) : (
-                              <div className="flex flex-col gap-2">
+                              <div className={navItem.children.length >= 6 ? 'grid grid-cols-2 gap-2' : 'flex flex-col gap-2'}>
                                 {navItem.children.map((item) => (
                                   <Link
                                     key={item.label}
                                     to={item.href}
                                     onClick={() => setActiveMenu(null)}
-                                    className="group flex items-start gap-3 rounded-xl p-2 transition-colors hover:bg-white/[0.04]"
+                                    className="group flex items-start gap-3 rounded-xl p-2 transition-colors hover:bg-slate-50"
                                   >
-                                    <div className="mt-1 shrink-0 p-1 rounded-lg bg-white/[0.03] group-hover:bg-blue-500/10 transition-colors">
+                                    <div className="mt-1 shrink-0 p-1 rounded-lg bg-slate-100 group-hover:bg-blue-500/10 transition-colors">
                                       <ItemIcon />
                                     </div>
                                     <div className="flex flex-col">
-                                      <span className="text-[13px] font-semibold text-slate-200 transition-colors group-hover:text-white leading-tight">
+                                      <span className="text-[13px] font-semibold text-slate-800 transition-colors group-hover:text-slate-950 leading-tight">
                                         {item.label}
                                       </span>
-                                      <span className="text-[11px] text-slate-500 transition-colors group-hover:text-slate-400 mt-0.5 leading-snug">
+                                      <span className="text-[11px] text-slate-500 transition-colors group-hover:text-slate-600 mt-0.5 leading-snug">
                                         {getItemDescription(item.label)}
                                       </span>
                                       {item.isFuture && (
-                                        <span className="mt-1 inline-block rounded bg-indigo-500/10 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-indigo-400 w-fit border border-indigo-500/20">
+                                        <span className="mt-1 inline-block rounded bg-indigo-50 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-indigo-600 w-fit border border-indigo-200">
                                           Future Release
                                         </span>
                                       )}
@@ -333,25 +386,19 @@ export default function Header() {
             <div className="hidden shrink-0 items-center gap-4 xl:flex">
               <Link
                 to="/careers"
-                className="text-[14px] font-semibold text-gray-900/65 transition hover:text-gray-950"
+                className="relative inline-flex items-center px-3 py-2 text-[15px] font-semibold text-gray-900/65 transition-colors duration-200 hover:text-gray-950"
               >
                 Careers
               </Link>
               <Link
-                to="/login"
-                className="text-[14px] font-semibold text-indigo-600 transition hover:text-indigo-800"
-              >
-                Client Login
-              </Link>
-              <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[14px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[15px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5"
                 style={{
                   background: `linear-gradient(135deg, ${BRAND}, ${VIOLET})`,
                   boxShadow: `0 8px 24px -4px ${BRAND}66, 0 0 0 1px rgba(255,255,255,0.15) inset`,
                 }}
               >
-                Book a Consultation
+                Contact Us
                 <CalendarDays className="h-4 w-4 transition-transform duration-300 group-hover:rotate-6" />
               </Link>
             </div>
@@ -460,19 +507,12 @@ export default function Header() {
                       Careers
                     </Link>
                     <Link
-                      to="/login"
-                      onClick={() => setMobileOpen(false)}
-                      className="block rounded-xl px-3 py-2.5 text-[14px] font-semibold text-indigo-600 hover:bg-indigo-50"
-                    >
-                      Client Login
-                    </Link>
-                    <Link
                       to="/contact"
                       onClick={() => setMobileOpen(false)}
                       className="flex items-center justify-center gap-2 rounded-xl py-3 text-[14px] font-bold text-white"
                       style={{ background: `linear-gradient(135deg, ${BRAND}, ${VIOLET})` }}
                     >
-                      Book a Consultation <ArrowRight className="h-4 w-4" />
+                      Contact Us <ArrowRight className="h-4 w-4" />
                     </Link>
                   </div>
                 </div>
