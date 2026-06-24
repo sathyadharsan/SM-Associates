@@ -4,11 +4,16 @@
 // component names, resolved via an iconMap in the consuming component.
 
 export const heroServiceCards = [
-  { icon: 'TrendingUp', name: 'Collections', name2: 'Management', style: { right: 0, top: '5%' }, float: 'f1', dur: 4.4, depth: 1.4 },
-  { icon: 'Search', name: 'CPV & Field', name2: 'Verifications', style: { left: 0, top: '22%' }, float: 'f2', dur: 5.1, depth: 2 },
-  { icon: 'UserSearch', name: 'Skip Tracing &', name2: 'Investigations', style: { left: '1%', bottom: '20%' }, float: 'f3', dur: 4.7, depth: 1.7 },
-  { icon: 'Shield', name: 'Legal &', name2: 'SARFAESI', style: { right: 0, top: '38%' }, float: 'f4', dur: 4.9, depth: 1.5 },
-  { icon: 'Warehouse', name: 'Asset Recovery &', name2: 'Auction Services', style: { right: '1%', bottom: '16%' }, float: 'f5', dur: 4.3, depth: 1.3 },
+  // Top-right — Collections Management
+  { icon: 'TrendingUp', name: 'Collections', name2: 'Management', style: { right: '4%', top: '4%' }, float: 'f1', dur: 4.4, depth: 1.4 },
+  // Left — CPV & Field Verifications
+  { icon: 'Search', name: 'CPV & Field', name2: 'Verifications', style: { left: '4%', top: '20%' }, float: 'f2', dur: 5.1, depth: 2 },
+  // Bottom-left — Skip Tracing
+  { icon: 'UserSearch', name: 'Skip Tracing &', name2: 'Investigations', style: { left: '4%', bottom: '18%' }, float: 'f3', dur: 4.7, depth: 1.7 },
+  // Right-center — Legal & SARFAESI
+  { icon: 'Shield', name: 'Legal &', name2: 'SARFAESI', style: { right: '8%', top: '36%' }, float: 'f4', dur: 4.9, depth: 1.5 },
+  // Bottom-right — Asset Recovery
+  { icon: 'Warehouse', name: 'Asset Recovery &', name2: 'Auction Services', style: { right: '8%', bottom: '14%' }, float: 'f5', dur: 4.3, depth: 1.3 },
 ];
 
 export const metrics = [

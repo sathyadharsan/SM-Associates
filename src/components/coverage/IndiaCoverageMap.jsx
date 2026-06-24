@@ -2,15 +2,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { locations as allLocations, tierColor, tierLabel, MAP_VIEWPORT, MAP_MODES } from '../../data/LocationData';
 
 /**
- * India Coverage Map — Gemini AI 1024×1024 square map image as base.
- * Both <img> and <svg> share IDENTICAL CSS:
- *   position: absolute, inset: 0, width: 100%, height: 100%
- *   object-fit: contain / preserveAspectRatio="xMidYMid meet"
- * Since both are square (1:1), they letterbox identically — perfect alignment.
+ * South India Coverage Map — Gemini AI generated 1024×1024 square map.
+ * Shows all SM Associates South India offices with precise white dot markers.
+ * North India offices (Pune, Ahmedabad, Jaipur, Lucknow) are flagged northOffice:true
+ * and shown only in the legend panel, not as map dots.
  *
- * Location x,y = image percentages calibrated to the 1024×1024 map:
- *   x = 8  + ((lon − 68) / 29) × 80
- *   y = 4  + ((37 − lat) / 29) × 92
+ * Coordinate system (x,y = 0-100 image percentages):
+ *   x = 10 + ((lon − 72) / 13) × 82   [72°E–85°E]
+ *   y = 5  + ((20 − lat) / 12) × 90   [20°N–8°N, Y inverted]
  */
 export default function IndiaCoverageMap({
   activeMode,
@@ -24,47 +23,46 @@ export default function IndiaCoverageMap({
   const accent = MAP_MODES.find((m) => m.id === activeMode)?.color ?? '#3FA9FF';
   const hoverLocation = locations.find((l) => l.id === hoverId);
 
-  // x,y are already 0-100 image percentages → pass directly as SVG coords
-  const svgX = (x) => x;
-  const svgY = (y) => y;
+  // Only show locations that have valid map coordinates (South India)
+  const mapLocations = locations.filter((l) => !l.northOffice && l.x >= 0 && l.y >= 0);
+  const northLocations = locations.filter((l) => l.northOffice);
 
   return (
     <div
       className="relative overflow-hidden rounded-[28px] border"
       style={{
-        background: 'linear-gradient(160deg, #e8f0fe 0%, #ffffff 60%)',
+        background: 'linear-gradient(160deg, #dbeafe 0%, #f8fbff 50%, #ffffff 100%)',
         borderColor: 'rgba(37,99,235,0.15)',
       }}
       onClick={() => onSelect(null)}
     >
-      {/* Faint dot-grid */}
+      {/* Subtle dot-grid */}
       <div
         className="absolute inset-0 pointer-events-none rounded-[28px]"
         style={{
-          backgroundImage: 'radial-gradient(circle, rgba(37,99,235,0.07) 1px, transparent 1px)',
-          backgroundSize: '26px 26px',
-          opacity: 0.55,
+          backgroundImage: 'radial-gradient(circle, rgba(37,99,235,0.06) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+          opacity: 0.6,
         }}
       />
 
-      {/* ── Map area — square aspect ratio so image + SVG letterbox identically ── */}
+      {/* ── Map area — 1:1 square aspect matches the 1024×1024 image ── */}
       <div
         className="relative w-full"
-        style={{ aspectRatio: '1 / 1', maxHeight: 560, overflow: 'hidden' }}
+        style={{ aspectRatio: '1 / 1', maxHeight: 600, overflow: 'hidden' }}
       >
-        {/* India Map Image: 1024×1024 square, object-contain */}
+        {/* South India map image */}
         <img
-          src="/images/india_map_south_highlighted.png"
-          alt="India Office Coverage Map"
+          src="/images/south_india_coverage_map.png"
+          alt="SM Associates South India Coverage Map"
           className="absolute inset-0 w-full h-full select-none pointer-events-none"
-          style={{ objectFit: 'contain', objectPosition: 'center', opacity: 0.93 }}
+          style={{ objectFit: 'contain', objectPosition: 'center', opacity: 0.95 }}
           draggable={false}
         />
 
         {/*
          * SVG overlay: viewBox "0 0 100 100" (square) + xMidYMid meet.
-         * Because both image and SVG are 1:1 square, they scale identically
-         * inside any container → dots land precisely on cities.
+         * Both image and SVG are 1:1 → identical letterboxing → perfect alignment.
          */}
         <svg
           viewBox="0 0 100 100"
@@ -72,7 +70,7 @@ export default function IndiaCoverageMap({
           className="absolute inset-0 w-full h-full"
           style={{ overflow: 'visible' }}
         >
-          {locations.map((l, i) => {
+          {mapLocations.map((l, i) => {
             const color = tierColor(l.tier);
             const isHQ = l.tier === 'hq';
             const isRelevant = l.modes.includes(activeMode);
@@ -80,13 +78,11 @@ export default function IndiaCoverageMap({
             const isActive = activeId === l.id;
             const dimmed = !isRelevant;
             const emphasized = isHover || isActive;
-            const cx = svgX(l.x);
-            const cy = svgY(l.y);
 
-            // Small crisp dots: white fill + colored ring, as requested
-            const dotR   = isHQ ? 1.4 : 0.9;   // core white dot radius
-            const ringR  = isHQ ? 2.2 : 1.5;   // colored ring radius
-            const glowR  = isHQ ? 3.5 : 2.4;   // soft glow behind
+            // Small white dot + colored ring (as requested)
+            const dotR  = isHQ ? 1.5 : 0.95;
+            const ringR = isHQ ? 2.4 : 1.65;
+            const glowR = isHQ ? 4.0  : 2.8;
 
             return (
               <g
@@ -99,99 +95,97 @@ export default function IndiaCoverageMap({
                   onSelect(l.id === activeId ? null : l.id);
                 }}
               >
-                {/* Soft glow */}
+                {/* Soft glow behind */}
                 <circle
-                  cx={cx} cy={cy} r={glowR}
+                  cx={l.x} cy={l.y} r={glowR}
                   fill={color}
-                  opacity={dimmed ? 0.04 : emphasized ? 0.3 : isHQ ? 0.22 : 0.14}
-                  style={{ filter: 'blur(2.5px)', transition: 'opacity 0.25s' }}
+                  opacity={dimmed ? 0.04 : emphasized ? 0.32 : isHQ ? 0.2 : 0.12}
+                  style={{ filter: 'blur(3px)', transition: 'opacity 0.25s' }}
                 />
 
                 {/* HQ: animated pulse rings */}
                 {isHQ && (
                   <>
                     <motion.circle
-                      cx={cx} cy={cy} r={ringR}
+                      cx={l.x} cy={l.y} r={ringR}
                       fill="none" stroke={color} strokeWidth="0.55"
-                      initial={{ scale: 1, opacity: 0.7 }}
-                      animate={{ scale: [1, 3.2], opacity: [0.7, 0] }}
+                      initial={{ scale: 1, opacity: 0.75 }}
+                      animate={{ scale: [1, 3.5], opacity: [0.75, 0] }}
                       transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut' }}
-                      style={{ transformOrigin: `${cx}px ${cy}px` }}
+                      style={{ transformOrigin: `${l.x}px ${l.y}px` }}
                     />
                     <motion.circle
-                      cx={cx} cy={cy} r={ringR}
+                      cx={l.x} cy={l.y} r={ringR}
                       fill="none" stroke={color} strokeWidth="0.45"
                       initial={{ scale: 1, opacity: 0.45 }}
-                      animate={{ scale: [1, 2.2], opacity: [0.45, 0] }}
-                      transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut', delay: 0.9 }}
-                      style={{ transformOrigin: `${cx}px ${cy}px` }}
+                      animate={{ scale: [1, 2.3], opacity: [0.45, 0] }}
+                      transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut', delay: 0.85 }}
+                      style={{ transformOrigin: `${l.x}px ${l.y}px` }}
                     />
                   </>
                 )}
 
-                {/* Colored ring (all locations) */}
+                {/* Colored outer ring — all locations */}
                 <motion.circle
-                  cx={cx} cy={cy}
-                  r={emphasized ? ringR * 1.15 : ringR}
+                  cx={l.x} cy={l.y}
+                  r={emphasized ? ringR * 1.18 : ringR}
                   fill="none"
                   stroke={color}
-                  strokeWidth={isHQ ? '0.7' : '0.55'}
-                  opacity={dimmed ? 0.22 : 1}
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: dimmed ? 0.22 : 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.15 + i * 0.06, type: 'spring', stiffness: 200 }}
-                  style={{ transformOrigin: `${cx}px ${cy}px` }}
-                />
-
-                {/* WHITE core dot — small and crisp */}
-                <motion.circle
-                  cx={cx} cy={cy}
-                  r={emphasized ? dotR * 1.2 : dotR}
-                  fill="white"
-                  stroke={color}
-                  strokeWidth="0.3"
-                  opacity={dimmed ? 0.5 : 1}
+                  strokeWidth={isHQ ? '0.75' : '0.55'}
+                  opacity={dimmed ? 0.2 : 1}
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
-                  animate={{ opacity: dimmed ? 0.5 : 1 }}
-                  transition={{ delay: 0.2 + i * 0.06, type: 'spring', stiffness: 250 }}
+                  transition={{ delay: 0.1 + i * 0.07, type: 'spring', stiffness: 220 }}
+                  style={{ transformOrigin: `${l.x}px ${l.y}px` }}
+                />
+
+                {/* WHITE filled core dot — small & crisp */}
+                <motion.circle
+                  cx={l.x} cy={l.y}
+                  r={emphasized ? dotR * 1.25 : dotR}
+                  fill="white"
+                  stroke={color}
+                  strokeWidth="0.35"
+                  opacity={dimmed ? 0.45 : 1}
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  animate={{ opacity: dimmed ? 0.45 : 1 }}
+                  transition={{ delay: 0.18 + i * 0.07, type: 'spring', stiffness: 260 }}
                   style={{
-                    transformOrigin: `${cx}px ${cy}px`,
-                    filter: emphasized ? `drop-shadow(0 0 2px ${color})` : 'none',
+                    transformOrigin: `${l.x}px ${l.y}px`,
+                    filter: emphasized ? `drop-shadow(0 0 3px ${color})` : 'none',
                   }}
                 />
 
-                {/* Transparent larger hit area */}
-                <circle cx={cx} cy={cy} r={5} fill="transparent" />
+                {/* Transparent hit area */}
+                <circle cx={l.x} cy={l.y} r={6} fill="transparent" />
               </g>
             );
           })}
         </svg>
 
-        {/* City name labels */}
-        {locations.map((l, i) => (
+        {/* City name label pills */}
+        {mapLocations.map((l, i) => (
           <motion.div
             key={`lbl-${l.id}`}
             className="absolute pointer-events-none z-10"
-            style={{
-              left: `${svgX(l.x)}%`,
-              top: `${svgY(l.y)}%`,
-              transform: 'translate(-50%, 9px)',
-            }}
+            style={{ left: `${l.x}%`, top: `${l.y}%`, transform: 'translate(-50%, 11px)' }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: l.modes.includes(activeMode) ? 1 : 0.2 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5 + i * 0.04 }}
+            transition={{ delay: 0.5 + i * 0.05 }}
           >
             <span
-              className="whitespace-nowrap rounded-sm px-1 py-0 text-[8.5px] font-bold leading-tight"
+              className="whitespace-nowrap rounded px-1 py-px text-[8px] font-bold leading-tight"
               style={{
                 color: l.tier === 'hq' ? '#92400e' : '#1e3a8a',
-                background: l.tier === 'hq' ? 'rgba(254,243,199,0.92)' : 'rgba(219,234,254,0.9)',
-                backdropFilter: 'blur(3px)',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.08)',
+                background: l.tier === 'hq'
+                  ? 'rgba(254,243,199,0.95)'
+                  : 'rgba(219,234,254,0.92)',
+                backdropFilter: 'blur(4px)',
+                boxShadow: '0 1px 4px rgba(0,0,0,0.1)',
               }}
             >
               {l.name}
@@ -201,16 +195,16 @@ export default function IndiaCoverageMap({
 
         {/* Hover tooltip */}
         <AnimatePresence>
-          {hoverLocation && (
+          {hoverLocation && !hoverLocation.northOffice && (
             <motion.div
               initial={{ opacity: 0, y: 4, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               className="pointer-events-none absolute z-30 whitespace-nowrap rounded-xl border px-3 py-1.5 text-[11px] font-semibold text-gray-800 shadow-xl"
               style={{
-                left: `${svgX(hoverLocation.x)}%`,
-                top: `${svgY(hoverLocation.y)}%`,
-                transform: 'translate(-50%, -145%)',
+                left: `${hoverLocation.x}%`,
+                top: `${hoverLocation.y}%`,
+                transform: 'translate(-50%, -148%)',
                 background: 'rgba(255,255,255,0.97)',
                 borderColor: 'rgba(37,99,235,0.2)',
               }}
@@ -223,20 +217,44 @@ export default function IndiaCoverageMap({
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* North India offices badge — top-left corner */}
+        {northLocations.length > 0 && (
+          <div
+            className="absolute top-3 left-3 z-20 rounded-xl border px-3 py-2 text-[10px] font-semibold shadow-lg"
+            style={{
+              background: 'rgba(255,255,255,0.93)',
+              borderColor: 'rgba(37,99,235,0.18)',
+              backdropFilter: 'blur(6px)',
+            }}
+          >
+            <div className="text-blue-700 font-bold mb-1 flex items-center gap-1.5">
+              <span>🗺️</span> Pan-India Reach
+            </div>
+            <div className="text-gray-500 text-[9px] space-y-0.5">
+              {northLocations.map((l) => (
+                <div key={l.id} className="flex items-center gap-1">
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-400 inline-block" />
+                  {l.name}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Legend */}
-      <div className="relative px-5 py-3 flex flex-wrap items-center justify-center gap-4 text-[10px] font-semibold text-gray-500 border-t border-blue-50/80">
+      <div className="relative px-5 py-3 flex flex-wrap items-center justify-center gap-4 text-[10px] font-semibold text-gray-500 border-t border-blue-50">
         <span className="inline-flex items-center gap-1.5">
-          <span className="inline-flex items-center justify-center h-3 w-3 rounded-full border-2" style={{ borderColor: '#D4AF37', background: 'white' }} />
+          <span className="h-3 w-3 rounded-full border-2 bg-white" style={{ borderColor: '#D4AF37' }} />
           Chennai HQ
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <span className="inline-flex items-center justify-center h-3 w-3 rounded-full border-2" style={{ borderColor: '#5FB6FF', background: 'white' }} />
+          <span className="h-3 w-3 rounded-full border-2 bg-white" style={{ borderColor: '#5FB6FF' }} />
           Regional Office
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <span className="inline-flex items-center justify-center h-3 w-3 rounded-full border-2" style={{ borderColor: '#3FA9FF', background: 'white' }} />
+          <span className="h-3 w-3 rounded-full border-2 bg-white" style={{ borderColor: '#3FA9FF' }} />
           Branch Location
         </span>
         <span className="inline-flex items-center gap-1.5">

@@ -80,7 +80,7 @@ export default function HeroFlagshipSection() {
 
     let raf;
     const draw = () => {
-      const W = canvas.width, H = canvas.height, cx = W / 2, cy = H * 0.4;
+      const W = canvas.width, H = canvas.height, cx = W / 2, cy = H * 0.48;
       ctx.clearRect(0, 0, W, H);
       particles.forEach((p) => {
         p.angle += p.speed;

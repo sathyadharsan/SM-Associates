@@ -16,11 +16,15 @@ export const INDIA_PATH_TRANSFORM = 'scale(0.0976562) translate(0,1024) scale(0.
 
 // Locations now span the whole peninsula + Pune/Ahmedabad/Jaipur/Lucknow,
 // so the map window widens back out from the South-India-only crop.
-// Viewport is a clean 0-100 percentage space matching the 1024x1024 PNG image.
-// India within the image spans approx x:8%-88%, y:4%-96%.
-// Formula: x = 8 + ((lon - 68) / 29) * 80   [68°E–97°E]
-//           y = 4 + ((37 - lat) / 29) * 92   [37°N–8°N, inverted]
+// South India zoomed map (south_india_coverage_map.png, 1024x1024).
+// Geographic bounds: 72°E–85°E longitude, 8°N–20°N latitude.
+// Image pixel coverage: x: 10%–92%, y: 5%–95%
+// Formula: x = 10 + ((lon - 72) / 13) * 82
+//           y = 5  + ((20  - lat) / 12) * 90
 export const MAP_VIEWPORT = { x: 0, y: 0, w: 100, h: 100 };
+
+// South India bounds for filtering which locations to show on the zoomed map
+export const SOUTH_INDIA_BOUNDS = { lonMin: 72, lonMax: 86, latMin: 7.5, latMax: 20.5 };
 
 // ─── Map modes — each retints the active connections/glow and flags which
 // locations are "relevant" to that operating mode via the `modes` tag list ──
@@ -33,113 +37,114 @@ export const MAP_MODES = [
 ];
 
 // ─── Office Locations ────────────────────────────────────────────────────
-// x,y are image-calibrated percentages (0-100) mapped to the 1024x1024 PNG.
-//   x = 8  + ((longitude - 68) / 29) * 80   [India 68°E – 97°E]
-//   y = 4  + ((37 - latitude)  / 29) * 92   [India 37°N – 8°N, Y inverted]
+// South India map: x = 10 + ((lon - 72) / 13) * 82
+//                  y = 5  + ((20 - lat) / 12) * 90
+// North India offices (Pune, Ahmedabad, Jaipur, Lucknow) use southBound:true
+// so the map component can handle them differently (show in legend/panel).
 export const locations = [
-  // Chennai  80.27°E 13.08°N → x=41.9, y=75.9
-  { id: 'chennai', name: 'Chennai', x: 41.9, y: 75.9, tier: 'hq',
+  // Chennai  80.27°E 13.08°N → x=60.9, y=52.7
+  { id: 'chennai', name: 'Chennai', x: 60.9, y: 52.7, tier: 'hq',
     region: 'Head Office', coverage: 'Tamil Nadu, Puducherry, Andhra Pradesh',
     services: ['CPV', 'Collections', 'Recovery', 'Legal Support', 'Skip Tracing'],
     modes: ['coverage', 'collections', 'recovery', 'legal', 'asset'],
     team: '350+', partners: '120+', since: '2012',
     coverageRadius: '180 km', casesManaged: '14,280', successRate: 96, status: 'Active' },
 
-  // Bengaluru  77.59°E 12.97°N → x=34.4, y=76.2
-  { id: 'bengaluru', name: 'Bengaluru', x: 34.4, y: 76.2, tier: 'regional',
+  // Bengaluru  77.59°E 12.97°N → x=43.5, y=53.5
+  { id: 'bengaluru', name: 'Bengaluru', x: 43.5, y: 53.5, tier: 'regional',
     region: 'Regional Office', coverage: 'Karnataka — Bengaluru Urban & Rural',
     services: ['CPV', 'Collections', 'Recovery', 'Legal Support'],
     modes: ['coverage', 'collections', 'recovery', 'legal'],
     team: '95+', partners: '32+', since: '2016',
     coverageRadius: '120 km', casesManaged: '6,140', successRate: 91, status: 'Active' },
 
-  // Hyderabad  78.47°E 17.38°N → x=36.9, y=62.8
-  { id: 'hyderabad', name: 'Hyderabad', x: 36.9, y: 62.8, tier: 'regional',
+  // Hyderabad  78.47°E 17.38°N → x=48.9, y=19.7
+  { id: 'hyderabad', name: 'Hyderabad', x: 48.9, y: 19.7, tier: 'regional',
     region: 'Regional Office', coverage: 'Telangana — Hyderabad, Secunderabad',
     services: ['CPV', 'Collections', 'Recovery'],
     modes: ['coverage', 'collections', 'recovery'],
     team: '70+', partners: '24+', since: '2018',
     coverageRadius: '110 km', casesManaged: '4,820', successRate: 89, status: 'Active' },
 
-  // Coimbatore  76.96°E 11.00°N → x=32.2, y=82.5
-  { id: 'coimbatore', name: 'Coimbatore', x: 32.2, y: 82.5, tier: 'branch',
+  // Coimbatore  76.96°E 11.00°N → x=37.2, y=67.5
+  { id: 'coimbatore', name: 'Coimbatore', x: 37.2, y: 67.5, tier: 'branch',
     region: 'Branch Location', coverage: 'Coimbatore, Erode, Nilgiris, Tirupur',
     services: ['CPV', 'Collections', 'Recovery', 'Skip Tracing'],
     modes: ['coverage', 'collections', 'recovery', 'asset'],
     team: '140+', partners: '48+', since: '2014',
     coverageRadius: '90 km', casesManaged: '5,210', successRate: 90, status: 'Active' },
 
-  // Madurai  78.12°E 9.92°N → x=35.5, y=85.9
-  { id: 'madurai', name: 'Madurai', x: 35.5, y: 85.9, tier: 'branch',
+  // Madurai  78.12°E 9.92°N → x=38.1, y=75.6
+  { id: 'madurai', name: 'Madurai', x: 38.1, y: 75.6, tier: 'branch',
     region: 'Branch Location', coverage: 'Madurai, Theni, Dindigul, Sivagangai',
     services: ['CPV', 'Collections', 'Legal Support'],
     modes: ['coverage', 'collections', 'legal'],
     team: '110+', partners: '40+', since: '2015',
     coverageRadius: '85 km', casesManaged: '3,960', successRate: 87, status: 'Active' },
 
-  // Trichy  78.70°E 10.80°N → x=37.0, y=83.3
-  { id: 'trichy', name: 'Trichy', x: 37.0, y: 83.3, tier: 'branch',
+  // Trichy  78.70°E 10.80°N → x=42.0, y=69.0
+  { id: 'trichy', name: 'Trichy', x: 42.0, y: 69.0, tier: 'branch',
     region: 'Branch Location', coverage: 'Trichy, Karur, Pudukkottai',
     services: ['CPV', 'Collections'],
     modes: ['coverage', 'collections'],
     team: '70+', partners: '26+', since: '2016',
     coverageRadius: '70 km', casesManaged: '2,840', successRate: 85, status: 'Active' },
 
-  // Salem  78.15°E 11.67°N → x=35.6, y=80.8
-  { id: 'salem', name: 'Salem', x: 35.6, y: 80.8, tier: 'branch',
+  // Salem  78.15°E 11.67°N → x=38.3, y=62.6
+  { id: 'salem', name: 'Salem', x: 38.3, y: 62.6, tier: 'branch',
     region: 'Branch Location', coverage: 'Salem, Namakkal, Dharmapuri',
     services: ['CPV', 'Collections'],
     modes: ['coverage', 'collections'],
     team: '65+', partners: '22+', since: '2016',
     coverageRadius: '65 km', casesManaged: '2,310', successRate: 84, status: 'Active' },
 
-  // Tirunelveli  77.70°E 8.73°N → x=33.5, y=89.6
-  { id: 'tirunelveli', name: 'Tirunelveli', x: 33.5, y: 89.6, tier: 'branch',
+  // Tirunelveli  77.70°E 8.73°N → x=35.6, y=84.7
+  { id: 'tirunelveli', name: 'Tirunelveli', x: 35.6, y: 84.7, tier: 'branch',
     region: 'Branch Location', coverage: 'Tirunelveli, Tuticorin, Kanyakumari',
     services: ['CPV', 'Collections'],
     modes: ['coverage', 'collections'],
     team: '52+', partners: '17+', since: '2018',
     coverageRadius: '60 km', casesManaged: '1,870', successRate: 82, status: 'Active' },
 
-  // Pune  73.86°E 18.52°N → x=24.2, y=59.0
-  { id: 'pune', name: 'Pune', x: 24.2, y: 59.0, tier: 'branch',
+  // Kochi  76.26°E 9.93°N → x=28.7, y=76.4
+  { id: 'kochi', name: 'Kochi', x: 28.7, y: 76.4, tier: 'branch',
+    region: 'Branch Location', coverage: 'Kochi, Ernakulam, Thrissur',
+    services: ['CPV', 'Collections', 'Legal Support', 'Skip Tracing'],
+    modes: ['coverage', 'collections', 'legal', 'asset'],
+    team: '60+', partners: '24+', since: '2019',
+    coverageRadius: '75 km', casesManaged: '2,190', successRate: 88, status: 'Active' },
+
+  // Pune  73.86°E 18.52°N → (outside south map bounds — shown in legend)
+  { id: 'pune', name: 'Pune', x: -1, y: -1, tier: 'branch', northOffice: true,
     region: 'Branch Location', coverage: 'Pune, Pimpri-Chinchwad',
     services: ['CPV', 'Collections', 'Recovery'],
     modes: ['coverage', 'collections', 'recovery'],
     team: '58+', partners: '21+', since: '2019',
     coverageRadius: '80 km', casesManaged: '2,650', successRate: 86, status: 'Active' },
 
-  // Ahmedabad  72.57°E 23.02°N → x=19.7, y=45.3
-  { id: 'ahmedabad', name: 'Ahmedabad', x: 19.7, y: 45.3, tier: 'branch',
+  // Ahmedabad  72.57°E 23.02°N → (outside south map bounds)
+  { id: 'ahmedabad', name: 'Ahmedabad', x: -1, y: -1, tier: 'branch', northOffice: true,
     region: 'Branch Location', coverage: 'Ahmedabad, Gandhinagar',
     services: ['CPV', 'Collections'],
     modes: ['coverage', 'collections'],
     team: '40+', partners: '15+', since: '2020',
     coverageRadius: '70 km', casesManaged: '1,640', successRate: 81, status: 'Active' },
 
-  // Jaipur  75.79°E 26.91°N → x=29.2, y=32.8
-  { id: 'jaipur', name: 'Jaipur', x: 29.2, y: 32.8, tier: 'branch',
+  // Jaipur  75.79°E 26.91°N → (outside south map bounds)
+  { id: 'jaipur', name: 'Jaipur', x: -1, y: -1, tier: 'branch', northOffice: true,
     region: 'Branch Location', coverage: 'Jaipur, Ajmer',
     services: ['CPV', 'Collections'],
     modes: ['coverage', 'collections'],
     team: '36+', partners: '12+', since: '2021',
     coverageRadius: '65 km', casesManaged: '1,280', successRate: 80, status: 'Active' },
 
-  // Lucknow  80.94°E 26.85°N → x=43.1, y=33.0
-  { id: 'lucknow', name: 'Lucknow', x: 43.1, y: 33.0, tier: 'branch',
+  // Lucknow  80.94°E 26.85°N → (outside south map bounds)
+  { id: 'lucknow', name: 'Lucknow', x: -1, y: -1, tier: 'branch', northOffice: true,
     region: 'Branch Location', coverage: 'Lucknow, Kanpur',
     services: ['CPV', 'Collections'],
     modes: ['coverage', 'collections'],
     team: '34+', partners: '11+', since: '2021',
     coverageRadius: '60 km', casesManaged: '1,150', successRate: 79, status: 'Active' },
-
-  // Kochi  76.26°E 9.93°N → x=30.4, y=85.8
-  { id: 'kochi', name: 'Kochi', x: 30.4, y: 85.8, tier: 'branch',
-    region: 'Branch Location', coverage: 'Kochi, Ernakulam, Thrissur',
-    services: ['CPV', 'Collections', 'Legal Support', 'Skip Tracing'],
-    modes: ['coverage', 'collections', 'legal', 'asset'],
-    team: '60+', partners: '24+', since: '2019',
-    coverageRadius: '75 km', casesManaged: '2,190', successRate: 88, status: 'Active' },
 ];
 
 export const getLocation = (id) => locations.find(l => l.id === id);

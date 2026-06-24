@@ -22,6 +22,7 @@
   --ease-io:cubic-bezier(0.16,1,0.3,1);
   --max:1320px; --gut:48px;
 }
+@media(max-width:1100px){:root{--gut:32px;}}
 @media(max-width:640px){:root{--gut:20px;}}
 
 .fg-home{font-family:var(--sans);}
@@ -59,11 +60,16 @@
 /* ═══════════════════════════════════════════════
    1 · HERO  (white, cinematic, premium 3D glass)
 ═══════════════════════════════════════════════ */
-.hero6{min-height:100vh;padding:156px 0 80px;background:#fff;position:relative;overflow:hidden;display:flex;align-items:center;}
+.hero6{min-height:100vh;padding:156px 0 80px;background:#fff;position:relative;overflow-x:hidden;display:flex;align-items:center;}
 .hero6-bg{position:absolute;inset:0;pointer-events:none;z-index:0;
   background:radial-gradient(65% 60% at 68% 40%,rgba(51,102,255,.06),transparent 65%),
              radial-gradient(40% 40% at 30% 80%,rgba(91,130,255,.035),transparent 60%);}
-.hero6-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center;position:relative;z-index:2;width:100%;}
+.hero6-grid{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:48px;align-items:center;position:relative;z-index:2;width:100%;}
+@media(max-width:1100px){
+  .hero6-grid{grid-template-columns:minmax(0, 1fr) minmax(0, 0.9fr);gap:24px;}
+  .hero6-h1{font-size:clamp(32px, 4.5vw, 48px);}
+  .hero6-sub{margin-top:20px;font-size:16px;}
+}
 @media(max-width:960px){.hero6-grid{grid-template-columns:1fr;gap:44px;}}
 .hero6-eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;margin-bottom:22px;}
 .hero6-eyebrow .live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px var(--green-t);}
@@ -79,13 +85,14 @@
 .hero6-scroll .bar{width:36px;height:1px;background:var(--line);}
 
 /* Orb scene — perspective stage so child layers can carry real depth */
-.orb6{position:relative;width:100%;max-width:600px;height:580px;margin-left:auto;perspective:1400px;}
-@media(max-width:960px){.orb6{margin:0 auto;height:480px;}}
-@media(max-width:640px){.orb6{height:380px;max-width:420px;}}
+.orb6{position:relative;width:100%;max-width:540px;height:560px;margin-left:auto;perspective:1400px;overflow:visible;}
+@media(max-width:1100px){.orb6{max-width:480px;height:520px;}}
+@media(max-width:960px){.orb6{margin:0 auto;height:460px;max-width:460px;}}
+@media(max-width:640px){.orb6{height:360px;max-width:380px;}}
 
 /* Volumetric glow — layered, varied-color, staggered breathing for depth */
 .orb6-glow{position:absolute;inset:0;pointer-events:none;z-index:0;}
-.orb6-glow i{position:absolute;left:50%;top:42%;border-radius:50%;transform:translate(-50%,-50%);filter:blur(60px);animation:glow-breathe 7s ease-in-out infinite;}
+.orb6-glow i{position:absolute;left:50%;top:48%;border-radius:50%;transform:translate(-50%,-50%);filter:blur(60px);animation:glow-breathe 7s ease-in-out infinite;}
 .orb6-glow i:nth-child(1){width:480px;height:480px;background:radial-gradient(circle,rgba(255,255,255,.5),transparent 65%);filter:blur(50px);animation-duration:5s;}
 .orb6-glow i:nth-child(2){width:340px;height:340px;background:radial-gradient(circle,rgba(91,130,255,.4),transparent 70%);animation-delay:-2s;filter:blur(36px);}
 .orb6-glow i:nth-child(3){width:680px;height:680px;background:radial-gradient(circle,rgba(51,102,255,.16),transparent 72%);animation-delay:-4s;filter:blur(100px);animation-duration:9s;}
@@ -98,14 +105,16 @@
 .orb6-bokeh i{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(91,130,255,.5),rgba(91,130,255,0) 75%);filter:blur(3px);animation:bokeh-drift ease-in-out infinite;}
 @keyframes bokeh-drift{0%,100%{transform:translate(0,0) scale(1);opacity:.5}50%{transform:translate(var(--bx,14px),var(--by,-18px)) scale(1.25);opacity:.95}}
 
-.orb6-bg{position:absolute;inset:5%;border-radius:50%;background:radial-gradient(55% 50% at 50% 46%,rgba(51,102,255,.05),transparent 72%);animation:orb-breathe 5s ease-in-out infinite;pointer-events:none;}
+.orb6-bg{position:absolute;inset:5%;border-radius:50%;background:radial-gradient(55% 50% at 50% 48%,rgba(51,102,255,.05),transparent 72%);animation:orb-breathe 5s ease-in-out infinite;pointer-events:none;}
 @keyframes orb-breathe{0%,100%{transform:scale(.95);opacity:.7}50%{transform:scale(1.05);opacity:1}}
 
 /* Glass ring / platform — a layered glass "tube" ring + energy arcs sweeping
    around it, drawn as near-circular ellipses then foreshortened by the
    rotateX tilt so it reads as a dish viewed at an angle */
-.orb6-dish{position:absolute;left:50%;top:60%;width:640px;height:420px;transform:translate(-50%,-50%) perspective(900px) rotateX(64deg);pointer-events:none;z-index:1;}
-@media(max-width:640px){.orb6-dish{width:460px;height:300px;}}
+.orb6-dish{position:absolute;left:50%;top:50%;width:640px;height:420px;transform:translate(-50%,-50%) perspective(900px) rotateX(64deg);pointer-events:none;z-index:1;}
+@media(max-width:1100px){.orb6-dish{width:530px;height:348px;}}
+@media(max-width:960px){.orb6-dish{width:480px;height:315px;}}
+@media(max-width:640px){.orb6-dish{width:400px;height:262px;}}
 .orb6-dish svg{width:100%;height:100%;overflow:visible;}
 .fg-ring-arc-a{animation:ring-arc-sweep 9s linear infinite;}
 .fg-ring-arc-b{animation:ring-arc-sweep-rev 13s linear infinite;}
@@ -114,8 +123,9 @@
 
 /* Core cube — bigger, gradient box with specular sweep + cursor tilt
    (tilt applied via inline transform from JS) */
-.orb6-core{position:absolute;left:50%;top:40%;width:232px;height:232px;z-index:6;transform-style:preserve-3d;}
-@media(max-width:640px){.orb6-core{width:182px;height:182px;top:42%;}}
+/* Core cube — centered via negative margins since React mouse hover updates transform directly */
+.orb6-core{position:absolute;left:50%;top:48%;width:232px;height:232px;margin-left:-116px;margin-top:-116px;z-index:6;transform-style:preserve-3d;}
+@media(max-width:640px){.orb6-core{width:182px;height:182px;margin-left:-91px;margin-top:-91px;top:48%;}}
 .orb6-box{width:100%;height:100%;border-radius:40px;background:linear-gradient(148deg,#3a68ec,#1e43c8 55%,#16319e);display:flex;flex-direction:column;align-items:center;justify-content:center;
   box-shadow:0 46px 110px -12px rgba(28,60,180,.55),0 18px 50px -10px rgba(51,102,255,.4),0 0 80px -10px rgba(91,130,255,.55),0 2px 0 rgba(255,255,255,.5) inset,0 -22px 44px -18px rgba(0,0,0,.35) inset;
   position:relative;overflow:hidden;animation:core-float 6s ease-in-out infinite;}
@@ -135,6 +145,12 @@
 .scard{position:absolute;z-index:7;background:rgba(255,255,255,.7);backdrop-filter:blur(22px) saturate(220%);-webkit-backdrop-filter:blur(22px) saturate(220%);border:1px solid rgba(255,255,255,.8);border-radius:18px;padding:14px 16px;min-width:150px;
   box-shadow:0 24px 50px -16px rgba(20,40,120,.18),0 6px 16px -6px rgba(20,40,120,.1),0 0 30px -12px rgba(91,130,255,.3),inset 0 1px 0 rgba(255,255,255,.95);
   cursor:default;transition:box-shadow .35s var(--ease),transform .35s var(--ease);transform-style:preserve-3d;overflow:hidden;}
+@media(max-width:1100px){
+  .scard{min-width:125px;padding:10px 12px;border-radius:14px;}
+  .scard-name{font-size:11px;}
+  .scard-ico{width:28px;height:28px;margin-bottom:6px;}
+  .scard-ico svg{width:14px;height:14px;}
+}
 .scard::before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(160deg,rgba(255,255,255,.55),transparent 40%);pointer-events:none;z-index:1;}
 .scard::after{content:"";position:absolute;top:-60%;left:-90%;width:50%;height:220%;background:linear-gradient(75deg,transparent,rgba(255,255,255,.65),transparent);transform:rotate(20deg);animation:card-sweep 6s ease-in-out infinite;pointer-events:none;z-index:1;}
 @keyframes card-sweep{0%,40%{left:-90%;opacity:0}55%{opacity:.9}70%,100%{left:140%;opacity:0}}
@@ -148,8 +164,16 @@
 @keyframes f3{0%,100%{transform:translateY(-5px) translateX(0) rotateX(3deg) rotateY(-3deg)}50%{transform:translateY(11px) translateX(3px) rotateX(-4deg) rotateY(4deg)}}
 @keyframes f4{0%,100%{transform:translateY(9px) translateX(0) rotateX(-4deg) rotateY(-4deg)}50%{transform:translateY(-11px) translateX(-3px) rotateX(5deg) rotateY(5deg)}}
 @keyframes f5{0%,100%{transform:translateY(-7px) translateX(0) rotateX(4deg) rotateY(4deg)}50%{transform:translateY(9px) translateX(4px) rotateX(-5deg) rotateY(-4deg)}}
-.orb6-badge{position:absolute;bottom:4%;left:50%;transform:translateX(-50%);display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.85);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);border-radius:100px;padding:9px 16px 9px 11px;font-size:12.5px;font-weight:500;color:var(--ink-2);box-shadow:0 10px 30px -10px rgba(51,102,255,.18);white-space:nowrap;z-index:7;animation:f3 4.5s ease-in-out .6s infinite;}
+.orb6-badge{position:absolute;bottom:4%;left:50%;transform:translateX(-50%);max-width:calc(100% - 20px);display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.85);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);border-radius:100px;padding:9px 16px 9px 11px;font-size:12.5px;font-weight:500;color:var(--ink-2);box-shadow:0 10px 30px -10px rgba(51,102,255,.18);white-space:nowrap;z-index:7;animation:badge-float 4.5s ease-in-out .6s infinite;overflow:hidden;text-overflow:ellipsis;}
+@media(max-width:1100px){
+  .orb6-badge{font-size:11.5px;padding:7px 12px 7px 9px;}
+}
 .orb6-badge svg{color:var(--blue);flex:none;}
+
+@keyframes badge-float{
+  0%,100%{transform:translateX(-50%) translateY(0) rotateX(0deg) rotateY(0deg)}
+  50%{transform:translateX(-50%) translateY(8px) rotateX(-2deg) rotateY(2deg)}
+}
 
 /* ═══════════════════════════════════════════════
    2 · TRUST  (white, institutional grid)
