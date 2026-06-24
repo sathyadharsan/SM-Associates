@@ -2,15 +2,22 @@ export const navigationData = {
   mainNav: [
     { label: 'Home', href: '/' },
     {
-      label: 'About',
+      label: 'Company',
       href: '/about',
       children: [
         { label: 'Company Overview', href: '/about' },
         { label: 'Leadership', href: '/about/leadership' },
         { label: 'Company History', href: '/about/history' },
         { label: 'Why SM Associates', href: '/about/why-sm-associates' },
-        { label: 'Our Clientele', href: '/about/clientele' },
         { label: 'Compliance & Ethics', href: '/about/compliance' },
+        { label: 'India Presence', href: '/coverage' },
+        { label: 'Tamil Nadu', href: '/coverage/tamil-nadu' },
+        { label: 'Karnataka', href: '/coverage/karnataka' },
+        { label: 'Kerala', href: '/coverage/kerala' },
+        { label: 'Telangana', href: '/coverage/telangana' },
+        { label: 'Andhra Pradesh', href: '/coverage/andhra-pradesh' },
+        { label: 'Puducherry', href: '/coverage/puducherry' },
+        { label: 'Branch Network', href: '/coverage/branch-network' },
       ],
     },
     {
@@ -124,7 +131,7 @@ export const navigationData = {
       ]
     },
     {
-      label: 'Recovery Operations',
+      label: 'Platform',
       href: '/recovery-operations',
       children: [
         { label: 'Recovery Operating System', href: '/recovery-operations/recovery-os' },
@@ -135,34 +142,12 @@ export const navigationData = {
         { label: 'AI Recovery Platform', href: '/recovery-operations/ai-recovery', isFuture: true },
       ]
     },
-    {
-      label: 'Coverage',
-      href: '/coverage',
-      children: [
-        { label: 'India Presence', href: '/coverage' },
-        { label: 'Tamil Nadu', href: '/coverage/tamil-nadu' },
-        { label: 'Karnataka', href: '/coverage/karnataka' },
-        { label: 'Kerala', href: '/coverage/kerala' },
-        { label: 'Telangana', href: '/coverage/telangana' },
-        { label: 'Andhra Pradesh', href: '/coverage/andhra-pradesh' },
-        { label: 'Puducherry', href: '/coverage/puducherry' },
-        { label: 'Branch Network', href: '/coverage/branch-network' },
-      ]
-    },
-    {
-      label: 'Insights',
-      href: '/insights',
-      children: [
-        { label: 'Case Studies', href: '/insights/case-studies' },
-        { label: 'Blog', href: '/insights/blog' },
-        { label: 'News & Updates', href: '/insights/news' },
-      ]
-    },
+    { label: 'Clients', href: '/clients' },
+    { label: 'Case Studies', href: '/insights/case-studies' },
     { label: 'Careers', href: '/careers' },
     { label: 'Contact', href: '/contact' },
   ],
   ctas: [
-    { label: 'Client Login', href: '/login', type: 'secondary' },
     { label: 'Request Consultation', href: '/contact', type: 'primary' }
   ]
 };

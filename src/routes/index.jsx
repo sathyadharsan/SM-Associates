@@ -88,6 +88,7 @@ import BlogPage from '../pages/insights/BlogPage';
 import NewsUpdatesPage from '../pages/insights/NewsUpdatesPage';
 
 // Others
+import ClientsPage from '../pages/ClientsPage';
 import CareersPage from '../pages/CareersPage';
 import ContactPage from '../pages/ContactPage';
 import LoginPage from '../pages/LoginPage';
@@ -193,6 +194,7 @@ export default function AppRoutes() {
         <Route path="/insights/news" element={<NewsUpdatesPage />} />
 
         {/* Others */}
+        <Route path="/clients" element={<ClientsPage />} />
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<LoginPage />} />
