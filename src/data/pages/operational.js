@@ -1,228 +1,202 @@
 export const operationalContent = {
   'call-centre': {
-    eyebrow: 'Outbound Calling Desk',
-    title: 'Compliant Outbound Call Center Built for Debt Collections',
-    description: 'Scale collections dialer campaigns, dispute resolution calls, and customer check-ins with trained operators and complete compliance checks.',
-    primaryCtaText: 'Request Call Center Pilot',
-    secondaryCtaText: 'View Compliance Standards',
-    trustStatement: 'Operating 250+ active agent stations under strict RBI calling times and voice logger compliance.',
-    trustBar: {
-      statement: 'Empanelled and trusted by India\'s leading nationalized banks, housing finance panels, and ARCs.',
-      logos: ['STATE BANK OF INDIA', 'HDFC BANK', 'AXIS BANK', 'CANARA BANK', 'HDB FINANCIAL', 'ASSET RECONSTRUCTION CORP']
-    },
-    snapshot: {
-      summary: 'SM Associates operates a high-capacity collections call center. We route outbound dialers, log PTP commitments, and manage dispute queues under recorded caller lines and strict QA auditing.',
+    eyebrow: 'Compliant Outbound Calling Operations',
+    title: 'Call Centre Operations',
+    subtitle: 'Scaling Outbound Collections Calling Without Scaling Compliance Risk',
+    description: 'Scaling compliant outbound collections calling without scaling regulatory risk.',
+    primaryCtaText: 'Request a Call Centre Operations Walkthrough',
+    secondaryCtaText: 'Download Compliance Standards',
+
+    problemStatement: [
+      { icon: 'shieldAlert', title: 'Outbound Compliance Risk', desc: 'Calling outside approved hours or using non-compliant scripts invites audit penalties.' },
+      { icon: 'briefcase', title: 'High Staff Attrition', desc: 'Recruiting and training in-house collections callers creates ongoing operational overhead.' },
+      { icon: 'fileWarning', title: 'Inconsistent Call Quality', desc: 'Without structured QA, caller tone and compliance vary widely across agents.' },
+      { icon: 'trendingDown', title: 'Untracked Commitments', desc: 'Promise-to-pay commitments that aren’t logged consistently get lost between calls.' }
+    ],
+
+    overview: {
+      heading: 'Why Outsourced Calling Operations Reduce Risk, Not Just Cost',
+      subheading: 'A Managed Calling Desk Bakes Compliance Into the Operating Model',
+      summary: 'In-house collections calling means the lender owns every compliance risk directly — calling-hour violations, inconsistent scripts, unrecorded conversations. Call Centre Operations structures outbound calling around recorded lines, calling-hour lockouts, and structured QA review, so compliance is enforced by the system, not by individual agent discipline. SM Associates delivers this as bilingual, scalable calling capacity that plugs directly into the lender’s collections workflow.',
       outcomes: [
-        { title: 'Calling Capacity', desc: '250+ active agent seats managing 75,000+ dials daily.' },
-        { title: 'Bilingual Support', desc: 'Fluent outreach in Tamil, Kannada, Telugu, Malayalam, and English.' },
-        { title: 'Compliance Safety', desc: '100% voice logs archived for 180 days on secure consoles.' }
+        { title: 'Compliance by Design', desc: 'Calling-hour and recording rules are enforced at the system level, not left to discretion.' },
+        { title: 'Bilingual Reach', desc: 'Outreach conducted in the borrower’s preferred regional language.' },
+        { title: 'Structured QA', desc: 'Regular call audits maintain consistent tone and compliance across all agents.' }
       ],
       useCases: [
         { title: 'Early Delinquency Outreach', desc: 'Payment reminders for retail credit card and personal loan portfolios.' },
-        { title: 'Settlement Mediation', desc: 'Outbound campaigns presenting bank-approved payment structures.' }
+        { title: 'Settlement Mediation', desc: 'Outbound campaigns presenting lender-approved payment structures.' },
+        { title: 'Customer Check-In Campaigns', desc: 'Routine outbound contact for account status and dispute resolution.' }
       ]
     },
-    stats: [
-      { value: '250+', label: 'Active Agent Seats' },
-      { value: '75,000+', label: 'Daily Call Capacity' },
-      { value: '180 Days', label: 'Audio Archive Logs' }
+
+    kpiCards: [
+      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
     ],
-    challenges: [
-      { title: 'Outbound Compliance Risks', desc: 'Collections callers calling outside approved hours or using non-compliant scripts, causing audit penalties.', warningBadge: 'Regulatory Risk', impactFormula: 'License Audit + 25%' },
-      { title: 'High Staff Attrition', desc: 'Recruiting and training collections callers causing operational delays and cost overheads.', warningBadge: 'Attrition Risk', impactFormula: 'Recruitment Cost + 40%' }
-    ],
-    failCompare: [
-      {
-        dimension: 'Calling Hours Control',
-        traditional: 'Outbound agents calling borrowers at unregulated hours, violating rules.',
-        sm: 'Server-side VoIP locks that prevent dialing outside RBI calling hours (08:00 AM - 07:00 PM).'
-      },
-      {
-        dimension: 'QA Call Auditing',
-        traditional: 'Random check-ins or unrecorded lines, violating compliance codes.',
-        sm: '100% of calls recorded with weekly random audits checking 20% of case audio.'
-      }
-    ],
-    framework: {
-      title: 'Calling Operations Framework',
-      desc: 'Centralized call center workflows ensuring compliance and recovery velocity.',
-      solutions: [
-        { title: 'Compliance Script Filters', desc: 'Caller scripts locked to bank-approved templates, preventing harassment.' },
-        { title: 'Real-time QA Auditing', desc: 'Voice logger QA dashboards tracking caller tone and language compliance.' }
-      ]
-    },
+
     capabilities: [
-      { title: 'Bilingual Tele-calling', desc: 'Outbound dialing in all regional languages.', businessOutcome: 'Ensures clear, customer-friendly communication with debtors.' },
-      { title: 'Promise-to-Pay Logging', desc: 'Digital recording of debtor commitments with automated reminders.', businessOutcome: 'Accelerates repayment conversions.' }
+      { title: 'Bilingual Outbound Calling', desc: 'Outreach conducted in the language the borrower is most comfortable with.', bullets: ['Multi-language calling capability', 'Scripted, non-coercive borrower communication', 'Consistent tone across regional languages'], businessOutcome: 'Improves contact quality and borrower receptiveness.' },
+      { title: 'Calling-Hour Compliance Lockout', desc: 'System-enforced restriction on when outbound calls can be made.', bullets: ['Automatic dialing restriction outside permitted hours', 'No reliance on individual agent discretion', 'Built-in enforcement, not a policy on paper'], businessOutcome: 'Removes a major source of regulatory exposure from the calling process.' },
+      { title: 'Recorded Line Infrastructure', desc: 'Every outbound call recorded for compliance and quality review.', bullets: ['100% call recording', 'Secure archival of call recordings', 'Recordings available for compliance review'], businessOutcome: 'Gives the lender a verifiable record of every borrower interaction.' },
+      { title: 'Promise-to-Pay Tracking', desc: 'Structured logging of borrower commitments made during calls.', bullets: ['Standardized commitment logging', 'Automated follow-up scheduling', 'Status sync with the client’s collections system'], businessOutcome: 'Converts more verbal commitments into tracked, followed-up payments.' },
+      { title: 'Structured QA Review', desc: 'Regular auditing of call quality and compliance.', bullets: ['Scheduled review of recorded calls', 'Tone and script-adherence evaluation', 'Corrective feedback loop for agents'], businessOutcome: 'Maintains consistent quality and compliance across the calling team.' },
+      { title: 'Calling Risk Flagging', desc: 'Translating call outcomes into a structured risk read.', bullets: ['Consolidation of call outcomes and borrower responses', 'Flagging of accounts needing escalation', 'Structured reporting for the lender’s collections desk'], businessOutcome: 'Gives lenders visibility into which accounts need further action.' }
     ],
-    workflow: [
-      { step: '01', title: 'Portfolio Ingestion', objective: 'Import default files', action: 'Ingest portfolio files and segment accounts by default risk.', deliverable: 'Active collections log file.' },
-      { step: '02', title: 'Script Customization', objective: 'Verify calling scripts', action: 'Load records into dialer and allocate scripts to agent seats.', deliverable: 'Active campaign mapping.' },
-      { step: '03', title: 'Dialer Outreach', objective: 'Perform call campaigns', action: 'Outbound call center dialers contact debtors within approved hours.', deliverable: 'Outbound call logs.' },
-      { step: '04', title: 'Status Feed Sync', objective: 'Update client system', action: 'Sync settlement details and commitment logs with client console.', deliverable: 'Updated client dashboard.' }
+
+    tabs: [
+      { id: 'portfolio-ingestion', label: 'Portfolio Ingestion', heading: 'Bringing Accounts Into the Calling Pipeline', overview: 'Portfolio files are ingested and segmented by default risk.', activities: ['Portfolio file ingestion', 'Risk-based segmentation'], documents: [], risks: ['Misclassified accounts entering the wrong calling track'], deliverable: 'Active collections log file.', benefit: 'Ensures accounts are routed to the right calling approach from the start.' },
+      { id: 'script-setup', label: 'Script Setup', heading: 'Preparing Compliant Calling Scripts', overview: 'Scripts are loaded and allocated to agent seats for the campaign.', activities: ['Script customization', 'Agent seat allocation'], documents: [], risks: ['Non-compliant or inconsistent scripts in use'], deliverable: 'Active campaign mapping.', benefit: 'Keeps every call grounded in an approved, compliant script.' },
+      { id: 'outbound-calling', label: 'Outbound Calling', heading: 'Making Contact Within Compliant Hours', overview: 'Calls are placed within system-enforced permitted hours.', activities: ['Outbound dialing within approved hours', 'Call recording'], documents: [], risks: ['Calling outside permitted hours'], deliverable: 'Outbound call logs.', benefit: 'Removes calling-hour violations as a source of risk.' },
+      { id: 'commitment-tracking', label: 'Commitment Tracking', heading: 'Logging What Borrowers Agree To', overview: 'Promise-to-pay commitments are logged and scheduled for follow-up.', activities: ['Commitment logging', 'Follow-up scheduling'], documents: [], risks: ['Untracked commitments going unfollowed'], deliverable: 'Promise-to-pay register.', benefit: 'Converts verbal commitments into tracked, actionable follow-ups.' },
+      { id: 'qa-review', label: 'QA Review', heading: 'Auditing Call Quality and Compliance', overview: 'Recorded calls are reviewed for tone and script adherence.', activities: ['Scheduled call audits', 'Agent feedback delivery'], documents: [], risks: ['Inconsistent quality without active review'], deliverable: 'QA audit log.', benefit: 'Maintains consistent compliance across the calling team.' },
+      { id: 'status-sync', label: 'Status Sync', heading: 'Updating the Lender’s System', overview: 'Call outcomes and commitments are synced to the client dashboard.', activities: ['Dashboard status sync', 'Reporting delivery'], documents: [], risks: ['Delayed visibility into calling outcomes'], deliverable: 'Updated client dashboard.', benefit: 'Gives the lender real-time visibility into calling progress.' }
     ],
-    techEnablement: {
-      title: 'Outbound Dialing Systems',
-      desc: 'Bilingual call centers featuring automatic compliance time-locks.',
-      modules: [
-        { title: 'VoIP Server Lockouts', desc: 'Outbound dialing is blocked before 08:00 AM and after 07:00 PM automatically.' }
+
+    challengesHeading: 'Enterprise Call Centre Operations Risks',
+    challenges: [
+      { title: 'Outbound Compliance Risk', desc: 'Calling outside approved hours or using non-compliant scripts causing audit penalties.', warningBadge: 'Regulatory Risk', impact: 'Institutions inherit regulatory exposure from non-compliant calling conduct.' },
+      { title: 'High Staff Attrition', desc: 'Recruiting and training in-house collections callers creates ongoing operational delays.', warningBadge: 'Operational Risk', impact: 'Calling capacity is disrupted by recruitment and training cycles.' },
+      { title: 'Inconsistent Call Quality', desc: 'Without structured QA, caller tone and compliance vary widely.', warningBadge: 'Quality Risk', impact: 'Inconsistent borrower experience and uneven compliance across agents.' },
+      { title: 'Untracked Commitments', desc: 'Promise-to-pay commitments that aren’t logged get lost between calls.', warningBadge: 'Process Risk', impact: 'Verbal commitments don’t convert into recovered payments.' },
+      { title: 'Unrecorded Calls', desc: 'Calling without recorded lines leaves no record if a dispute arises.', warningBadge: 'Evidentiary Risk', impact: 'Disputed borrower interactions lack a verifiable record.' },
+      { title: 'Scaling Limitations', desc: 'In-house calling capacity is hard to scale up or down with portfolio volume.', warningBadge: 'Capacity Risk', impact: 'Calling capacity doesn’t flex with changing portfolio needs.' }
+    ],
+
+    processFlow: {
+      title: 'Enterprise Call Centre Operations Lifecycle',
+      desc: 'A structured operating model that moves a portfolio from ingestion to tracked calling outcomes.',
+      steps: [
+        { step: '01', title: 'Portfolio Ingestion', desc: 'Accounts are ingested and segmented by default risk.', outcome: 'Accounts routed into the right calling track.' },
+        { step: '02', title: 'Script Setup', desc: 'Compliant scripts are loaded and allocated to agents.', outcome: 'Every call grounded in an approved script.' },
+        { step: '03', title: 'Outbound Calling', desc: 'Calls are placed within system-enforced compliant hours.', outcome: 'Contact made without calling-hour violations.' },
+        { step: '04', title: 'Commitment Tracking', desc: 'Promise-to-pay commitments are logged and followed up.', outcome: 'Verbal commitments converted into tracked actions.' },
+        { step: '05', title: 'QA Review & Reporting', desc: 'Call quality is audited and outcomes reported to the client.', outcome: 'Consistent quality and full visibility for the lender.' }
       ]
     },
-    geoScope: {
-      title: 'Call Center Infrastructure',
-      desc: 'Pan-regional call center operations covering Southern India.',
-      stats: [
-        { label: 'Agent Station Capacity', value: '250+ Active Seats' },
-        { label: 'Languages Supported', value: 'Tamil, Kannada, Telugu, Malayalam, English' }
-      ]
-    },
-    complianceDetails: [
-      'RBI Fair Practices Code Aligned Outbound Dials',
-      '100% Call Voice Recordings Stored for 180 Days',
-      'Outbound calling hours locked between 08:00 AM and 07:00 PM'
+
+    outcomesHeading: 'Enterprise Business Outcomes',
+    outcomes: [
+      { title: 'Reduced Compliance Risk', desc: 'System-enforced calling-hour and recording rules reduce regulatory exposure.', value: 'Fewer compliance findings tied to outbound calling conduct.' },
+      { title: 'Lower Operating Overhead', desc: 'Outsourced calling removes recruitment and infrastructure costs from the lender.', value: 'Reduced internal cost of maintaining in-house calling capacity.' },
+      { title: 'Consistent Call Quality', desc: 'Structured QA maintains tone and compliance across the entire calling team.', value: 'A consistent borrower experience regardless of which agent calls.' },
+      { title: 'Higher Commitment Conversion', desc: 'Tracked promise-to-pay follow-up converts more commitments into payments.', value: 'Improved early-stage recovery performance.' },
+      { title: 'Scalable Calling Capacity', desc: 'Calling capacity can flex with portfolio volume without internal hiring cycles.', value: 'Capacity that matches portfolio need, not fixed headcount.' },
+      { title: 'Verifiable Call Records', desc: 'Recorded lines give the lender a record for any disputed interaction.', value: 'Stronger position if a borrower interaction is disputed.' }
     ],
-    industriesServed: [
-      { name: 'Commercial Banks', scenario: 'Outsource early-stage collections calling campaigns.', framework: 'Bilingual script matrix' },
-      { name: 'Fintech Lenders', scenario: 'Micro-loan payment reminder calling.', framework: 'API-based call logs updates' }
-    ],
-    operationalMetrics: [
-      { value: '250+', label: 'Active Agent Seats' },
-      { value: '75,000+', label: 'Daily Call Dials' },
-      { value: '180 Days', label: 'Audio Log Storage' }
-    ],
-    businessOutcomes: [
-      { title: 'Reduced Operating Overhead', desc: 'Outsourcing calling campaigns removes recruitment and infrastructure costs.' },
-      { title: 'Complete Compliance Protection', desc: 'Recorded lines and time-locks prevent regulatory violations.' }
-    ],
-    caseStudy: {
-      headingStatus: 'VERIFIED CASE STUDY',
-      title: 'Outsourcing a Bank\'s Early-Stage Queue',
-      challenge: 'A national lender experienced high costs and call timing complaints from their in-house collections department.',
-      approach: 'SM Associates took over call center operations, routing all accounts to our recorded lines.',
-      execution: 'Managed outbound campaigns, automated PTP reminders, and integrated VoIP server time-locks.',
-      outcome: 'Improved settlement conversions by 28% while reducing operational billing overheads.'
-    },
+
     faqs: [
-      { q: 'How do you handle caller quality checks?', a: 'QA teams perform weekly audits of 20% of all call recordings, evaluating agent language, tone, and script compliance.' }
+      { q: 'How do you handle caller quality checks?', a: 'Recorded calls are audited on a scheduled basis, evaluating agent language, tone, and script compliance, with feedback delivered to agents.' },
+      { q: 'Can calling capacity scale up or down with our portfolio?', a: 'Yes — calling capacity is structured to flex with portfolio volume rather than being fixed to a static headcount.' }
     ],
+
     cta: {
       heading: 'Scale Your Outbound Collections Capacity',
-      subheading: 'Request a proposal to empanel SM Associates for your call center needs.',
-      buttonText: 'Request Call Centre Proposals',
+      subheading: 'Request a call centre operations walkthrough for your collections desk.',
+      buttonText: 'Request Empanelment Proposal',
       href: '/contact'
     }
   },
 
   'manpower': {
-    eyebrow: 'Outsourced Staffing Solutions',
-    title: 'Trained, Compliant Manpower for Collections & Verification',
-    description: 'Outsource background-verified, DRA-certified, and field-ready collections executives and verification officers.',
-    primaryCtaText: 'Request Staffing Proposal',
-    secondaryCtaText: 'View Training Curriculum',
-    trustStatement: 'Deploying over 450+ active verification and collections field officers with complete background checks.',
-    trustBar: {
-      statement: 'Empanelled and trusted by India\'s leading nationalized banks, housing finance panels, and ARCs.',
-      logos: ['STATE BANK OF INDIA', 'HDFC BANK', 'AXIS BANK', 'CANARA BANK', 'HDB FINANCIAL', 'ASSET RECONSTRUCTION CORP']
-    },
-    snapshot: {
-      summary: 'SM Associates provides outsourced staffing solutions. We recruit, background-verify, and DRA-train collections and verification executives, deploying field-ready staff to client offices.',
+    eyebrow: 'Field Workforce Deployment',
+    title: 'Field Workforce Deployment',
+    subtitle: 'Trained, Background-Verified Field Staff for Collections and Verification',
+    description: 'Supplying background-verified, DRA-certified field staff ready for immediate deployment.',
+    primaryCtaText: 'Request a Field Workforce Deployment Walkthrough',
+    secondaryCtaText: 'Download Training Curriculum',
+
+    problemStatement: [
+      { icon: 'briefcase', title: 'Recruitment Delays', desc: 'Finding trained, DRA-certified field staff causes operational vacancies that delay execution.' },
+      { icon: 'shieldAlert', title: 'Background Check Risk', desc: 'Unverified field agents create legal and compliance exposure for the lender.' },
+      { icon: 'fileWarning', title: 'Inconsistent Training', desc: 'Without standardized training, field conduct quality varies widely across staff.' },
+      { icon: 'trendingDown', title: 'Coverage Gaps', desc: 'Staff vacancies leave field collections or verification capacity short exactly when volume is highest.' }
+    ],
+
+    overview: {
+      heading: 'Why Pre-Vetted, Pre-Trained Field Staff Changes the Deployment Timeline',
+      subheading: 'Recruiting and Training Field Staff Takes Time You May Not Have',
+      summary: 'Standing up field collections or verification capacity in-house means recruiting candidates, running background checks, and completing DRA certification training before deployment — a process that can take weeks. Field Workforce Deployment supplies staff who have already cleared this pipeline: background-verified, DRA-certified, and field-ready. SM Associates structures this around documented screening and standardized training, so deployment timelines compress from weeks to days.',
       outcomes: [
-        { title: 'Trained Placements', desc: '450+ active field executives deployed across banking operations.' },
-        { title: 'DRA Certified', desc: '100% of outsourced staff complete mandatory IIBF DRA certifications.' },
-        { title: 'Screening Compliance', desc: 'Zero background check deficiencies across placements.' }
+        { title: 'Pre-Vetted Staff', desc: 'Background checks are completed before deployment, not during it.' },
+        { title: 'DRA-Certified by Default', desc: 'Every deployed staff member has completed mandatory compliance training.' },
+        { title: 'Faster Deployment', desc: 'Field-ready staff compress deployment timelines significantly.' }
       ],
       useCases: [
-        { title: 'Field Collections Outsourcing', desc: 'Deploying doorstep collections executives to retail banking offices.' },
-        { title: 'Verification Staffing', desc: 'Outsourcing customer profile checking staff to credit risk panels.' }
+        { title: 'Field Collections Outsourcing', desc: 'Deploying doorstep collections executives to retail banking operations.' },
+        { title: 'Verification Staffing', desc: 'Outsourcing customer profile-checking staff to credit risk panels.' },
+        { title: 'Seasonal Capacity Surges', desc: 'Scaling field capacity temporarily for portfolio-specific campaigns.' }
       ]
     },
-    stats: [
-      { value: '450+', label: 'Trained Deployed Staff' },
-      { value: '100%', label: 'DRA Certified Placements' },
-      { value: '100-Hr', label: 'Mandatory Training' }
+
+    kpiCards: [
+      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
     ],
-    challenges: [
-      { title: 'Recruitment Delays', desc: 'Struggling to find trained field staff with IIBF DRA certifications, causing operational vacancies.', warningBadge: 'Staff Shortage', impactFormula: 'Recruitment TAT + 45 Days' },
-      { title: 'Background Risks', desc: 'Unmonitored or unverified field agents causing legal and compliance risks for banks.', warningBadge: 'Vetting Failure', impactFormula: 'Audit Violation + 35%' }
-    ],
-    failCompare: [
-      {
-        dimension: 'Agent Vetting',
-        traditional: 'Recruiting agents without verification checks or police record checks.',
-        sm: 'Complete screening checks, address verification, and police checks for all staff.'
-      },
-      {
-        dimension: 'Compliance Training',
-        traditional: 'Agents start field visits without DRA training, violating RBI rules.',
-        sm: 'Mandatory 100-hour IIBF DRA curriculum and on-site compliance training before deployment.'
-      }
-    ],
-    framework: {
-      title: 'Trained Staffing Model',
-      desc: 'Providing background-verified and DRA-certified collections talent.',
-      solutions: [
-        { title: 'Staff Screening Protocols', desc: 'Checking references, addresses, and police records for all candidates.' },
-        { title: 'Compliance Curriculums', desc: 'Rigorous IIBF DRA course training and compliance checking.' }
-      ]
-    },
+
     capabilities: [
-      { title: 'Field Executive Staffing', desc: 'Deploying doorstep collections officers to local bank hubs.', businessOutcome: 'Resolves staff vacancy issues and increases collection coverage.' },
-      { title: 'Verification Staffing', desc: 'Outsourcing profile checking officers to risk departments.', businessOutcome: 'Ensures reliable, geolocated doorstep checks.' }
+      { title: 'Candidate Sourcing & Screening', desc: 'Recruiting and pre-screening candidates before deployment consideration.', bullets: ['Structured candidate sourcing', 'Reference and background pre-screening', 'Initial suitability assessment'], businessOutcome: 'Builds a qualified candidate pipeline before client need arises.' },
+      { title: 'Background Verification', desc: 'Completing police and address verification checks on every candidate.', bullets: ['Police record verification', 'Address and identity verification', 'Documented verification trail for every placement'], businessOutcome: 'Protects the client from the legal risk of unverified field staff.' },
+      { title: 'DRA Compliance Training', desc: 'Mandatory certification training before any field deployment.', bullets: ['Structured DRA certification curriculum', 'Compliance and conduct training', 'Certification completion before deployment'], businessOutcome: 'Ensures every deployed staff member meets regulatory training requirements.' },
+      { title: 'Field-Ready Deployment', desc: 'Placing trained, verified staff directly into client operations.', bullets: ['Deployment coordination with client branches', 'Role-specific orientation before start', 'Payroll and administrative coordination'], businessOutcome: 'Closes staffing gaps faster than an in-house recruitment cycle.' },
+      { title: 'Ongoing Field Monitoring', desc: 'Tracking deployed staff conduct and performance.', bullets: ['Geolocated visit check-ins', 'Performance monitoring against deployment expectations', 'Escalation pathway for conduct concerns'], businessOutcome: 'Maintains accountability for staff after deployment, not just before it.' },
+      { title: 'Deployment Risk Flagging', desc: 'Translating staffing and field outcomes into a structured risk read.', bullets: ['Consolidation of screening and performance data', 'Flagging of any conduct or compliance concerns', 'Structured reporting for the client’s HR or operations desk'], businessOutcome: 'Gives clients visibility into deployed workforce quality and conduct.' }
     ],
-    workflow: [
-      { step: '01', title: 'Sourcing & Screening', objective: 'Verify applicant details', action: 'Source candidates, check references, and verify details.', deliverable: 'Screened candidate list.' },
-      { step: '02', title: 'Background Auditing', objective: 'Expose background issues', action: 'Perform police record checks and address validations checks.', deliverable: 'Background verification report.' },
-      { step: '03', title: 'Compliance Training', objective: 'Complete DRA training', action: 'Train staff on IIBF DRA curriculum and compliance script templates.', deliverable: 'DRA certification copy.' },
-      { step: '04', title: 'Deployment', objective: 'Deploy active staff', action: 'Deploy trained staff to local branch offices and sync payroll details.', deliverable: 'Deployed executive record.' }
+
+    tabs: [
+      { id: 'sourcing', label: 'Sourcing & Screening', heading: 'Building a Qualified Candidate Pipeline', overview: 'Candidates are sourced and pre-screened before formal background checks.', activities: ['Candidate sourcing', 'Reference pre-screening'], documents: [], risks: ['Unqualified candidates entering the pipeline'], deliverable: 'Screened candidate list.', benefit: 'Establishes a qualified base before deeper vetting begins.' },
+      { id: 'background-check', label: 'Background Verification', heading: 'Confirming Every Candidate Is Clean', overview: 'Police and address verification checks are completed for every candidate.', activities: ['Police record check', 'Address verification'], documents: [], risks: ['Unverified candidates reaching deployment'], deliverable: 'Background verification report.', benefit: 'Protects the client from unvetted field staff exposure.' },
+      { id: 'dra-training', label: 'DRA Training', heading: 'Completing Mandatory Compliance Certification', overview: 'Candidates complete the required DRA training curriculum.', activities: ['DRA curriculum training', 'Compliance and conduct training'], documents: [], risks: ['Field deployment without completed certification'], deliverable: 'DRA certification record.', benefit: 'Ensures regulatory training requirements are met before deployment.' },
+      { id: 'deployment', label: 'Deployment', heading: 'Placing Staff Into Client Operations', overview: 'Trained, verified staff are deployed to client branch operations.', activities: ['Deployment coordination', 'Role-specific orientation'], documents: [], risks: ['Deployment without proper orientation'], deliverable: 'Deployed executive record.', benefit: 'Gets qualified staff into operation faster than an in-house hire.' },
+      { id: 'monitoring', label: 'Field Monitoring', heading: 'Tracking Conduct After Deployment', overview: 'Deployed staff performance and conduct are monitored ongoing.', activities: ['Geolocated check-in monitoring', 'Performance tracking'], documents: [], risks: ['Unmonitored staff conduct post-deployment'], deliverable: 'Field monitoring log.', benefit: 'Maintains accountability throughout the deployment period.' },
+      { id: 'report', label: 'Status Reporting', heading: 'Giving the Client Workforce Visibility', overview: 'Consolidated reporting on staffing and field performance.', activities: ['Report compilation', 'Internal quality check'], documents: [], risks: ['Inconsistent reporting across deployed staff'], deliverable: 'Workforce status report.', benefit: 'Gives the client a clear view of deployed workforce quality.' }
     ],
-    techEnablement: {
-      title: 'Staff Telemetry systems',
-      desc: 'GPS visit trackers and coordinates check-ins logged on mobile.',
-      modules: [
-        { title: 'Compliance Portals', desc: 'Outsourced staff check in and log visits geolocated on mobile.' }
+
+    challengesHeading: 'Enterprise Field Workforce Risks',
+    challenges: [
+      { title: 'Recruitment Delays', desc: 'Finding trained, DRA-certified field staff causes operational vacancies.', warningBadge: 'Staffing Risk', impact: 'Field capacity gaps delay collections or verification execution.' },
+      { title: 'Background Check Gaps', desc: 'Unmonitored or unverified field agents create legal exposure.', warningBadge: 'Vetting Risk', impact: 'Institutions inherit legal risk from inadequately screened staff.' },
+      { title: 'Inconsistent Training', desc: 'Without standardized DRA training, field conduct quality varies.', warningBadge: 'Compliance Risk', impact: 'Inconsistent field conduct creates uneven regulatory exposure.' },
+      { title: 'Coverage Gaps', desc: 'Staff vacancies leave capacity short exactly when volume is highest.', warningBadge: 'Capacity Risk', impact: 'Recovery or verification volume isn’t matched by available staff.' },
+      { title: 'Unmonitored Field Conduct', desc: 'Deployed staff without ongoing monitoring can drift from expected conduct standards.', warningBadge: 'Oversight Risk', impact: 'Conduct issues go undetected without active monitoring.' },
+      { title: 'Deployment Mismatch', desc: 'Staff deployed without role-specific orientation may not meet the client’s operational expectations.', warningBadge: 'Fit Risk', impact: 'Deployment doesn’t translate into the expected operational improvement.' }
+    ],
+
+    processFlow: {
+      title: 'Enterprise Field Workforce Deployment Lifecycle',
+      desc: 'A structured operating model that moves a candidate from sourcing to monitored field deployment.',
+      steps: [
+        { step: '01', title: 'Sourcing & Screening', desc: 'Candidates are sourced and pre-screened.', outcome: 'A qualified candidate pipeline ready for deeper vetting.' },
+        { step: '02', title: 'Background Verification', desc: 'Police and address checks are completed for every candidate.', outcome: 'A verified, low-risk candidate pool.' },
+        { step: '03', title: 'DRA Training', desc: 'Candidates complete mandatory compliance certification.', outcome: 'A field-ready, certified workforce.' },
+        { step: '04', title: 'Deployment', desc: 'Staff are placed into client branch operations.', outcome: 'Closed staffing gaps without an in-house recruitment cycle.' },
+        { step: '05', title: 'Field Monitoring', desc: 'Deployed staff conduct and performance are tracked ongoing.', outcome: 'Sustained accountability throughout the deployment.' }
       ]
     },
-    geoScope: {
-      title: 'Staffing Reach Network',
-      desc: 'Recruitment and training hubs active across South India.',
-      stats: [
-        { label: 'Training Facilities', value: 'Chennai, Bengaluru, Hyderabad, Cochin' },
-        { label: 'Deployed Staff Count', value: '450+ Active Placements' }
-      ]
-    },
-    complianceDetails: [
-      '100% Placements IIBF DRA Certified',
-      'Mandatory Police Background Checks Completed',
-      'Strict Compliance with RBI Fair Practice Codes'
+
+    outcomesHeading: 'Enterprise Business Outcomes',
+    outcomes: [
+      { title: 'Faster Staffing Turnaround', desc: 'Pre-vetted, pre-trained staff compress deployment timelines significantly.', value: 'Staffing gaps closed in days rather than weeks.' },
+      { title: 'Reduced Legal Exposure', desc: 'Documented background verification protects the client from unvetted staff risk.', value: 'Lower legal and reputational risk tied to field personnel.' },
+      { title: 'Consistent Compliance Training', desc: 'Standardized DRA certification ensures every deployed staff member meets requirements.', value: 'Uniform compliance standards across the deployed workforce.' },
+      { title: 'Sustained Field Capacity', desc: 'A ready talent pipeline reduces the impact of vacancies on operational coverage.', value: 'Less disruption to collections or verification volume from staffing gaps.' },
+      { title: 'Ongoing Accountability', desc: 'Field monitoring maintains conduct standards after deployment, not just before.', value: 'Conduct issues caught and addressed during deployment, not after the fact.' },
+      { title: 'Clear Workforce Visibility', desc: 'Structured reporting gives the client a real-time view of deployed staff quality.', value: 'Less manual follow-up to assess workforce performance.' }
     ],
-    industriesServed: [
-      { name: 'Nationalized Banks', scenario: 'Deploying doorstep collections teams.', framework: 'DRA certified payroll support' },
-      { name: 'Retail NBFCs', scenario: 'Outsourcing field verification officers.', framework: 'Regional recruitment hubs' }
-    ],
-    operationalMetrics: [
-      { value: '450+', label: 'Active Placements' },
-      { value: '100%', label: 'DRA Certified Staff' },
-      { value: '3 business days', label: 'Average Staffing TAT' }
-    ],
-    businessOutcomes: [
-      { title: 'Sustained Collections Capacity', desc: 'Immediate vacancy coverage prevents portfolio delinquency.' },
-      { title: 'Zero Vetting Gaps', desc: 'Rigorous background check reports protect bank reputation.' }
-    ],
-    caseStudy: {
-      headingStatus: 'VERIFIED CASE STUDY',
-      title: 'Rapid Field Officer Mobilization',
-      challenge: 'A regional cooperative bank needed to scale doorstep collections for agricultural loans, but faced a shortage of DRA-certified staff.',
-      approach: 'SM Associates mobilized candidates from our training hubs in Tamil Nadu and Karnataka.',
-      execution: 'Completed background audits, completed DRA training, and deployed staff to bank hubs.',
-      outcome: 'Deployed 50 trained collections executives across three districts within 14 days, improving recovery.'
-    },
+
     faqs: [
-      { q: 'Are all outsourced executives background checked?', a: 'Yes. Every executive passes physical address verifications, professional reference audits, and police record checks before deployment.' }
+      { q: 'Are all deployed staff background checked?', a: 'Every staff member completes address verification, reference checks, and police record verification before deployment.' },
+      { q: 'How quickly can staff be deployed once a request comes in?', a: 'Because candidates are pre-screened and DRA-certified ahead of demand, deployment timelines are significantly shorter than an in-house recruitment cycle — specific timelines are confirmed based on the role and location.' }
     ],
+
     cta: {
-      heading: 'Deploy Trained Collections Talent Today',
-      subheading: 'Request a copy of our training curriculum, placement logs, and staffing fees.',
-      buttonText: 'Request Staffing Proposal',
+      heading: 'Deploy Trained Field Talent Faster',
+      subheading: 'Request a field workforce deployment walkthrough for your collections or verification operations.',
+      buttonText: 'Request Empanelment Proposal',
       href: '/contact'
     }
   },

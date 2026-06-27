@@ -1,0 +1,1603 @@
+# SM Associates - Enterprise Content Repository
+
+> Permanent content knowledge extracted from Phase 4.
+> This document defines what content exists, what content is missing, and how content should be reused across all digital assets.
+
+---
+
+# Content Philosophy
+
+SM Associates follows an enterprise-first content strategy.
+
+Content should:
+
+- Build Trust
+- Demonstrate Expertise
+- Educate Buyers
+- Support Enterprise Sales
+- Improve SEO
+- Strengthen Brand Authority
+- Enable AI Knowledge
+- Be reusable across all platforms
+
+---
+
+# Enterprise Content Pillars
+
+## 1. Corporate Content
+
+Includes:
+
+- Company Overview
+- Vision
+- Mission
+- Leadership
+- Branch Network
+- Corporate Story
+- Business Philosophy
+- Values
+
+Used In
+
+- Home
+- About
+- Company Profile
+
+---
+
+## 2. Service Content
+
+Includes
+
+- Recovery
+- Collections
+- SARFAESI
+- Legal
+- Auction
+- Security
+- Custodian
+- Valuation
+- Field Investigation
+
+Used In
+
+- Service Pages
+- Sales Deck
+- Knowledge Center
+
+---
+
+## 3. Industry Content
+
+Includes
+
+- Banking
+- NBFC
+- Housing Finance
+- Fintech
+- ARC
+- Government
+
+Used In
+
+- Industry Pages
+- Landing Pages
+
+---
+
+## 4. Compliance Content
+
+Includes
+
+- RBI Guidelines
+- SARFAESI
+- Fair Practices
+- Recovery Policies
+- Regulatory Updates
+
+Used In
+
+- Compliance Page
+- Knowledge Center
+- Blogs
+
+---
+
+## 5. Trust Content
+
+Includes
+
+- Client Logos
+- Testimonials
+- Reviews
+- Certifications
+- Awards
+- Branch Network
+- Leadership Profiles
+
+Used In
+
+- Homepage
+- Clients
+- About
+- Contact
+
+---
+
+## 6. Knowledge Content
+
+Includes
+
+- Process Guides
+- FAQs
+- Glossary
+- Industry Articles
+- Whitepapers
+- Research
+- Regulatory Insights
+
+Used In
+
+- Knowledge Center
+- Blogs
+- SEO
+
+---
+
+# Reusable Content Assets
+
+The following assets should never be duplicated.
+
+- Company Overview
+- Vision
+- Mission
+- Leadership Profiles
+- Service Descriptions
+- Industry Descriptions
+- Process Flows
+- FAQs
+- CTA Library
+- Trust Statements
+- Compliance Statements
+
+Reference the same approved source across all pages.
+
+---
+
+# Content Sources
+
+Primary Sources
+
+- Internal Company Documents
+- Existing Corporate Website
+- Leadership Interviews
+- Service Documentation
+
+Secondary Sources
+
+- RBI Publications
+- SARFAESI Act
+- Industry Reports
+- Public Company Records
+- Verified Customer Reviews
+
+Competitor websites are used only for benchmarking, never for copying content. This aligns with the Phase 4 source inventory. :contentReference[oaicite:1]{index=1} :contentReference[oaicite:2]{index=2}
+
+---
+
+# Content Lifecycle
+
+Every content asset follows this lifecycle:
+
+1. Discover
+2. Validate
+3. Approve
+4. Structure
+5. Publish
+6. Maintain
+7. Review
+8. Update
+9. Archive
+
+---
+
+# Content Quality Standards
+
+Every published content asset must be:
+
+- Factually Accurate
+- Management Approved
+- Legally Compliant
+- SEO Ready
+- Grammatically Correct
+- Original
+- Easy to Understand
+- Enterprise Focused
+
+---
+
+# Content Status
+
+## Available
+
+- Company Profile
+- Service Information
+- Industry Information
+- Leadership Details
+- Branch Network
+- Recovery Process
+- SARFAESI Process
+
+## Partial
+
+- Compliance Content
+- FAQ Library
+- Glossary
+- Technology Content
+
+## Missing
+
+- Case Studies
+- Testimonials
+- Awards
+- Certifications
+- KPI Metrics
+- Thought Leadership
+- Blog Library
+
+These gaps match the harvesting findings and should be filled in later phases. :contentReference[oaicite:3]{index=3}
+
+---
+
+# Future Content Library
+
+The enterprise repository will eventually include:
+
+- 500+ FAQs
+- 300+ Blog Articles
+- 100+ Knowledge Guides
+- 50+ Case Studies
+- Industry Reports
+- Whitepapers
+- Regulatory Updates
+- Training Documents
+
+---
+
+# AI Knowledge Rules
+
+Claude Code should:
+
+- Never invent business facts.
+- Never create fake statistics.
+- Never create fake testimonials.
+- Never create fake client names.
+- Use only approved content.
+- Reuse existing approved content before creating new content.
+- Flag missing information instead of assuming.
+
+---
+
+# Content Governance
+
+Every new content item must have:
+
+- Content ID
+- Category
+- Owner
+- Approval Status
+- Last Updated Date
+- Source
+- Usage Location
+
+This ensures consistency across the website, company profile, presentations, and future AI systems.
+
+---
+
+# Long-Term Objective
+
+Create a single enterprise content repository that serves as the source of truth for:
+
+- Website
+- Company Profile
+- Sales Deck
+- Proposal Documents
+- SEO Pages
+- Landing Pages
+- Blogs
+- Knowledge Center
+- AI Chatbot
+- Marketing Materials
+
+No content should exist in multiple conflicting versions.
+
+# SM Associates - Enterprise Content Repository
+
+> Permanent enterprise content knowledge for Claude Code.
+> This document acts as the Single Source of Truth for all reusable business content.
+
+---
+
+# Content Philosophy
+
+SM Associates follows an enterprise-first content strategy.
+
+Every content asset must:
+
+- Build trust before selling
+- Demonstrate operational expertise
+- Educate institutional buyers
+- Support enterprise procurement
+- Improve SEO authority
+- Strengthen brand credibility
+- Enable AI knowledge systems
+- Be reusable across multiple digital assets
+
+---
+
+# Content Objectives
+
+The Enterprise Content Repository supports:
+
+- Corporate Website
+- Company Profile
+- Sales Presentations
+- Proposal Documents
+- SEO Pages
+- Landing Pages
+- Blogs
+- Knowledge Center
+- AI Chatbot
+- Marketing Collateral
+- Internal Training
+
+---
+
+# Content Architecture
+
+Content is organized into reusable knowledge domains.
+
+## Corporate Content
+
+Contains:
+
+- Company Overview
+- Company History
+- Vision
+- Mission
+- Core Values
+- Leadership
+- Business Philosophy
+- Organization Structure
+- Operating Model
+- Delivery Model
+- Geographic Presence
+
+---
+
+## Service Content
+
+Contains reusable knowledge for:
+
+- Debt Recovery
+- Field Collections
+- SARFAESI Enforcement
+- Legal Recovery
+- Repossession
+- Yard & Custody
+- Auction Services
+- Valuation
+- Security Services
+- NPA Management
+- Skip Tracing
+- Due Diligence
+- Fraud Investigation
+- Pre-Disbursal Verification
+- Post-Disbursal Collections
+
+---
+
+## Industry Content
+
+Content for:
+
+- Public Sector Banks
+- Private Banks
+- Small Finance Banks
+- NBFCs
+- Housing Finance Companies
+- Fintech
+- Asset Reconstruction Companies
+- Government Organizations
+
+---
+
+## Compliance Content
+
+Knowledge related to:
+
+- RBI Guidelines
+- SARFAESI Act
+- DRT Process
+- Recovery Agent Regulations
+- Fair Practices Code
+- Compliance Governance
+- Legal Documentation
+- Regulatory Updates
+
+---
+
+## Trust Content
+
+Reusable trust assets include:
+
+- Client Categories
+- Branch Network
+- Leadership Experience
+- Industry Expertise
+- Operational Scale
+- Compliance Framework
+- Corporate Governance
+- Service Methodologies
+
+---
+
+## Knowledge Content
+
+Knowledge assets include:
+
+- Banking Glossary
+- Recovery Terminology
+- Industry Definitions
+- Recovery Workflows
+- Process Documentation
+- Educational Articles
+- Regulatory Insights
+- Whitepapers
+- FAQs
+
+---
+
+# Content Lifecycle
+
+Every content asset follows this lifecycle:
+
+1. Discovery
+2. Validation
+3. Approval
+4. Structuring
+5. Publishing
+6. Optimization
+7. Review
+8. Update
+9. Archive
+
+---
+
+# Content Quality Standards
+
+Every published content must be:
+
+- Accurate
+- Approved
+- Original
+- Enterprise-focused
+- SEO-ready
+- Legally compliant
+- Easy to understand
+- Consistent across all channels
+
+---
+
+# Reusable Content Assets
+
+Never duplicate these assets.
+
+- Company Overview
+- Vision
+- Mission
+- Core Values
+- Leadership Profiles
+- Business Philosophy
+- Service Descriptions
+- Industry Descriptions
+- Recovery Processes
+- FAQs
+- Trust Statements
+- Compliance Statements
+- CTA Library
+- Tagline Library
+
+Maintain a single approved version for every asset.
+
+---
+
+# Content Sources
+
+Primary Sources
+
+- Internal Company Documents
+- Corporate Profile
+- Existing Website
+- Leadership Interviews
+- Operational Documentation
+
+Secondary Sources
+
+- RBI Publications
+- SARFAESI Act
+- DRT Documentation
+- Government Notifications
+- Industry Reports
+
+Reference Sources
+
+- Competitor Benchmarking
+- Banking Research
+- Regulatory Updates
+
+---
+
+# Enterprise Message Library
+
+Maintain reusable message assets.
+
+Includes:
+
+- Company Descriptions
+- Elevator Pitch
+- Vision Statements
+- Mission Statements
+- Brand Story
+- Value Propositions
+- Headlines
+- Sub-headlines
+- CTA Library
+- Proof Statements
+
+These are reusable content blocks and should never exist in multiple conflicting versions.
+
+---
+
+# FAQ Library
+
+Maintain categorized FAQs.
+
+Categories include:
+
+- General
+- Banking
+- NBFC
+- Housing Finance
+- Fintech
+- ARC
+- SARFAESI
+- Legal
+- Compliance
+- Procurement
+- Leadership
+- Operations
+
+---
+
+# Keyword Library
+
+Maintain reusable SEO keywords.
+
+Categories include:
+
+- Industry Keywords
+- Service Keywords
+- Regulatory Keywords
+- Regional Keywords
+- Long-tail Keywords
+- Commercial Keywords
+- Informational Keywords
+
+---
+
+# Enterprise Glossary
+
+Maintain a unified terminology library covering:
+
+- Banking
+- Recovery
+- Legal
+- Compliance
+- Enterprise Operations
+
+Every definition should remain consistent across the website, proposals, blogs, and AI systems.
+
+---
+
+# Trust Asset Repository
+
+Track and maintain:
+
+- Client Logos
+- Certifications
+- Reviews
+- Awards
+- Branch Locations
+- Leadership Profiles
+- Compliance Evidence
+- Operational Statistics
+- Case Studies
+- Testimonials
+
+---
+
+# Content Governance
+
+Every content asset must include:
+
+- Content ID
+- Category
+- Owner
+- Source
+- Approval Status
+- Version
+- Last Updated Date
+- Usage Locations
+
+---
+
+# AI Knowledge Rules
+
+Claude Code must:
+
+- Use only approved business information.
+- Never invent facts or statistics.
+- Never create fake testimonials.
+- Never create fake client names.
+- Never duplicate existing approved content.
+- Flag missing information instead of making assumptions.
+- Always reference the reusable knowledge repository before generating new content.
+
+---
+
+# Long-Term Vision
+
+Create a unified Enterprise Content Repository that powers:
+
+- Website
+- Company Profile
+- Sales Deck
+- Marketing
+- SEO
+- Knowledge Center
+- AI Chatbot
+- Internal Training
+- Future Digital Products
+
+This repository serves as the permanent Single Source of Truth for all SM Associates content.
+
+
+---
+
+# Expanded Enterprise Glossary
+
+Maintain a centralized glossary covering:
+
+## Banking
+
+- NPA
+- SMA
+- DPD
+- PCR
+- CASA
+- NIM
+- ALM
+- KYC
+- AML
+- Repo Rate
+- MCLR
+
+## Recovery
+
+- Bucket
+- Promise To Pay (PTP)
+- Skip Tracing
+- Resolution Rate
+- Roll Rate
+- Settlement
+- One Time Settlement (OTS)
+- Cost to Collect
+
+## SARFAESI
+
+- Section 13(2)
+- Section 13(4)
+- Section 13(8)
+- Symbolic Possession
+- Physical Possession
+- Rule 8
+- Rule 9
+- Reserve Price
+- E-Auction
+- Sale Certificate
+- Section 14 Order
+
+## Legal
+
+- DRT
+- DRAT
+- IBC
+- CIRP
+- CoC
+- Resolution Professional
+- Panchnama
+- Limitation Act
+
+## ARC
+
+- ARC
+- NARCL
+- IDRCL
+- Security Receipts
+
+## Security
+
+- Custodian
+- Yard Services
+- Surprise Audit
+- Emergency Deployment
+
+Maintain a single approved definition for every business term.
+
+
+# Enterprise SEO Knowledge
+
+SEO strategy is based on:
+
+- Service Keywords
+- Industry Keywords
+- Regulatory Keywords
+- City + Service Keywords
+- Long-tail Keywords
+
+The SEO repository combines confirmed services with confirmed branch locations to generate geo-targeted keywords.
+
+Never create thin pages.
+
+Instead:
+
+- Build authoritative service pages.
+- Build industry pages.
+- Build coverage pages.
+- Reuse keyword clusters naturally.
+
+
+# Reusable Content Libraries
+
+Maintain reusable libraries for:
+
+- Headlines
+- Sub-headlines
+- Value Propositions
+- CTA Library
+- Trust Statements
+- Proof Statements
+- Objection Handling
+- FAQ Library
+- Compliance Statements
+
+Every library should be centrally maintained and reused across all digital assets.
+
+
+# AI Content Rules
+
+Claude Code should:
+
+- Reuse approved content blocks.
+- Never create duplicate messaging.
+- Never invent customer stories.
+- Never invent proof statements.
+- Never invent statistics.
+- Never invent certifications.
+- Never invent testimonials.
+
+If business information is unavailable:
+
+→ Flag as GAP.
+
+
+
+# SM Associates - Enterprise Content Repository
+
+> Permanent reusable content knowledge for Claude Code.
+> This repository is the Single Source of Truth for all approved business content.
+
+---
+
+# Content Vision
+
+Create a centralized enterprise knowledge repository that powers:
+
+- Corporate Website
+- Company Profile
+- Sales Deck
+- Proposal Documents
+- Marketing Assets
+- SEO
+- Knowledge Center
+- AI Assistants
+- Internal Training
+
+---
+
+# Content Philosophy
+
+Every content asset should:
+
+- Build trust before selling
+- Demonstrate expertise
+- Educate enterprise buyers
+- Support institutional procurement
+- Improve SEO
+- Strengthen brand authority
+- Remain reusable
+- Stay factually accurate
+
+---
+
+# Enterprise Content Pillars
+
+## Corporate Content
+
+- Company Overview
+- Company History
+- Vision
+- Mission
+- Leadership
+- Core Values
+- Business Philosophy
+- Geographic Presence
+
+---
+
+## Service Content
+
+Reusable knowledge for:
+
+- SARFAESI Enforcement
+- Legal Recovery
+- Field Collections
+- Repossession
+- Yard & Custody
+- Auction Services
+- Valuation
+- Security Services
+- NPA Management
+- Pre-Disbursal Verification
+- Post-Disbursal Collections
+- Payment Tracking & MIS
+- Call Centre Services
+- Fraud Investigation
+- Due Diligence
+- Facility Management
+
+---
+
+## Industry Content
+
+- Banking
+- NBFC
+- Housing Finance
+- Fintech
+- ARC
+- Government
+
+---
+
+## Compliance Content
+
+- RBI Guidelines
+- SARFAESI
+- DRT
+- IBC
+- Fair Practices Code
+- Recovery Regulations
+- Legal Documentation
+- Compliance Governance
+
+---
+
+## Trust Content
+
+Maintain reusable trust assets:
+
+- Client Categories
+- Branch Network
+- Leadership Experience
+- Operational Scale
+- Industry Expertise
+- Compliance Framework
+- Corporate Governance
+- Service Methodologies
+
+---
+
+## Knowledge Content
+
+Includes:
+
+- Banking Glossary
+- Recovery Glossary
+- SARFAESI Glossary
+- Legal Glossary
+- Compliance Glossary
+- FAQs
+- Whitepapers
+- Educational Articles
+- Regulatory Updates
+
+---
+
+# Enterprise Message Library
+
+Maintain reusable:
+
+- Company Description
+- Elevator Pitch
+- Vision Statements
+- Mission Statements
+- Value Propositions
+- Headlines
+- Sub-headlines
+- CTA Library
+- Trust Statements
+- Proof Statements
+
+Never maintain duplicate versions.
+
+---
+
+# FAQ Repository
+
+Categories:
+
+- General
+- Banking
+- NBFC
+- Housing Finance
+- Fintech
+- ARC
+- SARFAESI
+- Legal
+- Compliance
+- Procurement
+- Operations
+
+---
+
+# Enterprise Glossary
+
+Maintain one approved glossary covering:
+
+## Banking
+
+- NPA
+- SMA
+- DPD
+- CASA
+- PCR
+- ALM
+- NIM
+- Repo Rate
+- MCLR
+- KYC
+- AML
+
+## Recovery
+
+- Bucket
+- Promise To Pay (PTP)
+- Skip Tracing
+- Resolution Rate
+- Roll Rate
+- Cost To Collect
+- Settlement
+- One Time Settlement (OTS)
+
+## SARFAESI
+
+- Section 13(2)
+- Section 13(4)
+- Section 13(8)
+- Rule 8
+- Rule 9
+- Symbolic Possession
+- Physical Possession
+- Reserve Price
+- Sale Certificate
+- E-Auction
+- Section 14 Order
+
+## Legal
+
+- DRT
+- DRAT
+- IBC
+- CIRP
+- Committee of Creditors
+- Resolution Professional
+- Panchnama
+- Limitation Act
+
+## ARC
+
+- ARC
+- NARCL
+- IDRCL
+- Security Receipts
+
+## Security
+
+- Custodian
+- Yard Services
+- Licensed Armed Guard
+- Emergency Deployment
+
+Every term should have one approved definition across all company assets.
+
+---
+
+# SEO Knowledge Repository
+
+Maintain reusable SEO assets:
+
+- Service Keywords
+- Industry Keywords
+- Regulatory Keywords
+- Geo Keywords
+- Long-tail Keywords
+- Commercial Keywords
+- Informational Keywords
+
+Generate city-service keyword combinations from approved services and branch locations.
+
+Never create thin or duplicate pages.
+
+---
+
+# Content Lifecycle
+
+Every content asset follows:
+
+1. Discover
+2. Validate
+3. Approve
+4. Structure
+5. Publish
+6. Optimize
+7. Review
+8. Update
+9. Archive
+
+---
+
+# Content Quality Standards
+
+Every published content must be:
+
+- Accurate
+- Original
+- Enterprise-focused
+- SEO Ready
+- Legally Compliant
+- Approved
+- Consistent
+- Easy to Understand
+
+---
+
+# Reusable Content Assets
+
+Maintain one approved version of:
+
+- Company Overview
+- Vision
+- Mission
+- Core Values
+- Leadership Profiles
+- Service Descriptions
+- Industry Descriptions
+- Recovery Processes
+- Compliance Statements
+- Trust Statements
+- CTA Library
+- FAQ Library
+- Glossary
+- Value Propositions
+
+---
+
+# Content Sources
+
+Primary Sources
+
+- Internal Documents
+- Corporate Profile
+- Leadership Interviews
+- Service Documentation
+- Existing Website
+
+Secondary Sources
+
+- RBI Publications
+- SARFAESI Act
+- Government Notifications
+- Industry Reports
+
+Reference Sources
+
+- Competitor Benchmarking
+- Regulatory Updates
+
+Competitor content is used only for research and benchmarking, never copied.
+
+---
+
+# Trust Asset Repository
+
+Maintain:
+
+- Client Logos
+- Certifications
+- Awards
+- Reviews
+- Testimonials
+- Branch Locations
+- Leadership Profiles
+- Compliance Evidence
+- Case Studies
+- Operational Statistics
+
+---
+
+# Content Governance
+
+Every content asset must include:
+
+- Content ID
+- Category
+- Owner
+- Source
+- Approval Status
+- Version
+- Last Updated
+- Usage Locations
+
+---
+
+# AI Content Rules
+
+Claude Code must:
+
+- Use only approved business knowledge.
+- Never invent facts.
+- Never invent statistics.
+- Never invent testimonials.
+- Never invent client names.
+- Never invent certifications.
+- Never duplicate approved content.
+- Flag missing information as GAP.
+- Reuse approved knowledge before generating new content.
+
+---
+
+# Long-Term Objective
+
+Build a centralized Enterprise Content Repository that becomes the permanent knowledge source for:
+
+- Website
+- Company Profile
+- Sales Documents
+- Marketing
+- SEO
+- Knowledge Center
+- AI Assistants
+- Internal Training
+- Future Digital Products
+
+Every published content asset must originate from this repository to ensure consistency, quality, and enterprise governance.
+
+---
+
+# Website Content Repository
+
+Maintain reusable content blocks for every page.
+
+## Homepage Content
+
+Reusable assets:
+
+- Hero Headlines
+- Hero Sub-headlines
+- Introduction Paragraphs
+- Why Choose Us
+- Statistics
+- Primary CTA
+- Trust Indicators
+
+---
+
+## About Page Content
+
+Maintain reusable:
+
+- Leadership Introduction
+- Company Journey
+- Company Narrative
+- Values
+- Scale
+- Geographic Presence
+
+---
+
+## Industry Content Blocks
+
+Maintain short reusable introductions for:
+
+- Banking
+- NBFC
+- Housing Finance
+- Fintech
+- ARC
+- Government
+
+These blocks should introduce each industry before detailed content.
+
+---
+
+## Service Content Blocks
+
+Maintain reusable summaries for:
+
+- SARFAESI
+- Legal Recovery
+- Security & Custodian
+- Field Collections
+- Asset Recovery
+- Valuation
+- Auction
+- NPA Management
+
+Use these as introductory content only.
+
+Detailed workflows belong in Services.md.
+
+---
+
+## Trust Content Library
+
+Maintain reusable trust statements.
+
+Examples include:
+
+- Years of Experience
+- Branch Network
+- Client Categories
+- Compliance Commitment
+- Operational Scale
+- Recovery Philosophy
+
+Never create unsupported trust claims.
+
+---
+
+## Statistics Library
+
+Maintain only approved business statistics.
+
+Never publish:
+
+- Estimated numbers
+- Assumed metrics
+- Fake percentages
+
+Every statistic must have a verified business source.
+
+---
+
+## Timeline Library
+
+Maintain approved milestones including:
+
+- Company Foundation
+- Operational Expansion
+- Geographic Growth
+- Digital Transformation
+- Website Evolution
+
+---
+
+## Process Library
+
+Maintain simplified process overviews for:
+
+- SARFAESI
+- Legal Recovery
+- NPA Resolution
+
+Detailed SOPs remain in Services.md.
+
+---
+
+## Feature Library
+
+Maintain reusable feature statements for:
+
+- Branch Network
+- SARFAESI Expertise
+- Security Capability
+- Multi-State Operations
+- Legal Coordination
+
+---
+
+## Card Library
+
+Maintain reusable:
+
+- Card Titles
+- Card Descriptions
+- Feature Cards
+- Service Cards
+- Industry Cards
+
+---
+
+## Case Study Template
+
+Every future case study should follow:
+
+- Client Profile
+- Business Problem
+- Solution
+- Services Used
+- Outcome
+- Lessons Learned
+- Client Approval
+
+Never publish fictional case studies.
+
+---
+
+## Download Library
+
+Future downloadable assets:
+
+- Company Profile
+- SARFAESI Guide
+- Compliance Guide
+- Empanelment Kit
+- Branch Directory
+
+---
+
+## Knowledge Center
+
+Maintain educational topics covering:
+
+- SARFAESI
+- Recovery Process
+- RBI Guidelines
+- NPA Management
+- Industry Trends
+- Compliance
+- Legal Recovery
+
+Knowledge Center articles must educate, not promote.
+
+---
+
+# Authority Content Repository
+
+Maintain reusable topic libraries for:
+
+- Research Reports
+- Whitepapers
+- Thought Leadership
+- Executive Articles
+- LinkedIn Series
+- Conference Topics
+- Training Modules
+- Webinar Topics
+
+These topics become the long-term editorial calendar.
+
+---
+
+# Content Publishing Rules
+
+Every published content asset must:
+
+- Be factually verified.
+- Be management approved.
+- Follow brand voice.
+- Follow compliance guidelines.
+- Use approved terminology.
+- Support enterprise buyers.
+
+Never publish draft messaging as final copy.
+
+
+
+
+---
+
+# Enterprise Service Content Standards
+
+All service-related content should follow a standardized enterprise structure.
+
+Every service page should clearly explain:
+
+- Business Problem
+- Service Overview
+- Business Outcome
+- Customer Pain Points
+- Business Value
+- Target Industries
+- Ideal Customer
+- Related Services
+- Frequently Asked Questions
+- Call to Action
+
+The objective is to help enterprise buyers understand both the operational and business value of every service.
+
+---
+
+# Service Content Principles
+
+Service content should:
+
+- Focus on customer outcomes rather than internal activities.
+- Explain business value before operational details.
+- Use simple, professional language.
+- Highlight verified strengths.
+- Avoid exaggerated marketing claims.
+- Maintain consistent terminology across all pages.
+
+---
+
+# Service Positioning Framework
+
+Every service should communicate:
+
+- What the service does
+- Why it matters
+- Who benefits from it
+- Which industries require it
+- How it supports the recovery lifecycle
+- What makes SM Associates different
+
+---
+
+# Service Portfolio Structure
+
+The enterprise service portfolio consists of:
+
+## Core Recovery Services
+
+Business-critical services that generate the primary revenue and represent the foundation of SM Associates' operations.
+
+---
+
+## Operational Support Services
+
+Supporting capabilities that improve execution, coordination, reporting, and customer operations.
+
+---
+
+## Specialized Services
+
+High-value services that differentiate SM Associates in the market.
+
+---
+
+## Future Technology Services
+
+Validated future opportunities that should be presented only after implementation.
+
+Future opportunities must never be represented as existing capabilities.
+
+---
+
+# Service Differentiation Principles
+
+Service messaging should classify capabilities as:
+
+- Core Services
+- Premium Services
+- Specialized Services
+- High-Trust Services
+- Strategic Services
+
+Differentiate services based on verified operational capability rather than marketing language.
+
+---
+
+# Content Readiness Rules
+
+Priority for publishing service content:
+
+Phase 1
+
+Publish the most differentiated and business-critical services first.
+
+Phase 2
+
+Expand into operational and supporting services.
+
+Phase 3
+
+Introduce validated future services only after implementation or partnership.
+
+---
+
+# Service Content Governance
+
+Every service page must include:
+
+- Approved service name
+- Standard description
+- Business objective
+- Customer value
+- Target audience
+- Industry applicability
+- Related services
+- Internal links
+- SEO keywords
+- FAQ references
+
+---
+
+# Service Proof Standards
+
+Use only verified proof such as:
+
+- Operational expertise
+- Branch presence
+- Regulatory knowledge
+- Process capability
+- Real client-approved case studies
+- Verified certifications
+
+Do not create fictional outcomes or unsupported claims.
+
+---
+
+# Content Consistency Rules
+
+All service content must:
+
+- Reuse approved service terminology.
+- Follow enterprise writing standards.
+- Maintain the same information hierarchy.
+- Link related services naturally.
+- Avoid duplicate descriptions.
+
+---
+
+# Future Service Policy
+
+Validated future opportunities should:
+
+- Be clearly identified as future capabilities.
+- Never appear as currently available services.
+- Be activated only after management approval and implementation.
+
+---
+
+# AI Content Rules
+
+Claude Code should:
+
+- Use the approved master service catalog.
+- Generate service pages from standardized content blocks.
+- Maintain consistent terminology across the website.
+- Never invent new services.
+- Never rename approved services.
+- Flag future opportunities separately from confirmed offerings.

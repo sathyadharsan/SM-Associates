@@ -1,0 +1,176 @@
+# Phase 6 - Information Architecture
+
+## Purpose
+
+Convert the approved business knowledge into a scalable website architecture.
+
+This phase defines:
+
+- Website structure
+- Navigation
+- User journeys
+- SEO architecture
+- Content hierarchy
+- Internal linking
+- Conversion flow
+- AI navigation
+
+---
+
+## Master Sitemap
+
+Primary Navigation
+
+- Home
+- Services
+- Industries
+- Recovery OS
+- Resources
+- About
+- Contact
+
+Supporting Pages
+
+- Coverage
+- Clients
+- Case Studies
+- Careers
+- Knowledge Center
+- Downloads
+- Privacy
+- Terms
+- Compliance
+- 404
+
+---
+
+## Navigation Principles
+
+- Maximum 3 navigation levels
+- Consistent navigation across desktop and mobile
+- Sticky navigation
+- Mega menu for Services
+- Mega menu for Industries
+- Breadcrumb navigation
+- Persistent primary CTA
+
+---
+
+## User Journey Principles
+
+Every page must answer:
+
+- Who is visiting?
+- Why are they here?
+- What information do they need?
+- What builds trust?
+- What action should they take?
+
+Support journeys for:
+
+- CEO
+- COO
+- CFO
+- Recovery Head
+- Legal Head
+- Compliance Officer
+- Operations Manager
+- HR Candidate
+- Partner
+- Job Applicant
+
+---
+
+## Content Hierarchy
+
+Primary Content
+
+↓
+
+Supporting Content
+
+↓
+
+Proof
+
+↓
+
+Related Resources
+
+↓
+
+CTA
+
+---
+
+## SEO Architecture
+
+Content organized into:
+
+- Service Pages
+- Industry Pages
+- Knowledge Center
+- Blog
+- Coverage Pages
+
+Rules
+
+- Clean URLs
+- Canonical pages
+- Internal linking
+- Topic clusters
+- Glossary linking
+- Structured navigation
+
+---
+
+## Trust Architecture
+
+Trust signals include:
+
+- Client Logos
+- Statistics
+- Years of Experience
+- Branch Coverage
+- Compliance
+- Leadership
+- Testimonials
+- Case Studies
+
+Only publish verified trust assets.
+
+---
+
+## Conversion Architecture
+
+Primary CTA
+
+Request Institutional Briefing
+
+Secondary CTA
+
+Explore Services
+
+Lead Generation
+
+- Contact Form
+- Phone
+- WhatsApp
+- Email
+- Downloads
+
+---
+
+## AI Navigation
+
+Future AI assistants should navigate using:
+
+- Services
+- Industries
+- Knowledge Center
+- Coverage
+- FAQ
+- Semantic Tags
+- Knowledge Graph
+
+Never rely on keyword matching alone.

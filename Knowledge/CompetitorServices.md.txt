@@ -1,0 +1,132 @@
+---
+
+# Competitive Content Intelligence
+
+Content should be written based on verified market intelligence rather than assumptions.
+
+Competitor research is used to:
+
+- Understand industry terminology
+- Discover standard service naming conventions
+- Identify market expectations
+- Benchmark service positioning
+- Improve enterprise messaging
+- Identify content gaps
+- Strengthen differentiation
+
+Competitor content must never be copied directly.
+
+---
+
+# Enterprise Service Naming Standards
+
+Use clear, enterprise-friendly service names.
+
+Preferred naming examples:
+
+- Recovery Operations
+- Field Collections
+- SARFAESI Enforcement
+- Legal Recovery & Litigation Support
+- Asset Custody & Disposal
+- Auction & Sale
+- Digital & Tele Collections
+- Borrower Tracing
+- Collections Analytics
+- Fraud Investigation
+- Verification Services
+- Support Services
+
+Avoid inconsistent or duplicate service names across the website.
+
+---
+
+# Competitive Differentiation Principles
+
+SM Associates should position itself around its verified strengths.
+
+Core differentiators include:
+
+- End-to-end physical recovery execution
+- SARFAESI expertise
+- Legal coordination
+- Security & Custodian Services
+- Asset custody and yard management
+- Multi-state field operations
+- Banking and NBFC specialization
+
+Technology features should only be claimed when actually implemented.
+
+---
+
+# Content Positioning Rules
+
+Every service page should answer:
+
+- What problem does this service solve?
+- Who needs this service?
+- What business value does it provide?
+- Where does it fit in the recovery lifecycle?
+- Which industries benefit?
+- What related services support it?
+
+This creates consistent, buyer-focused service content.
+
+---
+
+# Competitive Benchmarking Rules
+
+When reviewing competitors:
+
+- Study service structure.
+- Study terminology.
+- Study positioning.
+- Study trust signals.
+- Study process depth.
+- Study technology capabilities.
+
+Do not copy competitor copywriting.
+
+Create original content based on verified business capabilities.
+
+---
+
+# Future Content Opportunities
+
+The following topics should be expanded over time:
+
+- Recovery Process Guides
+- SARFAESI Knowledge Articles
+- Collections Best Practices
+- Legal Recovery Insights
+- Banking Compliance Articles
+- Industry Trend Reports
+- Operational Playbooks
+- Educational FAQs
+
+These assets strengthen SEO, authority, and enterprise credibility.
+
+---
+
+# Content Consistency Rules
+
+All website content should:
+
+- Use approved terminology.
+- Maintain a professional enterprise tone.
+- Avoid unsupported marketing claims.
+- Highlight verified business capabilities.
+- Differentiate SM Associates through real operational strengths.
+- Reuse approved content blocks wherever possible.
+
+---
+
+# AI Content Rules
+
+Claude Code must:
+
+- Reference approved service terminology.
+- Reuse standardized service names.
+- Never invent competitor capabilities.
+- Never exaggerate SM Associates' strengths.
+- Clearly distinguish verified capabilities from future opportunities.

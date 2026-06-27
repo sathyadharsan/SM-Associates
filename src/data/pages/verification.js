@@ -1,125 +1,99 @@
 export const verificationContent = {
   'cpv-services': {
-    eyebrow: 'Customer Profile Verification',
-    title: 'Pre-Disbursal Customer Profile Verification (CPV)',
-    description: 'Mitigate credit risk by validating applicant identity, residence, workplace, and business existence under strict, audited SLAs.',
-    primaryCtaText: 'Request a CPV Pilot',
-    secondaryCtaText: 'Download Verification Checklist',
-    trustStatement: 'Serving leading private and nationalized banking underwriting teams with a 99.8% profile verification accuracy rating.',
-    trustBar: {
-      statement: 'Empanelled and trusted by India\'s leading nationalized banks, housing finance panels, and ARCs.',
-      logos: ['STATE BANK OF INDIA', 'HDFC BANK', 'AXIS BANK', 'CANARA BANK', 'HDB FINANCIAL', 'ASSET RECONSTRUCTION CORP']
-    },
-    snapshot: {
-      summary: 'SM Associates operates an advanced, geolocated Customer Profile Verification (CPV) framework. We deploy trained ground officers to verify residential addresses, workplace credentials, and commercial existence, compiling photo and coordinate telemetry to isolate credit risks before disbursement.',
+    eyebrow: 'Pre-Disbursal Risk Intelligence',
+    title: 'Customer Personal Verification (CPV)',
+    subtitle: 'Independent, On-Ground Verification for Confident Credit Decisions',
+    description: 'Authenticating an applicant’s identity, residence, and employment with field-verified evidence before disbursement.',
+    primaryCtaText: 'Request a CPV Process Walkthrough',
+    secondaryCtaText: 'Download CPV Documentation Standards',
+
+    problemStatement: [
+      { icon: 'fingerprint', title: 'Identity Fraud', desc: 'Applicants present identity documents that don’t correspond to a real, verifiable individual.' },
+      { icon: 'briefcase', title: 'Fake Employment', desc: 'Declared employer or designation is fabricated, or the workplace is a shell entity.' },
+      { icon: 'mapPin', title: 'Address Mismatch', desc: 'The declared residential address is inaccurate, vacant, or non-existent.' },
+      { icon: 'fileWarning', title: 'Documentation Fraud', desc: 'Submitted documents are altered, forged, or do not match the physical originals.' },
+      { icon: 'trendingDown', title: 'Loan Default Risk', desc: 'Unverified applicant data flows directly into credit scoring without ground confirmation.' },
+      { icon: 'shieldAlert', title: 'Portfolio Quality Risk', desc: 'Verification conducted without structured protocols can itself create regulatory exposure.' }
+    ],
+
+    overview: {
+      heading: 'Why Personal Verification Comes Before the Credit Decision',
+      subheading: 'Application Data Is a Claim. Verification Is the Evidence.',
+      summary: 'Loan and credit applications are built on applicant-supplied information — address, employer, income, identity documents. Before that information becomes the basis of a credit decision, it needs independent confirmation. Customer Personal Verification exists to close that gap: a field officer physically confirms that the applicant lives where they say, works where they say, and holds the identity documents they’ve presented. SM Associates structures this verification around documented field protocols, neighbor and colleague corroboration, and a standardized reporting format that underwriting teams can act on directly, without needing to interpret raw field notes.',
       outcomes: [
-        { title: 'Turnaround Time', desc: 'Guaranteed 24 to 48 hours SLA delivery across urban and semi-urban hubs.' },
-        { title: 'Zero Audit Deficiencies', desc: '100% compliance with data custody protocols and privacy frameworks.' },
-        { title: 'Fraud Mitigation', desc: 'Average pre-disbursal fraud detection rate of 3.2% across retail applicant pools.' }
+        { title: 'Independent Confirmation', desc: 'Replaces reliance on applicant-declared data with on-ground evidence.' },
+        { title: 'Structured Reporting', desc: 'Findings delivered in a consistent format the credit team can act on directly.' },
+        { title: 'Early Risk Detection', desc: 'Catches synthetic identities and fabricated employment before disbursement, not after.' }
       ],
       useCases: [
         { title: 'Retail Credit Operations', desc: 'Verifying retail personal loan and credit card applicant profiles.' },
-        { title: 'High-Value Housing Loans', desc: 'Double-pass ground validation of mortgage applicant residence and documents.' },
+        { title: 'Housing Loan Underwriting', desc: 'Ground validation of mortgage applicant residence and documents.' },
         { title: 'SME Loan Onboarding', desc: 'Verifying small business trade registry and operational status on-site.' }
       ]
     },
-    stats: [
-      { value: '24-48 Hrs', label: 'Average Turnaround' },
-      { value: '15,000+', label: 'Monthly Profiles Checked' },
-      { value: '99.8%', label: 'Verification Accuracy' }
+
+    kpiCards: [
+      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]', desc: 'Verification officers operate across urban, semi-urban, and rural addresses, not limited to easily-accessible metro locations.', businessValue: 'Extends reliable underwriting confidence into geographies where digital-only verification is weakest.' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]', desc: 'Every verification follows a structured checklist — identity, address, employment, and reference cross-checks documented to a consistent format.', businessValue: 'Gives credit teams an auditable verification report, not inconsistent field notes.' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]', desc: 'Verification requests are tracked from assignment to report delivery against a defined SLA window, with status visible throughout.', businessValue: 'Keeps loan processing timelines predictable for the credit pipeline.' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]', desc: 'Field conduct, data handling, and reporting are structured to align with RBI Fair Practices Code expectations.', businessValue: 'Reduces the institution’s regulatory exposure tied to verification conduct.' }
     ],
-    challenges: [
-      { title: 'Identity Tampering', desc: 'Borrowers submitting fabricated identity documents, fake utility bills, or shell workplace credentials.', warningBadge: 'Identity Fraud', impactFormula: 'NPA Risk + 18%' },
-      { title: 'Collusive Employer Networks', desc: 'Fictitious corporate listings set up to register non-existent salary profiles and secure personal loans.', warningBadge: 'Systematic Collusion', impactFormula: 'Write-off Yield + 22%' },
-      { title: 'Logistical Delays', desc: 'Delayed ground inspections in remote regions stalling loan underwriting timelines and client conversion rates.', warningBadge: 'Operational TAT', impactFormula: 'Disbursal Delay + 35%' }
-    ],
-    failCompare: [
-      {
-        dimension: 'Verification Telemetry',
-        traditional: 'Manual visit slips, no coordinates validation, and unchecked agent travel logs.',
-        sm: 'Geotagged site check-ins with latitude/longitude logging, timestamped photography, and real-time operations console sync.'
-      },
-      {
-        dimension: 'Employer Validation',
-        traditional: 'Relying purely on applicant-provided email domains or telephone contacts.',
-        sm: 'Dual-path check: physical office premises inspections combined with official registrar of companies (ROC) tracking.'
-      },
-      {
-        dimension: 'Data Custody & Safety',
-        traditional: 'Sharing KYC and applicant details over unsecured mobile messengers or public file shares.',
-        sm: '100% encrypted bank-grade SFTP data ingestion pipelines and role-based client dashboard access restrictions.'
-      }
-    ],
-    framework: {
-      title: 'Structured Pre-Disbursal CPV Framework',
-      desc: 'Our compliance-first, geolocated verify pipeline ensures quick turnaround times and total reputation protection.',
-      solutions: [
-        { title: 'Data Security Protocol', desc: 'All borrower profile information is encrypted at rest and in transit via corporate pipelines.' },
-        { title: 'Representative Screening Code', desc: 'Every verification agent passes intensive background checks and adheres to professional on-site codes of conduct.' },
-        { title: 'Geofenced Check-in', desc: 'Visits are geolocated and must match the coordinates of the applicant address to allow report submission.' }
-      ]
-    },
+
     capabilities: [
-      { title: 'Residence Auditing', desc: 'Physical inspection of applicant addresses with neighbor reference validation.', businessOutcome: 'Prevents address fraud and minimizes future skip-tracing risks.' },
-      { title: 'Office Auditing', desc: 'Confirming salaried applicant employment status, designation, and salary logs directly on-site.', businessOutcome: 'Validates borrower repayment capacity and salary consistency.' },
-      { title: 'Business Validation', desc: 'On-site inspections of commercial SME operations, active licenses, and inventory checks.', businessOutcome: 'Isolates shell companies and confirms active revenue channels.' },
-      { title: 'KYC Document Matching', desc: 'Cross-checking identity papers, property title deeds, and utility logs against official databases.', businessOutcome: 'Exposes forged documents and falsified identity records.' }
+      { title: 'Identity Authentication', desc: 'Confirming the applicant is who the application says they are.', bullets: ['Cross-check of government-issued ID against applicant’s physical presence', 'Photographic and signature comparison against submitted KYC documents', 'Detection of document tampering or inconsistent biographical details'], businessOutcome: 'Confidence that the credit profile is attached to a real, identifiable individual.' },
+      { title: 'Residential Validation', desc: 'Confirming the applicant actually resides at the declared address.', bullets: ['On-site visit to the declared residential address', 'Neighbor or local corroboration of applicant’s residence', 'Identification of vacant, non-existent, or mismatched addresses'], businessOutcome: 'Reduces the risk of an applicant becoming unreachable after disbursement.' },
+      { title: 'Employment Intelligence', desc: 'Confirming the applicant’s stated employer and role are real.', bullets: ['On-site visit to the declared workplace', 'Confirmation of designation, tenure, and active employment status', 'Identification of shell offices or fictitious employer listings'], businessOutcome: 'Validates the repayment capacity assumption the credit decision is built on.' },
+      { title: 'Reference Intelligence', desc: 'Independently corroborating applicant-provided references.', bullets: ['Direct contact with applicant-listed personal and professional references', 'Cross-validation of reference responses against application data', 'Flagging of references who cannot confirm the applicant’s claims'], businessOutcome: 'Adds a second, independent layer of identity and intent corroboration.' },
+      { title: 'Risk Intelligence Assessment', desc: 'Translating field findings into an underwriting-ready risk view.', bullets: ['Consolidation of identity, residence, and employment findings into a single risk read', 'Flagging of discrepancies between declared and verified information', 'Structured risk commentary for the credit decisioning team'], businessOutcome: 'Gives underwriters a field-grounded view, not just a desk review.' },
+      { title: 'Document Authentication', desc: 'Checking the paperwork itself, not just the claims it supports.', bullets: ['Physical inspection of original documents presented on-site', 'Checks for inconsistent formatting, altered fields, or mismatched issuing details', 'Confirmation that submitted copies match originals viewed in the field'], businessOutcome: 'Closes the gap between a document being submitted and a document being genuine.' }
     ],
-    workflow: [
-      { step: '01', title: 'File Ingestion', objective: 'Securely ingest applicant records', action: 'Ingest client database files via encrypted SFTP sync.', deliverable: 'Applicant case verification file log.' },
-      { step: '02', title: 'Ground Dispatch', objective: 'Allocate cases to field reps', action: 'Route optimizer maps address coordinates and assigns cases to local field agents.', deliverable: 'Optimized dispatch route mapping.' },
-      { step: '03', title: 'Evidence Verification', objective: 'Perform on-site inspection', action: 'Conduct physical address check, neighbor interviews, and log geotagged evidence.', deliverable: 'Timestamped geotagged photos.' },
-      { step: '04', title: 'Audited Report Delivery', objective: 'Transmit verified results', action: 'Compile verification reports and upload to client underwriter console.', deliverable: 'Digital CPV report dossier.' }
+
+    tabs: [
+      { id: 'identity', label: 'Identity Intelligence', heading: 'Establishing Who the Applicant Actually Is', overview: 'The starting point of verification — confirming the applicant’s identity matches both their documents and their physical presence.', activities: ['In-person ID confirmation', 'Photo and signature match', 'Biometric-document cross-check where applicable'], documents: ['Government-issued photo ID', 'PAN', 'Aadhaar (or equivalent)', 'Passport-size photograph on file'], risks: ['Synthetic identity fraud', 'Identity theft', 'Document forgery'], deliverable: 'Identity verification confirmation with supporting photographic evidence.', benefit: 'Confidence that the credit profile is attached to a real, identifiable individual.' },
+      { id: 'residential', label: 'Residential Intelligence', heading: 'Confirming the Applicant Lives Where They Say', overview: 'Physical confirmation of the declared residential address.', activities: ['Site visit', 'Neighbor corroboration', 'Ownership or tenancy status check'], documents: ['Utility bills', 'Rental agreement or property documents', 'Address proof on file'], risks: ['Address fraud', 'Future skip-tracing risk', 'Post-disbursal untraceability'], deliverable: 'Residence verification report with site visit confirmation.', benefit: 'Reduces the risk of an applicant becoming unreachable after disbursement.' },
+      { id: 'employment', label: 'Employment Intelligence', heading: 'Confirming the Applicant’s Income Source Is Real', overview: 'On-site confirmation that the declared employer and role exist and are active.', activities: ['Workplace visit', 'HR or supervisor confirmation', 'Designation and tenure check'], documents: ['Salary slips', 'Offer or appointment letter', 'Employer ID card'], risks: ['Fabricated employment', 'Shell-company salary structures', 'Repayment-capacity misrepresentation'], deliverable: 'Employment verification report confirming employer legitimacy and applicant status.', benefit: 'Validates the repayment capacity assumption the credit decision is built on.' },
+      { id: 'financial', label: 'Financial Risk Assessment', heading: 'Reading the Verification Findings Against Credit Risk', overview: 'Consolidating identity, residence, and employment findings into a risk-relevant view for the credit team.', activities: ['Cross-referencing field findings against declared income and obligations'], documents: ['Bank statements or income proof where provided', 'Declared liabilities'], risks: ['Overstated repayment capacity', 'Undisclosed financial stress'], deliverable: 'Consolidated risk commentary alongside verification findings.', benefit: 'Gives underwriters a field-grounded view, not just a desk review of paper income.' },
+      { id: 'documentation', label: 'Document Authentication', heading: 'Checking the Paper Trail Itself', overview: 'Physical inspection of original documents to catch tampering or inconsistency that copies can hide.', activities: ['Original-vs-copy comparison', 'Format and issuing-authority consistency checks'], documents: ['All KYC and supporting documents submitted with the application'], risks: ['Forged or altered documentation'], deliverable: 'Documentation validation note flagging any inconsistency found.', benefit: 'Closes the gap between a document being submitted and a document being genuine.' },
+      { id: 'decision', label: 'Decision Intelligence Report', heading: 'One Consolidated Report, Ready for Underwriting', overview: 'All findings compiled into a single structured report for the credit decision file.', activities: ['Report compilation', 'Internal quality check before delivery'], documents: [], risks: ['Inconsistent or fragmented verification records across an applicant’s file'], deliverable: 'Final CPV report, structured for direct use in the credit decisioning workflow.', benefit: 'Removes the need for the underwriting team to interpret raw field notes.' }
     ],
-    techEnablement: {
-      title: 'Pre-Disbursal Tracking & Analytics',
-      desc: 'Real-time transparency through advanced geolocations, daily CSV updates, and recorded communication channels.',
-      modules: [
-        { title: 'Geographic Check-ins', desc: 'Field officer coordinates are validated against target address locations using mobile geofencing.' },
-        { title: 'Document Auditing API', desc: 'Automated verification check triggers for official databases (GSTIN, MCA, PAN, Aadhaar).' }
+
+    challengesHeading: 'Enterprise Verification Risks',
+    challenges: [
+      { title: 'Identity Fraud', desc: 'Applicants present identity documents that don’t correspond to a real, verifiable individual.', warningBadge: 'Identity Risk', impact: 'Loans extended against identities that cannot be traced or held accountable post-disbursement.' },
+      { title: 'Fake Documentation', desc: 'Submitted documents are altered, forged, or do not match the physical originals.', warningBadge: 'Document Risk', impact: 'Underwriting decisions are made on falsified evidence, undermining the credit file’s integrity.' },
+      { title: 'Incorrect Address', desc: 'The declared residential address is inaccurate, vacant, or non-existent.', warningBadge: 'Traceability Risk', impact: 'Post-disbursement collections and recovery become significantly harder once an applicant cannot be located.' },
+      { title: 'Employment Misrepresentation', desc: 'Declared employer or designation is fabricated, or the workplace is a shell entity.', warningBadge: 'Repayment Risk', impact: 'The repayment-capacity assumption underlying the credit decision is invalid from the outset.' },
+      { title: 'Credit Risk', desc: 'Unverified applicant data flows directly into credit scoring without ground confirmation.', warningBadge: 'Scoring Risk', impact: 'Risk models are only as reliable as their inputs — unverified inputs degrade portfolio quality over time.' },
+      { title: 'Compliance Issues', desc: 'Verification conducted without structured protocols can itself create regulatory exposure.', warningBadge: 'Regulatory Risk', impact: 'Institutions inherit reputational and regulatory risk from how verification was performed.' }
+    ],
+
+    processFlow: {
+      title: 'Enterprise Verification Lifecycle',
+      desc: 'A structured operating model that moves an applicant case from intake to a decision-ready report.',
+      steps: [
+        { step: '01', title: 'Case Assignment', desc: 'Applicant case is received and assigned to a field officer based on the address or workplace location.', outcome: 'Verification request enters a tracked pipeline with a defined owner.' },
+        { step: '02', title: 'Document Verification', desc: 'Submitted KYC and supporting documents are reviewed for completeness before field dispatch.', outcome: 'Confirmed document set ready for on-ground cross-checking.' },
+        { step: '03', title: 'Field Investigation', desc: 'Field officer conducts on-site identity, residence, and employment verification visits.', outcome: 'First-hand findings recorded against the structured verification checklist.' },
+        { step: '04', title: 'Validation & Compliance Review', desc: 'Field findings are cross-checked against submitted documents and reviewed for completeness and consistency.', outcome: 'Any discrepancy between declared and verified information is identified and flagged.' },
+        { step: '05', title: 'Final Verification Report', desc: 'Consolidated findings are compiled into the standardized CPV report and delivered to the client.', outcome: 'A decision-ready verification record placed in the applicant’s credit file.' }
       ]
     },
-    geoScope: {
-      title: 'Geographic Reach & Hub Network',
-      desc: 'Pan-regional presence across Southern India with hub-and-spoke branch operations.',
-      stats: [
-        { label: 'Operational Coverage', value: 'Tamil Nadu, Karnataka, Kerala, Telangana, Andhra Pradesh, Puducherry' },
-        { label: 'Field Capacity', value: '450+ Active verification officers' },
-        { label: 'Logistics Range', value: '150 KM / Hub' }
-      ]
-    },
-    complianceDetails: [
-      'RBI Fair Practices Code Aligned',
-      'Data Privacy and ISO 27001 Certified Handling',
-      '100% Geotagged and Coordinates-Validated Field Visits'
+
+    outcomesHeading: 'Enterprise Business Outcomes',
+    outcomes: [
+      { title: 'Reduced Lending Risk', desc: 'Ground-verified applicant data closes the gap between what was declared and what is real.', value: 'Fewer credit decisions made on unverified or false information.' },
+      { title: 'Improved Portfolio Quality', desc: 'Filtering out misrepresented applications before disbursement keeps the originated portfolio cleaner.', value: 'Less downstream cleanup from accounts that should never have been approved.' },
+      { title: 'Regulatory Compliance', desc: 'Structured, documented verification practices align with RBI Fair Practices Code expectations.', value: 'Reduces institutional exposure during regulatory review of underwriting practices.' },
+      { title: 'Better Customer Validation', desc: 'Independent confirmation replaces reliance on self-declared applicant information.', value: 'Underwriting decisions rest on verified fact, not applicant assertion.' },
+      { title: 'Faster Loan Processing', desc: 'A managed, SLA-tracked verification step keeps the credit pipeline moving predictably.', value: 'Verification becomes a scheduled stage in the process, not an open-ended delay.' },
+      { title: 'Higher Decision Confidence', desc: 'Credit teams act on a structured, consistent verification report rather than interpreting raw field notes.', value: 'Faster, more defensible credit decisions across the underwriting team.' }
     ],
-    industriesServed: [
-      { name: 'Public Sector Banks', scenario: 'High-volume retail home loan applicant verification.', framework: 'Double-pass address validation' },
-      { name: 'Private Commercial Banks', scenario: 'Credit card portfolio profile verification.', framework: '24-hour SLA calling & visit loop' },
-      { name: 'Fintech Lenders', scenario: 'Instant personal loan CPV verification checks.', framework: 'API-triggered database verification' }
-    ],
-    operationalMetrics: [
-      { value: '24-48 Hrs', label: 'Urban Turnaround Time' },
-      { value: '15,000+', label: 'Monthly Profiles Checked' },
-      { value: '99.8%', label: 'SLA Verification Accuracy' },
-      { value: '3.2%', label: 'Average Fraud Flag Rate' }
-    ],
-    businessOutcomes: [
-      { title: 'Reduced NPA Exposure', desc: 'Exposing synthetic profiles and fraudulent documents before disbursement protects bank reserves.' },
-      { title: 'Shorter Underwriting Cycles', desc: 'Reliable, SLA-backed turnaround times allow rapid loan processing.' }
-    ],
-    caseStudy: {
-      headingStatus: 'VERIFIED CASE STUDY',
-      title: 'Preventing Portfolio Fraud at Onboarding',
-      challenge: 'A digital personal loan platform experienced a spike in early-stage defaults due to structured synthetic identity fraud using fake rent agreements and fictitious employers.',
-      approach: 'Deployed SM Associates\' geolocated verification and physical employer audits. Every address was verified with geotagged photography and neighbor validation.',
-      execution: 'Over 3,500 applications were audited on-ground. In 140 cases, employer offices were found to be non-operational or non-existent.',
-      outcome: 'Identified and flagged 4.2% fraudulent applicants, preventing over ₹8.5 Crore in potential defaults within a 90-day window.'
-    },
+
     faqs: [
-      { q: 'What is the typical turnaround time for a CPV check?', a: 'Our turnaround time is 24 to 48 hours for urban areas and up to 72 hours for remote semi-urban districts.' },
-      { q: 'How do you ensure data confidentiality?', a: 'All data is encrypted in transit and at rest, stored in bank-grade secure databases compliant with ISO 27001 standards.' }
+      { q: 'What is the typical turnaround time for a CPV check?', a: 'Turnaround is tracked against an SLA agreed with each client and varies by region — specific timelines are confirmed during empanelment.' },
+      { q: 'How do you ensure data confidentiality?', a: 'Applicant data collected during verification is handled under structured data-custody protocols aligned with RBI Fair Practices Code expectations.' }
     ],
+
     cta: {
       heading: 'Strengthen Your Credit Risk Underwriting Today',
       subheading: 'Enforce pre-disbursal validations and optimize portfolio quality with a compliant corporate partner.',
@@ -129,461 +103,404 @@ export const verificationContent = {
   },
 
   'residence-verification': {
-    eyebrow: 'On-Ground Address Checking',
-    title: 'Verified Address Checking with Geotagged Proof',
-    description: 'We physically inspect applicant residences to confirm operational stability and ensure reliable customer contact records.',
-    primaryCtaText: 'Request Residence Check',
-    secondaryCtaText: 'Review Report Template',
-    trustStatement: 'Ensuring credit book integrity across 180+ districts with audited ground check protocols.',
-    trustBar: {
-      statement: 'Empanelled and trusted by India\'s leading nationalized banks, housing finance panels, and ARCs.',
-      logos: ['STATE BANK OF INDIA', 'HDFC BANK', 'AXIS BANK', 'CANARA BANK', 'HDB FINANCIAL', 'ASSET RECONSTRUCTION CORP']
-    },
-    snapshot: {
-      summary: 'SM Associates performs rigorous physical residence verifications. Our field coordinators conduct doorstep visits, confirm applicant occupancy duration and house ownership type, and interview neighbors to establish a clean and verifiable residential profile.',
+    eyebrow: 'On-Ground Address Verification',
+    title: 'Residence Verification',
+    subtitle: 'Physical Confirmation of Applicant Address and Occupancy',
+    description: 'Confirming an applicant actually lives where they say, through a physical field visit and document checks.',
+    primaryCtaText: 'Request a Residence Verification Walkthrough',
+    secondaryCtaText: 'Download Residence Verification Standards',
+
+    problemStatement: [
+      { icon: 'mapPin', title: 'Address Mismatch', desc: 'The declared residential address is inaccurate, vacant, or does not match the applicant.' },
+      { icon: 'fileWarning', title: 'Fabricated Utility Proofs', desc: 'Forged electricity bills or rent agreements submitted to pass basic document checks.' },
+      { icon: 'shieldAlert', title: 'Transient Tenancy', desc: 'Temporary or shared rentals presented as stable, long-term residences.' },
+      { icon: 'trendingDown', title: 'Post-Disbursal Untraceability', desc: 'An unverified address becomes a dead end the moment collections or recovery is needed.' }
+    ],
+
+    overview: {
+      heading: 'Why Physical Address Confirmation Comes Before Disbursement',
+      subheading: 'A Mailing Address Is Not Proof of Residence',
+      summary: 'Application forms record a declared address, but a declared address is only as reliable as the applicant’s honesty. Residence Verification closes that gap with a physical site visit: a field officer confirms the applicant lives at the stated address, corroborates occupancy with neighbors or the building manager, and checks the underlying address-proof documents against what’s actually on the ground. SM Associates structures this around a documented visit protocol and a standardized report format so underwriting teams receive a decision-ready finding, not raw field notes.',
       outcomes: [
-        { title: 'Geographical Coverage', desc: 'Deep regional reach covering over 180 districts in South India.' },
-        { title: 'Validation Accuracy', desc: '99.8% verification accuracy on address location details.' },
-        { title: 'Evidentiary Proofs', desc: 'Geotagged check-ins and timestamped photography logged on every visit.' }
+        { title: 'Independent Confirmation', desc: 'Replaces a self-declared address with on-ground evidence of actual occupancy.' },
+        { title: 'Structured Reporting', desc: 'Findings delivered in a consistent format the credit team can act on directly.' },
+        { title: 'Early Risk Detection', desc: 'Catches vacant, fictitious, or mismatched addresses before disbursement, not after.' }
       ],
       useCases: [
-        { title: 'Personal Loan Applicants', desc: 'Verifying residential stability before approving unsecured personal loans.' },
-        { title: 'Auto Finance Portfolios', desc: ' doorstep validation of vehicle loan applicants to secure asset tracking records.' }
+        { title: 'Personal Loan Applicants', desc: 'Confirming residential stability before approving unsecured personal loans.' },
+        { title: 'Auto Finance Portfolios', desc: 'Doorstep validation of vehicle loan applicants to secure future contactability.' },
+        { title: 'Housing Loan Underwriting', desc: 'Ground confirmation of current residence ahead of long-tenure mortgage decisions.' }
       ]
     },
-    stats: [
-      { value: '180+', label: 'Districts Covered' },
-      { value: '99.8%', label: 'Verification Accuracy' },
-      { value: '10,000+', label: 'Monthly Address Checks' }
+
+    kpiCards: [
+      { icon: 'mapPinned', title: 'Field Coverage', desc: 'Verification officers visit urban, semi-urban, and rural addresses, not just easily-accessible metro locations.', businessValue: 'Extends reliable underwriting confidence into geographies digital-only checks can’t reach.' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', desc: 'Every visit follows a structured checklist — occupancy confirmation, neighbor corroboration, and document cross-check, recorded to a consistent format.', businessValue: 'Gives credit teams an auditable verification report, not inconsistent field notes.' },
+      { icon: 'timer', title: 'Turnaround Discipline', desc: 'Verification requests are tracked from assignment to report delivery against a defined SLA window.', businessValue: 'Keeps loan processing timelines predictable for the credit pipeline.' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', desc: 'Doorstep conduct and data handling are structured to align with RBI Fair Practices Code expectations.', businessValue: 'Reduces the institution’s regulatory exposure tied to field-visit conduct.' }
     ],
-    challenges: [
-      { title: 'Transient Tenancy', desc: 'Applicants providing temporary or shared rentals without valid agreements to inflate stability.', warningBadge: 'Tenant Risk', impactFormula: 'Delinquency Migration + 14%' },
-      { title: 'Fabricated Utility Proofs', desc: 'Submitting forged electricity bills or water tax receipts to pass basic digital checks.', warningBadge: 'Document Forgery', impactFormula: 'NPA Exposure + 20%' }
-    ],
-    failCompare: [
-      {
-        dimension: 'Visit Authentication',
-        traditional: 'Manual entry slips with no geographic validation, leading to unchecked reports.',
-        sm: 'Mandatory GPS-geotagged check-in within a 50-meter radius of the applicant coordinates.'
-      },
-      {
-        dimension: 'Occupancy Check',
-        traditional: 'Relying on self-declaration forms or paper utility receipts.',
-        sm: 'Doorstep check combined with two independent neighbor verification checks.'
-      }
-    ],
-    framework: {
-      title: 'Residence Verification Protocol',
-      desc: 'Structured ground-level validation ensuring accurate address profiles and collection safety.',
-      solutions: [
-        { title: 'Physical Inspection', desc: 'Verification officers visit the house to confirm structural existence and occupancy.' },
-        { title: 'Neighbor Reference Check', desc: 'Conducting quiet neighborhood inquiries to verify candidate duration of stay.' }
-      ]
-    },
+
     capabilities: [
-      { title: 'Doorstep Interviews', desc: 'Face-to-face applicant verification checks confirming family size and stay duration.', businessOutcome: 'Confirms resident stability and updates active contact numbers.' },
-      { title: 'Ownership Validation', desc: 'Verifying if the applicant is owner or tenant, checking original documents.', businessOutcome: 'Mitigates the risk of applicant absconding after disbursement.' }
+      { title: 'Doorstep Occupancy Confirmation', desc: 'Face-to-face confirmation that the applicant actually resides at the declared address.', bullets: ['On-site visit to the declared residential address', 'Confirmation of household composition and stay duration', 'Identification of vacant, non-existent, or mismatched addresses'], businessOutcome: 'Confirms resident stability and reduces the risk of an unreachable applicant post-disbursement.' },
+      { title: 'Neighbor & Local Corroboration', desc: 'Independent confirmation of the applicant’s residence from people who would know.', bullets: ['Discreet inquiries with neighbors or the building manager', 'Cross-validation of stay-duration claims', 'Flagging of residences no local contact can corroborate'], businessOutcome: 'Adds a second, independent layer of address confirmation beyond the visit itself.' },
+      { title: 'Ownership & Tenancy Validation', desc: 'Confirming whether the applicant owns or rents, and verifying the underlying status.', bullets: ['Checking property ownership registry or rental agreement', 'Confirming applicant name matches occupancy records', 'Identifying informal or undocumented occupancy arrangements'], businessOutcome: 'Clarifies the applicant’s actual residential standing rather than relying on self-declaration.' },
+      { title: 'Address-Proof Document Check', desc: 'Checking the supporting paperwork against what’s observed on-site.', bullets: ['Physical inspection of utility bills, rent agreements, or property documents', 'Checks for inconsistent formatting or mismatched details', 'Confirmation that submitted copies match what exists on the ground'], businessOutcome: 'Closes the gap between a document being submitted and an address being real.' },
+      { title: 'Geotagged Visit Evidence', desc: 'Recording the visit itself as part of the verifiable record.', bullets: ['Timestamped photography of the residence exterior and entrance', 'Visit logged against the declared address coordinates', 'Evidence retained as part of the verification report'], businessOutcome: 'Gives underwriting teams a verifiable record of the visit, not just a written conclusion.' },
+      { title: 'Address Risk Flagging', desc: 'Translating field findings into an underwriting-ready risk read.', bullets: ['Consolidation of occupancy, ownership, and document findings', 'Flagging of discrepancies between declared and verified address details', 'Structured risk commentary for the credit decisioning team'], businessOutcome: 'Gives underwriters a field-grounded view of address risk, not just a desk review.' }
     ],
-    workflow: [
-      { step: '01', title: 'Address Parsing', objective: 'Extract coordinate data', action: 'Extract target address from client database and convert to coordinates.', deliverable: 'Geocoded case record.' },
-      { step: '02', title: 'Agent Allocation', objective: 'Dispatch ground officer', action: 'Route optimized case to branch representative near target location.', deliverable: 'Agent task mapping.' },
-      { step: '03', title: 'On-site Inspection', objective: 'Verify candidate details', action: 'Perform physical inspection, verify identity details, and interview neighbors.', deliverable: 'Completed address check form.' },
-      { step: '04', title: 'Report Inflow', objective: 'Compile final dossier', action: 'Audit the geotagged details and transmit report file to underwriter.', deliverable: 'Audited address check report.' }
+
+    tabs: [
+      { id: 'site-visit', label: 'Site Visit', heading: 'Confirming the Address Physically Exists', overview: 'The starting point — confirming the declared address corresponds to a real, locatable residence.', activities: ['Address geocoding and route dispatch', 'On-site visit to the declared address'], documents: ['Address proof on file'], risks: ['Vacant or non-existent address', 'Address-locating failure'], deliverable: 'Site visit confirmation log.', benefit: 'Establishes whether the declared address is even real before deeper checks proceed.' },
+      { id: 'occupancy', label: 'Occupancy Confirmation', heading: 'Confirming the Applicant Actually Lives There', overview: 'Direct confirmation that the applicant resides at the address, not just that the address exists.', activities: ['Face-to-face confirmation with applicant or household', 'Household composition and stay-duration check'], documents: ['Utility bills', 'Rental agreement or property documents'], risks: ['Transient tenancy presented as stable residence', 'Applicant not known at the address'], deliverable: 'Occupancy confirmation report.', benefit: 'Confirms the applicant’s actual residential stability, not just an address match.' },
+      { id: 'neighbor', label: 'Neighbor Corroboration', heading: 'Independently Verifying the Occupancy Claim', overview: 'Cross-checking the applicant’s residency claim with people other than the applicant.', activities: ['Discreet neighbor or building-manager inquiries', 'Cross-validation of stay-duration claims'], documents: [], risks: ['Residences no local contact can corroborate'], deliverable: 'Neighbor corroboration note.', benefit: 'Adds an independent check that doesn’t rely solely on the applicant’s own claims.' },
+      { id: 'ownership', label: 'Ownership & Tenancy Check', heading: 'Confirming the Applicant’s Residential Standing', overview: 'Establishing whether the applicant owns or rents, and verifying that status.', activities: ['Property ownership registry or rent agreement check', 'Confirmation of name match on occupancy records'], documents: ['Property title documents', 'Rental agreement'], risks: ['Informal or undocumented occupancy arrangements'], deliverable: 'Ownership/tenancy validation note.', benefit: 'Clarifies the applicant’s actual residential status for the credit file.' },
+      { id: 'documentation', label: 'Document Cross-Check', heading: 'Checking the Paper Trail Against the Ground Reality', overview: 'Physical inspection of address-proof documents to catch inconsistency copies can hide.', activities: ['Original-vs-copy comparison of address proofs', 'Format and issuing-authority consistency checks'], documents: ['All address-proof documents submitted with the application'], risks: ['Forged or altered utility bills and rent agreements'], deliverable: 'Documentation validation note.', benefit: 'Closes the gap between a document being submitted and an address being genuine.' },
+      { id: 'report', label: 'Final Residence Report', heading: 'One Consolidated Report, Ready for Underwriting', overview: 'All findings compiled into a single structured report for the credit decision file.', activities: ['Report compilation', 'Internal quality check before delivery'], documents: [], risks: ['Inconsistent or fragmented verification records across an applicant’s file'], deliverable: 'Final residence verification report.', benefit: 'Removes the need for the underwriting team to interpret raw field notes.' }
     ],
-    techEnablement: {
-      title: 'Geofenced Field Coordination',
-      desc: 'Enforcing verification integrity using real-time coordinates tracking and timestamp logs.',
-      modules: [
-        { title: 'Geotagged Photography', desc: 'Photos of the building exterior and entrance are captured with embedded GPS metadata.' }
+
+    challengesHeading: 'Enterprise Address Verification Risks',
+    challenges: [
+      { title: 'Transient Tenancy', desc: 'Applicants present temporary or shared rentals as stable, long-term residences.', warningBadge: 'Tenancy Risk', impact: 'Inflated stability assumptions feed into a credit decision that doesn’t reflect real residential risk.' },
+      { title: 'Fabricated Utility Proofs', desc: 'Forged electricity bills or rent receipts submitted to pass basic document checks.', warningBadge: 'Document Risk', impact: 'Underwriting decisions rest on falsified address evidence.' },
+      { title: 'Vacant or Non-Existent Address', desc: 'The declared address turns out to be vacant, demolished, or simply doesn’t exist.', warningBadge: 'Traceability Risk', impact: 'Post-disbursement contact and recovery become significantly harder once the address is invalid.' },
+      { title: 'Shared or Sublet Occupancy', desc: 'Multiple unrelated applicants share an address, making individual residency claims hard to corroborate.', warningBadge: 'Verification Risk', impact: 'Standard checks can’t isolate one applicant’s genuine residency from a shared address pattern.' },
+      { title: 'Post-Disbursal Untraceability', desc: 'An unverified address becomes a dead end the moment collections or recovery action is needed.', warningBadge: 'Recovery Risk', impact: 'Collections and recovery teams inherit the cost of an address that was never actually confirmed.' },
+      { title: 'Compliance Issues in Doorstep Conduct', desc: 'Field visits conducted without structured protocols can create regulatory exposure.', warningBadge: 'Regulatory Risk', impact: 'Institutions inherit reputational and regulatory risk from how doorstep verification was performed.' }
+    ],
+
+    processFlow: {
+      title: 'Enterprise Residence Verification Lifecycle',
+      desc: 'A structured operating model that moves an applicant case from intake to a decision-ready report.',
+      steps: [
+        { step: '01', title: 'Case Assignment', desc: 'Applicant case is received and assigned to a field officer based on the address location.', outcome: 'Verification request enters a tracked pipeline with a defined owner.' },
+        { step: '02', title: 'Address Geocoding & Dispatch', desc: 'The declared address is geocoded and routed to the nearest available field officer.', outcome: 'Confirmed dispatch route ready for on-site visit.' },
+        { step: '03', title: 'Site Visit & Neighbor Corroboration', desc: 'Field officer conducts the on-site occupancy check and neighbor corroboration.', outcome: 'First-hand findings recorded against the structured verification checklist.' },
+        { step: '04', title: 'Validation & Compliance Review', desc: 'Field findings are cross-checked against submitted address-proof documents.', outcome: 'Any discrepancy between declared and verified address details is identified and flagged.' },
+        { step: '05', title: 'Final Residence Report', desc: 'Consolidated findings are compiled into the standardized report and delivered to the client.', outcome: 'A decision-ready verification record placed in the applicant’s credit file.' }
       ]
     },
-    geoScope: {
-      title: 'Branch & Yard Scope',
-      desc: 'Regional verification presence across 35 branch networks in South India.',
-      stats: [
-        { label: 'Active Field Force', value: '450+ Certified Coordinators' },
-        { label: 'Coverage Area', value: 'TN, KA, KL, TS, AP, PY' }
-      ]
-    },
-    complianceDetails: [
-      'RBI Fair Conduct Guidelines Aligned',
-      'Mandatory Background Screening for Field Reps',
-      'No-coercion doorstep inquiry policies'
+
+    outcomesHeading: 'Enterprise Business Outcomes',
+    outcomes: [
+      { title: 'Reduced Address Fraud', desc: 'Ground-verified address data closes the gap between what was declared and what is real.', value: 'Fewer credit decisions made on unverified or false residence claims.' },
+      { title: 'Lower Post-Disbursal Untraceability', desc: 'Confirming a real, occupied address reduces the chance of an unreachable borrower later.', value: 'Fewer accounts lost to contact-tracing failures during collections.' },
+      { title: 'Improved Portfolio Quality', desc: 'Filtering out vacant or fictitious addresses before disbursement keeps the originated portfolio cleaner.', value: 'Less downstream cleanup from accounts that should never have been approved.' },
+      { title: 'Regulatory Compliance', desc: 'Structured, documented doorstep practices align with RBI Fair Practices Code expectations.', value: 'Reduces institutional exposure during regulatory review of field-verification conduct.' },
+      { title: 'Faster Loan Processing', desc: 'A managed, SLA-tracked verification step keeps the credit pipeline moving predictably.', value: 'Verification becomes a scheduled stage in the process, not an open-ended delay.' },
+      { title: 'Higher Decision Confidence', desc: 'Credit teams act on a structured, consistent verification report rather than interpreting raw field notes.', value: 'Faster, more defensible credit decisions across the underwriting team.' }
     ],
-    industriesServed: [
-      { name: 'Nationalized Banks', scenario: 'High-volume housing loan applicant address check campaigns.', framework: 'Neighbor audit logs' },
-      { name: 'NBFCs', scenario: 'Doorstep verification checks for agricultural loans.', framework: 'Village panchayat verification' }
-    ],
-    operationalMetrics: [
-      { value: '180+', label: 'Districts Covered' },
-      { value: '99.8%', label: 'Address Accuracy' },
-      { value: '24 Hrs', label: 'Average Turnaround' }
-    ],
-    businessOutcomes: [
-      { title: 'Zero Ghost Profiles', desc: 'Physical visits ensure the validity of address records before disbursal.' },
-      { title: 'Lower Collection Delays', desc: 'Accurate address data prevents communication breakdowns during recovery cycles.' }
-    ],
-    caseStudy: {
-      headingStatus: 'VERIFIED CASE STUDY',
-      title: 'Exposing Fake Rent Agreement Fraud',
-      challenge: 'A national lender faced high write-offs in consumer loans, with 12% of default accounts found to have fictitious addresses upon collection attempt.',
-      approach: 'Implemented SM Associates\' physical address verification checks with mandatory neighbor validations and coordinates stamping.',
-      execution: 'Inspected 1,200 retail personal loan profiles on-site, cross-referencing landlord records.',
-      outcome: 'Exposed 68 fake rent agreements and fictitious addresses, saving the bank over ₹1.4 Crore in potential bad debts.'
-    },
+
     faqs: [
-      { q: 'How do you verify if the applicant is a tenant or owner?', a: 'Our field officers verify the property ownership registry or the rent agreement, and confirm with neighbors or the building manager.' },
-      { q: 'What happens if the address is not reachable?', a: 'The case is routed to our special address tracing desk to verify coordinates using local registrar datasets.' }
+      { q: 'How do you verify if the applicant is a tenant or owner?', a: 'Field officers check the property ownership registry or rental agreement and confirm occupancy status with neighbors or the building manager.' },
+      { q: 'What happens if the declared address can’t be located?', a: 'The case is flagged and routed for further address-tracing follow-up rather than being closed as verified.' }
     ],
+
     cta: {
       heading: 'Protect Your Loan Book from Address Fraud',
-      subheading: 'Request a customized residence verification pilot program for your retail portfolio.',
-      buttonText: 'Request Residence Check',
+      subheading: 'Request a residence verification walkthrough for your retail portfolio.',
+      buttonText: 'Request Empanelment Proposal',
       href: '/contact'
     }
   },
 
   'office-verification': {
-    eyebrow: 'Salaried Profile Audits',
-    title: 'Rigorous Employment & Office Verification',
-    description: 'Confirm applicant employment, salary details, and corporate existence through structured workplace audits.',
-    primaryCtaText: 'Request Employment Verification Pilot',
-    secondaryCtaText: 'Download Office Audit Sample',
-    trustStatement: 'Ensuring personal loan security by validating 1,200+ employer platforms and salary records.',
-    trustBar: {
-      statement: 'Empanelled and trusted by India\'s leading nationalized banks, housing finance panels, and ARCs.',
-      logos: ['STATE BANK OF INDIA', 'HDFC BANK', 'AXIS BANK', 'CANARA BANK', 'HDB FINANCIAL', 'ASSET RECONSTRUCTION CORP']
-    },
-    snapshot: {
-      summary: 'SM Associates conducts thorough office and workplace verifications. We verify if the applicant is actively employed, check the corporate identity registration (MCA/GST), audit salary registers, and interview HR representatives to validate income credentials.',
+    eyebrow: 'Employment & Workplace Verification',
+    title: 'Office Verification',
+    subtitle: 'Confirming the Applicant’s Employer and Workplace Are Real',
+    description: 'Confirming an applicant’s declared employer and workplace are real and active before disbursement.',
+    primaryCtaText: 'Request an Office Verification Walkthrough',
+    secondaryCtaText: 'Download Office Verification Standards',
+
+    problemStatement: [
+      { icon: 'briefcase', title: 'Fictitious Employer', desc: 'The declared employer turns out to be a shell office or does not exist at the stated address.' },
+      { icon: 'fileWarning', title: 'Salary Slip Tampering', desc: 'Applicants submit altered or forged salary slips to overstate declared income.' },
+      { icon: 'trendingDown', title: 'Inflated Designation', desc: 'Job title and tenure are exaggerated to strengthen the credit profile.' },
+      { icon: 'shieldAlert', title: 'Post-Disbursal Job Loss', desc: 'An unverified employment claim leaves no real trail once repayment capacity is actually tested.' }
+    ],
+
+    overview: {
+      heading: 'Why Confirming Employment Comes Before the Credit Decision',
+      subheading: 'A Salary Slip Is a Claim. A Workplace Visit Is the Evidence.',
+      summary: 'Employment is the foundation of a borrower’s repayment capacity, yet it’s usually confirmed only on paper — a salary slip, an offer letter, an HR phone number provided by the applicant. Office Verification closes that gap with a physical visit to the declared workplace, direct confirmation with HR or a supervisor, and a check of the company’s registered existence. SM Associates structures this around a documented field protocol and a standardized report, so underwriting teams get a decision-ready finding rather than a phone call that may or may not have reached a real employer.',
       outcomes: [
-        { title: 'Workplaces Audited', desc: 'Over 1,200+ corporate offices and manufacturing units verified.' },
-        { title: 'Average Turnaround', desc: 'Workplace reports completed under 36 hours from file ingestion.' },
-        { title: 'Fraud Prevention', desc: 'Exposing fake payslip circles and fictitious employer listings.' }
+        { title: 'Independent Confirmation', desc: 'Replaces a self-declared employer with on-ground evidence of an active workplace.' },
+        { title: 'Structured Reporting', desc: 'Findings delivered in a consistent format the credit team can act on directly.' },
+        { title: 'Early Risk Detection', desc: 'Catches shell offices and fabricated employment before disbursement, not after.' }
       ],
       useCases: [
-        { title: 'Unsecured Personal Loans', desc: 'Verifying true employer and salary credentials for personal credit seekers.' },
-        { title: 'Premium Credit Cards', desc: 'Validating corporate address and desk extension profiles.' }
+        { title: 'Unsecured Personal Loans', desc: 'Confirming employer and salary credentials for personal credit applicants.' },
+        { title: 'Premium Credit Cards', desc: 'Validating corporate address and workplace presence for higher-limit approvals.' },
+        { title: 'Salaried Home Loan Underwriting', desc: 'Confirming stable employment behind a long-tenure mortgage decision.' }
       ]
     },
-    stats: [
-      { value: '1,200+', label: 'Workplaces Audited' },
-      { value: '36 Hrs', label: 'Average Turnaround' },
-      { value: '99.5%', label: 'HR Sync Rate' }
+
+    kpiCards: [
+      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
     ],
-    challenges: [
-      { title: 'Salary Slip Tampering', desc: 'Applicants submitting forged PDF salary slips or falsified bank logs.', warningBadge: 'Income Fraud', impactFormula: 'Income Overstatement + 40%' },
-      { title: 'Fictitious Employer Listings', desc: 'Setting up fake office desks or phone extensions to verify non-existent salaried personnel.', warningBadge: 'Fake Employers', impactFormula: 'NPA Danger + 25%' }
-    ],
-    failCompare: [
-      {
-        dimension: 'Workplace Check',
-        traditional: 'Verifying employment purely via a phone call to numbers provided on the loan application form.',
-        sm: 'Physical, on-site visit to the registered workplace address with photo verification of employee desks.'
-      },
-      {
-        dimension: 'Corporate Existence Check',
-        traditional: 'Accepting company credentials without checking corporate tax filings.',
-        sm: 'Cross-referencing company details against active MCA (Ministry of Corporate Affairs) and GSTIN portals.'
-      }
-    ],
-    framework: {
-      title: 'Employment Auditing Architecture',
-      desc: 'Double-pass workplace inspections protecting underwriters from salaried profile defaults.',
-      solutions: [
-        { title: 'Physical Office Audits', desc: 'Visiting the corporate premises to confirm company operations and applicant occupancy.' },
-        { title: 'HR Department Verification', desc: 'Direct liaising with HR managers to confirm date of joining, salary, and active employment.' }
-      ]
-    },
+
     capabilities: [
-      { title: 'Active Designation Checks', desc: 'Verifying the applicant\'s actual role and department on-site.', businessOutcome: 'Prevents title inflation and income exaggeration.' },
-      { title: 'Income Log Verification', desc: 'Confirming salary disbursement modes and tax deductions.', businessOutcome: 'Ensures the applicant\'s true net take-home salary is validated.' }
+      { title: 'Workplace Visit Confirmation', desc: 'Physically confirming the declared employer operates at the stated address.', bullets: ['On-site visit to the declared workplace', 'Confirmation the office is active and operational', 'Identification of shell offices or non-existent addresses'], businessOutcome: 'Confirms the employer is real before income is treated as fact.' },
+      { title: 'HR or Supervisor Verification', desc: 'Direct confirmation of employment status from someone other than the applicant.', bullets: ['Discreet confirmation with HR or the reporting supervisor', 'Cross-check of designation and active employment status', 'Flagging of employers who cannot confirm the applicant'], businessOutcome: 'Adds an independent check beyond the applicant’s own paperwork.' },
+      { title: 'Designation & Tenure Check', desc: 'Confirming the role and length of service actually match what was declared.', bullets: ['Verification of job title and department', 'Confirmation of joining date and tenure', 'Identification of inflated designations'], businessOutcome: 'Prevents credit decisions built on an exaggerated job profile.' },
+      { title: 'Salary Documentation Review', desc: 'Checking the income paperwork itself, not just the number on it.', bullets: ['Physical inspection of salary slips presented on-site', 'Checks for inconsistent formatting or altered figures', 'Confirmation against payroll records where accessible'], businessOutcome: 'Closes the gap between a salary slip being submitted and income being real.' },
+      { title: 'Corporate Registry Cross-Check', desc: 'Confirming the employer is a real, registered business.', bullets: ['Cross-check of company name against standard registries', 'Identification of shell or recently-incorporated entities', 'Flagging of employers with no verifiable business footprint'], businessOutcome: 'Reduces exposure to coordinated fictitious-employer schemes.' },
+      { title: 'Employment Risk Flagging', desc: 'Translating field findings into an underwriting-ready risk read.', bullets: ['Consolidation of workplace, HR, and documentation findings', 'Flagging of discrepancies between declared and verified employment', 'Structured risk commentary for the credit decisioning team'], businessOutcome: 'Gives underwriters a field-grounded view of repayment-capacity risk.' }
     ],
-    workflow: [
-      { step: '01', title: 'Case Receipt', objective: 'Verify applicant details', action: 'Ingest company registration and applicant details from client portal.', deliverable: 'Employer case file.' },
-      { step: '02', title: 'Workplace Visit', objective: 'Verify physical desk', action: 'Field agent visits the office premises to verify company existence and check applicant seating.', deliverable: 'Geotagged workplace photo.' },
-      { step: '03', title: 'HR Parameter Audit', objective: 'Verify employee credentials', action: 'Conduct official HR interview to verify salary, date of joining, and role details.', deliverable: 'Completed HR audit form.' },
-      { step: '04', title: 'Report Delivery', objective: 'Compile final dossier', action: 'Generate report and upload to client underwriter dashboard.', deliverable: 'Office verification report.' }
+
+    tabs: [
+      { id: 'workplace-visit', label: 'Workplace Visit', heading: 'Confirming the Employer Actually Exists', overview: 'The starting point — confirming the declared workplace is a real, operating office.', activities: ['Site visit to the declared workplace address', 'Confirmation the office is active and operational'], documents: ['Offer or appointment letter'], risks: ['Shell or non-existent office', 'Address mismatch'], deliverable: 'Workplace visit confirmation log.', benefit: 'Establishes the employer is real before deeper checks proceed.' },
+      { id: 'hr-confirmation', label: 'HR Confirmation', heading: 'Confirming Employment Status Independently', overview: 'Direct confirmation with HR or a supervisor, not relying on the applicant alone.', activities: ['Discreet HR or supervisor confirmation', 'Cross-check of active employment status'], documents: ['Employer ID card'], risks: ['Employers who cannot confirm the applicant'], deliverable: 'HR confirmation note.', benefit: 'Adds an independent layer beyond applicant-provided paperwork.' },
+      { id: 'designation', label: 'Designation & Tenure', heading: 'Confirming the Role and Length of Service', overview: 'Verifying the declared job title and tenure match reality.', activities: ['Designation confirmation', 'Joining-date and tenure check'], documents: ['Appointment letter'], risks: ['Inflated designation or tenure'], deliverable: 'Designation and tenure verification note.', benefit: 'Prevents an exaggerated job profile from shaping the credit decision.' },
+      { id: 'salary-docs', label: 'Salary Documentation', heading: 'Checking the Income Paperwork Itself', overview: 'Physical inspection of salary slips to catch inconsistency or alteration.', activities: ['Original-vs-copy comparison of salary slips', 'Format consistency checks'], documents: ['Salary slips', 'Bank statements where provided'], risks: ['Forged or altered salary slips'], deliverable: 'Salary documentation validation note.', benefit: 'Closes the gap between a payslip being submitted and income being real.' },
+      { id: 'registry-check', label: 'Corporate Registry Check', heading: 'Confirming the Employer Is a Real Business', overview: 'Cross-checking the employer against standard business registries.', activities: ['Company name cross-check', 'Business footprint review'], documents: [], risks: ['Shell or recently-incorporated employer entities'], deliverable: 'Corporate registry cross-check note.', benefit: 'Reduces exposure to coordinated fictitious-employer schemes.' },
+      { id: 'report', label: 'Final Report', heading: 'One Consolidated Report, Ready for Underwriting', overview: 'All findings compiled into a single structured report for the credit decision file.', activities: ['Report compilation', 'Internal quality check before delivery'], documents: [], risks: ['Inconsistent or fragmented verification records'], deliverable: 'Final office verification report.', benefit: 'Removes the need for underwriting to interpret raw field notes.' }
     ],
-    techEnablement: {
-      title: 'Corporate Database Integrations',
-      desc: 'Accelerating company registry check loops with automated API validations.',
-      modules: [
-        { title: 'MCA Registry Matching', desc: 'Company registration number (CIN) is verified against ministry records instantly.' }
+
+    challengesHeading: 'Enterprise Employment Verification Risks',
+    challenges: [
+      { title: 'Fictitious Employer Listings', desc: 'Coordinated setups using fake office desks or phone extensions to support non-existent salaried profiles.', warningBadge: 'Employer Risk', impact: 'Loans approved against employment that doesn’t exist.' },
+      { title: 'Salary Slip Tampering', desc: 'Forged or altered salary slips submitted to overstate income.', warningBadge: 'Document Risk', impact: 'Repayment-capacity assumptions are built on falsified figures.' },
+      { title: 'Inflated Designation', desc: 'Job title and tenure exaggerated to strengthen the credit profile.', warningBadge: 'Profile Risk', impact: 'Credit decisions overestimate the applicant’s actual standing.' },
+      { title: 'Shell Office Setup', desc: 'A registered-looking office address that has no genuine business operations behind it.', warningBadge: 'Verification Risk', impact: 'Standard address checks alone can miss a coordinated shell setup.' },
+      { title: 'Post-Disbursal Job Loss Untraceability', desc: 'An unverified employer leaves no real trail once repayment is actually tested.', warningBadge: 'Recovery Risk', impact: 'Collections inherit the cost of employment that was never confirmed.' },
+      { title: 'Compliance Issues in Workplace Visits', desc: 'Field visits conducted without structured protocols can create regulatory exposure.', warningBadge: 'Regulatory Risk', impact: 'Institutions inherit reputational risk from how workplace verification was performed.' }
+    ],
+
+    processFlow: {
+      title: 'Enterprise Office Verification Lifecycle',
+      desc: 'A structured operating model that moves an applicant case from intake to a decision-ready report.',
+      steps: [
+        { step: '01', title: 'Case Assignment', desc: 'Applicant case is received and assigned to a field officer based on the workplace location.', outcome: 'Verification request enters a tracked pipeline with a defined owner.' },
+        { step: '02', title: 'Workplace Dispatch', desc: 'The declared workplace address is routed to the nearest available field officer.', outcome: 'Confirmed dispatch route ready for on-site visit.' },
+        { step: '03', title: 'Workplace Visit & HR Confirmation', desc: 'Field officer conducts the on-site workplace check and HR or supervisor confirmation.', outcome: 'First-hand findings recorded against the structured verification checklist.' },
+        { step: '04', title: 'Validation & Compliance Review', desc: 'Field findings are cross-checked against submitted salary and employment documents.', outcome: 'Any discrepancy between declared and verified employment is identified and flagged.' },
+        { step: '05', title: 'Final Office Verification Report', desc: 'Consolidated findings are compiled into the standardized report and delivered to the client.', outcome: 'A decision-ready verification record placed in the applicant’s credit file.' }
       ]
     },
-    geoScope: {
-      title: 'Regional Footprint',
-      desc: 'Active office verifications covering all corporate hubs and industrial estates in South India.',
-      stats: [
-        { label: 'Industrial Hub Coverage', value: 'Chennai, Bengaluru, Hyderabad, Coimbatore' },
-        { label: 'Branch Staff', value: '450+ Certified Field Officers' }
-      ]
-    },
-    complianceDetails: [
-      'RBI Data Protection Standards Compliant',
-      'ISO 27001 Data Security Protocols Adhered',
-      'Confidential HR interview guidelines'
+
+    outcomesHeading: 'Enterprise Business Outcomes',
+    outcomes: [
+      { title: 'Reduced Employment Fraud', desc: 'Ground-verified employer data closes the gap between what was declared and what is real.', value: 'Fewer credit decisions made on unverified or false employment claims.' },
+      { title: 'Validated Repayment Capacity', desc: 'Confirming real, active employment grounds the credit decision in actual income evidence.', value: 'Underwriting decisions rest on verified employment, not applicant assertion.' },
+      { title: 'Improved Portfolio Quality', desc: 'Filtering out fictitious-employer applications before disbursement keeps the originated portfolio cleaner.', value: 'Less downstream cleanup from accounts that should never have been approved.' },
+      { title: 'Regulatory Compliance', desc: 'Structured, documented workplace-visit practices align with RBI Fair Practices Code expectations.', value: 'Reduces institutional exposure during regulatory review of underwriting practices.' },
+      { title: 'Faster Loan Processing', desc: 'A managed, SLA-tracked verification step keeps the credit pipeline moving predictably.', value: 'Verification becomes a scheduled stage in the process, not an open-ended delay.' },
+      { title: 'Higher Decision Confidence', desc: 'Credit teams act on a structured, consistent verification report rather than interpreting raw field notes.', value: 'Faster, more defensible credit decisions across the underwriting team.' }
     ],
-    industriesServed: [
-      { name: 'Private Commercial Banks', scenario: 'High-ticket personal loan workplace validation checks.', framework: 'Direct HR coordinator checks' },
-      { name: 'Fintech Lenders', scenario: 'Instant credit line employment validation.', framework: 'API-based GSTIN database check' }
-    ],
-    operationalMetrics: [
-      { value: '1,200+', label: 'Corporates Audited' },
-      { value: '36 Hrs', label: 'Average TAT' },
-      { value: '99.5%', label: 'HR Verification Success' }
-    ],
-    businessOutcomes: [
-      { title: 'Prevented Salary Frauds', desc: 'Exposing fake payslips ensures loan eligibility calculations match actual income.' },
-      { title: 'Lower Default Probability', desc: 'Confirming corporate stability helps prevent defaults caused by sudden layoffs.' }
-    ],
-    caseStudy: {
-      headingStatus: 'VERIFIED CASE STUDY',
-      title: 'Exposing Fictitious Employers Ring',
-      challenge: 'A retail bank experienced defaults on personal loans assigned to applicants claiming salary from three specific tech firms.',
-      approach: 'SM Associates deployed a workplace audit. We physically visited the corporate offices listed on the loan applications.',
-      execution: 'Inspected target sites, finding that the offices were small co-working spaces with no active business setup.',
-      outcome: 'Exposed a fake employment ring, flagged 24 pending applications, and saved over ₹1.2 Crore in fraudulent disbursements.'
-    },
+
     faqs: [
-      { q: 'Do you visit the HR department directly?', a: 'Yes. Our field officers visit the company\'s official HR department to verify details using employee registers.' },
-      { q: 'How do you verify companies in remote locations?', a: 'Our network of 35 regional branches allows us to inspect workplaces across all districts of South India.' }
+      { q: 'Do you visit the HR department directly?', a: 'Yes. Field officers visit the company and seek confirmation from HR or the applicant’s supervisor as part of the standard verification protocol.' },
+      { q: 'What happens if the employer cannot be located?', a: 'The case is flagged and routed for further follow-up rather than closed as verified.' }
     ],
+
     cta: {
       heading: 'Protect Your Personal Loan Book from Employment Fraud',
-      subheading: 'Request an onboarding meeting to configure custom office verification parameters.',
-      buttonText: 'Initiate Workplace Check',
+      subheading: 'Request an office verification walkthrough for your retail credit portfolio.',
+      buttonText: 'Request Empanelment Proposal',
       href: '/contact'
     }
   },
 
   'business-verification': {
-    eyebrow: 'SME Commercial Audits',
-    title: 'On-Site Business and Commercial Establishment Verification',
-    description: 'Ensure the physical existence, operational capacity, and regulatory standing of business loan applicants.',
-    primaryCtaText: 'Request Business Audit Pilot',
-    secondaryCtaText: 'View Business Report Guidelines',
-    trustStatement: 'Confirming commercial credit security by auditing 2,500+ SME establishments and factory units.',
-    trustBar: {
-      statement: 'Empanelled and trusted by India\'s leading nationalized banks, housing finance panels, and ARCs.',
-      logos: ['STATE BANK OF INDIA', 'HDFC BANK', 'AXIS BANK', 'CANARA BANK', 'HDB FINANCIAL', 'ASSET RECONSTRUCTION CORP']
-    },
-    snapshot: {
-      summary: 'SM Associates conducts detailed business and factory verifications for commercial loans. We inspect factory machinery, evaluate stock levels on site, verify trade registrations, and confirm operational capacity to secure the lender\'s capital.',
+    eyebrow: 'SME & Commercial Establishment Verification',
+    title: 'Business Verification',
+    subtitle: 'Confirming the Applicant’s Business Actually Operates',
+    description: 'Confirming a commercial loan applicant’s premises, inventory, and registered status are genuine.',
+    primaryCtaText: 'Request a Business Verification Walkthrough',
+    secondaryCtaText: 'Download Business Verification Standards',
+    problemStatement: [
+      { icon: 'briefcase', title: 'Non-Operational Shell Firms', desc: 'A registered business address with no genuine commercial activity behind it.' },
+      { icon: 'fileWarning', title: 'Inflated Inventory Records', desc: 'Stock counts and business size overstated to secure higher working capital limits.' },
+      { icon: 'trendingDown', title: 'Fictitious Trade Registration', desc: 'GST or trade-license details that don’t correspond to a real, active business.' },
+      { icon: 'shieldAlert', title: 'Post-Disbursal Business Closure', desc: 'An unverified business can quietly shut down once funds are disbursed.' }
+    ],
+
+    overview: {
+      heading: 'Why On-Site Business Confirmation Comes Before Disbursement',
+      subheading: 'A GST Certificate Is a Claim. An Operating Premises Is the Evidence.',
+      summary: 'Commercial loan applications are built on registration certificates and self-reported business details. Business Verification closes the gap between paperwork and ground reality: a field officer visits the business premises, confirms active operations, reviews inventory and machinery on-site, and cross-checks trade registrations. SM Associates structures this around a documented field protocol and a standardized report, so credit teams get a decision-ready finding rather than a registration certificate that may or may not reflect a real, operating business.',
       outcomes: [
-        { title: 'SME Audited', desc: 'Over 2,500+ business premises and factory units verified.' },
-        { title: 'Operational Auditing', desc: 'Confirming on-site capacity, employee headcount, and machinery active status.' },
-        { title: 'Tax & License Checks', desc: 'Cross-checking GSTIN, trade licenses, and state factory registrations.' }
+        { title: 'Independent Confirmation', desc: 'Replaces self-reported business details with on-ground evidence of active operations.' },
+        { title: 'Structured Reporting', desc: 'Findings delivered in a consistent format the credit team can act on directly.' },
+        { title: 'Early Risk Detection', desc: 'Catches shell businesses and inflated inventory before disbursement, not after.' }
       ],
       useCases: [
-        { title: 'SME Business Finance', desc: 'Verifying small business premises and inventory levels before approving working capital loans.' },
-        { title: 'Industrial Machinery Funding', desc: 'Checking active plant capacity and factory machinery profiles.' }
+        { title: 'SME Working Capital Loans', desc: 'Confirming business premises and inventory levels before approving working capital limits.' },
+        { title: 'Industrial Machinery Funding', desc: 'Checking active plant capacity and machinery presence on-site.' },
+        { title: 'Self-Employed Borrower Profiles', desc: 'Verifying business activity behind a self-employed applicant’s declared income.' }
       ]
     },
-    stats: [
-      { value: '2,500+', label: 'SMEs Audited' },
-      { value: '48 Hrs', label: 'Average Turnaround' },
-      { value: '5 States', label: 'Commercial Coverage' }
+
+    kpiCards: [
+      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
     ],
-    challenges: [
-      { title: 'Non-Operational Shell Firms', desc: 'Applicants listing non-operating warehouse spaces or shell corporate entities to secure SME funding.', warningBadge: 'Shell Company Risk', impactFormula: 'NPA Occurrence + 35%' },
-      { title: 'Inflated Inventory Records', desc: 'Falsifying stock counts and business size to secure higher working capital limits.', warningBadge: 'Inventory Inflation', impactFormula: 'Default Write-off + 28%' }
-    ],
-    failCompare: [
-      {
-        dimension: 'Business Audit Depth',
-        traditional: 'Accepting paper GST logs and online registry certificates without checking ground operations.',
-        sm: 'On-site commercial audit including inventory reviews, active machinery checks, and worker headcount confirmation.'
-      },
-      {
-        dimension: 'Site Authenticity',
-        traditional: 'Checking business signs on gates without verifying business transactions.',
-        sm: 'doorstep checks, verifying trade registers, local dealer receipts, and neighboring shop confirmations.'
-      }
-    ],
-    framework: {
-      title: 'Commercial Verification Methodology',
-      desc: 'Structured on-site commercial audits protecting commercial loan books from default.',
-      solutions: [
-        { title: 'Premises Verification', desc: 'Field officers visit the commercial factory or retail site to check active business status.' },
-        { title: 'Operational Audits', desc: 'Audit active inventory levels, machinery installations, and active employees on site.' }
-      ]
-    },
+
     capabilities: [
-      { title: 'Inventory Evaluations', desc: 'Verifying active inventory levels and warehouse storage logs.', businessOutcome: 'Prevents credit limits based on falsified or inflated stock counts.' },
-      { title: 'Registry Cross-Checking', desc: 'Validating GSTIN records, municipal trade licenses, and factory permits.', businessOutcome: 'Confirms the applicant\'s business conforms to regulatory codes.' }
+      { title: 'Premises Operation Confirmation', desc: 'Physically confirming the business operates at the declared premises.', bullets: ['On-site visit to the declared business address', 'Confirmation of active commercial or factory operations', 'Identification of vacant or non-operational sites'], businessOutcome: 'Confirms the business is real before its scale is treated as fact.' },
+      { title: 'Inventory & Asset Review', desc: 'Checking what’s actually on the premises, not just what was declared.', bullets: ['On-site review of stock and inventory levels', 'Confirmation of active machinery where applicable', 'Identification of inflated stock or asset claims'], businessOutcome: 'Prevents credit limits set against falsified business scale.' },
+      { title: 'Trade Registry Cross-Check', desc: 'Confirming the business’s registered status matches reality.', bullets: ['Cross-check of GSTIN and trade license details', 'Confirmation of business name and registration consistency', 'Flagging of mismatched or lapsed registrations'], businessOutcome: 'Confirms the business conforms to applicable regulatory codes.' },
+      { title: 'Employee Headcount Verification', desc: 'Confirming the business has the active workforce it claims.', bullets: ['On-site headcount observation', 'Cross-check against declared staffing levels', 'Identification of inconsistent or inflated headcount claims'], businessOutcome: 'Grounds operational-scale assumptions in observed reality.' },
+      { title: 'Tax & License Validation', desc: 'Checking the supporting paperwork against what’s observed on-site.', bullets: ['Physical inspection of trade license and tax documents', 'Checks for inconsistent formatting or altered details', 'Confirmation against standard registries where accessible'], businessOutcome: 'Closes the gap between paperwork being submitted and a business being genuine.' },
+      { title: 'Business Risk Flagging', desc: 'Translating field findings into an underwriting-ready risk read.', bullets: ['Consolidation of premises, inventory, and registry findings', 'Flagging of discrepancies between declared and verified business status', 'Structured risk commentary for the credit decisioning team'], businessOutcome: 'Gives underwriters a field-grounded view of business risk.' }
     ],
-    workflow: [
-      { step: '01', title: 'Business Ingestion', objective: 'Verify target company', action: 'Ingest company details, GST registration numbers, and coordinates from client.', deliverable: 'SME case assignment file.' },
-      { step: '02', title: 'Field Visit', objective: 'Perform on-site inspection', action: 'Field investigator visits the factory or commercial site to verify operations.', deliverable: 'Geotagged factory check photo.' },
-      { step: '03', title: 'Asset & Inventory Audit', objective: 'Audit active assets', action: 'Audit active machinery, estimate inventory levels, and check employee details.', deliverable: 'Completed inventory log.' },
-      { step: '04', title: 'Official Record Matching', objective: 'Cross-check official papers', action: 'Cross-reference trade logs with municipal registries and deliver report.', deliverable: 'SME verification report.' }
+
+    tabs: [
+      { id: 'premises-visit', label: 'Premises Visit', heading: 'Confirming the Business Actually Operates', overview: 'The starting point — confirming the declared business premises is real and active.', activities: ['Site visit to the declared business address', 'Confirmation of active commercial operations'], documents: ['Trade license'], risks: ['Vacant or non-operational premises'], deliverable: 'Premises visit confirmation log.', benefit: 'Establishes the business is real before deeper checks proceed.' },
+      { id: 'inventory-review', label: 'Inventory Review', heading: 'Checking What’s Actually on the Premises', overview: 'On-site review of stock and assets to confirm declared business scale.', activities: ['Stock and inventory level review', 'Machinery presence check where applicable'], documents: [], risks: ['Inflated stock or asset claims'], deliverable: 'Inventory review note.', benefit: 'Prevents credit limits set against falsified business scale.' },
+      { id: 'registry-check', label: 'Registry Cross-Check', heading: 'Confirming Registered Status Matches Reality', overview: 'Cross-checking GSTIN and trade license details against the business observed on-site.', activities: ['GSTIN and trade license cross-check', 'Business name consistency check'], documents: ['GST registration', 'Trade license'], risks: ['Mismatched or lapsed registrations'], deliverable: 'Registry cross-check note.', benefit: 'Confirms regulatory conformity of the business.' },
+      { id: 'headcount', label: 'Headcount Verification', heading: 'Confirming the Active Workforce', overview: 'Observing actual staffing levels against what was declared.', activities: ['On-site headcount observation'], documents: [], risks: ['Inconsistent or inflated headcount claims'], deliverable: 'Headcount verification note.', benefit: 'Grounds operational-scale assumptions in observed reality.' },
+      { id: 'documentation', label: 'Documentation Review', heading: 'Checking the Paperwork Against the Ground Reality', overview: 'Physical inspection of tax and licensing documents to catch inconsistency.', activities: ['Original-vs-copy comparison', 'Format and issuing-authority consistency checks'], documents: ['Tax filings', 'Trade license'], risks: ['Altered or inconsistent business documents'], deliverable: 'Documentation validation note.', benefit: 'Closes the gap between paperwork being submitted and a business being genuine.' },
+      { id: 'report', label: 'Final Report', heading: 'One Consolidated Report, Ready for Underwriting', overview: 'All findings compiled into a single structured report for the credit decision file.', activities: ['Report compilation', 'Internal quality check before delivery'], documents: [], risks: ['Inconsistent or fragmented verification records'], deliverable: 'Final business verification report.', benefit: 'Removes the need for underwriting to interpret raw field notes.' }
     ],
-    techEnablement: {
-      title: 'On-Site Telemetry Systems',
-      desc: 'Enforcing verification validity with geotagged site reports and real-time database checks.',
-      modules: [
-        { title: 'Live Photo Captures', desc: 'On-site photos of inventory and active machinery are uploaded with GPS coordinates.' }
+
+    challengesHeading: 'Enterprise Business Verification Risks',
+    challenges: [
+      { title: 'Non-Operational Shell Firms', desc: 'Applicants listing non-operating warehouse spaces or shell entities to secure SME funding.', warningBadge: 'Shell Company Risk', impact: 'Loans approved against a business that doesn’t genuinely operate.' },
+      { title: 'Inflated Inventory Records', desc: 'Stock counts and business size overstated to secure higher working capital limits.', warningBadge: 'Inventory Risk', impact: 'Funding levels set against a business scale that isn’t real.' },
+      { title: 'Fictitious Trade Registration', desc: 'GST or trade-license details that don’t correspond to a real, active business.', warningBadge: 'Registry Risk', impact: 'The underlying credit decision rests on an unverifiable business identity.' },
+      { title: 'Address Mismatch', desc: 'The registered business address doesn’t match where operations actually occur.', warningBadge: 'Verification Risk', impact: 'Standard registry checks alone can miss a genuine address discrepancy.' },
+      { title: 'Post-Disbursal Untraceability', desc: 'An unverified business becomes a dead end once collections or recovery is needed.', warningBadge: 'Recovery Risk', impact: 'Collections inherit the cost of a business that was never confirmed.' },
+      { title: 'Compliance Issues in Premises Visits', desc: 'Field visits conducted without structured protocols can create regulatory exposure.', warningBadge: 'Regulatory Risk', impact: 'Institutions inherit reputational risk from how business verification was performed.' }
+    ],
+
+    processFlow: {
+      title: 'Enterprise Business Verification Lifecycle',
+      desc: 'A structured operating model that moves an applicant case from intake to a decision-ready report.',
+      steps: [
+        { step: '01', title: 'Case Assignment', desc: 'Applicant case is received and assigned to a field officer based on the business location.', outcome: 'Verification request enters a tracked pipeline with a defined owner.' },
+        { step: '02', title: 'Premises Dispatch', desc: 'The declared business address is routed to the nearest available field officer.', outcome: 'Confirmed dispatch route ready for on-site visit.' },
+        { step: '03', title: 'Premises Visit & Inventory Review', desc: 'Field officer conducts the on-site operations check and inventory review.', outcome: 'First-hand findings recorded against the structured verification checklist.' },
+        { step: '04', title: 'Validation & Compliance Review', desc: 'Field findings are cross-checked against submitted registration and tax documents.', outcome: 'Any discrepancy between declared and verified business status is identified and flagged.' },
+        { step: '05', title: 'Final Business Verification Report', desc: 'Consolidated findings are compiled into the standardized report and delivered to the client.', outcome: 'A decision-ready verification record placed in the applicant’s credit file.' }
       ]
     },
-    geoScope: {
-      title: 'SME Hub Network',
-      desc: 'Industrial and commercial zone verification coverage across South India.',
-      stats: [
-        { label: 'Branch Hub Network', value: '35 Regional Branches' },
-        { label: 'Active States', value: 'TN, KA, KL, TS, AP' }
-      ]
-    },
-    complianceDetails: [
-      'Nondisclosure Agreements (NDA) Signed for All Cases',
-      'Compliant with B2B Data Security Standards',
-      'ISO 27001 Data Custody Protocols Adhered'
+
+    outcomesHeading: 'Enterprise Business Outcomes',
+    outcomes: [
+      { title: 'Reduced Shell-Business Risk', desc: 'Ground-verified business data closes the gap between what was declared and what is real.', value: 'Fewer credit decisions made on unverified or false business claims.' },
+      { title: 'Valid Working Capital Limits', desc: 'Physical inventory and premises checks ensure funding levels match actual business scale.', value: 'Funding decisions grounded in observed operating capacity.' },
+      { title: 'Improved Portfolio Quality', desc: 'Filtering out non-operational applicants before disbursement keeps the originated portfolio cleaner.', value: 'Less downstream cleanup from accounts that should never have been approved.' },
+      { title: 'Regulatory Compliance', desc: 'Structured, documented premises-visit practices align with RBI Fair Practices Code expectations.', value: 'Reduces institutional exposure during regulatory review of underwriting practices.' },
+      { title: 'Faster Loan Processing', desc: 'A managed, SLA-tracked verification step keeps the credit pipeline moving predictably.', value: 'Verification becomes a scheduled stage in the process, not an open-ended delay.' },
+      { title: 'Higher Decision Confidence', desc: 'Credit teams act on a structured, consistent verification report rather than interpreting raw field notes.', value: 'Faster, more defensible credit decisions across the underwriting team.' }
     ],
-    industriesServed: [
-      { name: 'Commercial Lending Panels', scenario: 'SME working capital loan applicant verification.', framework: 'Factory inventory audits' },
-      { name: 'Housing Finance Companies', scenario: 'Self-employed borrower profile check campaigns.', framework: 'Business activity audits' }
-    ],
-    operationalMetrics: [
-      { value: '2,500+', label: 'Business Units Audited' },
-      { value: '48 Hrs', label: 'Average Turnaround' },
-      { value: '99.2%', label: 'Registry Match Accuracy' }
-    ],
-    businessOutcomes: [
-      { title: 'Valid Working Capital Limits', desc: 'Physical inventory audits ensure funding levels match actual business size.' },
-      { title: 'Isolating Shell Entities', desc: 'Doorstep check protects lenders from disbursing loans to fake business addresses.' }
-    ],
-    caseStudy: {
-      headingStatus: 'VERIFIED CASE STUDY',
-      title: 'Catching Non-Operational SME Shells',
-      challenge: 'An NBFC experienced default defaults from self-employed commercial borrowers in suburban industrial estates.',
-      approach: 'SM Associates deployed a structured commercial check, physically visiting target manufacturing premises.',
-      execution: 'Inspected the warehouse addresses, discovering that they were empty or leased by other firms with fake company boards.',
-      outcome: 'Exposed 15 fake SME listings, saving the lender over ₹2.8 Crore in unsecured business loan disbursals.'
-    },
+
     faqs: [
-      { q: 'How do you verify if the business owns or leases the premises?', a: 'We inspect the registered land deeds or tenancy logs, and verify municipal lease registry filings on-site.' },
-      { q: 'Do you verify financial ledger details?', a: 'Yes. We perform basic validation checks on invoices, supplier books, and GST filings during our on-site inspection.' }
+      { q: 'How do you verify if the business owns or leases the premises?', a: 'Field officers inspect the registered land deeds or tenancy agreement and verify lease details on-site.' },
+      { q: 'Do you check the business’s financial ledgers?', a: 'A basic validation check on invoices, supplier records, and GST filings is performed during the on-site inspection.' }
     ],
+
     cta: {
-      heading: 'Verify SME Borrowers before Disbursal',
-      subheading: 'Connect with our commercial credit risk desk to configure business audit protocols.',
-      buttonText: 'Request Commercial Audit',
+      heading: 'Verify SME Borrowers Before Disbursal',
+      subheading: 'Request a business verification walkthrough for your commercial lending desk.',
+      buttonText: 'Request Empanelment Proposal',
       href: '/contact'
     }
   },
 
   'document-verification': {
-    eyebrow: 'Collateral Registry Verification',
-    title: 'Rigorous KYC & Collateral Document Authenticity Audits',
-    description: 'Mitigate risk by cross-referencing identity proofs, income statements, and land registry records against official registries.',
-    primaryCtaText: 'Request Document Audit',
-    secondaryCtaText: 'View Verification Standards',
-    trustStatement: 'Protecting mortgage lenders by auditing 250,000+ title deeds and identity records.',
-    trustBar: {
-      statement: 'Empanelled and trusted by India\'s leading nationalized banks, housing finance panels, and ARCs.',
-      logos: ['STATE BANK OF INDIA', 'HDFC BANK', 'AXIS BANK', 'CANARA BANK', 'HDB FINANCIAL', 'ASSET RECONSTRUCTION CORP']
-    },
-    snapshot: {
-      summary: 'SM Associates provides detailed document validation audits. We cross-reference identity documents, verify land registry records at sub-registrar offices, audit tax filing records (ITR), and check bank statements to ensure complete document authenticity.',
+    eyebrow: 'KYC & Collateral Document Authentication',
+    title: 'Document Verification',
+    subtitle: 'Confirming Submitted Documents Are Genuine, Not Just Present',
+    description: 'Cross-checking identity, property, and income documents against registries to catch forgery.',
+    primaryCtaText: 'Request a Document Verification Walkthrough',
+    secondaryCtaText: 'Download Document Verification Standards',
+
+    problemStatement: [
+      { icon: 'fileWarning', title: 'Forged Identity Documents', desc: 'Identity proofs that are altered or do not correspond to a real, verifiable individual.' },
+      { icon: 'briefcase', title: 'Altered Property Title Deeds', desc: 'Forged parent deeds or encumbrance certificates submitted as loan collateral.' },
+      { icon: 'trendingDown', title: 'Manipulated Income Records', desc: 'Altered bank statements or tax filings submitted to inflate declared income.' },
+      { icon: 'shieldAlert', title: 'Undetected Fraud at Disbursement', desc: 'A desk review alone can miss alteration that only an original-document inspection would catch.' }
+    ],
+
+    overview: {
+      heading: 'Why Document Authentication Comes Before the Credit Decision',
+      subheading: 'A Submitted Document Is Not the Same as a Genuine One',
+      summary: 'Identity, income, and collateral documents are usually reviewed as digital copies, which can hide tampering a physical inspection would catch immediately. Document Verification closes that gap: identity and property records are cross-checked against their underlying registries, and original documents are physically inspected alongside the copies submitted with the application. SM Associates structures this around a documented protocol and a standardized report, so credit teams receive a decision-ready authenticity finding, not just a confirmation that paperwork exists.',
       outcomes: [
-        { title: 'Documents Verified', desc: 'Over 250,000+ title deeds, income logs, and identity records audited.' },
-        { title: 'Registry Validation', desc: 'Direct verification checks at local sub-registrar offices.' },
-        { title: 'Fraud Flag Rate', desc: 'Average document fraud flag rate of 1.8% identified.' }
+        { title: 'Independent Confirmation', desc: 'Replaces a desk review of copies with registry cross-checks and original-document inspection.' },
+        { title: 'Structured Reporting', desc: 'Findings delivered in a consistent format the credit team can act on directly.' },
+        { title: 'Early Risk Detection', desc: 'Catches forged or altered documents before disbursement, not after.' }
       ],
       useCases: [
-        { title: 'Mortgage Loan Underwriting', desc: 'Verifying property title deeds and land registry records before loan sanctioning.' },
-        { title: 'High-Value Business Loans', desc: 'Auditing corporate tax returns, bank statements, and collateral proofs.' }
+        { title: 'Mortgage Loan Underwriting', desc: 'Verifying property title deeds before loan sanctioning.' },
+        { title: 'High-Value Business Loans', desc: 'Authenticating tax returns, bank statements, and collateral proofs.' },
+        { title: 'Identity-Sensitive Onboarding', desc: 'Confirming KYC documents are genuine before account or loan approval.' }
       ]
     },
-    stats: [
-      { value: '250K+', label: 'Documents Audited' },
-      { value: '1.8%', label: 'Fraud Flag Rate' },
-      { value: '99.9%', label: 'Database Sync Accuracy' }
+
+    kpiCards: [
+      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
     ],
-    challenges: [
-      { title: 'Forged Property Title Deeds', desc: 'Applicants submitting forged parent deeds, fake patta copies, or encumbrance certificates.', warningBadge: 'Property Fraud', impactFormula: 'Collateral Loss + 100%' },
-      { title: 'Income Log Manipulation', desc: 'Modifying bank PDF files, tax filings, or ITR receipts to inflate income parameters.', warningBadge: 'Financial Forgery', impactFormula: 'Over-funding Risk + 32%' }
-    ],
-    failCompare: [
-      {
-        dimension: 'Title Deed Check',
-        traditional: 'Reviewing property photocopies without verifying entries in local land registers.',
-        sm: 'Physical verification check by empanelled legal coordinators at the sub-registrar office to verify registry entries.'
-      },
-      {
-        dimension: 'Identity Auditing',
-        traditional: 'Accepting paper Aadhaar or PAN photocopies without real-time database validation.',
-        sm: 'Automated API registry checks verifying PAN and Aadhaar records directly against official UIDAI and MCA systems.'
-      }
-    ],
-    framework: {
-      title: 'Document Validation Framework',
-      desc: 'Dual digital and physical checks ensuring complete authenticity of collateral and identity records.',
-      solutions: [
-        { title: 'Registry Cross-Checking', desc: 'Cross-checking property title details directly at the local sub-registrar office.' },
-        { title: 'Financial Audit Logs', desc: 'Auditing income statements, bank filings, and tax returns against official platforms.' }
-      ]
-    },
+
     capabilities: [
-      { title: 'Title Deed Verification', desc: 'Verifying property title flow, encumbrances, and tax logs on-site.', businessOutcome: 'Ensures the bank\'s mortgage security is valid and free of prior disputes.' },
-      { title: 'Identity Record Auditing', desc: 'Cross-referencing applicant identity records with database APIs.', businessOutcome: 'Prevents synthetic identity fraud and loan identity theft.' }
+      { title: 'Identity Document Authentication', desc: 'Confirming identity proofs are genuine, not just present.', bullets: ['Cross-check of identity documents against standard registries', 'Checks for inconsistent formatting or altered biographical details', 'Detection of tampering not visible in a digital copy'], businessOutcome: 'Confirms the identity behind the credit file is genuine.' },
+      { title: 'Property Title Verification', desc: 'Confirming collateral title deeds are valid and free of dispute.', bullets: ['Cross-check of title flow and encumbrances', 'Verification against local property registries', 'Identification of forged or altered title documents'], businessOutcome: 'Ensures the lender’s collateral security is genuine.' },
+      { title: 'Income Document Cross-Check', desc: 'Confirming income paperwork hasn’t been altered.', bullets: ['Physical inspection of bank statements and salary slips', 'Checks for inconsistent formatting or altered figures', 'Cross-reference against tax filings where available'], businessOutcome: 'Closes the gap between income documents being submitted and income being real.' },
+      { title: 'Registry Database Validation', desc: 'Cross-checking identity and property details against official records.', bullets: ['Identity cross-check against standard government databases', 'Property cross-check against registry records', 'Flagging of records that don’t match official sources'], businessOutcome: 'Adds an independent layer of confirmation beyond the document itself.' },
+      { title: 'Original-vs-Copy Inspection', desc: 'Physically comparing submitted copies against original documents.', bullets: ['Side-by-side comparison of originals and submitted copies', 'Format and issuing-authority consistency checks', 'Confirmation that copies accurately represent the originals'], businessOutcome: 'Catches alteration a digital-copy-only review would miss.' },
+      { title: 'Document Risk Flagging', desc: 'Translating authentication findings into an underwriting-ready risk read.', bullets: ['Consolidation of identity, property, and income findings', 'Flagging of discrepancies between submitted and verified documents', 'Structured risk commentary for the credit decisioning team'], businessOutcome: 'Gives underwriters a verification-grounded view of document risk.' }
     ],
-    workflow: [
-      { step: '01', title: 'Submission & Intake', objective: 'Ingest candidate files', action: 'Ingest property deeds and identity documents through secure client portals.', deliverable: 'Case document log.' },
-      { step: '02', title: 'Database Match', objective: 'Verify identity registries', action: 'Run digital API checks against PAN, Aadhaar, and MCA registries.', deliverable: 'Digital registry match logs.' },
-      { step: '03', title: 'Physical Office Audit', objective: 'Verify registry details', action: 'Liaison office verification agent visits sub-registrar office to verify property books.', deliverable: 'Certified encumbrance report.' },
-      { step: '04', title: 'Compliance Flag Output', objective: 'Deliver final audit report', action: 'Generate document audit reports and highlight compliance issues.', deliverable: 'Document validation dossier.' }
+
+    tabs: [
+      { id: 'identity-docs', label: 'Identity Documents', heading: 'Confirming Identity Proofs Are Genuine', overview: 'Cross-checking identity documents against standard registries and originals.', activities: ['Identity document cross-check', 'Original-vs-copy comparison'], documents: ['Government-issued photo ID', 'PAN', 'Aadhaar (or equivalent)'], risks: ['Forged or altered identity documents'], deliverable: 'Identity document authentication note.', benefit: 'Confirms the identity behind the credit file is genuine.' },
+      { id: 'property-docs', label: 'Property Documents', heading: 'Confirming Collateral Title Is Valid', overview: 'Cross-checking property title deeds against registry records.', activities: ['Title flow and encumbrance check', 'Registry cross-check'], documents: ['Property title deeds', 'Encumbrance certificate'], risks: ['Forged or disputed title deeds'], deliverable: 'Property title verification note.', benefit: 'Ensures the lender’s collateral security is genuine.' },
+      { id: 'income-docs', label: 'Income Documents', heading: 'Confirming Income Paperwork Hasn’t Been Altered', overview: 'Physical inspection of income documents to catch tampering.', activities: ['Original-vs-copy comparison of income documents', 'Cross-reference against tax filings where available'], documents: ['Bank statements', 'Salary slips', 'Tax filings'], risks: ['Altered bank statements or salary slips'], deliverable: 'Income document validation note.', benefit: 'Closes the gap between income documents being submitted and income being real.' },
+      { id: 'registry-validation', label: 'Registry Cross-Check', heading: 'Cross-Checking Against Official Records', overview: 'Validating identity and property details against official government and registry databases.', activities: ['Identity database cross-check', 'Property registry cross-check'], documents: [], risks: ['Records that don’t match official sources'], deliverable: 'Registry validation note.', benefit: 'Adds an independent confirmation layer beyond the document itself.' },
+      { id: 'original-inspection', label: 'Original Inspection', heading: 'Comparing Originals Against Submitted Copies', overview: 'Physical, side-by-side inspection of original documents.', activities: ['Side-by-side original-vs-copy comparison', 'Format and issuing-authority consistency checks'], documents: ['All original documents submitted with the application'], risks: ['Alteration not visible in a digital copy'], deliverable: 'Original inspection note.', benefit: 'Catches tampering a desk review alone would miss.' },
+      { id: 'report', label: 'Final Report', heading: 'One Consolidated Report, Ready for Underwriting', overview: 'All findings compiled into a single structured report for the credit decision file.', activities: ['Report compilation', 'Internal quality check before delivery'], documents: [], risks: ['Inconsistent or fragmented verification records'], deliverable: 'Final document verification report.', benefit: 'Removes the need for underwriting to interpret raw findings.' }
     ],
-    techEnablement: {
-      title: 'Database Verification API',
-      desc: 'Providing real-time document checking using official database APIs.',
-      modules: [
-        { title: 'Tax Portal Integration', desc: 'Verify tax returns and income statements directly through official database checks.' }
+
+    challengesHeading: 'Enterprise Document Verification Risks',
+    challenges: [
+      { title: 'Forged Property Title Deeds', desc: 'Applicants submitting forged parent deeds, fake patta copies, or encumbrance certificates.', warningBadge: 'Property Risk', impact: 'Collateral security backing the loan may not actually be valid.' },
+      { title: 'Income Log Manipulation', desc: 'Altered bank statements or tax filings submitted to inflate declared income.', warningBadge: 'Income Risk', impact: 'Repayment-capacity assumptions are built on falsified figures.' },
+      { title: 'Identity Document Forgery', desc: 'Identity proofs altered or fabricated to support a credit application.', warningBadge: 'Identity Risk', impact: 'The credit file may be attached to an identity that isn’t genuine.' },
+      { title: 'Registry Mismatch', desc: 'Submitted documents that don’t match what official registries show.', warningBadge: 'Verification Risk', impact: 'A desk review alone can miss a registry-level discrepancy.' },
+      { title: 'Undetected Copy Alteration', desc: 'Digital copies can hide tampering that only an original-document inspection would catch.', warningBadge: 'Document Risk', impact: 'Fraud passes through a copy-only review undetected.' },
+      { title: 'Compliance Issues in Document Handling', desc: 'Handling sensitive KYC and collateral documents without structured custody protocols creates exposure.', warningBadge: 'Regulatory Risk', impact: 'Institutions inherit reputational and regulatory risk from document-handling practices.' }
+    ],
+
+    processFlow: {
+      title: 'Enterprise Document Verification Lifecycle',
+      desc: 'A structured operating model that moves a case from document intake to a decision-ready authenticity finding.',
+      steps: [
+        { step: '01', title: 'Document Intake', desc: 'Submitted identity, property, and income documents are received and logged.', outcome: 'A confirmed document set ready for verification.' },
+        { step: '02', title: 'Registry Cross-Check', desc: 'Identity and property details are cross-checked against official registries.', outcome: 'Discrepancies between submitted and registry data are identified.' },
+        { step: '03', title: 'Original Document Inspection', desc: 'Original documents are physically inspected against the copies submitted.', outcome: 'First-hand findings recorded against the structured authentication checklist.' },
+        { step: '04', title: 'Validation & Compliance Review', desc: 'All findings are cross-checked for completeness and consistency.', outcome: 'Any discrepancy between submitted and verified documents is identified and flagged.' },
+        { step: '05', title: 'Final Document Verification Report', desc: 'Consolidated findings are compiled into the standardized report and delivered to the client.', outcome: 'A decision-ready authenticity record placed in the applicant’s credit file.' }
       ]
     },
-    geoScope: {
-      title: 'Registry Office Reach',
-      desc: 'Sub-registrar office verification coverage across South Indian states.',
-      stats: [
-        { label: 'Sub-Registrar coverage', value: '450+ Municipal Offices' },
-        { label: 'Legal Staff', value: '80+ Empanelled Legal Officers' }
-      ]
-    },
-    complianceDetails: [
-      'ISO 27001 Data Custody Standards Aligned',
-      'Compliant with RBI KYC Directives',
-      'Legal Chain of Custody for Original Files'
+
+    outcomesHeading: 'Enterprise Business Outcomes',
+    outcomes: [
+      { title: 'Reduced Document Fraud', desc: 'Registry cross-checks and original inspection close the gap a copy-only review leaves open.', value: 'Fewer credit decisions made on forged or altered documents.' },
+      { title: 'Valid Collateral Security', desc: 'Confirming title deeds are genuine protects the lender’s actual security position.', value: 'Reduced risk of collateral disputes after disbursement.' },
+      { title: 'Improved Portfolio Quality', desc: 'Filtering out forged-document applications before disbursement keeps the originated portfolio cleaner.', value: 'Less downstream cleanup from accounts that should never have been approved.' },
+      { title: 'Regulatory Compliance', desc: 'Structured, documented authentication practices align with RBI KYC expectations.', value: 'Reduces institutional exposure during regulatory review of underwriting practices.' },
+      { title: 'Faster Loan Processing', desc: 'A managed, SLA-tracked verification step keeps the credit pipeline moving predictably.', value: 'Verification becomes a scheduled stage in the process, not an open-ended delay.' },
+      { title: 'Higher Decision Confidence', desc: 'Credit teams act on a structured, consistent authentication report rather than a copy-only review.', value: 'Faster, more defensible credit decisions across the underwriting team.' }
     ],
-    industriesServed: [
-      { name: 'Housing Finance Companies', scenario: 'Residential home loan title verification.', framework: 'Sub-registrar office verification check' },
-      { name: 'Asset Reconstruction Companies', scenario: 'Due diligence check on acquired mortgage portfolios.', framework: 'Chain of title registry check' }
-    ],
-    operationalMetrics: [
-      { value: '250K+', label: 'Documents Audited' },
-      { value: '1.8%', label: 'Average Fraud Flag Rate' },
-      { value: '3 business days', label: 'Average Title Check TAT' }
-    ],
-    businessOutcomes: [
-      { title: 'Valid Mortgage Claims', desc: 'Physical registry audits ensure property documents are valid, preventing litigation.' },
-      { title: 'Identity Verification Success', desc: 'Exposing synthetic profiles prevents loan identity theft and losses.' }
-    ],
-    caseStudy: {
-      headingStatus: 'VERIFIED CASE STUDY',
-      title: 'Exposing Fabricated Title Deed Fraud',
-      challenge: 'A mortgage lender experienced high write-offs in properties where the collateral was found to be sold or disputed.',
-      approach: 'Implemented SM Associates\' physical sub-registrar check, auditing the actual registers for every home loan application.',
-      execution: 'Audited 400 loan applications in high-growth zones, checking title flows at registry offices.',
-      outcome: 'Exposed 8 fabricated title deeds and prior mortgage locks, saving the bank over ₹5.6 Crore in potential losses.'
-    },
+
     faqs: [
-      { q: 'Do you physically cross-check registers at the sub-registrar office?', a: 'Yes. Our empanelled legal coordinators visit the local sub-registrar office to verify the original paper record registers for all mortgage cases.' },
-      { q: 'What is the TAT for a property title deed check?', a: 'The typical TAT is 3 business days, depending on local municipal archives access.' }
+      { q: 'Do you physically cross-check property registers?', a: 'Yes. Property title verification includes a cross-check against the relevant local property registry, not just a review of submitted copies.' },
+      { q: 'How do you handle the originals during inspection?', a: 'Original documents are inspected under a documented chain-of-custody protocol and returned to the applicant or client as agreed.' }
     ],
+
     cta: {
       heading: 'Ensure Document Integrity Before You Disburse',
-      subheading: 'Request a proposal to empanel SM Associates for your mortgage verification needs.',
-      buttonText: 'Request Document Audit',
+      subheading: 'Request a document verification walkthrough for your underwriting team.',
+      buttonText: 'Request Empanelment Proposal',
       href: '/contact'
     }
   }

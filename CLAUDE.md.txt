@@ -1,0 +1,487 @@
+
+"Every UI/UX, animation, component, and architectural decision should be evaluated not only for today's requirements but also for its ability to support an AI-powered enterprise platform over the next 2–5 years."
+
+# CLAUDE.md
+
+# SM Associates – AI Project Knowledge Base
+
+## Project Overview
+
+This repository contains the official source code for the SM Associates Risk Management Pvt. Ltd. corporate website.
+
+The website is developed using:
+
+* React
+* Vite
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+
+This project follows the DPOS (Digital Presence Operating System) methodology.
+
+---
+
+# Project Objective
+
+Build a premium enterprise website that establishes SM Associates as a trusted Recovery and Risk Management partner for Banks, NBFCs, Housing Finance Companies, Fintech Lenders, and Financial Institutions.
+
+Primary objectives:
+
+* Build trust.
+* Demonstrate operational expertise.
+* Showcase enterprise capabilities.
+* Generate qualified business enquiries.
+* Maintain long-term scalability.
+
+---
+
+# Single Source of Truth
+
+Claude must always treat the following files as the official project knowledge base.
+
+Priority Order:
+
+1. Business.md
+2. Services.md
+3. Industries.md
+4. Content.md
+5. Architecture.md
+6. Competitors.md
+7. CompetitorServices.md
+8. Sales.md
+9. Audit.md
+10. SprintRoadmap.md
+
+Never invent business information outside these repositories.
+
+---
+
+# Development Principles
+
+Always:
+
+* Reuse existing components.
+* Prefer composition over duplication.
+* Follow TypeScript best practices.
+* Keep components modular.
+* Maintain responsive layouts.
+* Optimize performance.
+* Write maintainable code.
+* Preserve accessibility.
+* Preserve SEO.
+
+Never rebuild working components unnecessarily.
+
+---
+
+# UI Design Principles
+
+The website should communicate:
+
+* Trust
+* Professionalism
+* Enterprise capability
+* Operational excellence
+* Simplicity
+* Premium quality
+
+Avoid flashy consumer-style interfaces.
+
+---
+
+# Brand Voice
+
+Content should be:
+
+* Professional
+* Confident
+* Clear
+* Helpful
+* Compliance-aware
+* Enterprise-focused
+
+Avoid hype, exaggerated claims, and unsupported statistics.
+
+---
+
+# Content Rules
+
+Always:
+
+* Use approved terminology.
+* Reuse content from the knowledge repository.
+* Keep messaging consistent.
+* Use customer-focused language.
+* Explain business outcomes before technical details.
+
+Never:
+
+* Invent client names.
+* Invent certifications.
+* Invent testimonials.
+
+
+Unknown information must be treated as a GAP.
+
+---
+
+# Coding Rules
+
+Always:
+
+* Prefer reusable React components.
+* Keep business logic separate from UI.
+* Use TypeScript interfaces.
+* Avoid hardcoded values.
+* Create reusable configuration files.
+* Use semantic HTML.
+* Follow accessibility standards.
+
+---
+
+# Component Rules
+
+Create reusable components whenever possible.
+
+Examples:
+
+* Section
+* Hero
+* CTA
+* Timeline
+* Statistics
+* Card
+* Industry Card
+* Service Card
+* FAQ
+* Testimonial
+* Logo Grid
+
+Avoid duplicate components.
+
+---
+
+# SEO Rules
+
+Every page should include:
+
+* Unique title
+* Meta description
+* Canonical URL
+* Open Graph tags
+* Internal links
+* Structured headings
+* Image alt text
+
+---
+
+# Performance Rules
+
+Always:
+
+* Lazy load heavy sections.
+* Optimize images.
+* Minimize bundle size.
+* Reduce unnecessary re-renders.
+* Keep Lighthouse scores high.
+
+---
+
+# Accessibility Rules
+
+Follow WCAG principles.
+
+Support:
+
+* Keyboard navigation
+* Screen readers
+* Proper heading hierarchy
+* Color contrast
+* Focus indicators
+
+---
+
+# AI Behaviour Rules
+
+Claude should:
+
+* Read the existing codebase before making changes.
+* Preserve working functionality.
+* Modify incrementally.
+* Explain architectural decisions.
+* Keep commits logically grouped.
+
+Do not redesign the project without a clear business reason.
+
+---
+
+# Git Workflow
+
+Before coding:
+
+1. Understand the requirement.
+2. Review existing implementation.
+3. Identify reusable components.
+4. Minimize breaking changes.
+5. Keep commits focused.
+
+---
+
+# Definition of Done
+
+A task is complete only when:
+
+* Business requirement is satisfied.
+* Code compiles successfully.
+* Responsive layout works.
+* Accessibility is preserved.
+* SEO metadata is complete.
+* Performance is acceptable.
+* Existing functionality is not broken.
+
+---
+
+# Long-Term Vision
+
+The website should evolve into a complete Digital Presence Operating System (DPOS) including:
+
+* Corporate Website
+* Knowledge Center
+* Client Portal
+* AI Assistant
+* Recovery OS Dashboard
+* Sales Enablement Platform
+* Internal Knowledge Base
+
+Every future enhancement should align with this vision.
+
+---
+
+# Future Vision – AI Powered Enterprise
+
+SM Associates is not building a traditional corporate website.
+
+The long-term vision is to transform SM Associates into an AI-Powered Risk Management Enterprise.
+
+Every design decision, architecture decision, component, page, and feature should support this future vision.
+
+The website should be built as a scalable digital platform rather than a static marketing website.
+
+---
+
+# AI Transformation Vision
+
+Within the next 1–2 years, SM Associates aims to integrate Artificial Intelligence across its business operations.
+
+Potential transformation areas include:
+
+* AI-powered Recovery Operations
+* AI-powered Customer Support
+* AI-powered Portfolio Intelligence
+* AI-powered Risk Assessment
+* AI-powered Recovery Analytics
+* AI-powered Executive Dashboards
+* AI-powered Knowledge Assistant
+* AI-powered Sales Assistant
+* AI-powered Compliance Monitoring
+* AI-powered Document Intelligence
+
+The website architecture must be capable of supporting these future capabilities without requiring a complete redesign.
+
+---
+
+# AI-First Website Principles
+
+The website should be designed as an intelligent enterprise platform.
+
+Every page should support future AI enhancements.
+
+Future capabilities may include:
+
+* AI Chat Assistant
+* AI Search
+* AI Recommendations
+* AI Content Discovery
+* AI Guided Navigation
+* AI Knowledge Center
+* AI Service Recommendation Engine
+* AI Lead Qualification
+* AI Customer Self-Service
+* AI Portfolio Insights
+
+---
+
+# Agentic AI Readiness
+
+The architecture should support multiple AI agents working together.
+
+Future agents may include:
+
+* Recovery Agent
+* Collections Agent
+* Legal Agent
+* SARFAESI Assistant
+* Compliance Agent
+* Customer Support Agent
+* Proposal Generation Agent
+* Sales Intelligence Agent
+* Knowledge Agent
+* Executive Assistant
+
+Each AI agent should operate using the centralized knowledge repositories maintained within this project.
+
+---
+
+# AI Knowledge Architecture
+
+Business knowledge should remain centralized.
+
+Claude Code must treat the markdown repositories as the enterprise knowledge graph.
+
+Future AI systems should consume the same repositories to ensure consistency across the website, internal tools, and AI assistants.
+
+---
+
+# Experience Vision
+
+The user experience should communicate:
+
+* Intelligence
+* Precision
+* Trust
+* Enterprise Scale
+* Operational Excellence
+* Innovation
+
+The interface should feel modern and technology-driven while remaining appropriate for financial institutions.
+
+Avoid overly futuristic or gaming-inspired visuals.
+
+---
+
+# Motion Design Philosophy
+
+Animations should enhance understanding, not distract.
+
+Preferred interactions include:
+
+* Smooth page transitions
+* Scroll-based storytelling
+* Process timelines
+* Interactive recovery lifecycle
+* Progressive content reveal
+* Animated statistics
+* Relationship diagrams
+* Enterprise dashboards
+* Network visualizations
+* AI workflow animations
+
+Animations should remain subtle, purposeful, and performance-friendly.
+
+---
+
+# Future Platform Roadmap
+
+The website should evolve into an integrated digital ecosystem including:
+
+* Corporate Website
+* Knowledge Center
+* AI Assistant
+* Recovery OS
+* Customer Portal
+* Partner Portal
+* Vendor Portal
+* Executive Dashboard
+* Analytics Platform
+* AI Command Center
+
+Every new feature should align with this roadmap.
+
+---
+
+# AI Design Guidelines
+
+Future UI should reflect an AI-enabled enterprise.
+
+Recommended design characteristics:
+
+* Premium enterprise aesthetics
+* White-first interface
+* Deep blue typography
+* Gold accent highlights
+* Glassmorphism used sparingly
+* Clean data visualizations
+* Interactive process maps
+* AI-inspired network graphics
+* Modern enterprise dashboards
+* Smooth micro-interactions
+
+The design should inspire confidence from Banks, NBFCs, Housing Finance Companies, Fintech Lenders, and other institutional clients.
+
+---
+
+# Future Technology Direction
+
+The platform should remain flexible for future integration with:
+
+* AI Agents
+* Large Language Models (LLMs)
+* Retrieval-Augmented Generation (RAG)
+* Knowledge Graphs
+* Workflow Automation
+* Document AI
+* OCR Pipelines
+* Voice Interfaces
+* Predictive Analytics
+* Business Intelligence Platforms
+
+Architecture decisions today should not block these future integrations.
+
+---
+
+# AI Implementation Policy
+
+AI features must be introduced in phases.
+
+Phase 1
+
+* AI-ready architecture
+* Structured knowledge repositories
+* Semantic content organization
+
+Phase 2
+
+* AI-powered search
+* AI assistant
+* Intelligent recommendations
+
+Phase 3
+
+* Multi-agent workflows
+* Portfolio intelligence
+* Automated reporting
+* Executive copilots
+
+Phase 4
+
+* Autonomous operational assistants
+* Intelligent workflow orchestration
+* Predictive recovery optimization
+
+The website should evolve naturally through these phases while preserving enterprise stability and user trust.
+
+Future Vision
+
+SM Associates will gradually evolve into an AI-powered Risk Management company.
+
+The current objective is to build a scalable enterprise website.
+
+Future releases may introduce:
+
+- AI Search
+- AI Knowledge Assistant
+- AI-powered Dashboards
+- AI Workflow Automation
+
+Current implementation should remain modular and scalable to support these future capabilities without requiring a complete redesign.
+

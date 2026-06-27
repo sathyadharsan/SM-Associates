@@ -17,11 +17,13 @@ import ResidenceVerificationPage from '../pages/services/verification/ResidenceV
 import OfficeVerificationPage from '../pages/services/verification/OfficeVerificationPage';
 import BusinessVerificationPage from '../pages/services/verification/BusinessVerificationPage';
 import DocumentVerificationPage from '../pages/services/verification/DocumentVerificationPage';
+import PdcCollectionsPage from '../pages/services/collections/PdcCollectionsPage';
 import EarlyStageCollectionsPage from '../pages/services/collections/EarlyStageCollectionsPage';
 import SoftCollectionsPage from '../pages/services/collections/SoftCollectionsPage';
 import HardCollectionsPage from '../pages/services/collections/HardCollectionsPage';
 import FieldCollectionsPage from '../pages/services/collections/FieldCollectionsPage';
 import DebtRecoveryPage from '../pages/services/collections/DebtRecoveryPage';
+import ChequeBounceNoticesPage from '../pages/services/legal-recovery/ChequeBounceNoticesPage';
 import SarfaesiSupportPage from '../pages/services/legal-recovery/SarfaesiSupportPage';
 import PossessionSupportPage from '../pages/services/legal-recovery/PossessionSupportPage';
 import LegalCoordinationPage from '../pages/services/legal-recovery/LegalCoordinationPage';
@@ -30,11 +32,16 @@ import VehicleRepossessionPage from '../pages/services/asset-recovery/VehicleRep
 import AssetTracingPage from '../pages/services/asset-recovery/AssetTracingPage';
 import AssetRecoveryPage from '../pages/services/asset-recovery/AssetRecoveryPage';
 import AuctionCoordinationPage from '../pages/services/asset-recovery/AuctionCoordinationPage';
+import ValuationServicesPage from '../pages/services/asset-recovery/ValuationServicesPage';
+import CustodianServicesPage from '../pages/services/asset-recovery/CustodianServicesPage';
+import DueDiligencePage from '../pages/services/investigation/DueDiligencePage';
 import SkipTracingPage from '../pages/services/investigation/SkipTracingPage';
 import AddressTracingPage from '../pages/services/investigation/AddressTracingPage';
 import ContactVerificationPage from '../pages/services/investigation/ContactVerificationPage';
 import FraudInvestigationPage from '../pages/services/investigation/FraudInvestigationPage';
 import PortfolioManagementPage from '../pages/services/specialized/PortfolioManagementPage';
+import NpaManagementPage from '../pages/services/specialized/NpaManagementPage';
+import ResolutionStrategyPage from '../pages/services/specialized/ResolutionStrategyPage';
 import NpaRecoveryPage from '../pages/services/specialized/NpaRecoveryPage';
 import RecoveryAnalyticsPage from '../pages/services/specialized/RecoveryAnalyticsPage';
 import RecoveryConsultingPage from '../pages/services/specialized/RecoveryConsultingPage';
@@ -107,12 +114,14 @@ export default function AppRoutes() {
         <Route path="/services/verification/business-verification" element={<BusinessVerificationPage />} />
         <Route path="/services/verification/document-verification" element={<DocumentVerificationPage />} />
         {/* Collections */}
+        <Route path="/services/collections/pdc-collections" element={<PdcCollectionsPage />} />
         <Route path="/services/collections/early-stage" element={<EarlyStageCollectionsPage />} />
         <Route path="/services/collections/soft-collections" element={<SoftCollectionsPage />} />
         <Route path="/services/collections/hard-collections" element={<HardCollectionsPage />} />
         <Route path="/services/collections/field-collections" element={<FieldCollectionsPage />} />
         <Route path="/services/collections/debt-recovery" element={<DebtRecoveryPage />} />
         {/* Legal */}
+        <Route path="/services/legal-recovery/cheque-bounce-notices" element={<ChequeBounceNoticesPage />} />
         <Route path="/services/legal-recovery/sarfaesi-support" element={<SarfaesiSupportPage />} />
         <Route path="/services/legal-recovery/possession-support" element={<PossessionSupportPage />} />
         <Route path="/services/legal-recovery/legal-coordination" element={<LegalCoordinationPage />} />
@@ -122,13 +131,18 @@ export default function AppRoutes() {
         <Route path="/services/asset-recovery/asset-tracing" element={<AssetTracingPage />} />
         <Route path="/services/asset-recovery/asset-recovery" element={<AssetRecoveryPage />} />
         <Route path="/services/asset-recovery/auction-coordination" element={<AuctionCoordinationPage />} />
+        <Route path="/services/asset-recovery/valuation-services" element={<ValuationServicesPage />} />
+        <Route path="/services/asset-recovery/custodian-services" element={<CustodianServicesPage />} />
         {/* Investigation */}
+        <Route path="/services/investigation/due-diligence" element={<DueDiligencePage />} />
         <Route path="/services/investigation/skip-tracing" element={<SkipTracingPage />} />
         <Route path="/services/investigation/address-tracing" element={<AddressTracingPage />} />
         <Route path="/services/investigation/contact-verification" element={<ContactVerificationPage />} />
         <Route path="/services/investigation/fraud-investigation" element={<FraudInvestigationPage />} />
         {/* Specialized */}
         <Route path="/services/specialized/portfolio-management" element={<PortfolioManagementPage />} />
+        <Route path="/services/specialized/npa-management" element={<NpaManagementPage />} />
+        <Route path="/services/specialized/resolution-strategy" element={<ResolutionStrategyPage />} />
         <Route path="/services/specialized/npa-recovery" element={<NpaRecoveryPage />} />
         <Route path="/services/specialized/recovery-analytics" element={<RecoveryAnalyticsPage />} />
         <Route path="/services/specialized/recovery-consulting" element={<RecoveryConsultingPage />} />

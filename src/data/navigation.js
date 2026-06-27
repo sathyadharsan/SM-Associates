@@ -20,7 +20,7 @@ export const navigationData = {
         {
           title: 'Verification Services',
           items: [
-            { label: 'CPV Services', href: '/services/verification/cpv-services' },
+            { label: 'Pre-Disbursal Verification (CPV)', href: '/services/verification/cpv-services' },
             { label: 'Residence Verification', href: '/services/verification/residence-verification' },
             { label: 'Office Verification', href: '/services/verification/office-verification' },
             { label: 'Business Verification', href: '/services/verification/business-verification' },
@@ -31,50 +31,50 @@ export const navigationData = {
           title: 'Collections & Recovery',
           items: [
             { label: 'Early Stage Collections', href: '/services/collections/early-stage' },
-            { label: 'Soft Collections', href: '/services/collections/soft-collections' },
-            { label: 'Hard Collections', href: '/services/collections/hard-collections' },
             { label: 'Field Collections', href: '/services/collections/field-collections' },
             { label: 'Debt Recovery', href: '/services/collections/debt-recovery' },
+            { label: 'PDC Collections', href: '/services/collections/pdc-collections' },
           ]
         },
         {
           title: 'Legal Recovery',
           items: [
-            { label: 'SARFAESI Support', href: '/services/legal-recovery/sarfaesi-support' },
+            { label: 'SARFAESI Enforcement', href: '/services/legal-recovery/sarfaesi-support' },
             { label: 'Possession Support', href: '/services/legal-recovery/possession-support' },
             { label: 'Legal Coordination', href: '/services/legal-recovery/legal-coordination' },
             { label: 'Litigation Support', href: '/services/legal-recovery/litigation-support' },
+            { label: 'Cheque-Bounce Notice Services', href: '/services/legal-recovery/cheque-bounce-notices' },
           ]
         },
         {
           title: 'Asset Recovery',
           items: [
             { label: 'Vehicle Repossession', href: '/services/asset-recovery/vehicle-repossession' },
-            { label: 'Asset Tracing', href: '/services/asset-recovery/asset-tracing' },
             { label: 'Asset Recovery', href: '/services/asset-recovery/asset-recovery' },
             { label: 'Auction Coordination', href: '/services/asset-recovery/auction-coordination' },
+            { label: 'Valuation Services', href: '/services/asset-recovery/valuation-services' },
+            { label: 'Security & Custodian Services', href: '/services/asset-recovery/custodian-services' },
           ]
         },
         {
           title: 'Investigation Services',
           items: [
             { label: 'Skip Tracing', href: '/services/investigation/skip-tracing' },
-            { label: 'Address Tracing', href: '/services/investigation/address-tracing' },
-            { label: 'Contact Verification', href: '/services/investigation/contact-verification' },
             { label: 'Fraud Investigation', href: '/services/investigation/fraud-investigation' },
+            { label: 'Due Diligence', href: '/services/investigation/due-diligence' },
           ]
         },
         {
-          title: 'Operational & Specialized',
+          title: 'Operational Excellence',
           items: [
             { label: 'Call Centre Operations', href: '/services/operational/call-centre' },
-            { label: 'Manpower Sourcing', href: '/services/operational/manpower' },
-            { label: 'Facility Management', href: '/services/operational/facility-management' },
-            { label: 'Liaising Services', href: '/services/operational/liaising' },
+            { label: 'Field Workforce Deployment', href: '/services/operational/manpower' },
             { label: 'Portfolio Management', href: '/services/specialized/portfolio-management' },
+            { label: 'NPA Management', href: '/services/specialized/npa-management' },
+            { label: 'Resolution Strategy', href: '/services/specialized/resolution-strategy' },
             { label: 'NPA Recovery', href: '/services/specialized/npa-recovery' },
             { label: 'Recovery Analytics', href: '/services/specialized/recovery-analytics' },
-            { label: 'Recovery Consulting', href: '/services/specialized/recovery-consulting' },
+            { label: 'Recovery Strategy Consulting', href: '/services/specialized/recovery-consulting' },
           ]
         }
       ]

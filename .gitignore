@@ -1,2 +1,103 @@
 node_modules/
 dist/
+
+# Markdown files
+*.md
+
+# Text files
+*.txt
+
+# ==========================
+# Dependencies
+# ==========================
+node_modules/
+
+# ==========================
+# Build Output
+# ==========================
+dist/
+build/
+out/
+coverage/
+
+# ==========================
+# Environment Variables
+# ==========================
+.env
+.env.*
+!.env.example
+
+# ==========================
+# Logs
+# ==========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ==========================
+# IDE Files
+# ==========================
+.vscode/
+.idea/
+*.iml
+
+# ==========================
+# OS Files
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# Temporary Files
+# ==========================
+tmp/
+temp/
+.cache/
+
+# ==========================
+# Runtime Files
+# ==========================
+*.pid
+*.seed
+
+# ==========================
+# Archives
+# ==========================
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+
+# ==========================
+# Secrets
+# ==========================
+*.pem
+*.key
+*.crt
+*.p12
+*.jks
+
+# ==========================
+# AI Prompt Files (Optional)
+# ==========================
+prompts/
+*.prompt
+*.md
+*.txt
+
+# ==========================
+# Backup Files
+# ==========================
+*.bak
+*.old
+*.tmp
+*~
+
+# ==========================
+# Generated Reports
+# ==========================
+reports/
+screenshots/

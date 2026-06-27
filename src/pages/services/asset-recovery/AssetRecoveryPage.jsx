@@ -1,6 +1,7 @@
 import React from 'react';
-import DynamicPageRenderer from '../../../components/DynamicPageRenderer';
+import EnterpriseServiceTemplate from '../../../components/templates/EnterpriseServiceTemplate';
+import { getPageContent } from '../../../data/pagesContent';
 
 export default function AssetRecoveryPage() {
-  return <DynamicPageRenderer pageId="asset-recovery" />;
+  return <EnterpriseServiceTemplate content={getPageContent('asset-recovery')} />;
 }

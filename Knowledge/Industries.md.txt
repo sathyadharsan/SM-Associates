@@ -1,0 +1,214 @@
+---
+
+# Enterprise Industry Architecture
+
+The website must organize business content around validated industry verticals rather than generic service listings.
+
+Every industry page should explain:
+
+- Industry Overview
+- Business Model
+- Risk Landscape
+- Industry Challenges
+- Compliance Requirements
+- Operational Challenges
+- Digital Maturity
+- Applicable Services
+- Business Outcomes
+- Customer Value
+- Call to Action
+
+---
+
+# Approved Industry Segments
+
+Only validated industries should be published.
+
+Current validated industries include:
+
+- Banking
+- NBFC
+- Housing Finance Companies (HFC)
+- Asset Reconstruction Companies (Aspirational)
+- Fintech / Digital Lenders
+- Microfinance
+- Corporate & Government (Aspirational)
+
+Do not create industry pages for unsupported markets.
+
+---
+
+# Industry Content Principles
+
+Each industry page should focus on:
+
+- Industry-specific business problems
+- Recovery challenges
+- Regulatory environment
+- Business outcomes
+- Service relevance
+- Customer trust
+- Operational expertise
+
+Avoid generic marketing content.
+
+---
+
+# Industry Pain Framework
+
+For every industry identify:
+
+- Business Pain
+- Recovery Pain
+- Legal Pain
+- Technology Pain
+- Compliance Pain
+- Financial Pain
+- Operational Pain
+- Customer Pain
+
+Content should demonstrate understanding before presenting solutions.
+
+---
+
+# Industry Solution Mapping
+
+Every industry page should connect:
+
+Industry Problems
+
+↓
+
+Applicable Services
+
+↓
+
+Recovery Workflow
+
+↓
+
+Business Outcomes
+
+↓
+
+Performance Indicators
+
+↓
+
+Call to Action
+
+Visitors should clearly understand how SM Associates solves industry-specific problems.
+
+---
+
+# Buyer Persona Mapping
+
+Every industry page should address:
+
+- Decision Makers
+- Influencers
+- Approvers
+- Budget Owners
+
+Messaging should align with enterprise buying committees.
+
+---
+
+# Industry Value Proposition Framework
+
+Every industry requires:
+
+- Industry-specific headline
+- Supporting message
+- Competitive differentiator
+- Trust statement
+- Business outcome
+
+Avoid using identical messaging across all industries.
+
+---
+
+# Industry Content Structure
+
+Every industry page should include:
+
+- Hero Section
+- Industry Overview
+- Key Challenges
+- Recovery Process
+- Applicable Services
+- Why SM Associates
+- Customer Benefits
+- Industry FAQs
+- Contact CTA
+
+Maintain the same page structure across all industries.
+
+---
+
+# Industry Trust Content
+
+Industry pages should demonstrate trust using:
+
+- Client relationships
+- Operational experience
+- Compliance expertise
+- Industry specialization
+- Geographic coverage
+- Process maturity
+
+Never fabricate customer stories or unsupported claims.
+
+---
+
+# Industry Governance Rules
+
+Only publish industries that have been validated.
+
+Clearly distinguish:
+
+- Active Industries
+- Growth Industries
+- Aspirational Industries
+
+Future opportunities must never be presented as existing business segments.
+
+---
+
+# Industry SEO Rules
+
+Every industry page should contain:
+
+- Industry-specific keywords
+- Industry FAQs
+- Internal links
+- Related services
+- Supporting knowledge articles
+- Industry-focused metadata
+
+SEO should target business intent rather than keyword stuffing.
+
+---
+
+# Industry Content Consistency
+
+All industry pages must:
+
+- Use approved terminology.
+- Follow enterprise information architecture.
+- Reuse approved messaging.
+- Link related services.
+- Maintain consistent visual hierarchy.
+- Follow the same design system.
+
+---
+
+# AI Content Rules
+
+Claude Code should:
+
+- Generate industry pages using only approved industries.
+- Never invent industries or client relationships.
+- Reuse approved industry messaging.
+- Maintain consistent terminology across every page.
+- Distinguish confirmed industries from aspirational opportunities.

@@ -1,0 +1,300 @@
+# Phase 5 - Enterprise Content Audit
+
+## Audit Purpose
+
+This document validates the knowledge created during Phases 1–4B.
+
+It does not introduce new business content.
+
+Its purpose is to:
+
+- Validate existing knowledge
+- Detect duplicate information
+- Identify missing data
+- Prioritize business gaps
+- Measure website readiness
+- Measure SEO readiness
+- Measure AI readiness
+- Define governance rules
+
+---
+
+## Audit Categories
+
+- Business Readiness
+- Website Readiness
+- SEO Readiness
+- Brand Readiness
+- AI Readiness
+- Sales Readiness
+
+---
+
+## Validation Rules
+
+Every content asset is classified as:
+
+- Approved
+- Needs Improvement
+- Client Validation Required
+- Missing
+- Gap
+
+---
+
+## Audit Deliverables
+
+Maintain audit records for:
+
+- Content Inventory
+- Duplicate Detection
+- Trust Audit
+- Brand Consistency
+- Website Readiness
+- SEO Readiness
+- AI Readiness
+- Content Quality
+- Governance
+- Gap Analysis
+
+---
+
+## Content Governance Rules
+
+Every published content must:
+
+- Be factually verified.
+- Be management approved.
+- Be legally compliant.
+- Follow enterprise terminology.
+- Follow brand standards.
+- Avoid unsupported claims.
+
+---
+
+## Gap Management
+
+Track:
+
+- Critical Gaps
+- High Priority Gaps
+- Medium Priority Gaps
+- Low Priority Gaps
+
+Every gap must include:
+
+- Owner
+- Priority
+- Status
+- Resolution Date
+
+---
+
+## Content Integrity Policy
+
+Never:
+
+- Invent facts
+- Invent statistics
+- Invent testimonials
+- Invent certifications
+- Invent client names
+- Invent case studies
+
+Unknown information must always be marked as GAP.
+ENTERPRISE DIGITAL PRESENCE OPERATING SYSTEM
+PHASE 5 — ENTERPRISE CONTENT AUDIT & CONTENT GOVERNANCE
+Client: S M Associates Risk Management Pvt. Ltd. (SMARMPL)
+Confidential Content Governance Deliverable  |  Engagement Date: 26 June 2026
+This is an AUDIT of Phases 1-4B (including Master Content Book V1, V2, V3). No new content, copy, or UI is created here — only validation, classification, and governance of what already exists.
+[CONFIRMED] = verified fact.   [ASSUMPTION] = consultant judgement.   [GAP] = not yet collected.
+ 
+Table of Contents
+
+
+ 
+SECTION 1 — EXECUTIVE AUDIT SUMMARY
+Overall Content Readiness Score: 6.4 / 10
+[ASSUMPTION] SMARMPL's knowledge base is unusually deep for a company with no prior digital strategy work — five phases of real research, harvesting, and structured knowledge-building exist. But "deep" is not the same as "ready to publish": several Critical-priority gaps (a live security incident, conflicting facts, no real case studies, no founder voice) must close before this knowledge base can responsibly become a live website. The score below reflects strong foundations with specific, named blockers — not a weak engagement.
+Dimension	Score /10	Justification
+Business Readiness	8	Company facts, service catalogue, ICP/personas, and competitive positioning are all genuinely strong and well-evidenced (Phases 1-3).
+Website Readiness	6	Strong raw content exists, but key pages (Case Studies, Careers, a fixed Trust/Clients page) cannot go live without closing Critical gaps first (Section 7).
+SEO Readiness	7	A large, legitimate keyword set (286) and FAQ library (151) exist; true keyword-volume validation is still owed to Phase 8, and the live site's current /sarfaesi compromise is actively harming, not helping, SEO today.
+Brand Readiness	5	A full brand strategy (voice, archetype, vocabulary) was proposed in V3, but it has not yet been validated against real leadership input, and the live site's existing content visibly contradicts it in places (Section 6).
+AI Knowledge Readiness	6	A genuine entity/intent/relationship structure exists (V3 Repository 7), but the Answer Library is mostly GAP-flagged rather than populated — a chatbot built today would handle process questions well and outcome/proof questions poorly.
+Sales Enablement Readiness	6	Pitches, discovery questions, and objection-handling exist and are usable today; they are weakened by the complete absence of real case studies or certifications to back claims in an actual sales conversation.
+Why Not Higher: The Five Blockers Behind Every Sub-Score
+•	[GAP] An active website security compromise on smassociate.in/sarfaesi (flagged Critical since Phase 4B V1) remains unconfirmed as resolved.
+•	[RESOLVED 2026-06-27] Staff count, founding date sequence, and the MCA registered-address discrepancy are now reconciled against the official S M Associates Risk Management Pvt. Ltd. printed Corporate Profile supplied directly by management — see the resolution note after the Gap Analysis table in Section 4.
+•	[GAP] No real case studies, KPIs, or outcome metrics exist anywhere in the knowledge base — every proof asset is a template, not a filled instance.
+•	[GAP] No founder interview has been conducted — all "brand story" content is built from documents, not the founders' own voice.
+•	[GAP] No certifications, IIBF-certification status, or Google Business Profile check have been completed.
+SECTION 2 — CONTENT INVENTORY AUDIT
+[ASSUMPTION] Each major content category built across Phases 1-4B is evaluated below on the eight dimensions requested, then classified.
+Category	Compl.	Acc.	Relev.	Biz Val	Web Val	SEO Val	AI Val	Confidence	Classification
+Company Knowledge (history, vision, leadership, branches)	7	6	9	8	8	5	7	Medium (date/staff conflicts unresolved)	Needs Improvement
+Service Catalogue & Operational Handbooks	9	9	9	9	9	7	8	High	Approved
+Banking/Legal/Recovery Glossary (119 terms)	8	9	8	6	7	8	8	High	Approved
+ICP Segments, Personas & DMU (Phase 2)	8	7	9	9	8	6	7	Medium (industry-pattern-based, not interview-validated)	Needs Improvement
+Competitor Intelligence (Phase 3)	8	8	9	8	6	4	5	High for profiled competitors; lower for the long tail	Approved
+Trust & Proof Assets	2	5	9	9	9	6	3	Low — mostly templates, not filled instances	Missing
+Brand Strategy (voice, archetype, vocabulary)	7	6	7	6	7	3	4	Low — consultant-recommended, not leadership-approved	Requires Client Validation
+SEO Keyword & Topic Library	8	8	8	5	6	9	6	High on relevance; volume unverified (Phase 8 task)	Approved
+FAQ Library (151 questions)	7	7	8	6	8	7	7	Medium — questions are real, most answers still need writing	Needs Improvement
+Sales Enablement Content	6	7	8	7	3	1	3	Medium — process is sound, but lacks proof to cite	Needs Improvement
+Website Content Blocks & Components (V3)	6	7	7	6	8	5	4	Medium — drafts only, none client-approved	Requires Client Validation
+AI Knowledge Repository (entities/intents/relationships)	5	8	6	5	3	3	8	Medium — structure is sound, Answer Library is thin	Needs Improvement
+Live Website Audit Findings (security, content quality)	9	9	9	9	9	8	2	High — directly observed, not inferred	Approved (as findings); underlying issue NOT resolved
+SECTION 3 — DUPLICATE & REDUNDANCY AUDIT
+Redundancy Found	Where	Recommendation
+Service descriptions exist at three depths: Phase 1's brief service table, Phase 4B V1's 13-field extraction, and V2's full SOP/decision-tree handbooks.	Phase 1 Section 4; Phase 4B V1 Section 2; V2 Operational Handbooks	Merge: treat V2's handbooks as the single master service record; Phase 1's table and V1's extraction should be marked superseded, not maintained separately.
+The 30-term glossary in Phase 4B V1 is now a strict subset of V2's 119-term expanded glossary.	Phase 4B V1 Section 3; V2 Section 3	Merge: retire the V1 30-term list; V2's 119-term glossary is the single source of truth going forward.
+Two separate "why we didn't fabricate X" integrity notes appear in V2 and V3, covering overlapping ground (founder story, pain points, proof statements).	V2 Expansion Methodology Note; V3 Founder-Story Note	Merge into one standing "Content Integrity Policy" document, referenced (not restated) by every future phase.
+CTA options appear conceptually similar across Phase 2's Messaging Framework (per-ICP CTAs) and V2's standalone CTA Library (per-persona-x-intent CTAs).	Phase 2 Section 8; V2 Section 6.2	Keep both, but cross-reference explicitly — they serve different uses (ICP-level positioning vs. persona-x-intent-stage tactical CTAs) and are not true duplicates, only similar in form.
+Trust-asset findings (broken logos, no certifications, Justdial rating) are recorded separately in Phase 4A Section 5 and Phase 4B V1 Section 5.	Phase 4A; Phase 4B V1	Merge: Phase 4B V1's version already explicitly extended Phase 4A's — formally retire Phase 4A's standalone version as the older draft.
+The live-site content-quality findings (outdated bank names, Eureka Forbes icon, staff-count mismatch) are referenced in Phase 4A, Phase 4B V1, and indirectly in V3's Brand Repository.	Phase 4A; Phase 4B V1; V3	Keep as a single master "Live Content Defect Log" (consolidated in Section 4 below) rather than three scattered mentions.
+[ASSUMPTION] No content requiring outright removal was found — every repeated item is a case of legitimate iterative deepening (a later phase correctly extending an earlier one) rather than wasted duplication. The recommendation throughout is therefore "designate one master version and cross-reference," not "delete."
+SECTION 4 — GAP ANALYSIS (CONSOLIDATED MASTER LIST)
+[CONFIRMED] Every previously identified gap across all five phases is consolidated here into one list — this is the single most useful artifact this audit produces, since the gaps were previously scattered across six separate documents.
+Gap	Why It Matters	Priority	Source of Information	Owner
+Live website security compromise (smassociate.in/sarfaesi showing gambling content)	Actively damaging SEO and brand trust right now; the single most urgent item in the entire engagement.	Critical	Klicknet.in / hosting provider	IT/Web Vendor
+Staff-count discrepancy (20+300 vs. 916+)	Cannot be published in any trust content until resolved — risks credibility if wrong.	Critical	Internal HR/MD confirmation	Management
+No real case studies or KPI/outcome data	The single most-requested proof asset by every buyer persona (Phase 2) and the clearest gap versus every competitor (Phase 3).	Critical	Internal MIS / account records	Operations
+No founder interview conducted	All "brand story"/"about us" content is currently document-derived, not authentic founder voice.	Critical	Direct interview with M. Jebaraj and P. David Raja	Leadership
+Founding-date sequence unreconciled (2000 / 2004 / 2010)	A live, public-facing fact that currently has three different answers across source documents.	High	Management confirmation	Management
+MCA registered-address discrepancy (Tirunelveli vs. Chennai)	A legal/compliance accuracy matter, not just a content one.	High	Company Secretary / legal counsel	Legal
+No certifications (ISO or equivalent) held or claimed	Several competitors (Allset, E-Solve) claim ISO certification; its absence is a relative weakness.	High	Management decision on whether to pursue certification	Management
+IIBF certification status of field staff unknown	Directly relevant to the proposed RBI Uniform Recovery Norms compliance positioning.	High	HR/Compliance	Compliance
+Justdial review text unread (only the 4.5★/15-review aggregate is known)	A free, real, existing trust asset currently unused because the actual review content hasn't been pulled.	Medium	Public source — just needs reading	Marketing/Web Vendor
+Google Business Profile status unchecked	The most commonly checked listing for a local B2B service; unknown if it even exists.	Medium	Public source — needs checking	Marketing
+No named ARC or direct corporate/government client yet	ARC is the highest-value growth segment identified (Phase 2); currently aspirational only.	Medium	Business development confirmation	Sales/BD
+Revenue/fee-structure data unknown	Needed for CFO-persona-targeted ROI messaging (Phase 2).	Medium	Finance	Finance
+Client contracts/permission status for naming clients publicly unknown	Blocks any named-client trust content regardless of how good the underlying relationship is.	High	Legal / account-relationship review	Legal/Sales
+Leadership photographs and team profiles not collected	Needed for any About/Leadership page.	Medium	Internal collection	HR/Marketing
+Branch-level operational detail (local contacts, exact staff counts per branch)	Needed for a genuine, accurate coverage map.	Low	Regional managers	Operations
+SECTION 5 — TRUST AUDIT
+Trust Element	Sufficient?	Finding
+Trust Signals (general)	Partially	Real signals exist (19 branches, 25 years, named clients) but are not yet assembled into one coherent trust page; the Justdial rating is unused.
+Proof Statements	No	Only unfilled templates exist (V2 Section on Proof Statement Templates) — zero filled, real proof statements anywhere.
+Client Evidence	No	Client names are known internally but not cleared for public use; no testimonials exist.
+Case Studies	No	Zero exist. This is the single largest trust gap in the entire knowledge base, repeatedly flagged since Phase 1.
+Experience/Longevity Signals	Yes, with caveats	25+ years and 2000 founding are strong, real signals — undermined only by the unreconciled date/staff-count discrepancies.
+Authority Content	No	Authority Repository (V3) is a list of topic IDEAS only; nothing has actually been published yet.
+Compliance References	Partially	Strong regulatory knowledge exists (Phase 1/V2 glossary) but has not yet been turned into a published compliance/governance page.
+[ASSUMPTION] Verdict: the underlying facts needed for strong trust content mostly exist — this is fundamentally a publishing and data-collection gap, not a research gap. The research phases of this engagement (1-4B) have done their job; what remains is collecting the few missing real data points (Section 4) and then writing the trust content for the first time.
+SECTION 6 — BRAND CONSISTENCY AUDIT
+[CONFIRMED] This audit compares V3's recommended brand voice/vocabulary against what is ACTUALLY live on smassociate.in today (Phase 4A/4B findings) — a real consistency check, not a theoretical one.
+Dimension	Inconsistency Found
+Tone of Voice	The live "Speciality" page uses a dignified, principled tone ("each debtor has the ability to pay if motivated in correct manner") that matches V3's recommended voice well — but the live "Why Choose Us" section uses generic e-commerce language ("Best Price Guarantee," "Best Quality Products") that directly contradicts it.
+Terminology	The live site and the new docx corporate profile use slightly different service names for the same offerings (e.g., "Yard Services" vs. "Custodian Services"); V2's glossary should become the single naming authority.
+Messaging Consistency	The live site states the company has "20 professionals... having among them 300+ employees," while the corporate profile PDF states 916+ — a direct, visible, public-facing contradiction, not merely an internal data question.
+Vocabulary Standards	V3's "Words to Avoid" list (e.g., avoid "comprehensive," "best-in-class") is violated by existing live content ("Complete Business Processing Solutions"-style language appears on competitor sites and echoes in some of SMARMPL's own generic sections).
+Professionalism	The personal Gmail contact address (smarmpl.ho@gmail.com) used throughout the live site undercuts the otherwise professional, institutional tone everywhere else.
+[ASSUMPTION] Verdict: SMARMPL does not have a brand-consistency problem caused by having too many competing voices — it has one strong, authentic voice (the Speciality page) that is currently drowned out by generic template leftovers. The fix is largely subtractive (removing the generic boilerplate) rather than additive.
+SECTION 7 — WEBSITE READINESS AUDIT (PER PAGE)
+Page	Status	Reasoning
+Home	Partially Ready	Strong factual material exists (Repository 2.1 hero/intro blocks, real stats); blocked by the staff-count/date discrepancies and the still-unconfirmed security-incident resolution.
+About	Partially Ready	Genuine, good values content exists (Speciality page); founder-story/leadership-bio content is GAP pending interviews and photographs.
+Services	Ready	The deepest, most complete content category in the entire knowledge base — full SOPs, decision trees, and short-form blocks all exist for every service.
+Industries	Ready	Phase 2's eight ICP segments plus V3's industry content blocks give this page strong, real, structured content.
+Clients	Not Ready	Client names are known but unconfirmed for public permission; the existing live-site logo carousel is technically broken; zero testimonials exist.
+Resources / Knowledge Center	Partially Ready	A strong topic list exists (V3 Repository 2.15, Repository 5); none of the actual articles have been written yet.
+Case Studies	Not Ready	Zero real case studies exist; only an unfilled structural template (V3 Repository 2.13). This is the least-ready page in the entire site.
+Careers	Not Ready	No content of any kind exists for this page; it was identified only as a strategic opportunity (Phase 3), not yet built out.
+Contact	Partially Ready	Branch addresses and phone numbers are well confirmed (Phase 1); the only blocker is the Gmail-address professionalism issue and the still-unresolved question of a proper institutional contact form.
+SECTION 8 — SEO READINESS AUDIT
+Element	Status	Recommendation
+Keywords	Strong (286 generated)	Legitimate, real city-x-service combinatorial set (V2); still needs actual search-volume validation in Phase 8 before final prioritisation.
+Search Intent	Strong	Mapped per ICP segment in Phase 2 (Section 10) at the intent-cluster level.
+Topic Clusters	Strong	SARFAESI, compliance, and ARC/NARCL clusters are clearly identified as both content opportunities and competitive whitespace (Phase 3 Blue Ocean analysis).
+FAQs	Strong (151 questions)	The questions are real and well-categorised; most still need full written answers (a Phase 6 task).
+Industry Terminology	Strong (119 terms)	The V2 glossary is genuinely comprehensive and ready to support definitional/long-tail SEO content.
+Internal Linking Opportunities	Not Yet Mapped	No formal internal-linking plan exists yet — this is explicitly a Phase 7 (Information Architecture) task, correctly not yet attempted.
+Missing Landing Pages	Identified	ARC/NARCL-specific landing page and a compliance/governance landing page are the two highest-priority gaps (Phase 3 recommendations).
+Missing Blog Topics	Identified, none written	V3's Knowledge Center and Authority Repository topic lists cover this; zero articles exist yet.
+[CONFIRMED] Critical caveat: none of this SEO foundation matters while smassociate.in/sarfaesi remains compromised — a search engine actively penalising the domain for spam content would undermine every keyword/content investment recommended above until the security incident is resolved.
+SECTION 9 — AI KNOWLEDGE AUDIT
+Use Case	Readiness	Finding
+AI Chatbot (process/informational questions)	Good	Entity, intent, and relationship structures (V3 Repository 7) plus the real, confirmed SARFAESI and Legal Services process detail would let a chatbot answer procedural questions well today.
+AI Chatbot (outcome/proof questions)	Poor	The Answer Library (V3 Section 7.5) honestly shows 3 of 5 sample questions as unanswerable without fabrication — a chatbot would need to gracefully say "I don't have that yet" rather than guess.
+RAG System (retrieval over documents)	Good	The consistent CONFIRMED/ASSUMPTION/GAP tagging throughout this engagement is itself ideal RAG metadata — a retrieval system could filter to CONFIRMED-only content automatically to avoid surfacing unverified claims.
+Internal Knowledge Base (staff training/reference)	Good	The glossary, SOPs, decision trees, and common-mistakes lists (V2) are immediately usable as internal training material, independent of any website.
+Customer Support Assistant	Moderate	Borrower-facing FAQ content (V2 Section 7.12) and conduct/process knowledge exist; would need real complaint-handling SLA data (currently GAP) to fully answer borrower-rights questions.
+Sales Assistant	Moderate	Pitches, discovery questions, and objection-handling (V3 Repository 3) are usable today; would be significantly strengthened once real case studies close the proof gap.
+Missing Knowledge for AI Readiness
+•	Real outcome/KPI data (recovery rates, resolution timelines) — the single biggest AI-readiness gap.
+•	A resolved, single staff-count and founding-date fact set — an AI system surfacing two different staff counts to two different users would itself look like a malfunction.
+•	A borrower-complaint-handling SLA, to let a support assistant answer borrower-rights questions definitively rather than vaguely.
+SECTION 10 — CONTENT QUALITY MATRIX
+Content Category	Quality	Completeness	Priority	Action
+Company Knowledge	Medium	High	Critical	Validate
+Service Catalogue/Handbooks	High	High	Medium	Keep
+Glossary (119 terms)	High	High	Low	Keep
+ICP/Personas (Phase 2)	Medium-High	High	Medium	Validate
+Competitor Intelligence	High	High	Low	Keep
+Trust & Proof Assets	Low	Low	Critical	Expand
+Brand Strategy (V3)	Medium	Medium	Medium	Validate
+SEO Keyword/Topic Library	High	High	Medium	Keep, then Expand in Phase 8
+FAQ Library (questions only)	Medium-High	High	High	Expand (write answers)
+Sales Enablement Content	Medium	High	Medium	Improve (add real proof once available)
+Website Content/Component Blocks (V3)	Medium	Medium	Medium	Validate, then Improve
+AI Knowledge Repository	Medium	Medium	Medium	Expand (Answer Library)
+V1 30-term Glossary (superseded by V2)	Low (now redundant)	Complete but obsolete	Low	Merge/Remove (retire in favour of V2)
+Live Website Current Content (smassociate.in)	Low (multiple defects)	Partial	Critical	Improve (urgently) / Remove (the gambling-spam page) / Validate (everything else)
+SECTION 11 — CLIENT ACTION LIST
+[CONFIRMED] Everything SMARMPL itself must provide, consolidated from every gap identified across this entire engagement.
+Action Item	Priority
+Confirm website security incident is reported to Klicknet.in and remediation is underway	Critical
+Confirm the correct staff count (resolve 20+300 vs. 916+)	Critical
+Provide real account-level outcome/KPI data for case-study development	Critical
+Make M. Jebaraj and P. David Raja available for a founder/leadership interview	Critical
+Confirm the correct founding/operational-start date sequence	High
+Confirm or correct the MCA registered-office address	High
+Decide whether to pursue ISO or equivalent certification	High
+Confirm IIBF-certification status/plans for field staff	High
+Confirm which named clients may be publicly referenced, and obtain testimonials where possible	High
+Provide leadership photographs and brief personal profiles	Medium
+Provide any existing service-process diagrams (even informal/internal ones)	Medium
+Confirm branch-level contact details for a public coverage map	Medium
+Provide revenue/fee-structure guidance for ROI-style content (to Finance/Marketing only, not necessarily public)	Medium
+Decide on pursuing a Google Business Profile and responding to/highlighting the existing Justdial reviews	Low
+Confirm whether any awards, media mentions, or industry recognitions exist that have not yet been surfaced	Low
+SECTION 12 — READINESS FOR NEXT PHASE
+Verdict: Conditionally Ready — Proceed With Named Conditions, Not a Blanket Yes
+Next Phase	Ready?	Condition
+Brand Strategy (formal)	Partially	The taxonomy and recommendations (V3) are ready for a workshop with leadership, but should not be finalised until the founder interview happens and the live-content inconsistencies (Section 6) are resolved.
+Information Architecture (Phase 7)	Yes	ICP segments, service taxonomy, and the AI Knowledge entity structure are mature enough to begin IA work now — IA does not depend on the case-study/founder-story gaps.
+Website Structure / Sitemap	Yes, with one exception	Can proceed now, except the Case Studies and Careers pages, which should be structurally placeholder-only until real content exists — do not build empty "shell" pages that look abandoned.
+[ASSUMPTION] Recommended sequencing: run Phase 7 (Information Architecture) and the security/data-reconciliation fixes (Section 11) in parallel, rather than waiting for every gap to close before starting any further work — several gaps (founder interview, case-study data) will take time regardless, and IA work does not depend on them.
+FINAL SELF-REVIEW
+Dimension	Score (1-10)	Rationale
+Consulting Quality	8	The audit produced genuinely new governance value (the consolidated Gap list and Quality Matrix did not exist before in single-document form) rather than just re-describing prior phases.
+Business Value	8	The conditional Phase-7-can-proceed-now verdict is immediately actionable and avoids unnecessary delay.
+Website Readiness (of THIS audit's analysis)	8	The per-page Ready/Partially Ready/Not Ready verdicts are specific and reasoned, not generic.
+SEO Readiness (of THIS audit's analysis)	8	Correctly distinguishes what's genuinely ready (keywords, FAQs, glossary) from what's explicitly out of scope until Phase 8 (keyword-volume validation).
+Brand Readiness (of THIS audit's analysis)	7	The live-vs-recommended brand consistency comparison is a real, evidenced finding, not a restatement of V3's recommendations.
+Knowledge Quality	8	Every score and classification in this audit is traceable to a specific prior-phase finding, not asserted in isolation.
+Executive Readability	7	A dense governance document by nature; the single Consolidated Gap List (Section 4) and Quality Matrix (Section 10) are deliberately designed as the two pages a time-pressed executive could read alone and still get the full picture.
+TOP 20 RECOMMENDATIONS
+•	1. Resolve the smassociate.in/sarfaesi security compromise immediately — this outranks every other recommendation.
+•	2. Reconcile the staff-count discrepancy (20+300 vs. 916+) with management before publishing any number.
+•	3. Reconcile the founding/operational-start date sequence (2000/2004/2010) into one clear, confirmed narrative.
+•	4. Confirm or correct the MCA registered-office address discrepancy with legal counsel.
+•	5. Conduct the founder/leadership interview (M. Jebaraj, P. David Raja) — the single highest-value missing input for authentic brand content.
+•	6. Begin collecting real account-level outcome data now, even informally, to seed the first case studies.
+•	7. Confirm which named clients can be referenced publicly, and pursue testimonials from at least 2-3 of them.
+•	8. Decide on and begin pursuing ISO (or equivalent) certification, given its absence is a relative competitive weakness.
+•	9. Confirm IIBF-certification status/plans for field staff ahead of the proposed RBI norms.
+•	10. Fix the broken client-logo image paths and replace the generic "Why Choose Us" template content on the live site as immediate, low-cost wins.
+•	11. Replace the personal Gmail contact address with a proper corporate domain address.
+•	12. Read and extract the text of the 15 existing Justdial reviews — free, real, unused material.
+•	13. Check whether a Google Business Profile exists, and claim/optimise it if not.
+•	14. Retire the V1 30-term glossary formally in favour of V2's 119-term version, to avoid two "official" glossaries existing in parallel.
+•	15. Treat V2's Service Operational Handbooks as the single master service record, superseding Phase 1's and V1's shorter versions.
+•	16. Begin Phase 7 (Information Architecture) now in parallel with the data-reconciliation work above — it does not need to wait.
+•	17. Build the Case Studies and Careers pages as clearly-labelled "coming soon" placeholders rather than leaving them entirely absent or building them prematurely with placeholder content presented as real.
+•	18. Validate Phase 2's personas with at least 3-5 real internal sales/relationship-manager conversations before treating them as final.
+•	19. Write full answers for the highest-priority 20-30 FAQ questions (starting with SARFAESI and compliance topics) as an early, achievable content win.
+•	20. Establish the single "Content Integrity Policy" (consolidating V2/V3's honesty notes) as a standing rule for every future phase, not a one-off explanation.
+End of Phase 5 — Enterprise Content Audit & Content Governance. The knowledge base is approved to proceed into Phase 7 (Information Architecture) in parallel with closing the Critical/High gaps listed above; full Brand Strategy and final Website content should wait for those gaps to close.
+

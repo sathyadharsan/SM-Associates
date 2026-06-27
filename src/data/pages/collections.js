@@ -1,115 +1,202 @@
 export const collectionsContent = {
-  'early-stage-collections': {
-    eyebrow: 'Early-Stage Operations',
-    title: 'Keep Delinquency Low with Rigorous Early-Stage Collections',
-    description: 'Scale compliant tele-calling and outreach strategies to resolve early-stage default before accounts migrate to higher risk buckets.',
-    primaryCtaText: 'Request Collections Pilot',
-    secondaryCtaText: 'Download Script Protocols',
-    trustStatement: 'Operating under strict compliance guidelines to maintain high contact rates and resolve delinquencies early.',
-    trustBar: {
-      statement: 'Empanelled and trusted by India\'s leading nationalized banks, housing finance panels, and ARCs.',
-      logos: ['STATE BANK OF INDIA', 'HDFC BANK', 'AXIS BANK', 'CANARA BANK', 'HDB FINANCIAL', 'ASSET RECONSTRUCTION CORP']
-    },
-    snapshot: {
-      summary: 'SM Associates coordinates early-stage debt outreach (0-60 DPD) using advanced dialing systems and compliance locking modules. We balance rapid contact loops with ethical borrower communication, helping lenders reduce transition rates to higher buckets.',
+  'pdc-collections': {
+    eyebrow: 'Post-Dated Cheque Collections',
+    title: 'PDC Collections',
+    subtitle: 'Managing Post-Dated Cheque Presentation and Bounce Follow-Up at Scale',
+    description: 'Tracking, presenting, and following up on post-dated cheques across a lender’s active portfolio.',
+    primaryCtaText: 'Request a PDC Collections Walkthrough',
+    secondaryCtaText: 'Download PDC Tracking Standards',
+
+    problemStatement: [
+      { icon: 'fileWarning', title: 'Missed Presentation Dates', desc: 'Untracked PDC due dates lead to missed bank presentation windows.' },
+      { icon: 'trendingDown', title: 'Delayed Bounce Follow-Up', desc: 'A bounced cheque without immediate follow-up loses recovery momentum.' },
+      { icon: 'briefcase', title: 'Manual Tracking at Volume', desc: 'Spreadsheet-based PDC tracking breaks down at portfolio scale.' },
+      { icon: 'shieldAlert', title: 'Weak Escalation Path', desc: 'Without a structured handoff, bounced cheques don’t reliably escalate to legal action.' }
+    ],
+
+    overview: {
+      heading: 'Why Structured PDC Tracking Protects Collection Timing',
+      subheading: 'A Post-Dated Cheque Is Only Useful If It’s Tracked and Acted On',
+      summary: 'Post-dated cheques are a common repayment instrument across retail and SME lending, but they only work as a collection tool if presentation dates are tracked precisely and bounces are followed up immediately. PDC Collections manages this end-to-end — tracking due dates across the portfolio, coordinating timely bank presentation, and triggering immediate follow-up the moment a cheque bounces. SM Associates structures this around a defined presentation-and-escalation cadence, so cheque-based repayment performs as reliably as any other collection channel.',
       outcomes: [
-        { title: 'Early Resolution', desc: 'Up to 82% of delinquent accounts resolved within 30 days of case assignment.' },
-        { title: 'Calling Capacity', desc: 'Over 75,000+ outreach attempts managed daily across automated dialing systems.' },
-        { title: 'SLA Performance', desc: 'Under 24 hours system update latency for all borrower touchpoints.' }
+        { title: 'Tracked Presentation Dates', desc: 'Every PDC due date is tracked and presented on schedule.' },
+        { title: 'Immediate Bounce Follow-Up', desc: 'A bounced cheque triggers immediate borrower contact, not a delayed batch process.' },
+        { title: 'Structured Escalation', desc: 'Repeated bounces escalate into the appropriate legal process without delay.' }
       ],
       useCases: [
-        { title: 'Retail Credit Cards', desc: 'Reaching out to cardholders immediately after missing payments.' },
-        { title: 'Microfinance Portfolios', desc: 'Sending out reminder calls and coordinate message alerts.' }
+        { title: 'Retail Loan PDC Tracking', desc: 'Managing post-dated cheque schedules across a retail loan book.' },
+        { title: 'SME Working Capital Cheques', desc: 'Tracking PDC instruments tied to business working capital facilities.' },
+        { title: 'Bounce-to-Escalation Handoff', desc: 'Coordinating the handoff from bounced cheque to Section 138 action.' }
       ]
     },
-    stats: [
-      { value: '82%', label: 'Early resolution rate' },
-      { value: '75,000+', label: 'Daily Outreach Attempts' },
-      { value: '24 Hrs', label: 'Telemetry Update TAT' }
+
+    kpiCards: [
+      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
     ],
-    challenges: [
-      { title: 'Rapid Delinquency Migration', desc: 'Accounts migrating quickly to higher DPD buckets without immediate outreach, locking bank capital in provisioning.', warningBadge: 'Bucket Risk', impactFormula: 'NPA Transition + 24%' },
-      { title: 'Unreachable Defaulters', desc: 'Defaulters changing contact details or turning off phones to avoid reminders.', warningBadge: 'Contact Loss', impactFormula: 'Collection Cost + 15%' }
-    ],
-    failCompare: [
-      {
-        dimension: 'Calling Schedule Control',
-        traditional: 'Outbound callers dialing at random hours, violating RBI calling rules.',
-        sm: 'Server-side VoIP locks that completely disable dialing outside RBI hours (08:00 AM - 07:00 PM).'
-      },
-      {
-        dimension: 'Outreach Telemetry',
-        traditional: 'Manual spreadsheets that update collections status weekly, causing lag.',
-        sm: 'Automated SFTP pipeline imports that update account parameters daily.'
-      }
-    ],
-    framework: {
-      title: 'Structured Early Outreach Framework',
-      desc: 'Compliant, systematic calling campaigns resolving delinquency before escalation.',
-      solutions: [
-        { title: 'Multi-Channel Contact Matrix', desc: 'Combining automated dialing systems, SMS alerts, and letters before ground dispatch.' },
-        { title: 'Segmented Dialer Scoring', desc: 'Routing accounts dynamically based on default history and stay parameters.' }
-      ]
-    },
+
     capabilities: [
-      { title: 'Auto-Dialer Campaigns', desc: 'Running high-capacity compliant call reminder loops.', businessOutcome: 'Ensures immediate outreach to missed payments.' },
-      { title: 'Promise-to-Pay Logging', desc: 'Systematic tracking of borrower payment commitments with automated reminders.', businessOutcome: 'Improves repayment conversion rates.' }
+      { title: 'PDC Schedule Tracking', desc: 'Maintaining an accurate presentation calendar across the portfolio.', bullets: ['Centralized due-date tracking', 'Automated presentation scheduling', 'Portfolio-wide visibility into upcoming presentations'], businessOutcome: 'Prevents missed presentation windows at any portfolio scale.' },
+      { title: 'Bank Presentation Coordination', desc: 'Coordinating timely presentation of cheques for clearing.', bullets: ['Presentation batch coordination', 'Clearing status tracking', 'Reconciliation against expected collections'], businessOutcome: 'Keeps cheque-based collections on schedule and reconciled.' },
+      { title: 'Immediate Bounce Response', desc: 'Triggering borrower contact the moment a cheque bounces.', bullets: ['Real-time bounce notification handling', 'Immediate outbound contact attempt', 'Bounce reason logging'], businessOutcome: 'Preserves recovery momentum instead of losing it to delay.' },
+      { title: 'ECS-Return Intimation Handling', desc: 'Managing electronic clearing returns alongside cheque bounces.', bullets: ['ECS return tracking', 'Borrower intimation on return', 'Consolidated bounce-and-return reporting'], businessOutcome: 'Covers both cheque and electronic instrument failures under one process.' },
+      { title: 'Escalation Handoff', desc: 'Moving repeated bounces into the appropriate legal process.', bullets: ['Defined escalation triggers for repeat bounces', 'Structured handoff to Section 138 process', 'Case history transfer to legal stage'], businessOutcome: 'Ensures bounced cheques don’t stall without a clear next step.' },
+      { title: 'PDC Risk Flagging', desc: 'Translating bounce patterns into a structured risk read.', bullets: ['Consolidation of bounce rates and patterns', 'Flagging of accounts with repeated bounces', 'Structured reporting for the client’s collections desk'], businessOutcome: 'Gives lenders early visibility into accounts trending toward default.' }
     ],
-    workflow: [
-      { step: '01', title: 'Data Ingestion', objective: 'Import default accounts', action: 'Ingest client portfolio databases via secure SFTP.', deliverable: 'Active collections log file.' },
-      { step: '02', title: 'Dialer Allocation', objective: 'Launch call campaign', action: 'Load records into dialer and allocate to trained calling agents.', deliverable: 'Outbound campaign mapping.' },
-      { step: '03', title: 'Payment Check', objective: 'Secure payment commit', action: 'Reach out to borrower, agree payment terms, and log commitments.', deliverable: 'Promise-to-pay receipt.' },
-      { step: '04', title: 'Account Sync', objective: 'Sync final status', action: 'Push settlement details and update accounts in lender system.', deliverable: 'Reconciliation log.' }
+
+    tabs: [
+      { id: 'schedule-tracking', label: 'Schedule Tracking', heading: 'Maintaining the Presentation Calendar', overview: 'PDC due dates are tracked centrally across the portfolio.', activities: ['Due-date tracking', 'Presentation scheduling'], documents: [], risks: ['Missed presentation windows from untracked due dates'], deliverable: 'PDC schedule log.', benefit: 'Prevents missed presentation windows at scale.' },
+      { id: 'presentation', label: 'Bank Presentation', heading: 'Presenting Cheques for Clearing', overview: 'Cheques are presented to the bank on schedule.', activities: ['Presentation batch coordination', 'Clearing status tracking'], documents: [], risks: ['Delayed or missed presentation'], deliverable: 'Presentation confirmation record.', benefit: 'Keeps collections on the expected timeline.' },
+      { id: 'bounce-response', label: 'Bounce Response', heading: 'Acting the Moment a Cheque Bounces', overview: 'Immediate borrower contact follows any bounce notification.', activities: ['Bounce notification handling', 'Immediate borrower contact'], documents: [], risks: ['Lost recovery momentum from delayed response'], deliverable: 'Bounce response log.', benefit: 'Preserves the best chance of quick resolution after a bounce.' },
+      { id: 'ecs-handling', label: 'ECS Handling', heading: 'Managing Electronic Clearing Returns', overview: 'ECS returns are tracked and intimated alongside cheque bounces.', activities: ['ECS return tracking', 'Borrower intimation'], documents: [], risks: ['Electronic return failures handled inconsistently with cheque bounces'], deliverable: 'ECS return log.', benefit: 'Brings electronic instrument failures into the same structured process.' },
+      { id: 'escalation', label: 'Escalation Handoff', heading: 'Moving to the Next Step When Needed', overview: 'Repeated bounces are handed off to the appropriate legal process.', activities: ['Escalation trigger review', 'Legal stage handoff'], documents: [], risks: ['Bounced cheques stalling without a clear next step'], deliverable: 'Escalation handoff record.', benefit: 'Ensures repeated bounces move forward, not stall.' },
+      { id: 'report', label: 'Status Reporting', heading: 'Giving the Lender a Clear View of PDC Performance', overview: 'Consolidated reporting on presentation, bounce, and escalation outcomes.', activities: ['Report compilation', 'Internal quality check'], documents: [], risks: ['Inconsistent reporting across the PDC portfolio'], deliverable: 'PDC status report.', benefit: 'Removes the need for the lender to track PDC status manually.' }
     ],
-    techEnablement: {
-      title: 'Calling Analytics & Compliance Platform',
-      desc: 'Real-time call center controls and recorded caller lines.',
-      modules: [
-        { title: 'Time-Lock Dialing', desc: 'Automatic block on outbound calls before 08:00 AM and after 07:00 PM.' }
+
+    challengesHeading: 'Enterprise PDC Collections Risks',
+    challenges: [
+      { title: 'Missed Presentation Dates', desc: 'Untracked due dates lead to missed bank presentation windows.', warningBadge: 'Tracking Risk', impact: 'Collections are delayed or missed entirely when presentation is missed.' },
+      { title: 'Delayed Bounce Follow-Up', desc: 'A bounced cheque without immediate follow-up loses recovery momentum.', warningBadge: 'Response Risk', impact: 'The best window for quick resolution closes without prompt action.' },
+      { title: 'Manual Tracking at Volume', desc: 'Spreadsheet-based tracking breaks down at portfolio scale.', warningBadge: 'Scale Risk', impact: 'Tracking errors increase as portfolio volume grows.' },
+      { title: 'Weak Escalation Path', desc: 'Without structured handoff, bounced cheques don’t reliably escalate.', warningBadge: 'Escalation Risk', impact: 'Repeat bounces stall instead of moving to legal action.' },
+      { title: 'Inconsistent ECS Handling', desc: 'Electronic clearing returns handled inconsistently with cheque bounces.', warningBadge: 'Process Risk', impact: 'Gaps in coverage between cheque and electronic instrument failures.' },
+      { title: 'Reconciliation Gaps', desc: 'Without clearing-status tracking, collected amounts are hard to reconcile.', warningBadge: 'Reconciliation Risk', impact: 'Lenders lack a clear, current view of actual PDC collection performance.' }
+    ],
+
+    processFlow: {
+      title: 'Enterprise PDC Collections Lifecycle',
+      desc: 'A structured operating model that moves a post-dated cheque from tracking to a resolved outcome.',
+      steps: [
+        { step: '01', title: 'Schedule Intake', desc: 'PDC due dates are ingested and tracked centrally.', outcome: 'A complete, tracked presentation calendar.' },
+        { step: '02', title: 'Bank Presentation', desc: 'Cheques are presented for clearing on schedule.', outcome: 'Timely presentation aligned with the expected collection date.' },
+        { step: '03', title: 'Bounce or Clearance Check', desc: 'Clearing status is confirmed for every presented instrument.', outcome: 'Immediate visibility into successful or bounced instruments.' },
+        { step: '04', title: 'Bounce Response', desc: 'Bounced cheques trigger immediate borrower contact.', outcome: 'Fast follow-up while recovery momentum is highest.' },
+        { step: '05', title: 'Escalation or Resolution', desc: 'The case resolves through payment or escalates to legal action.', outcome: 'A documented, resolved outcome for every PDC case.' }
       ]
     },
-    geoScope: {
-      title: 'Call Center & Support Network',
-      desc: 'Multi-lingual collections support covering all South Indian states.',
-      stats: [
-        { label: 'Outreach Capacity', value: '75,000 calls / day' },
-        { label: 'Dialer Infrastructure', value: '250+ Active calling seats' }
-      ]
-    },
-    complianceDetails: [
-      'RBI Fair Practices Code Aligned Outbound Dials',
-      '100% Caller Voice Recordings Saved for 180 Days',
-      'Calling locked strictly between 08:00 AM and 07:00 PM'
+
+    outcomesHeading: 'Enterprise Business Outcomes',
+    outcomes: [
+      { title: 'Fewer Missed Presentations', desc: 'Centralized tracking prevents presentation windows from being missed.', value: 'More cheques presented on schedule across the portfolio.' },
+      { title: 'Faster Bounce Resolution', desc: 'Immediate follow-up captures the best window for quick resolution.', value: 'Higher resolution rate on bounced instruments.' },
+      { title: 'Scalable PDC Management', desc: 'Structured tracking holds up at portfolio scale where spreadsheets fail.', value: 'Consistent performance regardless of portfolio volume.' },
+      { title: 'Reliable Escalation', desc: 'Structured handoff ensures repeated bounces move to legal action.', value: 'Fewer bounced cheques stalling without further action.' },
+      { title: 'Unified Instrument Coverage', desc: 'Cheque and ECS failures are handled under one consistent process.', value: 'Consistent borrower follow-up regardless of payment instrument.' },
+      { title: 'Clear Collection Visibility', desc: 'Consolidated reporting gives the lender a current view of PDC performance.', value: 'Less manual reconciliation work for the lender’s collections team.' }
     ],
-    industriesServed: [
-      { name: 'Nationalized Banks', scenario: 'High-volume early delinquency retail loan calling campaigns.', framework: 'Bilingual script matrix' },
-      { name: 'Housing Finance Companies', scenario: 'Early bucket mortgage payment reminders.', framework: 'SLA reminder notice pipelines' }
-    ],
-    operationalMetrics: [
-      { value: '82%', label: 'Early Resolution Rate' },
-      { value: '75K+', label: 'Daily Call Attempts' },
-      { value: '180 Days', label: 'Voice Recording Archives' }
-    ],
-    businessOutcomes: [
-      { title: 'Minimized NPA Provisions', desc: 'Resolving accounts early releases capital locked in provisioning buckets.' },
-      { title: 'Maintained Customer Goodwill', desc: 'Polite, compliant reminders protect the bank\'s brand.' }
-    ],
-    caseStudy: {
-      headingStatus: 'VERIFIED CASE STUDY',
-      title: 'Halting NBFC Portfolio Migration',
-      challenge: 'A retail finance firm experienced high personal loan defaults, with accounts migrating to Stage-2 due to slow collections outreach.',
-      approach: 'SM Associates deployed a structured early dialer campaign with automated callback loops.',
-      execution: 'Loaded delinquent portfolios daily, setting automated rules to call non-responsive numbers at varied hours.',
-      outcome: 'Improved early-stage resolution rate from 65% to 82% in 60 days, reducing bucket migration.'
-    },
+
     faqs: [
-      { q: 'What dialing technology do you use?', a: 'We use high-capacity digital VoIP dialer consoles featuring predictive routing and automated drop checking.' },
-      { q: 'Do you visit borrowers at this stage?', a: 'Early-stage collections are handled via calling and messages. Unresponsive cases are escalated to field teams at 60 DPD.' }
+      { q: 'Do you handle both post-dated cheques and ECS mandates?', a: 'Yes — PDC Collections covers both cheque presentation and ECS-return tracking and intimation under one consolidated process.' },
+      { q: 'What happens after a cheque bounces?', a: 'Immediate borrower contact is attempted, and repeated bounces are escalated to the appropriate legal process, including Section 138 action where warranted.' }
     ],
+
     cta: {
-      heading: 'Optimize Your Early-Stage Loan Performance Today',
-      subheading: 'Request a demo to review our dialing platforms and compliant collections scripts.',
-      buttonText: 'Request Collections Pilot',
+      heading: 'Keep Your PDC Collections On Schedule',
+      subheading: 'Request a PDC collections walkthrough for your active loan portfolio.',
+      buttonText: 'Request Empanelment Proposal',
+      href: '/contact'
+    }
+  },
+
+  'early-stage-collections': {
+    eyebrow: 'Early-Stage Recovery Operations',
+    title: 'Early Stage Collections',
+    subtitle: 'Resolving Delinquency Before It Becomes a Recovery Problem',
+    description: 'Resolving delinquency early through structured, compliant tele-calling before accounts escalate.',
+    primaryCtaText: 'Request an Early Stage Collections Walkthrough',
+    secondaryCtaText: 'Download Collections Compliance Standards',
+
+    problemStatement: [
+      { icon: 'trendingDown', title: 'Delinquency Migration', desc: 'Accounts move quickly into higher-risk buckets without immediate, structured outreach.' },
+      { icon: 'mapPin', title: 'Unreachable Borrowers', desc: 'Defaulters changing contact details or going silent at the first sign of payment trouble.' },
+      { icon: 'shieldAlert', title: 'Non-Compliant Calling', desc: 'Outbound calling outside permitted hours or without proper records creates regulatory exposure.' },
+      { icon: 'fileWarning', title: 'Untracked Commitments', desc: 'Promise-to-pay commitments that aren’t logged or followed up on get lost between calls.' }
+    ],
+
+    overview: {
+      heading: 'Why Early, Structured Contact Changes the Resolution Curve',
+      subheading: 'The First 30 Days Determine Whether an Account Recovers or Escalates',
+      summary: 'Once an account crosses into delinquency, every day without contact makes resolution harder and more expensive. Early Stage Collections is built around immediate, compliant outreach — calling within permitted hours, logging every promise-to-pay commitment, and escalating unresponsive cases to field teams before they age further. SM Associates structures this as a tracked operational pipeline, not ad-hoc calling, so lenders see consistent contact rates from day one of delinquency.',
+      outcomes: [
+        { title: 'Immediate Outreach', desc: 'Structured contact begins as soon as an account enters the delinquency pipeline.' },
+        { title: 'Compliant by Design', desc: 'Calling windows and recording practices are built into the operating model, not left to individual agents.' },
+        { title: 'Tracked Commitments', desc: 'Every promise-to-pay is logged and followed up against, not left to memory.' }
+      ],
+      useCases: [
+        { title: 'Retail Credit Cards', desc: 'Reaching cardholders immediately after a missed payment.' },
+        { title: 'Microfinance Portfolios', desc: 'Reminder calls and structured follow-up for group-lending accounts.' },
+        { title: 'Personal Loan Books', desc: 'First-contact outreach before accounts age into harder recovery stages.' }
+      ]
+    },
+
+    kpiCards: [
+      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+    ],
+
+    capabilities: [
+      { title: 'Compliant Outbound Calling', desc: 'Structured tele-calling within RBI-permitted calling hours.', bullets: ['Calling restricted to approved hours', 'Recorded caller lines for every outbound attempt', 'Scripted, non-coercive borrower communication'], businessOutcome: 'Keeps early-stage outreach compliant by design, not by individual discretion.' },
+      { title: 'Promise-to-Pay Tracking', desc: 'Logging and following up on every borrower commitment.', bullets: ['Structured logging of payment commitments', 'Automated follow-up scheduling', 'Escalation when commitments are missed'], businessOutcome: 'Converts more verbal commitments into actual payments.' },
+      { title: 'Multi-Channel Outreach', desc: 'Combining calls, SMS, and digital reminders for better contact rates.', bullets: ['Coordinated calling and messaging cadence', 'Channel-appropriate borrower communication', 'Consistent messaging across touchpoints'], businessOutcome: 'Improves the odds of reaching a borrower who doesn’t answer calls.' },
+      { title: 'Segmented Account Prioritization', desc: 'Routing accounts based on delinquency age and risk profile.', bullets: ['Accounts segmented by days-past-due and risk', 'Higher-risk accounts prioritized for faster contact', 'Dynamic re-routing as account status changes'], businessOutcome: 'Focuses effort where early intervention matters most.' },
+      { title: 'Field Escalation Pathway', desc: 'Moving unresponsive accounts to field teams before they age further.', bullets: ['Defined escalation triggers for non-response', 'Structured handoff to field collections', 'No account left in calling-only limbo indefinitely'], businessOutcome: 'Prevents accounts from drifting unmanaged into harder recovery stages.' },
+      { title: 'Collections Risk Flagging', desc: 'Translating outreach outcomes into a structured risk read.', bullets: ['Consolidation of contact attempts and outcomes', 'Flagging of high-risk non-responsive accounts', 'Structured reporting for the lender’s collections desk'], businessOutcome: 'Gives lenders a clear view of which accounts need escalation.' }
+    ],
+
+    tabs: [
+      { id: 'intake', label: 'Account Intake', heading: 'Bringing a Delinquent Account Into the Pipeline', overview: 'The starting point — an account entering structured early-stage outreach.', activities: ['Secure ingestion of delinquent account data', 'Segmentation by delinquency age and risk'], documents: [], risks: ['Delayed intake extending the contact gap'], deliverable: 'Active collections case log.', benefit: 'Ensures no delinquent account sits untouched before outreach begins.' },
+      { id: 'outreach', label: 'Compliant Outreach', heading: 'Making First Contact Within Permitted Hours', overview: 'Structured calling and messaging within RBI-compliant calling windows.', activities: ['Outbound calling within approved hours', 'SMS and digital reminder dispatch'], documents: [], risks: ['Non-compliant calling hours or methods'], deliverable: 'Outreach attempt log.', benefit: 'Keeps every borrower touchpoint compliant by design.' },
+      { id: 'commitment', label: 'Commitment Tracking', heading: 'Logging and Following Up on Promises to Pay', overview: 'Every borrower commitment is logged and tracked, not left to memory.', activities: ['Promise-to-pay logging', 'Automated follow-up scheduling'], documents: [], risks: ['Untracked or missed commitments'], deliverable: 'Promise-to-pay register.', benefit: 'Converts more verbal commitments into completed payments.' },
+      { id: 'escalation', label: 'Escalation Decision', heading: 'Deciding When an Account Needs Field Action', overview: 'Defined triggers for moving an unresponsive account beyond calling.', activities: ['Non-response trend review', 'Escalation trigger evaluation'], documents: [], risks: ['Accounts left in calling-only limbo too long'], deliverable: 'Escalation decision note.', benefit: 'Prevents unresponsive accounts from aging further unmanaged.' },
+      { id: 'handoff', label: 'Field Handoff', heading: 'Transferring an Account to Field Collections', overview: 'A structured handoff so escalated accounts don’t lose context.', activities: ['Case history transfer to field team', 'Field dispatch coordination'], documents: [], risks: ['Lost context during handoff'], deliverable: 'Field handoff case file.', benefit: 'Keeps escalated accounts moving without losing prior outreach history.' },
+      { id: 'report', label: 'Status Reporting', heading: 'Giving the Lender a Clear View of Progress', overview: 'Consolidated reporting on outreach outcomes and account status.', activities: ['Report compilation', 'Status sync with client dashboard'], documents: [], risks: ['Inconsistent or delayed status reporting'], deliverable: 'Collections status report.', benefit: 'Removes the need for the lender to chase status updates manually.' }
+    ],
+
+    challengesHeading: 'Enterprise Early-Stage Collections Risks',
+    challenges: [
+      { title: 'Delinquency Migration', desc: 'Accounts moving into higher-risk buckets without immediate, structured outreach.', warningBadge: 'Bucket Risk', impact: 'Provisioning requirements increase as accounts age further.' },
+      { title: 'Unreachable Borrowers', desc: 'Defaulters changing contact details or going silent at the first sign of trouble.', warningBadge: 'Contact Risk', impact: 'Outreach effort is wasted on stale contact information.' },
+      { title: 'Non-Compliant Calling', desc: 'Outbound calling outside permitted hours or without proper recording creates exposure.', warningBadge: 'Regulatory Risk', impact: 'Institutions inherit reputational and regulatory risk from calling conduct.' },
+      { title: 'Untracked Commitments', desc: 'Promise-to-pay commitments that aren’t logged or followed up on get lost.', warningBadge: 'Process Risk', impact: 'Verbal commitments don’t convert into actual recovered payments.' },
+      { title: 'Delayed Escalation', desc: 'Unresponsive accounts staying in calling-only mode too long.', warningBadge: 'Escalation Risk', impact: 'Accounts age past the point where early intervention is effective.' },
+      { title: 'Borrower Friction', desc: 'Poorly handled outreach can damage the lender’s relationship with a recoverable customer.', warningBadge: 'Reputational Risk', impact: 'Aggressive or inconsistent contact can reduce future recovery cooperation.' }
+    ],
+
+    processFlow: {
+      title: 'Enterprise Early-Stage Collections Lifecycle',
+      desc: 'A structured operating model that moves a delinquent account from intake to resolution or escalation.',
+      steps: [
+        { step: '01', title: 'Account Intake', desc: 'Delinquent account data is ingested and segmented by risk and delinquency age.', outcome: 'Account enters a tracked outreach pipeline.' },
+        { step: '02', title: 'Compliant Outreach', desc: 'Structured calling and messaging begins within permitted hours.', outcome: 'First contact attempt logged against the account.' },
+        { step: '03', title: 'Commitment Tracking', desc: 'Any promise-to-pay is logged and scheduled for follow-up.', outcome: 'A trackable commitment record, not a verbal-only promise.' },
+        { step: '04', title: 'Escalation Review', desc: 'Non-responsive accounts are reviewed against defined escalation triggers.', outcome: 'A clear decision on whether the account needs field action.' },
+        { step: '05', title: 'Resolution or Handoff', desc: 'The account is either resolved through payment or handed off to field collections.', outcome: 'A documented outcome placed in the lender’s collections record.' }
+      ]
+    },
+
+    outcomesHeading: 'Enterprise Business Outcomes',
+    outcomes: [
+      { title: 'Reduced Bucket Migration', desc: 'Early, structured contact resolves more accounts before they age into higher-risk buckets.', value: 'Fewer accounts requiring costlier downstream recovery action.' },
+      { title: 'Compliant Outreach by Design', desc: 'Calling windows and recording practices are built into the operating model.', value: 'Reduced regulatory exposure tied to collections conduct.' },
+      { title: 'Higher Commitment Conversion', desc: 'Tracked promise-to-pay follow-up converts more commitments into actual payments.', value: 'Improved early-stage recovery rates.' },
+      { title: 'Faster Escalation Decisions', desc: 'Defined triggers move unresponsive accounts to field teams without delay.', value: 'Less time lost on accounts that needed escalation sooner.' },
+      { title: 'Clear Lender Visibility', desc: 'Consolidated reporting gives lenders a real-time view of outreach progress.', value: 'Less manual status-chasing for the lender’s collections desk.' },
+      { title: 'Protected Borrower Relationship', desc: 'Compliant, professional outreach preserves the lender’s relationship with recoverable customers.', value: 'Better long-term recovery cooperation from resolved accounts.' }
+    ],
+
+    faqs: [
+      { q: 'What calling hours do you operate within?', a: 'Outbound calling is restricted to RBI-permitted hours, with all calls recorded for compliance review.' },
+      { q: 'What happens if a borrower doesn’t respond to calls or messages?', a: 'The account is reviewed against defined escalation triggers and, where appropriate, handed off to field collections.' }
+    ],
+
+    cta: {
+      heading: 'Resolve Delinquency Before It Escalates',
+      subheading: 'Request an early-stage collections walkthrough for your delinquent portfolio.',
+      buttonText: 'Request Empanelment Proposal',
       href: '/contact'
     }
   },
@@ -343,228 +430,203 @@ export const collectionsContent = {
   },
 
   'field-collections': {
-    eyebrow: 'On-Ground Collections',
-    title: 'Disciplined Field Collections Across South India',
-    description: 'Scale physical outreach and payment pickups with a professional network of collections officers operating under strict compliance guidelines.',
-    primaryCtaText: 'Empanel Field Network',
-    secondaryCtaText: 'Explore Regional Coverage Map',
-    trustStatement: 'Deploying India\'s largest DRA-certified field collection force since 2000.',
-    trustBar: {
-      statement: 'Empanelled and trusted by India\'s leading nationalized banks, housing finance panels, and ARCs.',
-      logos: ['STATE BANK OF INDIA', 'HDFC BANK', 'AXIS BANK', 'CANARA BANK', 'HDB FINANCIAL', 'ASSET RECONSTRUCTION CORP']
-    },
-    snapshot: {
-      summary: 'SM Associates operates a dense, branch-managed field collections network. We deploy 916+ trained collections officers to perform doorstep visits, secure cash/check pickups, and coordinate settlement actions under strict RBI guidelines.',
+    eyebrow: 'On-Ground Collections Operations',
+    title: 'Field Collections',
+    subtitle: 'Physical Outreach for Accounts That Calling Alone Can’t Resolve',
+    description: 'Deploying trained field officers for physical outreach when calling alone isn’t enough.',
+    primaryCtaText: 'Request a Field Collections Walkthrough',
+    secondaryCtaText: 'Download Field Operations Standards',
+
+    problemStatement: [
+      { icon: 'mapPin', title: 'Unresponsive to Calling', desc: 'Borrowers who don’t answer calls or messages still need a structured recovery path.' },
+      { icon: 'shieldAlert', title: 'Unverified Field Agents', desc: 'Informal field collection methods create compliance and reputational exposure.' },
+      { icon: 'fileWarning', title: 'Payment Reconciliation Delays', desc: 'Cash or cheque collections without digital logging cause downstream reconciliation gaps.' },
+      { icon: 'trendingDown', title: 'Logistical Inefficiency', desc: 'Uncoordinated field visits in scattered locations drive up cost without improving recovery.' }
+    ],
+
+    overview: {
+      heading: 'Why Physical Outreach Matters Once Calling Has Been Exhausted',
+      subheading: 'A Doorstep Visit Reaches Borrowers a Phone Call Cannot',
+      summary: 'Calling-stage outreach resolves a meaningful share of delinquent accounts, but some borrowers simply won’t answer a phone. Field Collections picks up where calling leaves off — a trained field officer visits the borrower directly, discusses the outstanding balance, and secures payment or a documented commitment on the spot. SM Associates structures this around geofenced visit logging and digital payment capture, so every visit is verifiable and every payment is reconciled without delay.',
       outcomes: [
-        { title: 'Ground Capacity', desc: '916+ fully certified field collections professionals active.' },
-        { title: 'Regional Footprint', desc: '35 branch offices across 5 South Indian states for quick ground dispatch.' },
-        { title: 'Daily Visits', desc: 'Average of 6,500+ geotagged borrower visits completed daily.' }
+        { title: 'Direct Borrower Contact', desc: 'Reaches borrowers who are unresponsive to calling-stage outreach.' },
+        { title: 'Verifiable Visits', desc: 'Geotagged check-ins confirm a visit actually happened at the right location.' },
+        { title: 'Immediate Reconciliation', desc: 'Digital payment capture removes the lag of manual paper receipts.' }
       ],
       useCases: [
-        { title: 'Tractor & Vehicle Finance', desc: 'Physical doorstep collection of monthly EMI payments.' },
-        { title: 'Microfinance Doorstep Collections', desc: 'Coordinating group collections and cash settlements.' }
+        { title: 'Vehicle Finance Collections', desc: 'Physical doorstep collection of EMI payments on auto and tractor loans.' },
+        { title: 'Microfinance Group Collections', desc: 'Coordinating group repayment visits and cash settlements.' },
+        { title: 'Escalated Personal Loan Accounts', desc: 'Field follow-up on accounts that didn’t respond to calling-stage outreach.' }
       ]
     },
-    stats: [
-      { value: '916+', label: 'Field Professionals' },
-      { value: '35', label: 'Operational Branches' },
-      { value: '6,500+', label: 'Daily Field Visits' }
+
+    kpiCards: [
+      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
     ],
-    challenges: [
-      { title: 'Logistical Delays', desc: 'Uncoordinated field agent visits in rural districts leading to high travel costs and low recovery.', warningBadge: 'Logistical Friction', impactFormula: 'Travel Budget + 40%' },
-      { title: 'Lack of Agent Verification', desc: 'Unmonitored field agents using informal payment collections methods.', warningBadge: 'Compliance Risk', impactFormula: 'Grievance TAT + 35%' }
-    ],
-    failCompare: [
-      {
-        dimension: 'Field Representative Control',
-        traditional: 'Paper visit sheets with no check-in logging, causing reporting delays.',
-        sm: 'Mobile app checks matching coordinates and timestamp checks on every visit.'
-      },
-      {
-        dimension: 'Payment Security',
-        traditional: 'Accepting cash with manual paper receipts, causing reconciliation delays.',
-        sm: 'Instant digital check/cash receipt updates linked to the client bank dashboard.'
-      }
-    ],
-    framework: {
-      title: 'Structured Field Operations',
-      desc: 'Branch-managed, compliant ground collections covering all districts of South India.',
-      solutions: [
-        { title: 'Decentralized Branch Setup', desc: '35 offices coordinate ground field dispatches locally, ensuring immediate action.' },
-        { title: 'Certified Representative Code', desc: 'Mandatory background screening and IIBF training for all collections representatives.' }
-      ]
-    },
+
     capabilities: [
-      { title: 'doorstep Collections', desc: 'Physical visits to secure payments and collect cheques.', businessOutcome: 'Reduces delinquency buckets and secures cash inflow.' },
-      { title: 'Visit Logging Telemetry', desc: 'Recording coordinates, photos, and signatures on mobile consoles.', businessOutcome: 'Provides clear audit trails for lender compliance committees.' }
+      { title: 'Doorstep Borrower Visits', desc: 'Direct, in-person contact with borrowers unresponsive to calling.', bullets: ['Geotagged visit to the borrower’s address', 'Direct discussion of the outstanding balance', 'Documented outcome for every visit'], businessOutcome: 'Reaches borrowers a phone call alone cannot.' },
+      { title: 'Digital Payment Capture', desc: 'Securing and recording payments without paper-based delay.', bullets: ['On-the-spot digital payment or cheque capture', 'Immediate sync with the client’s collections dashboard', 'Elimination of manual reconciliation lag'], businessOutcome: 'Removes the reconciliation gap that paper receipts create.' },
+      { title: 'Geofenced Visit Verification', desc: 'Confirming field visits actually happened at the right place.', bullets: ['GPS-logged check-in at the borrower’s address', 'Timestamped visit records', 'Verifiable audit trail for every field attempt'], businessOutcome: 'Gives lenders confidence that reported visits genuinely occurred.' },
+      { title: 'Certified Field Officer Deployment', desc: 'Trained, background-screened officers conducting every visit.', bullets: ['DRA-certified field officers only', 'Background screening before deployment', 'Adherence to RBI fair-conduct guidelines'], businessOutcome: 'Protects the lender’s reputation in every borrower interaction.' },
+      { title: 'Route-Optimized Dispatch', desc: 'Coordinating field visits efficiently across a region.', bullets: ['Route planning based on case location density', 'Branch-level dispatch coordination', 'Reduced travel cost per completed visit'], businessOutcome: 'Improves recovery economics without sacrificing coverage.' },
+      { title: 'Field Risk Flagging', desc: 'Translating visit outcomes into a structured risk read.', bullets: ['Consolidation of visit outcomes and borrower responses', 'Flagging of accounts needing further escalation', 'Structured reporting for the lender’s collections desk'], businessOutcome: 'Gives lenders a clear view of which accounts need next steps.' }
     ],
-    workflow: [
-      { step: '01', title: 'File Assignment', objective: 'Ingest portfolio files', action: 'Ingest retail files and set agent allocations.', deliverable: 'Ingested data log.' },
-      { step: '02', title: 'Field Visit', objective: 'Verify applicant details', action: 'Geotagged ground officer address visit.', deliverable: 'Geotagged visit check photo.' },
-      { step: '03', title: 'Payment Capture', objective: 'Process collections', action: 'Securing check payments or settlement updates.', deliverable: 'Cleared transaction ledger.' }
+
+    tabs: [
+      { id: 'case-receipt', label: 'Case Receipt', heading: 'Receiving Escalated Accounts for Field Action', overview: 'Accounts unresponsive to calling-stage outreach enter the field pipeline.', activities: ['Case file receipt and review', 'Address geocoding'], documents: [], risks: ['Stale or incorrect address data'], deliverable: 'Field case assignment log.', benefit: 'Ensures field officers start with the most current case information.' },
+      { id: 'dispatch', label: 'Field Dispatch', heading: 'Routing the Case to the Right Officer', overview: 'Route-optimized assignment to the nearest available field officer.', activities: ['Route planning', 'Officer assignment'], documents: [], risks: ['Inefficient routing increasing cost per visit'], deliverable: 'Dispatch route mapping.', benefit: 'Keeps field operations cost-efficient without sacrificing coverage.' },
+      { id: 'visit', label: 'Borrower Visit', heading: 'Making Direct Contact at the Borrower’s Address', overview: 'A geotagged, in-person visit to discuss the outstanding balance.', activities: ['Geotagged check-in', 'Direct borrower discussion'], documents: [], risks: ['Visits that cannot be independently verified'], deliverable: 'Visit confirmation log.', benefit: 'Reaches borrowers calling-stage outreach could not.' },
+      { id: 'payment', label: 'Payment Capture', heading: 'Securing and Recording Payment on the Spot', overview: 'Digital capture of payment or a documented settlement commitment.', activities: ['Digital payment or cheque capture', 'Settlement commitment logging'], documents: [], risks: ['Manual reconciliation delays without digital capture'], deliverable: 'Payment capture receipt.', benefit: 'Removes the lag between collection and reconciliation.' },
+      { id: 'sync', label: 'Account Sync', heading: 'Updating the Lender’s System in Real Time', overview: 'Visit and payment outcomes are synced to the client dashboard.', activities: ['Dashboard status sync', 'Reconciliation ledger update'], documents: [], risks: ['Delayed visibility into field outcomes'], deliverable: 'Reconciliation log entry.', benefit: 'Gives the lender real-time visibility into field collection results.' },
+      { id: 'report', label: 'Status Reporting', heading: 'Giving the Lender a Clear View of Field Outcomes', overview: 'Consolidated reporting on visit and payment outcomes.', activities: ['Report compilation', 'Internal quality check'], documents: [], risks: ['Inconsistent reporting across field officers'], deliverable: 'Field collections status report.', benefit: 'Removes the need for the lender to chase field updates manually.' }
     ],
-    techEnablement: {
-      title: 'Geofenced Field Tracking',
-      desc: 'GPS-geotagged visits with photo evidence matching applicant coordinates.',
-      modules: [
-        { title: 'Mobile Target Routing', desc: 'Direct route optimization for ground representatives, minimizing travel times.' }
+
+    challengesHeading: 'Enterprise Field Collections Risks',
+    challenges: [
+      { title: 'Unresponsive Borrowers', desc: 'Borrowers who don’t answer calls or messages still need a structured recovery path.', warningBadge: 'Contact Risk', impact: 'Accounts stay unresolved without a physical-outreach option.' },
+      { title: 'Unverified Field Conduct', desc: 'Informal or unmonitored field agents create compliance exposure.', warningBadge: 'Compliance Risk', impact: 'Institutions inherit reputational risk from how field visits are conducted.' },
+      { title: 'Payment Reconciliation Delays', desc: 'Cash or cheque collections without digital logging cause downstream gaps.', warningBadge: 'Process Risk', impact: 'Collected payments don’t reflect in the lender’s system promptly.' },
+      { title: 'Logistical Inefficiency', desc: 'Uncoordinated field visits in scattered locations drive up cost without improving recovery.', warningBadge: 'Operational Risk', impact: 'Field operations become expensive relative to amounts recovered.' },
+      { title: 'Unverifiable Visit Claims', desc: 'Without geotagging, there’s no independent confirmation a visit occurred.', warningBadge: 'Audit Risk', impact: 'Lenders can’t independently confirm reported field activity.' },
+      { title: 'Borrower Friction', desc: 'Poorly conducted field visits can damage the lender’s relationship with a recoverable customer.', warningBadge: 'Reputational Risk', impact: 'Aggressive or inconsistent field conduct can reduce future cooperation.' }
+    ],
+
+    processFlow: {
+      title: 'Enterprise Field Collections Lifecycle',
+      desc: 'A structured operating model that moves an escalated account from dispatch to a documented outcome.',
+      steps: [
+        { step: '01', title: 'Case Receipt', desc: 'Escalated accounts are received and reviewed for field assignment.', outcome: 'A case ready for route-optimized dispatch.' },
+        { step: '02', title: 'Field Dispatch', desc: 'The case is routed to the nearest available field officer.', outcome: 'Confirmed dispatch ready for an on-site visit.' },
+        { step: '03', title: 'Borrower Visit', desc: 'A geotagged, in-person visit is conducted at the borrower’s address.', outcome: 'Direct contact established and outcome recorded.' },
+        { step: '04', title: 'Payment or Commitment Capture', desc: 'Payment is digitally captured, or a settlement commitment is logged.', outcome: 'A trackable outcome, not a verbal-only result.' },
+        { step: '05', title: 'Account Sync & Reporting', desc: 'Outcomes are synced to the client dashboard and reported.', outcome: 'Real-time visibility into the account’s updated status.' }
       ]
     },
-    geoScope: {
-      title: 'Regional Operations Reach',
-      desc: 'Pan-regional branch operations covering Southern India.',
-      stats: [
-        { label: 'Operational Coverage', value: 'Tamil Nadu, Karnataka, Kerala, Telangana, Andhra Pradesh, Puducherry' },
-        { label: 'Logistics Range', value: '150 KM / Hub' }
-      ]
-    },
-    complianceDetails: [
-      'RBI Fair Conduct Guidelines Aligned doorstep Visits',
-      '100% of Ground Staff DRA-Certified',
-      'All Visit Details Logged with GPS Evidence'
+
+    outcomesHeading: 'Enterprise Business Outcomes',
+    outcomes: [
+      { title: 'Higher Resolution on Escalated Accounts', desc: 'Physical outreach resolves accounts that calling-stage contact could not.', value: 'Fewer accounts left unresolved after calling-stage outreach.' },
+      { title: 'Faster Payment Reconciliation', desc: 'Digital capture removes the lag of manual paper-based collection.', value: 'Collected payments reflect in the lender’s system without delay.' },
+      { title: 'Verifiable Field Activity', desc: 'Geotagged visits give lenders independent confirmation of field outcomes.', value: 'Confidence that reported field activity genuinely occurred.' },
+      { title: 'Regulatory Compliance', desc: 'Certified field officers and structured conduct align with RBI fair-practice expectations.', value: 'Reduced institutional exposure tied to field-collection conduct.' },
+      { title: 'Efficient Field Economics', desc: 'Route-optimized dispatch keeps cost per visit proportionate to recovery value.', value: 'Field operations remain cost-efficient at scale.' },
+      { title: 'Protected Borrower Relationship', desc: 'Professional, compliant field conduct preserves the lender’s relationship with the customer.', value: 'Better long-term recovery cooperation from resolved accounts.' }
     ],
-    industriesServed: [
-      { name: 'Vehicle Finance Institutions', scenario: 'Rural tractor and vehicle finance collection campaigns.', framework: 'Geotagged coordinates checks' },
-      { name: 'Retail NBFCs', scenario: 'Personal loan doorstep check campaigns.', framework: 'Liaison office verification check' }
-    ],
-    operationalMetrics: [
-      { value: '916+', label: 'Active Field Officers' },
-      { value: '35', label: 'Operational Branches' },
-      { value: '6,500+', label: 'Daily Field Visits' }
-    ],
-    businessOutcomes: [
-      { title: 'Higher Cash Inflow', desc: ' doorstep touchpoints accelerate settlement conversions.' },
-      { title: 'Complete Compliance Protection', desc: 'Strict compliance controls protect the bank\'s reputation.' }
-    ],
-    caseStudy: {
-      headingStatus: 'VERIFIED CASE STUDY',
-      title: 'Managing High-Volume Vehicle Collections',
-      challenge: 'A commercial vehicle lender experienced a default default spike across rural Karnataka and Tamil Nadu, with local agents failing to secure payment.',
-      approach: 'SM Associates deployed regional field teams using route-optimized target routing.',
-      execution: 'Coordinated doorstep visits, logging geofenced check-ins and updating collection status in real-time.',
-      outcome: 'Secured EMI payments and settlements for 880+ delinquent accounts within 90 days, reducing NPA provisioning.'
-    },
+
     faqs: [
-      { q: 'How do you handle collections in remote rural districts?', a: 'Our network of 35 regional branches allows us to coordinate doorstep visits to any village across South India.' }
+      { q: 'How do you verify a field visit actually happened?', a: 'Every field visit is geotagged and timestamped at the point of check-in, giving an independently verifiable record.' },
+      { q: 'What happens if a borrower refuses to engage during a field visit?', a: 'The outcome is logged and the case is reviewed for further escalation, including potential legal action where applicable.' }
     ],
+
     cta: {
-      heading: 'Deploy India\'s Most Professional Field Team',
-      subheading: 'Request a consultation call to empanel SM Associates for your field collections.',
-      buttonText: 'Consult with Our Operations Team',
+      heading: 'Deploy a Compliant, Professional Field Team',
+      subheading: 'Request a field collections walkthrough for your delinquent portfolio.',
+      buttonText: 'Request Empanelment Proposal',
       href: '/contact'
     }
   },
 
   'debt-recovery': {
-    eyebrow: 'Unified Recovery Model',
-    title: 'Structured Debt Recovery Managed Under One Roof',
-    description: 'Maximize asset resolution across the lifecycle using synchronized call center campaigns, field outreach, and legal actions.',
-    primaryCtaText: 'Request Recovery Proposal',
-    secondaryCtaText: 'Download Service Overview',
-    trustStatement: 'Operating since 2000, empanelled with over 100+ public and private banking institutions.',
-    trustBar: {
-      statement: 'Empanelled and trusted by India\'s leading nationalized banks, housing finance panels, and ARCs.',
-      logos: ['STATE BANK OF INDIA', 'HDFC BANK', 'AXIS BANK', 'CANARA BANK', 'HDB FINANCIAL', 'ASSET RECONSTRUCTION CORP']
-    },
-    snapshot: {
-      summary: 'SM Associates provides end-to-end debt recovery solutions. We coordinate tele-calling call center campaigns, ground field deployments, and legal notice enforcements under a single operational SLA, accelerating provisions releases.',
+    eyebrow: 'Unified Recovery Operations',
+    title: 'Debt Recovery',
+    subtitle: 'Coordinating Calling, Field, and Legal Action Under One Operational SLA',
+    description: 'Coordinating calling, field, and legal action under one operational recovery SLA.',
+    primaryCtaText: 'Request a Debt Recovery Walkthrough',
+    secondaryCtaText: 'Download Recovery Operations Standards',
+
+    problemStatement: [
+      { icon: 'briefcase', title: 'Vendor Fragmentation', desc: 'Separate vendors handling calling, field visits, and legal notices create data gaps and delays.' },
+      { icon: 'trendingDown', title: 'Lost Context Between Stages', desc: 'An account escalating from calling to field to legal action can lose its history at each handoff.' },
+      { icon: 'shieldAlert', title: 'Inconsistent Compliance', desc: 'Different vendors at each stage make consistent compliance harder to enforce.' },
+      { icon: 'fileWarning', title: 'Delayed Provisioning Release', desc: 'Slow, uncoordinated resolution keeps capital locked in provisioning longer than necessary.' }
+    ],
+
+    overview: {
+      heading: 'Why a Coordinated Recovery Model Outperforms a Fragmented One',
+      subheading: 'One Operational SLA Across Calling, Field, and Legal Action',
+      summary: 'Recovery typically involves multiple distinct activities — calling outreach, field visits, and legal escalation — and lenders often manage each through a different vendor. Debt Recovery coordinates all three under one operational SLA, so an account’s history travels with it from calling to field to legal action instead of resetting at every handoff. SM Associates structures this as a single accountable pipeline, giving lenders one point of contact across the full recovery lifecycle rather than three.',
       outcomes: [
-        { title: 'Recovered Capital', desc: 'Over ₹8,000+ Crore recovered for empanelled partners.' },
-        { title: 'Lender Partners', desc: '100+ active banks, NBFCs, and retail lending institutions.' },
-        { title: 'Compliance Safety', desc: '100% DRA certification, GPS visit logs, and voice recorded calling lines.' }
+        { title: 'Continuous Case History', desc: 'An account’s outreach history travels with it through every recovery stage.' },
+        { title: 'Single Point of Accountability', desc: 'One operational SLA instead of coordinating three separate vendors.' },
+        { title: 'Consistent Compliance', desc: 'The same compliance standard applies across calling, field, and legal stages.' }
       ],
       useCases: [
-        { title: 'Nationalized Banking Portfolios', desc: 'High-volume retail NPA mortgage default resolution campaigns.' },
-        { title: 'Fintech Credit Books', desc: 'Real-time database updates and geolocated collection visits.' }
+        { title: 'Nationalized Banking Portfolios', desc: 'Coordinated recovery across retail default portfolios.' },
+        { title: 'NBFC Default Books', desc: 'Unified calling, field, and legal escalation for consumer lending defaults.' },
+        { title: 'ARC-Acquired Portfolios', desc: 'End-to-end recovery operations on acquired stressed accounts.' }
       ]
     },
-    stats: [
-      { value: '₹8,000+ Cr', label: 'Capital Recovered' },
-      { value: '100+', label: 'Empanelled Partners' },
-      { value: '25 Yrs', label: 'Operations Standing' }
+
+    kpiCards: [
+      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
     ],
-    challenges: [
-      { title: 'Vendor Fragmentation', desc: 'Lenders managing different call centers, field agents, and legal counsels, causing delays and compliance slips.', warningBadge: 'Operations Gap', impactFormula: 'Resolution TAT + 45%' },
-      { title: 'Escalating Collection Costs', desc: 'Uncoordinated field and calling campaigns increasing operational costs.', warningBadge: 'Capital Friction', impactFormula: 'Operation Cost + 30%' }
-    ],
-    failCompare: [
-      {
-        dimension: 'Vendor Integration',
-        traditional: 'Separate companies handle call centers, field visits, and legal notices, causing data gaps.',
-        sm: 'Calling, field, and legal departments synchronized on our unified dashboard console.'
-      },
-      {
-        dimension: 'Compliance & Safety',
-        traditional: 'Manual logs with no voice recordings or geofenced visit verification checks.',
-        sm: '100% VoIP voice logs and geotagged field visit coordinates logs.'
-      }
-    ],
-    framework: {
-      title: 'Integrated Recovery Pipeline',
-      desc: 'A synchronized collections engine combining digital, ground, and legal enforcements.',
-      solutions: [
-        { title: 'Calling Campaigns', desc: 'Bilingual calling agents handle early bucket reminders and settlement talks.' },
-        { title: 'Ground Deployments', desc: 'DRA-certified field collections officers perform geofenced address visits.' }
-      ]
-    },
+
     capabilities: [
-      { title: 'Profile Validation Checks', desc: 'Physical address checks and neighbor reference checks before legal handoffs.', businessOutcome: 'Reduces notice returns and coordinates legal notices.' },
-      { title: 'Legal Notice filings', desc: 'Coordinating legal notice drafting (Section 138 / Section 13) via advocate panels.', businessOutcome: 'Enforces legal pressure to resolve defaults.' }
+      { title: 'Coordinated Calling Campaigns', desc: 'Structured tele-calling as the first stage of the recovery pipeline.', bullets: ['Compliant outbound calling within permitted hours', 'Promise-to-pay tracking and follow-up', 'Defined escalation triggers to field stage'], businessOutcome: 'Resolves accounts early without losing context if escalation is needed.' },
+      { title: 'Integrated Field Deployment', desc: 'Field visits that pick up exactly where calling left off.', bullets: ['Full case history available to field officers', 'Geotagged visit verification', 'Digital payment capture and reconciliation'], businessOutcome: 'Field officers act on complete account history, not a blank slate.' },
+      { title: 'Legal Escalation Coordination', desc: 'Structured handoff to legal notice action when warranted.', bullets: ['Coordination with advocate panels for notice drafting', 'Section 138 and SARFAESI process initiation where applicable', 'Legal status visibility alongside calling and field history'], businessOutcome: 'Keeps legal escalation informed by the account’s full recovery history.' },
+      { title: 'Unified Account Telemetry', desc: 'One operational view across every recovery stage.', bullets: ['Consolidated dashboard across calling, field, and legal status', 'Single source of truth for account history', 'Real-time status visibility for the lender'], businessOutcome: 'Removes the need for the lender to reconcile updates from multiple vendors.' },
+      { title: 'Cross-Stage Compliance Enforcement', desc: 'The same compliance standard applied at every stage.', bullets: ['Consistent calling-hour and conduct rules across stages', 'DRA-certified personnel at calling and field stages', 'Documented compliance trail across the full lifecycle'], businessOutcome: 'Reduces regulatory exposure that fragmented vendors can introduce.' },
+      { title: 'Recovery Risk Flagging', desc: 'Translating cross-stage outcomes into a structured risk read.', bullets: ['Consolidation of calling, field, and legal outcomes', 'Flagging of accounts requiring further escalation', 'Structured reporting for the lender’s recovery desk'], businessOutcome: 'Gives lenders one clear view of recovery progress across the portfolio.' }
     ],
-    workflow: [
-      { step: '01', title: 'Portfolio Analysis', objective: 'Evaluate account details', action: 'Ingest portfolio files and segment accounts by default risk.', deliverable: 'Risk prioritized list.' },
-      { step: '02', title: 'Campaign Outreach', objective: 'Initiate call campaign', action: 'Outbound call center dialers and messaging platforms contact debtors.', deliverable: 'Outbound campaign logs.' },
-      { step: '03', title: 'Ground Outreach', objective: 'Perform doorstep visit', action: 'Assign unresponsive cases to local field collections agents for doorstep visits.', deliverable: 'Geotagged visit check report.' },
-      { step: '04', title: 'Payment Inflow', objective: 'Close settlement action', action: 'Process collected payments and sync details with the client dashboard.', deliverable: 'Cleared transaction ledger.' }
+
+    tabs: [
+      { id: 'portfolio-analysis', label: 'Portfolio Analysis', heading: 'Segmenting Accounts by Risk and Recovery Path', overview: 'Portfolio data is ingested and segmented to determine the right starting stage.', activities: ['Portfolio data ingestion', 'Risk-based segmentation'], documents: [], risks: ['Misclassified accounts starting at the wrong stage'], deliverable: 'Risk-prioritized account list.', benefit: 'Ensures each account starts its recovery path at the right stage.' },
+      { id: 'calling-stage', label: 'Calling Stage', heading: 'Structured Outreach as the First Recovery Stage', overview: 'Compliant calling campaigns begin outreach on segmented accounts.', activities: ['Outbound calling within permitted hours', 'Promise-to-pay tracking'], documents: [], risks: ['Non-compliant calling conduct'], deliverable: 'Calling stage outcome log.', benefit: 'Resolves a share of accounts early, before further escalation is needed.' },
+      { id: 'field-stage', label: 'Field Stage', heading: 'Field Visits With Full Case Context', overview: 'Unresolved accounts move to field officers who have the complete calling history.', activities: ['Geotagged borrower visit', 'Digital payment capture'], documents: [], risks: ['Lost context if field stage starts without calling history'], deliverable: 'Field stage outcome log.', benefit: 'Field officers act on complete history rather than starting blind.' },
+      { id: 'legal-stage', label: 'Legal Escalation', heading: 'Coordinated Legal Notice Action', overview: 'Accounts warranting legal escalation are handed to advocate panels with full history.', activities: ['Legal notice drafting coordination', 'Advocate panel liaison'], documents: [], risks: ['Legal action initiated without full account context'], deliverable: 'Legal escalation case file.', benefit: 'Keeps legal action informed by the account’s complete recovery history.' },
+      { id: 'telemetry', label: 'Unified Telemetry', heading: 'One View Across Every Stage', overview: 'A consolidated dashboard tracks the account across calling, field, and legal status.', activities: ['Cross-stage status consolidation', 'Dashboard sync'], documents: [], risks: ['Fragmented visibility across separate vendor systems'], deliverable: 'Unified account status record.', benefit: 'Gives the lender one place to see the full recovery picture.' },
+      { id: 'report', label: 'Status Reporting', heading: 'Giving the Lender a Clear View of Recovery Progress', overview: 'Consolidated reporting on outcomes across all three recovery stages.', activities: ['Report compilation', 'Internal quality check'], documents: [], risks: ['Inconsistent reporting across recovery stages'], deliverable: 'Debt recovery status report.', benefit: 'Removes the need for the lender to chase updates from multiple vendors.' }
     ],
-    techEnablement: {
-      title: 'Institutional Collections Platform',
-      desc: 'Real-time telemetry through secure dashboard consoles.',
-      modules: [
-        { title: 'Operations Dashboard', desc: 'Lenders track notice status, call recordings, and field coordinates.' }
+
+    challengesHeading: 'Enterprise Debt Recovery Risks',
+    challenges: [
+      { title: 'Vendor Fragmentation', desc: 'Separate vendors managing calling, field, and legal notices, causing delays and compliance slips.', warningBadge: 'Operations Risk', impact: 'Resolution timelines extend due to coordination gaps between vendors.' },
+      { title: 'Lost Context Between Stages', desc: 'An account’s history can reset at each handoff between calling, field, and legal action.', warningBadge: 'Process Risk', impact: 'Later-stage teams act without the benefit of earlier outreach history.' },
+      { title: 'Inconsistent Compliance', desc: 'Different vendors at each stage make a uniform compliance standard harder to enforce.', warningBadge: 'Regulatory Risk', impact: 'Institutions inherit reputational risk from inconsistent vendor conduct.' },
+      { title: 'Delayed Provisioning Release', desc: 'Slow, uncoordinated resolution keeps capital locked in provisioning longer than necessary.', warningBadge: 'Capital Risk', impact: 'Provisioning capital remains tied up longer than a coordinated process would require.' },
+      { title: 'Escalating Coordination Cost', desc: 'Managing multiple vendors directly increases the lender’s own operational overhead.', warningBadge: 'Operational Risk', impact: 'Internal teams spend time reconciling updates instead of managing strategy.' },
+      { title: 'Fragmented Reporting', desc: 'Each vendor reporting separately makes portfolio-level visibility harder to assemble.', warningBadge: 'Visibility Risk', impact: 'Lenders lack a single, reliable view of recovery progress.' }
+    ],
+
+    processFlow: {
+      title: 'Enterprise Debt Recovery Lifecycle',
+      desc: 'A structured operating model that moves an account through calling, field, and legal stages without losing context.',
+      steps: [
+        { step: '01', title: 'Portfolio Analysis', desc: 'Accounts are ingested and segmented by default risk to determine the right starting stage.', outcome: 'A risk-prioritized account list ready for outreach.' },
+        { step: '02', title: 'Calling Stage Outreach', desc: 'Compliant calling campaigns begin structured contact.', outcome: 'A share of accounts resolved before further escalation.' },
+        { step: '03', title: 'Field Stage Escalation', desc: 'Unresolved accounts move to field officers carrying full calling history.', outcome: 'Direct contact established with continuity from the calling stage.' },
+        { step: '04', title: 'Legal Escalation', desc: 'Accounts warranting legal action are handed to advocate panels with complete history.', outcome: 'Legal action initiated on a fully-informed case file.' },
+        { step: '05', title: 'Unified Reporting', desc: 'Outcomes across all stages are consolidated and reported to the client.', outcome: 'A single, reliable view of recovery progress.' }
       ]
     },
-    geoScope: {
-      title: 'Geographical Hub Network',
-      desc: 'Pan-regional presence across Southern India with hub branch operations.',
-      stats: [
-        { label: 'Operational Coverage', value: 'Tamil Nadu, Karnataka, Kerala, Telangana, Andhra Pradesh, Puducherry' },
-        { label: 'Logistics Range', value: '150 KM / Hub' }
-      ]
-    },
-    complianceDetails: [
-      'RBI Fair Practices Code Aligned calling & field enforcements',
-      '100% IIBF DRA Certified Teams',
-      '180-Day Secure Call Audio Archiving'
+
+    outcomesHeading: 'Enterprise Business Outcomes',
+    outcomes: [
+      { title: 'Faster Coordinated Resolution', desc: 'One operational pipeline removes the delays fragmented vendors introduce.', value: 'Reduced resolution timelines across the recovery lifecycle.' },
+      { title: 'Preserved Account Context', desc: 'Case history travels with the account through every stage.', value: 'Later-stage teams act on complete history, not a fresh start.' },
+      { title: 'Consistent Compliance', desc: 'The same compliance standard applies across calling, field, and legal stages.', value: 'Reduced regulatory exposure tied to inconsistent vendor conduct.' },
+      { title: 'Faster Provisioning Release', desc: 'Coordinated resolution frees capital from provisioning sooner.', value: 'Improved capital efficiency on managed portfolios.' },
+      { title: 'Lower Coordination Overhead', desc: 'A single point of accountability reduces the lender’s internal vendor-management burden.', value: 'Internal teams spend less time reconciling updates from multiple vendors.' },
+      { title: 'Unified Portfolio Visibility', desc: 'One consolidated reporting view replaces fragmented vendor reports.', value: 'A single, reliable picture of recovery progress for the lender.' }
     ],
-    industriesServed: [
-      { name: 'Public Sector Banks', scenario: 'High-volume retail credit card default recovery.', framework: 'Compliance dialer scripts' },
-      { name: 'Asset Reconstruction Companies', scenario: 'NPA collections and coordinate settlements.', framework: 'Asset valuations verification check' }
-    ],
-    operationalMetrics: [
-      { value: '₹8,000+ Cr', label: 'Capital Recovered' },
-      { value: '100+', label: 'Empanelled Partners' },
-      { value: '25 Yrs', label: 'Operational Standing' }
-    ],
-    businessOutcomes: [
-      { title: 'Lower NPA Ratios', desc: 'Expedited case resolutions release bank reserves and optimize metrics.' },
-      { title: 'Reputational Repositioning', desc: 'Compliant calling and geofenced visit verification checks prevent complaints.' }
-    ],
-    caseStudy: {
-      headingStatus: 'VERIFIED CASE STUDY',
-      title: 'Strategic NPA Resolution Campaign',
-      challenge: 'A nationalized bank had a legacy portfolio of personal loans defaulting over 18 months, with local agencies unable to resolve accounts.',
-      approach: 'SM Associates deployed a unified recovery program, combining tele-calling with ground visits.',
-      execution: 'Triggers checks for alternate contact records, launched calling campaigns, and assigned ground agents for address checks.',
-      outcome: 'Resolved 78% of delinquent accounts within 120 days, releasing provisioning capital.'
-    },
+
     faqs: [
-      { q: 'How are commissions structured for debt recovery portfolios?', a: 'Commission structures are volume-based and vary by delinquency buckets. Contact our empanelment desk for details.' }
+      { q: 'Do you handle the entire recovery lifecycle, or just one stage?', a: 'Debt Recovery coordinates calling, field, and legal escalation under one operational SLA, with case history carried across every stage.' },
+      { q: 'How are commission structures determined for debt recovery mandates?', a: 'Commission structures are agreed during empanelment and vary by portfolio type and delinquency profile — contact our empanelment desk for specifics.' }
     ],
+
     cta: {
-      heading: 'Recover Capital. Minimize Risks.',
-      subheading: 'Request a pilot program to experience SM Associates\' recovery velocity.',
-      buttonText: 'Partner with Us',
+      heading: 'Recover Capital With a Coordinated Recovery Model',
+      subheading: 'Request a debt recovery walkthrough to see how calling, field, and legal stages connect under one SLA.',
+      buttonText: 'Request Empanelment Proposal',
       href: '/contact'
     }
   }
