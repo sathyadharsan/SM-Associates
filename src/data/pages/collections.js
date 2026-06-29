@@ -31,10 +31,10 @@ export const collectionsContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Enterprise-Grade' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Multi-Stage' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Multi-Stage' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Enterprise-Grade' }
     ],
 
     capabilities: [
@@ -47,6 +47,7 @@ export const collectionsContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'schedule-tracking', label: 'Schedule Tracking', heading: 'Maintaining the Presentation Calendar', overview: 'PDC due dates are tracked centrally across the portfolio.', activities: ['Due-date tracking', 'Presentation scheduling'], documents: [], risks: ['Missed presentation windows from untracked due dates'], deliverable: 'PDC schedule log.', benefit: 'Prevents missed presentation windows at scale.' },
       { id: 'presentation', label: 'Bank Presentation', heading: 'Presenting Cheques for Clearing', overview: 'Cheques are presented to the bank on schedule.', activities: ['Presentation batch coordination', 'Clearing status tracking'], documents: [], risks: ['Delayed or missed presentation'], deliverable: 'Presentation confirmation record.', benefit: 'Keeps collections on the expected timeline.' },
       { id: 'bounce-response', label: 'Bounce Response', heading: 'Acting the Moment a Cheque Bounces', overview: 'Immediate borrower contact follows any bounce notification.', activities: ['Bounce notification handling', 'Immediate borrower contact'], documents: [], risks: ['Lost recovery momentum from delayed response'], deliverable: 'Bounce response log.', benefit: 'Preserves the best chance of quick resolution after a bounce.' },
@@ -132,10 +133,10 @@ export const collectionsContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Compliance-Driven' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Technology-Enabled' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Compliance-Driven' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Multi-Stage' }
     ],
 
     capabilities: [
@@ -148,6 +149,7 @@ export const collectionsContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'intake', label: 'Account Intake', heading: 'Bringing a Delinquent Account Into the Pipeline', overview: 'The starting point — an account entering structured early-stage outreach.', activities: ['Secure ingestion of delinquent account data', 'Segmentation by delinquency age and risk'], documents: [], risks: ['Delayed intake extending the contact gap'], deliverable: 'Active collections case log.', benefit: 'Ensures no delinquent account sits untouched before outreach begins.' },
       { id: 'outreach', label: 'Compliant Outreach', heading: 'Making First Contact Within Permitted Hours', overview: 'Structured calling and messaging within RBI-compliant calling windows.', activities: ['Outbound calling within approved hours', 'SMS and digital reminder dispatch'], documents: [], risks: ['Non-compliant calling hours or methods'], deliverable: 'Outreach attempt log.', benefit: 'Keeps every borrower touchpoint compliant by design.' },
       { id: 'commitment', label: 'Commitment Tracking', heading: 'Logging and Following Up on Promises to Pay', overview: 'Every borrower commitment is logged and tracked, not left to memory.', activities: ['Promise-to-pay logging', 'Automated follow-up scheduling'], documents: [], risks: ['Untracked or missed commitments'], deliverable: 'Promise-to-pay register.', benefit: 'Converts more verbal commitments into completed payments.' },
@@ -461,10 +463,10 @@ export const collectionsContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Enterprise-Grade' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Technology-Enabled' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Multi-Stage' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Multi-Stage' }
     ],
 
     capabilities: [
@@ -477,6 +479,7 @@ export const collectionsContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'case-receipt', label: 'Case Receipt', heading: 'Receiving Escalated Accounts for Field Action', overview: 'Accounts unresponsive to calling-stage outreach enter the field pipeline.', activities: ['Case file receipt and review', 'Address geocoding'], documents: [], risks: ['Stale or incorrect address data'], deliverable: 'Field case assignment log.', benefit: 'Ensures field officers start with the most current case information.' },
       { id: 'dispatch', label: 'Field Dispatch', heading: 'Routing the Case to the Right Officer', overview: 'Route-optimized assignment to the nearest available field officer.', activities: ['Route planning', 'Officer assignment'], documents: [], risks: ['Inefficient routing increasing cost per visit'], deliverable: 'Dispatch route mapping.', benefit: 'Keeps field operations cost-efficient without sacrificing coverage.' },
       { id: 'visit', label: 'Borrower Visit', heading: 'Making Direct Contact at the Borrower’s Address', overview: 'A geotagged, in-person visit to discuss the outstanding balance.', activities: ['Geotagged check-in', 'Direct borrower discussion'], documents: [], risks: ['Visits that cannot be independently verified'], deliverable: 'Visit confirmation log.', benefit: 'Reaches borrowers calling-stage outreach could not.' },
@@ -562,10 +565,10 @@ export const collectionsContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Technology-Enabled' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Enterprise-Grade' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Technology-Enabled' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Multi-Stage' }
     ],
 
     capabilities: [
@@ -578,6 +581,7 @@ export const collectionsContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'portfolio-analysis', label: 'Portfolio Analysis', heading: 'Segmenting Accounts by Risk and Recovery Path', overview: 'Portfolio data is ingested and segmented to determine the right starting stage.', activities: ['Portfolio data ingestion', 'Risk-based segmentation'], documents: [], risks: ['Misclassified accounts starting at the wrong stage'], deliverable: 'Risk-prioritized account list.', benefit: 'Ensures each account starts its recovery path at the right stage.' },
       { id: 'calling-stage', label: 'Calling Stage', heading: 'Structured Outreach as the First Recovery Stage', overview: 'Compliant calling campaigns begin outreach on segmented accounts.', activities: ['Outbound calling within permitted hours', 'Promise-to-pay tracking'], documents: [], risks: ['Non-compliant calling conduct'], deliverable: 'Calling stage outcome log.', benefit: 'Resolves a share of accounts early, before further escalation is needed.' },
       { id: 'field-stage', label: 'Field Stage', heading: 'Field Visits With Full Case Context', overview: 'Unresolved accounts move to field officers who have the complete calling history.', activities: ['Geotagged borrower visit', 'Digital payment capture'], documents: [], risks: ['Lost context if field stage starts without calling history'], deliverable: 'Field stage outcome log.', benefit: 'Field officers act on complete history rather than starting blind.' },

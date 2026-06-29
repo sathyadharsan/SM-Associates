@@ -8,6 +8,7 @@ import { assetContent } from './pages/asset.js';
 import { investigationContent } from './pages/investigation.js';
 import { operationalContent } from './pages/operational.js';
 import { specializedContent } from './pages/specialized.js';
+import { industriesContent } from './pages/industries.js';
 
 export const pagesContent = {
   ...verificationContent,
@@ -17,6 +18,7 @@ export const pagesContent = {
   ...investigationContent,
   ...operationalContent,
   ...specializedContent,
+  ...industriesContent,
 
   // ================= ABOUT PAGES =================
   'company-overview': {

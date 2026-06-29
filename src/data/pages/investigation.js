@@ -31,10 +31,10 @@ export const investigationContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Multi-Stage' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Technology-Enabled' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Compliance-Driven' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Enterprise-Grade' }
     ],
 
     capabilities: [
@@ -47,6 +47,7 @@ export const investigationContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'background-check', label: 'Background Check', heading: 'Verifying the Declared Profile', overview: 'The borrower or counterparty’s declared background is independently verified.', activities: ['Identity and background cross-check', 'Credit and dispute history review'], documents: [], risks: ['Proceeding on an unverified declared profile'], deliverable: 'Background investigation report.', benefit: 'Confirms the profile is genuine before the decision proceeds.' },
       { id: 'business-verification', label: 'Business Verification', heading: 'Confirming the Business Actually Operates', overview: 'On-site and registry checks confirm the business’s standing.', activities: ['On-site operation confirmation', 'Registry and license cross-check'], documents: [], risks: ['Business standing not matching its declared profile'], deliverable: 'Business standing report.', benefit: 'Confirms the business is what it claims to be.' },
       { id: 'asset-investigation', label: 'Asset Investigation', heading: 'Verifying Declared Assets', overview: 'Declared assets are cross-checked against registry records.', activities: ['Property and asset registry cross-check', 'Encumbrance verification'], documents: [], risks: ['Declared assets not matching registry records'], deliverable: 'Asset verification note.', benefit: 'Confirms declared assets are real and unencumbered as claimed.' },
@@ -132,10 +133,10 @@ export const investigationContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Compliance-Driven' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Multi-Stage' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Multi-Stage' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Multi-Stage' }
     ],
 
     capabilities: [
@@ -148,6 +149,7 @@ export const investigationContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'case-intake', label: 'Case Intake', heading: 'Starting the Search With What’s Known', overview: 'Case files are ingested and an initial database query is launched.', activities: ['Case file ingestion', 'Initial database query'], documents: [], risks: ['Starting from outdated or incomplete case data'], deliverable: 'Active case file.', benefit: 'Establishes the starting point for a structured search.' },
       { id: 'database-scan', label: 'Database Scan', heading: 'Searching Digital and Registry Sources', overview: 'Corporate and carrier registries are queried for alternative contacts.', activities: ['Carrier database query', 'Corporate registry cross-check'], documents: [], risks: ['Stale registry data producing dead-end leads'], deliverable: 'Alternative contact leads log.', benefit: 'Generates candidate leads before field resources are committed.' },
       { id: 'ground-dispatch', label: 'Ground Dispatch', heading: 'Verifying the Most Promising Leads On-Site', overview: 'Field investigators verify leading address candidates in person.', activities: ['On-site verification visit', 'Neighbor or local-contact inquiry'], documents: [], risks: ['Unverified leads reported as confirmed'], deliverable: 'Located address record.', benefit: 'Converts a digital lead into a ground-confirmed location.' },
@@ -461,10 +463,10 @@ export const investigationContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Enterprise-Grade' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Compliance-Driven' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Compliance-Driven' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Compliance-Driven' }
     ],
 
     capabilities: [
@@ -477,6 +479,7 @@ export const investigationContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'case-profiling', label: 'Case Profiling', heading: 'Establishing What’s Being Investigated', overview: 'Company registration and GST details are ingested to scope the investigation.', activities: ['Company and registration data ingestion', 'Investigation scope definition'], documents: [], risks: ['Incomplete scoping missing related entities'], deliverable: 'Fraud case assignment.', benefit: 'Ensures the investigation covers the full scope of the suspected scheme.' },
       { id: 'field-operations', label: 'Field Operations', heading: 'Checking Whether the Business Actually Operates', overview: 'A field investigator visits the site to verify genuine business activity.', activities: ['On-site visit', 'Operational status confirmation'], documents: [], risks: ['Shell sites mistaken for genuine operations without a visit'], deliverable: 'Geotagged site check.', benefit: 'Confirms or exposes the physical reality behind the paperwork.' },
       { id: 'evidentiary-review', label: 'Evidentiary Review', heading: 'Examining the Documents Themselves', overview: 'Registries, trade logs, and financial documents are forensically reviewed.', activities: ['Registry cross-check', 'Document authenticity review'], documents: [], risks: ['Tampered documents passing a surface-level check'], deliverable: 'Forensic audit report.', benefit: 'Catches document fraud a standard review would miss.' },

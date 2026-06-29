@@ -31,10 +31,10 @@ export const assetContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Multi-Stage' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Compliance-Driven' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Multi-Stage' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Multi-Stage' }
     ],
 
     capabilities: [
@@ -47,6 +47,7 @@ export const assetContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'panel-assignment', label: 'Panel Assignment', heading: 'Engaging the Right Valuer for the Asset', overview: 'A government-approved valuer is assigned based on asset type.', activities: ['Valuer panel selection', 'Assignment coordination'], documents: [], risks: ['Assignment to an unempanelled or unsuitable valuer'], deliverable: 'Valuer assignment record.', benefit: 'Ensures the right credentialed professional handles each asset type.' },
       { id: 'site-inspection', label: 'Site Inspection', heading: 'Confirming Asset Condition on the Ground', overview: 'The valuer conducts an on-site inspection of the asset.', activities: ['On-site property or asset inspection', 'Condition documentation'], documents: [], risks: ['Valuation based on outdated or assumed condition'], deliverable: 'Site inspection report.', benefit: 'Grounds the valuation in actual current asset condition.' },
       { id: 'market-analysis', label: 'Market Analysis', heading: 'Comparing Against Current Market Data', overview: 'Comparable market data is reviewed to inform the valuation.', activities: ['Comparable sales analysis', 'Market condition review'], documents: [], risks: ['Valuation disconnected from current market reality'], deliverable: 'Market analysis note.', benefit: 'Anchors the valuation to what the asset would actually realize.' },
@@ -132,10 +133,10 @@ export const assetContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Technology-Enabled' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Technology-Enabled' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Multi-Stage' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Technology-Enabled' }
     ],
 
     capabilities: [
@@ -148,6 +149,7 @@ export const assetContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'personnel-deployment', label: 'Personnel Deployment', heading: 'Assigning Trained Security Staff', overview: 'Disciplined-forces-sourced personnel are deployed to the custody site.', activities: ['Personnel sourcing and assignment', 'Deployment scheduling'], documents: [], risks: ['Untrained or unsuitable personnel deployed'], deliverable: 'Personnel deployment record.', benefit: 'Ensures the site is protected by reliable, trained staff.' },
       { id: 'site-securing', label: 'Site Securing', heading: 'Establishing Initial Site Security', overview: 'The custody site is secured with perimeter and access controls.', activities: ['Perimeter security setup', 'Access control establishment'], documents: [], risks: ['Inadequate initial securing leaving gaps'], deliverable: 'Site securing confirmation.', benefit: 'Establishes a baseline level of protection from day one.' },
       { id: 'inspection-routine', label: 'Inspection Routine', heading: 'Documenting Asset Condition Over Time', overview: 'Periodic inspections document the asset’s ongoing condition.', activities: ['Periodic inspection visits', 'Condition documentation'], documents: [], risks: ['Undocumented condition changes over the custody period'], deliverable: 'Monthly condition report.', benefit: 'Creates a continuous record of asset condition.' },
@@ -233,10 +235,10 @@ export const assetContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Technology-Enabled' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Compliance-Driven' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Technology-Enabled' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Enterprise-Grade' }
     ],
 
     capabilities: [
@@ -249,6 +251,7 @@ export const assetContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'authorization', label: 'Authorization Check', heading: 'Confirming the Order Before Acting', overview: 'Verifying the repossession order is valid before any field action.', activities: ['Repossession order cross-check', 'Legal desk coordination'], documents: ['Repossession authorization'], risks: ['Acting on an incomplete or invalid order'], deliverable: 'Verified case file.', benefit: 'Ensures the seizure proceeds on a confirmed legal basis.' },
       { id: 'pre-seizure-filing', label: 'Pre-Seizure Filing', heading: 'Documenting Notification Before the Seizure', overview: 'RTO and police notifications are filed ahead of any ground visit.', activities: ['RTO notification filing', 'Police station notification'], documents: [], risks: ['Seizure attempted without proper pre-filing'], deliverable: 'Pre-seizure filing record.', benefit: 'Creates the documented basis the seizure relies on.' },
       { id: 'surrender', label: 'Compliant Surrender', heading: 'Conducting the Seizure Itself', overview: 'A certified, non-coercive surrender process conducted on-site.', activities: ['DRA-certified agent deployment', 'Geotagged surrender documentation'], documents: [], risks: ['Coercive conduct creating compliance exposure'], deliverable: 'Geotagged surrender log.', benefit: 'Reduces ground friction and regulatory complaint risk.' },
@@ -448,10 +451,10 @@ export const assetContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Technology-Enabled' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Enterprise-Grade' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Compliance-Driven' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Compliance-Driven' }
     ],
 
     capabilities: [
@@ -464,6 +467,7 @@ export const assetContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'site-inspection', label: 'Site Inspection', heading: 'Assessing the Target Site Before Action', overview: 'Property records and site conditions are reviewed before planning the recovery.', activities: ['Property record review', 'Legal desk coordination'], documents: [], risks: ['Acting without a clear site assessment'], deliverable: 'Seizure operations plan.', benefit: 'Ensures the recovery plan reflects the actual site conditions.' },
       { id: 'logistics-planning', label: 'Logistics Planning', heading: 'Designing the Possession and Transport Plan', overview: 'Transport routes and authority coordination are planned in advance.', activities: ['Transport route planning', 'Authority presence coordination'], documents: [], risks: ['Uncoordinated logistics causing delays'], deliverable: 'Logistics action plan.', benefit: 'Reduces delays and complications during the actual possession.' },
       { id: 'site-possession', label: 'Site Possession', heading: 'Executing Possession With Proper Authority', overview: 'The facility is secured with documented authority coordination.', activities: ['On-site possession execution', 'Site documentation'], documents: [], risks: ['Possession resistance without proper coordination'], deliverable: 'Geotagged site video.', benefit: 'Secures the property through a defensible, documented process.' },
@@ -549,10 +553,10 @@ export const assetContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Enterprise-Grade' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Technology-Enabled' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Multi-Stage' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Enterprise-Grade' }
     ],
 
     capabilities: [
@@ -565,6 +569,7 @@ export const assetContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'valuation', label: 'Valuation', heading: 'Setting a Realistic Reserve Price', overview: 'Independent appraisal establishes a market-reflective valuation.', activities: ['Property or asset inspection', 'Valuation report compilation'], documents: [], risks: ['Reserve price set against outdated data'], deliverable: 'Certified valuation dossier.', benefit: 'Anchors the auction to actual current market value.' },
       { id: 'notice-publication', label: 'Notice Publication', heading: 'Publishing the Statutory Auction Notice', overview: 'Notices are drafted and published per statutory requirements.', activities: ['Notice drafting', 'Multilingual media publication'], documents: [], risks: ['Publication errors triggering court stay orders'], deliverable: 'Published notice clippings log.', benefit: 'Avoids the compliance errors that can halt the entire auction.' },
       { id: 'bidder-registration', label: 'Bidder Registration', heading: 'Bringing Qualified Bidders to the Table', overview: 'Bidders are registered and earnest money deposits verified.', activities: ['Bidder registration', 'EMD verification'], documents: [], risks: ['Unqualified or non-serious bidders participating'], deliverable: 'Registered bidder list.', benefit: 'Ensures the bidding pool is qualified and serious.' },

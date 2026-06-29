@@ -31,10 +31,10 @@ export const legalContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Multi-Stage' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Multi-Stage' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Multi-Stage' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Compliance-Driven' }
     ],
 
     capabilities: [
@@ -47,6 +47,7 @@ export const legalContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'notice-drafting', label: 'Notice Drafting', heading: 'Drafting the Statutory Notice', overview: 'The Section 138 demand notice is drafted against the cheque and bounce details.', activities: ['Notice drafting', 'Statutory format compliance check'], documents: ['Bounced cheque', 'Bank return memo'], risks: ['Improperly drafted notice inviting procedural objection'], deliverable: 'Drafted notice copy.', benefit: 'Establishes a legally sound starting point for the case.' },
       { id: 'notice-service', label: 'Notice Service', heading: 'Serving the Notice and Capturing Proof', overview: 'The notice is served and delivery proof collected.', activities: ['Notice service', 'Delivery proof collection'], documents: [], risks: ['Failed service without a documented follow-up path'], deliverable: 'Notice delivery proof.', benefit: 'Creates the documented record the case depends on.' },
       { id: 'payment-window', label: 'Payment Window', heading: 'Tracking the Statutory Response Period', overview: 'The statutory payment window is actively monitored.', activities: ['Payment window monitoring', 'Borrower status tracking'], documents: [], risks: ['Missed visibility into whether payment was made'], deliverable: 'Payment window status log.', benefit: 'Keeps the case moving to the right next step on schedule.' },
@@ -132,10 +133,10 @@ export const legalContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Compliance-Driven' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Enterprise-Grade' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Technology-Enabled' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Compliance-Driven' }
     ],
 
     capabilities: [
@@ -148,6 +149,7 @@ export const legalContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'demand-notice', label: 'Demand Notice', heading: 'Opening the Statutory Process', overview: 'Section 13(2) demand notice drafting and service, the first statutory step.', activities: ['Notice drafting against security interest records', 'Notice service and proof collection'], documents: ['Security interest records'], risks: ['Improperly drafted or served notice stalling the process'], deliverable: 'Notice delivery proof.', benefit: 'Establishes the legal foundation the rest of the process depends on.' },
       { id: 'possession-notice', label: 'Possession Notice', heading: 'Establishing Statutory Control', overview: 'Section 13(4) symbolic possession notice and publication.', activities: ['Possession notice drafting', 'Regional newspaper publication'], documents: [], risks: ['Publication delays extending the statutory timeline'], deliverable: 'Published notice clippings log.', benefit: 'Freezes borrower transaction authority over the asset.' },
       { id: 'dm-petition', label: 'DM Petition', heading: 'Obtaining Physical Enforcement Authority', overview: 'Section 14 petition filing with the District Magistrate.', activities: ['Petition preparation', 'Filing and status tracking'], documents: [], risks: ['Petition delays without active tracking'], deliverable: 'Petition filing record.', benefit: 'Secures the magistrate order required for physical possession.' },
@@ -233,10 +235,10 @@ export const legalContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Technology-Enabled' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Technology-Enabled' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Enterprise-Grade' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Compliance-Driven' }
     ],
 
     capabilities: [
@@ -249,6 +251,7 @@ export const legalContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'warrant-check', label: 'Warrant Verification', heading: 'Confirming the Order Before Acting', overview: 'Verifying the possession order is valid and complete before execution.', activities: ['Warrant cross-check against case file', 'Legal desk coordination'], documents: ['District Magistrate warrant'], risks: ['Acting on an incomplete or invalid order'], deliverable: 'Verified case file.', benefit: 'Ensures the action proceeds on a confirmed legal basis.' },
       { id: 'authority-liaison', label: 'Authority Liaison', heading: 'Coordinating Police Presence in Advance', overview: 'Arranging local authority support before the possession date.', activities: ['Police liaison and coordination', 'Possession date scheduling'], documents: [], risks: ['Possession attempted without authority coordination'], deliverable: 'Liaison coordination file.', benefit: 'Reduces resistance and delay during the actual possession action.' },
       { id: 'execution', label: 'Possession Execution', heading: 'Conducting the Action Safely and on Record', overview: 'The on-site possession action, documented from start to finish.', activities: ['Certified locksmith deployment', 'Full video documentation of the action'], documents: [], risks: ['Hostile resistance during execution'], deliverable: 'Geotagged video log.', benefit: 'Secures the property through a safe, defensible process.' },
@@ -334,10 +337,10 @@ export const legalContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Technology-Enabled' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Enterprise-Grade' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Compliance-Driven' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Multi-Stage' }
     ],
 
     capabilities: [
@@ -350,6 +353,7 @@ export const legalContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'registration', label: 'Case Registration', heading: 'Bringing a Case Into the Tracking System', overview: 'Loan records are ingested and the case is assigned to an empanelled advocate.', activities: ['Case intake', 'Advocate assignment'], documents: ['Loan records'], risks: ['Cases tracked inconsistently outside a central registry'], deliverable: 'Litigation file log.', benefit: 'Ensures every case is visible from the moment it’s registered.' },
       { id: 'briefing', label: 'Advocate Briefing', heading: 'Preparing the Advocate for Filing', overview: 'Standardized briefing dossiers are prepared and petitions drafted.', activities: ['Advocate briefing coordination', 'Petition or notice drafting'], documents: [], risks: ['Inconsistent documentation delaying filing'], deliverable: 'Drafted petition copy.', benefit: 'Reduces back-and-forth that slows down filing.' },
       { id: 'filing', label: 'Filing & Documentation', heading: 'Getting the Case Before the Court', overview: 'The petition is filed and a case number obtained.', activities: ['Court filing', 'Case number registration'], documents: [], risks: ['Filing delays without active coordination'], deliverable: 'Registered court case number.', benefit: 'Moves the case from preparation into the formal court process.' },
@@ -435,10 +439,10 @@ export const legalContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Technology-Enabled' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Technology-Enabled' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Technology-Enabled' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Compliance-Driven' }
     ],
 
     capabilities: [
@@ -451,6 +455,7 @@ export const legalContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'file-intake', label: 'File Intake', heading: 'Receiving the Case for Evidentiary Review', overview: 'Loan documents and notice delivery records are ingested for audit.', activities: ['Document intake', 'Initial completeness scan'], documents: ['Loan documents', 'Notice delivery records'], risks: ['Incomplete intake delaying the audit'], deliverable: 'Ingested file log.', benefit: 'Establishes the starting point for a thorough pre-filing audit.' },
       { id: 'gap-analysis', label: 'Gap Analysis', heading: 'Finding What’s Missing Before the Court Does', overview: 'Documents are cross-checked against court filing requirements.', activities: ['Cross-check against court requirements', 'Missing-item identification'], documents: [], risks: ['Undetected gaps surfacing later as court objections'], deliverable: 'Gap audit report.', benefit: 'Catches evidentiary deficiencies while there’s still time to fix them.' },
       { id: 'title-check', label: 'Title Verification', heading: 'Confirming the Property Title Is Sound', overview: 'Property title flow and encumbrances are verified at the registry.', activities: ['Registry cross-check', 'Encumbrance verification'], documents: ['Property title deeds'], risks: ['Disputed or unclear title history'], deliverable: 'Title verification note.', benefit: 'Confirms the mortgage security is valid before litigation proceeds.' },

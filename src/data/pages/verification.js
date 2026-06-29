@@ -33,10 +33,10 @@ export const verificationContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]', desc: 'Verification officers operate across urban, semi-urban, and rural addresses, not limited to easily-accessible metro locations.', businessValue: 'Extends reliable underwriting confidence into geographies where digital-only verification is weakest.' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]', desc: 'Every verification follows a structured checklist — identity, address, employment, and reference cross-checks documented to a consistent format.', businessValue: 'Gives credit teams an auditable verification report, not inconsistent field notes.' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]', desc: 'Verification requests are tracked from assignment to report delivery against a defined SLA window, with status visible throughout.', businessValue: 'Keeps loan processing timelines predictable for the credit pipeline.' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]', desc: 'Field conduct, data handling, and reporting are structured to align with RBI Fair Practices Code expectations.', businessValue: 'Reduces the institution’s regulatory exposure tied to verification conduct.' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Technology-Enabled', desc: 'Verification officers operate across urban, semi-urban, and rural addresses, not limited to easily-accessible metro locations.', businessValue: 'Extends reliable underwriting confidence into geographies where digital-only verification is weakest.' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Multi-Stage', desc: 'Every verification follows a structured checklist — identity, address, employment, and reference cross-checks documented to a consistent format.', businessValue: 'Gives credit teams an auditable verification report, not inconsistent field notes.' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Enterprise-Grade', desc: 'Verification requests are tracked from assignment to report delivery against a defined SLA window, with status visible throughout.', businessValue: 'Keeps loan processing timelines predictable for the credit pipeline.' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Technology-Enabled', desc: 'Field conduct, data handling, and reporting are structured to align with RBI Fair Practices Code expectations.', businessValue: 'Reduces the institution’s regulatory exposure tied to verification conduct.' }
     ],
 
     capabilities: [
@@ -49,6 +49,7 @@ export const verificationContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'identity', label: 'Identity Intelligence', heading: 'Establishing Who the Applicant Actually Is', overview: 'The starting point of verification — confirming the applicant’s identity matches both their documents and their physical presence.', activities: ['In-person ID confirmation', 'Photo and signature match', 'Biometric-document cross-check where applicable'], documents: ['Government-issued photo ID', 'PAN', 'Aadhaar (or equivalent)', 'Passport-size photograph on file'], risks: ['Synthetic identity fraud', 'Identity theft', 'Document forgery'], deliverable: 'Identity verification confirmation with supporting photographic evidence.', benefit: 'Confidence that the credit profile is attached to a real, identifiable individual.' },
       { id: 'residential', label: 'Residential Intelligence', heading: 'Confirming the Applicant Lives Where They Say', overview: 'Physical confirmation of the declared residential address.', activities: ['Site visit', 'Neighbor corroboration', 'Ownership or tenancy status check'], documents: ['Utility bills', 'Rental agreement or property documents', 'Address proof on file'], risks: ['Address fraud', 'Future skip-tracing risk', 'Post-disbursal untraceability'], deliverable: 'Residence verification report with site visit confirmation.', benefit: 'Reduces the risk of an applicant becoming unreachable after disbursement.' },
       { id: 'employment', label: 'Employment Intelligence', heading: 'Confirming the Applicant’s Income Source Is Real', overview: 'On-site confirmation that the declared employer and role exist and are active.', activities: ['Workplace visit', 'HR or supervisor confirmation', 'Designation and tenure check'], documents: ['Salary slips', 'Offer or appointment letter', 'Employer ID card'], risks: ['Fabricated employment', 'Shell-company salary structures', 'Repayment-capacity misrepresentation'], deliverable: 'Employment verification report confirming employer legitimacy and applicant status.', benefit: 'Validates the repayment capacity assumption the credit decision is built on.' },
@@ -150,6 +151,7 @@ export const verificationContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'site-visit', label: 'Site Visit', heading: 'Confirming the Address Physically Exists', overview: 'The starting point — confirming the declared address corresponds to a real, locatable residence.', activities: ['Address geocoding and route dispatch', 'On-site visit to the declared address'], documents: ['Address proof on file'], risks: ['Vacant or non-existent address', 'Address-locating failure'], deliverable: 'Site visit confirmation log.', benefit: 'Establishes whether the declared address is even real before deeper checks proceed.' },
       { id: 'occupancy', label: 'Occupancy Confirmation', heading: 'Confirming the Applicant Actually Lives There', overview: 'Direct confirmation that the applicant resides at the address, not just that the address exists.', activities: ['Face-to-face confirmation with applicant or household', 'Household composition and stay-duration check'], documents: ['Utility bills', 'Rental agreement or property documents'], risks: ['Transient tenancy presented as stable residence', 'Applicant not known at the address'], deliverable: 'Occupancy confirmation report.', benefit: 'Confirms the applicant’s actual residential stability, not just an address match.' },
       { id: 'neighbor', label: 'Neighbor Corroboration', heading: 'Independently Verifying the Occupancy Claim', overview: 'Cross-checking the applicant’s residency claim with people other than the applicant.', activities: ['Discreet neighbor or building-manager inquiries', 'Cross-validation of stay-duration claims'], documents: [], risks: ['Residences no local contact can corroborate'], deliverable: 'Neighbor corroboration note.', benefit: 'Adds an independent check that doesn’t rely solely on the applicant’s own claims.' },
@@ -235,10 +237,10 @@ export const verificationContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Multi-Stage' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Technology-Enabled' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Multi-Stage' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Multi-Stage' }
     ],
 
     capabilities: [
@@ -251,6 +253,7 @@ export const verificationContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'workplace-visit', label: 'Workplace Visit', heading: 'Confirming the Employer Actually Exists', overview: 'The starting point — confirming the declared workplace is a real, operating office.', activities: ['Site visit to the declared workplace address', 'Confirmation the office is active and operational'], documents: ['Offer or appointment letter'], risks: ['Shell or non-existent office', 'Address mismatch'], deliverable: 'Workplace visit confirmation log.', benefit: 'Establishes the employer is real before deeper checks proceed.' },
       { id: 'hr-confirmation', label: 'HR Confirmation', heading: 'Confirming Employment Status Independently', overview: 'Direct confirmation with HR or a supervisor, not relying on the applicant alone.', activities: ['Discreet HR or supervisor confirmation', 'Cross-check of active employment status'], documents: ['Employer ID card'], risks: ['Employers who cannot confirm the applicant'], deliverable: 'HR confirmation note.', benefit: 'Adds an independent layer beyond applicant-provided paperwork.' },
       { id: 'designation', label: 'Designation & Tenure', heading: 'Confirming the Role and Length of Service', overview: 'Verifying the declared job title and tenure match reality.', activities: ['Designation confirmation', 'Joining-date and tenure check'], documents: ['Appointment letter'], risks: ['Inflated designation or tenure'], deliverable: 'Designation and tenure verification note.', benefit: 'Prevents an exaggerated job profile from shaping the credit decision.' },
@@ -335,10 +338,10 @@ export const verificationContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Multi-Stage' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Multi-Stage' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Compliance-Driven' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Multi-Stage' }
     ],
 
     capabilities: [
@@ -351,6 +354,7 @@ export const verificationContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'premises-visit', label: 'Premises Visit', heading: 'Confirming the Business Actually Operates', overview: 'The starting point — confirming the declared business premises is real and active.', activities: ['Site visit to the declared business address', 'Confirmation of active commercial operations'], documents: ['Trade license'], risks: ['Vacant or non-operational premises'], deliverable: 'Premises visit confirmation log.', benefit: 'Establishes the business is real before deeper checks proceed.' },
       { id: 'inventory-review', label: 'Inventory Review', heading: 'Checking What’s Actually on the Premises', overview: 'On-site review of stock and assets to confirm declared business scale.', activities: ['Stock and inventory level review', 'Machinery presence check where applicable'], documents: [], risks: ['Inflated stock or asset claims'], deliverable: 'Inventory review note.', benefit: 'Prevents credit limits set against falsified business scale.' },
       { id: 'registry-check', label: 'Registry Cross-Check', heading: 'Confirming Registered Status Matches Reality', overview: 'Cross-checking GSTIN and trade license details against the business observed on-site.', activities: ['GSTIN and trade license cross-check', 'Business name consistency check'], documents: ['GST registration', 'Trade license'], risks: ['Mismatched or lapsed registrations'], deliverable: 'Registry cross-check note.', benefit: 'Confirms regulatory conformity of the business.' },
@@ -436,10 +440,10 @@ export const verificationContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Multi-Stage' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Multi-Stage' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Compliance-Driven' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Technology-Enabled' }
     ],
 
     capabilities: [
@@ -452,6 +456,7 @@ export const verificationContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'identity-docs', label: 'Identity Documents', heading: 'Confirming Identity Proofs Are Genuine', overview: 'Cross-checking identity documents against standard registries and originals.', activities: ['Identity document cross-check', 'Original-vs-copy comparison'], documents: ['Government-issued photo ID', 'PAN', 'Aadhaar (or equivalent)'], risks: ['Forged or altered identity documents'], deliverable: 'Identity document authentication note.', benefit: 'Confirms the identity behind the credit file is genuine.' },
       { id: 'property-docs', label: 'Property Documents', heading: 'Confirming Collateral Title Is Valid', overview: 'Cross-checking property title deeds against registry records.', activities: ['Title flow and encumbrance check', 'Registry cross-check'], documents: ['Property title deeds', 'Encumbrance certificate'], risks: ['Forged or disputed title deeds'], deliverable: 'Property title verification note.', benefit: 'Ensures the lender’s collateral security is genuine.' },
       { id: 'income-docs', label: 'Income Documents', heading: 'Confirming Income Paperwork Hasn’t Been Altered', overview: 'Physical inspection of income documents to catch tampering.', activities: ['Original-vs-copy comparison of income documents', 'Cross-reference against tax filings where available'], documents: ['Bank statements', 'Salary slips', 'Tax filings'], risks: ['Altered bank statements or salary slips'], deliverable: 'Income document validation note.', benefit: 'Closes the gap between income documents being submitted and income being real.' },

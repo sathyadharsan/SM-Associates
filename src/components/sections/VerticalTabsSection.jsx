@@ -18,11 +18,11 @@ export default function VerticalTabsSection({ content }) {
     <section className="py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }} variants={fUp} className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600">{defaults.eyebrow}</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">{defaults.eyebrow}</span>
           <h2 style={serifHeading} className="text-3xl sm:text-4xl font-bold tracking-[-0.01em] text-slate-900 mt-3">{content.tabsHeading || defaults.heading}</h2>
         </motion.div>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          <div className="lg:col-span-3 flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="md:col-span-3 flex md:flex-col gap-1 overflow-x-auto md:overflow-visible">
             {tabs.map((t, i) => (
               <button
                 key={t.id}
@@ -30,7 +30,7 @@ export default function VerticalTabsSection({ content }) {
                 onClick={() => setActiveTab(i)}
                 className={`flex-none text-left px-4 py-3 text-sm font-semibold transition-colors duration-150 border-l-2 ${
                   activeTab === i
-                    ? 'border-blue-600 text-blue-700 bg-blue-50'
+                    ? 'border-indigo-600 text-indigo-700 bg-indigo-50/50'
                     : 'border-transparent text-slate-500 hover:text-slate-800 hover:bg-slate-50'
                 }`}
               >
@@ -38,7 +38,7 @@ export default function VerticalTabsSection({ content }) {
               </button>
             ))}
           </div>
-          <div className="lg:col-span-9">
+          <div className="md:col-span-9">
             <AnimatePresence mode="wait">
               {active && (
                 <motion.div
@@ -55,12 +55,12 @@ export default function VerticalTabsSection({ content }) {
                     {active.activities?.length > 0 && (
                       <div>
                         <h4 className="flex items-center gap-2 text-sm font-bold text-slate-800 mb-3">
-                          <CheckCircle2 className="h-4 w-4 text-blue-600" aria-hidden="true" />Verification activities
+                          <CheckCircle2 className="h-4 w-4 text-indigo-600" aria-hidden="true" />Verification activities
                         </h4>
                         <ul className="space-y-2">
-                          {active.activities.map((a) => (
+                           {active.activities.map((a) => (
                             <li key={a} className="flex items-start gap-2 text-sm text-slate-600">
-                              <CheckCircle2 className="h-4 w-4 text-blue-600 mt-0.5 flex-none" />{a}
+                              <CheckCircle2 className="h-4 w-4 text-indigo-600 mt-0.5 flex-none" />{a}
                             </li>
                           ))}
                         </ul>
@@ -69,12 +69,12 @@ export default function VerticalTabsSection({ content }) {
                     {active.documents?.length > 0 && (
                       <div>
                         <h4 className="flex items-center gap-2 text-sm font-bold text-slate-800 mb-3">
-                          <FileText className="h-4 w-4 text-blue-600" aria-hidden="true" />Documents reviewed
+                          <FileText className="h-4 w-4 text-indigo-600" aria-hidden="true" />Documents reviewed
                         </h4>
                         <ul className="space-y-2">
                           {active.documents.map((d) => (
                             <li key={d} className="flex items-start gap-2 text-sm text-slate-600">
-                              <FileText className="h-4 w-4 text-blue-600 mt-0.5 flex-none" />{d}
+                              <FileText className="h-4 w-4 text-indigo-600 mt-0.5 flex-none" />{d}
                             </li>
                           ))}
                         </ul>

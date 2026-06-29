@@ -31,10 +31,10 @@ export const specializedContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Multi-Stage' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Compliance-Driven' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Technology-Enabled' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Multi-Stage' }
     ],
 
     capabilities: [
@@ -47,6 +47,7 @@ export const specializedContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'account-assignment', label: 'Account Assignment', heading: 'Assigning a Dedicated Resolution Team', overview: 'A stalled or complex account is assigned to a dedicated team.', activities: ['Account review and assignment', 'Initial strategy scoping'], documents: [], risks: ['Complex accounts left in a standard, undifferentiated process'], deliverable: 'Account assignment record.', benefit: 'Gives the account focused attention a standard process can’t provide.' },
       { id: 'asset-investigation', label: 'Asset Investigation', heading: 'Identifying Recovery Options Beyond the Primary Asset', overview: 'Borrower and guarantor assets are investigated for additional recovery routes.', activities: ['Borrower asset investigation', 'Guarantor asset identification'], documents: [], risks: ['Recovery options left unexplored beyond the primary collateral'], deliverable: 'Asset investigation report.', benefit: 'Expands the strategy’s recovery options where the primary asset falls short.' },
       { id: 'settlement-negotiation', label: 'Settlement Negotiation', heading: 'Structuring a Workable Settlement Offer', overview: 'A settlement proposal is structured and negotiated with the borrower.', activities: ['Settlement proposal structuring', 'OTS negotiation'], documents: [], risks: ['Settlement opportunities lost without structured negotiation'], deliverable: 'Settlement proposal record.', benefit: 'Converts willing borrowers into a closed resolution.' },
@@ -132,10 +133,10 @@ export const specializedContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Enterprise-Grade' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Multi-Stage' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Technology-Enabled' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Multi-Stage' }
     ],
 
     capabilities: [
@@ -148,6 +149,7 @@ export const specializedContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'mandate-intake', label: 'Mandate Intake', heading: 'Bringing the Portfolio Under One Mandate', overview: 'The NPA portfolio is reviewed and brought under the single-window mandate.', activities: ['Portfolio intake and review', 'Mandate scoping'], documents: [], risks: ['Incomplete scoping leaving gaps in coverage'], deliverable: 'Mandate scoping record.', benefit: 'Establishes the full scope of the one-window engagement upfront.' },
       { id: 'resolution-planning', label: 'Resolution Planning', heading: 'Designing the Integrated Resolution Plan', overview: 'A coordinated plan is designed across legal, recovery, and asset action.', activities: ['Cross-service strategy design', 'Sequencing of resolution steps'], documents: [], risks: ['Disconnected planning across service lines'], deliverable: 'Integrated resolution plan.', benefit: 'Gives the lender one coherent plan instead of fragmented vendor strategies.' },
       { id: 'execution', label: 'Coordinated Execution', heading: 'Executing Legal, Recovery, and Asset Action Together', overview: 'Legal, recovery, valuation, and security actions proceed under the unified plan.', activities: ['Legal and SARFAESI execution', 'Recovery and asset action coordination'], documents: [], risks: ['Execution gaps between service lines'], deliverable: 'Execution status log.', benefit: 'Keeps every workstream moving in a coordinated way.' },
@@ -233,10 +235,10 @@ export const specializedContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Enterprise-Grade' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Enterprise-Grade' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Multi-Stage' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Enterprise-Grade' }
     ],
 
     capabilities: [
@@ -249,6 +251,7 @@ export const specializedContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'ingestion', label: 'Ingestion & Diagnostics', heading: 'Understanding What’s in the Portfolio', overview: 'Portfolio files are ingested and default profiles evaluated.', activities: ['Portfolio file ingestion', 'Default profile evaluation'], documents: [], risks: ['Starting segmentation on incomplete portfolio data'], deliverable: 'Risk-prioritized list.', benefit: 'Establishes an accurate starting picture of the portfolio.' },
       { id: 'segmentation', label: 'Borrower Segmentation', heading: 'Grouping Accounts by Risk and Behavior', overview: 'Accounts are grouped and campaign rules designed per segment.', activities: ['Risk-based account grouping', 'Channel routing rule design'], documents: [], risks: ['Uniform treatment masking segment-specific needs'], deliverable: 'Campaign rule map.', benefit: 'Ensures each segment gets the approach suited to it.' },
       { id: 'execution', label: 'Campaign Execution', heading: 'Running Calling, Field, and Legal Action', overview: 'Recovery actions are launched per the segment-specific plan.', activities: ['Calling campaign launch', 'Field and legal action coordination'], documents: [], risks: ['Uncoordinated execution across channels'], deliverable: 'Outbound action logs.', benefit: 'Keeps every channel moving in a coordinated way.' },
@@ -334,10 +337,10 @@ export const specializedContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Compliance-Driven' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Compliance-Driven' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Enterprise-Grade' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Enterprise-Grade' }
     ],
 
     capabilities: [
@@ -350,6 +353,7 @@ export const specializedContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'account-ingestion', label: 'Account Ingestion', heading: 'Bringing the NPA Case Into the Process', overview: 'Loan records are ingested and notice status verified with the legal desk.', activities: ['Loan record ingestion', 'Notice status verification'], documents: [], risks: ['Starting resolution on an incomplete case file'], deliverable: 'NPA case log.', benefit: 'Establishes an accurate starting point for resolution.' },
       { id: 'notice-validation', label: 'Notice Validation', heading: 'Confirming the Legal Foundation Is Solid', overview: 'Notice delivery and statutory timeline compliance are confirmed.', activities: ['Notice delivery proof check', 'Statutory timeline review'], documents: [], risks: ['Proceeding to possession on a weak notice foundation'], deliverable: 'Notice delivery proof.', benefit: 'Ensures possession proceeds on solid legal ground.' },
       { id: 'possession-action', label: 'Possession Action', heading: 'Securing the Asset Physically', overview: 'Possession is executed under coordinated authority support.', activities: ['DM petition filing', 'Possession execution with police presence'], documents: [], risks: ['Possession resistance without proper coordination'], deliverable: 'Possession report.', benefit: 'Secures the asset through a defensible, documented process.' },
@@ -435,10 +439,10 @@ export const specializedContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Technology-Enabled' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Multi-Stage' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Technology-Enabled' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Technology-Enabled' }
     ],
 
     capabilities: [
@@ -451,6 +455,7 @@ export const specializedContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'data-ingestion', label: 'Data Ingestion', heading: 'Bringing Portfolio Data Into the Analysis', overview: 'Client portfolio data is ingested securely for analysis.', activities: ['Secure data ingestion', 'Data quality validation'], documents: [], risks: ['Analysis built on incomplete or inconsistent data'], deliverable: 'Active data log.', benefit: 'Establishes a reliable data foundation for analysis.' },
       { id: 'behavior-scoring', label: 'Behavior Scoring', heading: 'Understanding Settlement Likelihood', overview: 'Borrower behavior signals are analyzed to score settlement propensity.', activities: ['Payment history analysis', 'Propensity scoring'], documents: [], risks: ['Effort spread evenly without propensity insight'], deliverable: 'Segmented borrower registry.', benefit: 'Directs outreach effort toward the accounts most likely to convert.' },
       { id: 'route-optimization', label: 'Route Optimization', heading: 'Reducing Wasted Field Travel', overview: 'Field visit routes are planned to minimize unnecessary travel.', activities: ['Route planning', 'Visit sequencing'], documents: [], risks: ['Field budget wasted on inefficient routing'], deliverable: 'Optimized routing map.', benefit: 'Cuts travel cost without sacrificing coverage.' },
@@ -536,10 +541,10 @@ export const specializedContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Compliance-Driven' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Compliance-Driven' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Multi-Stage' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Technology-Enabled' }
     ],
 
     capabilities: [
@@ -552,6 +557,7 @@ export const specializedContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'process-assessment', label: 'Process Assessment', heading: 'Reviewing the Current Recovery Process', overview: 'Existing SOPs and scripts are reviewed for soundness and compliance.', activities: ['Current-state SOP review', 'Script and process audit'], documents: [], risks: ['Scaling a process before its soundness is confirmed'], deliverable: 'Process assessment report.', benefit: 'Establishes whether the foundation is solid before scaling.' },
       { id: 'audit-diagnostic', label: 'Audit Diagnostic', heading: 'Identifying Specific Process Gaps', overview: 'Documents and processes are assembled and cross-checked against best practice.', activities: ['Document and process compilation', 'Gap identification against standards'], documents: [], risks: ['Gaps going unidentified without a structured diagnostic'], deliverable: 'Gap diagnostic report.', benefit: 'Surfaces specific, actionable issues rather than vague concerns.' },
       { id: 'redesign-proposal', label: 'Redesign Proposal', heading: 'Proposing the Improved Process', overview: 'A redesigned SOP and vendor oversight framework is proposed.', activities: ['SOP redesign drafting', 'Vendor audit framework design'], documents: [], risks: ['Recommendations disconnected from ground operating reality'], deliverable: 'Redesign proposal document.', benefit: 'Provides a concrete, implementable improvement plan.' },

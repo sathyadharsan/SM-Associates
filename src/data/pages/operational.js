@@ -31,10 +31,10 @@ export const operationalContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Multi-Stage' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Multi-Stage' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Enterprise-Grade' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Compliance-Driven' }
     ],
 
     capabilities: [
@@ -47,6 +47,7 @@ export const operationalContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'portfolio-ingestion', label: 'Portfolio Ingestion', heading: 'Bringing Accounts Into the Calling Pipeline', overview: 'Portfolio files are ingested and segmented by default risk.', activities: ['Portfolio file ingestion', 'Risk-based segmentation'], documents: [], risks: ['Misclassified accounts entering the wrong calling track'], deliverable: 'Active collections log file.', benefit: 'Ensures accounts are routed to the right calling approach from the start.' },
       { id: 'script-setup', label: 'Script Setup', heading: 'Preparing Compliant Calling Scripts', overview: 'Scripts are loaded and allocated to agent seats for the campaign.', activities: ['Script customization', 'Agent seat allocation'], documents: [], risks: ['Non-compliant or inconsistent scripts in use'], deliverable: 'Active campaign mapping.', benefit: 'Keeps every call grounded in an approved, compliant script.' },
       { id: 'outbound-calling', label: 'Outbound Calling', heading: 'Making Contact Within Compliant Hours', overview: 'Calls are placed within system-enforced permitted hours.', activities: ['Outbound dialing within approved hours', 'Call recording'], documents: [], risks: ['Calling outside permitted hours'], deliverable: 'Outbound call logs.', benefit: 'Removes calling-hour violations as a source of risk.' },
@@ -132,10 +133,10 @@ export const operationalContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: '[DRAFT]' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: '[DRAFT]' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: '[DRAFT]' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: '[DRAFT]' }
+      { icon: 'mapPinned', title: 'Field Coverage', value: 'Multi-Stage' },
+      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Enterprise-Grade' },
+      { icon: 'timer', title: 'Turnaround Discipline', value: 'Multi-Stage' },
+      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Enterprise-Grade' }
     ],
 
     capabilities: [
@@ -148,6 +149,7 @@ export const operationalContent = {
     ],
 
     tabs: [
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
       { id: 'sourcing', label: 'Sourcing & Screening', heading: 'Building a Qualified Candidate Pipeline', overview: 'Candidates are sourced and pre-screened before formal background checks.', activities: ['Candidate sourcing', 'Reference pre-screening'], documents: [], risks: ['Unqualified candidates entering the pipeline'], deliverable: 'Screened candidate list.', benefit: 'Establishes a qualified base before deeper vetting begins.' },
       { id: 'background-check', label: 'Background Verification', heading: 'Confirming Every Candidate Is Clean', overview: 'Police and address verification checks are completed for every candidate.', activities: ['Police record check', 'Address verification'], documents: [], risks: ['Unverified candidates reaching deployment'], deliverable: 'Background verification report.', benefit: 'Protects the client from unvetted field staff exposure.' },
       { id: 'dra-training', label: 'DRA Training', heading: 'Completing Mandatory Compliance Certification', overview: 'Candidates complete the required DRA training curriculum.', activities: ['DRA curriculum training', 'Compliance and conduct training'], documents: [], risks: ['Field deployment without completed certification'], deliverable: 'DRA certification record.', benefit: 'Ensures regulatory training requirements are met before deployment.' },
