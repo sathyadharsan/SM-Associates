@@ -2,8 +2,8 @@ export const operationalContent = {
   "call-centre": {
     "eyebrow": "Compliant Outbound Calling Operations",
     "title": "Call Centre Operations",
-    "subtitle": "Scaling Outbound Collections Calling Without Scaling Compliance Risk",
-    "description": "Scaling compliant outbound collections calling without scaling regulatory risk.",
+    "subtitle": "Compliant Omnichannel Tele-Calling Operations",
+    "description": "Regulatory-aligned voice logger operations, predictive calling dialers, and customer service desks for loan collections.",
     "primaryCtaText": "Request a Call Centre Operations Walkthrough",
     "secondaryCtaText": "Download Compliance Standards",
     "problemStatement": [
@@ -29,9 +29,9 @@ export const operationalContent = {
       }
     ],
     "overview": {
-      "heading": "Why Outsourced Calling Operations Reduce Risk, Not Just Cost",
-      "subheading": "A Managed Calling Desk Bakes Compliance Into the Operating Model",
-      "summary": "In-house collections calling means the lender owns every compliance risk directly — calling-hour violations, inconsistent scripts, unrecorded conversations. Call Centre Operations structures outbound calling around recorded lines, calling-hour lockouts, and structured QA review, so compliance is enforced by the system, not by individual agent discipline. SM Associates delivers this as bilingual, scalable calling capacity that plugs directly into the lender’s collections workflow.",
+      "heading": "Calling Operations: Managing the Early Collection Pipeline",
+      "subheading": "Ensuring Outbound Compliance Under Strict RBI Calling Directives",
+      "summary": "Outbound collections calling requires strict adherence to calling hours and fair practice codes. Call Centre operations run on advanced VoIP dialers programmed with calling hours limits (08:00 AM - 07:00 PM). All agent communication is recorded, and daily voice logs are archived for 180 days. Our QA team audits calling interactions for tone and scripts conformity, mitigating conduct risk while maximizing customer contact rates and collections yield.",
       "outcomes": [
         {
           "title": "Compliance by Design",
@@ -70,7 +70,7 @@ export const operationalContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -392,8 +392,8 @@ export const operationalContent = {
   "manpower": {
     "eyebrow": "Field Workforce Deployment",
     "title": "Field Workforce Deployment",
-    "subtitle": "Trained, Background-Verified Field Staff for Collections and Verification",
-    "description": "Supplying background-verified, DRA-certified field staff ready for immediate deployment.",
+    "subtitle": "BFSI Professional Sourcing",
+    "description": "Providing verified, trained collections, verification, and backend support staff for financial institutions.",
     "primaryCtaText": "Request a Field Workforce Deployment Walkthrough",
     "secondaryCtaText": "Download Training Curriculum",
     "problemStatement": [
@@ -419,9 +419,9 @@ export const operationalContent = {
       }
     ],
     "overview": {
-      "heading": "Why Pre-Vetted, Pre-Trained Field Staff Changes the Deployment Timeline",
-      "subheading": "Recruiting and Training Field Staff Takes Time You May Not Have",
-      "summary": "Standing up field collections or verification capacity in-house means recruiting candidates, running background checks, and completing DRA certification training before deployment — a process that can take weeks. Field Workforce Deployment supplies staff who have already cleared this pipeline: background-verified, DRA-certified, and field-ready. SM Associates structures this around documented screening and standardized training, so deployment timelines compress from weeks to days.",
+      "heading": "Professional Manpower Sourcing: Scaling Credit Operations Staff",
+      "subheading": "Providing Vetted, Compliant Talent for Lenders",
+      "summary": "Lenders face high staff turnover and compliance training hurdles in their collections and credit desks. Manpower Sourcing provides vetted, pre-trained professionals who understand banking operations. We handle recruitment, verify backgrounds, coordinate IIBF DRA certifications, and manage payroll. This staffing support allows banks and NBFCs to scale their field operations quickly with compliant, qualified personnel.",
       "outcomes": [
         {
           "title": "Pre-Vetted Staff",
@@ -460,7 +460,7 @@ export const operationalContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -782,8 +782,8 @@ export const operationalContent = {
   "facility-management": {
     "eyebrow": "Facility & Yard Security",
     "title": "Facility Management & Yard Custody",
-    "subtitle": "Securing Foreclosed Properties and Repossessed Assets",
-    "description": "Deploy ex-military security guards and operate fenced CCTV custody yards to protect foreclosed commercial real estate and repossessed vehicle fleets.",
+    "subtitle": "Asset Protection & Secure Facility Custody",
+    "description": "Providing on-site caretakers, facility security, and environmental upkeep for possessed commercial properties.",
     "primaryCtaText": "Request Operational Briefing",
     "secondaryCtaText": "Explore Service Standards",
     "primaryCtaHref": "/contact",
@@ -797,7 +797,7 @@ export const operationalContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -830,9 +830,9 @@ export const operationalContent = {
       }
     ],
     "overview": {
-      "heading": "Custody Yard Security Desk",
-      "subheading": "Structured Field & Administrative Operational Frameworks",
-      "summary": "SM Associates operates fenced, CCTV-monitored custody yards and deploys security guards to protect institutional assets.",
+      "heading": "Facility Custody: Safeguarding Possessed Real Estate",
+      "subheading": "Maintaining Value and Security of Closed Properties",
+      "summary": "Possessed factories, offices, and residential structures require active care to prevent structural deterioration and illegal encroachment. Facility Management deploys caretakers and security guards to possessed properties. We manage power connections, coordinate structural repairs, and conduct regular maintenance audits. This protective care preserves the property's resale value and ensures it remains presentable for prospective auction buyers.",
       "outcomes": [
         {
           "title": "Geotagged Evidence Logs",
@@ -983,8 +983,8 @@ export const operationalContent = {
   "liaising": {
     "eyebrow": "Government & Legal Liaison",
     "title": "Government & Institutional Liaising",
-    "subtitle": "Coordinating with Magistrates, RTOs, and Local Authorities",
-    "description": "Liaise with District Chief Judicial Magistrates, Regional Transport Offices, and police stations to execute legally compliant asset seizures and possessions.",
+    "subtitle": "Local Authority Coordination Operations",
+    "description": "Coordinating with district administrations, police departments, and municipal authorities to support physical possessions.",
     "primaryCtaText": "Request Operational Briefing",
     "secondaryCtaText": "Explore Service Standards",
     "primaryCtaHref": "/contact",
@@ -998,7 +998,7 @@ export const operationalContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -1031,9 +1031,9 @@ export const operationalContent = {
       }
     ],
     "overview": {
-      "heading": "Institutional Liaison Desk",
-      "subheading": "Structured Field & Administrative Operational Frameworks",
-      "summary": "Our legal coordinators handle magistrate petitions and police notifications to ensure seamless execution.",
+      "heading": "Liaison Operations: Navigating Local Regulatory Protocols",
+      "subheading": "Securing Public Support for Lawful Asset Possessions",
+      "summary": "Physical possessions and eviction operations under Section 14 of the SARFAESI Act require close coordination with district magistrates and local police. Liaising manages this administrative interface. We prepare petitions, coordinate scheduling, secure necessary police escorts, and coordinate public notices. By managing these administrative relationships, we ensure enforcement actions proceed safely and in full alignment with local administrative protocols.",
       "outcomes": [
         {
           "title": "Geotagged Evidence Logs",

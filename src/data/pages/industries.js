@@ -4,9 +4,9 @@
 export const industriesContent = {
   'banking': {
     eyebrow: 'Banking Sector',
-    title: 'Commercial Lenders Navigate Rising NPA Volumes',
-    subtitle: 'Resolving default portfolios through compliant, structured field operations and legal possession management.',
-    description: 'SM Associates Risk Management Pvt. Ltd. acts as a technology-enabled resolution partner, deploying IIBF DRA-certified coordinators and legal advocate panels to protect bank asset quality and release provisioning reserves.',
+    title: 'Schedule Commercial Bank Debt Recovery & NPA Resolution',
+    subtitle: 'Mitigating Gross NPA transition and provisioning drag for Scheduled Commercial Banks (SCBs) through RBI-compliant operations.',
+    description: 'Deploying IIBF DRA-certified field coordinators, automated voice logger networks, and legal panels to accelerate SCB recoveries under strict DOR.ORG.REC.65/21.04.158/2022-23 rules.',
     primaryCtaText: 'Request Industry Consultation',
     secondaryCtaText: 'Explore Strategic Focus Areas',
     primaryCtaHref: '/contact',
@@ -14,7 +14,7 @@ export const industriesContent = {
     
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -47,9 +47,9 @@ export const industriesContent = {
     ],
 
     overview: {
-      heading: 'Enterprise Banking Operations Panel',
-      subheading: 'Strict Governance for Enterprise Banking Books',
-      summary: 'Public and private banks operate under intense regulatory scrutiny. SM Associates insulates banks from conduct risk by deploying 100% DRA-certified field coordinators, recording 100% of outbound calls, and enforcing strict calling locks (08:00 AM to 07:00 PM). Our legal coordinators specialize in preparing CJM/CMM petitions under Section 14 of the SARFAESI Act, ensuring fast and legally clean collateral foreclosure.',
+      heading: 'SCB Recovery Management: Securing Capital Adequacy Ratios',
+      subheading: 'Mitigating Asset Downgrade Velocity and Optimizing Recoveries',
+      summary: 'Scheduled Commercial Banks operate under tight capital adequacy metrics and strict regulatory reviews. SM Associates shields lenders from conduct risk by deploying IIBF DRA-certified coordinators and locking dialer hours strictly between 08:00 AM and 07:00 PM in line with RBI Outsource Directives. Our legal teams specialize in Section 14 CMM/CJM coordination, accelerating possession execution to unlock stressed assets and reduce Gross NPA ratios.',
       outcomes: [
         { title: 'Absolute Regulatory Isolation', desc: 'VoIP calling lockout prevents calling outside statutory times.', value: 'Conduct Shield' },
         { title: 'Geotagged Visit Evidences', desc: 'Every doorstep visit is logged with timestamped GPS coordinates and photos.', value: 'Auditable Visits' },
@@ -112,9 +112,9 @@ export const industriesContent = {
 
   'fintech': {
     eyebrow: 'FinTech Sector',
-    title: 'Digital Lenders Require Rapid Sourcing Speed',
-    subtitle: 'Verifying candidate profiles and managing early collections through API-driven ground operations.',
-    description: 'SM Associates Risk Management Pvt. Ltd. structures pre-disbursal workplace verifications, geolocated residence checks, and compliant tele-calling loops for the speed of modern digital lenders.',
+    title: 'FinTech Digital Lending Compliance & Tele-Calling',
+    subtitle: 'Enforcing pre-disbursal KYC validations and early collections under RBI Digital Lending Guidelines.',
+    description: 'API-integrated address verifications, recorded collections tele-calling, and geotagged doorstep checks to secure digital lending books.',
     primaryCtaText: 'Request Industry Consultation',
     secondaryCtaText: 'Explore Strategic Focus Areas',
     primaryCtaHref: '/contact',
@@ -122,7 +122,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -153,9 +153,9 @@ export const industriesContent = {
     ],
 
     overview: {
-      heading: 'API-Driven Ground Operations',
-      subheading: 'Syncing Digital Collections CRM with Local Branch Dispatch',
-      summary: 'FinTech lending operates at extreme speed. SM Associates supports digital lenders by providing API-integrated address verifications and compliant collections dispatch. We import files through secure SFTP or API paths, allocate them instantly to local branch representatives, and deliver geotagged reports with photos within 24 hours, bridging the gap between digital credit and ground reality.',
+      heading: 'Digital Lending Verification: Real-Time Fraud Mitigation',
+      subheading: 'API-Driven Verification Loops and Compliant Tele-Calling',
+      summary: 'FinTech lending demands real-time verification and compliance checks to prevent synthetic identity theft. SM Associates provides API-integrated CPV verifications and recorded collections dispatch under the 2025 Digital Lending guidelines. We ingest cases via SFTP/API, allocate to local officers with real-time GPS telemetry, and deliver geo-tagged reports within 24 hours, securing the digital origination loop.',
       outcomes: [
         { title: 'Encrypted Data Transfers', desc: 'Daily CSV account files transferred securely with PGP keys.', value: 'PGP Encrypted' },
         { title: 'Same-Day Field Sourcing', desc: 'Automated routing assigns address checks to field officers instantly.', value: 'Same-Day TAT' },
@@ -228,7 +228,7 @@ export const industriesContent = {
     
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -449,9 +449,9 @@ export const industriesContent = {
   // ================= 3. NBFC =================
   'nbfc': {
     eyebrow: 'NBFC Sector',
-    title: 'Diverse Retail Books Demand High Sourcing Density',
-    subtitle: 'We optimize retail loan collections and vehicle repossessions through decentralized ground networks.',
-    description: 'SM Associates Risk Management Pvt. Ltd. structures high-volume collections, doorstep payment pickups, and geolocated verifications calibrated to the operational needs of leading NBFC networks.',
+    title: 'NBFC Retail Credit Operations & Scale-Based Resolution',
+    subtitle: 'Optimizing collection rollback velocity and vehicle repossessions under the RBI Scale-Based Regulation (SBR) framework.',
+    description: 'Deploying decentralized field networks to execute doorstep collections, vehicle pickups, and pre-disbursal verifications for leading NBFC books.',
     primaryCtaText: 'Request Industry Consultation',
     secondaryCtaText: 'Explore Strategic Focus Areas',
     primaryCtaHref: '/contact',
@@ -459,7 +459,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -473,9 +473,9 @@ export const industriesContent = {
     ],
 
     overview: {
-      heading: 'Decentralized NBFC Operations Loop',
-      subheading: 'Maximizing Field Contact Density through Branch Networks',
-      summary: 'NBFC retail portfolios demand rapid, cost-efficient doorstep coordination. SM Associates operates 19 branches across 5 states, allowing us to allocate cases to local representatives residing within the same districts. This minimizes travel costs and enables same-day customer contact. We handle the complete lifecycle, from pre-disbursal verifications to physical vehicle repossession, all tracked on our central console.',
+      heading: 'NBFC Recovery Operations: Navigating Scale-Based Regulations',
+      subheading: 'Optimizing Doorstep Contact Velocity under Pecuniary SARFAESI Thresholds',
+      summary: 'NBFC retail portfolios require highly decentralized, compliant doorstep outreach. Operating 19 branches, SM Associates deploys local representatives to verify addresses and collect dues, ensuring same-day contact. We manage the entire recovery cycle under SBR parameters, implementing the statutory ₹20 lakh SARFAESI pecuniary threshold for eligible NBFCs while maintaining complete audit trails.',
       outcomes: [
         { title: 'Same-Day Field Action', desc: 'Decentralized branches ensure immediate dispatch to rural addresses.' },
         { title: 'GPS Route Optimizations', desc: 'Field routes are dynamically mapped to maximize daily visits per agent.' },
@@ -680,9 +680,9 @@ export const industriesContent = {
   // ================= 4. HOUSING FINANCE =================
   'housing-finance': {
     eyebrow: 'Housing Finance Sector',
-    title: 'Secured Mortgages Demand Legal Possessions Velocity',
-    subtitle: 'We expedite SARFAESI foreclosures and property possessions through dedicated legal coordinate desks.',
-    description: 'SM Associates Risk Management Pvt. Ltd. coordinates Section 13 notice servings, Chief Metropolitan Magistrate Section 14 filings, symbolic/physical possessions, and public e-auctions to release banking capital.',
+    title: 'Housing Finance Mortgage Foreclosure & SARFAESI Execution',
+    subtitle: 'Accelerating symbolic and physical possessions under the NHB Act and Section 13(4)/14 of the SARFAESI Act.',
+    description: 'Drafting statutory demand notices, securing physical repossession orders from CJM/CMM courts, and coordinating e-auctions for HFC portfolios.',
     primaryCtaText: 'Request Industry Consultation',
     secondaryCtaText: 'Explore Strategic Focus Areas',
     primaryCtaHref: '/contact',
@@ -690,7 +690,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -704,9 +704,9 @@ export const industriesContent = {
     ],
 
     overview: {
-      heading: 'Foreclosure Operations Desk',
-      subheading: 'Enforcing Foreclosures with Speed and Legal Precision',
-      summary: 'Secured mortgages require specialized legal and field coordination. SM Associates operates a dedicated foreclosure desk that drafts and serves Section 13 notices, coordinates petitions before Chief Metropolitan Magistrates (CMM), takes symbolic/physical possession, and manages public auctions. All activities are fully documented with photos and video logs to pre-empt court challenges.',
+      heading: 'Mortgage Asset Foreclosure: Securing Eviction Orders',
+      subheading: 'Executing Possession Orders Under Supreme Court Section 13(8) Precedents',
+      summary: 'Secured mortgage recoveries depend on tight adherence to statutory timelines to prevent borrower challenges. SM Associates operates a dedicated foreclosure desk that coordinates Section 13 notice serving, Section 14 magistrate orders, physical possession eviction, and e-auctions. We apply the 2025 M. Rajendran precedent, ensuring composite notices extinguish redemption rights and accelerate sale closure.',
       outcomes: [
         { title: 'Magistrate Orders Speed', desc: 'Legal coordinators file CJM petitions within 14 days of default.' },
         { title: 'Video-Logged Seizures', desc: 'All physical possessions are video-recorded to verify inventory.' },
@@ -911,9 +911,9 @@ export const industriesContent = {
   // ================= 5. MICROFINANCE =================
   'microfinance': {
     eyebrow: 'Microfinance Sector',
-    title: 'Compliant and Respectful Collections for Microfinance Portfolios',
-    subtitle: 'Ethical Outreach and Code-of-Conduct Enforcement on the Ground',
-    description: 'Scale soft outbound dialing campaigns and regional field collections designed specifically for microfinance borrowers.',
+    title: 'Microfinance Portfolio Compliance & Ethical Outreach',
+    subtitle: 'Managing joint-liability group (JLG) collections and rural address validations under strict RBI credit conduct directives.',
+    description: 'Outbound calling and doorstep coordination designed specifically for SFBs and NBFC-MFIs under Customer Dignity Mandates.',
     primaryCtaText: 'Request MFI Team Meeting',
     secondaryCtaText: 'View Fair Practices Code Guidelines',
     primaryCtaHref: '/contact',
@@ -921,7 +921,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -935,9 +935,9 @@ export const industriesContent = {
     ],
 
     overview: {
-      heading: 'Managed Outreach Solutions',
-      subheading: 'Empathetic and Compliant Outreach for JLG Portfolios',
-      summary: 'Microfinance recovery requires balancing resolution rates with strict compliance rules. SM Associates structures JLG collections around certified agents, bilingual scripts, and strict caller logging. Our branch networks cover local districts, enabling discreet and respectful doorstep verifications that maintain lender goodwill.',
+      heading: 'MFI Field Coordination: Maintaining Asset Quality Respectfully',
+      subheading: 'Managing Joint Liability Group collections under RBI Customer Protection Rules',
+      summary: 'Microfinance collections require strict adherence to customer protection guidelines to manage regional delinquency trends. SM Associates structures JLG collections around background-verified, bilingual representatives. We enforce strict caller logs and doorstep visit guidelines, resolving defaults respectfully to protect customer relationships while reducing portfolio stress.',
       outcomes: [
         { title: 'Bilingual Call Center Support', desc: 'Outbound collections queues staffed by local language representatives.' },
         { title: 'VoIP Call Log Locks', desc: 'System restricts outbound calls strictly within approved hours.' },
@@ -1096,9 +1096,9 @@ export const industriesContent = {
   // ================= 7. ARC =================
   'arc': {
     eyebrow: 'ARC Sector',
-    title: 'Acquired Banking Books Require Forensic Foreclosure enforcements',
-    subtitle: 'We accelerate stressed asset resolution and public auctions through legal panels and site security.',
-    description: 'SM Associates Risk Management Pvt. Ltd. structures physical possessions execution, Government-approved valuations, factory site security guard deployments, and e-auction bidder mobilizations to maximize recovery yields.',
+    title: 'Asset Reconstruction Company NPA Portfolio Liquidation',
+    subtitle: 'Expediting stressed asset takeovers, property valuations, and public e-auctions to release locked provisioning capital.',
+    description: 'Executing physical takeovers, Government-approved reserve valuations, secure custody yard storage, and public auctions for ARC portfolios.',
     primaryCtaText: 'Request Industry Consultation',
     secondaryCtaText: 'Explore Strategic Focus Areas',
     primaryCtaHref: '/contact',
@@ -1106,7 +1106,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -1120,9 +1120,9 @@ export const industriesContent = {
     ],
 
     overview: {
-      heading: 'Asset Valuation Security Loops',
-      subheading: 'Securing Value Throughout the NPA Resolution Cycle',
-      summary: 'Asset Reconstruction Companies require a recovery partner capable of handling legal, logistics, and security. SM Associates provides end-to-end support for ARC portfolios: taking symbolic possession, deploying ex-defence security guards, conducting panel valuations, and publicizing e-auctions to maximize realization yields.',
+      heading: 'Stressed Asset Monetization: Securing and Liquidating NPA Portfolios',
+      subheading: 'Managing Foreclosure Auctions under the 2025 Securitisation and Stressed Assets Directions',
+      summary: 'ARCs need an operational partner to manage the legal and security logistics of acquired stressed assets. Under the 2025 Securitisation of Stressed Assets Directions, SM Associates provides single-window support: executing physical possessions, deploying security guards, coordinating valuations with panel surveyors, and managing e-auctions to maximize recovery yields.',
       outcomes: [
         { title: 'Industrial Site Security', desc: 'Ex-military guards deployed to protect closed manufacturing facilities.' },
         { title: 'Deed Registration Forensics', desc: 'Title validation searches at registrar offices to ensure clean sales.' },
@@ -1279,9 +1279,9 @@ export const industriesContent = {
   // ================= 8. COMMERCIAL LENDING =================
   'commercial-lending': {
     eyebrow: 'Commercial Lending',
-    title: 'SME Default Portfolios Require Operations Precision',
-    subtitle: 'We verify applicant capacity and coordinate commercial legal notice serving.',
-    description: 'SM Associates Risk Management Pvt. Ltd. structures pre-disbursal trade checks, Director DIN registry searches, on-site inventory audits, and DRT coordinate legal notice serving to secure commercial asset quality.',
+    title: 'SME & Corporate Commercial Credit Recovery',
+    subtitle: 'Conducting on-site inventory audits, corporate promoter checks, and coordinating DRT litigation support.',
+    description: 'Executing pre-disbursal commercial site checks, trade registry validation (GSTIN/MSME), promoter due diligence, and DRT legal support.',
     primaryCtaText: 'Request Industry Consultation',
     secondaryCtaText: 'Explore Strategic Focus Areas',
     primaryCtaHref: '/contact',
@@ -1289,7 +1289,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -1303,9 +1303,9 @@ export const industriesContent = {
     ],
 
     overview: {
-      heading: 'Specialized Corporate Recovery Panels',
-      subheading: 'Resolving Commercial Defaults with Legal Rigor and Sourcing',
-      summary: 'High-value commercial loans require structured investigations and legal coordination. SM Associates supports corporate lenders by tracing alternative assets of defaulting directors, auditing operating capacity of SME borrowers, and assisting legal teams in filing applications and recovery certificates before Debt Recovery Tribunals (DRT).',
+      heading: 'Commercial Debt Recovery: Resolving SME Defaults',
+      subheading: 'Accelerating DRT Applications and Title Investigations under the IBC Framework',
+      summary: 'High-value commercial defaults require thorough investigations and coordinated legal pressure. SM Associates supports corporate lenders by tracing alternative assets of defaulting promoters, conducting on-site inventory audits, and preparing court-admissible dossiers. We coordinate panels to file recovery certificates and applications before Debt Recovery Tribunals, speeding up asset monetization.',
       outcomes: [
         { title: 'Director Connection Mapping', desc: 'Tracing directorship histories and un-mortgaged director assets.' },
         { title: 'On-Site Business Auditing', desc: 'Verifying GST filings, machinery status, and active operations.' },
@@ -1462,9 +1462,9 @@ export const industriesContent = {
   // ================= 9. INSURANCE =================
   'insurance': {
     eyebrow: 'Insurance Sector',
-    title: 'Claims Fraud Investigation and Verification Support for Insurers',
-    subtitle: 'On-Ground SIU Audits and Forensic Documentation Checks',
-    description: 'Investigate suspicious motor, life, and medical insurance claims with certified on-ground investigators and forensic record checkers.',
+    title: 'Insurance Special Investigation Unit (SIU) Audits',
+    subtitle: 'Investigating motor, medical, and life claims through independent field verifications and registry checks.',
+    description: 'Executing on-site accident checks, medical records audits, and death certificate registry checks to mitigate claims fraud.',
     primaryCtaText: 'Submit Claims Investigation Request',
     secondaryCtaText: 'Review Claims Audit Framework',
     primaryCtaHref: '/contact',
@@ -1472,7 +1472,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -1486,9 +1486,9 @@ export const industriesContent = {
     ],
 
     overview: {
-      heading: 'Forensic Ground Claims Audits',
-      subheading: 'Verifying the Truth Behind Suspicious Claims',
-      summary: 'Insurance fraud directly impacts premium margins. SM Associates supports insurers by providing dedicated Special Investigation Unit (SIU) field audits. We conduct on-site accident verifications, check hospital medical records, verify death certificates, and gather local witness statements to provide clear evidentiary files.',
+      heading: 'Insurance Claims Verification: On-Ground SIU Audits',
+      subheading: 'Mitigating Claims Fraud and Exposing Fictitious Beneficiaries',
+      summary: 'Claims fraud directly impacts insurance premium margins. SM Associates supports insurers with Special Investigation Unit (SIU) field audits. Our investigators conduct accident checks, verify medical records at hospitals, crosscheck death certificates at municipal registries, and gather witness statements to provide clear, court-admissible evidence files.',
       outcomes: [
         { title: 'On-Site Accident Auditing', desc: 'Verifying vehicle damage coordinates and local police reports.' },
         { title: 'Hospital Registry checks', desc: 'Confirming admission logs, treatments, and bills on site.' },
@@ -1646,9 +1646,9 @@ export const industriesContent = {
   // ================= 10. VEHICLE FINANCE =================
   'vehicle-finance': {
     eyebrow: 'Auto Loan Repossession',
-    title: 'Vehicle Collections, Repossession & Yard Custody Operations',
-    subtitle: 'Securing Delinquent Auto and Commercial Fleet Assets',
-    description: 'Seize, transport, and secure delinquent auto, commercial, and tractor assets with strict compliance and trained repossession agents.',
+    title: 'Vehicle Finance Recovery & Fenced Yard Custody',
+    subtitle: 'Executing compliant vehicle repossession and yard storage under strict RBI Fair Practice Codes.',
+    description: 'Deploying DRA-certified agents to locate and repossess delinquent vehicle assets, coordinating yard storage and RTO notifications.',
     primaryCtaText: 'Request Seizure Pilot',
     secondaryCtaText: 'View Repossession Guidelines',
     primaryCtaHref: '/contact',
@@ -1656,7 +1656,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -1670,9 +1670,9 @@ export const industriesContent = {
     ],
 
     overview: {
-      heading: 'Structured Seizure Logistics',
-      subheading: 'Ethical and Compliant Vehicle Repossession Operations',
-      summary: 'Vehicle finance defaults require secure logistics and compliance tracking. SM Associates coordinates the complete vehicle foreclosure lifecycle: tracing vehicles, executing repossession, transporting to our secure fenced yards, and handling RTO and auction compliance.',
+      heading: 'Vehicle Asset Repossession: Managing Seizure Logistics',
+      subheading: 'Coordinating Police Notifications and Fenced Storage Security',
+      summary: 'Vehicle collections require coordinated logistics and regulatory compliance. SM Associates manages the entire repossession process: deploying DRA-certified field coordinators, filing RTO/police notifications, executing peaceful repossessions, and storing assets in our fenced yards to protect resale value before auction.',
       outcomes: [
         { title: 'RTO & Police Coordination', desc: 'Direct liaising to serve pre-seizure notifications.' },
         { title: 'Encrypted Yard Telemetry', desc: 'Secure yards with 24/7 CCTV and check-in inventory audits.' },
@@ -1828,9 +1828,9 @@ export const industriesContent = {
   // ================= 11. GOLD LOAN =================
   'gold-loan': {
     eyebrow: 'Gold Loan Sector',
-    title: 'Applicant Verifications and soft collections for Gold Loan Portfolios',
-    subtitle: 'Bilingual Collections and Local Address Validations',
-    description: 'Verify gold loan applicant profiles and manage collections campaigns with strict compliance and trained ground representatives.',
+    title: 'Gold Loan Portfolio Validation & Soft Collections',
+    subtitle: 'Conducting quick doorstep address verifications and bilingual collection campaigns under strict RBI conduct codes.',
+    description: 'Providing pre-disbursal customer validations, local address checks, and compliant billing-reminder tele-calling.',
     primaryCtaText: 'Request Gold Loan Pilot',
     secondaryCtaText: 'View Gold Loan Verification Criteria',
     primaryCtaHref: '/contact',
@@ -1838,7 +1838,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -1852,9 +1852,9 @@ export const industriesContent = {
     ],
 
     overview: {
-      heading: 'Managed Outreach Solutions',
-      subheading: 'Empathetic and Compliant Outreach for Gold Loan Books',
-      summary: 'Gold loan recovery requires balancing resolution rates with compliance. SM Associates structures gold loan collections around certified agents, bilingual scripts, and strict calling logs. Our branch networks cover local districts, enabling doorstep address verifications that maintain lender goodwill.',
+      heading: 'Gold Loan Risk Management: Validating Customer Profiles',
+      subheading: 'Managing Local Verifications and Dialer calling under RBI Conduct Mandates',
+      summary: 'Gold loan portfolios depend on accurate customer verification and compliant reminders. SM Associates structures operations around bilingual calls and rapid address validations. We run pre-disbursal customer checks within local districts and manage soft collection campaigns strictly during regulatory hours, preserving borrower relationships.',
       outcomes: [
         { title: 'Bilingual Call Center Support', desc: 'Outbound collections queues staffed by local language representatives.' },
         { title: 'VoIP Call Log Locks', desc: 'System restricts outbound calls strictly within approved hours.' },
@@ -2010,7 +2010,7 @@ export const industriesContent = {
   // ================= 12. RETAIL & PERSONAL PRODUCTS =================
   'retail-products': {
     eyebrow: 'Retail Lending Products',
-    title: 'Verification & Collections for Retail & Personal Loans',
+    title: 'Retail Loan Portfolio CPV & Collections',
     subtitle: 'Bilingual Collections and Local Address Validations',
     description: 'Verify retail loan applicant profiles and manage collections campaigns with strict compliance and trained ground representatives.',
     primaryCtaText: 'Request Retail Loan Pilot',
@@ -2020,7 +2020,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -2202,7 +2202,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -2374,7 +2374,7 @@ export const industriesContent = {
   // ================= 14. SME & BUSINESS PRODUCTS =================
   'sme-products': {
     eyebrow: 'Commercial Credit Checks',
-    title: 'On-Site Business and Commercial Establishment Verification',
+    title: 'SME Commercial Establishment & Business Verification',
     subtitle: 'Ensuring Applicant Operating Validity and Commercial Capacity',
     description: 'Ensure the physical existence, operational capacity, and regulatory standing of business loan applicants.',
     primaryCtaText: 'Request Business Audit Pilot',
@@ -2384,7 +2384,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -2556,7 +2556,7 @@ export const industriesContent = {
   // ================= 15. AGRICULTURAL & RURAL PRODUCTS =================
   'agri-products': {
     eyebrow: 'Agricultural Lending Credit',
-    title: 'Compliant and Localized Agricultural & Tractor Loan Recoveries',
+    title: 'Agricultural & Tractor Loan Recoveries',
     subtitle: 'Crop-Cycle Aligned collections and Physical Equipment Tracing',
     description: 'Scale crop-cycle collections and secure tractor repossession with local field teams operating across agricultural hubs.',
     primaryCtaText: 'Request Rural Team Call',
@@ -2566,7 +2566,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -2749,7 +2749,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -2921,7 +2921,7 @@ export const industriesContent = {
   // ================= 17. EDUCATIONAL PRODUCTS =================
   'education-products': {
     eyebrow: 'Education Loan Collections',
-    title: 'Professional and Compliant Education Loan Collections',
+    title: 'Education Loan Portfolio Collections & Tracing',
     subtitle: 'Structured co-borrower tracing and empathetic outreach',
     description: 'Trace graduated students, coordinate outreach with co-borrower families, and recover ETL books using soft collections.',
     primaryCtaText: 'Request ETL Pilot',
@@ -2931,7 +2931,7 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],

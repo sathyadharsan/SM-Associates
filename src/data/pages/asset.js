@@ -2,8 +2,8 @@ export const assetContent = {
   "valuation-services": {
     "eyebrow": "Independent Asset Valuation",
     "title": "Valuation Services",
-    "subtitle": "Setting a Defensible Price Before Possession or Auction Decisions Are Made",
-    "description": "Providing independent, panel-backed valuation reports for secured assets before enforcement and auction.",
+    "subtitle": "Approved Reserve Pricing & Project Appraisals",
+    "description": "Coordinating property and machinery valuations via Government-approved panel valuers to ensure compliant reserve pricing.",
     "primaryCtaText": "Request a Valuation Services Walkthrough",
     "secondaryCtaText": "Download Valuation Panel Standards",
     "problemStatement": [
@@ -29,9 +29,9 @@ export const assetContent = {
       }
     ],
     "overview": {
-      "heading": "Why Independent Valuation Comes Before Enforcement Decisions",
-      "subheading": "A Reserve Price Is Only as Good as the Valuation Behind It",
-      "summary": "Possession, auction, and resolution decisions all depend on a defensible asset value. Valuation Services coordinates a panel of government-approved valuers, chartered engineers, and registered surveyors to produce property valuations, project appraisals, and mortgage valuations that hold up under audit and court scrutiny. SM Associates structures this around panel empanelment standards and IRAC-aligned reporting, so the reserve price reflects real market conditions, not outdated registry assumptions.",
+      "heading": "Asset Valuation: Establishing Compliant Reserve Pricing",
+      "subheading": "Aligning Portfolio Valuations with IRAC Classification Norms",
+      "summary": "Failed auctions and legal disputes often stem from inaccurate reserve pricing. Valuation Services coordinates asset valuations through Government-approved panel valuers, chartered engineers, and registered surveyors. We provide detailed market value, realizable value, and distressed value assessments in compliance with RBI Income Recognition and Asset Classification (IRAC) norms. This independent pricing intelligence protects lenders from under-realization and provides a defensible valuation baseline in court.",
       "outcomes": [
         {
           "title": "Panel-Backed Reports",
@@ -70,7 +70,7 @@ export const assetContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -354,7 +354,7 @@ export const assetContent = {
       {
         "title": "Consistent Portfolio Valuation",
         "desc": "Standardized methodology improves comparability across acquired books.",
-        "value": "More reliable portfolio-level decision-making."
+        "value": "More robust portfolio-level decision-making."
       },
       {
         "title": "Faster Enforcement Timelines",
@@ -392,8 +392,8 @@ export const assetContent = {
   "custodian-services": {
     "eyebrow": "Security & Custodian Operations",
     "title": "Security & Custodian Services",
-    "subtitle": "Protecting Possessed Assets With Trained Personnel and Disciplined Oversight",
-    "description": "Deploying trained security personnel and disciplined custodian protocols to protect possessed assets.",
+    "subtitle": "Secure Yard Custody & Perimeter Protection",
+    "description": "24/7 guarded, CCTV-monitored storage yards to protect the value and integrity of seized assets.",
     "primaryCtaText": "Request a Custodian Services Walkthrough",
     "secondaryCtaText": "Download Security Deployment Standards",
     "problemStatement": [
@@ -419,9 +419,9 @@ export const assetContent = {
       }
     ],
     "overview": {
-      "heading": "Why Disciplined Custodian Oversight Protects Asset Value",
-      "subheading": "A Possessed Asset Still Needs Active Protection, Not Just a Lock",
-      "summary": "Taking possession of an asset is only the beginning — between possession and final resolution, the asset needs disciplined, documented protection. Security & Custodian Services deploys personnel sourced from ex-Defence, paramilitary, Home Guards, and NCC backgrounds, trained in security operations, first aid, firefighting, and emergency response, with surprise audits and documented inspection logs. SM Associates structures this around verifiable deployment records, so clients have confidence the asset is genuinely protected, not just nominally guarded.",
+      "heading": "Secure Asset Custody: Preventing Value Erosion",
+      "subheading": "24/7 Guarded Storage for Secured Commercial and Retail Assets",
+      "summary": "Possessed vehicles and machinery are vulnerable to theft, vandalism, and environmental decay, directly eroding collateral value. Custodian Services operates a network of secure, fenced custody yards monitored 24/7 by ex-Defence security personnel and CCTV systems. We maintain digital inflow registries, perform weekly audits of stored items, and assist in arranging insurance. This operational care protects the asset's value throughout the foreclosure and auction window, ensuring buyers receive assets in their documented condition.",
       "outcomes": [
         {
           "title": "Disciplined Personnel",
@@ -460,7 +460,7 @@ export const assetContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -482,7 +482,7 @@ export const assetContent = {
           "Structured training in security operations",
           "Optional licensed armed guard deployment"
         ],
-        "businessOutcome": "Provides reliable, disciplined protection for possessed assets."
+        "businessOutcome": "Provides rigorous, disciplined protection for possessed assets."
       },
       {
         "title": "Emergency Response Training",
@@ -571,7 +571,7 @@ export const assetContent = {
           "Untrained or unsuitable personnel deployed"
         ],
         "deliverable": "Personnel deployment record.",
-        "benefit": "Ensures the site is protected by reliable, trained staff."
+        "benefit": "Ensures the site is protected by vetted, professionally trained security staff."
       },
       {
         "id": "site-securing",
@@ -701,7 +701,7 @@ export const assetContent = {
           "step": "01",
           "title": "Personnel Deployment",
           "desc": "Trained, disciplined-forces-sourced personnel are assigned to the site.",
-          "outcome": "Reliable security staff in place at the custody site."
+          "outcome": "Vetted, disciplined security personnel active at the custody site."
         },
         {
           "step": "02",
@@ -782,8 +782,8 @@ export const assetContent = {
   "vehicle-repossession": {
     "eyebrow": "Compliant Vehicle Seizure Operations",
     "title": "Vehicle Repossession",
-    "subtitle": "Seizing, Transporting, and Securing Defaulted Vehicle Assets Compliantly",
-    "description": "Seizing and securing defaulted vehicles through compliant, DRA-certified field protocols.",
+    "subtitle": "Tractor and Commercial Vehicle Secured Asset Pickups",
+    "description": "Executing compliant vehicle repossessions under strict RBI fair practice guidelines and secure custody yard transfers.",
     "primaryCtaText": "Request a Vehicle Repossession Walkthrough",
     "secondaryCtaText": "Download Repossession Conduct Standards",
     "problemStatement": [
@@ -809,9 +809,9 @@ export const assetContent = {
       }
     ],
     "overview": {
-      "heading": "Why Compliant Seizure Conduct Protects the Lender, Not Just the Asset",
-      "subheading": "A Repossession Done Wrong Becomes a Liability, Not a Recovery",
-      "summary": "Vehicle repossession sits under specific regulatory scrutiny — how the seizure is conducted matters as much as whether it happens. Vehicle Repossession structures every seizure around DRA-certified agent conduct, pre-seizure RTO and police notification, and geotagged surrender documentation, so the action is both effective and defensible. SM Associates then moves the vehicle into secure, CCTV-monitored yard storage, protecting its value through to auction.",
+      "heading": "Mobile Asset Repossession: Ethical Field-Based Asset Pickups",
+      "subheading": "Mitigating Repossession Risks and Safeguarding Customer Dignity",
+      "summary": "Vehicle finance repossessions carry significant reputation and conduct risks. Vehicle Repossession operates under strict RBI Fair Practice Codes. We deploy trained, IIBF-certified field officers to locate defaulted agricultural and commercial vehicles, conduct structured negotiations with borrowers, and execute peaceful repossessions. Every asset is logged with detailed inventory checks, photographed, and transferred to secure, guarded yards, providing lenders with a legally clean, audit-ready operational trail.",
       "outcomes": [
         {
           "title": "Compliant Conduct",
@@ -850,7 +850,7 @@ export const assetContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -1174,8 +1174,8 @@ export const assetContent = {
   "asset-tracing": {
     "eyebrow": "Collateral Location Tracking",
     "title": "Commercial & Vehicle Asset Tracing",
-    "subtitle": "Locating Delinquent Fleet Vehicles and Machinery",
-    "description": "Track commercial trucks, agricultural tractors, and leased industrial machinery across district lines using local informant networks.",
+    "subtitle": "Collateral Mapping & Asset Identification",
+    "description": "Locating unlisted or hidden borrower assets through local intelligence, registries, and field investigations to back litigation.",
     "primaryCtaText": "Request Operational Briefing",
     "secondaryCtaText": "Explore Service Standards",
     "primaryCtaHref": "/contact",
@@ -1189,7 +1189,7 @@ export const assetContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -1222,9 +1222,9 @@ export const assetContent = {
       }
     ],
     "overview": {
-      "heading": "Collateral Tracing Operations Desk",
-      "subheading": "Structured Field & Administrative Operational Frameworks",
-      "summary": "SM Associates deploys localized informant networks to locate and confirm physical collateral coordinates.",
+      "heading": "Collateral Intelligence: Sourcing Recoverable Assets",
+      "subheading": "Mitigating Recovery Gaps via Asset Mapping",
+      "summary": "When high-value accounts default, borrowers frequently conceal or transfer assets to evade recovery. Asset Tracing identifies recoverable collateral to back court complaints and execution petitions. SM Associates combines local field intelligence, neighbor inquiries, and land registry searches to map borrower properties, factories, and vehicles. This intelligence provides legal teams and ARCs with the evidentiary grounding needed to obtain attachment orders, ensuring litigation leads to tangible recovery.",
       "outcomes": [
         {
           "title": "Geotagged Evidence Logs",
@@ -1375,8 +1375,8 @@ export const assetContent = {
   "asset-recovery": {
     "eyebrow": "Industrial & Commercial Asset Recovery",
     "title": "Asset Recovery",
-    "subtitle": "Securing, Transporting, and Protecting High-Value Secured Assets",
-    "description": "Securing and protecting high-value industrial and commercial collateral end-to-end.",
+    "subtitle": "Physical Collateral Enforcement & Possession Coordination",
+    "description": "On-ground operational support to secure, lock down, and recover physical collateral under SARFAESI guidelines.",
     "primaryCtaText": "Request an Asset Recovery Walkthrough",
     "secondaryCtaText": "Download Operational Framework",
     "problemStatement": [
@@ -1402,9 +1402,9 @@ export const assetContent = {
       }
     ],
     "overview": {
-      "heading": "Why Industrial Asset Recovery Needs Its Own Discipline",
-      "subheading": "High-Value Assets Demand More Than a Standard Possession Action",
-      "summary": "Securing a factory or a commercial property involves more moving parts than a standard repossession — site eviction coordination, full inventory documentation, heavy-equipment transit logistics, and ongoing security once the asset is in custody. Asset Recovery manages this full sequence, structured around documented site evictions, detailed inventory logging, and 24/7 monitored custody, so collateral value is protected from the moment of seizure through to liquidation. SM Associates delivers this for the institutions managing the largest, most complex secured assets in their portfolios.",
+      "heading": "Securing Collateral: Lockout Operations and Asset Recovery",
+      "subheading": "Transitioning Defaulted Properties into Recoverable Inventory",
+      "summary": "Physical recovery is the final operational step in securing the lender’s collateral. Asset Recovery manages the physical lockouts and eviction logistics of commercial, industrial, and residential properties. Working alongside authorized bank officers and police escorts, we coordinate locksmiths, install perimeter guards, and establish custody. This disciplined operational deployment ensures that possessed properties are secured without incident, de-risking the subsequent auction phase.",
       "outcomes": [
         {
           "title": "Coordinated Site Eviction",
@@ -1443,7 +1443,7 @@ export const assetContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -1765,8 +1765,8 @@ export const assetContent = {
   "auction-coordination": {
     "eyebrow": "Statutory E-Auction Support",
     "title": "Auction Coordination",
-    "subtitle": "Managing Valuation, Publication, and Bidding to Maximize Realization",
-    "description": "Managing valuation, statutory publication, and bidding to maximize asset realization.",
+    "subtitle": "Statutory Auction Management & Private Treaty Coordination",
+    "description": "Drafting public notices, managing e-auction portals, and coordinating bidder turnout to maximize asset realization.",
     "primaryCtaText": "Request an Auction Coordination Walkthrough",
     "secondaryCtaText": "Download Statutory Notice Formats",
     "problemStatement": [
@@ -1792,9 +1792,9 @@ export const assetContent = {
       }
     ],
     "overview": {
-      "heading": "Why Auction Execution Determines Whether Possession Pays Off",
-      "subheading": "A Possessed Asset Is Only Worth What the Auction Actually Realizes",
-      "summary": "Securing an asset through possession is only half the recovery — the auction determines whether that asset translates into actual recovered capital. Auction Coordination manages independent valuation, statutory notice publication across required media, bidder registration and earnest-money verification, and the e-auction process itself. SM Associates structures this around transparent, audit-trailed bidding administration, so the result is a defensible sale at a realistic market price, not a stalled or disputed auction.",
+      "heading": "Foreclosure Liquidation: Maximizing Recovered Asset Yields",
+      "subheading": "Compliant Auction Management Under Section 13(8) Redemption Rules",
+      "summary": "Foreclosure auctions must satisfy strict legal requirements to prevent borrowers from challenging the sale. Auction Coordination manages the statutory liquidation lifecycle under the SARFAESI Act. In accordance with the Supreme Court's M. Rajendran (2025) ruling, we coordinate the composite publication (newspaper ads, site affixations, website uploads) that extinguishes redemption rights. We manage e-auction portals, identify potential buyers, and coordinate bidding processes, ensuring a transparent, legally clean transfer of ownership.",
       "outcomes": [
         {
           "title": "Market-Grounded Valuation",
@@ -1833,7 +1833,7 @@ export const assetContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",

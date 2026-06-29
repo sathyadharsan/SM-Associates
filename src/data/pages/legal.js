@@ -2,8 +2,8 @@ export const legalContent = {
   'cheque-bounce-notices': {
     eyebrow: 'Section 138 Legal Notice Services',
     title: 'Cheque-Bounce Notice Services',
-    subtitle: 'Converting a Bounced Cheque Into a Tracked Legal Process',
-    description: 'Drafting, serving, and tracking Section 138 notices and filings for bounced cheque accounts.',
+    subtitle: 'Statutory Notices Under Section 138 of the NI Act',
+    description: 'Drafting and serving legal notices under Section 138 of the Negotiable Instruments Act within strict statutory limits.',
     primaryCtaText: 'Request a Cheque-Bounce Notice Walkthrough',
     secondaryCtaText: 'Download Section 138 Process Overview',
 
@@ -15,9 +15,9 @@ export const legalContent = {
     ],
 
     overview: {
-      heading: 'Why a Bounced Cheque Needs a Tracked Legal Process, Not Just a Notice',
-      subheading: 'Section 138 Gives You Leverage — Only If the Process Is Followed Correctly',
-      summary: 'A bounced cheque carries criminal liability under Section 138 of the Negotiable Instruments Act, but that leverage only works if the statutory notice is drafted correctly, served within the timeline, and followed through with a magistrate court filing if payment isn’t made. Cheque-Bounce Notice Services manages this full sequence — notice drafting, timed service, delivery proof, and filing coordination — so the legal remedy stays available and visibly active. SM Associates structures this around the same statutory discipline used across our other legal recovery services.',
+      heading: 'Criminal Liability Notices: Establishing the Legal Foundation',
+      subheading: 'Activating Section 138 Criminal Posturing Within Statutory Windows',
+      summary: 'A bounced cheque or ECS return is only a recovery tool if the lender establishes criminal liability under Section 138 of the Negotiable Instruments (NI) Act. This process operates under strict statutory timelines: the demand notice must be served within 30 days of the bounce memo, and court complaints must follow within 30 days of notice expiry. Cheque-Bounce Notice Services automates notice drafting, manages advocate serving panels, and compiles proof-of-delivery dossiers. This operational discipline ensures the lender\'s legal foundation is unassailable before complaints are filed in magistrate courts.',
       outcomes: [
         { title: 'Timely Notice Service', desc: 'Statutory notices are drafted and served within the required timeline.' },
         { title: 'Documented Delivery', desc: 'Proof of service is captured for every notice issued.' },
@@ -32,7 +32,7 @@ export const legalContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -80,7 +80,7 @@ export const legalContent = {
 
     outcomesHeading: 'Enterprise Business Outcomes',
     outcomes: [
-      { title: 'Preserved Legal Remedy', desc: 'Timely notice service ensures the Section 138 remedy isn’t lost to a missed deadline.', value: 'No cases losing legal recourse due to timeline lapses.' },
+      { title: 'Preserved Legal Remedy', desc: 'Timely notice service ensures the Section 138 remedy isn’t lost to a missed deadline.', value: 'No cases losing legal recourse due to limitation lapses.' },
       { title: 'Stronger Settlement Pressure', desc: 'Visible, active follow-through creates real urgency for the borrower to pay.', value: 'Higher pre-filing settlement rate from active notice follow-up.' },
       { title: 'Fewer Procedural Objections', desc: 'Properly drafted notices reduce the risk of court-stage challenges.', value: 'Cleaner case progression through the court process.' },
       { title: 'Continuous Case Momentum', desc: 'Active tracking keeps cases moving from notice to filing to hearing.', value: 'Fewer cases stalling at any single stage.' },
@@ -102,103 +102,107 @@ export const legalContent = {
   },
 
   'sarfaesi-support': {
-    eyebrow: 'Secured Asset Recovery Division',
-    title: 'SARFAESI Enforcement',
-    subtitle: 'Statutory Notice-to-Possession Execution Under One Coordinated Process',
-    description: 'Coordinating statutory notice-to-possession execution under one tracked enforcement process.',
+    eyebrow: 'NPA Resolution & Secured Asset Recovery',
+    title: 'SARFAESI Enforcement Services',
+    subtitle: 'End-to-End Collateral Foreclosure and Recovery Management',
+    description: 'Comprehensive and legally compliant enforcement operations from demand notice to possession, valuation, secure custody, and public auction.',
     primaryCtaText: 'Request a SARFAESI Enforcement Walkthrough',
-    secondaryCtaText: 'Download Legal Step-by-Step Overview',
+    secondaryCtaText: 'Download NPA Resolution Overview',
 
     problemStatement: [
-      { icon: 'fileWarning', title: 'Notice Routing Delays', desc: 'Inefficient notice drafting and routing extends timelines and weakens the statutory record.' },
-      { icon: 'shieldAlert', title: 'Regulatory Exposure', desc: 'Lack of voice and activity logs around borrower contact creates compliance risk during audits.' },
-      { icon: 'trendingDown', title: 'Asset Value Erosion', desc: 'Delayed possession and unsecured custody let collateral value erode before liquidation.' },
-      { icon: 'briefcase', title: 'Local Authority Coordination Gaps', desc: 'Without a dedicated liaison, securing District Magistrate and police support for possession can stall for months.' }
+      { icon: 'fileWarning', title: 'Process Timeline Delays', desc: 'Procedural delays in drafting and serving notices extend default timelines and postpone asset liquidation.' },
+      { icon: 'shieldAlert', title: 'Ground Execution Resistance', desc: 'Physical takeovers often face intense borrower resistance, requiring police liaison and professional security deployment.' },
+      { icon: 'trendingDown', title: 'Asset Value Erosion', desc: 'Poor inventory tracking, lack of proper custody yards, and unsecured assets result in damage or loss prior to sale.' },
+      { icon: 'briefcase', title: 'Legal Documentation Gaps', desc: 'Procedural errors in Section 13/14 actions risk litigation, court-ordered stays, or audit failure.' }
     ],
 
     overview: {
-      heading: 'Why a Coordinated SARFAESI Process Matters',
-      subheading: 'Each Statutory Step Depends on the One Before It',
-      summary: 'SARFAESI enforcement is not a single action — it’s a sequence of statutory steps that must happen in order, each properly documented, before the next can proceed. A delay or defect at the notice stage can stall possession months later. SM Associates coordinates the full sequence — Section 13(2) notice drafting, Section 13(4) possession notices, District Magistrate petitions under Section 14, physical possession execution, and secure custody yard management — under one tracked operational process, so lenders aren’t left reconciling separate vendors at each stage.',
+      heading: 'Coordinated SARFAESI Enforcement Lifecycle',
+      subheading: 'Unlocking Capital from Non-Performing Assets (NPAs) with Absolute Integrity and Precision',
+      summary: 'Enforcing security interest under the Securitisation and Reconstruction of Financial Assets and Enforcement of Security Interest Act, 2002 (SARFAESI Act) requires a flawless combination of legal precision and ground-level execution capability. A single procedural error—whether in notice serving, publication, valuation, or inventory documentation—can invite court-ordered stays and stall recovery for months. M/s. S M Associates Risk Management Pvt. Ltd. (SMARMPL) delivers a comprehensive, legally compliant, "one-window" solution. We manage the entire lifecycle: Section 13(2) demand notices (with active skip-tracing), Section 13(4) possession notices, CMM/CJM petitions under Section 14, intensive pre-takeover inspections, inventory audits, secure custody, and sale coordination through public auction or private treaty. Every action is backed by digital trail auditability, DRA-certified professionals, and strict compliance with legal frameworks.',
       outcomes: [
-        { title: 'Sequenced Execution', desc: 'Each statutory step is tracked and completed in the order the law requires.' },
-        { title: 'Documented Compliance', desc: 'Every notice and action is logged for audit and court-admissibility purposes.' },
-        { title: 'Continuous Coordination', desc: 'Local authority liaison and custody management are handled within the same process.' }
+        { title: 'Legally Defensible Process', desc: 'Panchnama documentation, photographic evidence, and certified locksmith operations ensure bulletproof court records.' },
+        { title: 'Minimized Recovery Delays', desc: 'Active coordination with CMM/CJM offices and local police prevents execution bottlenecks.' },
+        { title: 'Collateral Value Preservation', desc: 'Monitored yards, monthly inspection reports, and insurance facilitation safeguard your assets.' }
       ],
       useCases: [
-        { title: 'Housing Finance Delinquencies', desc: 'Resolving long-standing retail residential mortgage defaults.' },
-        { title: 'Commercial Asset Possession', desc: 'Executing District Magistrate orders for secured commercial premises.' },
-        { title: 'ARC Stressed Portfolios', desc: 'Coordinating SARFAESI steps on acquired stressed portfolios.' }
+        { title: 'Commercial Asset Possession', desc: 'Executing District Magistrate/CJM orders for large-scale industrial and retail properties.' },
+        { title: 'Housing Finance Defaults', desc: 'Resolving long-standing retail residential mortgage non-performing loans.' },
+        { title: 'ARC Stressed Portfolios', desc: 'Coordinating fast, multi-state enforcement campaigns for Asset Reconstruction Companies.' }
       ]
     },
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     capabilities: [
-      { title: 'Section 13(2) Notice Drafting', desc: 'Drafting the statutory demand notice that opens the enforcement process.', bullets: ['Notice drafted against security interest records', 'Compliance check against RBI DRA codes of conduct', 'Documented proof of service'], businessOutcome: 'Establishes a legally valid statutory path from the first step.' },
-      { title: 'Section 13(4) Possession Notices', desc: 'Coordinating symbolic and physical possession notice publication.', bullets: ['Possession notice drafting and publication', 'Regional newspaper publication coordination', 'Public notice serving freezing borrower transaction authority'], businessOutcome: 'Establishes statutory control over the secured asset.' },
-      { title: 'District Magistrate Petition Coordination', desc: 'Preparing and filing Section 14 petitions for physical enforcement authority.', bullets: ['Petition preparation and filing', 'Coordination with District Magistrate offices', 'Tracking of petition status to order issuance'], businessOutcome: 'Obtains the magistrate order needed for physical enforcement.' },
-      { title: 'Physical Possession Logistics', desc: 'Ground management of the possession action itself.', bullets: ['Coordination of locksmiths and security personnel', 'Local police liaison for possession execution', 'Geotagged documentation of the possession action'], businessOutcome: 'Secures the asset with a documented, defensible process.' },
-      { title: 'Custody Yard Management', desc: 'Secure storage of possessed assets pending liquidation.', bullets: ['Fenced, monitored custody yard storage', 'Inventory logging on intake', 'Ongoing custody condition tracking'], businessOutcome: 'Protects collateral value throughout the foreclosure window.' },
-      { title: 'E-Auction Coordination', desc: 'Supporting valuation and public auction processes.', bullets: ['Valuation process coordination', 'Public auction announcement support', 'Documentation handoff for the liquidation process'], businessOutcome: 'Supports portfolio yield through a properly documented liquidation path.' }
+      { title: 'Section 13(2) Demand Notices', desc: 'Drafting and serving the statutory demand notices that initiate the enforcement process.', bullets: ['Notice drafted against security interest records', 'Personal delivery with written acknowledgement and field tracking for skipped borrowers', 'Property affixation with Panchnama, photographic proof, and double newspaper publication'], businessOutcome: 'Establishes a legally valid statutory path from the first step.' },
+      { title: 'Intensive Pre-Takeover Ground Inspection', desc: 'Conducting detailed pre-takeover inspections to assess ground realities and identify challenges.', bullets: ['Pre-takeover inspections to assess layouts, barriers, and safety hazards', 'Detailed reports to assist the Authorized Officer in execution planning', 'Coordination of locksmiths and site security ahead of possession'], businessOutcome: 'Equips the Authorized Officer with ground intelligence to prevent delays.' },
+      { title: 'CMM / CJM Section 14 Coordination', desc: 'Drafting, filing, and tracking Section 14 petitions to secure physical eviction and repossession authority.', bullets: ['Petition preparation and filing with the Chief Metropolitan Magistrate or Chief Judicial Magistrate', 'Continuous tracking of petition status to order issuance', 'Liaison with local police authorities for necessary protection and support during possession'], businessOutcome: 'Obtains the magistrate order required for physical eviction and repossession.' },
+      { title: 'Section 13(4) Possession Execution', desc: 'Coordinating symbolic and physical possession notice publication and execution.', bullets: ['Possession notice drafting, serving, and publication in two leading newspapers', 'Deployment of trained security supervisors and personnel', 'Coordination of police escorts and licensed armed guards where necessary'], businessOutcome: 'Secures physical and symbolic custody of the asset legally.' },
+      { title: 'Professional Inventory Management', desc: 'Preparing item-by-item inventories of movable and immovable assets.', bullets: ['Itemized inventory logging of goods, machinery, stock, and materials', 'Photographic and video documentation of all assets on the premises', 'Coordination with bank-approved and government-approved valuers'], businessOutcome: 'Protects the lender against borrower claims of missing items.' },
+      { title: 'Preservation & Secure Yard Custody', desc: 'Maintaining the physical condition and security of possessed assets.', bullets: ['Designated secure warehouses for movable assets', '24/7 guard monitoring for immovable properties', 'Monthly inspection reports and insurance coverage support for residential flats/offices'], businessOutcome: 'Prevents collateral value erosion before the liquidation stage.' },
+      { title: 'Sale & E-Auction Coordination', desc: 'Supporting the liquidation process through public auctions or private treaty sales.', bullets: ['Drafting and publishing auction advertisements to maximize participation', 'Marketing distressed assets to prospective buyers', 'Transaction support, documentation handoff, and private treaty facilitation'], businessOutcome: 'Supports maximum yield and faster disposal of secured assets.' }
     ],
 
     tabs: [
-      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Structured Evidence Collection & Audit-Ready Governance', overview: 'Demonstrating a structured and defensible verification process aligned with institutional documentation standards.', activities: ['Capture GPS-enabled field verification metrics and location coordinates', 'Log time-stamped visit records and photographic verification evidence', 'Maintain digital verification checklists and audit-ready operational records'], documents: ['Digital verification checklists and field inspection dossiers', 'Time-stamped GPS visit logs and structured evidence files'], risks: ['Unverified field documentation exceptions', 'Audit trail compliance gaps'], deliverable: 'Audit-ready operational documentation dossier.', benefit: 'Provides institutional clients with transparent, defensible verification records.' },
-      { id: 'demand-notice', label: 'Demand Notice', heading: 'Opening the Statutory Process', overview: 'Section 13(2) demand notice drafting and service, the first statutory step.', activities: ['Notice drafting against security interest records', 'Notice service and proof collection'], documents: ['Security interest records'], risks: ['Improperly drafted or served notice stalling the process'], deliverable: 'Notice delivery proof.', benefit: 'Establishes the legal foundation the rest of the process depends on.' },
-      { id: 'possession-notice', label: 'Possession Notice', heading: 'Establishing Statutory Control', overview: 'Section 13(4) symbolic possession notice and publication.', activities: ['Possession notice drafting', 'Regional newspaper publication'], documents: [], risks: ['Publication delays extending the statutory timeline'], deliverable: 'Published notice clippings log.', benefit: 'Freezes borrower transaction authority over the asset.' },
-      { id: 'dm-petition', label: 'DM Petition', heading: 'Obtaining Physical Enforcement Authority', overview: 'Section 14 petition filing with the District Magistrate.', activities: ['Petition preparation', 'Filing and status tracking'], documents: [], risks: ['Petition delays without active tracking'], deliverable: 'Petition filing record.', benefit: 'Secures the magistrate order required for physical possession.' },
-      { id: 'physical-possession', label: 'Physical Possession', heading: 'Executing the Possession Action', overview: 'Ground execution of the possession order with local authority support.', activities: ['Locksmith and security coordination', 'Police liaison for possession execution'], documents: [], risks: ['Possession resistance without proper authority coordination'], deliverable: 'Geotagged possession report.', benefit: 'Secures the asset with a defensible, documented process.' },
-      { id: 'custody', label: 'Secure Custody', heading: 'Protecting the Asset After Possession', overview: 'Storage and inventory management in a secure custody yard.', activities: ['Yard intake and inventory logging', 'Ongoing custody monitoring'], documents: [], risks: ['Asset value erosion in unsecured storage'], deliverable: 'Yard inventory receipt.', benefit: 'Protects collateral value through to the liquidation stage.' },
-      { id: 'auction-support', label: 'Auction Support', heading: 'Supporting the Liquidation Process', overview: 'Coordination support for valuation and e-auction proceedings.', activities: ['Valuation process coordination', 'Auction announcement support'], documents: [], risks: ['Liquidation delays from uncoordinated handoff'], deliverable: 'Auction coordination file.', benefit: 'Keeps the path from possession to liquidation moving.' }
+      { id: 'evidence-audit-trail', label: 'Evidence & Audit Trail', heading: 'Bulletproof Evidence Trail for Compliance and Court Defensibility', overview: 'Every step of the enforcement action is documented with photographic, GPS, and written evidence to withstand borrower disputes in DRT or courts.', activities: ['Capture GPS-logged coordinates for demand notice affixation', 'Draft and execute Panchnamas witnessed by independent parties', 'Maintain comprehensive logs of communications and site visits'], documents: ['Signed Panchnamas and witness testimonies', 'GPS-tagged photographic and video archives'], risks: ['Borrower claims of non-service or improper possession', 'Compliance audit exceptions'], deliverable: 'Audit-ready legal dossier', benefit: 'Guarantees that the enforcement action is legally defensible in court.' },
+      { id: 'demand-notice', label: 'Demand Notice', heading: 'Statutory Section 13(2) Notice Drafting and Multi-Channel Service', overview: 'Timely drafting and delivery of demand notices, ensuring legal tracking from day one. If the borrower is untraceable, our investigation team executes field verification to trace and serve.', activities: ['Draft notices in strict alignment with security interest records', 'Execute personal service with written acknowledgement', 'Conduct field tracking and verify updated addresses for skipped borrowers', 'Publish in two leading newspapers and document affixation on the property'], documents: ['Section 13(2) notice draft', 'Signed delivery acknowledgement', 'Newspaper publication clipping log'], risks: ['Borrower evasion stalling the statutory enforcement clock', 'Procedural drafting errors'], deliverable: 'Notice service docket', benefit: 'Validates the commencement of the statutory resolution period.' },
+      { id: 'pre-takeover', label: 'Pre-Takeover Inspection', heading: 'Intensive Pre-Takeover Ground Inspection and Risk Analysis', overview: 'Before physical intervention, we conduct on-the-ground inspections to identify potential operational hurdles and local challenges.', activities: ['Conduct site inspections to assess property layout and occupant status', 'Identify logistical constraints (e.g., access, locks, safety hazards)', 'Compile a comprehensive report for the Authorized Officer (AO)'], documents: ['Detailed Pre-Takeover Inspection Report', 'Site layout photographs'], risks: ['Encountering unforeseen resistance or layout issues during possession'], deliverable: 'Operational risk analysis report', benefit: 'Equips the Authorized Officer with full ground-level intelligence for smooth execution.' },
+      { id: 'dm-petition', label: 'DM Petition', heading: 'Obtaining CJM / CMM Section 14 Repossession Orders', overview: 'Liaising with court offices and administrative channels to secure warrants of possession and police protection.', activities: ['Prepare and file petition documents under Section 14 of the SARFAESI Act', 'Monitor petition status and court hearings', 'Coordinate with local police and administration for execution support'], documents: ['Section 14 petition filing copy', 'CMM/CJM warrant order'], risks: ['Procedural defects in petition leading to court delays'], deliverable: 'Magistrate possession warrant', benefit: 'Provides the legal mandate required for physical eviction and repossession.' },
+      { id: 'physical-possession', label: 'Physical Possession', heading: 'Executing Physical and Symbolic Possession Safely', overview: 'Taking control of collateral with professional security deployment, locksmith services, and local authority support.', activities: ['Liaise with local police station to arrange field protection', 'Deploy trained security personnel and supervisors to the site', 'Coordinate locksmiths to gain entry and change locks', 'Capture video record of the entire possession action'], documents: ['Possession notice copy', 'Video recording of the execution', 'Panchnama of possession'], risks: ['Physical confrontation or security incidents on-site'], deliverable: 'Geotagged execution video log', benefit: 'Ensures safe and successful acquisition of physical custody.' },
+      { id: 'inventory-valuation', label: 'Inventory & Valuation', heading: 'Rigorous Inventory Management and Collateral Valuation', overview: 'Cataloging every asset inside the premises and coordinating with certified valuers to assess value.', activities: ['Prepare exhaustive itemized inventories of all movable and immovable goods', 'Coordinate site visits with bank-approved or government-approved valuers', 'Conduct asset appraisals, project valuations, and APF assessments'], documents: ['Itemized inventory register', 'Approved Valuer estimation report'], risks: ['Claims of stolen or missing inventory from borrowers', 'Incorrect valuation leading to auction failure'], deliverable: 'Inventory register & Valuer report', benefit: 'Protects against liability claims and establishes a realistic reserve price.' },
+      { id: 'preservation-custody', label: 'Preservation & Custody', heading: 'Secured Asset Preservation and Yard Custody', overview: 'Maintaining the physical condition and security of the seized asset during the pre-sale period.', activities: ['Deploy trained guards (ex-Defence/Paramilitary) for round-the-clock site protection', 'Store movable assets in designated secure warehouses', 'Conduct monthly inspection reports for unoccupied flats and offices', 'Coordinate insurance coverage facilitation for seized property'], documents: ['Security guard deployment rosters', 'Monthly inspection and status reports'], risks: ['Vandalism, theft, or deterioration of collateral value'], deliverable: 'Asset preservation dossier', benefit: 'Maintains collateral quality to ensure optimum realization during liquidation.' },
+      { id: 'auction-sale', label: 'E-Auction & Sale', heading: 'Public Auction Coordination and Distressed Asset Marketing', overview: 'Running public auctions and private treaty processes to sell secured assets quickly at maximum value.', activities: ['Draft and publish auction advertisements in newspapers within statutory timelines', 'Conduct marketing campaigns to find prospective buyers', 'Facilitate site visits for buyers and coordinate transaction documentation'], documents: ['Auction notices and clippings', 'Sale certificate draft'], risks: ['No bids received due to poor publicity or high reserve prices'], deliverable: 'Auction bid summary file', benefit: 'Unlocks the maximum value from the asset to settle outstanding dues.' }
     ],
 
     challengesHeading: 'Enterprise SARFAESI Enforcement Risks',
     challenges: [
-      { title: 'Operational Risks', desc: 'Inefficient notice routing and local authority coordination delays resulting in prolonged legal battles.', warningBadge: 'Logistical Risk', impact: 'Extended resolution timelines and weakened statutory positioning.' },
-      { title: 'Regulatory Risks', desc: 'Lack of voice and activity logs around borrower contact creates exposure during compliance audits.', warningBadge: 'Audit Risk', impact: 'Institutions inherit regulatory risk from undocumented enforcement conduct.' },
-      { title: 'Recovery Risks', desc: 'Unsecured custody yards and poor asset documentation lead to auction failures and value loss.', warningBadge: 'Asset Risk', impact: 'Liquidation yield falls below what the collateral was actually worth.' },
-      { title: 'Financial Impact', desc: 'Extended default cycles lock capital in provisioning buckets for longer than necessary.', warningBadge: 'Capital Risk', impact: 'Direct impact on the lender’s balance sheet efficiency.' },
-      { title: 'Possession Resistance', desc: 'Ground resistance during physical possession without proper authority coordination.', warningBadge: 'Execution Risk', impact: 'Possession delays and potential safety risk without police liaison.' },
-      { title: 'Documentation Gaps', desc: 'Missing or incomplete records at any statutory step can be challenged later.', warningBadge: 'Compliance Risk', impact: 'A documentation gap at one step can undermine the entire enforcement chain.' }
+      { title: 'Notice & Liaison Bottlenecks', desc: 'Inefficient notice routing, untraceable borrowers, or slow coordination with CMM/CJM offices extends NPA cycles.', warningBadge: 'Operational Risk', impact: 'Delayed recovery timelines and extended capital provisioning requirements.' },
+      { title: 'Ground Execution Resistance', desc: 'Hostile ground resistance during physical takeover without police liaison or security training.', warningBadge: 'Security Risk', impact: 'Execution failures, safety incidents, and negative local publicity.' },
+      { title: 'Procedural Litigation', desc: 'Incomplete inventories, missing Panchnamas, or undocumented notice service lead to stays in DRT/courts.', warningBadge: 'Litigation Exposure', impact: 'Court-ordered stays that reverse possession and restart the legal clock.' },
+      { title: 'Collateral Deterioration', desc: 'Vandalism, theft, or environmental degradation of possessed assets due to poor post-takeover security.', warningBadge: 'Asset Erosion', impact: 'Realized auction price drops significantly below the estimated value.' },
+      { title: 'Regulatory Non-Compliance', desc: 'Undocumented borrower contact, non-compliant notice timelines, or lack of DRA-certified field coordinators.', warningBadge: 'Compliance Risk', impact: 'Regulatory penalties and loss of credibility with institutional auditors.' },
+      { title: 'Low Liquidation Yield', desc: 'Insufficient public exposure for auction notices or unrealistic valuation models leading to repeated auction failures.', warningBadge: 'Market Risk', impact: 'Unsold assets sitting on the balance sheet, consuming holding costs.' }
     ],
 
     processFlow: {
       title: 'Enterprise SARFAESI Enforcement Lifecycle',
       desc: 'A structured operating model that moves a case from notice to secure custody, statutory step by statutory step.',
       steps: [
-        { step: '01', title: 'Case Ingestion & Audit', desc: 'Portfolio data is ingested and validated for enforcement readiness.', outcome: 'A verified case record ready for the demand notice stage.' },
-        { step: '02', title: 'Section 13(2) Notice', desc: 'The statutory demand notice is drafted and served.', outcome: 'The statutory enforcement clock begins on a documented basis.' },
-        { step: '03', title: 'Possession Notice & DM Petition', desc: 'Symbolic possession notice is published and the District Magistrate petition is filed.', outcome: 'Statutory control established and physical enforcement authority sought.' },
-        { step: '04', title: 'Physical Possession', desc: 'The possession order is executed with local authority support.', outcome: 'The asset is physically secured under a documented process.' },
-        { step: '05', title: 'Secure Custody & Auction Handoff', desc: 'The asset is stored securely and prepared for liquidation.', outcome: 'A protected asset ready for the auction process.' }
+        { step: '01', title: 'Ingestion & Investigation', desc: 'Validate security interest files, track untraceable skipped borrowers, and draft the Section 13(2) notice.', outcome: 'Filing-ready case record and verified address profile.' },
+        { step: '02', title: 'Notice Service & Inspection', desc: 'Serve the demand notice via personal service/affixation, run a pre-takeover inspection to map ground risks, and start Section 14 filing.', outcome: 'Statutory timeline started and execution plan completed.' },
+        { step: '03', title: 'Warrant Acquisition', desc: 'Pursue Section 14 petitions through local CMM/CJM desks to secure possession warrants and police support.', outcome: 'Legally binding eviction and possession orders.' },
+        { step: '04', title: 'Physical Possession & Audit', desc: 'Secure the property with police presence, inventory all contents, prepare Panchnamas, and take photo/video evidence.', outcome: 'Collateral physically secured under a bulletproof record.' },
+        { step: '05', title: 'Preservation & Auction', desc: 'Deploy security guards, perform inspections, run valuations, publish auction ads, and execute the sale.', outcome: 'NPA settled and capital unlocked.' }
       ]
     },
 
     outcomesHeading: 'Enterprise Business Outcomes',
     outcomes: [
-      { title: 'Reduced Regulatory Risk', desc: 'Documented site logs and contact records protect against audit and legal exposure.', value: 'Fewer compliance findings tied to enforcement conduct.' },
-      { title: 'Faster Statutory Resolution', desc: 'Sequenced, tracked steps reduce time lost between statutory stages.', value: 'Shorter overall enforcement timelines.' },
-      { title: 'Protected Collateral Value', desc: 'Secure custody and documented possession protect asset value through to liquidation.', value: 'Higher realizable value at auction.' },
-      { title: 'Improved Lender Visibility', desc: 'Continuous status tracking gives risk managers a complete view of enforcement progress.', value: 'Less reliance on ad-hoc status updates.' },
-      { title: 'Operational Efficiency', desc: 'Coordinated process execution saves time and legal coordination cost.', value: 'Lower overall cost per enforcement case.' },
-      { title: 'Stronger Compliance Position', desc: 'Documented conduct at every statutory step strengthens the lender’s audit position.', value: 'Reduced exposure during regulatory review.' }
+      { title: 'Accelerated NPA Resolution', desc: 'Structured, milestone-driven execution cuts down the time elapsed between notice and possession.', value: 'Reduced Days-in-Default across the portfolio.' },
+      { title: 'Zero Compliance Stays', desc: 'Rigorous legal adherence and documentation ensure that possessions are rarely stayed by DRTs or courts.', value: 'Higher rate of successful, permanent repossessions.' },
+      { title: 'Maximized Realization Value', desc: 'Proactive asset preservation, accurate valuations, and active marketing maximize auction bidding.', value: 'Optimal recovery yields on stressed collateral.' },
+      { title: 'Complete Audit Defensibility', desc: 'Every notice, photograph, and Panchnama is archived digitally for internal and external auditors.', value: '100% compliance with RBI guidelines.' },
+      { title: 'Integrated Custody Security', desc: 'Eliminates vendor fragmentation by handling custody, security, and maintenance under a single provider.', value: 'Lower asset holding costs and zero security incidents.' },
+      { title: 'Streamlined Institutional Liaison', desc: 'Provides risk managers with a clear operating console and structured weekly reports on all cases.', value: 'Reduced internal administrative overhead.' }
     ],
 
     faqs: [
-      { q: 'How does SM Associates ensure compliance with RBI Fair Practice Codes?', a: 'Borrower contact is conducted within approved hours and documented, with field officers trained on DRA codes of conduct.' },
-      { q: 'How are physical possessions coordinated under Section 14?', a: 'Possession execution is coordinated with the District Magistrate and local police authorities, with the action geotagged and documented.' }
+      { q: 'How does SM Associates handle untraceable or skipping borrowers for Section 13(2) notices?', a: 'Our dedicated investigation team conducts field verification and skip tracing. If they are still untraceable, we execute legal affixation of the notice on the property (complete with Panchnama and photo evidence) and publish in two leading newspapers as permitted under the Act.' },
+      { q: 'What security qualifications do your custody and possession personnel have?', a: 'We deploy trained security supervisors and personnel drawn from Ex-Defence Forces, Paramilitary Services, Home Guards, and NCC. All operations are run by IIBF DRA-certified coordinators strictly within legal frameworks.' },
+      { q: 'Can you handle the entire sale and auction process under SARFAESI?', a: 'Yes. We provide end-to-end auction services, including coordinating with bank-approved valuers, drafting and publishing statutory auction ads in newspapers, identifying prospective buyers, and helping with transaction documentation.' },
+      { q: 'How do you safeguard residential flats or offices where permanent guarding isn’t cost-effective?', a: 'We provide scheduled periodic site inspections by our field officers who submit monthly status reports to the bank. If any unauthorized activity or attempt at trespass occurs, it is flagged immediately. We also coordinate insurance coverage.' }
     ],
 
     cta: {
-      heading: 'Coordinate Your SARFAESI Enforcement Under One Process',
-      subheading: 'Request a SARFAESI enforcement walkthrough for your secured asset portfolio.',
-      buttonText: 'Request Empanelment Proposal',
+      heading: 'Unlock Value from Stressed Assets and NPAs',
+      subheading: 'Transition your secured portfolio from default to successful liquidation with India’s leading recovery specialists.',
+      buttonText: 'Request SARFAESI Empanelment Proposal',
       href: '/contact'
     }
   },
@@ -206,8 +210,8 @@ export const legalContent = {
   'possession-support': {
     eyebrow: 'Physical & Symbolic Possession Coordination',
     title: 'Possession Support',
-    subtitle: 'Executing Possession Orders With Authority Coordination and a Defensible Record',
-    description: 'Executing possession orders safely, with authority coordination and a defensible record.',
+    subtitle: 'Physical Enforcement Under Sections 13(4) and 14 of the SARFAESI Act',
+    description: 'Assisting lenders in executing symbolic and physical possessions of secured assets under local authority and judicial order coordination.',
     primaryCtaText: 'Request a Possession Support Walkthrough',
     secondaryCtaText: 'Download Possession Protocols',
 
@@ -219,9 +223,9 @@ export const legalContent = {
     ],
 
     overview: {
-      heading: 'Why Possession Execution Needs Its Own Discipline',
-      subheading: 'A Court Order Authorizes the Action. Execution Determines Whether It Holds Up.',
-      summary: 'A District Magistrate warrant grants the legal authority to take possession, but the execution itself — how it’s coordinated, documented, and secured — determines whether that possession holds up if challenged. Possession Support manages this execution layer: liaising with police and local authorities, documenting the action on video, cataloging every item inside the property, and securing it afterward. SM Associates structures this around a documented field protocol, so every possession produces a defensible record, not just a completed action.',
+      heading: 'Physical Asset Enforcement: Lawful Securing of Secured Collateral',
+      subheading: 'Executing Magistrate Orders Under Section 14 of the SARFAESI Act',
+      summary: 'Taking physical control of defaulted collateral is the most critical step in foreclosure. Possession Support assists lenders in executing symbolic and physical possessions under Sections 13(4) and 14 of the SARFAESI Act. SM Associates coordinates with local police, arranges locksmiths and ex-Defence security guards, prepares the mandatory Panchnama and detailed inventory documents, and records the entire operation on video. By acting as the operational link between court orders and ground enforcement, we secure assets cleanly, protecting lenders from procedural liabilities.',
       outcomes: [
         { title: 'Authority-Coordinated Execution', desc: 'Police and local authority presence is arranged before the possession action, not improvised on-site.' },
         { title: 'Documented Inventory', desc: 'Every item inside the property is logged before sealing.' },
@@ -236,7 +240,7 @@ export const legalContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -308,8 +312,8 @@ export const legalContent = {
   'legal-coordination': {
     eyebrow: 'Court & Advocate Liaison Desk',
     title: 'Legal Coordination',
-    subtitle: 'Synchronizing Court Filings and Advocate Networks Under One Tracking Layer',
-    description: 'Synchronizing court filings and advocate networks under one centralized tracking layer.',
+    subtitle: 'Advocate Panel Liaison & Court Case Milestone Tracking',
+    description: 'Tracking litigation stages (DRT, Section 138, Arbitration) and coordinating advocate panels under unified operational SLA benchmarks.',
     primaryCtaText: 'Request a Legal Coordination Walkthrough',
     secondaryCtaText: 'Download Coordination Flowcharts',
 
@@ -321,9 +325,9 @@ export const legalContent = {
     ],
 
     overview: {
-      heading: 'Why Centralized Litigation Coordination Matters',
-      subheading: 'Tracking Court Cases Shouldn’t Depend on Waiting for an Advocate’s Update',
-      summary: 'Recovery litigation often moves at the pace of whichever advocate is handling it, with lenders left waiting for updates rather than tracking progress themselves. Legal Coordination centralizes this — registering cases, briefing advocates with standardized documentation, and tracking hearing dates against a single case registry. SM Associates structures this around milestone-driven tracking, so lenders see litigation progress as it happens rather than reconstructing it after the fact.',
+      heading: 'Litigation Operations Management: Accelerating Legal Milestones',
+      subheading: 'Replacing Fragmented Legal Tracking with Documented Operational Control',
+      summary: 'Lenders often suffer from delayed recoveries because litigation stages (complaints, summons, warrants, hearings) are tracked manually across multiple panel advocates. Legal Coordination acts as an operational desk that tracks every court case against milestone benchmarks. We coordinate with advocates, ensure timely filings, and manage hearing calendars across DRTs, NCLTs, and civil courts. This operational discipline provides risk managers with a consolidated, auditable view of litigation progress, cutting cycle times and releasing provisioned capital.',
       outcomes: [
         { title: 'Centralized Case Registry', desc: 'Every active court case is tracked in one place, not scattered across advocate files.' },
         { title: 'Standardized Advocate Briefings', desc: 'Consistent documentation reduces filing delays caused by format mismatches.' },
@@ -338,7 +342,7 @@ export const legalContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -410,8 +414,8 @@ export const legalContent = {
   'litigation-support': {
     eyebrow: 'Evidentiary File Operations',
     title: 'Litigation Support',
-    subtitle: 'Making Sure a Case File Is Court-Ready Before It’s Filed',
-    description: 'Auditing case files for evidentiary gaps before they become court objections.',
+    subtitle: 'Pre-Filing Document Auditing & Evidentiary Dossier Assembly',
+    description: 'Auditing case files for evidentiary gaps (original deeds, notice proofs, registries) before formal court filings to prevent hearings delays.',
     primaryCtaText: 'Request a Litigation Support Walkthrough',
     secondaryCtaText: 'Download Litigation Readiness Checklist',
 
@@ -423,9 +427,9 @@ export const legalContent = {
     ],
 
     overview: {
-      heading: 'Why Pre-Filing Evidentiary Review Matters',
-      subheading: 'Court Objections Are Expensive. Catching Gaps Before Filing Is Not.',
-      summary: 'A case filed with missing original deeds, unverifiable notice delivery, or absent witness signatures invites the exact objections that delay or dismiss recovery litigation. Litigation Support audits the case file before it ever reaches court — cross-checking documents against what the court will actually require, sourcing missing items, and compiling a complete, court-admissible dossier. SM Associates structures this as a pre-filing discipline, so advocates file with confidence rather than discover gaps mid-hearing.',
+      heading: 'Evidentiary Pre-Filing Auditing: Eliminating Court-Stage Objections',
+      subheading: 'Ensuring Filing-Ready Dossiers Under Strict Legal Guidelines',
+      summary: 'Court complaints and SARFAESI actions are frequently delayed or dismissed due to easily preventable document gaps: missing original deeds, unverified signatures, or absent proof of notice delivery. Litigation Support audits the entire case file before it ever reaches court. Our team cross-checks documents against statutory court requirements, verifies titles at registry offices, and compiles a complete, court-admissible dossier. This pre-filing discipline ensures that advocates file with confidence, preventing avoidable court objections and speeding up case progression.',
       outcomes: [
         { title: 'Pre-Filing Gap Detection', desc: 'Evidentiary gaps are caught and resolved before the case ever reaches court.' },
         { title: 'Court-Admissible Dossiers', desc: 'Files are assembled to the standard the court will actually require.' },
@@ -440,7 +444,7 @@ export const legalContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -460,7 +464,7 @@ export const legalContent = {
       { id: 'gap-analysis', label: 'Gap Analysis', heading: 'Finding What’s Missing Before the Court Does', overview: 'Documents are cross-checked against court filing requirements.', activities: ['Cross-check against court requirements', 'Missing-item identification'], documents: [], risks: ['Undetected gaps surfacing later as court objections'], deliverable: 'Gap audit report.', benefit: 'Catches evidentiary deficiencies while there’s still time to fix them.' },
       { id: 'title-check', label: 'Title Verification', heading: 'Confirming the Property Title Is Sound', overview: 'Property title flow and encumbrances are verified at the registry.', activities: ['Registry cross-check', 'Encumbrance verification'], documents: ['Property title deeds'], risks: ['Disputed or unclear title history'], deliverable: 'Title verification note.', benefit: 'Confirms the mortgage security is valid before litigation proceeds.' },
       { id: 'evidence-assembly', label: 'Evidence Assembly', heading: 'Compiling the Court-Ready Dossier', overview: 'Missing items and witness signatures are collected and assembled.', activities: ['Missing item collection', 'Witness and affidavit coordination'], documents: [], risks: ['Incomplete dossier reaching the advocate'], deliverable: 'Evidentiary dossier.', benefit: 'Hands the advocate a complete, filing-ready package.' },
-      { id: 'custody', label: 'Document Custody', heading: 'Protecting Original Documents Throughout', overview: 'Original files are handled under a strict chain-of-custody protocol.', activities: ['Custody logging', 'Digital archival'], documents: [], risks: ['Loss or damage to irreplaceable originals'], deliverable: 'Custody and archival log.', benefit: 'Protects original documents while the audit is underway.' },
+      { id: 'custody', label: 'Document Custody', heading: 'Protecting Original Documents Throughout', overview: 'Original files are handled under a strict chain-of-custody protocol.', activities: ['Custody logging', 'Digital archival'], documents: [], risks: ['Loss or damage to irreplaceable originals'], deliverable: 'Custody and archival log.', benefit: 'Protects original documents while the audit is under way.' },
       { id: 'handoff', label: 'Filing Handoff', heading: 'Delivering the Dossier to the Advocate', overview: 'The completed, audited dossier is handed over for filing.', activities: ['Dossier handoff', 'Filing acknowledgement'], documents: [], risks: ['Handoff gaps losing dossier completeness'], deliverable: 'Filing acknowledgement record.', benefit: 'Ensures the advocate files with a complete, audited case file.' }
     ],
 
@@ -492,7 +496,7 @@ export const legalContent = {
       { title: 'Faster Case Progression', desc: 'Complete dossiers reduce the back-and-forth that incomplete filings cause.', value: 'Cases move through the court process more predictably.' },
       { title: 'Protected Original Documents', desc: 'Chain-of-custody protocols protect irreplaceable case evidence.', value: 'Reduced risk of losing or damaging critical original documents.' },
       { title: 'Stronger Title Position', desc: 'Verified property titles give litigation a sound evidentiary foundation.', value: 'Fewer cases undermined by unresolved title disputes.' },
-      { title: 'Reliable Witness Availability', desc: 'Coordinated witness management ensures testimony is available when needed.', value: 'Cases retain evidentiary strength through the hearing process.' },
+      { title: 'Coordinated Witness Availability', desc: 'Systematic witness management ensures testimony is available when needed.', value: 'Cases retain evidentiary strength through the hearing process.' },
       { title: 'Stronger Compliance Position', desc: 'Consistent custody and audit documentation reduces regulatory exposure.', value: 'Reduced institutional risk during compliance review.' }
     ],
 

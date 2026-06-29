@@ -2,13 +2,13 @@ export const verificationContent = {
   'cpv-services': {
     eyebrow: 'Pre-Disbursal Risk Intelligence',
     title: 'Customer Personal Verification (CPV)',
-    subtitle: 'Independent, On-Ground Verification for Confident Credit Decisions',
-    description: 'Authenticating an applicant’s identity, residence, and employment with field-verified evidence before disbursement.',
+    subtitle: 'Independent On-Ground KYC & Underwriting-Grade Profile Authentication',
+    description: 'Implementing rigorous field-level controls and Customer Due Diligence (CDD) under RBI Master Directions on KYC to validate credit applicant profiles before risk exposure.',
     primaryCtaText: 'Request a CPV Process Walkthrough',
     secondaryCtaText: 'Download CPV Documentation Standards',
 
     problemStatement: [
-      { icon: 'fingerprint', title: 'Identity Fraud', desc: 'Applicants present identity documents that don’t correspond to a real, verifiable individual.' },
+      { icon: 'fingerprint', title: 'Identity Fraud', desc: 'Applicants present identity documents that do not correspond to a real, verifiable individual.' },
       { icon: 'briefcase', title: 'Fake Employment', desc: 'Declared employer or designation is fabricated, or the workplace is a shell entity.' },
       { icon: 'mapPin', title: 'Address Mismatch', desc: 'The declared residential address is inaccurate, vacant, or non-existent.' },
       { icon: 'fileWarning', title: 'Documentation Fraud', desc: 'Submitted documents are altered, forged, or do not match the physical originals.' },
@@ -17,9 +17,9 @@ export const verificationContent = {
     ],
 
     overview: {
-      heading: 'Why Personal Verification Comes Before the Credit Decision',
-      subheading: 'Application Data Is a Claim. Verification Is the Evidence.',
-      summary: 'Loan and credit applications are built on applicant-supplied information — address, employer, income, identity documents. Before that information becomes the basis of a credit decision, it needs independent confirmation. Customer Personal Verification exists to close that gap: a field officer physically confirms that the applicant lives where they say, works where they say, and holds the identity documents they’ve presented. SM Associates structures this verification around documented field protocols, neighbor and colleague corroboration, and a standardized reporting format that underwriting teams can act on directly, without needing to interpret raw field notes.',
+      heading: 'The Importance of Ground-Truth Verification in Lending Governance',
+      subheading: 'Mitigating Conduct Risk and Loan Defaults at the Onboarding Stage',
+      summary: 'Under the RBI Master Direction on Know Your Customer (KYC) and AML frameworks, Customer Due Diligence (CDD) requires regulated entities to perform robust, independent verification of customer credentials. Customer Personal Verification (CPV) serves as the primary on-ground operational control to authenticate self-declared applicant profiles. SM Associates deploys trained, DRA-certified field coordinators to physically verify residential addresses, confirm active corporate employment, and check original KYC documents. This ground-truth audit serves as a critical pre-disbursal gate, filtering out synthetic identities, fictitious employers, and fraudulent paperwork to secure the portfolio from day one.',
       outcomes: [
         { title: 'Independent Confirmation', desc: 'Replaces reliance on applicant-declared data with on-ground evidence.' },
         { title: 'Structured Reporting', desc: 'Findings delivered in a consistent format the credit team can act on directly.' },
@@ -34,7 +34,7 @@ export const verificationContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -64,7 +64,7 @@ export const verificationContent = {
       { title: 'Fake Documentation', desc: 'Submitted documents are altered, forged, or do not match the physical originals.', warningBadge: 'Document Risk', impact: 'Underwriting decisions are made on falsified evidence, undermining the credit file’s integrity.' },
       { title: 'Incorrect Address', desc: 'The declared residential address is inaccurate, vacant, or non-existent.', warningBadge: 'Traceability Risk', impact: 'Post-disbursement collections and recovery become significantly harder once an applicant cannot be located.' },
       { title: 'Employment Misrepresentation', desc: 'Declared employer or designation is fabricated, or the workplace is a shell entity.', warningBadge: 'Repayment Risk', impact: 'The repayment-capacity assumption underlying the credit decision is invalid from the outset.' },
-      { title: 'Credit Risk', desc: 'Unverified applicant data flows directly into credit scoring without ground confirmation.', warningBadge: 'Scoring Risk', impact: 'Risk models are only as reliable as their inputs — unverified inputs degrade portfolio quality over time.' },
+      { title: 'Credit Risk', desc: 'Unverified applicant data flows directly into credit scoring without ground confirmation.', warningBadge: 'Scoring Risk', impact: 'Risk models are only as robust as their verified inputs — unverified inputs degrade portfolio quality over time.' },
       { title: 'Compliance Issues', desc: 'Verification conducted without structured protocols can itself create regulatory exposure.', warningBadge: 'Regulatory Risk', impact: 'Institutions inherit reputational and regulatory risk from how verification was performed.' }
     ],
 
@@ -106,8 +106,8 @@ export const verificationContent = {
   'residence-verification': {
     eyebrow: 'On-Ground Address Verification',
     title: 'Residence Verification',
-    subtitle: 'Physical Confirmation of Applicant Address and Occupancy',
-    description: 'Confirming an applicant actually lives where they say, through a physical field visit and document checks.',
+    subtitle: 'Physical Address Authentication & Occupancy Governance',
+    description: 'Executing documented doorstep audits to confirm occupancy, residential stability, and contactability, reducing downstream collection risk and regulatory exposure.',
     primaryCtaText: 'Request a Residence Verification Walkthrough',
     secondaryCtaText: 'Download Residence Verification Standards',
 
@@ -119,9 +119,9 @@ export const verificationContent = {
     ],
 
     overview: {
-      heading: 'Why Physical Address Confirmation Comes Before Disbursement',
-      subheading: 'A Mailing Address Is Not Proof of Residence',
-      summary: 'Application forms record a declared address, but a declared address is only as reliable as the applicant’s honesty. Residence Verification closes that gap with a physical site visit: a field officer confirms the applicant lives at the stated address, corroborates occupancy with neighbors or the building manager, and checks the underlying address-proof documents against what’s actually on the ground. SM Associates structures this around a documented visit protocol and a standardized report format so underwriting teams receive a decision-ready finding, not raw field notes.',
+      heading: 'Doorstep Address Auditing: Securing Last-Mile Contactability',
+      subheading: 'Mitigating Post-Disbursal Traceability Gaps Under RBI Fair Practice Codes',
+      summary: 'While utility bills and tenancy agreements establish a paper trail, they do not guarantee physical residence or borrower stability. Residence Verification serves as an essential credit risk control. SM Associates conducts structured on-site visits to confirm occupancy, independently verify tenure with neighbors, check municipal boundaries, and collect geo-tagged telemetry. This disciplined fieldwork complies with the RBI Fair Practices Code, ensuring the lender has a verified, legally valid physical coordinate for collections or legal notice serving throughout the lending lifecycle.',
       outcomes: [
         { title: 'Independent Confirmation', desc: 'Replaces a self-declared address with on-ground evidence of actual occupancy.' },
         { title: 'Structured Reporting', desc: 'Findings delivered in a consistent format the credit team can act on directly.' },
@@ -136,7 +136,7 @@ export const verificationContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -145,7 +145,7 @@ export const verificationContent = {
       { title: 'Doorstep Occupancy Confirmation', desc: 'Face-to-face confirmation that the applicant actually resides at the declared address.', bullets: ['On-site visit to the declared residential address', 'Confirmation of household composition and stay duration', 'Identification of vacant, non-existent, or mismatched addresses'], businessOutcome: 'Confirms resident stability and reduces the risk of an unreachable applicant post-disbursement.' },
       { title: 'Neighbor & Local Corroboration', desc: 'Independent confirmation of the applicant’s residence from people who would know.', bullets: ['Discreet inquiries with neighbors or the building manager', 'Cross-validation of stay-duration claims', 'Flagging of residences no local contact can corroborate'], businessOutcome: 'Adds a second, independent layer of address confirmation beyond the visit itself.' },
       { title: 'Ownership & Tenancy Validation', desc: 'Confirming whether the applicant owns or rents, and verifying the underlying status.', bullets: ['Checking property ownership registry or rental agreement', 'Confirming applicant name matches occupancy records', 'Identifying informal or undocumented occupancy arrangements'], businessOutcome: 'Clarifies the applicant’s actual residential standing rather than relying on self-declaration.' },
-      { title: 'Address-Proof Document Check', desc: 'Checking the supporting paperwork against what’s observed on-site.', bullets: ['Physical inspection of utility bills, rent agreements, or property documents', 'Checks for inconsistent formatting or mismatched details', 'Confirmation that submitted copies match what exists on the ground'], businessOutcome: 'Closes the gap between a document being submitted and an address being real.' },
+      { title: 'Address-Proof Document Check', desc: 'Checking the supporting paperwork against what’s observed on-site.', bullets: ['Physical inspection of utility bills, rent agreements, or property documents', 'Checks for inconsistent formatting or altered details', 'Confirmation that submitted copies match what exists on the ground'], businessOutcome: 'Closes the gap between a document being submitted and an address being real.' },
       { title: 'Geotagged Visit Evidence', desc: 'Recording the visit itself as part of the verifiable record.', bullets: ['Timestamped photography of the residence exterior and entrance', 'Visit logged against the declared address coordinates', 'Evidence retained as part of the verification report'], businessOutcome: 'Gives underwriting teams a verifiable record of the visit, not just a written conclusion.' },
       { title: 'Address Risk Flagging', desc: 'Translating field findings into an underwriting-ready risk read.', bullets: ['Consolidation of occupancy, ownership, and document findings', 'Flagging of discrepancies between declared and verified address details', 'Structured risk commentary for the credit decisioning team'], businessOutcome: 'Gives underwriters a field-grounded view of address risk, not just a desk review.' }
     ],
@@ -208,8 +208,8 @@ export const verificationContent = {
   'office-verification': {
     eyebrow: 'Employment & Workplace Verification',
     title: 'Office Verification',
-    subtitle: 'Confirming the Applicant’s Employer and Workplace Are Real',
-    description: 'Confirming an applicant’s declared employer and workplace are real and active before disbursement.',
+    subtitle: 'Employment Credentialing & Employer Legitimacy Audits',
+    description: 'On-site workplace checks, HR payroll verifications, and corporate registry audits to confirm genuine employment, tenure, and repayment capacity.',
     primaryCtaText: 'Request an Office Verification Walkthrough',
     secondaryCtaText: 'Download Office Verification Standards',
 
@@ -221,9 +221,9 @@ export const verificationContent = {
     ],
 
     overview: {
-      heading: 'Why Confirming Employment Comes Before the Credit Decision',
-      subheading: 'A Salary Slip Is a Claim. A Workplace Visit Is the Evidence.',
-      summary: 'Employment is the foundation of a borrower’s repayment capacity, yet it’s usually confirmed only on paper — a salary slip, an offer letter, an HR phone number provided by the applicant. Office Verification closes that gap with a physical visit to the declared workplace, direct confirmation with HR or a supervisor, and a check of the company’s registered existence. SM Associates structures this around a documented field protocol and a standardized report, so underwriting teams get a decision-ready finding rather than a phone call that may or may not have reached a real employer.',
+      heading: 'Corporate Workplace Auditing: Protecting Lending Capital from Profile Fraud',
+      subheading: 'Verifying Income Sources and Employment Stability',
+      summary: 'Borrower repayment capacity is the core underwriting anchor, yet salary slips and employer contact numbers can be easily manipulated. Office Verification establishes employer legitimacy through physical inspections. Our field officers conduct on-site workplace visits, verify tenure and designation with HR managers, and cross-reference business names against MCA and GST registries. This process isolates shell companies and fabricated salary structures, ensuring credit decisions are grounded in real, stable cash flows rather than unverified credit claims.',
       outcomes: [
         { title: 'Independent Confirmation', desc: 'Replaces a self-declared employer with on-ground evidence of an active workplace.' },
         { title: 'Structured Reporting', desc: 'Findings delivered in a consistent format the credit team can act on directly.' },
@@ -238,7 +238,7 @@ export const verificationContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -310,8 +310,8 @@ export const verificationContent = {
   'business-verification': {
     eyebrow: 'SME & Commercial Establishment Verification',
     title: 'Business Verification',
-    subtitle: 'Confirming the Applicant’s Business Actually Operates',
-    description: 'Confirming a commercial loan applicant’s premises, inventory, and registered status are genuine.',
+    subtitle: 'Commercial Establishment & SME Operational Audits',
+    description: 'Physical verification of operating business premises, stock valuation, GSTIN conformity, and trade references for commercial and SME credit underwriting.',
     primaryCtaText: 'Request a Business Verification Walkthrough',
     secondaryCtaText: 'Download Business Verification Standards',
     problemStatement: [
@@ -322,9 +322,9 @@ export const verificationContent = {
     ],
 
     overview: {
-      heading: 'Why On-Site Business Confirmation Comes Before Disbursement',
-      subheading: 'A GST Certificate Is a Claim. An Operating Premises Is the Evidence.',
-      summary: 'Commercial loan applications are built on registration certificates and self-reported business details. Business Verification closes the gap between paperwork and ground reality: a field officer visits the business premises, confirms active operations, reviews inventory and machinery on-site, and cross-checks trade registrations. SM Associates structures this around a documented field protocol and a standardized report, so credit teams get a decision-ready finding rather than a registration certificate that may or may not reflect a real, operating business.',
+      heading: 'Commercial Site Audits: Confirming SME Operational Footprints',
+      subheading: 'Validating Working Capital Scale and Business Legitimacy',
+      summary: 'SME lending requires underwriting against real business operations, inventory, and cash flow. Business Verification provides a comprehensive on-site operational assessment. SM Associates conducts physical factory or retail site visits, performs physical stock and inventory audits, checks trade references, and cross-checks GSTIN, MSME, and trade licenses against regulatory databases. This ground-level diligence ensures that credit limits and working capital lines are calibrated against genuine business scale, preventing exposure to non-operational shell firms.',
       outcomes: [
         { title: 'Independent Confirmation', desc: 'Replaces self-reported business details with on-ground evidence of active operations.' },
         { title: 'Structured Reporting', desc: 'Findings delivered in a consistent format the credit team can act on directly.' },
@@ -339,7 +339,7 @@ export const verificationContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -411,8 +411,8 @@ export const verificationContent = {
   'document-verification': {
     eyebrow: 'KYC & Collateral Document Authentication',
     title: 'Document Verification',
-    subtitle: 'Confirming Submitted Documents Are Genuine, Not Just Present',
-    description: 'Cross-checking identity, property, and income documents against registries to catch forgery.',
+    subtitle: 'KYC Registry Auditing & Collateral Title Verification',
+    description: 'Deep cross-checking of KYC, income, and property documents against government databases and physical originals to prevent synthetic document fraud.',
     primaryCtaText: 'Request a Document Verification Walkthrough',
     secondaryCtaText: 'Download Document Verification Standards',
 
@@ -424,9 +424,9 @@ export const verificationContent = {
     ],
 
     overview: {
-      heading: 'Why Document Authentication Comes Before the Credit Decision',
-      subheading: 'A Submitted Document Is Not the Same as a Genuine One',
-      summary: 'Identity, income, and collateral documents are usually reviewed as digital copies, which can hide tampering a physical inspection would catch immediately. Document Verification closes that gap: identity and property records are cross-checked against their underlying registries, and original documents are physically inspected alongside the copies submitted with the application. SM Associates structures this around a documented protocol and a standardized report, so credit teams receive a decision-ready authenticity finding, not just a confirmation that paperwork exists.',
+      heading: 'Document Integrity & Fraud Mitigation in Loan Origination',
+      subheading: 'Advanced Registry Checks and Physical Original Comparison',
+      summary: 'Digital copy submissions are highly vulnerable to digital alteration and image manipulation. Document Verification establishes a robust authenticity chain. SM Associates cross-checks KYC records directly against Central Identity registries, verifies property title deeds and encumbrances at local sub-registrar offices, and performs physical original-document inspections. This dual-layer review provides the credit risk team with a verified, legally sound dossier, securing the lender’s collateral position before capital disbursement.',
       outcomes: [
         { title: 'Independent Confirmation', desc: 'Replaces a desk review of copies with registry cross-checks and original-document inspection.' },
         { title: 'Structured Reporting', desc: 'Findings delivered in a consistent format the credit team can act on directly.' },
@@ -441,7 +441,7 @@ export const verificationContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
       { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
       { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
@@ -468,10 +468,10 @@ export const verificationContent = {
     challengesHeading: 'Enterprise Document Verification Risks',
     challenges: [
       { title: 'Forged Property Title Deeds', desc: 'Applicants submitting forged parent deeds, fake patta copies, or encumbrance certificates.', warningBadge: 'Property Risk', impact: 'Collateral security backing the loan may not actually be valid.' },
-      { title: 'Income Log Manipulation', desc: 'Altered bank statements or tax filings submitted to inflate declared income.', warningBadge: 'Income Risk', impact: 'Repayment-capacity assumptions are built on falsified figures.' },
+      { title: 'Income Log Manipulation', desc: 'Altered bank statements or tax filings submitted to overstate income.', warningBadge: 'Income Risk', impact: 'Repayment-capacity assumptions are built on falsified figures.' },
       { title: 'Identity Document Forgery', desc: 'Identity proofs altered or fabricated to support a credit application.', warningBadge: 'Identity Risk', impact: 'The credit file may be attached to an identity that isn’t genuine.' },
       { title: 'Registry Mismatch', desc: 'Submitted documents that don’t match what official registries show.', warningBadge: 'Verification Risk', impact: 'A desk review alone can miss a registry-level discrepancy.' },
-      { title: 'Undetected Copy Alteration', desc: 'Digital copies can hide tampering that only an original-document inspection would catch.', warningBadge: 'Document Risk', impact: 'Fraud passes through a copy-only review undetected.' },
+      { title: 'Undetected Copy Alteration', desc: 'Digital copies can hide tampering that only an original-document inspection would catch.', warningBadge: 'Document Risk', impact: 'Forged documents pass through a copy-only review undetected.' },
       { title: 'Compliance Issues in Document Handling', desc: 'Handling sensitive KYC and collateral documents without structured custody protocols creates exposure.', warningBadge: 'Regulatory Risk', impact: 'Institutions inherit reputational and regulatory risk from document-handling practices.' }
     ],
 

@@ -2,8 +2,8 @@ export const investigationContent = {
   "due-diligence": {
     "eyebrow": "Pre-Transaction Risk Investigation",
     "title": "Due Diligence",
-    "subtitle": "Independent Investigation Before a Lending or Recovery Decision Is Made",
-    "description": "Conducting independent borrower, business, and asset investigation ahead of lending or recovery decisions.",
+    "subtitle": "Pre-Empanelment & Corporate Risk Diligence",
+    "description": "Comprehensive background investigations, promoter checks, and asset mappings to assess corporate default risk.",
     "primaryCtaText": "Request a Due Diligence Walkthrough",
     "secondaryCtaText": "Download Due Diligence Standards",
     "problemStatement": [
@@ -29,9 +29,9 @@ export const investigationContent = {
       }
     ],
     "overview": {
-      "heading": "Why Independent Investigation Comes Before the Decision, Not After",
-      "subheading": "A Declared Profile Is Not a Verified One",
-      "summary": "Major lending, recovery, or empanelment decisions are often made on the strength of self-declared information about a borrower, business, or counterparty. Due Diligence closes that gap with independent investigation — cross-checking registries, verifying business and asset claims, and surfacing undisclosed liabilities or disputes before the decision is finalized. SM Associates delivers this as a per-engagement investigation service for Banks, NBFCs, and ARCs who need a verified picture, not a declared one.",
+      "heading": "Promoter & Business Diligence: Preventing Corporate Lending Defaults",
+      "subheading": "Mitigating Onboarding Credit Risk through Independent Audits",
+      "summary": "Corporate and commercial lending requires deep verification of borrower character and financial capacity. Due Diligence conducts background checks on promoters, audits corporate structures, and maps commercial relationships. By analyzing registry filings, checking litigation records across NCLT/DRT forums, and conducting local market inquiries, we identify hidden stress, corporate shell setups, or promoter defaults. This risk intelligence informs empanelment and underwriting committees, protecting lending capital before credit exposure.",
       "outcomes": [
         {
           "title": "Independent Verification",
@@ -70,7 +70,7 @@ export const investigationContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -392,8 +392,8 @@ export const investigationContent = {
   "skip-tracing": {
     "eyebrow": "Borrower Location Intelligence",
     "title": "Skip Tracing",
-    "subtitle": "Re-Establishing Contact With Absconding and Hard-to-Reach Borrowers",
-    "description": "Re-establishing contact with absconding borrowers through structured digital and ground search.",
+    "subtitle": "Defaulted Borrower Location Tracing",
+    "description": "Locating untraceable, skipped borrowers and co-obligants through structured data intelligence and local field tracing.",
     "primaryCtaText": "Request a Skip Tracing Walkthrough",
     "secondaryCtaText": "Download Investigation Standards",
     "problemStatement": [
@@ -419,9 +419,9 @@ export const investigationContent = {
       }
     ],
     "overview": {
-      "heading": "Why Untraced Doesn’t Mean Unrecoverable",
-      "subheading": "A Cold Account Just Needs the Right Search Method",
-      "summary": "When a borrower stops responding and their last known address turns out to be invalid, many recovery processes simply stall. Skip Tracing treats this as a structured investigative problem rather than a dead end — cross-checking digital and registry databases, then verifying the most promising leads on the ground. SM Associates structures this around a documented search protocol and a standardized update format, so located borrowers translate into restarted recovery action, not just a found phone number.",
+      "heading": "Skip Tracing: Re-establishing Contact with Absent Borrowers",
+      "subheading": "Mitigating Portfolio Write-offs by Sourcing Relocated Borrowers",
+      "summary": "A significant portion of chronic NPAs is locked in \"skipped\" accounts where the borrower has relocated without updating contact details. Skip Tracing re-establishes contact through systematic field investigations and database analysis. Our tracing teams combine local inquiries, voter registry searches, and utility provider checks to locate the borrower's active residential or commercial coordinate. This field tracing respects borrower privacy while restoring communication channels, allowing the collections desk to resume recovery negotiations.",
       "outcomes": [
         {
           "title": "Structured Search Method",
@@ -460,7 +460,7 @@ export const investigationContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -782,8 +782,8 @@ export const investigationContent = {
   "address-tracing": {
     "eyebrow": "Skip-Tracing Logistics",
     "title": "Address Tracing & Skip-Tracing",
-    "subtitle": "Locating Relocated Defaulters Across Remote Districts",
-    "description": "Utilize ground verification networks and municipal database searches to locate absconding debtors and verify residential stability.",
+    "subtitle": "Unlocatable Address Verification",
+    "description": "Field-based investigations to locate and verify ambiguous, incomplete, or unlocatable addresses.",
     "primaryCtaText": "Request Operational Briefing",
     "secondaryCtaText": "Explore Service Standards",
     "primaryCtaHref": "/contact",
@@ -797,7 +797,7 @@ export const investigationContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -830,9 +830,9 @@ export const investigationContent = {
       }
     ],
     "overview": {
-      "heading": "Field Skip-Tracing Desk",
-      "subheading": "Structured Field & Administrative Operational Frameworks",
-      "summary": "Our ground taskforce cross-checks utility registries and conducts local inquiries to trace missing debtors.",
+      "heading": "Address Tracing: Clarifying Portfolio Location Coordinates",
+      "subheading": "Sourcing Physical Coordinates for Notices and Audits",
+      "summary": "Incomplete or outdated addresses prevent lenders from serving statutory demand notices, stalling recovery and foreclosure. Address Tracing deploys field investigators to locate ambiguous or unrecorded sites. By checking village maps, coordinating with local post offices, and interviewing local residents, we reconstruct and verify the exact physical coordinate. This operational mapping ensures notices and legal documents are served, establishing the statutory path for enforcement.",
       "outcomes": [
         {
           "title": "Geotagged Evidence Logs",
@@ -983,8 +983,8 @@ export const investigationContent = {
   "contact-verification": {
     "eyebrow": "Identity & Profile Forensics",
     "title": "Contact & Profile Verification",
-    "subtitle": "Validating Applicant Contactability and KYC Details",
-    "description": "Verify applicant phone numbers, alternative references, and contactability profiles prior to credit disbursal.",
+    "subtitle": "Customer Contactability Auditing",
+    "description": "Verifying applicant phone numbers, emails, and references to ensure active contactability under KYC guidelines.",
     "primaryCtaText": "Request Operational Briefing",
     "secondaryCtaText": "Explore Service Standards",
     "primaryCtaHref": "/contact",
@@ -998,7 +998,7 @@ export const investigationContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -1031,9 +1031,9 @@ export const investigationContent = {
       }
     ],
     "overview": {
-      "heading": "Contact Forensics Desk",
-      "subheading": "Structured Field & Administrative Operational Frameworks",
-      "summary": "We validate applicant telemetry and contactability through recorded tele-checks and digital verifications.",
+      "heading": "Contactability Auditing: Maintaining Active Borrower Connections",
+      "subheading": "Securing the Outreach Pipeline in Digital and Retail Lending",
+      "summary": "Digital lending guidelines place high emphasis on verifying borrower identity and maintaining clean communication lines. Contact Verification validates declared contact profiles. We perform digital checks, verify reference contacts, and conduct soft verification calls to confirm that phone numbers and email addresses are active and attached to the applicant. This audit protects lenders from fraudulent loan applications and ensures collections teams have direct, compliant channels if defaults occur.",
       "outcomes": [
         {
           "title": "Geotagged Evidence Logs",
@@ -1184,8 +1184,8 @@ export const investigationContent = {
   "fraud-investigation": {
     "eyebrow": "Forensic Fraud Risk Audits",
     "title": "Fraud Investigation",
-    "subtitle": "Exposing Document Tampering, Shell Networks, and Collusive Lending Schemes",
-    "description": "Exposing document tampering, shell networks, and collusive lending through forensic audit.",
+    "subtitle": "Lending Portfolio Fraud Auditing",
+    "description": "Investigating suspected lending fraud, document forgery rings, and promoter asset diversion schemes.",
     "primaryCtaText": "Request a Fraud Investigation Walkthrough",
     "secondaryCtaText": "Download Fraud Prevention Framework",
     "problemStatement": [
@@ -1211,9 +1211,9 @@ export const investigationContent = {
       }
     ],
     "overview": {
-      "heading": "Why Forensic Review Catches What a Standard Check Misses",
-      "subheading": "Lending Fraud Is a Pattern, Not a Single Red Flag",
-      "summary": "Individual elements of a fraudulent application can each look clean on their own — a registered company name, a property deed, a bank statement. Fraud Investigation looks at the pattern across all of them: cross-checking property registries for duplicate mortgages, physically inspecting business sites for genuine operations, and forensically reviewing documents for tampering. SM Associates structures this as a coordinated forensic audit, so fraud rings and schemes are surfaced as a connected pattern, not missed as isolated, individually-plausible details.",
+      "heading": "Forensic Fraud Investigation: Protecting Lenders from Coordinated Fraud",
+      "subheading": "Investigating Document Forgery and Fictitious Borrower Rings",
+      "summary": "Coordinated fraud rings manipulate KYC documents, salary records, and business registries to secure fraudulent disbursements. Fraud Investigation conducts forensic reviews of suspected loan files. We verify document details at source registries, audit workplace existence, and investigate promoter backgrounds for diversion patterns. This investigative reporting helps banks and NBFCs identify fraud loops, file regulatory complaints, and strengthen underwriting-stage controls to prevent future occurrences.",
       "outcomes": [
         {
           "title": "Cross-Registry Detection",
@@ -1252,7 +1252,7 @@ export const investigationContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",

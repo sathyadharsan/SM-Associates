@@ -16,7 +16,8 @@ import {
   Shield,
   Activity,
   FileCheck,
-  ChevronDown
+  ChevronDown,
+  Compass
 } from 'lucide-react';
 
 const fUp = {

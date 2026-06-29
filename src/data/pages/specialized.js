@@ -2,8 +2,8 @@ export const specializedContent = {
   "resolution-strategy": {
     "eyebrow": "Account-Level Resolution Strategy",
     "title": "Resolution Strategy",
-    "subtitle": "A Tailored Resolution Path for Each Account, Not a One-Size-Fits-All Process",
-    "description": "Designing a dedicated, account-level resolution path combining negotiated settlement and parallel legal action.",
+    "subtitle": "Tailored Stressed-Asset Resolution Plans",
+    "description": "Designing borrower-specific OTS frameworks, structural settlement plans, and parallel enforcement strategies.",
     "primaryCtaText": "Request a Resolution Strategy Walkthrough",
     "secondaryCtaText": "Download Resolution Approach Overview",
     "problemStatement": [
@@ -29,9 +29,9 @@ export const specializedContent = {
       }
     ],
     "overview": {
-      "heading": "Why a Dedicated Account Strategy Outperforms a Standard Process",
-      "subheading": "Some Accounts Settle. Some Need Escalation. Few Need Both at Once.",
-      "summary": "Not every delinquent account follows the same path to resolution — some respond to a negotiated settlement, others need SARFAESI pressure running in parallel to bring the borrower to the table. Resolution Strategy assigns a dedicated account-level team that investigates borrower and guarantor assets, negotiates settlements, and runs SARFAESI escalation in parallel when needed, rather than waiting for one approach to fail before trying another. SM Associates structures this as a tailored, escalation-ready engagement for accounts where a standard process isn’t converting.",
+      "heading": "Stressed Asset Resolution: Calibrating Recovery Approaches",
+      "subheading": "Maximizing Recoveries through Data-Driven Settlements",
+      "summary": "One-size-fits-all collections protocols are ineffective for high-value defaults. Resolution Strategy designs account-level recovery plans. We analyze borrower net worth, trace hidden assets, evaluate business cash flows, and formulate settlement (OTS) guidelines. By combining negotiated settlements with parallel legal pressure (SARFAESI or Section 138), we guide accounts toward resolution, maximizing value and minimizing cycle times.",
       "outcomes": [
         {
           "title": "Dedicated Account Ownership",
@@ -70,7 +70,7 @@ export const specializedContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -392,8 +392,8 @@ export const specializedContent = {
   "npa-management": {
     "eyebrow": "Single-Window NPA Resolution",
     "title": "NPA Management",
-    "subtitle": "One Accountable Partner Across the Entire NPA Lifecycle",
-    "description": "Bundling legal, recovery, valuation, security, and resolution under one accountable mandate.",
+    "subtitle": "One-Window NPA Portfolio Resolution",
+    "description": "Single-point execution of legal notices, field collection, asset possession, custody, valuation, and e-auctions.",
     "primaryCtaText": "Request an NPA Management Walkthrough",
     "secondaryCtaText": "Download One-Window Service Overview",
     "problemStatement": [
@@ -419,9 +419,9 @@ export const specializedContent = {
       }
     ],
     "overview": {
-      "heading": "Why a Single-Window Mandate Outperforms a Fragmented One",
-      "subheading": "One Accountable Partner Across Legal, Recovery, Valuation, and Security",
-      "summary": "Resolving a non-performing asset typically touches legal assistance, debt recovery, SARFAESI enforcement, valuation, security, investigation, sale, and settlement facilitation — each often handled by a different vendor. NPA Management bundles all of this under one accountable mandate, so the lender has a single point of contact for the entire NPA lifecycle rather than coordinating five or six separate relationships. SM Associates structures this as an integrated resolution plan with unified execution, drawing on the same capabilities already proven across our individual service lines.",
+      "heading": "NPA Lifecycle Resolution: Single-Window Execution",
+      "subheading": "Replacing Multi-Vendor Fragmentation with Coordinated Portfolio Recovery",
+      "summary": "Lenders lose significant recovery momentum when they manage separate vendors for notices, field visits, legal filings, repossessions, valuations, and auctions. NPA Management bundles the entire default resolution lifecycle under a single operational SLA. We manage the case file from default analysis to final monetization, ensuring absolute consistency, data compliance, and cycle-time velocity, which directly accelerates provision releases.",
       "outcomes": [
         {
           "title": "Single Accountable Partner",
@@ -460,7 +460,7 @@ export const specializedContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -678,7 +678,7 @@ export const specializedContent = {
         "title": "Inconsistent Reporting",
         "desc": "Different vendors reporting separately makes portfolio-level visibility difficult.",
         "warningBadge": "Visibility Risk",
-        "impact": "Lenders lack a single, reliable view of NPA resolution progress."
+        "impact": "Lenders lack a consolidated, auditable view of NPA resolution progress."
       },
       {
         "title": "Missed Settlement Windows",
@@ -725,7 +725,7 @@ export const specializedContent = {
           "step": "05",
           "title": "Consolidated Reporting",
           "desc": "Portfolio-level status is reported in one consolidated view.",
-          "outcome": "A single, reliable picture of resolution progress."
+          "outcome": "A consolidated, auditable picture of resolution progress."
         }
       ]
     },
@@ -744,7 +744,7 @@ export const specializedContent = {
       {
         "title": "Unified Portfolio Visibility",
         "desc": "Consolidated reporting replaces fragmented vendor reports.",
-        "value": "A single, reliable view of NPA resolution progress."
+        "value": "A consolidated, auditable view of NPA resolution progress."
       },
       {
         "title": "More Settlement Opportunities Captured",
@@ -782,8 +782,8 @@ export const specializedContent = {
   "portfolio-management": {
     "eyebrow": "Segmented Portfolio Recovery",
     "title": "Portfolio Management",
-    "subtitle": "Routing Every Account to the Right Recovery Channel, Not the Same One",
-    "description": "Segmenting and routing delinquent accounts to the recovery channel that fits.",
+    "subtitle": "Underwriting Risk & Delinquency Lifecycle Management",
+    "description": "Structured monitoring of retail and SME lending books to identify early delinquency and optimize recovery resources.",
     "primaryCtaText": "Request a Portfolio Management Walkthrough",
     "secondaryCtaText": "Download Portfolio Framework",
     "problemStatement": [
@@ -809,9 +809,9 @@ export const specializedContent = {
       }
     ],
     "overview": {
-      "heading": "Why Portfolio-Level Coordination Outperforms Account-by-Account Effort",
-      "subheading": "Not Every Delinquent Account Needs the Same Treatment",
-      "summary": "A portfolio of delinquent accounts isn’t uniform — some respond to a phone call, some need a field visit, and some are already past the point where legal action is the only path forward. Portfolio Management segments the book by risk and behavior signals, then routes each account to the channel most likely to resolve it, all under one coordinated operational SLA. SM Associates structures this with dedicated account oversight and regular performance reporting, so lenders see portfolio-level results, not just isolated case updates.",
+      "heading": "Portfolio Risk Management: Early Delinquency Detection",
+      "subheading": "Mitigating Loan-to-Value (LTV) Gaps and Provisioning Locks",
+      "summary": "Effective risk management requires continuous monitoring of credit portfolios to catch defaults in early buckets. Portfolio Management offers retail and commercial lending monitoring. We track repayment patterns, analyze LTV changes, and flag accounts entering early default. This risk classification helps collections desks focus on high-risk accounts, accelerating rollback rates and reducing transition to Stage-3 NPAs.",
       "outcomes": [
         {
           "title": "Risk-Based Segmentation",
@@ -850,7 +850,7 @@ export const specializedContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -1041,7 +1041,7 @@ export const specializedContent = {
           "Reporting that doesn’t reflect true portfolio status"
         ],
         "deliverable": "Final portfolio status report.",
-        "benefit": "Gives the lender clear, reliable portfolio-level insight."
+        "benefit": "Gives the lender transparent, auditable portfolio-level insight."
       }
     ],
     "challengesHeading": "Enterprise Portfolio Management Risks",
@@ -1172,8 +1172,8 @@ export const specializedContent = {
   "npa-recovery": {
     "eyebrow": "Non-Performing Asset Resolution",
     "title": "NPA Recovery",
-    "subtitle": "Resolving Non-Performing Assets Through Coordinated Legal and Asset Action",
-    "description": "Resolving non-performing assets through coordinated legal notice and possession action.",
+    "subtitle": "Cash-Recovery Campaign Execution",
+    "description": "Executing targeted field-recovery and OTS negotiation campaigns for corporate and retail default portfolios.",
     "primaryCtaText": "Request an NPA Recovery Walkthrough",
     "secondaryCtaText": "Download Foreclosure Guides",
     "problemStatement": [
@@ -1199,9 +1199,9 @@ export const specializedContent = {
       }
     ],
     "overview": {
-      "heading": "Why NPA Resolution Needs a Coordinated, Sequenced Process",
-      "subheading": "Notice, Possession, and Auction Are Connected Steps, Not Separate Projects",
-      "summary": "Resolving a non-performing asset moves through statutory notice, possession, and liquidation — and a delay or gap at any one stage stalls the rest. NPA Recovery coordinates this full sequence: legal notice enforcement, District Magistrate petition coordination, physical possession execution, secure custody, and auction support. SM Associates structures this around documented, tracked execution at each stage, so provisioning capital gets released as quickly as the statutory process allows.",
+      "heading": "NPA Cash Recovery: Accelerating Provision Releases",
+      "subheading": "Deploying Targeted Teams to Secure Cash Resolutions",
+      "summary": "Transitioning Stage-3 assets into recovered cash is essential to restore capital adequacy ratios. NPA Recovery executes focused on-ground recovery campaigns. Our teams engage defaulted borrowers, conduct OTS settlement meetings, and collect dues. By aligning field activity with regulatory compliance (RBI Fair Practice Codes), we convert non-yielding NPAs back into active cash assets, directly releasing capital reserves and improving bank profitability.",
       "outcomes": [
         {
           "title": "Sequenced Resolution",
@@ -1240,7 +1240,7 @@ export const specializedContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -1562,8 +1562,8 @@ export const specializedContent = {
   "recovery-analytics": {
     "eyebrow": "Recovery Data Intelligence",
     "title": "Recovery Analytics",
-    "subtitle": "Directing Recovery Effort Using Behavior Data, Not Guesswork",
-    "description": "Directing recovery effort using borrower behavior data instead of guesswork.",
+    "subtitle": "Data-Driven Delinquency Segmentation & Scoring",
+    "description": "Utilizing historical collection data and behavior scoring to optimize field route planning and contact propensity.",
     "primaryCtaText": "Request a Recovery Analytics Walkthrough",
     "secondaryCtaText": "View Sample Analytics Format",
     "problemStatement": [
@@ -1589,9 +1589,9 @@ export const specializedContent = {
       }
     ],
     "overview": {
-      "heading": "Why Behavior Data Changes How Recovery Campaigns Perform",
-      "subheading": "Not Every Account Is Worth the Same Recovery Effort",
-      "summary": "Recovery campaigns improve when effort is directed by data, not spread evenly across every account. Recovery Analytics builds settlement-propensity models from borrower behavior signals, optimizes field-visit routing to reduce wasted travel, and delivers results through a synced operational dashboard. SM Associates structures this as a data layer that plugs into existing collections and field operations, sharpening where effort goes rather than replacing the operations themselves.",
+      "heading": "Collections Intelligence: Analytics-Led Recovery Allocation",
+      "subheading": "Using Behavior Propensity to Direct Field Resources",
+      "summary": "Unoptimized collection efforts result in high costs and low yields. Recovery Analytics utilizes historical payment telemetry to score accounts based on repayment propensity. We segment the portfolio into automated calling, soft field outreach, or hard legal escalation tracks. This data-driven strategy directs field teams to high-propensity accounts and optimizes travel routes, cutting operational overhead while increasing collection velocity.",
       "outcomes": [
         {
           "title": "Propensity-Driven Targeting",
@@ -1630,7 +1630,7 @@ export const specializedContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -1741,7 +1741,7 @@ export const specializedContent = {
           "Analysis built on incomplete or inconsistent data"
         ],
         "deliverable": "Active data log.",
-        "benefit": "Establishes a reliable data foundation for analysis."
+        "benefit": "Establishes a validated, secure data foundation for analysis."
       },
       {
         "id": "behavior-scoring",
@@ -1871,7 +1871,7 @@ export const specializedContent = {
           "step": "01",
           "title": "Data Ingestion",
           "desc": "Portfolio data is ingested securely for analysis.",
-          "outcome": "A reliable data foundation ready for scoring."
+          "outcome": "A validated data foundation ready for scoring."
         },
         {
           "step": "02",
@@ -1952,8 +1952,8 @@ export const specializedContent = {
   "recovery-consulting": {
     "eyebrow": "Risk & Recovery Advisory",
     "title": "Recovery Strategy Consulting",
-    "subtitle": "Designing the Process Before Outsourcing the Execution",
-    "description": "Reviewing and redesigning recovery processes before execution is scaled or outsourced.",
+    "subtitle": "Recovery SOP Design & Compliance Auditing",
+    "description": "Advising bank and NBFC risk committees on recovery policy restructuring, vendor audit frameworks, and compliance.",
     "primaryCtaText": "Request a Recovery Strategy Consulting Discussion",
     "secondaryCtaText": "View Advisory Framework",
     "problemStatement": [
@@ -1979,9 +1979,9 @@ export const specializedContent = {
       }
     ],
     "overview": {
-      "heading": "Why Process Design Comes Before Scaling Recovery Operations",
-      "subheading": "Outsourcing Execution Doesn’t Fix a Broken Process — It Scales It",
-      "summary": "Lenders often look to outsource calling or field operations before addressing whether the underlying process — scripts, vendor oversight, compliance alignment — is actually sound. Recovery Strategy Consulting reviews recovery SOPs, audits vendor management practices, and aligns operations with RBI Fair Practices Code expectations before execution scales. SM Associates brings this perspective from decades of operating recovery functions directly, so the advice reflects what actually works on the ground, not just policy theory.",
+      "heading": "Recovery Policy Auditing: Building Robust Risk Governance",
+      "subheading": "Designing Compliant Operating Frameworks for BFSI Regulators",
+      "summary": "Regulated entities must ensure their recovery policies and vendor networks comply with evolving regulatory codes. Recovery Consulting provides policy design and process audit support. We review existing recovery SOPs, draft collections scripts to align with RBI's draft 2026 conduct rules, and design vendor audit frameworks. This consulting alignment ensures lenders maintain high compliance marks and are fully prepared for regulatory audits.",
       "outcomes": [
         {
           "title": "Process-First Review",
@@ -2020,7 +2020,7 @@ export const specializedContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",
@@ -2039,7 +2039,7 @@ export const specializedContent = {
         "desc": "Reviewing and redesigning standard operating procedures for recovery functions.",
         "bullets": [
           "Current-state SOP review",
-          "Gap identification against best practice",
+          "Gap identification against industry standards",
           "Redesigned, documented procedures"
         ],
         "businessOutcome": "Gives the recovery function a sound, documented process foundation."
@@ -2137,7 +2137,7 @@ export const specializedContent = {
         "id": "audit-diagnostic",
         "label": "Audit Diagnostic",
         "heading": "Identifying Specific Process Gaps",
-        "overview": "Documents and processes are assembled and cross-checked against best practice.",
+        "overview": "Documents and processes are assembled and cross-checked against industry benchmarks.",
         "activities": [
           "Document and process compilation",
           "Gap identification against standards"
@@ -2266,7 +2266,7 @@ export const specializedContent = {
         {
           "step": "02",
           "title": "Audit Diagnostic",
-          "desc": "Specific gaps are identified against best practice and regulatory expectations.",
+          "desc": "Specific gaps are identified against industry standards and regulatory expectations.",
           "outcome": "A concrete list of issues to address."
         },
         {
@@ -2357,7 +2357,7 @@ export const specializedContent = {
       {
         "icon": "users",
         "title": "DRA Certified Field Force",
-        "value": "916+ Officers"
+        "value": "1,000+ Officers"
       },
       {
         "icon": "shield",

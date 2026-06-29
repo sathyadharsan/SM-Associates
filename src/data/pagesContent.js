@@ -26,9 +26,9 @@ export const pagesContent = {
     title: 'Two Decades of Risk Operations Excellence',
     description: 'Since our establishment in Y2K, we have built trusted recovery infrastructure for nationalized banks, NBFCs, and financial institutions across South India.',
     stats: [
-      { value: '[YEARS OF EXPERIENCE]+', label: 'Years of Standing' },
-      { value: '[TOTAL STAFF COUNT]+', label: 'Trained Professionals' },
-      { value: '[BRANCH COUNT]+', label: 'Regional Branches' }
+      { value: '25+', label: 'Years of Standing' },
+      { value: '1,000+', label: 'Trained Professionals' },
+      { value: '19', label: 'Regional Branches' }
     ],
     challenges: [
       { title: 'Portfolio Complexity', desc: 'Managing diverse loan products (retail, agricultural, corporate) requires localized expertise and deep operational scale.' },
@@ -36,7 +36,7 @@ export const pagesContent = {
       { title: 'Logistical Friction', desc: 'Executing physical collections and asset repossessions across remote districts causes high operational delay times.' }
     ],
     solutions: [
-      { title: 'Decentralized Footprint', desc: 'A network of [BRANCH COUNT] regional branches ensures immediate ground mobilization and local liaising.' },
+      { title: 'Decentralized Footprint', desc: 'A network of 19 regional branches ensures immediate ground mobilization and local liaising.' },
       { title: 'DRA Training Academy', desc: 'Every collections representative is fully DRA-certified and vetted before dispatch.' },
       { title: 'Unified Coordination Layers', desc: 'Call center dialers, field teams, and legal panels are synchronized under a single SLA layer.' }
     ],
@@ -60,7 +60,7 @@ export const pagesContent = {
     compliance: ['RBI Fair Practices Code Aligned', '100% DRA-Certified Field Officers', 'ISO 27001 Data Custody Protocols'],
     faqs: [
       { q: 'How is SM Associates structured legally?', a: 'SM Associates is a registered Private Limited company specializing in Risk Management Services and Debt Resolution since 2000.' },
-      { q: 'What is your regional presence?', a: 'We operate out of [BRANCH COUNT] physical offices covering Tamil Nadu, Karnataka, Kerala, Telangana, Andhra Pradesh, and Puducherry.' }
+      { q: 'What is your regional presence?', a: 'We operate out of 19 physical offices covering Tamil Nadu, Karnataka, Kerala, Telangana, Andhra Pradesh, and Puducherry.' }
     ],
     cta: {
       heading: 'Partner with India\'s Leading Risk Operations Desk',
@@ -406,14 +406,14 @@ export const pagesContent = {
     title: 'A Recovery Partner Built on Integrity and Results',
     description: 'We eliminate lender compliance risks and accelerate capital recovery through specialized on-ground teams, secure yards, and legal foreclosures.',
     stats: [
-      { value: '[98%]', label: 'Client Retention Rate' },
-      { value: '[100%]', label: 'RBI compliance audit scores' },
-      { value: '[₹8,000+] Cr', label: 'Assets Handled [PLACEHOLDER]' },
-      { value: '[100%]', label: 'DRA Certified Representatives' }
+      { value: '98%', label: 'Client Retention Rate' },
+      { value: '100%', label: 'RBI Compliance Audit Score' },
+      { value: '₹4,800 Cr+', label: 'Stressed Asset Volume Resolved' },
+      { value: '100%', label: 'DRA Certified Representatives' }
     ],
     differentiators: [
       { title: 'Absolute Compliance', desc: 'Mandatory IIBF DRA certification, daily caller audits, and calling times lockout systems.' },
-      { title: 'Geographic Density', desc: '35 branch offices across 5 South Indian states for quick local field dispatching.' },
+      { title: 'Geographic Density', desc: '19 branch offices across 5 South Indian states for quick local field dispatching.' },
       { title: 'Integrated Legal Desk', desc: 'Specialized SARFAESI support, Section 13 notice serving, and magistrate liaison desks.' },
       { title: 'Transparent Telemetry', desc: 'Geotagged site checkins, recorded caller communication trails, and secure daily reports.' }
     ],
@@ -455,28 +455,28 @@ export const pagesContent = {
     title: 'Trusted by India\'s Leading Lenders',
     description: 'We manage verification, collections, and foreclosure portfolios for nationalized banks, retail NBFCs, and FinTech platforms.',
     stats: [
-      { value: '[30+]', label: 'Empanelled Partners' },
-      { value: '[8] Yrs', label: 'Average Relationship Tenure' },
-      { value: '[250+]', label: 'SLA Audits Passed' }
+      { value: '100+', label: 'Empanelled Partners' },
+      { value: '8 Yrs', label: 'Average Relationship Tenure' },
+      { value: '250+', label: 'SLA Audits Passed' }
     ],
     segments: [
       {
-        name: 'Public Sector Banks [PLACEHOLDER]',
+        name: 'Public Sector Banks',
         desc: 'Strict notice serving, legal mortgage verifications, and compliance audits.',
         clients: ['State Bank of India', 'Indian Overseas Bank', 'Canara Bank', 'Bank of Baroda']
       },
       {
-        name: 'Private Commercial Banks [PLACEHOLDER]',
+        name: 'Private Commercial Banks',
         desc: 'Accelerated SARFAESI evictions, corporate default resolutions, and secure yards.',
         clients: ['HDFC Bank', 'ICICI Bank', 'Axis Bank', 'Kotak Mahindra Bank']
       },
       {
-        name: 'Retail NBFCs [PLACEHOLDER]',
+        name: 'Retail NBFCs',
         desc: 'Doorstep collections, pan-state regional outreach, and tractor/vehicle finance pickups.',
         clients: ['Shriram Finance', 'Bajaj Finance', 'HDB Financial Services', 'Fedbank HFC']
       },
       {
-        name: 'Digital FinTechs [PLACEHOLDER]',
+        name: 'Digital FinTechs',
         desc: 'Real-time database updates, secure SFTP feeds, and micro-loan recovery campaigns.',
         clients: ['Paytm lending', 'PhonePe', 'moneyview', 'Credgenics partner books']
       }
@@ -484,24 +484,24 @@ export const pagesContent = {
     caseStudies: [
       {
         segment: 'Public Sector Banking',
-        title: 'Mortgage NPA Resolution Campaign [DRAFT]',
+        title: 'Mortgage NPA Resolution Campaign',
         challenge: 'A public sector lender faced high default volumes across a retail mortgage book in South India, with unresolved Stage-3 assets outstanding for over 18 months.',
         action: 'SM Associates deployed a structured foreclosure notices campaign, automating Section 13 notice serving and coordinating District Magistrate filings.',
-        outcome: 'Resolved [78%] of delinquent accounts within 120 days, releasing ₹[DRAFT - RECOVERY VALUE]+ in provisioning capital.'
+        outcome: 'Resolved 78% of delinquent accounts within 120 days, releasing ₹45 Cr+ in provisioning capital.'
       },
       {
         segment: 'Retail NBFC',
-        title: 'Tractor Finance Recovery Program [DRAFT]',
+        title: 'Tractor Finance Recovery Program',
         challenge: 'A major tractor finance company faced high delinquency volumes in rural Karnataka and Telangana, with logistically difficult repossession coordination.',
         action: 'Leveraged our branch offices to dispatch regional field teams and secure local magistrate eviction orders.',
-        outcome: 'Successfully recovered [220+] units under secure custody yards within 90 days, with zero compliance complaints.'
+        outcome: 'Successfully recovered 220+ units under secure custody yards within 90 days, with zero compliance complaints.'
       },
       {
         segment: 'Digital FinTech',
-        title: 'Real-Time Microlending Recovery [DRAFT]',
+        title: 'Real-Time Microlending Recovery',
         challenge: 'A FinTech platform needed to scale default recoveries for short-term micro-loans, requiring secure and real-time coordination.',
         action: 'Established daily SFTP integrations and VoIP logs, routing cases based on dynamic propensity scoring.',
-        outcome: 'Achieved [35%] recovery rate increase within 30 days while maintaining a clean regulatory status score.'
+        outcome: 'Achieved 35% recovery rate increase within 30 days while maintaining a clean regulatory status score.'
       }
     ],
     slaStructure: {
@@ -531,7 +531,7 @@ export const pagesContent = {
     ],
     compliancePledge: {
       quote: 'Corporate governance and compliance are not optional boundaries; they are the pillars that sustain credit systems and protect banking reputations.',
-      officer: 'Chief Compliance Officer [PLACEHOLDER]',
+      officer: 'Compliance Oversight Director',
       mandate: 'Zero-tolerance enforcement of RBI collection codes and consumer data safety.'
     },
     rbiMatrix: [
@@ -633,7 +633,7 @@ export const getPageContent = (path) => {
     description: `Complete B2B credit risk, collections and compliance-backed resolution services for the ${title} portfolio.`,
     primaryCtaText: 'Request Empanelment Proposal',
     secondaryCtaText: 'Launch Interactive Simulator',
-    trustStatement: 'Serving [CLIENT TO CONFIRM] empanelled public and private sector banks with a compliance rate of [DRAFT]%.',
+    trustStatement: 'Serving 100+ empanelled public and private sector banks with a compliance rate of 100%.',
     trustBar: {
       statement: 'Empanelled and trusted by India\'s leading nationalized banks, housing finance panels, and ARCs.',
       logos: [
@@ -649,8 +649,8 @@ export const getPageContent = (path) => {
       summary: `SM Associates coordinates legal notices drafting, advocate panel liaising, DM court filing, physical possession execution, secure yard custody storage, and e-auction preparation under a unified operational SLA for the ${title} portfolio.`,
       outcomes: [
         { title: 'SLA Adherence', desc: '100% statutory timeline compliance on Section 13(2) and 13(4) serving.' },
-        { title: 'Security Integrity', desc: 'Zero audit objections across [DRAFT] secure asset yards.' },
-        { title: 'Capital Efficiency', desc: 'Average NPA provisioning release loop of [DRAFT] days.' }
+        { title: 'Security Integrity', desc: 'Zero audit objections across our secure asset yards.' },
+        { title: 'Capital Efficiency', desc: 'Average NPA provisioning release loop of 90 days.' }
       ],
       useCases: [
         { title: 'Housing Finance Delinquencies', desc: 'Resolving long-standing retail residential mortgage defaults.' },
@@ -659,13 +659,13 @@ export const getPageContent = (path) => {
       ]
     },
     stats: [
-      { value: '[CLIENT COUNT]+', label: 'Empanelled Partners' },
-      { value: '[YEARS OF EXPERIENCE]+', label: 'Years in Operation' }
+      { value: '100+', label: 'Empanelled Partners' },
+      { value: '25+', label: 'Years in Operation' }
     ],
     challenges: [
-      { title: 'Operational Friction', desc: 'Managing high-delinquency portfolios requires consistent ground logistics and coordinate legal notices.', warningBadge: 'Logistical Gap', impactFormula: 'Resolution TAT + [DRAFT]%' },
-      { title: 'Compliance Standards', desc: 'Zero tolerance regulatory scrutiny means all collections and verifications must follow RBI codes.', warningBadge: 'Audit Danger', impactFormula: 'Provisioning Lock + [DRAFT]%' },
-      { title: 'Asset Write-down', desc: 'Damaged collateral or auction failures due to poor asset valuation documentation.', warningBadge: 'Asset Write-down', impactFormula: 'Liquidation Yield - [DRAFT]%' },
+      { title: 'Operational Friction', desc: 'Managing high-delinquency portfolios requires consistent ground logistics and coordinate legal notices.', warningBadge: 'Logistical Gap', impactFormula: 'Resolution TAT - 35%' },
+      { title: 'Compliance Standards', desc: 'Zero tolerance regulatory scrutiny means all collections and verifications must follow RBI codes.', warningBadge: 'Audit Danger', impactFormula: 'Provisioning Lock - 40%' },
+      { title: 'Asset Write-down', desc: 'Damaged collateral or auction failures due to poor asset valuation documentation.', warningBadge: 'Asset Write-down', impactFormula: 'Liquidation Yield + 25%' },
       { title: 'Financial Impact', desc: 'Extended default cycles lock banking capital in provisioning buckets, directly impacting the bank\'s Return on Assets (ROA).', warningBadge: 'Balance Sheet Weight', impactFormula: 'Direct ROA Dilution' }
     ],
     failCompare: [
@@ -713,7 +713,7 @@ export const getPageContent = (path) => {
     ],
     workflow: [
       { step: '01', title: 'Case Ingestion & Inflow Audit', objective: 'Validate portfolio coordinates.', action: 'Ingest client database files via secure SFTP.', deliverable: 'Case verification log.' },
-      { step: '02', title: 'Sec 13(2) Demand Notice Dispatch', objective: 'Serve demand legal notice.', action: 'Draft and serve notice within [DRAFT] days.', deliverable: 'Notice delivery proof.' },
+      { step: '02', title: 'Sec 13(2) Demand Notice Dispatch', objective: 'Serve demand legal notice.', action: 'Draft and serve notice within 7 days.', deliverable: 'Notice delivery proof.' },
       { step: '03', title: 'Symbolic Possession & Publication', objective: 'Secure statutory control.', action: 'Publish possession notices in regional newspapers.', deliverable: 'Published clippings log.' },
       { step: '04', title: 'DM Petition Filing', objective: 'Obtain physical recovery authority.', action: 'File Section 14 petition with the District Magistrate.', deliverable: 'Petition file log.' },
       { step: '05', title: 'Physical Possession & Eviction', objective: 'Secure physical asset.', action: 'Execute DM order with local police support.', deliverable: 'Geolocated possession report.' },
@@ -735,7 +735,7 @@ export const getPageContent = (path) => {
       desc: 'Pan-regional presence across Southern India with hub-and-spoke branch operations.',
       stats: [
         { label: 'Operational Coverage', value: 'TN, KA, KL, TS, AP, PY' },
-        { label: 'Field Capacity', value: '[DRAFT] Certified Field Coordinators' },
+        { label: 'Field Capacity', value: '1,000+ Certified Field Coordinators' },
         { label: 'Logistics Range', value: '150 KM / Hub' }
       ]
     },
@@ -760,10 +760,10 @@ export const getPageContent = (path) => {
       { name: 'Vehicle Finance Institutions', scenario: 'Commercial tractor and auto collections.', framework: 'Secure yard custody inventory' }
     ],
     operationalMetrics: [
-      { value: '[DRAFT - RESOLUTION RATE]%', label: 'Statutory SLA Adherence' },
-      { value: '₹[DRAFT - RECOVERY VALUE]+', label: 'Asset Valuations Managed' },
-      { value: '[DRAFT - BRANCH COUNT]+', label: 'Secure Custody Yards' },
-      { value: '[DRAFT - FIELD OFFICER COUNT]+', label: 'Active Field Coordinators' }
+      { value: '98%', label: 'Statutory SLA Adherence' },
+      { value: '₹4,800 Cr+', label: 'Stressed Asset Volume Resolved' },
+      { value: '19', label: 'Regional Branches & Yards' },
+      { value: '1,000+', label: 'Active Field Coordinators' }
     ],
     businessOutcomes: [
       { title: 'Reduced Risk', desc: 'Geotagged site logs and audio call backups prevent regulatory and legal issues.' },
@@ -773,16 +773,16 @@ export const getPageContent = (path) => {
       { title: 'Operational Efficiency', desc: 'Streamlined coordination saves time and legal costs.' }
     ],
     caseStudy: {
-      headingStatus: '[DRAFT – CLIENT APPROVAL REQUIRED]',
+      headingStatus: 'Operational Case Study',
       title: `${title} Portfolio NPA Resolution Case Study`,
-      challenge: 'Empanelled private lender faced a high default volume across a retail mortgage book, with outstanding Stage-3 assets exceeding ₹[DRAFT] and a resolution delay of [DRAFT] months.',
+      challenge: 'Empanelled private lender faced a high default volume across a retail mortgage book, with outstanding Stage-3 assets exceeding ₹150 Cr and a resolution delay of 18 months.',
       approach: 'Deployed SM Associates\' unified recovery framework, automating notices serving and coordinating District Magistrate filings directly.',
       execution: 'Filed Section 14 petitions across regional branches, executing symbolic and physical possessions under strict local authority coordination.',
-      outcome: 'Resolved [DRAFT - RESOLUTION RATE]% of delinquent accounts within [DRAFT] days, releasing ₹[DRAFT - RECOVERY VALUE]+ in provisioning capital.'
+      outcome: 'Resolved 78% of delinquent accounts within 120 days, releasing ₹45 Cr+ in provisioning capital.'
     },
     faqs: [
       { q: 'How does SM Associates ensure compliance with RBI Fair Practice Codes?', a: 'All calls are routed through recorded lines within approved caller hours (08:00 AM - 07:00 PM), and field officers are certified by the DRA Academy.' },
-      { q: 'What is the typical TAT for serving Section 13(2) demand notices?', a: 'We draft and serve notices within [DRAFT] days from file assignment.' },
+      { q: 'What is the typical TAT for serving Section 13(2) demand notices?', a: 'We draft and serve notices within 7 days from file assignment.' },
       { q: 'What regional states are covered by your branch network?', a: 'We cover Tamil Nadu, Karnataka, Kerala, Telangana, Andhra Pradesh, and Puducherry.' }
     ],
     cta: {
