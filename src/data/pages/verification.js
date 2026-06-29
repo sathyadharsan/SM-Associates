@@ -33,10 +33,10 @@ export const verificationContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: 'Technology-Enabled', desc: 'Verification officers operate across urban, semi-urban, and rural addresses, not limited to easily-accessible metro locations.', businessValue: 'Extends reliable underwriting confidence into geographies where digital-only verification is weakest.' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Multi-Stage', desc: 'Every verification follows a structured checklist — identity, address, employment, and reference cross-checks documented to a consistent format.', businessValue: 'Gives credit teams an auditable verification report, not inconsistent field notes.' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: 'Enterprise-Grade', desc: 'Verification requests are tracked from assignment to report delivery against a defined SLA window, with status visible throughout.', businessValue: 'Keeps loan processing timelines predictable for the credit pipeline.' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Technology-Enabled', desc: 'Field conduct, data handling, and reporting are structured to align with RBI Fair Practices Code expectations.', businessValue: 'Reduces the institution’s regulatory exposure tied to verification conduct.' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     capabilities: [
@@ -135,10 +135,10 @@ export const verificationContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', desc: 'Verification officers visit urban, semi-urban, and rural addresses, not just easily-accessible metro locations.', businessValue: 'Extends reliable underwriting confidence into geographies digital-only checks can’t reach.' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', desc: 'Every visit follows a structured checklist — occupancy confirmation, neighbor corroboration, and document cross-check, recorded to a consistent format.', businessValue: 'Gives credit teams an auditable verification report, not inconsistent field notes.' },
-      { icon: 'timer', title: 'Turnaround Discipline', desc: 'Verification requests are tracked from assignment to report delivery against a defined SLA window.', businessValue: 'Keeps loan processing timelines predictable for the credit pipeline.' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', desc: 'Doorstep conduct and data handling are structured to align with RBI Fair Practices Code expectations.', businessValue: 'Reduces the institution’s regulatory exposure tied to field-visit conduct.' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     capabilities: [
@@ -237,10 +237,10 @@ export const verificationContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: 'Multi-Stage' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Technology-Enabled' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: 'Multi-Stage' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Multi-Stage' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     capabilities: [
@@ -338,10 +338,10 @@ export const verificationContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: 'Multi-Stage' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Multi-Stage' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: 'Compliance-Driven' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Multi-Stage' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     capabilities: [
@@ -440,10 +440,10 @@ export const verificationContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: 'Multi-Stage' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Multi-Stage' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: 'Compliance-Driven' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Technology-Enabled' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     capabilities: [

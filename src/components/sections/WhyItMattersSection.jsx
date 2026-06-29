@@ -20,7 +20,7 @@ export default function WhyItMattersSection({ content }) {
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600">{content.problemStatementEyebrow || defaults.eyebrow}</span>
           <h2 style={serifHeading} className="text-3xl sm:text-4xl font-bold tracking-[-0.01em] text-slate-900 mt-3">{content.problemStatementHeading || defaults.heading}</h2>
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {items.map((item, i) => {
             const Icon = resolveIcon(item.icon);
             return (
@@ -28,7 +28,7 @@ export default function WhyItMattersSection({ content }) {
                 key={item.title}
                 initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={fUp}
                 transition={{ delay: i * 0.05 }}
-                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-md bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
               >
                 <div className="h-10 w-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center mb-4">
                   <Icon className="h-5 w-5" />

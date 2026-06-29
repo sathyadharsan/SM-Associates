@@ -19,13 +19,13 @@ export default function ChallengesSection({ content }) {
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600">{defaults.eyebrow}</span>
           <h2 style={serifHeading} className="text-3xl sm:text-4xl font-bold tracking-[-0.01em] text-slate-900 mt-3">{content.challengesHeading || defaults.heading}</h2>
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {items.map((c, i) => (
             <motion.div
               key={c.title}
               initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={fUp}
               transition={{ delay: i * 0.05 }}
-              className="bg-white border border-slate-200 rounded-2xl p-6"
+              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-md bg-white border border-slate-200 rounded-2xl p-6"
             >
               <div className="h-10 w-10 rounded-full bg-red-50 text-red-600 flex items-center justify-center mb-4">
                 <AlertTriangle className="h-5 w-5" />

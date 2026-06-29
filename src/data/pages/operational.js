@@ -31,10 +31,10 @@ export const operationalContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: 'Multi-Stage' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Multi-Stage' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: 'Enterprise-Grade' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Compliance-Driven' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     capabilities: [
@@ -133,10 +133,10 @@ export const operationalContent = {
     },
 
     kpiCards: [
-      { icon: 'mapPinned', title: 'Field Coverage', value: 'Multi-Stage' },
-      { icon: 'clipboardCheck', title: 'Documentation Accuracy', value: 'Enterprise-Grade' },
-      { icon: 'timer', title: 'Turnaround Discipline', value: 'Multi-Stage' },
-      { icon: 'shieldCheck', title: 'Compliance Alignment', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     capabilities: [

@@ -19,13 +19,13 @@ export default function OutcomesSection({ content }) {
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600">{defaults.eyebrow}</span>
           <h2 style={serifHeading} className="text-3xl sm:text-4xl font-bold tracking-[-0.01em] text-slate-900 mt-3">{content.outcomesHeading || defaults.heading}</h2>
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {items.map((o, i) => (
             <motion.div
               key={o.title}
               initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={fUp}
               transition={{ delay: i * 0.05 }}
-              className="bg-white border border-slate-200 rounded-2xl p-6 text-center"
+              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-md bg-white border border-slate-200 rounded-2xl p-6 text-center"
             >
               <div className="h-11 w-11 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4">
                 <CheckCircle2 className="h-5 w-5" />

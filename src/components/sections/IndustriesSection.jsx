@@ -21,7 +21,7 @@ export default function IndustriesSection({ content }) {
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600">{defaults.eyebrow}</span>
           <h2 style={serifHeading} className="text-3xl sm:text-4xl font-bold tracking-[-0.01em] text-slate-900 mt-3">{content.targetIndustriesHeading || defaults.heading}</h2>
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        <div className="flex flex-wrap justify-center gap-5">
           {items.map((ind, i) => {
             const IndIcon = ICON_ROTATION[i % ICON_ROTATION.length];
             return (
@@ -29,7 +29,7 @@ export default function IndustriesSection({ content }) {
                 key={ind.name}
                 initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={fUp}
                 transition={{ delay: i * 0.06 }}
-                className="bg-white border border-slate-200 rounded-2xl p-5 text-center"
+                className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)] max-w-sm bg-white border border-slate-200 rounded-2xl p-5 text-center"
               >
                 <div className="h-11 w-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4">
                   <IndIcon className="h-5 w-5" />

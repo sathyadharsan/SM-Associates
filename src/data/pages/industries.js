@@ -2,6 +2,219 @@
 // Conforms to the 12-section dynamic layout scheme
 
 export const industriesContent = {
+  'banking': {
+    eyebrow: 'Banking Sector',
+    title: 'Commercial Lenders Navigate Rising NPA Volumes',
+    subtitle: 'Resolving default portfolios through compliant, structured field operations and legal possession management.',
+    description: 'SM Associates Risk Management Pvt. Ltd. acts as a technology-enabled resolution partner, deploying IIBF DRA-certified coordinators and legal advocate panels to protect bank asset quality and release provisioning reserves.',
+    primaryCtaText: 'Request Industry Consultation',
+    secondaryCtaText: 'Explore Strategic Focus Areas',
+    primaryCtaHref: '/contact',
+    secondaryCtaHref: '#capabilities',
+    
+    kpiCards: [
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+    ],
+
+    capabilitiesHeading: 'Industry Focus Areas',
+    capabilities: [
+      { title: 'Secured Asset Foreclosures', desc: 'Commercial banks face systemic bottlenecks when enforcing security interests on defaulted real estate collateral.', bullets: ['Filing Section 14 petitions with Chief Judicial Magistrates', 'Coordinating locksmiths, security forces, and police assistance', 'Executing legal symbolic and physical possession affixture'], businessOutcome: 'Accelerates collateral foreclosure and frees up provisioning reserves.' },
+      { title: 'Pre-Disbursal Risk Auditing', desc: 'Preventing underwriting exposure to synthetic identity and documentation fraud on retail and commercial books.', bullets: ['Doorstep customer profile verification (CPV) visits', 'Sub-Registrar encumbrance certificate search check', 'Employer payroll HR details verifications on site'], businessOutcome: 'Ensures data validity before capital disbursement.' },
+      { title: 'Retail Book Collections', desc: 'High-volume early-stage collections campaigns matching regulatory calling constraints.', bullets: ['Outbound VoIP reminder calling during approved hours', 'IIBF DRA-certified coordinators physical visits', 'Negotiating OTS settlements within bank parameters'], businessOutcome: 'Improves roll-back rates on credit card and personal defaults.' },
+      { title: 'Agriculture Portfolio Recovery', desc: 'Agricultural lending requires crop-cycle aligned physical outreach and local branch networks.', bullets: ['Scheduling collections during local crop harvest cycles', 'Tractor tracing and coordinate checks', 'Mediation with local Panchayat coordinates'], businessOutcome: 'Reduces farm defaults while maintaining community goodwill.' },
+      { title: 'Asset Preservation & Yard Custody', desc: 'Protecting the resale value of repossessed commercial vehicles and machinery.', bullets: ['Storing assets in fenced, CCTV-monitored yards', 'Digital check-in inventory checks and status logs', 'Facilitating public viewing ahead of auctions'], businessOutcome: 'Prevents asset damage or parts theft during holding.' },
+      { title: 'DRT & Litigation Coordination', desc: 'Expediting legal recovery actions before Debt Recovery Tribunals.', bullets: ['Liaising with district legal panel advocates', 'Assembling necessary loan deed registries and proofs', 'Filing recovery certificates and claims checks'], businessOutcome: 'Reduces legal timelines for high-value defaults.' }
+    ],
+
+    tabs: [
+      { id: 'landscape', label: 'Industry Landscape', heading: 'The Commercial Banking Environment', overview: 'Banks operate under strict RBI supervision and capital adequacy rules, requiring highly structured NPA resolution systems.', activities: ['Evaluate Gross NPA percentages across bank loan books', 'Review RBI DOR fair practices guidelines', 'Assess risk parameters for secured mortgage portfolios'], documents: ['RBI DOR regulations and guidelines documents', 'Bank empanelment criteria checklists'], risks: ['Gross NPA expansion on balance sheets', 'Empanelment policy changes'], deliverable: 'Commercial banking risk framework assessment.', benefit: 'Aligns recovery operations with institutional banking standards.' },
+      { id: 'portfolios', label: 'Portfolio Types', heading: 'Tailored Asset Class Resolution', overview: 'Specialized workflows designed for secured housing mortgages, commercial lines, and high-volume retail books.', activities: ['Run soft collections tele-campaigns for credit cards', 'Coordinate Section 13 notice serving for home loans', 'Deploy crop-cycle outreach for agricultural ATL portfolios'], documents: ['Bank loan account statements', 'Property deed registries and files check'], risks: ['Asset value depreciation on defaults', 'Borrower location changes post-default'], deliverable: 'Secured/Unsecured portfolio action matrices.', benefit: 'Maximizes resolution speed based on specific loan parameters.' },
+      { id: 'challenges', label: 'Operational Challenges', heading: 'Magistrate Orders and Document Forensics Gaps', overview: 'Overcoming magistrate filing backlogs and verifying applicant profiles to prevent fraud.', activities: ['Draft CJM Section 14 petitions to secure warrants', 'Conduct Sub-Registrar encumbrance certificate title searches check', 'Verify workplace HR salary details on site check'], documents: ['Encumbrance Certificates (EC)', 'Magistrate petition files checks'], risks: ['Extended Section 14 magistrate orders delays', 'Synthetic identity and documentation fraud'], deliverable: 'Warrants petition filing status log.', benefit: 'Expedites physical possessions and prevents disbursal fraud.' },
+      { id: 'services', label: 'Recommended Service Portfolio', heading: 'Secured Foreclosures and Soft Collections', overview: 'Deploying legal coordinate desks and certified tele-calling to resolve Stage-3 assets.', activities: ['Draft and serve legally compliant Section 13(2) notices', 'Deploy IIBF DRA-certified coordinators for doorstep collections', 'Coordinate public e-auctions to monetize properties'], documents: ['Served Section 13 demand notice proofs check', 'E-Auction public notices clippings'], risks: ['DRT court challenge delays', 'Low bidder turnout at public auctions'], deliverable: 'Served legal notices proofs and auction sales deeds.', benefit: 'Frees up bank reserves locked in provisioning buckets.' },
+      { id: 'compliance', label: 'Compliance & Regulatory Framework', heading: 'Insulating Lenders from Conduct Risk', overview: 'Operations designed to align with applicable regulatory requirements and client governance frameworks.', activities: ['Restrict outbound dialing queues to approved call hours check', 'Audit voice logger call recordings for compliance checks', 'Verify coordinator IIBF DRA active certifications check'], documents: ['Active DRA registration databases check', 'Speech and script audit check logs'], risks: ['Borrower calling schedule violations', 'Regulatory penalty exposure'], deliverable: 'Audited compliance certification reports.', benefit: 'Protects the bank\'s brand reputation and panels empanelments.' },
+      { id: 'governance', label: 'Business Governance', heading: 'Auditable Reporting and Data SFTP Security', overview: 'Providing daily CSV updates and deposit reconciliations via secure SFTP paths.', activities: ['Deposit collected payment check funds within 24 hours checks', 'Transmit status check CSV files via encrypted SFTP link', 'Reconcile ledgers checks on bank recovery dashboard'], documents: ['Daily reconciliation ledgers', 'Secure SFTP data logs check'], risks: ['Report upload latency', 'Data transmission sync errors'], deliverable: 'Audited performance reports dossier.', benefit: 'Provides bank auditors with clean, transparent document trails.' }
+    ],
+
+    problemStatementEyebrow: 'Industry Risk Landscape',
+    problemStatementHeading: 'Macro Pressures and Regulatory Expectations in Commercial Banking',
+    problemStatement: [
+      { icon: 'trendingDown', title: 'Systemic NPA Pressure', desc: 'Rising Stage-3 asset provisioning mandates lock up bank reserves and dilute Return on Assets (ROA). Lenders require proactive collections rollback to protect equity margins.' },
+      { icon: 'shieldAlert', title: 'Conduct Risk Liabilities', desc: 'RBI Fair Practices directives hold banking boards directly responsible for vendor actions. Uncertified agents or call timeline violations trigger severe audit suspensions.' },
+      { icon: 'timer', title: 'Eviction Warrants Backlog', desc: 'Magistrate order delays drag out symbolic and physical property possessions. Lenders require localized legal coordinate desks to expedite CJM filings.' }
+    ],
+
+    overview: {
+      heading: 'Enterprise Banking Operations Panel',
+      subheading: 'Strict Governance for Enterprise Banking Books',
+      summary: 'Public and private banks operate under intense regulatory scrutiny. SM Associates insulates banks from conduct risk by deploying 100% DRA-certified field coordinators, recording 100% of outbound calls, and enforcing strict calling locks (08:00 AM to 07:00 PM). Our legal coordinators specialize in preparing CJM/CMM petitions under Section 14 of the SARFAESI Act, ensuring fast and legally clean collateral foreclosure.',
+      outcomes: [
+        { title: 'Absolute Regulatory Isolation', desc: 'VoIP calling lockout prevents calling outside statutory times.', value: 'Conduct Shield' },
+        { title: 'Geotagged Visit Evidences', desc: 'Every doorstep visit is logged with timestamped GPS coordinates and photos.', value: 'Auditable Visits' },
+        { title: 'Clean Collateral Transfer', desc: 'Milestone-based legal support coordinates notice serving and auctions.', value: 'Clean Title Sales' }
+      ],
+      useCases: [
+        { title: 'Secured Housing Mortgages', desc: 'Managing Section 13 notice servings and physical possessions.' },
+        { title: 'Retail Credit Cards', desc: 'Soft collection campaigns and settlement negotiation.' },
+        { title: 'Agriculture Term Loans (ATL)', desc: 'Crop-cycle aligned outreach and tractor collections.' }
+      ]
+    },
+
+    challengesHeading: 'Business Challenges',
+    challenges: [
+      { title: 'Eviction Warrants Backlog', desc: 'Inefficient legal filing coordinate structures stall Section 14 magistrate warrants. Properties remain occupied by defaulting borrowers.', warningBadge: 'COMMERCIAL BANKING', impact: 'SM Associates Operational Approach: Legal coordination desk liaising with district courts and authorities.' },
+      { title: 'Synthetic Identity Infiltration', desc: 'Fictitious or shell companies presented as stable employers to pass basic desk checks during underwriting. Inability to verify details leads to early default risks.', warningBadge: 'RETAIL CREDIT', impact: 'SM Associates Operational Approach: On-ground workplace CPV visits and employer HR verification.' },
+      { title: 'Data Security Auditing exceptions', desc: 'Vendor file transmission loops failing to comply with ISO 27001 parameters, exposing borrower PII data registries.', warningBadge: 'OPERATIONAL GOVERNANCE', impact: 'SM Associates Operational Approach: Encrypted SFTP data pipelines and audit-ready documentation custody.' }
+    ],
+
+    processFlow: {
+      title: 'Industry Engagement Journey',
+      desc: 'Our structured onboarding and operational pipelines designed for banking committee reviews.',
+      steps: [
+        { step: '01', title: 'Assessment', desc: 'Reviewing default portfolio allocations and mapping coordinates.', outcome: 'Case legal dossiers compiled and verified.' },
+        { step: '02', title: 'Planning', desc: 'Formulating calling script parameters, calling locks, and escalation stages.', outcome: 'SLA boundaries and scripts locked into the dialer system.' },
+        { step: '03', title: 'Deployment', desc: 'Allocating case files to local branches and certified coordinators.', outcome: 'Immediate ground mobilization within target districts.' },
+        { step: '04', title: 'Monitoring', desc: 'Enforcing VoIP voice logs audits and geolocated visit checks.', outcome: 'Complete auditable record of all borrower touchpoints.' },
+        { step: '05', title: 'Continuous Improvement', desc: 'Facilitating OTS settlements and uploading reconciled deposit receipts.', outcome: 'NPA recovery closed and funds transferred.' }
+      ]
+    },
+
+    outcomesHeading: 'Strategic Business Outcomes',
+    outcomes: [
+      { title: 'Better Portfolio Quality', desc: 'Proactive Collections rollback reduces early delinquency rollovers, keeping books clean.', value: 'Reduced Rollovers' },
+      { title: 'Reduced Operational Risk', desc: '100% DRA-certified agent placements protect the lender from conduct audits.', value: 'Conduct Vetted' },
+      { title: 'Regulatory Readiness', desc: 'Geotagged check files and VoIP call recording archives protect bank panels.', value: 'RBI Code Compliant' }
+    ],
+
+    targetIndustriesHeading: 'Industry Ecosystem',
+    targetIndustries: [
+      { name: 'Public Sector Banks', desc: 'Focuses on high-volume retail NPA mortgage default resolution. Coordinates milestone notices campaign.' },
+      { name: 'Private Commercial Banks', desc: 'Manages high-value commercial and industrial property possessions. Implements DM Liaison coordination.' },
+      { name: 'Small Finance Banks (SFBs)', desc: 'Handles soft call reminders and localized micro-business collections. Operates bilingual tele-outreach.' },
+      { name: 'Cooperative Banks', desc: 'Executes localized agricultural term loan recoveries and land verifications. Deploys Panchayat liaison support.' }
+    ],
+
+    faqs: [
+      { q: 'How does SM Associates align with specific bank SOPs?', a: 'During the onboarding phase, we calibrate our calling lockouts, script limits, and escalation stages to match the lender’s specific internal policy.' },
+      { q: 'Do all your field agents hold IIBF certification?', a: 'Yes. 100% of our active collections representatives and field coordinators hold the mandatory IIBF DRA certification.' },
+      { q: 'How do you coordinate magistrate evictions under Section 14?', a: 'Our legal desk handles filings at district CJM/CMM courts, arranges locksmiths, and coordinates with local police to execute physical possession.' }
+    ],
+
+    cta: {
+      heading: 'Schedule an Industry Consultation',
+      subheading: 'Connect with our bank empanelment officer to review our credentials and audit records.',
+      buttonText: 'Request Empanelment Pack',
+      href: '/contact'
+    }
+  },
+
+  'fintech': {
+    eyebrow: 'FinTech Sector',
+    title: 'Digital Lenders Require Rapid Sourcing Speed',
+    subtitle: 'Verifying candidate profiles and managing early collections through API-driven ground operations.',
+    description: 'SM Associates Risk Management Pvt. Ltd. structures pre-disbursal workplace verifications, geolocated residence checks, and compliant tele-calling loops for the speed of modern digital lenders.',
+    primaryCtaText: 'Request Industry Consultation',
+    secondaryCtaText: 'Explore Strategic Focus Areas',
+    primaryCtaHref: '/contact',
+    secondaryCtaHref: '#capabilities',
+
+    kpiCards: [
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+    ],
+
+    capabilitiesHeading: 'Industry Focus Areas',
+    capabilities: [
+      { title: 'API-Integrated CPV Verification', desc: 'Automated ingestion of verification requests and dispatch of geolocated check reports.', bullets: ['Syncing with client collection CRMs via API', 'Same-day check reports with photo proof', 'Direct data uploads to underwriting queues'], businessOutcome: 'Reduces underwriting loan turnaround times and prevents fraud.' },
+      { title: 'Corporate HR Verifications', desc: 'On-site visits to check applicant payroll details and active corporate employment status.', bullets: ['In-person visits to HR offices', 'Trade reference checks', 'Flagging shell company listings'], businessOutcome: 'Validates income details and prevents underwriting errors.' },
+      { title: 'Geotagged Residence Checks', desc: 'Field officers conducting physical visits to verify applicant residence address.', bullets: ['Visit coordinates matching address data', 'Timestamped photo logs of the property', 'Discreet inquiries with neighbors'], businessOutcome: 'Confirms resident stability before disbursal.' },
+      { title: 'Digital Outreach Integration', desc: 'Outbound tele-calling queues integrated with client collections CRMs.', bullets: ['Syncing dispositions in real-time', 'Voice logger files archived securely', 'Outbound dialing compliance locks'], businessOutcome: 'Improves collections recovery rates while maintaining regulatory safety.' },
+      { title: 'GST Registry Validations', desc: 'Verifying trade tax registration documents against Sub-Registrar records.', bullets: ['GST verification check on-site', 'Matching trade licenses with municipal records', 'Trade registry records checking'], businessOutcome: 'Ensures business legitimacy before commercial credit lines.' },
+      { title: 'Skip-Tracing & Tracing Services', desc: 'Locating absconded digital borrowers through coordinate database matching.', bullets: ['Cross-checking utility registries', 'Neighbor inquiries and coordinate checks', 'Employer verification updates'], businessOutcome: 'Restores contact with missing borrowers.' }
+    ],
+
+    tabs: [
+      { id: 'api-ingest', label: 'API Ingestion', heading: 'Real-Time API / SFTP Ingestions', overview: 'Automating database transfers through secure JSON APIs or SFTP paths.', activities: ['Verify API integration endpoints checks', 'Decouple raw coordinate structures maps', 'Trigger instant compliance checklist generation'], documents: ['JSON API integration schemas', 'PGP encryption keys check'], risks: ['Data mapping failure exceptions', 'API latency timeouts checks'], deliverable: 'Configured real-time case ingestion pipeline.', benefit: 'Syncs borrower profiles instantly, avoiding manual files handling.' },
+      { id: 'branch-dispatch', label: 'Same-Day Dispatch', heading: 'Dynamic Branch Agent Routing', overview: 'Routing coordinates checks instantly to local branch representatives.', activities: ['Convert address texts into geographic coordinates', 'Assign files to nearest regional branch representative', 'Confirm field officer DRA compliance certifications'], documents: ['Field mobile app routing logs', 'Active regional branch rosters check'], risks: ['Incorrect geolocation conversions', 'Branch agent resource constraints'], deliverable: 'Dispatched field check status logs.', benefit: 'Guarantees same-day address checks visits.' },
+      { id: 'ground-audit', label: 'On-Site Audit', heading: 'Doorstep Check & Verification Forensics', overview: 'On-ground verification checks of residence and workplace.', activities: ['Execute physical visits to borrower addresses', 'Collect geotagged site photo logs and signatures', 'Verify trade registry license and GST tax records check'], documents: ['Geotagged site check photos', 'Neighbor corroboration checklists'], risks: ['Fictitious company listings exceptions', 'Tenant occupancy discrepancies'], deliverable: 'Geotagged site audit check dossier.', benefit: 'Flags synthetic identities and fake payrolls on site.' },
+      { id: 'ready-report', label: 'Compliance & Regulatory Framework', heading: 'Delivery of Underwriting-Ready Files', overview: 'Operations designed to align with applicable regulatory requirements and client governance frameworks.', activities: ['Review files consistency metrics checks', 'Generate risk ratings and analyst commentary files', 'Upload final PDF report to underwriting queue'], documents: ['Compiled verification report check', 'Evidence files collection check'], risks: ['Data sync exceptions', 'Report upload latency'], deliverable: 'Decision-ready verification report dossier.', benefit: 'Allows underwriters to process instant approvals.' }
+    ],
+
+    problemStatementEyebrow: 'Industry Risk Landscape',
+    problemStatementHeading: 'Operational Delays and Underwriting Gaps in Fintech Credit',
+    problemStatement: [
+      { icon: 'trendingDown', title: 'Slow Verification Turnaround', desc: 'Manual document verification takes days, stalling instant loan disbursements and increasing customer drop-off rates on lending apps.' },
+      { icon: 'shieldAlert', title: 'Digital KYC Tampering', desc: 'Fraud rings presenting altered digital PDFs (bank statements, utility bills) that pass online checks but do not match the ground reality.' },
+      { icon: 'timer', title: 'Early Delinquency Rollover', desc: 'Delinquent accounts accumulate default write-offs within 90 days. Unsecured digital loans require rapid physical collections dispatch.' }
+    ],
+
+    overview: {
+      heading: 'API-Driven Ground Operations',
+      subheading: 'Syncing Digital Collections CRM with Local Branch Dispatch',
+      summary: 'FinTech lending operates at extreme speed. SM Associates supports digital lenders by providing API-integrated address verifications and compliant collections dispatch. We import files through secure SFTP or API paths, allocate them instantly to local branch representatives, and deliver geotagged reports with photos within 24 hours, bridging the gap between digital credit and ground reality.',
+      outcomes: [
+        { title: 'Encrypted Data Transfers', desc: 'Daily CSV account files transferred securely with PGP keys.', value: 'PGP Encrypted' },
+        { title: 'Same-Day Field Sourcing', desc: 'Automated routing assigns address checks to field officers instantly.', value: 'Same-Day TAT' },
+        { title: 'Digital Evidentiary Logs', desc: 'Site photos and neighbor corroboration notes uploaded directly to dashboard.', value: 'Geotagged Logs' }
+      ],
+      useCases: [
+        { title: 'Buy Now Pay Later (BNPL)', desc: 'Rapid residence checks for credit line extensions.' },
+        { title: 'Salaried Instant Personal Loans', desc: 'HR payroll and corporate workplace verifications on-site.' },
+        { title: 'Merchant Working Capital Loans', desc: 'Verification of business operations and local stock levels.' }
+      ]
+    },
+
+    challengesHeading: 'Business Challenges',
+    challenges: [
+      { title: 'Digital KYC Tampering', desc: 'Sophisticated alterations of digital PDFs (bank statements, utility bills) that pass algorithmic checks but fail when cross-checked on site.', warningBadge: 'FINTECH CREDIT', impact: 'SM Associates Operational Approach: On-site physical verifications and direct registry checks.' },
+      { title: 'High Early-Stage Defaults', desc: 'Delinquent accounts accumulated quickly on micro-loan portfolios. Fast, compliant tele-calling is required before accounts roll into write-offs.', warningBadge: 'MICRO-LOANS', impact: 'SM Associates Operational Approach: Compliant outbound tele-outreach queues within statutory calling windows.' },
+      { title: 'Borrower Anonymity', desc: 'Borrowers providing transient co-working addresses or shared PG rooms as residence proofs, complicating recovery efforts.', warningBadge: 'UNSECURED CREDIT', impact: 'SM Associates Operational Approach: Field skip-tracing and localized community reference checks.' }
+    ],
+
+    processFlow: {
+      title: 'Industry Engagement Journey',
+      desc: 'SLA-tracked milestones for digital lending checks.',
+      steps: [
+        { step: '01', title: 'Assessment', desc: 'Reviewing default portfolio allocations and mapping coordinates.', outcome: 'Case legal dossiers compiled and verified.' },
+        { step: '02', title: 'Planning', desc: 'Formulating calling script parameters, calling locks, and escalation stages.', outcome: 'SLA boundaries and scripts locked into the dialer system.' },
+        { step: '03', title: 'Deployment', desc: 'Allocating case files to local branches and certified coordinators.', outcome: 'Immediate ground mobilization within target districts.' },
+        { step: '04', title: 'Monitoring', desc: 'Enforcing VoIP voice logs audits and geolocated visit checks.', outcome: 'Complete auditable record of all borrower touchpoints.' },
+        { step: '05', title: 'Continuous Improvement', desc: 'OTS settlement facilitation and cash ledger updates.', outcome: 'Reconciled collections data ready for review.' }
+      ]
+    },
+
+    outcomesHeading: 'Strategic Business Outcomes',
+    outcomes: [
+      { title: 'Better Portfolio Quality', desc: 'Proactive Collections rollback reduces early delinquency rollovers, keeping books clean.', value: 'Reduced Rollovers' },
+      { title: 'Reduced Operational Risk', desc: '100% DRA-certified agent placements protect the lender from conduct audits.', value: 'Conduct Vetted' },
+      { title: 'Regulatory Readiness', desc: 'Geotagged check files and VoIP call recording archives protect bank panels.', value: 'RBI Code Compliant' }
+    ],
+
+    targetIndustriesHeading: 'Industry Ecosystem',
+    targetIndustries: [
+      { name: 'Buy Now Pay Later (BNPL)', desc: 'Focuses on high-volume early-stage collections campaigns. Implements soft tele-reminders.' },
+      { name: 'Salaried Instant Personal Loans', desc: 'Manages on-site workplace verifications. Coordinates CPV profile verification.' },
+      { name: 'Merchant Working Capital Loans', desc: 'Coordinates on-site business operations verifications and collections. Implements GST registry validation.' }
+    ],
+
+    faqs: [
+      { q: 'Do you support direct SFTP database ingestions?', a: 'Yes. We support daily database file uploads via secure SFTP using PGP key encryption, alongside API integrations.' },
+      { q: 'How do you handle address mismatches during checks?', a: 'The case is flagged, residential coordinates are logged, and a discrepancy note is routed directly to the underwriter.' },
+      { q: 'What is the typical TAT for verification checks?', a: 'We deliver geotagged check reports within 24 hours of assignment.' }
+    ],
+
+    cta: {
+      heading: 'Request an Industry Assessment',
+      subheading: 'Request an integration demo with our tech team to evaluate our verification TAT.',
+      buttonText: 'Book Tech Demo',
+      href: '/contact'
+    }
+  },
+
   // ================= 1. INDUSTRIES INDEX =================
   'industries': {
     eyebrow: 'Lending Verticals',
@@ -14,9 +227,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
     
     kpiCards: [
-      { icon: 'shield', title: 'Operational Standard', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Resolution Systems', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Portfolio Management', value: 'Multi-Stage' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'Industry Risks',
@@ -244,9 +458,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
 
     kpiCards: [
-      { icon: 'shield', title: 'Operational Strategy', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Recovery Infrastructure', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Reporting & Governance', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'Industry Risk Landscape',
@@ -474,9 +689,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
 
     kpiCards: [
-      { icon: 'shield', title: 'Operational Strategy', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Recovery Infrastructure', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Reporting & Governance', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'Industry Risk Landscape',
@@ -704,9 +920,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
 
     kpiCards: [
-      { icon: 'shield', title: 'Operational Strategy', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Recovery Infrastructure', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Reporting & Governance', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'MFI Compliance Pain',
@@ -888,9 +1105,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
 
     kpiCards: [
-      { icon: 'shield', title: 'Operational Strategy', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Recovery Infrastructure', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Reporting & Governance', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'Industry Risk Landscape',
@@ -1070,9 +1288,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
 
     kpiCards: [
-      { icon: 'shield', title: 'Operational Strategy', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Recovery Infrastructure', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Reporting & Governance', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'Industry Risk Landscape',
@@ -1252,9 +1471,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
 
     kpiCards: [
-      { icon: 'shield', title: 'Operational Strategy', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Recovery Infrastructure', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Reporting & Governance', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'Insurance Risk Landscape',
@@ -1435,9 +1655,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
 
     kpiCards: [
-      { icon: 'shield', title: 'Operational Strategy', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Recovery Infrastructure', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Reporting & Governance', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'Vehicle Foreclosure Pain',
@@ -1616,9 +1837,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
 
     kpiCards: [
-      { icon: 'shield', title: 'Operational Strategy', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Recovery Infrastructure', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Reporting & Governance', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'Gold Loan Risks',
@@ -1797,9 +2019,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
 
     kpiCards: [
-      { icon: 'shield', title: 'Operational Strategy', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Recovery Infrastructure', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Reporting & Governance', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'Retail Portfolio Pain',
@@ -1978,9 +2201,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
 
     kpiCards: [
-      { icon: 'shield', title: 'Operational Strategy', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Recovery Infrastructure', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Reporting & Governance', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'Vehicle Foreclosure Pain',
@@ -2159,9 +2383,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
 
     kpiCards: [
-      { icon: 'shield', title: 'Operational Strategy', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Recovery Infrastructure', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Reporting & Governance', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'SME Portfolio Pain',
@@ -2340,9 +2565,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
 
     kpiCards: [
-      { icon: 'shield', title: 'Operational Strategy', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Recovery Infrastructure', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Reporting & Governance', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'Rural Portfolio Risks',
@@ -2522,9 +2748,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
 
     kpiCards: [
-      { icon: 'shield', title: 'Operational Strategy', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Recovery Infrastructure', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Reporting & Governance', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'Gold Loan Risks',
@@ -2703,9 +2930,10 @@ export const industriesContent = {
     secondaryCtaHref: '#capabilities',
 
     kpiCards: [
-      { icon: 'shield', title: 'Operational Strategy', value: 'Compliance-Driven' },
-      { icon: 'database', title: 'Recovery Infrastructure', value: 'Technology-Enabled' },
-      { icon: 'users', title: 'Reporting & Governance', value: 'Enterprise-Grade' }
+      { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
+      { icon: 'users', title: 'DRA Certified Field Force', value: '916+ Officers' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
     ],
 
     problemStatementEyebrow: 'ETL Sourcing Pain',
