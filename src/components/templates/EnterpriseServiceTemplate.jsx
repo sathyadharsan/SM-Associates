@@ -28,9 +28,9 @@ export default function EnterpriseServiceTemplate({ content }) {
       <KpiSection content={content} />
       <CapabilitiesSection content={content} />
       <VerticalTabsSection content={content} />
-      <ChallengesSection content={content} />
       <WhyItMattersSection content={content} />
       <OverviewSection content={content} />
+      <ChallengesSection content={content} />
       <LifecycleSection content={content} />
       <OutcomesSection content={content} />
       <IndustriesSection content={content} />

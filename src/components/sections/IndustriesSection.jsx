@@ -35,7 +35,14 @@ export default function IndustriesSection({ content }) {
                   <IndIcon className="h-5 w-5" />
                 </div>
                 <h3 className="font-bold text-sm text-slate-900 mb-2">{ind.name}</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">{ind.desc}</p>
+                <ul className="space-y-1.5 mt-2">
+                  {ind.desc.split(/\.(?:\s+|$)/).filter(Boolean).map((s, idx) => (
+                    <li key={idx} className="flex items-start gap-1.5 text-[11px] text-slate-600 justify-center">
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-400 mt-1.5 flex-none" />
+                      <span>{s.trim()}.</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             );
           })}

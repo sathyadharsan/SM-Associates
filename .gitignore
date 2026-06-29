@@ -6,6 +6,8 @@ dist/
 
 # Text files
 *.txt
+*.pdf
+*.docx
 
 # ==========================
 # Dependencies

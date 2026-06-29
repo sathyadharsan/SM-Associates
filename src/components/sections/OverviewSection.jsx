@@ -26,13 +26,27 @@ export default function OverviewSection({ content }) {
               <div key={o.title} className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
                 <CheckCircle2 className="h-4 w-4 text-blue-600 mb-2" />
                 <h4 className="font-bold text-sm text-slate-900 mb-1">{o.title}</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">{o.desc}</p>
+                <ul className="space-y-1.5 mt-2">
+                  {o.desc.split(/\.(?:\s+|$)/).filter(Boolean).map((s, idx) => (
+                    <li key={idx} className="flex items-start gap-1.5 text-xs text-slate-600">
+                      <span className="h-1.5 w-1.5 rounded-full bg-blue-400 mt-1.5 flex-none" />
+                      <span>{s.trim()}.</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
             {(overview.useCases || []).map((u) => (
               <div key={u.title} className="bg-white border border-slate-200 rounded-2xl p-5">
                 <h4 className="font-bold text-sm text-slate-900 mb-1">{u.title}</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">{u.desc}</p>
+                <ul className="space-y-1.5 mt-2">
+                  {u.desc.split(/\.(?:\s+|$)/).filter(Boolean).map((s, idx) => (
+                    <li key={idx} className="flex items-start gap-1.5 text-xs text-slate-600">
+                      <span className="h-1.5 w-1.5 rounded-full bg-slate-400 mt-1.5 flex-none" />
+                      <span>{s.trim()}.</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </motion.div>

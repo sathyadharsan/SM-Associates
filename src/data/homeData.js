@@ -57,17 +57,17 @@ export const megaMenu = {
 };
 
 export const servicesMenu = [
-  { title: 'Recovery Services', description: 'Portfolio-led recovery strategies for measurable collections.', benefits: ['Account-level recovery planning', 'Risk bucket segmentation', 'Performance tracking'] },
-  { title: 'SARFAESI Services', description: 'Enforcement, possession and legal recovery coordination.', benefits: ['Sec 13(2) & 13(4) execution', 'Asset possession support', 'Legal documentation'] },
-  { title: 'Field Collections', description: 'Disciplined field operations across geographies.', benefits: ['50 accounts/executive/month', 'Daily reporting system', 'Escalation protocols'] },
-  { title: 'Asset Repossession', description: 'Secured asset recovery with documented workflows.', benefits: ['Cars, tractors, excavators', 'Notarized inventory reports', 'Legal compliance'] },
-  { title: 'Auction Services', description: 'Auction coordination and bidder engagement.', benefits: ['Fair valuation', 'Transparent process', 'Bidders network'] },
-  { title: 'Legal Services', description: 'Court, advocate and documentation coordination.', benefits: ['DRT case follow-up', 'Warrant execution', 'Police coordination'] },
-  { title: 'Verification Services', description: 'Pre and post-disbursal risk validation.', benefits: ['CPV & CPA checks', 'Telephone verification', 'Skip tracing'] },
-  { title: 'Fraud Control', description: 'Investigation-led fraud prevention and risk intelligence.', benefits: ['ITR verification', 'Title deed checks', 'Warrant execution'] },
-  { title: 'Call Centre Services', description: 'Structured communication workflows for recovery operations.', benefits: ['30-90 day accounts', 'Professional follow-up', 'Documented calls'] },
-  { title: 'Yard Management Services', description: 'Secure asset custody and management.', benefits: ['Authorized yards', 'Insurance coverage', 'Regular audits'] },
-  { title: 'Manpower Solutions', description: 'Trained manpower for recovery operations.', benefits: ['Experienced professionals', 'Background verified', 'Skilled teams'] }
+  { title: 'Recovery Services', icon: 'TrendingUp', description: 'Portfolio-led recovery strategies for measurable collections.', benefits: ['Account-level recovery planning', 'Risk bucket segmentation', 'Performance tracking'] },
+  { title: 'SARFAESI Services', icon: 'FileText', description: 'Enforcement, possession and legal recovery coordination.', benefits: ['Sec 13(2) & 13(4) execution', 'Asset possession support', 'Legal documentation'] },
+  { title: 'Field Collections', icon: 'MapPin', description: 'Disciplined field operations across geographies.', benefits: ['50 accounts/executive/month', 'Daily reporting system', 'Escalation protocols'] },
+  { title: 'Asset Repossession', icon: 'Car', description: 'Secured asset recovery with documented workflows.', benefits: ['Cars, tractors, excavators', 'Notarized inventory reports', 'Legal compliance'] },
+  { title: 'Auction Services', icon: 'Gavel', description: 'Auction coordination and bidder engagement.', benefits: ['Fair valuation', 'Transparent process', 'Bidders network'] },
+  { title: 'Legal Services', icon: 'Scale', description: 'Court, advocate and documentation coordination.', benefits: ['DRT case follow-up', 'Warrant execution', 'Police coordination'] },
+  { title: 'Verification Services', icon: 'SearchCheck', description: 'Pre and post-disbursal risk validation.', benefits: ['CPV & CPA checks', 'Telephone verification', 'Skip tracing'] },
+  { title: 'Fraud Control', icon: 'ShieldAlert', description: 'Investigation-led fraud prevention and risk intelligence.', benefits: ['ITR verification', 'Title deed checks', 'Warrant execution'] },
+  { title: 'Call Centre Services', icon: 'Smartphone', description: 'Structured communication workflows for recovery operations.', benefits: ['30-90 day accounts', 'Professional follow-up', 'Documented calls'] },
+  { title: 'Yard Management Services', icon: 'Building2', description: 'Secure asset custody and management.', benefits: ['Authorized yards', 'Insurance coverage', 'Regular audits'] },
+  { title: 'Manpower Solutions', icon: 'Users', description: 'Trained manpower for recovery operations.', benefits: ['Experienced professionals', 'Background verified', 'Skilled teams'] }
 ];
 
 export const trustLogos = [

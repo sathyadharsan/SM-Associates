@@ -31,7 +31,14 @@ export default function CapabilitiesSection({ content }) {
                 <span className="h-7 w-7 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center flex-none">{i + 1}</span>
                 <h3 className="font-bold text-slate-900">{c.title}</h3>
               </div>
-              <p className="text-sm text-slate-600 leading-relaxed mb-4">{c.desc}</p>
+              <ul className="space-y-1.5 mb-4">
+                {c.desc.split(/\.(?:\s+|$)/).filter(Boolean).map((s, idx) => (
+                  <li key={idx} className="flex items-start gap-1.5 text-xs text-slate-600">
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-500 mt-1.5 flex-none" />
+                    <span>{s.trim()}.</span>
+                  </li>
+                ))}
+              </ul>
               {Array.isArray(c.bullets) && c.bullets.length > 0 && (
                 <ul className="space-y-2 mb-4">
                   {c.bullets.map((b) => (

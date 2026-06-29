@@ -34,7 +34,14 @@ export default function ChallengesSection({ content }) {
                 <p className="text-xs font-bold uppercase tracking-wide text-red-500 mb-2">{c.warningBadge}</p>
               )}
               <h3 className="font-bold text-slate-900 mb-2">{c.title}</h3>
-              <p className="text-sm text-slate-600 leading-relaxed mb-3">{c.desc}</p>
+              <ul className="space-y-1.5 mb-3">
+                {c.desc.split(/\.(?:\s+|$)/).filter(Boolean).map((s, idx) => (
+                  <li key={idx} className="flex items-start gap-1.5 text-xs text-slate-600">
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-400 mt-1.5 flex-none" />
+                    <span>{s.trim()}.</span>
+                  </li>
+                ))}
+              </ul>
               {c.impact && <p className="text-xs text-slate-500 border-t border-slate-100 pt-3">{c.impact}</p>}
             </motion.div>
           ))}

@@ -34,7 +34,14 @@ export default function WhyItMattersSection({ content }) {
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                <ul className="space-y-1.5 mt-2">
+                  {item.desc.split(/\.(?:\s+|$)/).filter(Boolean).map((s, idx) => (
+                    <li key={idx} className="flex items-start gap-1.5 text-xs text-slate-600">
+                      <span className="h-1.5 w-1.5 rounded-full bg-red-400 mt-1.5 flex-none" />
+                      <span>{s.trim()}.</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             );
           })}

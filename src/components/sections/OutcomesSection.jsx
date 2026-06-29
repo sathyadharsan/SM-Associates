@@ -31,7 +31,14 @@ export default function OutcomesSection({ content }) {
                 <CheckCircle2 className="h-5 w-5" />
               </div>
               <h3 className="font-bold text-slate-900 mb-2">{o.title}</h3>
-              <p className="text-sm text-slate-600 leading-relaxed mb-3">{o.desc}</p>
+              <ul className="space-y-1.5 mb-3">
+                {o.desc.split(/\.(?:\s+|$)/).filter(Boolean).map((s, idx) => (
+                  <li key={idx} className="flex items-start gap-1.5 text-xs text-slate-600 justify-center">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 mt-1.5 flex-none" />
+                    <span>{s.trim()}.</span>
+                  </li>
+                ))}
+              </ul>
               {o.value && <p className="text-xs font-semibold text-blue-600 border-t border-slate-100 pt-3">{o.value}</p>}
             </motion.div>
           ))}
