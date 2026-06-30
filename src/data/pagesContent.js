@@ -9,6 +9,7 @@ import { investigationContent } from './pages/investigation.js';
 import { operationalContent } from './pages/operational.js';
 import { specializedContent } from './pages/specialized.js';
 import { industriesContent } from './pages/industries.js';
+import { platformContent } from './pages/platform.js';
 
 export const pagesContent = {
   ...verificationContent,
@@ -19,6 +20,7 @@ export const pagesContent = {
   ...operationalContent,
   ...specializedContent,
   ...industriesContent,
+  ...platformContent,
 
   // ================= ABOUT PAGES =================
   'company-overview': {
@@ -568,45 +570,6 @@ export const pagesContent = {
   },
 
   // ================= PLATFORM PAGES =================
-  'recovery-os': {
-    eyebrow: 'SaaS Platform',
-    title: 'Recovery OS: Stressed Asset Management Layer',
-    description: 'Coordinate outbound calls, geotagged field dispatching, and foreclosure legal filings under a single, secure telemetry platform.',
-    stats: [
-      { value: '5 Min', label: 'Data Sync Latency' },
-      { value: '99.9%', label: 'Console Availability' }
-    ],
-    challenges: [
-      { title: 'Operational Fragmentation', desc: 'Lenders managing call centers, field agents, and legal panels across disconnected data silos.' }
-    ],
-    solutions: [
-      { title: 'Unified Data Console', desc: 'One operating layer to ingest portfolios, configure dispatch rules, and monitor compliance.' }
-    ],
-    capabilities: [
-      { title: 'Auto-Ingestion Engines', desc: 'Secure SFTP / API transfers of applicant and account records.' },
-      { title: 'Mobile Dispatch Logic', desc: 'Direct route optimization for ground representatives.' },
-      { title: 'Compliance Dashboard', desc: 'Real-time caller voice logs and field coordinate check-ins.' }
-    ],
-    workflow: [
-      { step: '01', title: 'Data Ingestion', desc: 'Importing banking portfolio records.' },
-      { step: '02', title: 'Rule Allocation', desc: 'Setting compliance limits and field routes.' },
-      { step: '03', title: 'Execution Sync', desc: 'Ground and caller teams updating status in real-time.' }
-    ],
-    benefits: [
-      { title: 'Complete Telemetry', desc: 'Lenders review audit trails, cash details, and performance in real-time.' }
-    ],
-    industries: ['CTOs', 'Collections Operations leads', 'Risk Management desks'],
-    compliance: ['GDPR and ISO Data Security Compliant', 'Bank-Grade SSL Encrpytions'],
-    faqs: [
-      { q: 'Can this integrate with our core banking systems?', a: 'Yes. We support custom API connections and daily database file imports.' }
-    ],
-    cta: {
-      heading: 'Modernize Your Collections Pipeline',
-      subheading: 'Request a platform walk-through with our technology team.',
-      buttonText: 'Book Platform Demo',
-      href: '/contact'
-    }
-  }
 };
 
 // Fallback generator for dynamically generated pages that are not explicitly detailed above

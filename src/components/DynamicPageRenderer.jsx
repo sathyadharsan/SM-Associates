@@ -64,7 +64,7 @@ export default function DynamicPageRenderer({ pageId }) {
 
   // 4. PLATFORM / OPERATIONS
   if (activePath.startsWith('/recovery-operations') || pageId === 'recovery-os') {
-    return <PlatformLayout content={content} />;
+    return <IndustryLayout content={content} />;
   }
 
   // 5. COVERAGE / STATES
