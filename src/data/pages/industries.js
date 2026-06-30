@@ -218,9 +218,9 @@ export const industriesContent = {
   // ================= 1. INDUSTRIES INDEX =================
   'industries': {
     eyebrow: 'Lending Verticals',
-    title: 'Diverse Portfolios Require Calibrated Recovery Operations',
-    subtitle: 'Managing Risk and Regulatory Alignment Across the Credit Lifecycle',
-    description: 'SM Associates Risk Management Pvt. Ltd. structures specialized field operations, recorded outbound calling campaigns, and legal foreclosure panels calibrated to the specific regulatory code of each lending segment.',
+    title: 'Calibrated Recovery for Diverse Portfolios',
+    subtitle: 'Managing risk, collections, and regulatory compliance across the credit lifecycle.',
+    description: 'We structure specialized field operations, recorded tele-calling campaigns, and legal foreclosure panels calibrated to the specific regulatory guidelines of each lending vertical.',
     primaryCtaText: 'Schedule a Consultation',
     secondaryCtaText: 'Explore Focus Areas',
     primaryCtaHref: '/contact',

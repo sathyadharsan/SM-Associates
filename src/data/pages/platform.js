@@ -1,9 +1,9 @@
 export const platformContent = {
-  'recovery-operations': {
+  'platform': {
     eyebrow: "Enterprise Operations Framework",
-    title: "Standardized Operating Framework for Institutional Debt Recovery & Foreclosure",
-    subtitle: "Standardizing ground execution, legal notice coordination, and compliance audits under a unified delivery model.",
-    description: "Scheduled Commercial Banks and NBFCs face significant balance sheet pressure from rising defaults and compliance risk. Traditional recovery methods are fragmented. SM Associates delivers a structured operating framework that coordinates tele-outreach, geolocated ground operations, and legal timelines to minimize cycle times, secure audit-ready documentation, and release capital provisioning compliant with RBI directives.",
+    title: "Standardized Framework for Stressed Assets",
+    subtitle: "Standardizing ground dispatch, legal timelines, and compliance audits.",
+    description: "We coordinate tele-outreach, geolocated field visits, and legal enforcements under a unified delivery model to compress default cycles and secure audit-ready documentation.",
     primaryCtaText: "Request Framework Assessment",
     primaryCtaHref: "/contact",
     secondaryCtaText: "Explore Operating Controls",

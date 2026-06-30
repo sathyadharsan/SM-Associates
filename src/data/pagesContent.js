@@ -10,6 +10,7 @@ import { operationalContent } from './pages/operational.js';
 import { specializedContent } from './pages/specialized.js';
 import { industriesContent } from './pages/industries.js';
 import { platformContent } from './pages/platform.js';
+import { servicesContent } from './pages/services.js';
 
 export const pagesContent = {
   ...verificationContent,
@@ -21,6 +22,7 @@ export const pagesContent = {
   ...specializedContent,
   ...industriesContent,
   ...platformContent,
+  ...servicesContent,
 
   // ================= ABOUT PAGES =================
   'company-overview': {

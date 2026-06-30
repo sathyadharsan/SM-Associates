@@ -172,14 +172,14 @@ export default function AppRoutes() {
         <Route path="/industries/products/jewel" element={<JewelProductsPage />} />
         <Route path="/industries/products/education" element={<EducationProductsPage />} />
 
-        {/* Recovery Operations */}
-        <Route path="/recovery-operations" element={<RecoveryOperationsIndex />} />
-        <Route path="/recovery-operations/recovery-os" element={<RecoveryOsPage />} />
-        <Route path="/recovery-operations/workflow-automation" element={<WorkflowAutomationPage />} />
-        <Route path="/recovery-operations/field-operations" element={<FieldOperationsPage />} />
-        <Route path="/recovery-operations/compliance-monitoring" element={<ComplianceMonitoringPage />} />
-        <Route path="/recovery-operations/recovery-analytics" element={<OperationsRecoveryAnalyticsPage />} />
-        <Route path="/recovery-operations/ai-recovery" element={<AiRecoveryPage />} />
+        {/* Platform */}
+        <Route path="/platform" element={<RecoveryOperationsIndex />} />
+        <Route path="/platform/recovery-os" element={<RecoveryOsPage />} />
+        <Route path="/platform/workflow-automation" element={<WorkflowAutomationPage />} />
+        <Route path="/platform/field-operations" element={<FieldOperationsPage />} />
+        <Route path="/platform/compliance-monitoring" element={<ComplianceMonitoringPage />} />
+        <Route path="/platform/recovery-analytics" element={<OperationsRecoveryAnalyticsPage />} />
+        <Route path="/platform/ai-recovery" element={<AiRecoveryPage />} />
 
         {/* Insights */}
         <Route path="/insights" element={<InsightsIndex />} />

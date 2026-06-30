@@ -5,7 +5,6 @@ export const navigationData = {
       label: 'Company',
       href: '/about',
       children: [
-        { label: 'Company Overview', href: '/about' },
         { label: 'Leadership', href: '/about/leadership' },
         { label: 'Company History', href: '/about/history' },
         { label: 'Why SM Associates', href: '/about/why-sm-associates' },
@@ -124,14 +123,14 @@ export const navigationData = {
     },
     {
       label: 'Platform',
-      href: '/recovery-operations',
+      href: '/platform',
       children: [
-        { label: 'Recovery Operating System', href: '/recovery-operations/recovery-os' },
-        { label: 'Workflow Automation', href: '/recovery-operations/workflow-automation' },
-        { label: 'Field Operations Network', href: '/recovery-operations/field-operations' },
-        { label: 'Compliance Monitoring', href: '/recovery-operations/compliance-monitoring' },
-        { label: 'Recovery Analytics', href: '/recovery-operations/recovery-analytics' },
-        { label: 'AI Recovery Platform', href: '/recovery-operations/ai-recovery', isFuture: true },
+        { label: 'Recovery Operating System', href: '/platform/recovery-os' },
+        { label: 'Workflow Automation', href: '/platform/workflow-automation' },
+        { label: 'Field Operations Network', href: '/platform/field-operations' },
+        { label: 'Compliance Monitoring', href: '/platform/compliance-monitoring' },
+        { label: 'Recovery Analytics', href: '/platform/recovery-analytics' },
+        { label: 'AI Recovery Platform', href: '/platform/ai-recovery', isFuture: true },
       ]
     },
     { label: 'Clients', href: '/clients' },

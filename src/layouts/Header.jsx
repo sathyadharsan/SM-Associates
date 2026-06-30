@@ -219,9 +219,10 @@ export default function Header() {
                     }}
                   >
                     {hasDropdown ? (
-                      <button
+                      <Link
+                        to={navItem.href}
                         onMouseEnter={() => setActiveMenu(key)}
-                        onClick={() => setActiveMenu(activeMenu === key ? null : key)}
+                        onClick={() => setActiveMenu(null)}
                         className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-[-0.01em] text-gray-900/65 transition-colors duration-200 hover:text-gray-950"
                       >
                         {navItem.label}
@@ -238,7 +239,7 @@ export default function Header() {
                             boxShadow: hoverKey === key ? `0 0 12px ${BRAND}` : 'none',
                           }}
                         />
-                      </button>
+                      </Link>
                     ) : (
                       <Link
                         to={navItem.href}
