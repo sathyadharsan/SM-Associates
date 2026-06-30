@@ -5,7 +5,7 @@
 export const SECTION_DEFAULTS = {
   problemStatement: { eyebrow: 'Why It Matters', heading: 'Why This Service Matters' },
   overview: { eyebrow: 'Service Overview' },
-  kpi: { eyebrow: 'Enterprise Overview', heading: 'Enterprise KPI Cards', subheading: 'Enterprise-grade capabilities designed for this service.' },
+  kpi: { eyebrow: 'Enterprise Overview', heading: 'Enterprise KPI', subheading: 'Enterprise-grade capabilities designed for this service.' },
   capabilities: { eyebrow: 'Core Capabilities', heading: 'Core Capabilities' },
   tabs: { eyebrow: 'Verification Stages', heading: 'Inside Each Stage' },
   challenges: { eyebrow: 'Risk Landscape', heading: 'Business Challenges' },

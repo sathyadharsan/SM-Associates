@@ -4,12 +4,6 @@ export const navigationData = {
     {
       label: 'Company',
       href: '/about',
-      children: [
-        { label: 'Leadership', href: '/about/leadership' },
-        { label: 'Company History', href: '/about/history' },
-        { label: 'Why SM Associates', href: '/about/why-sm-associates' },
-        { label: 'Compliance & Ethics', href: '/about/compliance' },
-      ],
     },
     {
       label: 'Services',

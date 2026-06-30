@@ -271,7 +271,7 @@ export const pagesContent = {
           'Managed 150K+ accounts successfully'
         ],
         activeStates: ['Tamil Nadu', 'Karnataka', 'Kerala'],
-        impact: [
+         impact: [
           { value: '3', label: 'States Covered' },
           { value: '250+', label: 'Field Force' },
           { value: '8', label: 'Offices' },

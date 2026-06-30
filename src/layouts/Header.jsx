@@ -147,6 +147,24 @@ export default function Header() {
   const [expandedCategory, setExpandedCategory] = useState(null);
   const location = useLocation();
 
+  // Filter out Home, Careers, Contact from middle nav since they might be standalone or placed elsewhere
+  const middleNavItems = navigationData.mainNav.filter(
+    (item) => item.label !== 'Home' && item.label !== 'Careers' && item.label !== 'Contact'
+  );
+
+  const isItemActive = (item) => {
+    if (location.pathname === item.href) return true;
+    if (item.children) {
+      return item.children.some(child => location.pathname === child.href);
+    }
+    if (item.isMegaMenu && item.columns) {
+      return item.columns.some(col => 
+        col.items.some(subItem => location.pathname === subItem.href)
+      );
+    }
+    return false;
+  };
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -155,17 +173,18 @@ export default function Header() {
 
   useEffect(() => {
     setMobileOpen(false);
-    setActiveMenu(null);
-  }, [location]);
+    if (!hoverKey) {
+      setActiveMenu(null);
+    }
+    const activeItem = middleNavItems.find(item => isItemActive(item));
+    if (activeItem) {
+      setMobileExpanded(activeItem.label);
+    }
+  }, [location, hoverKey]);
 
   useEffect(() => {
     setExpandedCategory(null);
   }, [activeMenu]);
-
-  // Filter out Home, Careers, Contact from middle nav since they might be standalone or placed elsewhere
-  const middleNavItems = navigationData.mainNav.filter(
-    (item) => item.label !== 'Home' && item.label !== 'Careers' && item.label !== 'Contact'
-  );
 
   return (
     <div className="fixed inset-x-0 top-0 z-50">
@@ -222,28 +241,28 @@ export default function Header() {
                       <Link
                         to={navItem.href}
                         onMouseEnter={() => setActiveMenu(key)}
-                        onClick={() => setActiveMenu(null)}
-                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-[-0.01em] text-gray-900/65 transition-colors duration-200 hover:text-gray-950"
+                        onClick={() => {
+                          setActiveMenu(activeMenu === key ? null : key);
+                        }}
+                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-[-0.01em] transition-colors duration-200"
+                        style={{ color: isItemActive(navItem) || activeMenu === key || hoverKey === key ? BRAND : 'rgba(15, 23, 42, 0.65)' }}
                       >
                         {navItem.label}
-                        <ChevronDown
-                          className="h-3.5 w-3.5 transition-transform duration-300"
-                          style={{ transform: activeMenu === key ? 'rotate(-180deg)' : 'rotate(0deg)', color: 'rgba(15,23,42,0.35)' }}
-                        />
                         <span
                           className="absolute bottom-0 left-3 right-3 h-[2px] origin-center rounded-full transition-all duration-300"
                           style={{
                             background: `linear-gradient(90deg, ${BRAND}, ${VIOLET})`,
-                            opacity: hoverKey === key ? 1 : 0,
-                            transform: hoverKey === key ? 'scaleX(1)' : 'scaleX(0.3)',
-                            boxShadow: hoverKey === key ? `0 0 12px ${BRAND}` : 'none',
+                            opacity: hoverKey === key || isItemActive(navItem) || activeMenu === key ? 1 : 0,
+                            transform: hoverKey === key || isItemActive(navItem) || activeMenu === key ? 'scaleX(1)' : 'scaleX(0.3)',
+                            boxShadow: hoverKey === key || isItemActive(navItem) || activeMenu === key ? `0 0 12px ${BRAND}` : 'none',
                           }}
                         />
                       </Link>
                     ) : (
                       <Link
                         to={navItem.href}
-                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-[-0.01em] text-gray-900/65 transition-colors duration-200 hover:text-gray-950"
+                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-[-0.01em] transition-colors duration-200"
+                        style={{ color: isItemActive(navItem) ? BRAND : 'rgba(15, 23, 42, 0.65)' }}
                       >
                         {navItem.label}
                       </Link>
@@ -434,16 +453,17 @@ export default function Header() {
                       <div key={key}>
                         {hasDropdown ? (
                           <>
-                            <button
-                              onClick={() => setMobileExpanded(mobileExpanded === key ? null : key)}
-                              className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-[14px] font-semibold text-gray-900/75 hover:bg-gray-50"
+                            <Link
+                              to={navItem.href}
+                              onClick={() => {
+                                setMobileExpanded(mobileExpanded === key ? null : key);
+                                setMobileOpen(false);
+                              }}
+                              className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-[14px] font-semibold transition-colors hover:bg-gray-50"
+                              style={{ color: isItemActive(navItem) || mobileExpanded === key ? BRAND : 'rgba(17, 24, 39, 0.75)' }}
                             >
                               {navItem.label}
-                              <ChevronDown
-                                className="h-4 w-4 text-gray-900/35 transition-transform duration-200"
-                                style={{ transform: mobileExpanded === key ? 'rotate(180deg)' : 'rotate(0deg)' }}
-                              />
-                            </button>
+                            </Link>
                             <AnimatePresence>
                               {mobileExpanded === key && (
                                 <motion.div

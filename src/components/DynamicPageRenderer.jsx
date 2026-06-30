@@ -3,14 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { getPageContent } from '../data/pagesContent';
 
 // About Layouts
-import { 
-  CompanyOverviewLayout, 
-  LeadershipLayout, 
-  HistoryLayout, 
-  WhySMAssociatesLayout, 
-  ClienteleLayout, 
-  ComplianceLayout 
-} from './layouts/AboutLayouts';
+import { CompanyOverviewLayout } from './layouts/AboutLayouts';
 
 // Other Category Layouts
 import { IndustryLayout } from './layouts/IndustryLayout';
@@ -38,23 +31,8 @@ export default function DynamicPageRenderer({ pageId }) {
   }
 
   // 2. ABOUT PAGES
-  if (activePath === '/about' || pageId === 'company-overview') {
+  if (activePath.startsWith('/about') || pageId === 'company-overview' || pageId === 'leadership' || pageId === 'history' || pageId === 'why-sm-associates' || pageId === 'clientele' || pageId === 'compliance') {
     return <CompanyOverviewLayout content={content} />;
-  }
-  if (activePath === '/about/leadership' || pageId === 'leadership') {
-    return <LeadershipLayout content={content} />;
-  }
-  if (activePath === '/about/history' || pageId === 'history') {
-    return <HistoryLayout content={content} />;
-  }
-  if (activePath === '/about/why-sm-associates' || pageId === 'why-sm-associates') {
-    return <WhySMAssociatesLayout content={content} />;
-  }
-  if (activePath === '/about/clientele' || pageId === 'clientele') {
-    return <ClienteleLayout content={content} />;
-  }
-  if (activePath === '/about/compliance' || pageId === 'compliance') {
-    return <ComplianceLayout content={content} />;
   }
 
   // 3. INDUSTRIES CATEGORIES

@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import SiteLayout from '../layouts/SiteLayout';
 import HomePage from '../pages/HomePage';
 
@@ -99,11 +99,11 @@ export default function AppRoutes() {
 
         {/* About */}
         <Route path="/about" element={<CompanyOverviewPage />} />
-        <Route path="/about/leadership" element={<LeadershipTeamPage />} />
-        <Route path="/about/history" element={<CompanyHistoryPage />} />
-        <Route path="/about/why-sm-associates" element={<WhySMAssociatesPage />} />
-        <Route path="/about/clientele" element={<ClientelePage />} />
-        <Route path="/about/compliance" element={<ComplianceEthicsPage />} />
+        <Route path="/about/leadership" element={<Navigate to="/about" replace />} />
+        <Route path="/about/history" element={<Navigate to="/about" replace />} />
+        <Route path="/about/why-sm-associates" element={<Navigate to="/about" replace />} />
+        <Route path="/about/clientele" element={<Navigate to="/about" replace />} />
+        <Route path="/about/compliance" element={<Navigate to="/about" replace />} />
 
         {/* Services */}
         <Route path="/services" element={<ServicesIndex />} />
