@@ -695,7 +695,7 @@ export function CompanyOverviewLayout({ content }) {
                   <img
                     src={leadershipContent.mdSpotlight?.photo || "/images/jebaraj.M MD.png"}
                     alt={leadershipContent.mdSpotlight?.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
                 <div>
