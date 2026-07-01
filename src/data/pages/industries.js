@@ -1,4 +1,4 @@
-// Refined content data for all Industries and Products pages
+﻿// Refined content data for all Industries and Products pages
 // Conforms to the 12-section dynamic layout scheme
 
 export const industriesContent = {
@@ -14,9 +14,9 @@ export const industriesContent = {
     
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     capabilitiesHeading: 'Industry Focus Areas',
@@ -122,9 +122,9 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     capabilitiesHeading: 'Industry Focus Areas',
@@ -228,9 +228,9 @@ export const industriesContent = {
     
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'Industry Risks',
@@ -387,20 +387,20 @@ export const industriesContent = {
     ],
 
     challengesHeading: 'Critical Market Delinquencies',
-        challenges: [
-      { title: 'Eviction Warrants Backlog', desc: 'Inefficient legal filing coordinate structures stall Section 1magistrate warrants. Properties remain occupied by defaulting borrowers.', warningBadge: 'COMMERCIAL BANKING', impact: 'SM Associates Operational Approach: Legal coordination desk liaising with district courts and authorities.' },
-      { title: 'Synthetic Identity Infiltration', desc: 'Fictitious or shell companies presented as stable employers to pass basic desk checks during underwriting. Inability to verify details leads to early default risks.', warningBadge: 'RETAIL CREDIT', impact: 'SM Associates Operational Approach: On-ground workplace CPV visits and employer HR verification.' },
-      { title: 'Data Security Auditing exceptions', desc: 'Vendor file transmission loops failing to comply with ISO 27001 parameters, exposing borrower PII data registries.', warningBadge: 'OPERATIONAL GOVERNANCE', impact: 'SM Associates Operational Approach: Encrypted SFTP data pipelines and audit-ready documentation custody.' }
+    challenges: [
+      { title: 'One-Size-Fits-All Operations Fail', desc: 'Generic collections agencies apply uniform scripts, calling windows, and escalation paths across all lending verticals. This approach violates vertical-specific RBI guidelines and delivers poor resolution rates.', warningBadge: 'OPERATIONAL RISK', impact: 'SM Associates Operational Approach: Dedicated operational desks calibrated per lending vertical with vertical-specific scripts, SLA frameworks, and compliance controls.' },
+      { title: 'Regulatory Divergence Across Verticals', desc: 'Banks operate under DOR Fair Practices, MFIs under MFIN Code of Conduct, ARCs under Securitisation Directions, and insurers under IRDAI SIU guidelines. A partner serving multiple verticals must maintain separate compliance postures.', warningBadge: 'COMPLIANCE RISK', impact: 'SM Associates Operational Approach: Vertical-specific compliance frameworks managed by dedicated relationship managers with deep sectoral expertise.' },
+      { title: 'Geographic Borrower Distribution Gaps', desc: 'Lenders with portfolios spanning urban, semi-urban, and rural geographies face difficulty finding partners with the local presence to reach all borrower segments within SLA timelines.', warningBadge: 'COVERAGE GAPS', impact: 'SM Associates Operational Approach: 19-branch network across South India ensures same-day doorstep dispatch for all geographic segments within coverage zones.' }
     ],
 
     capabilitiesHeading: 'Industry Focus Areas',
     capabilities: [
-      { title: 'Secured Asset Foreclosures', desc: 'Commercial banks face systemic bottlenecks when enforcing security interests on defaulted real estate collateral.', bullets: ['Filing Section 14 petitions with Chief Judicial Magistrates', 'Coordinating locksmiths, security forces, and police assistance', 'Executing legal symbolic and physical possession affixture'], businessOutcome: 'Accelerates collateral foreclosure and frees up provisioning reserves.' },
-      { title: 'Pre-Disbursal Risk Auditing', desc: 'Preventing underwriting exposure to synthetic identity and documentation fraud on retail and commercial books.', bullets: ['Doorstep customer profile verification (CPV) visits', 'Sub-Registrar encumbrance certificate search check', 'Employer payroll HR details verifications on site'], businessOutcome: 'Ensures data validity before capital disbursement.' },
-      { title: 'Retail Book Collections', desc: 'High-volume early-stage collections campaigns matching regulatory calling constraints.', bullets: ['Outbound VoIP reminder calling during approved hours', 'IIBF DRA-certified coordinators physical visits', 'Negotiating OTS settlements within bank parameters'], businessOutcome: 'Improves roll-back rates on credit card and personal defaults.' },
-      { title: 'Agriculture Portfolio Recovery', desc: 'Agricultural lending requires crop-cycle aligned physical outreach and local branch networks.', bullets: ['Scheduling collections during local crop harvest cycles', 'Tractor tracing and coordinate checks', 'Mediation with local Panchayat coordinates'], businessOutcome: 'Reduces farm defaults while maintaining community goodwill.' },
-      { title: 'Asset Preservation & Yard Custody', desc: 'Protecting the resale value of repossessed commercial vehicles and machinery.', bullets: ['Storing assets in fenced, CCTV-monitored yards', 'Digital check-in inventory checks and status logs', 'Facilitating public viewing ahead of auctions'], businessOutcome: 'Prevents asset damage or parts theft during holding.' },
-      { title: 'DRT & Litigation Coordination', desc: 'Expediting legal recovery actions before Debt Recovery Tribunals.', bullets: ['Liaising with district legal panel advocates', 'Assembling necessary loan deed registries and proofs', 'Filing recovery certificates and claims checks'], businessOutcome: 'Reduces legal timelines for high-value defaults.' }
+      { title: 'SARFAESI Legal Coordination', desc: 'End-to-end support for SARFAESI Act enforcement across secured loan portfolios — from notice serving to physical possession and public auction.', bullets: ['Section 13(2) demand notice drafting and service', 'CJM/CMM petition filing and magistrate warrant coordination', 'Public e-auction organization and bidder mobilization'], businessOutcome: 'Accelerates secured asset resolution and releases provisioning capital.' },
+      { title: 'High-Volume Collections Operations', desc: 'Decentralized doorstep collections campaigns staffed by IIBF DRA-certified agents operating within statutory calling and visit guidelines.', bullets: ['Bilingual outbound tele-calling within approved hours', 'Certified field officer doorstep visit deployment', 'OTS negotiation and settlement facilitation'], businessOutcome: 'Improves roll-back rates across early and late-stage delinquency buckets.' },
+      { title: 'Pre-Disbursal Verification', desc: 'On-ground CPV checks validating applicant identity, residence, employment, and business operations before loan disbursement.', bullets: ['Geotagged residence and workplace visit reports', 'Employer payroll and HR corroboration on-site', 'Sub-Registrar encumbrance certificate searches'], businessOutcome: 'Prevents underwriting exposure to synthetic identity and documentation fraud.' },
+      { title: 'Vehicle Repossession & Custody', desc: 'Authorized repossession of delinquent vehicle collateral with secure yard storage and valuation ahead of public auctions.', bullets: ['RTO registry cross-checks and police liaison', 'Authorized towing and secure yard custody', 'Government-approved panel valuations for e-auction pricing'], businessOutcome: 'Protects collateral value and enables fast asset monetization.' },
+      { title: 'Claims & Fraud Investigation', desc: 'SIU field audits for insurance companies to verify motor, health, and life claim authenticity through on-site investigations.', bullets: ['Accident site visits and police FIR cross-checks', 'Hospital admission register and billing forensics', 'Municipal death registry and identity verification'], businessOutcome: 'Reduces fraudulent claims payouts and protects insurer loss ratios.' },
+      { title: 'Skip Tracing & Address Intelligence', desc: 'Locating absconded borrowers, guarantors, and claimants through multi-source address intelligence and community cross-checks.', bullets: ['Municipal utility and registry database searches', 'Neighbor and reference corroboration visits', 'Alternate contact and co-borrower verification'], businessOutcome: 'Restores borrower contact to prevent permanent write-offs.' }
     ],
 
     processFlow: {
@@ -459,9 +459,9 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'Industry Risk Landscape',
@@ -618,10 +618,10 @@ export const industriesContent = {
     ],
 
     challengesHeading: 'Business Challenges',
-        challenges: [
-      { title: 'Eviction Warrants Backlog', desc: 'Inefficient legal filing coordinate structures stall Section 1magistrate warrants. Properties remain occupied by defaulting borrowers.', warningBadge: 'COMMERCIAL BANKING', impact: 'SM Associates Operational Approach: Legal coordination desk liaising with district courts and authorities.' },
-      { title: 'Synthetic Identity Infiltration', desc: 'Fictitious or shell companies presented as stable employers to pass basic desk checks during underwriting. Inability to verify details leads to early default risks.', warningBadge: 'RETAIL CREDIT', impact: 'SM Associates Operational Approach: On-ground workplace CPV visits and employer HR verification.' },
-      { title: 'Data Security Auditing exceptions', desc: 'Vendor file transmission loops failing to comply with ISO 27001 parameters, exposing borrower PII data registries.', warningBadge: 'OPERATIONAL GOVERNANCE', impact: 'SM Associates Operational Approach: Encrypted SFTP data pipelines and audit-ready documentation custody.' }
+    challenges: [
+      { title: 'High-Volume Field Economics', desc: 'Low-ticket NBFC retail accounts are expensive to service via traditional field networks. Travel costs dilute collection margins, making geographic density and route optimization critical.', warningBadge: 'NBFC OPERATIONS', impact: 'SM Associates Operational Approach: GPS-optimized branch routing maximizes visits per agent and lowers per-account recovery cost.' },
+      { title: 'Vehicle Collateral Mobility', desc: 'Two-wheeler and auto loan collateral moves freely across district boundaries after default. Tracing and legally repossessing vehicles requires both RTO registry access and police coordination.', warningBadge: 'VEHICLE FINANCE', impact: 'SM Associates Operational Approach: RTO liaison network and authorized towing coordination across 19 branch districts.' },
+      { title: 'Rapid SBR Write-off Escalation', desc: 'RBI Scale-Based Regulations mandate tight provisioning timelines. Unsecured NBFC retail accounts that miss early contact windows accelerate directly into write-off buckets.', warningBadge: 'PROVISIONING RISK', impact: 'SM Associates Operational Approach: Same-day doorstep dispatch from decentralized branches prevents early-bucket rollover.' }
     ],
 
     capabilitiesHeading: 'Industry Focus Areas',
@@ -690,9 +690,9 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'Industry Risk Landscape',
@@ -706,7 +706,7 @@ export const industriesContent = {
     overview: {
       heading: 'Mortgage Asset Foreclosure: Securing Eviction Orders',
       subheading: 'Executing Possession Orders Under Supreme Court Section 13(8) Precedents',
-      summary: 'Secured mortgage recoveries depend on tight adherence to statutory timelines to prevent borrower challenges. SM Associates operates a dedicated foreclosure desk that coordinates Section 13 notice serving, Section 14 magistrate orders, physical possession eviction, and e-auctions. We apply the 2025 M. Rajendran precedent, ensuring composite notices extinguish redemption rights and accelerate sale closure.',
+      summary: 'Secured mortgage recoveries depend on tight adherence to statutory timelines to prevent borrower challenges. SM Associates operates a dedicated foreclosure desk that coordinates Section 13 notice serving, Section 14 magistrate orders, physical possession eviction, and e-auctions. Our legal coordinators manage the entire SARFAESI enforcement cycle — from composite demand notice serving through Sub-Registrar encumbrance clearance to final auction sale deed registration.',
       outcomes: [
         { title: 'Magistrate Orders Speed', desc: 'Legal coordinators file CJM petitions within 14 days of default.' },
         { title: 'Video-Logged Seizures', desc: 'All physical possessions are video-recorded to verify inventory.' },
@@ -849,10 +849,10 @@ export const industriesContent = {
     ],
 
     challengesHeading: 'Business Challenges',
-        challenges: [
-      { title: 'Eviction Warrants Backlog', desc: 'Inefficient legal filing coordinate structures stall Section 1magistrate warrants. Properties remain occupied by defaulting borrowers.', warningBadge: 'COMMERCIAL BANKING', impact: 'SM Associates Operational Approach: Legal coordination desk liaising with district courts and authorities.' },
-      { title: 'Synthetic Identity Infiltration', desc: 'Fictitious or shell companies presented as stable employers to pass basic desk checks during underwriting. Inability to verify details leads to early default risks.', warningBadge: 'RETAIL CREDIT', impact: 'SM Associates Operational Approach: On-ground workplace CPV visits and employer HR verification.' },
-      { title: 'Data Security Auditing exceptions', desc: 'Vendor file transmission loops failing to comply with ISO 27001 parameters, exposing borrower PII data registries.', warningBadge: 'OPERATIONAL GOVERNANCE', impact: 'SM Associates Operational Approach: Encrypted SFTP data pipelines and audit-ready documentation custody.' }
+    challenges: [
+      { title: 'Section 14 Magistrate Warrant Delays', desc: 'CJM court backlogs extend the time between physical possession applications and actual warrant execution. HFC mortgage assets remain occupied by defaulters, incurring holding and security costs.', warningBadge: 'MORTGAGE ENFORCEMENT', impact: 'SM Associates Operational Approach: Dedicated legal desk with local CJM/CMM advocate empanelment for faster petition turnaround.' },
+      { title: 'Undisclosed Tenancy Disputes', desc: 'Third-party tenants presenting informal lease agreements after mortgage default, creating legal challenges to physical possession and blocking auction timelines.', warningBadge: 'PROPERTY DISPUTES', impact: 'SM Associates Operational Approach: Pre-possession site verification and coordinate checks to document occupancy status before filing.' },
+      { title: 'Title Deed Registry Gaps', desc: 'Missing encumbrance certificates or duplicate title registrations discovered during auction due diligence, causing failed bidding rounds and re-listing delays.', warningBadge: 'TITLE INTEGRITY', impact: 'SM Associates Operational Approach: Sub-Registrar encumbrance searches and cross-matching of property ownership records before reserve pricing.' }
     ],
 
     capabilitiesHeading: 'Industry Focus Areas',
@@ -860,31 +860,31 @@ export const industriesContent = {
       { title: 'SARFAESI Notices Serving', desc: 'HFC mortgage defaults require legally valid and certified notices delivery to initiate foreclosures.', bullets: ['In-hand delivery with signature proof', 'Registered post tracking with acknowledgment cards', 'Affixation check with geotagged photo logs if absent'], businessOutcome: 'Starts the statutory timeline for default resolution.' },
       { title: 'Magistrate warrant executions', desc: 'Filing petitions under Section 14 to secure possession warrants from magistrates.', bullets: ['Liaising with district legal panel advocates check', 'Preparing CMM/CJM court petition dossiers check', 'Coordinating police presence and logistics on-site'], businessOutcome: 'Legally authorizes physical eviction of defaulters.' },
       { title: 'Physical Possessions Logistics', desc: 'Ground coordination of lockouts and inventory verifications.', bullets: ['Coordinating locksmiths, security forces, and police assistance', 'Taking physical possession and securing the site', 'Detailed inventory checks of repossessed items'], businessOutcome: 'Secures physical asset with zero operational disputes.' },
-      { title: 'Secure Yard Custody', desc: 'Storing repossessed vehicles in fenced, CCTV-monitored facilities.', bullets: ['24/7 guard shifts and CCTV monitoring', 'Detailed vehicle status checks on inflow', 'Weekly inventory reconciliations'], businessOutcome: 'Protects the value of repossessed collateral.' },
-      { title: 'Tractor Location Tracking', desc: 'Tracing agricultural tractors across farming districts.', bullets: ['Cross-checking municipal registries', 'Community inquiries on site', 'Alternative coordinate verifications'], businessOutcome: 'Restores contact with agricultural defaults.' },
-      { title: 'Asset Valuation Panel Support', desc: 'Physical vehicle status checks to set e-auction reserve prices.', bullets: ['Assessing vehicle running condition', 'Validating pricing index registries', 'Government-approved panel valuations'], businessOutcome: 'Ensures correct reserve pricing compliant with guidelines.' }
+      { title: 'Secure Yard Custody', desc: 'Storing repossessed property contents in fenced, CCTV-monitored facilities pending auction.', bullets: ['24/7 security guard shifts and CCTV monitoring', 'Detailed inventory status log on property inflow', 'Weekly condition reconciliation reports for HFC records'], businessOutcome: 'Protects the value of repossessed mortgage collateral.' },
+      { title: 'Affordable Housing Soft Collections', desc: 'Empathetic early-stage outreach for affordable housing loan borrowers before default escalates to legal enforcement.', bullets: ['Bilingual outbound calling within statutory hours', 'DRA-certified field officer doorstep payment facilitation', 'OTS eligibility assessment and settlement facilitation'], businessOutcome: 'Reduces early-stage delinquency and preserves customer relationships on affordable housing portfolios.' },
+      { title: 'Asset Valuation Panel Support', desc: 'Property valuations by government-approved panel engineers to set accurate e-auction reserve prices.', bullets: ['Structural assessment by empanelled engineers', 'Municipal price index cross-validation', 'Formal valuation reports in HFC-compliant formats'], businessOutcome: 'Ensures defensible reserve pricing to prevent failed auctions.' }
     ],
 
     processFlow: {
-      title: 'Industry Engagement Journey',
-      desc: 'How we onboard, calibrate, and execute campaigns across HFC lending verticals.',
+      title: 'Mortgage Foreclosure Engagement Journey',
+      desc: 'Five-stage SARFAESI enforcement pipeline from delinquent mortgage intake to auction sale deed.',
       steps: [
-        { step: '01', title: 'Assessment', desc: 'Reviewing the mortgage default portfolio and checking parameters.', outcome: 'Case legal dossiers compiled and verified.' },
-        { step: '02', title: 'Planning', desc: 'Formulating calling script parameters, calling locks, and escalation stages.', outcome: 'SLA boundaries and scripts locked into the dialer system.' },
-        { step: '03', title: 'Deployment', desc: 'Allocating case files to local branches and certified coordinators.', outcome: 'Immediate ground mobilization within target districts.' },
-        { step: '04', title: 'Monitoring', desc: 'Enforcing VoIP voice logs audits and geolocated visit checks.', outcome: 'Complete auditable record of all borrower touchpoints.' },
-        { step: '05', title: 'Continuous Improvement', desc: 'OTS settlement facilitation and cash ledger updates.', outcome: 'Reconciled collections data ready for review.' }
+        { step: '01', title: 'Mortgage Portfolio Review', desc: 'Importing delinquent mortgage accounts, verifying title deeds via Sub-Registrar encumbrance search, and categorizing by legal stage.', outcome: 'Clean asset register with documented title status and litigation risk flags.' },
+        { step: '02', title: 'Demand Notice Service', desc: 'Drafting Section 13(2) demand notices, executing in-hand/registered post delivery, and filing affixation logs with geotagged photos.', outcome: 'Legally served demand notices with delivery proof triggering statutory 60-day timeline.' },
+        { step: '03', title: 'Possession Execution', desc: 'Filing Section 14 CJM petition, coordinating magistrate warrant, and executing physical possession with police presence and locksmith support.', outcome: 'Physical possession taken and secured with video inventory documentation.' },
+        { step: '04', title: 'Site Security & Valuation', desc: 'Deploying security guards immediately on possession, followed by government-approved panel engineer valuation for reserve price setting.', outcome: 'Secured site with formal valuation report submitted to HFC committee.' },
+        { step: '05', title: 'Public E-Auction', desc: 'Publishing auction notices in regional newspapers, listing on online portals, mobilizing buyer networks, and managing bid-day operations.', outcome: 'Auction sale deed registered and proceeds deposited to HFC nodal account.' }
       ]
     },
 
     outcomesHeading: 'Strategic Business Outcomes',
     outcomes: [
-      { title: 'Better Portfolio Quality', desc: 'Proactive Collections rollback reduces early delinquency rollovers, keeping books clean.', value: 'Reduced Rollovers' },
-      { title: 'Reduced Operational Risk', desc: '100% DRA-certified agent placements protect the lender from conduct audits.', value: 'Conduct Vetted' },
-      { title: 'Regulatory Readiness', desc: 'Geotagged check files and VoIP call recording archives protect bank panels.', value: 'RBI Code Compliant' },
-      { title: 'Improved Collections', desc: 'High-density branch routing maximizes doorstep collections and payments pickup.', value: 'Higher Realization' },
-      { title: 'Faster Recovery', desc: 'Dedicated legal coordinate desks expedite magistrate possessions and sales.', value: 'Expedited Warrants' },
-      { title: 'Stronger Governance', desc: 'Reconciled dashboard reporting and secure SFTP uploads provide clean audit logs.', value: 'Auditable Trails' }
+      { title: 'Faster Possession Timelines', desc: 'Empanelled CJM advocates and legal coordinators compress magistrate petition processing from months to weeks.', value: 'Expedited Warrants' },
+      { title: 'Clean Collateral Transfers', desc: 'Sub-Registrar encumbrance searches and title validation ensure auction sale deeds are free from litigation risk.', value: 'Clean Title Sales' },
+      { title: 'Defensible Auction Prices', desc: 'Government-approved panel valuations with municipal index cross-checks prevent reserve pricing disputes and failed bids.', value: 'Optimal Recovery Yields' },
+      { title: 'Zero Conduct Exposure', desc: 'All notice servings are documented with delivery proofs, geotagged photos, and registered acknowledgments.', value: 'Audit Safe' },
+      { title: 'Reduced Provisioning Drag', desc: 'Stage-3 mortgage assets resolved through legal execution reduce HFC capital provisioning requirements.', value: 'Capital Released' },
+      { title: 'Transparent Governance', desc: 'Milestone updates on client dashboard with secure SFTP uploads give HFC compliance teams complete audit trails.', value: 'Auditable Trails' }
     ],
 
     targetIndustries: [
@@ -921,9 +921,9 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'MFI Compliance Pain',
@@ -1038,57 +1038,57 @@ export const industriesContent = {
     ],
 
     challengesHeading: 'Business Challenges',
-        challenges: [
-      { title: 'Eviction Warrants Backlog', desc: 'Inefficient legal filing coordinate structures stall Section 1magistrate warrants. Properties remain occupied by defaulting borrowers.', warningBadge: 'COMMERCIAL BANKING', impact: 'SM Associates Operational Approach: Legal coordination desk liaising with district courts and authorities.' },
-      { title: 'Synthetic Identity Infiltration', desc: 'Fictitious or shell companies presented as stable employers to pass basic desk checks during underwriting. Inability to verify details leads to early default risks.', warningBadge: 'RETAIL CREDIT', impact: 'SM Associates Operational Approach: On-ground workplace CPV visits and employer HR verification.' },
-      { title: 'Data Security Auditing exceptions', desc: 'Vendor file transmission loops failing to comply with ISO 27001 parameters, exposing borrower PII data registries.', warningBadge: 'OPERATIONAL GOVERNANCE', impact: 'SM Associates Operational Approach: Encrypted SFTP data pipelines and audit-ready documentation custody.' }
+    challenges: [
+      { title: 'JLG Member Seasonal Migration', desc: 'Rural and semi-urban Joint Liability Group members relocate during harvest seasons, disrupting monthly collection cycles and breaking group accountability structures.', warningBadge: 'JLG COLLECTIONS', impact: 'SM Associates Operational Approach: Localized rural branch presence enables doorstep tracing and community reference checks to restore contact.' },
+      { title: 'Community Reputation Exposure', desc: 'Aggressive or non-compliant field tactics in close-knit rural communities trigger severe brand damage. MFI client attrition and local opposition movements can emerge from a single conduct violation.', warningBadge: 'CONDUCT RISK', impact: 'SM Associates Operational Approach: Background-verified bilingual agents operate under strict RBI Customer Dignity Mandate guidelines with 100% voice-logged interactions.' },
+      { title: 'Cash Collection Reconciliation Gaps', desc: 'High-volume daily cash collections across dispersed rural zones create reconciliation lags. Missing deposit slips or unverified cash flows create compliance exposure for NBFC-MFIs.', warningBadge: 'CASH MANAGEMENT', impact: 'SM Associates Operational Approach: Daily nodal bank deposits with digital receipt upload and real-time MIS dashboard reconciliation.' }
     ],
 
     capabilitiesHeading: 'Industry Focus Areas',
     capabilities: [
-      { title: 'API-Integrated CPV Verification', desc: 'Automated ingestion of verification requests and dispatch of geolocated check reports.', bullets: ['Syncing with client collection CRMs via API', 'Same-day check reports with photo proof', 'Direct data uploads to underwriting queues'], businessOutcome: 'Reduces underwriting loan turnaround times and prevents fraud.' },
-      { title: 'Corporate HR Verifications', desc: 'On-site visits to check applicant payroll details and active corporate employment status.', bullets: ['In-person visits to HR offices', 'Trade reference checks', 'Flagging shell company listings'], businessOutcome: 'Validates income details and prevents underwriting errors.' },
-      { title: 'Geotagged Residence Checks', desc: 'Field officers conducting physical visits to verify applicant residence address.', bullets: ['Visit coordinates matching address data', 'Timestamped photo logs of the property', 'Discreet inquiries with neighbors'], businessOutcome: 'Confirms resident stability before disbursal.' },
-      { title: 'Digital Outreach Integration', desc: 'Outbound tele-calling queues integrated with client collections CRMs.', bullets: ['Syncing dispositions in real-time', 'Voice logger files archived securely', 'Outbound dialing compliance locks'], businessOutcome: 'Improves collections recovery rates while maintaining regulatory safety.' },
-      { title: 'GST Registry Validations', desc: 'Verifying trade tax registration documents against Sub-Registrar records.', bullets: ['GST verification check on-site', 'Matching trade licenses with municipal records', 'Trade registry records checking'], businessOutcome: 'Ensures business legitimacy before commercial credit lines.' },
-      { title: 'Skip-Tracing & Tracing Services', desc: 'Locating absconded digital borrowers through coordinate database matching.', bullets: ['Cross-checking utility registries', 'Neighbor inquiries and coordinate checks', 'Employer verification updates'], businessOutcome: 'Restores contact with missing borrowers.' }
+      { title: 'JLG Group Collection Coordination', desc: 'Structured doorstep outreach to Joint Liability Group leaders to facilitate monthly installment collections.', bullets: ['Coordinating with JLG center leaders for group meetings', 'Discreet individual follow-up for missing members', 'Facilitating group-level default mediation'], businessOutcome: 'Sustains group accountability and reduces collective default rates.' },
+      { title: 'Bilingual Outbound Calling', desc: 'Soft tele-reminders delivered in local regional languages within strict RBI calling hour windows.', bullets: ['Tamil, Telugu, Kannada, and Malayalam-speaking agents', 'VoIP dialer locked to 08:00 AM – 07:00 PM call windows', 'Voice-logged call archives for compliance audits'], businessOutcome: 'Reduces early delinquency while preserving borrower dignity.' },
+      { title: 'Rural Doorstep Outreach', desc: 'Certified field representatives conducting in-person visits to rural and semi-urban borrower homes.', bullets: ['Geotagged GPS-timestamped visit logs', 'Community Panchayat liaison for group support', 'Empathetic collections aligned with harvest income cycles'], businessOutcome: 'Restores payment discipline without community friction.' },
+      { title: 'JLG Member Skip Tracing', desc: 'Locating relocated group members through community networks and local reference cross-checks.', bullets: ['Community inquiry with neighbors and co-members', 'Cross-referencing Aadhaar-linked address updates', 'Coordinating with local BCs for alternate contact leads'], businessOutcome: 'Prevents permanent write-offs from seasonal borrower migration.' },
+      { title: 'OTS & Group Settlement Facilitation', desc: 'Mediating out-of-court settlements for delinquent JLG accounts within MFI-approved parameters.', bullets: ['Verifying borrower eligibility for OTS schemes', 'Drafting settlement documentation compliant with NBFC-MFI guidelines', 'Reconciling OTS receipts and uploading to lender MIS'], businessOutcome: 'Resolves stressed accounts while preserving client relationships.' },
+      { title: 'Grievance Management Desk', desc: 'Dedicated escalation desk handling borrower complaints and regulatory grievance filings within mandated resolution windows.', bullets: ['24-hour grievance acknowledgment turnaround', 'Bilingual complaint documentation and tracking', 'Regulatory reporting to NBFC-MFI compliance officers'], businessOutcome: 'Protects the institution from RBI conduct audit findings.' }
     ],
 
     processFlow: {
-      title: 'Industry Engagement Journey',
-      desc: 'SLA-tracked milestones for digital lending checks.',
+      title: 'MFI Collections Engagement Journey',
+      desc: 'Five-stage workflow for JLG portfolio stabilization from onboarding to settlement.',
       steps: [
-        { step: '01', title: 'Assessment', desc: 'Reviewing the default portfolio and checking parameters.', outcome: 'Case legal dossiers compiled and verified.' },
-        { step: '02', title: 'Planning', desc: 'Formulating calling script parameters, calling locks, and escalation stages.', outcome: 'SLA boundaries and scripts locked into the dialer system.' },
-        { step: '03', title: 'Deployment', desc: 'Allocating case files to local branches and certified coordinators.', outcome: 'Immediate ground mobilization within target districts.' },
-        { step: '04', title: 'Monitoring', desc: 'Enforcing VoIP voice logs audits and geolocated visit checks.', outcome: 'Complete auditable record of all borrower touchpoints.' },
-        { step: '05', title: 'Continuous Improvement', desc: 'OTS settlement facilitation and cash ledger updates.', outcome: 'Reconciled collections data ready for review.' }
+        { step: '01', title: 'JLG Portfolio Mapping', desc: 'Importing the MFI delinquent JLG portfolio, mapping group members to local branch zones, and tagging seasonal migration risks.', outcome: 'Group-level risk profile with branch-to-JLG assignment ready for dispatch.' },
+        { step: '02', title: 'Bilingual Campaign Setup', desc: 'Configuring calling scripts in regional languages, locking VoIP dialer hours to 08:00 AM – 07:00 PM, and calibrating escalation paths per MFI code of conduct.', outcome: 'Compliance-validated calling campaign live within 48 hours of onboarding.' },
+        { step: '03', title: 'Calling & Doorstep Outreach', desc: 'Running soft tele-reminders followed by field officer doorstep visits for non-responding group members.', outcome: 'Geotagged doorstep visit logs and voice-recorded call archives for compliance.' },
+        { step: '04', title: 'Reference & Skip Tracing', desc: 'Locating relocated JLG members through community networks, Panchayat contacts, and alternate reference validation.', outcome: 'Restored contact details confirmed and updated in lender MIS.' },
+        { step: '05', title: 'OTS & Group Settlement', desc: 'Facilitating out-of-court group settlements for stressed JLG accounts within MFI-approved OTS parameters.', outcome: 'OTS agreement executed and reconciled deposit uploaded to lender dashboard.' }
       ]
     },
 
     outcomesHeading: 'Strategic Business Outcomes',
     outcomes: [
-      { title: 'Better Portfolio Quality', desc: 'Proactive Collections rollback reduces early delinquency rollovers, keeping books clean.', value: 'Reduced Rollovers' },
-      { title: 'Reduced Operational Risk', desc: '100% DRA-certified agent placements protect the lender from conduct audits.', value: 'Conduct Vetted' },
-      { title: 'Regulatory Readiness', desc: 'Geotagged check files and VoIP call recording archives protect bank panels.', value: 'RBI Code Compliant' }
+      { title: 'JLG Portfolio Stabilization', desc: 'Group-level outreach and mediation reduces collective default spread across Joint Liability Groups.', value: 'Group Cohesion Restored' },
+      { title: 'Zero Conduct Violations', desc: '100% voice-logged calling within statutory hours and background-verified field agents eliminate regulatory exposure.', value: 'Conduct Safe' },
+      { title: 'Rural Last-Mile Coverage', desc: 'Localized 19-branch network reaches semi-urban and rural JLG borrowers that centralized operations cannot access.', value: 'Last-Mile Reach' }
     ],
 
     targetIndustries: [
-      { name: 'Buy Now Pay Later (BNPL)', desc: 'Focuses on high-volume early-stage collections campaigns. Implements soft tele-reminders.' },
-      { name: 'Salaried Instant Personal Loans', desc: 'Manages on-site workplace verifications. Coordinates CPV profile verification.' },
-      { name: 'Merchant Working Capital Loans', desc: 'Coordinates on-site business operations verifications and collections. Implements GST registry validation.' }
+      { name: 'NBFC-MFIs', desc: 'Manages JLG group collections, compliance-aligned calling campaigns, and cash reconciliation for NBFC-registered microfinance institutions.' },
+      { name: 'Small Finance Banks', desc: 'Supports SFB micro-borrower portfolios with bilingual outreach, doorstep visits, and OTS facilitation under SFB regulatory guidelines.' },
+      { name: 'Business Correspondent Networks', desc: 'Provides last-mile field outreach support for BC-linked borrower pools in semi-urban and rural geographies.' }
     ],
 
     faqs: [
-      { q: 'Do you support direct SFTP database ingestions?', a: 'Yes. We support daily database file uploads via secure SFTP using PGP key encryption, alongside API integrations.' },
-      { q: 'How do you handle address mismatches during checks?', a: 'The case is flagged, residential coordinates are logged, and a discrepancy note is routed directly to the underwriter.' },
-      { q: 'What is the typical TAT for verification checks?', a: 'We deliver geotagged check reports within 24 hours of assignment.' }
+      { q: 'How do you handle JLG group defaults?', a: 'Our field officers coordinate with JLG center leaders, facilitate group meetings, and mediate individual defaults discreetly while preserving group cohesion.' },
+      { q: 'Do your agents speak local languages?', a: 'Yes. Our tele-calling teams include Tamil, Telugu, Kannada, and Malayalam-speaking agents trained on soft-collections scripts aligned with RBI Customer Dignity Mandates.' },
+      { q: 'How do you handle borrower grievances?', a: 'Our grievance desk acknowledges all complaints within 24 hours and tracks resolution through to closure, with reports available to the MFI compliance officer.' }
     ],
 
     cta: {
-      heading: 'Request an Industry Assessment',
-      subheading: 'Request an integration demo with our tech team to evaluate our verification TAT.',
-      buttonText: 'Book Tech Demo',
+      heading: 'Meet Our MFI Team',
+      subheading: 'Connect with our microfinance collections desk to review our rural branch coverage and compliance framework.',
+      buttonText: 'Meet Our MFI Team',
       href: '/contact'
     }
   },
@@ -1106,15 +1106,15 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'Industry Risk Landscape',
     problemStatementHeading: 'Valuation Depreciation and Legal Obstacles in Purchased Banking Books',
     problemStatement: [
-      { icon: 'trendingDown', title: 'Physical Possessions Delays', desc: 'Extended Section 1magistrate warrant backlogs delay symbolic to physical possession transfers, causing holding expenses inflation.' },
+      { icon: 'trendingDown', title: 'Physical Possessions Delays', desc: 'Extended Section 14 magistrate warrant backlogs delay symbolic to physical possession transfers, causing holding expenses inflation.' },
       { icon: 'shieldAlert', title: 'Asset Depreciation & Vandalism', desc: 'Unsecured commercial factories or equipment fleets targeted by trespassers or damaged, reducing the realisable auction yields.' },
       { icon: 'timer', title: 'Failed E-Auctions', desc: 'Missing registry document histories or inaccurate property reserve pricing lead to failed public auctions, locking up resolution capital.' }
     ],
@@ -1223,10 +1223,10 @@ export const industriesContent = {
     ],
 
     challengesHeading: 'Business Challenges',
-        challenges: [
-      { title: 'Eviction Warrants Backlog', desc: 'Inefficient legal filing coordinate structures stall Section 1magistrate warrants. Properties remain occupied by defaulting borrowers.', warningBadge: 'COMMERCIAL BANKING', impact: 'SM Associates Operational Approach: Legal coordination desk liaising with district courts and authorities.' },
-      { title: 'Synthetic Identity Infiltration', desc: 'Fictitious or shell companies presented as stable employers to pass basic desk checks during underwriting. Inability to verify details leads to early default risks.', warningBadge: 'RETAIL CREDIT', impact: 'SM Associates Operational Approach: On-ground workplace CPV visits and employer HR verification.' },
-      { title: 'Data Security Auditing exceptions', desc: 'Vendor file transmission loops failing to comply with ISO 27001 parameters, exposing borrower PII data registries.', warningBadge: 'OPERATIONAL GOVERNANCE', impact: 'SM Associates Operational Approach: Encrypted SFTP data pipelines and audit-ready documentation custody.' }
+    challenges: [
+      { title: 'Asset Deterioration During Holding', desc: 'Foreclosed industrial sites, commercial properties, and machinery fleets deteriorate rapidly without active security. Vandalism and unauthorized occupancy reduce realizable auction prices significantly.', warningBadge: 'ASSET PRESERVATION', impact: 'SM Associates Operational Approach: Ex-defence security guards deployed immediately on physical possession with weekly photographic condition logs.' },
+      { title: 'Title Encumbrance Disputes', desc: 'Purchased NPA portfolios often carry concealed prior mortgages, duplicate registrations, or boundary encroachments that surface during auction due diligence, causing failed bids.', warningBadge: 'TITLE INTEGRITY', impact: 'SM Associates Operational Approach: Sub-Registrar encumbrance searches and cross-boundary verification before reserve pricing to ensure clean title sales.' },
+      { title: 'Reserve Pricing and Auction Failures', desc: 'Inaccurate reserve prices relative to current market realities result in failed first auctions. Re-listing cycles inflate holding expenses and reduce ARC recovery yields.', warningBadge: 'AUCTION EFFICIENCY', impact: 'SM Associates Operational Approach: Government-approved panel valuers set market-calibrated reserve prices with municipal index cross-checks.' }
     ],
 
     capabilitiesHeading: 'Industry Focus Areas',
@@ -1240,22 +1240,22 @@ export const industriesContent = {
     ],
 
     processFlow: {
-      title: 'Industry Engagement Journey',
-      desc: 'Milestone tracking for ARC resolved portfolios.',
+      title: 'ARC Portfolio Resolution Journey',
+      desc: 'Five-stage workflow from acquired NPA portfolio intake to final auction sale deed.',
       steps: [
-        { step: '01', title: 'Assessment', desc: 'Reviewing the default portfolio and checking parameters.', outcome: 'Case legal dossiers compiled and verified.' },
-        { step: '02', title: 'Planning', desc: 'Formulating calling script parameters, calling locks, and escalation stages.', outcome: 'SLA boundaries and scripts locked into the dialer system.' },
-        { step: '03', title: 'Deployment', desc: 'Allocating case files to local branches and certified coordinators.', outcome: 'Immediate ground mobilization within target districts.' },
-        { step: '04', title: 'Monitoring', desc: 'Enforcing VoIP voice logs audits and geolocated visit checks.', outcome: 'Complete auditable record of all borrower touchpoints.' },
-        { step: '05', title: 'Continuous Improvement', desc: 'OTS settlement facilitation and cash ledger updates.', outcome: 'Reconciled collections data ready for review.' }
+        { step: '01', title: 'Portfolio Due Diligence', desc: 'Importing acquired NPA case files, verifying title deeds, and grading assets by resolution complexity.', outcome: 'Asset-by-asset resolution roadmap with documented encumbrance status.' },
+        { step: '02', title: 'Notice Service Campaign', desc: 'Drafting and serving Section 13(2)/13(4) demand notices with affixation logs and registered post tracking.', outcome: 'Legally served notices with geotagged photo proof and acknowledgment records.' },
+        { step: '03', title: 'Security Deployment', desc: 'Placing ex-defence security guards on physical possession day to protect the site from unauthorized entry.', outcome: '24/7 guarded facility with weekly condition status photo logs.' },
+        { step: '04', title: 'Valuation & Reserve Pricing', desc: 'Coordinating government-approved panel valuers for structural assessment and market-calibrated reserve price setting.', outcome: 'Formal valuation report accepted by ARC compliance team.' },
+        { step: '05', title: 'E-Auction Execution', desc: 'Publishing auction notices, mobilizing bidder networks, and managing online bidding to realize maximum recovery yields.', outcome: 'Auction sale deed registered and proceeds transferred to ARC account.' }
       ]
     },
 
     outcomesHeading: 'Strategic Business Outcomes',
     outcomes: [
-      { title: 'Better Portfolio Quality', desc: 'Proactive Collections rollback reduces early delinquency rollovers, keeping books clean.', value: 'Reduced Rollovers' },
-      { title: 'Reduced Operational Risk', desc: '100% DRA-certified agent placements protect the lender from conduct audits.', value: 'Conduct Vetted' },
-      { title: 'Regulatory Readiness', desc: 'Geotagged check files and VoIP call recording archives protect bank panels.', value: 'RBI Code Compliant' }
+      { title: 'Faster Asset Monetization', desc: 'Dedicated legal and security coordination compresses time from possession to auction sale deed.', value: 'Accelerated Recovery' },
+      { title: 'Defensible Title Transfers', desc: 'Sub-Registrar encumbrance searches and clean title documentation prevent post-auction litigation.', value: 'Clean Sale Deeds' },
+      { title: 'Preserved Collateral Value', desc: 'Immediate site security deployment prevents asset deterioration between possession and auction.', value: 'Maximum Yield' }
     ],
 
     targetIndustries: [
@@ -1289,9 +1289,9 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'Industry Risk Landscape',
@@ -1406,10 +1406,10 @@ export const industriesContent = {
     ],
 
     challengesHeading: 'Business Challenges',
-        challenges: [
-      { title: 'Eviction Warrants Backlog', desc: 'Inefficient legal filing coordinate structures stall Section 1magistrate warrants. Properties remain occupied by defaulting borrowers.', warningBadge: 'COMMERCIAL BANKING', impact: 'SM Associates Operational Approach: Legal coordination desk liaising with district courts and authorities.' },
-      { title: 'Synthetic Identity Infiltration', desc: 'Fictitious or shell companies presented as stable employers to pass basic desk checks during underwriting. Inability to verify details leads to early default risks.', warningBadge: 'RETAIL CREDIT', impact: 'SM Associates Operational Approach: On-ground workplace CPV visits and employer HR verification.' },
-      { title: 'Data Security Auditing exceptions', desc: 'Vendor file transmission loops failing to comply with ISO 27001 parameters, exposing borrower PII data registries.', warningBadge: 'OPERATIONAL GOVERNANCE', impact: 'SM Associates Operational Approach: Encrypted SFTP data pipelines and audit-ready documentation custody.' }
+    challenges: [
+      { title: 'Director Asset Diversion', desc: 'Defaulting corporate promoters transfer fixed assets, land titles, or capital equipment into related shell entities before bank enforcement actions, frustrating standard SARFAESI foreclosure workflows.', warningBadge: 'CORPORATE FRAUD', impact: 'SM Associates Operational Approach: MCA DIN registry cross-checks and municipal land records tracing to identify alternative director-held properties.' },
+      { title: 'IBC Moratorium Freezes', desc: 'Corporate borrowers filing CIRP petitions under the Insolvency and Bankruptcy Code trigger automatic moratoriums, freezing SARFAESI enforcement and extending recovery timelines significantly.', warningBadge: 'IBC LITIGATION', impact: 'SM Associates Operational Approach: Proactive DRT coordination and parallel asset investigation to maintain pressure through litigation moratoriums.' },
+      { title: 'Non-Operational Facility Misrepresentation', desc: 'SME borrowers presenting closed or minimally-staffed factories as active businesses during credit monitoring visits, masking deteriorating repayment capacity until default.', warningBadge: 'UNDERWRITING FRAUD', impact: 'SM Associates Operational Approach: On-site physical audits with machinery status logs, employee headcount checks, and GST filing cross-verification.' }
     ],
 
     capabilitiesHeading: 'Industry Focus Areas',
@@ -1423,22 +1423,22 @@ export const industriesContent = {
     ],
 
     processFlow: {
-      title: 'Industry Engagement Journey',
-      desc: 'Milestone tracking for commercial and corporate defaults.',
+      title: 'Commercial Credit Recovery Journey',
+      desc: 'Five-stage investigation and legal coordination pipeline for corporate and SME defaults.',
       steps: [
-        { step: '01', title: 'Assessment', desc: 'Reviewing the default portfolio and checking parameters.', outcome: 'Case legal dossiers compiled and verified.' },
-        { step: '02', title: 'Planning', desc: 'Formulating calling script parameters, calling locks, and escalation stages.', outcome: 'SLA boundaries and scripts locked into the dialer system.' },
-        { step: '03', title: 'Deployment', desc: 'Allocating case files to local branches and certified coordinators.', outcome: 'Immediate ground mobilization within target districts.' },
-        { step: '04', title: 'Monitoring', desc: 'Enforcing VoIP voice logs audits and geolocated visit checks.', outcome: 'Complete auditable record of all borrower touchpoints.' },
-        { step: '05', title: 'Continuous Improvement', desc: 'OTS settlement facilitation and cash ledger updates.', outcome: 'Reconciled collections data ready for review.' }
+        { step: '01', title: 'Director & Asset Investigation', desc: 'Cross-checking MCA DIN registries, municipal land records, and corporate filing histories to map director-held assets.', outcome: 'Director asset profile with un-mortgaged property leads documented for recovery team.' },
+        { step: '02', title: 'On-Site Business Audit', desc: 'Physical visits to SME factories and offices to verify operational status, machinery condition, employee headcount, and GST registration.', outcome: 'On-site inspection report with operational status and inventory assessment filed.' },
+        { step: '03', title: 'Legal Notice Service', desc: 'Drafting and serving legally compliant demand notices to corporate headquarters and to directors at personal addresses.', outcome: 'Served notices with in-hand delivery photos and registered post acknowledgments.' },
+        { step: '04', title: 'DRT Coordination', desc: 'Liaising with the bank\'s advocate panel to file DRT recovery certificate applications, track hearing dates, and prepare court dossiers.', outcome: 'DRT application filed with clean documentation trail ready for tribunal.' },
+        { step: '05', title: 'Asset Seizure & Settlement', desc: 'Coordinating police-assisted asset seizure under DRT warrant, securing assets to custody yard, and facilitating OTS negotiations.', outcome: 'Asset secured or OTS settlement executed with ledger reconciliation complete.' }
       ]
     },
 
     outcomesHeading: 'Strategic Business Outcomes',
     outcomes: [
-      { title: 'Better Portfolio Quality', desc: 'Proactive Collections rollback reduces early delinquency rollovers, keeping books clean.', value: 'Reduced Rollovers' },
-      { title: 'Reduced Operational Risk', desc: '100% DRA-certified agent placements protect the lender from conduct audits.', value: 'Conduct Vetted' },
-      { title: 'Regulatory Readiness', desc: 'Geotagged check files and VoIP call recording archives protect bank panels.', value: 'RBI Code Compliant' }
+      { title: 'Director Asset Leverage', desc: 'MCA registry investigations uncover un-mortgaged director assets that create effective OTS negotiation pressure.', value: 'Stronger Settlement Hand' },
+      { title: 'Fraud-Proof Underwriting', desc: 'On-site SME facility audits prevent credit exposure to non-operational or shell business borrowers.', value: 'Underwriting Protected' },
+      { title: 'DRT-Ready Documentation', desc: 'Court-admissible dossiers with clean notice proofs and inspection reports prepared for tribunal submissions.', value: 'Litigation Ready' }
     ],
 
     targetIndustries: [
@@ -1472,9 +1472,9 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'Claims Audit Compliance', value: 'IRDAI Aligned' },
+      { icon: 'trendingUp', title: 'Fraudulent Claims Flagged', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'Insurance Risk Landscape',
@@ -1589,10 +1589,10 @@ export const industriesContent = {
     ],
 
     challengesHeading: 'Business Challenges',
-        challenges: [
-      { title: 'Eviction Warrants Backlog', desc: 'Inefficient legal filing coordinate structures stall Section 1magistrate warrants. Properties remain occupied by defaulting borrowers.', warningBadge: 'COMMERCIAL BANKING', impact: 'SM Associates Operational Approach: Legal coordination desk liaising with district courts and authorities.' },
-      { title: 'Synthetic Identity Infiltration', desc: 'Fictitious or shell companies presented as stable employers to pass basic desk checks during underwriting. Inability to verify details leads to early default risks.', warningBadge: 'RETAIL CREDIT', impact: 'SM Associates Operational Approach: On-ground workplace CPV visits and employer HR verification.' },
-      { title: 'Data Security Auditing exceptions', desc: 'Vendor file transmission loops failing to comply with ISO 27001 parameters, exposing borrower PII data registries.', warningBadge: 'OPERATIONAL GOVERNANCE', impact: 'SM Associates Operational Approach: Encrypted SFTP data pipelines and audit-ready documentation custody.' }
+    challenges: [
+      { title: 'Organised Motor Claim Fraud Rings', desc: 'Coordinated groups staging road accidents, fabricating police FIRs, and presenting pre-damaged vehicles to claim high motor payouts. Standard desk reviews cannot detect physical coordination fraud.', warningBadge: 'MOTOR FRAUD', impact: 'SM Associates Operational Approach: Field investigators visit accident sites, cross-reference local police station FIR logs, and document vehicle condition on-ground.' },
+      { title: 'Shell Hospital Billing Networks', desc: 'Fraudulent health claims routed through unregistered or minimally operational clinics presenting inflated bills. Medical council registration checks and physical hospital visits expose billing inflation.', warningBadge: 'HEALTH FRAUD', impact: 'SM Associates Operational Approach: On-site hospital visits, pharmacy register audits, and doctor registration verification with local medical council records.' },
+      { title: 'Synthetic Identity on Life Policies', desc: 'Fraudulent life insurance claims filed using forged death certificates or impersonation of deceased policyholders. Municipal registry cross-checks are essential to detect and reject these.', warningBadge: 'LIFE POLICY FRAUD', impact: 'SM Associates Operational Approach: Municipal birth and death registry cross-checks, neighbor corroboration, and hospital admission log verification.' }
     ],
 
     capabilitiesHeading: 'Industry Focus Areas',
@@ -1606,22 +1606,22 @@ export const industriesContent = {
     ],
 
     processFlow: {
-      title: 'Industry Engagement Journey',
-      desc: 'Milestones tracking claims verification from intake to report.',
+      title: 'SIU Claims Investigation Journey',
+      desc: 'Five-stage investigation pipeline from suspect claim intake to final audit report delivery.',
       steps: [
-        { step: '01', title: 'Assessment', desc: 'Reviewing the default portfolio and checking parameters.', outcome: 'Case legal dossiers compiled and verified.' },
-        { step: '02', title: 'Planning', desc: 'Formulating calling script parameters, calling locks, and escalation stages.', outcome: 'SLA boundaries and scripts locked into the dialer system.' },
-        { step: '03', title: 'Deployment', desc: 'Allocating case files to local branches and certified coordinators.', outcome: 'Immediate ground mobilization within target districts.' },
-        { step: '04', title: 'Monitoring', desc: 'Enforcing VoIP voice logs audits and geolocated visit checks.', outcome: 'Complete auditable record of all borrower touchpoints.' },
-        { step: '05', title: 'Continuous Improvement', desc: 'OTS settlement facilitation and cash ledger updates.', outcome: 'Reconciled collections data ready for review.' }
+        { step: '01', title: 'Claim File Profiling', desc: 'Importing suspect claim files, cross-checking KYC data, and generating a risk-flagged investigation brief.', outcome: 'Prioritized SIU dispatch list with fraud risk indicators documented.' },
+        { step: '02', title: 'SIU Field Dispatch', desc: 'Routing cases to the nearest certified field investigator with address coordinates and investigation checklist.', outcome: 'Investigator dispatched with same-day on-site investigation start confirmation.' },
+        { step: '03', title: 'On-Site Verification', desc: 'Conducting accident site visits, hospital admission checks, death registry verifications, and witness interviews.', outcome: 'Geotagged site photos, witness statements, and registry confirmation collected.' },
+        { step: '04', title: 'Evidence Compilation', desc: 'Consolidating all field findings — photos, documents, statements — into a structured evidence dossier.', outcome: 'Complete evidence bundle with fraud flags and discrepancy notes assembled.' },
+        { step: '05', title: 'SIU Report Delivery', desc: 'Delivering a decision-ready claims audit report to the insurer\'s claims adjuster with clear approval or rejection recommendation.', outcome: 'Structured SIU report accepted by claims panel for final decision.' }
       ]
     },
 
     outcomesHeading: 'Strategic Business Outcomes',
     outcomes: [
-      { title: 'Better Portfolio Quality', desc: 'Proactive Collections rollback reduces early delinquency rollovers, keeping books clean.', value: 'Reduced Rollovers' },
-      { title: 'Reduced Operational Risk', desc: '100% DRA-certified agent placements protect the lender from conduct audits.', value: 'Conduct Vetted' },
-      { title: 'Regulatory Readiness', desc: 'Geotagged check files and VoIP call recording archives protect bank panels.', value: 'RBI Code Compliant' }
+      { title: 'Fraudulent Claims Identified', desc: 'On-site investigations expose staged accidents, shell hospitals, and synthetic life claims before payout.', value: 'Claims Leakage Stopped' },
+      { title: 'Claims Leakage Controlled', desc: 'SIU audit reports give claims adjusters verifiable grounds to reject or reduce fraudulent claim amounts.', value: 'Loss Ratio Improved' },
+      { title: 'IRDAI-Ready Documentation', desc: 'Structured SIU reports with geotagged evidence meet IRDAI audit and compliance documentation standards.', value: 'Regulator Ready' }
     ],
 
     targetIndustries: [
@@ -1656,9 +1656,9 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'Vehicle Foreclosure Pain',
@@ -1829,8 +1829,8 @@ export const industriesContent = {
   'gold-loan': {
     eyebrow: 'Gold Loan Sector',
     title: 'Gold Loan Portfolio Validation & Soft Collections',
-    subtitle: 'Conducting quick doorstep address verifications and bilingual collection campaigns under strict RBI conduct codes.',
-    description: 'Providing pre-disbursal customer validations, local address checks, and compliant billing-reminder tele-calling.',
+    subtitle: 'Rapid soft collections and compliance-aligned outreach to prevent gold auction defaults under RBI Fair Practices Code.',
+    description: 'Bilingual reminder campaigns, pre-auction borrower contact restoration, and compliant doorstep outreach for gold loan portfolios.',
     primaryCtaText: 'Request Gold Loan Pilot',
     secondaryCtaText: 'View Gold Loan Verification Criteria',
     primaryCtaHref: '/contact',
@@ -1838,17 +1838,17 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'Gold Loan Risks',
-    problemStatementHeading: 'The Compliance Vulnerabilities in Gold Loan Recoveries',
+    problemStatementHeading: 'Short Timelines and Contact Loss in Gold Loan Portfolios',
     problemStatement: [
-      { icon: 'shield', title: 'High Client Attrition Risk', desc: 'Aggressive collection practices by uncertified agents cause client attrition and local disputes, damaging the lender\'s reputation.' },
-      { icon: 'timer', title: 'Strict Calling Hours Adherence', desc: 'Outbound calls made before 08:00 AM or after 07:00 PM violate regulatory guidelines, exposing lenders to licensing audits.' },
-      { icon: 'users', title: 'Loss of Client Touchpoints', desc: 'Gold loan borrowers relocating without updating contact details, causing recovery delays.' }
+      { icon: 'timer', title: 'Compressed Redemption Timelines', desc: 'Gold loan tenure is short (3–12 months). Defaulting borrowers have very narrow redemption windows before the lender\'s right to auction pledged gold is triggered, requiring rapid early contact.' },
+      { icon: 'shieldAlert', title: 'Strict Calling Compliance Exposure', desc: 'Gold loan lenders face high complaint volumes from non-compliant collection agents. IIBF non-certified callers or off-hours contact triggers RBI conduct audit risk and potential empanelment suspension.' },
+      { icon: 'users', title: 'Borrower Contact Loss Before Auction', desc: 'Borrowers who miss renewal payments often become unreachable before the statutory auction notice period. Missing the contact window forfeits the goodwill of a loyal repeat borrower.' }
     ],
 
     overview: {
@@ -1956,9 +1956,9 @@ export const industriesContent = {
 
     challengesHeading: 'Business Challenges',
     challenges: [
-      { title: 'Borrower Contact Loss', desc: 'Borrowers in remote locations changing contact details, making communication impossible.', warningBadge: 'Traceability Gap', impact: 'Extended default cycles and collection delays.' },
-      { title: 'Borrower Grievance Audits', desc: 'Threat tactics or unauthorized borrower contacts by agents lead to direct complaints, triggering audits by regulatory bodies.', warningBadge: 'Regulatory Risk', impact: 'Fines and potential panel empanelment suspensions.' },
-      { title: 'unsecured default exposure', desc: 'A sudden default in gold loan books requires fast doorstep contact before the asset is auctioned.', warningBadge: 'Portfolio Risk', impact: 'Spikes in Gross NPA across branch areas.' }
+      { title: 'Pre-Auction Redemption Delays', desc: 'Gold loan borrowers who intend to redeem their pledged gold often delay payment until the final days before auction. Late contact means the lender misses the voluntary redemption window.', warningBadge: 'REDEMPTION RISK', impact: 'SM Associates Operational Approach: Early-stage proactive soft calling and doorstep visit campaigns timed ahead of the statutory auction notice period.' },
+      { title: 'Contact Loss Before Auction Notices', desc: 'Borrowers in semi-urban and rural areas frequently change mobile numbers or relocate between loan disbursal and renewal date, making statutory auction notice service difficult.', warningBadge: 'CONTACT TRACING', impact: 'SM Associates Operational Approach: Community reference checks and localized branch outreach restore contact before auction notice deadlines.' },
+      { title: 'Short-Tenure Default Velocity', desc: 'Gold loan NPA formation is faster than other retail products due to short tenures. Accounts slip from overdue to auction-ready status within weeks, requiring faster first-contact response than typical collections models.', warningBadge: 'NPA VELOCITY', impact: 'SM Associates Operational Approach: Same-day doorstep dispatch from 19 local branches ensures first contact within 24 to 48 hours of overdue trigger.' }
     ],
 
     capabilitiesHeading: 'Gold Loan Specialized Solutions',
@@ -2020,9 +2020,9 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'Retail Portfolio Pain',
@@ -2202,9 +2202,9 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'Vehicle Foreclosure Pain',
@@ -2384,9 +2384,9 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'SME Portfolio Pain',
@@ -2566,9 +2566,9 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'Rural Portfolio Risks',
@@ -2749,9 +2749,9 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'Gold Loan Risks',
@@ -2931,9 +2931,9 @@ export const industriesContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     problemStatementEyebrow: 'ETL Sourcing Pain',

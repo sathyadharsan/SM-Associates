@@ -1,4 +1,4 @@
-export const collectionsContent = {
+﻿export const collectionsContent = {
   "pdc-collections": {
     "eyebrow": "Post-Dated Cheque Collections",
     "title": "PDC Collections",
@@ -69,18 +69,17 @@ export const collectionsContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -230,6 +229,26 @@ export const collectionsContent = {
         ],
         "deliverable": "PDC status report.",
         "benefit": "Removes the need for the lender to track PDC status manually."
+      },
+      {
+        "id": "pdc-escalation",
+        "label": "Legal Escalation",
+        "heading": "Section 138 Notice Initiation on Repeated Bounce",
+        "overview": "When a cheque bounces more than once and the borrower fails to pay, the case is handed off for Section 138 Negotiable Instruments Act notice proceedings.",
+        "activities": [
+          "Bounce threshold check (second or subsequent bounce)",
+          "Escalation dossier compilation",
+          "Handoff to cheque-bounce notice team"
+        ],
+        "documents": [
+          "Bounce return memos",
+          "Presentation history log"
+        ],
+        "risks": [
+          "Missed 30-day notice window post-bounce"
+        ],
+        "deliverable": "Legal escalation handoff package.",
+        "benefit": "Preserves the Section 138 legal remedy before the statutory window lapses."
       }
     ],
     "challengesHeading": "Enterprise PDC Collections Risks",
@@ -365,7 +384,7 @@ export const collectionsContent = {
     "description": "Implementing compliance-first outreach (tele-calling and field visits) to recover fresh delinquencies before they deteriorate into NPAs.",
     "primaryCtaText": "Request an Early-Stage Collections Walkthrough",
     "secondaryCtaText": "Download Early-Stage Process Standards",
-    "problemStatement: ": [
+    "problemStatement": [
       {
         "icon": "trendingDown",
         "title": "NPA Deterioration",
@@ -405,7 +424,7 @@ export const collectionsContent = {
           "desc": "Outreach conducted under strict compliance safeguards client reputation."
         }
       ],
-      "useCases: ": [
+      "useCases": [
         {
           "title": "Bucket 1 Retail Collections",
           "desc": "Resolving 1-30 DPD accounts across credit cards and personal loans."
@@ -428,18 +447,17 @@ export const collectionsContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -591,6 +609,27 @@ export const collectionsContent = {
         ],
         "deliverable": "Reconciliation log.",
         "benefit": "Secures payment transit and reporting."
+      },
+      {
+        "id": "escalation",
+        "label": "Escalation Handoff",
+        "heading": "Structured Handoff When Early-Stage Resolution Fails",
+        "overview": "Accounts unresolved after the early-stage window are handed off with full case history to the next-stage collections or legal team — no context lost.",
+        "activities": [
+          "Case history compilation",
+          "Handoff to field or hard collections team",
+          "Escalation reason logging"
+        ],
+        "documents": [
+          "Early-stage activity summary",
+          "Reason-for-escalation note"
+        ],
+        "risks": [
+          "Context loss between early and hard collections teams",
+          "Duplicate outreach after handoff"
+        ],
+        "deliverable": "Escalation dossier with full account activity trail.",
+        "benefit": "Ensures the next-stage team picks up without repeating failed contact attempts."
       }
     ],
     "challengesHeading": "Enterprise Early-Stage Risks",
@@ -715,7 +754,7 @@ export const collectionsContent = {
       "heading": "Optimize Your Early-Stage Rollback Rates",
       "subheading": "Request an early-stage collections walkthrough to see how calling and field teams align.",
       "buttonText": "Request Empanelment Proposal",
-      "href: ": "/contact"
+      "href": "/contact"
     }
   },
 
@@ -789,18 +828,17 @@ export const collectionsContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -950,6 +988,26 @@ export const collectionsContent = {
         ],
         "deliverable": "Documented payment schedule.",
         "benefit": "Resolves default when temporary cash issues arise."
+      },
+      {
+        "id": "soft-escalation",
+        "label": "Escalation Handoff",
+        "heading": "Moving Unresolved Accounts to Hard Collections",
+        "overview": "Accounts that don't respond to tele-calling or payment plans within the soft-collections window are handed off to the hard collections team with a full activity trail.",
+        "activities": [
+          "Soft-collections closure summary",
+          "Activity log compilation",
+          "Handoff to hard collections team"
+        ],
+        "documents": [
+          "Soft-collections activity summary",
+          "Failed contact attempts log"
+        ],
+        "risks": [
+          "Duplicate outreach after handoff without context"
+        ],
+        "deliverable": "Escalation dossier for hard collections intake.",
+        "benefit": "Ensures the hard collections team starts with full context, not from zero."
       }
     ],
     "challengesHeading": "Enterprise Soft Collections Risks",
@@ -1148,18 +1206,17 @@ export const collectionsContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -1310,6 +1367,27 @@ export const collectionsContent = {
         ],
         "deliverable": "Enforcement readiness dossier.",
         "benefit": "Provides a solid operational foundation for repossession."
+      },
+      {
+        "id": "legal-handoff",
+        "label": "Legal Handoff",
+        "heading": "Transitioning to Legal Recovery When Hard Collections Fails",
+        "overview": "When demand notice delivery and field recovery visits fail to resolve the account, a fully documented case is handed over to the legal recovery team for SARFAESI or DRT action.",
+        "activities": [
+          "Demand notice delivery confirmation",
+          "Hard collections closure summary",
+          "Handoff to SARFAESI or litigation team"
+        ],
+        "documents": [
+          "Demand notice copies",
+          "Field visit log",
+          "Hard collections activity summary"
+        ],
+        "risks": [
+          "Case records incomplete at point of legal handoff"
+        ],
+        "deliverable": "Legal handoff package with complete hard collections history.",
+        "benefit": "Legal team starts with a clean, documented record — no re-investigation needed."
       }
     ],
     "challengesHeading": "Enterprise Hard Collections Risks",
@@ -1508,18 +1586,17 @@ export const collectionsContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -1669,6 +1746,26 @@ export const collectionsContent = {
         ],
         "deliverable": "Daily reconciliation sync log.",
         "benefit": "Improves cash tracking and accounts speed."
+      },
+      {
+        "id": "field-escalation",
+        "label": "Escalation Handoff",
+        "heading": "Handing Off Unresolved Accounts After Field Visits",
+        "overview": "Field accounts that remain unresolved after repeat visits are handed off to hard collections or legal recovery with a full field activity record.",
+        "activities": [
+          "Field activity summary",
+          "Visit outcome documentation",
+          "Handoff to next-stage team"
+        ],
+        "documents": [
+          "GPS-geotagged visit logs",
+          "Field officer encounter notes"
+        ],
+        "risks": [
+          "Repeated field visits without escalation criteria"
+        ],
+        "deliverable": "Field escalation dossier.",
+        "benefit": "Prevents accounts cycling through field visits without advancing to resolution."
       }
     ],
     "challengesHeading": "Enterprise Field Operations Risks",
@@ -1867,18 +1964,17 @@ export const collectionsContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [

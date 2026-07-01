@@ -218,7 +218,7 @@ export const pagesContent = {
     stats: [
       { value: '25+', label: 'Years of Legacy' },
       { value: '5', label: 'States Covered' },
-      { value: '916+', label: 'Field Professionals' },
+      { value: '1,500+', label: 'Field Professionals' },
       { value: '100+', label: 'Banking Partners' },
       { value: '1M+', label: 'Accounts Managed' }
     ],
@@ -321,13 +321,13 @@ export const pagesContent = {
         highlights: [
           'Implemented mobile GPS tracking for field visits',
           'Launched client telemetry SFTP pipelines',
-          '916 field professionals active',
+          '1,500+ field professionals active',
           'Passed 100% compliance audits'
         ],
         activeStates: ['Tamil Nadu', 'Karnataka', 'Kerala', 'Telangana', 'Andhra Pradesh'],
         impact: [
           { value: '5', label: 'States Covered' },
-          { value: '916', label: 'Field Force' },
+          { value: '1,500+', label: 'Field Force' },
           { value: '35', label: 'Offices' },
           { value: '1M+', label: 'Accounts' }
         ]
@@ -466,46 +466,19 @@ export const pagesContent = {
     segments: [
       {
         name: 'Public Sector Banks',
-        desc: 'Strict notice serving, legal mortgage verifications, and compliance audits.',
-        clients: ['State Bank of India', 'Indian Overseas Bank', 'Canara Bank', 'Bank of Baroda']
+        desc: 'Strict notice serving, legal mortgage verifications, and compliance audits.'
       },
       {
         name: 'Private Commercial Banks',
-        desc: 'Accelerated SARFAESI evictions, corporate default resolutions, and secure yards.',
-        clients: ['HDFC Bank', 'ICICI Bank', 'Axis Bank', 'Kotak Mahindra Bank']
+        desc: 'Accelerated SARFAESI evictions, corporate default resolutions, and secure yards.'
       },
       {
         name: 'Retail NBFCs',
-        desc: 'Doorstep collections, pan-state regional outreach, and tractor/vehicle finance pickups.',
-        clients: ['Shriram Finance', 'Bajaj Finance', 'HDB Financial Services', 'Fedbank HFC']
+        desc: 'Doorstep collections, pan-state regional outreach, and tractor/vehicle finance pickups.'
       },
       {
         name: 'Digital FinTechs',
-        desc: 'Real-time database updates, secure SFTP feeds, and micro-loan recovery campaigns.',
-        clients: ['Paytm lending', 'PhonePe', 'moneyview', 'Credgenics partner books']
-      }
-    ],
-    caseStudies: [
-      {
-        segment: 'Public Sector Banking',
-        title: 'Mortgage NPA Resolution Campaign',
-        challenge: 'A public sector lender faced high default volumes across a retail mortgage book in South India, with unresolved Stage-3 assets outstanding for over 18 months.',
-        action: 'SM Associates deployed a structured foreclosure notices campaign, automating Section 13 notice serving and coordinating District Magistrate filings.',
-        outcome: 'Resolved 78% of delinquent accounts within 120 days, releasing ₹45 Cr+ in provisioning capital.'
-      },
-      {
-        segment: 'Retail NBFC',
-        title: 'Tractor Finance Recovery Program',
-        challenge: 'A major tractor finance company faced high delinquency volumes in rural Karnataka and Telangana, with logistically difficult repossession coordination.',
-        action: 'Leveraged our branch offices to dispatch regional field teams and secure local magistrate eviction orders.',
-        outcome: 'Successfully recovered 220+ units under secure custody yards within 90 days, with zero compliance complaints.'
-      },
-      {
-        segment: 'Digital FinTech',
-        title: 'Real-Time Microlending Recovery',
-        challenge: 'A FinTech platform needed to scale default recoveries for short-term micro-loans, requiring secure and real-time coordination.',
-        action: 'Established daily SFTP integrations and VoIP logs, routing cases based on dynamic propensity scoring.',
-        outcome: 'Achieved 35% recovery rate increase within 30 days while maintaining a clean regulatory status score.'
+        desc: 'Real-time database updates, secure SFTP feeds, and micro-loan recovery campaigns.'
       }
     ],
     slaStructure: {
@@ -514,7 +487,7 @@ export const pagesContent = {
     },
     faqs: [
       { q: 'How is borrower data protected during case transfers?', a: 'All data is transmitted through secure SFTP channels using PGP keys, ensuring complete encryption during transfer.' },
-      { q: 'Do you provide references from current clients?', a: 'Yes. Redacted client reference letters and audit scores can be provided to bank committees during the empanelment phase.' }
+      { q: 'Do you provide references from current clients?', a: 'Reference discussions can be arranged with existing empanelled partners on request, subject to their confidentiality terms, during the empanelment evaluation process.' }
     ],
     cta: {
       heading: 'Empanel SM Associates on Your Panel',
@@ -545,7 +518,7 @@ export const pagesContent = {
       { guideline: 'Dispute Management', code: 'Disputed accounts must be flagged and collections halted.', smAction: 'Dispute button on agent CRM routes file to compliance desk.' }
     ],
     voiceLogsRules: {
-      checkPercentage: '100% of calls recorded, with random weekly audits of [20%] of files by QA teams.',
+      checkPercentage: '100% of calls recorded, with random weekly audits of a sample of files by QA teams.',
       retention: 'Secure voice log backups archived for 180 days on SFTP storage.',
       triggers: 'Automated warnings for language, volume levels, or calling hour variations.'
     },

@@ -3,5 +3,5 @@ import EnterpriseServiceTemplate from '../../../components/templates/EnterpriseS
 import { getPageContent } from '../../../data/pagesContent';
 
 export default function EarlyStageCollectionsPage() {
-  return <EnterpriseServiceTemplate content={getPageContent('early-stage-collections')} />;
+  return <EnterpriseServiceTemplate content={getPageContent('early-stage')} />;
 }

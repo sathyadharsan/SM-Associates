@@ -1,4 +1,4 @@
-export const investigationContent = {
+﻿export const investigationContent = {
   "due-diligence": {
     "eyebrow": "Pre-Transaction Risk Investigation",
     "title": "Due Diligence",
@@ -69,18 +69,17 @@ export const investigationContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -459,18 +458,17 @@ export const investigationContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -780,403 +778,181 @@ export const investigationContent = {
     }
   },
   "address-tracing": {
-    "eyebrow": "Skip-Tracing Logistics",
-    "title": "Address Tracing & Skip-Tracing",
-    "subtitle": "Unlocatable Address Verification",
-    "description": "Field-based investigations to locate and verify ambiguous, incomplete, or unlocatable addresses.",
-    "primaryCtaText": "Request Operational Briefing",
-    "secondaryCtaText": "Explore Service Standards",
-    "primaryCtaHref": "/contact",
-    "secondaryCtaHref": "#capabilities",
-    "kpiCards": [
-      {
-        "icon": "building",
-        "title": "Regional Office Network",
-        "value": "19 Offices"
-      },
-      {
-        "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
-      },
-      {
-        "icon": "shield",
-        "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
-      },
-      {
-        "icon": "trendingUp",
-        "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
-      }
-    ],
-    "problemStatementEyebrow": "Operational Risks",
-    "problemStatementHeading": "Skip-Tracing Risks",
+    "eyebrow": "Borrower Address Intelligence",
+    "title": "Address Tracing",
+    "subtitle": "Resolving Incomplete and Outdated Borrower Addresses Before They Stall Recovery",
+    "description": "Field-based address investigations to locate, verify, and geoTag current borrower addresses — enabling notice service, legal filing, and field collections to proceed.",
+    "primaryCtaText": "Request an Address Tracing Walkthrough",
+    "secondaryCtaText": "Download Address Investigation Standards",
     "problemStatement": [
-      {
-        "icon": "fileWarning",
-        "title": "Absconded Borrower Loss",
-        "desc": "Borrowers shifting residence across district lines without updating financial institution records."
-      },
-      {
-        "icon": "shieldAlert",
-        "title": "Compliance & Audit Exposure",
-        "desc": "Unverified field practices triggering regulatory or client audit exceptions."
-      },
-      {
-        "icon": "timer",
-        "title": "Operational Delay Gaps",
-        "desc": "Extended execution timelines due to fragmented vendor handoffs."
-      }
+      { "icon": "mapPin", "title": "Incomplete Application Addresses", "desc": "Loan applications with vague, landmark-based, or missing PIN codes make the original address unserviceable for notice delivery." },
+      { "icon": "fileWarning", "title": "Borrower Relocation Without Update", "desc": "Defaulted borrowers who have moved without updating their registered address leave enforcement stalled at the wrong coordinate." },
+      { "icon": "shieldAlert", "title": "Notice Service Failures", "desc": "Statutory demand notices returned undelivered reset the legal clock and delay SARFAESI or DRT proceedings by months." },
+      { "icon": "timer", "title": "Collections Dead-Ends at Wrong Addresses", "desc": "Field agents dispatched to stale addresses waste contact attempts and miss the repayment window." }
     ],
     "overview": {
-      "heading": "Address Tracing: Clarifying Portfolio Location Coordinates",
-      "subheading": "Sourcing Physical Coordinates for Notices and Audits",
-      "summary": "Incomplete or outdated addresses prevent lenders from serving statutory demand notices, stalling recovery and foreclosure. Address Tracing deploys field investigators to locate ambiguous or unrecorded sites. By checking village maps, coordinating with local post offices, and interviewing local residents, we reconstruct and verify the exact physical coordinate. This operational mapping ensures notices and legal documents are served, establishing the statutory path for enforcement.",
+      "heading": "Why Addresses Fail — and How Field Investigation Fixes That",
+      "subheading": "Converting Unserviceable Records Into Verified, Notice-Ready Coordinates",
+      "summary": "Incomplete or stale addresses are one of the most common reasons demand notices go undelivered, field visits miss the borrower, and legal timelines restart. Address Tracing deploys field investigators to resolve ambiguous, landmark-only, or outdated addresses. We check village maps, query local municipality and post office records, interview neighbors, and confirm coordinates with geotagged photo evidence. The output is a verified, notice-ready address that allows legal, field, and collections teams to resume action without further delays.",
       "outcomes": [
-        {
-          "title": "Geotagged Evidence Logs",
-          "desc": "Timestamped GPS coordinates and audit photos.",
-          "value": "Auditable Records"
-        },
-        {
-          "title": "Structured Escalation",
-          "desc": "Defined operational triggers for legal or field action.",
-          "value": "Workflow Control"
-        }
+        { "title": "Notice-Ready Addresses", "desc": "Verified addresses that pass the threshold for valid statutory notice service." },
+        { "title": "Field Visit Accuracy", "desc": "Confirmed coordinates reduce wasted field visits to wrong locations." },
+        { "title": "Legal Timeline Protection", "desc": "Valid address delivery prevents statutory clock resets from undeliverable notices." }
       ],
       "useCases": [
-        {
-          "title": "Banking Portfolio Operations",
-          "desc": "Supporting commercial and retail bank portfolios."
-        },
-        {
-          "title": "NBFC Field Management",
-          "desc": "Managing decentralized branch field queues."
-        }
+        { "title": "Pre-Notice Service Address Confirmation", "desc": "Verifying borrower address before serving SARFAESI Section 13 demand notices." },
+        { "title": "Post-Default Relocation Tracing", "desc": "Locating borrowers who have moved after defaulting." },
+        { "title": "Field Collections Address Refresh", "desc": "Updating stale field agent records before doorstep collections dispatch." }
       ]
     },
-    "capabilitiesHeading": "Service Focus Areas",
+    "kpiCards": [
+      { "icon": "mapPinned", "title": "Addresses Traced & Verified", "value": "[DRAFT]" },
+      { "icon": "timer", "title": "Avg. Address Confirmation TAT", "value": "[DRAFT]" },
+      { "icon": "building", "title": "Districts Covered", "value": "[DRAFT]" },
+      { "icon": "shieldCheck", "title": "Notice Delivery Success Rate", "value": "[DRAFT]" }
+    ],
     "capabilities": [
-      {
-        "title": "Geotagged Address Tracing",
-        "desc": "Locating absconding borrowers through community networks.",
-        "bullets": [
-          "Municipal utility registry searches",
-          "Geotagged coordinate checks",
-          "Local neighbor corroboration"
-        ],
-        "businessOutcome": "Protects institutional asset quality and compliance standards."
-      }
+      { "title": "Field Address Investigation", "desc": "Deploying field investigators to physically locate and verify the current borrower address.", "bullets": ["On-site address verification visit", "Neighbor and local community inquiry", "Physical confirmation of current occupant"], "businessOutcome": "Converts a stale or ambiguous record into a confirmed, actionable address." },
+      { "title": "Municipal & Registry Search", "desc": "Querying local municipality records and utility registries for updated address data.", "bullets": ["Municipal property register search", "Local utility connection record query", "Voter registry and ration card cross-check"], "businessOutcome": "Surfaces address leads from official records before committing field resources." },
+      { "title": "Local Post Office Coordination", "desc": "Coordinating with local post offices to identify current delivery addresses.", "bullets": ["Postman inquiry coordination", "Local delivery record verification", "Cross-check against pin code mapping"], "businessOutcome": "Leverages the most granular local address knowledge available for ambiguous rural addresses." },
+      { "title": "Geotagged Address Confirmation", "desc": "Providing GPS-coordinates and photographic evidence of the confirmed address.", "bullets": ["GPS coordinate capture at confirmed location", "Photographic evidence of address site", "Time-stamped geotag log"], "businessOutcome": "Gives legal and field teams a defensible, documented address confirmation." },
+      { "title": "Notice-Ready Address Delivery", "desc": "Structuring the confirmed address in a format ready for legal notice service.", "bullets": ["Address formatted to postal and legal standards", "PIN code and district verification", "Delivery format matched to client system"], "businessOutcome": "Allows demand notices and legal documents to be dispatched immediately after confirmation." },
+      { "title": "Address Tracing Reporting", "desc": "Consolidated reporting on all addresses traced, confirmed, and unresolved.", "bullets": ["Per-case address confirmation record", "Unresolved case flags with search status", "Client status report for active portfolio"], "businessOutcome": "Gives the client visibility into address resolution progress without chasing individual case updates." }
     ],
     "tabs": [
-      {
-        "id": "evidence-audit-trail",
-        "label": "Evidence & Audit Trail",
-        "heading": "Structured Evidence Collection & Audit-Ready Governance",
-        "overview": "Demonstrating a structured and defensible verification process aligned with institutional documentation standards.",
-        "activities": [
-          "Capture GPS-enabled field verification metrics and location coordinates",
-          "Log time-stamped visit records and photographic verification evidence",
-          "Maintain digital verification checklists and audit-ready operational records"
-        ],
-        "documents": [
-          "Digital verification checklists and field inspection dossiers",
-          "Time-stamped GPS visit logs and structured evidence files"
-        ],
-        "risks": [
-          "Unverified field documentation exceptions",
-          "Audit trail compliance gaps"
-        ],
-        "deliverable": "Audit-ready operational documentation dossier.",
-        "benefit": "Provides institutional clients with transparent, defensible verification records."
-      },
-      {
-        "id": "operational-execution",
-        "label": "Address Tracing",
-        "heading": "Managing Field Address Sourcing",
-        "overview": "Structured execution workflows managed under strict SLA limits.",
-        "activities": [
-          "Workflow allocation",
-          "Progress auditing"
-        ],
-        "documents": [
-          "Operational reports"
-        ],
-        "risks": [
-          "Execution delays"
-        ],
-        "deliverable": "Verified execution log.",
-        "benefit": "Ensures operational transparency."
-      }
+      { "id": "case-intake", "label": "Case Intake", "heading": "Reviewing the Address Problem Before Field Resources Are Committed", "overview": "The address case file is ingested, the type of address problem is classified, and the right investigation method is selected.", "activities": ["Address problem classification", "Registry pre-query", "Field dispatch decision"], "documents": ["Case assignment with address problem type"], "risks": ["Wrong investigation method selected for the address type"], "deliverable": "Active case file with investigation approach confirmed.", "benefit": "Ensures the right method is used for the specific address problem — rural ambiguity needs different tools than urban relocation." },
+      { "id": "registry-query", "label": "Registry Search", "heading": "Querying Official Records for Address Leads", "overview": "Municipal, utility, and voter registry records are queried to generate leads before field dispatch.", "activities": ["Municipal property register search", "Utility registry query", "Voter and ration card cross-check"], "documents": ["Registry leads log"], "risks": ["Stale registry data producing leads that are already outdated"], "deliverable": "Registry-sourced address candidate leads.", "benefit": "Generates leads before field resources are spent, reducing wasted visits." },
+      { "id": "field-dispatch", "label": "Field Dispatch", "heading": "On-Site Investigation at the Address Location", "overview": "A field investigator visits the location, speaks to neighbors, and checks the occupant status of the address.", "activities": ["On-site address visit", "Neighbor and community inquiry", "Occupant confirmation"], "documents": [], "risks": ["Unverified address reported as confirmed based on hearsay"], "deliverable": "Field investigation report.", "benefit": "Confirms or eliminates an address with physical evidence, not just a phone call." },
+      { "id": "geotag", "label": "Geotagging", "heading": "Capturing GPS Evidence of the Confirmed Address", "overview": "The confirmed address is geotagged with GPS coordinates and photographic evidence.", "activities": ["GPS coordinate capture", "Photo evidence log", "Time-stamp recording"], "documents": ["Geotagged photo evidence set"], "risks": ["No physical evidence to defend the address confirmation if challenged"], "deliverable": "GPS-stamped address confirmation record.", "benefit": "Provides a defensible, auditable record of the confirmed address." },
+      { "id": "address-delivery", "label": "Address Delivery", "heading": "Structuring the Verified Address for Immediate Use", "overview": "The confirmed address is formatted to the legal and postal standard required for notice service.", "activities": ["Address formatting to postal standard", "PIN code and district verification", "Delivery to client in required format"], "documents": ["Notice-ready address record"], "risks": ["Address confirmed but formatted incorrectly for notice service"], "deliverable": "Notice-ready address in client format.", "benefit": "Allows demand notices and legal documents to be dispatched without further formatting work." },
+      { "id": "address-report", "label": "Status Report", "heading": "Portfolio-Level Visibility Into Address Resolution Progress", "overview": "Consolidated reporting across all active address cases — confirmed, pending, and unresolved.", "activities": ["Report compilation", "Unresolved case flagging", "Client submission"], "documents": [], "risks": ["Client unaware of unresolved cases until they affect legal timelines"], "deliverable": "Address tracing status report.", "benefit": "Single-view portfolio status without the client chasing individual case updates." }
     ],
-    "challengesHeading": "Operational Challenges",
+    "challengesHeading": "Address Tracing Risks",
     "challenges": [
-      {
-        "title": "Absconded Borrower Loss",
-        "desc": "Borrowers shifting residence across district lines without updating financial institution records.",
-        "warningBadge": "OPERATIONAL RISK",
-        "impact": "SM Associates Operational Approach: Structured coordinator dispatch and audit-ready documentation custody."
-      }
+      { "title": "Incomplete Original Records", "desc": "Loan application addresses with landmarks only, no PIN codes, or vague locality descriptions are unserviceable without field investigation.", "warningBadge": "Data Risk", "impact": "Notice delivery fails before enforcement can begin." },
+      { "title": "Borrower Relocation", "desc": "Defaulted borrowers who have moved leave recovery teams dispatching to a location the borrower no longer occupies.", "warningBadge": "Relocation Risk", "impact": "Collections and notice service effort directed at the wrong address." },
+      { "title": "Rural and Remote Address Ambiguity", "desc": "Village, taluk, and rural addresses often lack the specificity needed for formal notice service without local field knowledge.", "warningBadge": "Locality Risk", "impact": "Standard database searches produce no usable leads for rural addresses." },
+      { "title": "Notice Service Failure and Legal Reset", "desc": "A returned undelivered notice restarts the statutory clock under SARFAESI, adding months to the enforcement timeline.", "warningBadge": "Legal Risk", "impact": "Enforcement delays cascade from a single failed notice delivery." },
+      { "title": "Cross-District Relocation", "desc": "Borrowers moving across district or state lines fall outside the original branch's tracing network.", "warningBadge": "Coverage Risk", "impact": "Tracing requires cross-district coordination the original office may not have." },
+      { "title": "Unverified Address Reporting", "desc": "An address reported as confirmed without physical verification can send legal and field action to the wrong location.", "warningBadge": "Verification Risk", "impact": "Recovery effort and legal costs wasted on an unconfirmed address." }
     ],
     "processFlow": {
-      "title": "Service Engagement Journey",
-      "desc": "Milestone-tracked operational workflow.",
+      "title": "Address Tracing Lifecycle",
+      "desc": "A structured investigation model from address problem intake to notice-ready confirmed coordinate.",
       "steps": [
-        {
-          "step": "01",
-          "title": "Assessment",
-          "desc": "File intake",
-          "outcome": "Dossier ready"
-        },
-        {
-          "step": "02",
-          "title": "Planning",
-          "desc": "Resource allocation",
-          "outcome": "SOP locked"
-        },
-        {
-          "step": "03",
-          "title": "Deployment",
-          "desc": "Ground execution",
-          "outcome": "Metrics logged"
-        },
-        {
-          "step": "04",
-          "title": "Monitoring",
-          "desc": "Quality control",
-          "outcome": "Audit verified"
-        },
-        {
-          "step": "05",
-          "title": "Continuous Improvement",
-          "desc": "Ledger upload",
-          "outcome": "Service complete"
-        }
+        { "step": "01", "title": "Case Intake & Classification", "desc": "The address problem is classified — incomplete, stale, relocated, or rural ambiguity — and the right investigation method is selected.", "outcome": "Active case with confirmed investigation approach." },
+        { "step": "02", "title": "Registry & Database Query", "desc": "Municipal, utility, and voter registry records are queried to generate leads before field resources are deployed.", "outcome": "Registry-sourced address candidate leads." },
+        { "step": "03", "title": "Field Dispatch & On-Site Investigation", "desc": "A field investigator visits the candidate address, checks occupant status, and conducts neighbor inquiries.", "outcome": "Confirmed or eliminated address candidate with field evidence." },
+        { "step": "04", "title": "Geotagged Address Confirmation", "desc": "The confirmed address is captured with GPS coordinates and photographic evidence.", "outcome": "Defensible, geotagged address confirmation record." },
+        { "step": "05", "title": "Notice-Ready Delivery", "desc": "The confirmed address is formatted to legal and postal standards and delivered to the client.", "outcome": "Notice-ready address that allows legal action to proceed immediately." }
       ]
     },
-    "outcomesHeading": "Strategic Outcomes",
+    "outcomesHeading": "Enterprise Business Outcomes",
     "outcomes": [
-      {
-        "title": "Operational Efficiency",
-        "desc": "Improved execution speed and audit compliance.",
-        "value": "Audit Compliant"
-      }
+      { "title": "Unblocked Notice Service", "desc": "Verified addresses allow demand notices to be served without undeliverable returns.", "value": "Enforcement timelines resume without legal clock resets." },
+      { "title": "Accurate Field Dispatch", "desc": "Confirmed current addresses eliminate wasted field visits to stale locations.", "value": "Higher field visit-to-contact conversion rates." },
+      { "title": "Faster Legal Timeline Progression", "desc": "Valid address delivery keeps SARFAESI and DRT proceedings on schedule.", "value": "Fewer statutory delays caused by address failures." },
+      { "title": "Defensible Address Evidence", "desc": "Geotagged photo records support the address in court or audit challenge.", "value": "Address confirmation that holds up under scrutiny." },
+      { "title": "Cross-District Coverage", "desc": "SM Associates' 19-branch network covers address tracing across Tamil Nadu, Kerala, Karnataka, Telangana, AP, and Puducherry.", "value": "No coverage gap for borrowers who relocate across district or state lines." },
+      { "title": "Portfolio-Level Address Refresh", "desc": "Batch address tracing across a portfolio of stale records restores collections and legal access across the book.", "value": "Multiple stalled accounts reactivated in a single engagement." }
     ],
     "faqs": [
-      {
-        "q": "How does SM Associates ensure compliance during field operations?",
-        "a": "All operations are conducted by IIBF DRA-certified coordinators operating under strict statutory calling windows and recorded VoIP infrastructure."
-      },
-      {
-        "q": "What is the typical SLA turnaround for field assignments?",
-        "a": "We deliver geotagged verification and field status reports within 24 to 48 hours of assignment allocation."
-      }
+      { "q": "Do you cover rural and village-level addresses?", "a": "Yes — local post office coordination, village map checks, and branch-level local knowledge cover rural and taluk-level addresses that database searches miss." },
+      { "q": "What format is the confirmed address delivered in?", "a": "The confirmed address is formatted to the postal and legal standard required for notice service, with GPS coordinates and photographic evidence included." }
     ],
     "cta": {
-      "heading": "Schedule an Operational Briefing",
-      "subheading": "Connect with our service desk to review our empanelment packs and operational SLAs.",
+      "heading": "Stop Losing Enforcement Timelines to Undeliverable Addresses",
+      "subheading": "Request an address tracing walkthrough for your stalled notice service or field collections portfolio.",
       "buttonText": "Request Empanelment Proposal",
       "href": "/contact"
     }
   },
   "contact-verification": {
-    "eyebrow": "Identity & Profile Forensics",
-    "title": "Contact & Profile Verification",
-    "subtitle": "Customer Contactability Auditing",
-    "description": "Verifying applicant phone numbers, emails, and references to ensure active contactability under KYC guidelines.",
-    "primaryCtaText": "Request Operational Briefing",
-    "secondaryCtaText": "Explore Service Standards",
-    "primaryCtaHref": "/contact",
-    "secondaryCtaHref": "#capabilities",
-    "kpiCards": [
-      {
-        "icon": "building",
-        "title": "Regional Office Network",
-        "value": "19 Offices"
-      },
-      {
-        "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
-      },
-      {
-        "icon": "shield",
-        "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
-      },
-      {
-        "icon": "trendingUp",
-        "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
-      }
-    ],
-    "problemStatementEyebrow": "Operational Risks",
-    "problemStatementHeading": "Underwriting Identity Risks",
+    "eyebrow": "Borrower Contact Audit",
+    "title": "Contact Verification",
+    "subtitle": "Confirming Every Borrower Contact Detail Is Real, Active, and Reaches the Right Person",
+    "description": "Pre-disbursal and post-default contact verification — validating phone numbers, references, and email addresses to protect collections reachability and prevent fraudulent onboarding.",
+    "primaryCtaText": "Request a Contact Verification Walkthrough",
+    "secondaryCtaText": "Download Contact Audit Standards",
     "problemStatement": [
-      {
-        "icon": "fileWarning",
-        "title": "Unreachable References",
-        "desc": "Applicants providing invalid co-borrower or reference contact details during underwriting."
-      },
-      {
-        "icon": "shieldAlert",
-        "title": "Compliance & Audit Exposure",
-        "desc": "Unverified field practices triggering regulatory or client audit exceptions."
-      },
-      {
-        "icon": "timer",
-        "title": "Operational Delay Gaps",
-        "desc": "Extended execution timelines due to fragmented vendor handoffs."
-      }
+      { "icon": "phoneOff", "title": "Fake Phone Numbers at Onboarding", "desc": "Applicants submitting numbers that don't belong to them or are inactive — discovered only when collections tries to reach the borrower after default." },
+      { "icon": "fileWarning", "title": "Unreachable References", "desc": "Co-borrower and reference contacts that turn out to be invalid, unavailable, or unrelated to the applicant when needed for recovery." },
+      { "icon": "shieldAlert", "title": "KYC Contact Mismatch", "desc": "Phone numbers and emails on file that don't match the KYC record — creating compliance exposure in RBI-regulated contact audit requirements." },
+      { "icon": "trendingDown", "title": "Collections Dead-Ends at Default", "desc": "When a borrower defaults, invalid contact records mean the collections team has no direct communication path to the account." }
     ],
     "overview": {
-      "heading": "Contactability Auditing: Maintaining Active Borrower Connections",
-      "subheading": "Securing the Outreach Pipeline in Digital and Retail Lending",
-      "summary": "Digital lending guidelines place high emphasis on verifying borrower identity and maintaining clean communication lines. Contact Verification validates declared contact profiles. We perform digital checks, verify reference contacts, and conduct soft verification calls to confirm that phone numbers and email addresses are active and attached to the applicant. This audit protects lenders from fraudulent loan applications and ensures collections teams have direct, compliant channels if defaults occur.",
+      "heading": "Why Bad Contact Records Cost More at Default Than at Onboarding",
+      "subheading": "Validating Borrower Contactability Before It Becomes a Collections Problem",
+      "summary": "Invalid or stale contact records are cheapest to fix at onboarding and most expensive to discover at default. Contact Verification audits declared phone numbers, reference contacts, and email addresses to confirm they are active and correctly associated with the applicant. SM Associates conducts telephonic verification calls, cross-matches contacts against KYC records, and flags mismatches and invalid entries before the loan file is approved. For post-default portfolios, we also re-validate contact records to restore collections reachability on stale accounts.",
       "outcomes": [
-        {
-          "title": "Geotagged Evidence Logs",
-          "desc": "Timestamped GPS coordinates and audit photos.",
-          "value": "Auditable Records"
-        },
-        {
-          "title": "Structured Escalation",
-          "desc": "Defined operational triggers for legal or field action.",
-          "value": "Workflow Control"
-        }
+        { "title": "Verified Borrower Contacts", "desc": "Phone numbers and emails confirmed active and associated with the right person at onboarding." },
+        { "title": "Validated Reference Chain", "desc": "Co-borrower and reference contacts confirmed reachable before disbursement." },
+        { "title": "KYC-Aligned Records", "desc": "Contact details cross-matched against KYC documents to confirm consistency." }
       ],
       "useCases": [
-        {
-          "title": "Banking Portfolio Operations",
-          "desc": "Supporting commercial and retail bank portfolios."
-        },
-        {
-          "title": "NBFC Field Management",
-          "desc": "Managing decentralized branch field queues."
-        }
+        { "title": "Pre-Disbursal Contact Audit", "desc": "Validating all borrower contact details before loan approval." },
+        { "title": "Reference Chain Verification", "desc": "Confirming co-borrower and reference contacts are real and reachable." },
+        { "title": "Post-Default Contact Refresh", "desc": "Re-validating stale contact records on defaulted accounts to restore collections access." }
       ]
     },
-    "capabilitiesHeading": "Service Focus Areas",
+    "kpiCards": [
+      { "icon": "phoneCall", "title": "Contacts Verified", "value": "[DRAFT]" },
+      { "icon": "timer", "title": "Avg. Verification TAT", "value": "[DRAFT]" },
+      { "icon": "shieldCheck", "title": "KYC Match Rate", "value": "[DRAFT]" },
+      { "icon": "alertTriangle", "title": "Invalid Contacts Flagged", "value": "[DRAFT]" }
+    ],
     "capabilities": [
-      {
-        "title": "Contact Profile Validation",
-        "desc": "Verifying reference contactability and applicant profile telemetry.",
-        "bullets": [
-          "Outbound telephonic checks",
-          "Reference validation logs",
-          "Digital KYC cross-matching"
-        ],
-        "businessOutcome": "Protects institutional asset quality and compliance standards."
-      }
+      { "title": "Phone Number Verification", "desc": "Confirming declared phone numbers are active and associated with the applicant.", "bullets": ["Outbound telephonic verification call", "Number-owner identity confirmation", "Active/inactive status logging"], "businessOutcome": "Confirms the primary collections contact channel will work at default." },
+      { "title": "Reference Contact Validation", "desc": "Verifying that co-borrower and reference contacts are real and reachable.", "bullets": ["Reference telephonic check", "Relationship-to-applicant confirmation", "Unreachable reference flagging"], "businessOutcome": "Ensures the secondary collections contact chain is intact before disbursement." },
+      { "title": "Email Verification", "desc": "Confirming declared email addresses are active and owned by the applicant.", "bullets": ["Email deliverability check", "Domain and format validation", "Cross-match against KYC email record"], "businessOutcome": "Protects digital collections channels from invalid email records." },
+      { "title": "KYC Contact Cross-Matching", "desc": "Cross-checking declared contacts against KYC documents for consistency.", "bullets": ["Phone number vs. KYC ID cross-match", "Address-contact consistency check", "Mismatch flagging for underwriter review"], "businessOutcome": "Surfaces contact-KYC mismatches that signal potential fraudulent onboarding." },
+      { "title": "Post-Default Contact Re-Validation", "desc": "Re-auditing stale contact records on defaulted accounts to restore collections access.", "bullets": ["Active number search for inactive contacts", "New number sourcing through reference chain", "Updated contact record delivery to collections"], "businessOutcome": "Restores collections reachability on accounts where the original contact records have gone stale." },
+      { "title": "Contact Risk Flagging", "desc": "Classifying contacts by risk level and flagging high-risk patterns for underwriter action.", "bullets": ["Invalid contact count flagging", "Shared number pattern detection", "Risk-level classification of contact profile"], "businessOutcome": "Gives underwriters a clear, actionable view of contact risk before the file proceeds." }
     ],
     "tabs": [
-      {
-        "id": "evidence-audit-trail",
-        "label": "Evidence & Audit Trail",
-        "heading": "Structured Evidence Collection & Audit-Ready Governance",
-        "overview": "Demonstrating a structured and defensible verification process aligned with institutional documentation standards.",
-        "activities": [
-          "Capture GPS-enabled field verification metrics and location coordinates",
-          "Log time-stamped visit records and photographic verification evidence",
-          "Maintain digital verification checklists and audit-ready operational records"
-        ],
-        "documents": [
-          "Digital verification checklists and field inspection dossiers",
-          "Time-stamped GPS visit logs and structured evidence files"
-        ],
-        "risks": [
-          "Unverified field documentation exceptions",
-          "Audit trail compliance gaps"
-        ],
-        "deliverable": "Audit-ready operational documentation dossier.",
-        "benefit": "Provides institutional clients with transparent, defensible verification records."
-      },
-      {
-        "id": "operational-execution",
-        "label": "Contact Verification",
-        "heading": "Managing Contactability Audits",
-        "overview": "Structured execution workflows managed under strict SLA limits.",
-        "activities": [
-          "Workflow allocation",
-          "Progress auditing"
-        ],
-        "documents": [
-          "Operational reports"
-        ],
-        "risks": [
-          "Execution delays"
-        ],
-        "deliverable": "Verified execution log.",
-        "benefit": "Ensures operational transparency."
-      }
+      { "id": "file-intake", "label": "File Intake", "heading": "Scoping the Contact Verification Assignment", "overview": "The contact file is received, contact types are mapped, and the verification sequence is planned.", "activities": ["Contact type mapping", "Verification sequence planning", "Assignment allocation"], "documents": ["Contact verification assignment"], "risks": ["Contacts missed if the file scope isn't reviewed before verification starts"], "deliverable": "Active contact verification file.", "benefit": "Ensures all contact types — phone, email, reference — are covered before verification begins." },
+      { "id": "phone-verification", "label": "Phone Verification", "heading": "Confirming Numbers Are Active and Owned by the Applicant", "overview": "Outbound telephonic verification confirms number status and ownership.", "activities": ["Outbound verification call", "Ownership confirmation", "Active/inactive logging"], "documents": [], "risks": ["Number active but belonging to a different person"], "deliverable": "Phone verification record.", "benefit": "Confirms the primary collections contact channel is valid." },
+      { "id": "reference-check", "label": "Reference Check", "heading": "Verifying the Reference Chain Is Real and Reachable", "overview": "Co-borrower and reference contacts are called and relationship to the applicant is confirmed.", "activities": ["Reference telephonic check", "Relationship confirmation", "Unreachable reference flagging"], "documents": [], "risks": ["References who claim no knowledge of the applicant after disbursement"], "deliverable": "Reference validation record.", "benefit": "Confirms the secondary contact chain will work if the primary borrower goes unreachable." },
+      { "id": "kyc-match", "label": "KYC Cross-Match", "heading": "Checking Declared Contacts Against KYC Records", "overview": "Phone numbers and email addresses are cross-checked against KYC documents for consistency.", "activities": ["Phone vs. KYC ID cross-match", "Email vs. KYC record check", "Mismatch flagging"], "documents": [], "risks": ["Contact-KYC mismatch indicating fraudulent onboarding going undetected"], "deliverable": "KYC contact cross-match note.", "benefit": "Catches the contact-KYC inconsistencies that signal a fraudulent loan application." },
+      { "id": "email-verification", "label": "Email Verification", "heading": "Confirming Email Addresses Are Active and Correctly Assigned", "overview": "Declared email addresses are checked for deliverability and cross-matched against KYC.", "activities": ["Email deliverability check", "Domain validation", "KYC email cross-match"], "documents": [], "risks": ["Invalid or unowned email addresses affecting digital collections and notice delivery"], "deliverable": "Email verification record.", "benefit": "Protects digital communication channels used for notice delivery and digital collections." },
+      { "id": "contact-report", "label": "Contact Report", "heading": "One Consolidated Contact Audit Record for the Underwriter", "overview": "All verification outcomes are compiled into a structured report with risk flags for underwriter review.", "activities": ["Report compilation", "Risk flag classification", "Client submission"], "documents": [], "risks": ["Fragmented verification records leaving the underwriter without a clear view"], "deliverable": "Contact verification report with risk classification.", "benefit": "Gives the underwriter a single, decision-ready view of contact validity and risk." }
     ],
-    "challengesHeading": "Operational Challenges",
+    "challengesHeading": "Contact Verification Risks",
     "challenges": [
-      {
-        "title": "Unreachable References",
-        "desc": "Applicants providing invalid co-borrower or reference contact details during underwriting.",
-        "warningBadge": "OPERATIONAL RISK",
-        "impact": "SM Associates Operational Approach: Structured coordinator dispatch and audit-ready documentation custody."
-      }
+      { "title": "Fake or Borrowed Phone Numbers", "desc": "Applicants submitting numbers that belong to someone else or are borrowed for the application period.", "warningBadge": "Fraud Risk", "impact": "Primary collections channel fails from day one of default." },
+      { "title": "Shared and Common Numbers", "desc": "Multiple loan applications submitting the same phone number — a pattern associated with coordinated fraud rings.", "warningBadge": "Network Risk", "impact": "Shared numbers indicate organized fraud that a single-file review misses." },
+      { "title": "Inactive or Disconnected Numbers", "desc": "Numbers active at onboarding going inactive before default — leaving no valid contact path.", "warningBadge": "Staleness Risk", "impact": "Collections team discovers invalid number only after the default occurs." },
+      { "title": "Unresponsive References", "desc": "References who are unreachable or who deny knowledge of the applicant when collections contacts them.", "warningBadge": "Reference Risk", "impact": "No secondary contact path available when primary borrower goes unreachable." },
+      { "title": "KYC Contact Mismatch", "desc": "Phone numbers or emails on the application that don't match KYC documents — a compliance and fraud signal.", "warningBadge": "Compliance Risk", "impact": "Contact mismatch creates regulatory exposure and may indicate identity fraud." },
+      { "title": "Post-Default Contact Staleness", "desc": "Contact records that were valid at origination but have gone stale by the time of default.", "warningBadge": "Recovery Risk", "impact": "Collections team has no valid contact channel to initiate recovery." }
     ],
     "processFlow": {
-      "title": "Service Engagement Journey",
-      "desc": "Milestone-tracked operational workflow.",
+      "title": "Contact Verification Lifecycle",
+      "desc": "A structured audit model from contact file intake to a risk-classified verification report.",
       "steps": [
-        {
-          "step": "01",
-          "title": "Assessment",
-          "desc": "File intake",
-          "outcome": "Dossier ready"
-        },
-        {
-          "step": "02",
-          "title": "Planning",
-          "desc": "Resource allocation",
-          "outcome": "SOP locked"
-        },
-        {
-          "step": "03",
-          "title": "Deployment",
-          "desc": "Ground execution",
-          "outcome": "Metrics logged"
-        },
-        {
-          "step": "04",
-          "title": "Monitoring",
-          "desc": "Quality control",
-          "outcome": "Audit verified"
-        },
-        {
-          "step": "05",
-          "title": "Continuous Improvement",
-          "desc": "Ledger upload",
-          "outcome": "Service complete"
-        }
+        { "step": "01", "title": "File Intake & Contact Mapping", "desc": "All contact types — primary phone, alternate phone, email, references — are mapped and the verification sequence is planned.", "outcome": "A complete contact map with all types covered." },
+        { "step": "02", "title": "Telephonic & Email Verification", "desc": "Phone numbers and email addresses are verified for activity and ownership through outbound checks.", "outcome": "Active, inactive, and wrong-owner contacts identified." },
+        { "step": "03", "title": "Reference Chain Validation", "desc": "Co-borrower and reference contacts are called and relationship to the applicant confirmed.", "outcome": "Reference chain confirmed reachable or flagged as invalid." },
+        { "step": "04", "title": "KYC Cross-Match", "desc": "All declared contacts are cross-matched against KYC documents for consistency.", "outcome": "Mismatches between declared contacts and KYC records flagged for review." },
+        { "step": "05", "title": "Risk Report Delivery", "desc": "All verification outcomes are compiled into a structured report with risk classification for the underwriter.", "outcome": "Decision-ready contact verification report." }
       ]
     },
-    "outcomesHeading": "Strategic Outcomes",
+    "outcomesHeading": "Enterprise Business Outcomes",
     "outcomes": [
-      {
-        "title": "Operational Efficiency",
-        "desc": "Improved execution speed and audit compliance.",
-        "value": "Audit Compliant"
-      }
+      { "title": "Valid Collections Contact Chain", "desc": "Verified contacts mean collections teams have working channels from the first day of default.", "value": "No discovery of invalid numbers only after default occurs." },
+      { "title": "Fraudulent Application Detection", "desc": "Contact-KYC mismatches and shared number patterns surface fraud at underwriting, not at collections.", "value": "Fraudulent disbursements prevented before they reach the books." },
+      { "title": "Validated Reference Network", "desc": "Confirmed reference contacts provide a secondary outreach channel when the primary borrower is unreachable.", "value": "More contact paths available at the point of recovery." },
+      { "title": "KYC Compliance Alignment", "desc": "Contact records cross-matched against KYC comply with RBI contactability audit requirements.", "value": "Reduced compliance exposure from contact record inconsistencies." },
+      { "title": "Restored Collections Reachability", "desc": "Post-default contact re-validation refreshes stale records and restores the collections access path.", "value": "Defaulted accounts with no valid contact restored to active recovery pipeline." },
+      { "title": "Faster Default Response", "desc": "Validated contact records allow collections to begin outreach immediately after default, not after a contact search.", "value": "First-bucket contact rate higher when contact is pre-validated." }
     ],
     "faqs": [
-      {
-        "q": "How does SM Associates ensure compliance during field operations?",
-        "a": "All operations are conducted by IIBF DRA-certified coordinators operating under strict statutory calling windows and recorded VoIP infrastructure."
-      },
-      {
-        "q": "What is the typical SLA turnaround for field assignments?",
-        "a": "We deliver geotagged verification and field status reports within 24 to 48 hours of assignment allocation."
-      }
+      { "q": "Do you verify contacts for post-default portfolios, not just pre-disbursal?", "a": "Yes — contact re-validation on defaulted portfolios is available, including sourcing new numbers through reference chains and alternative registry searches for accounts where the original contacts have gone stale." },
+      { "q": "Can you detect shared phone numbers across multiple loan applications?", "a": "Shared number pattern detection across applications is part of the contact risk flagging output — a common indicator of coordinated fraud." }
     ],
     "cta": {
-      "heading": "Schedule an Operational Briefing",
-      "subheading": "Connect with our service desk to review our empanelment packs and operational SLAs.",
+      "heading": "Validate Your Borrower Contact Records Before They Become a Collections Problem",
+      "subheading": "Request a contact verification walkthrough for your pre-disbursal or post-default portfolio.",
       "buttonText": "Request Empanelment Proposal",
       "href": "/contact"
     }
@@ -1251,18 +1027,17 @@ export const investigationContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [

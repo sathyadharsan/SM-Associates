@@ -1,4 +1,4 @@
-export const legalContent = {
+﻿export const legalContent = {
   'cheque-bounce-notices': {
     eyebrow: 'Section 138 Legal Notice Services',
     title: 'Cheque-Bounce Notice Services',
@@ -32,9 +32,9 @@ export const legalContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     capabilities: [
@@ -134,9 +134,9 @@ export const legalContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     capabilities: [
@@ -240,9 +240,9 @@ export const legalContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     capabilities: [
@@ -342,9 +342,9 @@ export const legalContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     capabilities: [
@@ -444,9 +444,9 @@ export const legalContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     capabilities: [

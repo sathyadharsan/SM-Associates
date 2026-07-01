@@ -104,12 +104,12 @@ const getItemDescription = (label) => {
     case 'Educational Loans': return 'Student tracing & education loan collections';
 
     // Recovery Operations
-    case 'Recovery Operating System': return 'Digital dashboard for case status tracking';
-    case 'Workflow Automation': return 'Automated dialing queues & legal letters dispatch';
-    case 'Field Operations Network': return 'Real-time field staff navigation & verification';
+    case 'Recovery Operating System': return 'Centralized case registry & governance framework';
+    case 'Escalation Governance Framework': return 'Rules-based escalation from calling to field to legal';
+    case 'Field Operations Network': return 'GPS-enabled field staff dispatch & verification';
     case 'Compliance Monitoring': return 'Daily voice recording audits & legal standards';
-    case 'Recovery Analytics': return 'Delinquency predictive indexing scoring';
-    case 'AI Recovery Platform': return 'Automated settlement negotiations chatbot';
+    case 'Recovery Intelligence Framework': return 'Propensity scoring & portfolio diagnostics';
+    case 'AI Recovery Roadmap': return 'Governed AI pilots under human oversight';
 
     // Coverage
     case 'India Presence': return 'National footprint, branch office & yard networks';
@@ -173,6 +173,15 @@ export default function Header() {
     }
     setActiveMenu(key);
     setHoverKey(key);
+  };
+
+  // Only clears the close timeout — does NOT open the menu.
+  // Used on the dropdown panel so entering it from page content below never triggers a menu open.
+  const handleDropdownMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
   };
 
   const handleMouseLeave = () => {
@@ -265,7 +274,6 @@ export default function Header() {
                   <div
                     key={key}
                     className={`flex items-center ${navItem.isMegaMenu ? "static" : "relative"}`}
-                    onMouseEnter={() => handleMouseEnter(key)}
                     onMouseLeave={handleMouseLeave}
                   >
                     {hasDropdown ? (
@@ -301,6 +309,7 @@ export default function Header() {
 
                     {hasDropdown && (
                       <div
+                        onMouseEnter={handleDropdownMouseEnter}
                         style={{
                           position: 'absolute',
                           top: '100%',

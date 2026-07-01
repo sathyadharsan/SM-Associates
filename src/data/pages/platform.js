@@ -1,19 +1,19 @@
 export const platformContent = {
   'platform': {
-    eyebrow: "Enterprise Operations Framework",
+    eyebrow: "Enterprise Operating Framework",
     title: "Standardized Framework for Stressed Assets",
     subtitle: "Standardizing ground dispatch, legal timelines, and compliance audits.",
-    description: "We coordinate tele-outreach, geolocated field visits, and legal enforcements under a unified delivery model to compress default cycles and secure audit-ready documentation.",
+    description: "We coordinate tele-outreach, geolocated field visits, and legal enforcements under a unified operating model to compress default cycles and secure audit-ready documentation.",
     primaryCtaText: "Request Framework Assessment",
     primaryCtaHref: "/contact",
     secondaryCtaText: "Explore Operating Controls",
     secondaryCtaHref: "#capabilities",
 
     kpiCards: [
-      { icon: "activity", title: "Enterprise-Grade Operations", value: "Standardized SOPs" },
-      { icon: "shield", title: "Compliance-Oriented Delivery", value: "IIBF DRA-Certified" },
-      { icon: "cpu", title: "Operational Traceability", value: "GPS-Enabled Visits" },
-      { icon: "eye", title: "Operational Visibility", value: "Real-Time Tracking" }
+      { icon: "briefcase", title: "Enterprise Workforce", value: "1,500+ Personnel" },
+      { icon: "fingerprint", title: "Certified Field Recovery Teams", value: "IIBF DRA-Certified" },
+      { icon: "shieldCheck", title: "Information Security Governance", value: "ISO/IEC 27001 Certified" },
+      { icon: "mapPinned", title: "Branch Network Coverage", value: "19 Branch Grids" }
     ],
 
     capabilitiesHeading: "Operational Framework Capabilities",
@@ -44,15 +44,15 @@ export const platformContent = {
         bullets: [
           "IIBF DRA-certified coordinators dispatched from local branch grids",
           "GPS-enabled mobile check-ins confirming agent coordinates",
-          "doorstep verifications and timestamped site photos logging"
+          "Doorstep verifications and timestamped site photo logging"
         ],
         businessOutcome: "Provides the bank's risk committee with verified field evidence of borrower contactability."
       },
       {
         title: "Compliance Audit Desk",
-        desc: "Independent review of calling quality and ground representative conduct. Insulates financial institutions from conduct liability and regulatory non-compliance.",
+        desc: "Independent review of calling quality and ground representative conduct, built on a 100% call recording process. Insulates financial institutions from conduct liability and regulatory non-compliance.",
         bullets: [
-          "100% call recording voice logging and QA transcripts audits",
+          "100% call recording, with voice logs audited for script compliance",
           "Daily compliance briefings for field and dialer representatives",
           "Formal grievance tracking desk monitoring borrower feedback"
         ],
@@ -60,7 +60,7 @@ export const platformContent = {
       },
       {
         title: "Portfolio Performance Analytics",
-        desc: "Transparent reporting dashboards for monitoring recovery metrics and operational costs. Provides data-driven visibility into collections costs, liquidation yields, and recovery velocity.",
+        desc: "Transparent reporting for monitoring recovery metrics and operational costs. Provides data-driven visibility into collections costs, liquidation yields, and recovery velocity.",
         bullets: [
           "Settlement (OTS) propensity scoring metrics",
           "Geographic resource placement mapping models",
@@ -106,14 +106,14 @@ export const platformContent = {
         id: "operational-governance",
         label: "Operational Governance",
         heading: "Protecting Institutional Reputation and Compliance",
-        overview: "We embed compliance directly into our workflows. Dialer hours are system-locked between 08:00 AM and 07:00 PM, and all field activities are executed by IIBF DRA-certified coordinators.",
+        overview: "We embed compliance directly into our workflows under ISO/IEC 27001 certified information security practices. Dialer hours are system-locked between 08:00 AM and 07:00 PM, and all field activities are executed by IIBF DRA-certified coordinators.",
         activities: [
           "Verify background checks and references of field coordinators",
-          "Audit voice logger call recordings for strict script compliance",
-          "Maintain active IIBF DRA registration records database"
+          "Audit 100% of voice logger call recordings for script compliance",
+          "Maintain active IIBF DRA registration records"
         ],
         documents: [
-          "Agent DRA certification database registry",
+          "Agent DRA certification registry",
           "Outbound call recording compliance audit logs"
         ],
         risks: [
@@ -127,7 +127,7 @@ export const platformContent = {
         id: "execution-workflow",
         label: "Execution Workflow",
         heading: "Step-by-Step Case Escalation Pipeline",
-        overview: "Case files progress automatically through a structured workflow. Unresolved call reminders trigger geotagged doorstep visits, which escalate to legal desk notice preparation.",
+        overview: "Case files progress through a structured, rules-based workflow. Unresolved call reminders trigger geotagged doorstep visits, which escalate to legal desk notice preparation.",
         activities: [
           "Set risk-based escalation triggers and action deciders",
           "Dispatch local field visits for skipped or unlocatable accounts",
@@ -135,7 +135,7 @@ export const platformContent = {
         ],
         documents: [
           "Standardized escalation script templates",
-          "Field visitation routing grids schedules"
+          "Field visitation routing schedules"
         ],
         risks: [
           "Delayed ground visit mobilization or lapse in notice tracking"
@@ -149,13 +149,13 @@ export const platformContent = {
         heading: "Audit-Ready Legal and Field Records",
         overview: "Every borrower touchpoint is documented to establish a clean evidentiary trail. We log geolocated visit photos, served notice receipts, and court certificates.",
         activities: [
-          "Capture geofenced photos of served demand notices and properties",
-          "Assemble statutory mortgage deeds and sub-registrar registries check",
+          "Capture GPS-enabled photos of served demand notices and properties",
+          "Assemble statutory mortgage deeds and sub-registrar registry checks",
           "Record bank bounce memos for Negotiable Instruments Act Section 138 filings"
         ],
         documents: [
           "Served Section 13(2) statutory notice proofs",
-          "Geotagged site check-in GPS logs"
+          "GPS-enabled site check-in logs"
         ],
         risks: [
           "Defective notice serving objections in court",
@@ -168,7 +168,7 @@ export const platformContent = {
         id: "management-reporting",
         label: "Management Reporting",
         heading: "Transparent Portfolio Recovery Reporting",
-        overview: "We provide complete operational visibility. Lenders receive daily CSV status reports, cash reconciliation ledgers, and audit-ready performance dashboards.",
+        overview: "We provide complete operational visibility. Lenders receive daily status reports, cash reconciliation ledgers, and audit-ready performance summaries.",
         activities: [
           "Compile daily portfolio resolution reports and progress status",
           "Reconcile collected funds against bank recovery account ledgers",
@@ -234,11 +234,11 @@ export const platformContent = {
       outcomes: [
         {
           title: "Audit-Ready Evidence",
-          desc: "Geotagged site check-ins and certified notice serving records provide clean trails."
+          desc: "GPS-enabled site check-ins and certified notice serving records provide clean trails."
         },
         {
           title: "Reputational Shielding",
-          desc: "VoIP calling hour locks and audited call scripts isolate banks from conduct risk."
+          desc: "Calling-hour locks and 100% audited call scripts isolate banks from conduct risk."
         }
       ],
       useCases: [
@@ -259,7 +259,7 @@ export const platformContent = {
         title: "Unverifiable Field Reports",
         desc: "Traditional agencies submit paper-based visit reports that cannot be independently audited, risking unverified collections records.",
         warningBadge: "OUTREACH CONTROLS",
-        impact: "SM Associates Approach: Geotagged check-ins requiring active GPS coordinates matching borrower sites."
+        impact: "SM Associates Approach: GPS-enabled check-ins requiring active coordinates matching borrower sites."
       },
       {
         title: "Notice Service Delays",
@@ -271,7 +271,7 @@ export const platformContent = {
         title: "PII Custody Compliance",
         desc: "Insecure transmission of borrower profiles exposes banks to compliance audits under data protection regulations.",
         warningBadge: "DATA SECURITY",
-        impact: "SM Associates Approach: Secure transfer protocols and encrypted databases in alignment with ISO/IEC 27001 standards."
+        impact: "SM Associates Approach: ISO/IEC 27001 certified information security practices governing secure transfer protocols and encrypted data custody."
       }
     ],
 
@@ -300,13 +300,13 @@ export const platformContent = {
         {
           step: "04",
           title: "Field Execution",
-          desc: "Executing recorded collections calls and geotagged doorstep visits to locate borrowers.",
+          desc: "Executing recorded collections calls and GPS-enabled doorstep visits to locate borrowers.",
           outcome: "Borrower contact established and logged."
         },
         {
           step: "05",
           title: "Documentation & Evidence",
-          desc: "Compiling served notices proofs and geotagged site verification photos for legal readiness.",
+          desc: "Compiling served notice proofs and GPS-enabled site verification photos for legal readiness.",
           outcome: "Evidentiary file dossier prepared."
         },
         {
@@ -339,12 +339,12 @@ export const platformContent = {
       },
       {
         title: "Complete Reputation Protection",
-        desc: "System-enforced compliance boundaries ensure all activities conform to RBI outsource circulars, protecting panel status.",
+        desc: "System-enforced compliance boundaries, backed by ISO/IEC 27001 certified practices, ensure all activities conform to RBI outsource circulars.",
         value: "Reputational Insulation"
       },
       {
         title: "Audit Readiness",
-        desc: "All call recordings, geotagged visit photos, and notice registries are archived, ensuring clean compliance audits.",
+        desc: "All call recordings, GPS-enabled visit photos, and notice registries are archived, ensuring clean compliance audits.",
         value: "Compliance Assured"
       }
     ],
@@ -365,15 +365,15 @@ export const platformContent = {
       },
       {
         name: "Microfinance Institutions",
-        desc: "Executing crop-cycle aligned rural collections and local Panchayats liaison mediation."
+        desc: "Executing crop-cycle aligned rural collections and local Panchayat liaison mediation."
       },
       {
         name: "Fintech Lenders",
-        desc: "Performing swift doorstep contact verifications and early-stage Collections rollback campaigns."
+        desc: "Performing swift doorstep contact verifications and early-stage collections rollback campaigns."
       },
       {
         name: "Asset Reconstruction Companies",
-        desc: "Providing ex-military security yards custody, valuations, and e-auction support for acquired portfolios."
+        desc: "Providing security yard custody, valuations, and e-auction support for acquired portfolios."
       }
     ],
 
@@ -381,19 +381,19 @@ export const platformContent = {
     faqs: [
       {
         q: "How does SM Associates ensure that collections calls conform to RBI guidelines?",
-        a: "We operate a strict Compliance QA Desk. Outbound dialing systems are programmed with calling hour locks restricting contact to 08:00 AM - 07:00 PM. All conversations are recorded, and our QA team audits transcripts for script conformity. Furthermore, all collections staff hold active IIBF DRA certifications."
+        a: "We operate a strict Compliance QA Desk. Outbound dialing is restricted to 08:00 AM - 07:00 PM. 100% of conversations are recorded, and our QA team audits transcripts for script conformity. All collections staff hold active IIBF DRA certifications."
       },
       {
         q: "How is physical doorstep outreach documented for bank audits?",
-        a: "Field coordinators use a secure mobile utility that captures GPS coordinates and time stamp metadata at the borrower's doorstep. This geotagged visit record, along with photos of the served notice or property premises, is synced to the case file, providing bank auditors with uncontestable physical evidence of outreach."
+        a: "Field coordinators use a secure mobile utility that captures GPS coordinates and timestamp metadata at the borrower's doorstep. This GPS-enabled visit record, along with photos of the served notice or property premises, is synced to the case file, providing bank auditors with uncontestable physical evidence of outreach."
       },
       {
         q: "What security standards protect borrower information during data exchange?",
-        a: "We handle borrower records using secure file transfer protocols (SFTP) and encrypt sensitive tables inside our database. Our data security practices align with ISO/IEC 27001 frameworks, ensuring that borrower personally identifiable information (PII) is isolated and protected."
+        a: "We handle borrower records using secure file transfer protocols (SFTP) and encrypt sensitive data under practices certified to the ISO/IEC 27001 standard, ensuring borrower personally identifiable information (PII) is isolated and protected."
       },
       {
         q: "How do you coordinate with panel advocates for legal enforcement?",
-        a: "Our dedicated legal coordination desk acts as a liaison between the bank's recovery committee and the advocate panels. We compile the complete case dossier, including calling voice logs, served Section 13 notice receipts, and geotagged field photos, giving advocates an audit-ready file to expedite CJM court filings."
+        a: "Our dedicated legal coordination desk acts as a liaison between the bank's recovery committee and the advocate panels. We compile the complete case dossier, including calling voice logs, served Section 13 notice receipts, and GPS-enabled field photos, giving advocates an audit-ready file to expedite CJM court filings."
       },
       {
         q: "How does this operating framework improve provisioning write-backs?",
@@ -409,20 +409,20 @@ export const platformContent = {
     }
   },
   'recovery-os': {
-    eyebrow: "Stressed Asset Management Layer",
-    title: "Recovery OS: Standardized Case Routing and Database Ingestion",
-    subtitle: "The core operational console coordinating portfolios, dispatch rules, and legal timelines.",
-    description: "Institutional recovery operations suffer from siloed debtor profiles, manual notice tracking, and lack of ground updates. Recovery OS unifies collections datasets into a single dashboard. It registers portfolio uploads, sets regional routing parameters, and captures geolocated visit logs to ensure complete operational traceability and audit readiness.",
-    primaryCtaText: "Request OS Demonstration",
+    eyebrow: "Case Governance & Portfolio Registry",
+    title: "Recovery OS: The Centralized Case Governance Framework",
+    subtitle: "The administrative core coordinating portfolio registration, dispatch rules, and legal-timeline tracking across every case.",
+    description: "Institutional recovery operations often suffer from siloed debtor profiles, manual notice tracking, and inconsistent ground updates. Recovery OS establishes one governed system of record — registering portfolio intake, applying regional routing rules, and maintaining a complete, auditable case history from default through resolution.",
+    primaryCtaText: "Request Operational Governance Briefing",
     primaryCtaHref: "/contact",
-    secondaryCtaText: "Explore Case Routing Controls",
+    secondaryCtaText: "Review Case Governance Controls",
     secondaryCtaHref: "#capabilities",
 
     kpiCards: [
-      { icon: "cpu", title: "Ingestion Velocity", value: "Under 60 Mins" },
-      { icon: "shield", title: "System Availability", value: "99.9% Uptime" },
-      { icon: "activity", title: "Daily Reconciliation", value: "24-Hour Loop" },
-      { icon: "database", title: "Complete Telemetry", value: "Audit Trails" }
+      { icon: "shieldCheck", title: "Information Security Governance", value: "ISO/IEC 27001 Certified" },
+      { icon: "clipboardCheck", title: "Case Registry Discipline", value: "Complete Audit Trail" },
+      { icon: "mapPinned", title: "Branch Network Sync", value: "19 Branch Grids" },
+      { icon: "timer", title: "Reconciliation Cadence", value: "24-Hour Ledger Sync" }
     ],
 
     capabilitiesHeading: "Recovery OS Capabilities",
@@ -439,10 +439,10 @@ export const platformContent = {
       },
       {
         title: "Rule-Based Allocation Engine",
-        desc: "Routes accounts dynamically to local branch networks and coordinators. Allocates cases based on geographical grid matching to minimize travel time.",
+        desc: "Routes accounts to local branch networks and coordinators based on defined rules. Allocates cases using geographical grid matching to minimize travel time.",
         bullets: [
-          "GPS boundary mapping for optimal field team dispatching",
-          "Central coordinator dashboard tracking active cases",
+          "Geographic boundary mapping for optimal field team dispatching",
+          "Central coordinator registry tracking active cases",
           "Volume boundary thresholds preventing resource overload"
         ],
         businessOutcome: "Deploys field agents quickly, cutting down initial contact latency."
@@ -453,19 +453,19 @@ export const platformContent = {
         bullets: [
           "Notice coordination under Section 13(2) and 13(4) timelines",
           "Advocate panel drafting progress tracker",
-          "Direct integration with regional dispatch networks"
+          "Direct coordination with regional dispatch networks"
         ],
         businessOutcome: "Establishes clean legal evidence to support physical possession warrants."
       },
       {
-        title: "Doorstep Visit Geolocater",
-        desc: "Captures field visitation updates and check-in evidence. Eliminates field blindspots by capturing verified, geolocated visit proof.",
+        title: "Doorstep Visit Registry",
+        desc: "Captures field visitation updates and check-in evidence. Eliminates field blindspots by capturing verified, GPS-enabled visit proof.",
         bullets: [
-          "GPS coordinates capture matching borrower addresses",
+          "GPS coordinate capture matching borrower addresses",
           "Timestamped site photo uploads and metadata logging",
           "Standardized doorstep contact report formatting"
         ],
-        businessOutcome: "Provides banks with auditable, geolocated evidence of borrower contact attempts."
+        businessOutcome: "Provides banks with auditable, GPS-verified evidence of borrower contact attempts."
       },
       {
         title: "Daily Reconciliation Desk",
@@ -475,11 +475,11 @@ export const platformContent = {
           "Daily sync of receipts against borrower account ledgers",
           "Reconciled ledger files generated for risk committee review"
         ],
-        businessOutcome: "Keeps bank audit trails clean and provides real-time default rollback logs."
+        businessOutcome: "Keeps bank audit trails clean and provides real-time default rollback visibility."
       },
       {
         title: "Legal Status Tracker",
-        desc: "Tracks litigation, warrant filings, and public e-auctions. Speeds up litigation timelines before CMM/CJM courts and advocate panels.",
+        desc: "Tracks litigation, warrant filings, and public e-auctions against statutory deadlines. Speeds up litigation timelines before CMM/CJM courts and advocate panels.",
         bullets: [
           "CJM Section 14 petition filing status tracker",
           "Court calendar monitoring checking advocate appearances",
@@ -489,13 +489,13 @@ export const platformContent = {
       }
     ],
 
-    tabsHeading: "Recovery OS Framework",
+    tabsHeading: "Case Governance Framework",
     tabs: [
       {
         id: "operating-framework",
         label: "Operating Framework",
         heading: "Centralized Case and Account Operations",
-        overview: "Recovery OS compiles collections, field visits, and legal notice tracking under a single operating console, removing disconnected spreadsheets.",
+        overview: "Recovery OS registers collections, field visits, and legal notice tracking under a single governed case record, removing disconnected spreadsheets.",
         activities: [
           "Ingest portfolios via secure file transfer protocols",
           "Generate unified debtor profiles across loan products",
@@ -516,28 +516,28 @@ export const platformContent = {
         id: "operational-governance",
         label: "Operational Governance",
         heading: "Reputational Safety and Access Controls",
-        overview: "Recovery OS enforces data security controls. It records access histories and limits collections hours in strict conformance with RBI rules.",
+        overview: "Recovery OS enforces data security controls certified under ISO/IEC 27001, records access histories, and limits collections hours in strict conformance with RBI rules.",
         activities: [
-          "Log administrative login and database access trails",
+          "Log administrative login and record access trails",
           "Restrict dialing queues to approved call hours (08:00 AM - 07:00 PM)",
-          "Audit data encryption certificates"
+          "Maintain encryption practices aligned with certified information security standards"
         ],
         documents: [
-          "Database access log histories",
+          "Access log histories",
           "Compliance script audit logs"
         ],
         risks: [
           "Unauthorized record access",
           "Collections outreach outside approved hours"
         ],
-        deliverable: "Database Compliance Audit Record",
+        deliverable: "Case Governance Audit Record",
         benefit: "Shields banks from data liability and collections conduct risks."
       },
       {
         id: "execution-workflow",
         label: "Execution Workflow",
         heading: "Structured Escalation and Case Dispatch",
-        overview: "Recovery OS moves cases through standardized milestones, automatically escalating files from calling queues to field visits.",
+        overview: "Recovery OS moves cases through standardized milestones, escalating files from calling queues to field visits based on defined rules.",
         activities: [
           "Trigger call lists in the dialing queue",
           "Dispatch field cases to local branches",
@@ -545,7 +545,7 @@ export const platformContent = {
         ],
         documents: [
           "Case dispatch schedules",
-          "Standardized notices script logs"
+          "Standardized notice script logs"
         ],
         risks: [
           "Delayed ground visit routing",
@@ -558,15 +558,15 @@ export const platformContent = {
         id: "documentation-standards",
         label: "Documentation Standards",
         heading: "Audit-Ready Records and Verification Proofs",
-        overview: "We require complete documentation at every stage. Recovery OS archives served notice receipts, geolocated photos, and legal certificates.",
+        overview: "We require complete documentation at every stage. Recovery OS archives served notice receipts, GPS-enabled photos, and legal certificates against each case record.",
         activities: [
-          "Log time-stamped, geolocated check-in photos",
+          "Log timestamped, GPS-enabled check-in photos",
           "Verify registered property title deeds at Sub-Registrar offices",
           "Archive bounce memos and demand notice receipts"
         ],
         documents: [
           "Section 13(2) served notice proofs",
-          "Geotagged doorstep check-in logs"
+          "GPS-enabled doorstep check-in logs"
         ],
         risks: [
           "Incomplete notice receipts",
@@ -579,7 +579,7 @@ export const platformContent = {
         id: "management-reporting",
         label: "Management Reporting",
         heading: "Transparent Portfolio Health Diagnostics",
-        overview: "The dashboard provides risk managers and committees with daily CSV updates, reconciled collections ledgers, and coordinate maps.",
+        overview: "Risk managers and committees receive daily updates, reconciled collections ledgers, and coordinate maps drawn directly from the case registry.",
         activities: [
           "Compile daily default status logs",
           "Generate daily cash and deposit registers",
@@ -587,7 +587,7 @@ export const platformContent = {
         ],
         documents: [
           "Daily cash reconciliation registers",
-          "SFTP database log files"
+          "SFTP transfer log files"
         ],
         risks: [
           "Data transmission sync latency",
@@ -600,7 +600,7 @@ export const platformContent = {
         id: "business-outcomes-tab",
         label: "Business Outcomes",
         heading: "Accelerating Provision Write-Backs",
-        overview: "Recovery OS drives operational speed to shorten default durations and release capital locked in NPA provisions.",
+        overview: "Recovery OS drives operational discipline to shorten default durations and release capital locked in NPA provisions.",
         activities: [
           "Track account rollback rates across delinquency stages",
           "Measure possession execution turnaround times",
@@ -642,25 +642,25 @@ export const platformContent = {
     overview: {
       heading: "Recovery OS: The Administrative Core of Default Resolution",
       subheading: "Unifying Case Files, Compliance Rules, and Foreclosure Milestones",
-      summary: "Recovery OS is the central operating platform of SM Associates. It consolidates debtor records, rules-based escalation paths, and local branch networks into one system. This console ensures all operations adhere to RBI guidelines, providing transparent tracking from default through final property auction.",
+      summary: "Recovery OS is the central case governance framework of SM Associates. It consolidates debtor records, rules-based escalation paths, and local branch networks into one governed record. This framework ensures all operations adhere to RBI guidelines, providing transparent tracking from default through final property auction.",
       outcomes: [
         {
-          title: "Systematic Ingestion",
+          title: "Systematic Registration",
           desc: "Secure file transfer protocols register files and validate data fields quickly."
         },
         {
           title: "Evidentiary Completeness",
-          desc: "Saves caller tapes, GPS logs, and served notice receipts for audits."
+          desc: "Retains call recordings, GPS logs, and served notice receipts for every audit."
         }
       ],
       useCases: [
         {
           title: "Retail Collections",
-          desc: "Auto-allocating call lists and geotagged doorstep visits."
+          desc: "Auto-allocating call lists and GPS-enabled doorstep visits by rule."
         },
         {
           title: "SARFAESI Management",
-          desc: "Tracking Section 13 timelines, legal drafts, and CMM filings."
+          desc: "Tracking Section 13 timelines, legal drafts, and CMM filings against one case record."
         }
       ]
     },
@@ -671,73 +671,73 @@ export const platformContent = {
         title: "Frictional Data Sync",
         desc: "Traditional networks take days to sync field reports with bank systems, letting delinquent accounts age unchecked.",
         warningBadge: "DATA LATENCY",
-        impact: "Recovery OS Approach: Standardized daily CSV logs and secure SFTP file uploads."
+        impact: "Recovery OS Approach: Standardized daily reporting and secure SFTP file uploads."
       },
       {
         title: "Unverified Field Audits",
         desc: "Collections agencies submit paper logs that cannot be verified, leaving banks vulnerable to conduct audits.",
         warningBadge: "COMPLIANCE RISKS",
-        impact: "Recovery OS Approach: Geofenced mobile check-ins capturing doorstep photos and GPS coordinates."
+        impact: "Recovery OS Approach: GPS-enabled mobile check-ins capturing doorstep photos and coordinates."
       },
       {
         title: "Notice Server Errors",
         desc: "Improperly served demand notices trigger court challenges, delaying possessions by months.",
         warningBadge: "STATUTORY PROCEDURES",
-        impact: "Recovery OS Approach: Notice serving tracker logging registry receipts."
+        impact: "Recovery OS Approach: Notice serving tracker logging registry receipts against the case file."
       }
     ],
 
     processFlow: {
-      title: "Operating Lifecycle",
-      desc: "How cases move through Recovery OS controls under strict SLA supervision.",
+      title: "Case Governance Lifecycle",
+      desc: "How every case moves through the Recovery OS registry, from registration to closure.",
       steps: [
         {
           step: "01",
-          title: "Portfolio Intake",
-          desc: "Ingesting default records through secure transfer protocols and creating the case dossier.",
-          outcome: "Accounts registered and data validated."
+          title: "Portfolio Registration",
+          desc: "Recording incoming loan files into the governed case registry and validating borrower data fields.",
+          outcome: "Case files registered with a single, auditable record."
         },
         {
           step: "02",
-          title: "Operational Assessment",
-          desc: "Evaluating borrower profiles, default age, and collateral parameters to map the campaign.",
-          outcome: "Campaign parameters and calling locks configured."
+          title: "Access & Encryption Setup",
+          desc: "Applying role-based access permissions and ISO/IEC 27001 certified encryption controls to the portfolio.",
+          outcome: "Data custody secured before any case is actioned."
         },
         {
           step: "03",
-          title: "Case Allocation",
-          desc: "Assigning accounts to local regional branch grids and IIBF DRA-certified coordinators.",
-          outcome: "Regional field teams mobilized."
+          title: "Rule-Based Routing",
+          desc: "Assigning cases to regional branch grids and IIBF DRA-certified coordinators using geographic and risk-based rules.",
+          outcome: "Every case routed to the correct operational owner."
         },
         {
           step: "04",
-          title: "Field Execution",
-          desc: "Executing recorded collections calls and geotagged doorstep visits to locate borrowers.",
-          outcome: "Borrower contact established and logged."
+          title: "Cross-Channel Status Tracking",
+          desc: "Recording call outcomes, doorstep visit results, and legal notice status against each case record.",
+          outcome: "One consolidated case history in place of disconnected logs."
         },
         {
           step: "05",
-          title: "Documentation & Evidence",
-          desc: "Compiling served notices proofs and geotagged site verification photos for legal readiness.",
-          outcome: "Evidentiary file dossier prepared."
+          title: "Ledger Reconciliation",
+          desc: "Matching collected funds against bank recovery account ledgers on a 24-hour cycle.",
+          outcome: "Clean, current financial records for every account."
         },
         {
           step: "06",
-          title: "Governance Review",
-          desc: "QA review of voice logs, visit coordinates, and notice compliance parameters.",
-          outcome: "Compliance check-offs completed."
+          title: "Legal Status Synchronization",
+          desc: "Tracking Section 13 notice timelines and Section 14 petition filings against statutory deadlines.",
+          outcome: "No missed statutory windows."
         },
         {
           step: "07",
-          title: "Executive Reporting",
-          desc: "Delivering cash reconciliation ledgers and portfolio status updates directly to risk committees.",
-          outcome: "Operations transparently documented."
+          title: "Governance Reporting",
+          desc: "Compiling case-level audit trails for risk committee and compliance review.",
+          outcome: "Complete institutional visibility into case handling."
         },
         {
           step: "08",
-          title: "Continuous Improvement",
-          desc: "Facilitating OTS settlements or coordinating foreclosure possessions, and updating SOP metrics.",
-          outcome: "Capital released and NPA files closed."
+          title: "Record Closure & Archival",
+          desc: "Closing resolved or settled cases and archiving the complete evidentiary record.",
+          outcome: "Audit-ready case history retained for future reference."
         }
       ]
     },
@@ -745,19 +745,19 @@ export const platformContent = {
     outcomesHeading: "Strategic Business Value",
     outcomes: [
       {
-        title: "Provision Capital Releases",
-        desc: "Standardized, milestone-driven execution minimizes delinquency aging, releasing provisioning reserves to improve Return on Assets (ROA).",
-        value: "ROA Improvement"
+        title: "Single System of Record",
+        desc: "Eliminates fragmented spreadsheets and disconnected vendor logs by giving every case one governed, auditable history.",
+        value: "Operational Control"
       },
       {
-        title: "Complete Conduct Insulation",
-        desc: "System-enforced compliance boundaries ensure all activities conform to RBI outsource circulars, protecting panel status.",
-        value: "Reputational Insulation"
+        title: "Access Governance",
+        desc: "Role-based permissions and ISO/IEC 27001 certified encryption keep borrower PII isolated from unauthorized access.",
+        value: "Data Security Assured"
       },
       {
-        title: "Audit Readiness",
-        desc: "All call recordings, geotagged visit photos, and notice registries are archived, ensuring clean compliance audits.",
-        value: "Compliance Assured"
+        title: "Reconciliation Discipline",
+        desc: "Daily ledger sync keeps collected funds accounted for and audit trails clean at all times.",
+        value: "Financial Transparency"
       }
     ],
 
@@ -765,27 +765,27 @@ export const platformContent = {
     targetIndustries: [
       {
         name: "Scheduled Commercial Banks",
-        desc: "Managing high-volume retail defaults and secured commercial possessions under strict regulatory oversight."
+        desc: "Registering high-volume retail and secured commercial cases into one governed system of record."
       },
       {
         name: "Retail NBFCs",
-        desc: "Coordinating vehicle and tractor defaults with IIBF DRA-certified field dispatching."
+        desc: "Routing tractor and vehicle finance defaults to the correct regional branch grid the moment they are registered."
       },
       {
         name: "Housing Finance Companies",
-        desc: "Tracking residential foreclosures, property valuations, and public e-auctions."
+        desc: "Tracking mortgage foreclosure case status from demand notice through possession in a single record."
       },
       {
         name: "Microfinance Institutions",
-        desc: "Executing crop-cycle aligned rural collections and local Panchayats liaison mediation."
+        desc: "Maintaining a consolidated case history for crop-cycle aligned rural collections."
       },
       {
         name: "Fintech Lenders",
-        desc: "Performing swift doorstep contact verifications and early-stage Collections rollback campaigns."
+        desc: "Registering digital lending portfolios rapidly for early-stage case tracking and rollback."
       },
       {
         name: "Asset Reconstruction Companies",
-        desc: "Providing ex-military security yards custody, valuations, and e-auction support for acquired portfolios."
+        desc: "Governing acquired-portfolio case records from custody through e-auction close-out."
       }
     ],
 
@@ -793,77 +793,77 @@ export const platformContent = {
     faqs: [
       {
         q: "How does Recovery OS ensure security of our banking portfolio data?",
-        a: "We encrypt all data exchanges using secure protocols (SFTP) and store borrower files inside encrypted database tables. All administrative access is logged, and our practices align with ISO/IEC 27001 security frameworks."
+        a: "We encrypt all data exchanges using secure protocols (SFTP) and store borrower files under practices certified to the ISO/IEC 27001 standard. All administrative access is logged and auditable."
       },
       {
         q: "Can the system-enforced call restrictions be customized to our bank's parameters?",
-        a: "Yes. Outbound dialing queues are locked between 08:00 AM and 07:00 PM by default. We configure dialer script rules, caller locks, and escalation paths during onboarding to align with your internal SOPs."
+        a: "Yes. Outbound dialing is locked between 08:00 AM and 07:00 PM by default. We configure caller locks and escalation paths during onboarding to align with your internal SOPs."
       },
       {
-        q: "How is the geofenced mobile check-in verified by bank managers?",
-        a: "The mobile tool requires active GPS coordinates matching the borrower's address. When an agent check-in matches the location, the system saves the timestamped coordinate metadata and photos, which sync back to the bank's dashboard."
+        q: "How is the GPS-enabled mobile check-in verified by bank managers?",
+        a: "The mobile tool requires active GPS coordinates matching the borrower's address. When an agent check-in matches the location, timestamped coordinate metadata and photos are saved and synced back to the case record."
       },
       {
         q: "Does Recovery OS manage notice serving evidence directly?",
-        a: "Yes. The notice desk tracks Section 13 notice drafting and panel coordination, and uploads served notice receipts, registry logs, and newspaper publication clippings directly to the case dossier."
+        a: "Yes. The notice desk tracks Section 13 notice drafting and panel coordination, and attaches served notice receipts, registry logs, and newspaper publication clippings directly to the case dossier."
       },
       {
         q: "How does the system handle cash collection tracking?",
-        a: "We require all collected payments to be deposited in the bank recovery account within 24 hours of receipt. Receipts are logged on the finance desk and ledger updates are reconciled daily, keeping audit trails clean."
+        a: "We require all collected payments to be deposited in the bank recovery account within 24 hours of receipt. Receipts are logged and ledger updates are reconciled daily, keeping audit trails clean."
       }
     ],
 
     cta: {
-      heading: "Integrate Your Default Resolution Operations",
-      subheading: "Consult with our risk desk to evaluate how Recovery OS can coordinate your portfolio collections and protect compliance.",
-      buttonText: "Schedule OS Demonstration",
+      heading: "Strengthen Your Case Governance",
+      subheading: "Consult with our risk desk to evaluate how Recovery OS can bring one governed system of record to your portfolio collections.",
+      buttonText: "Schedule Governance Consultation",
       href: "/contact"
     }
   },
   'workflow-automation': {
-    eyebrow: "Workflow Automation Framework",
-    title: "Workflow Automation: Automated Escalation & Case Dispatching",
-    subtitle: "Transitioning cases dynamically from soft calling campaigns to geolocated ground visits and legal desks.",
-    description: "Manual portfolio transfers between call center agents, field coordinators, and legal advocates create processing lag times that stall recoveries. Workflow Automation uses rules-based escalation parameters to move delinquent accounts through the recovery pipeline based on risk thresholds and age.",
-    primaryCtaText: "Request Automation Demo",
+    eyebrow: "Escalation Governance Framework",
+    title: "Escalation Governance Framework: Rules-Based Case Progression",
+    subtitle: "Moving delinquent accounts from soft calling to geolocated field visits and legal notice desks on a defined, auditable rule set.",
+    description: "Manual portfolio transfers between call center agents, field coordinators, and legal advocates create processing lag times that stall recoveries. The Escalation Governance Framework applies rules-based escalation parameters to move delinquent accounts through the recovery pipeline based on risk thresholds and age, with every handoff documented.",
+    primaryCtaText: "Request Escalation Framework Briefing",
     primaryCtaHref: "/contact",
-    secondaryCtaText: "Explore Routing Logic",
+    secondaryCtaText: "Review Escalation Rules",
     secondaryCtaHref: "#capabilities",
 
     kpiCards: [
-      { icon: "cpu", title: "Ingestion TAT", value: "Under 60 Mins" },
-      { icon: "activity", title: "Automation Rules", value: "250+ Logic Filters" },
-      { icon: "clock", title: "Processing Lag Saved", value: "40% Time Saved" },
-      { icon: "shield", title: "Execution Integrity", value: "100% Milestone Audited" }
+      { icon: "shieldCheck", title: "Access Governance", value: "ISO/IEC 27001 Certified" },
+      { icon: "timer", title: "Calling Hours Discipline", value: "08:00 AM - 07:00 PM Lockout" },
+      { icon: "clipboardCheck", title: "Escalation Discipline", value: "Rules-Based Case Progression" },
+      { icon: "fingerprint", title: "Milestone Documentation", value: "Every Handoff Logged" }
     ],
 
-    capabilitiesHeading: "Automation Modules",
+    capabilitiesHeading: "Escalation Governance Modules",
     capabilities: [
       {
         title: "Risk Threshold Triggers",
-        desc: "Automatically flags accounts for physical dispatch or notice preparation based on risk aging. Minimizes the time cases spend in inactive buckets.",
+        desc: "Flags accounts for physical dispatch or notice preparation based on risk aging rules. Minimizes the time cases spend in inactive buckets.",
         bullets: [
           "Risk score calculation based on default patterns",
-          "Automated transition cues to regional field grids",
-          "Instant allocation triggers for advocate notice desks"
+          "Defined transition cues to regional field grids",
+          "Structured allocation triggers for advocate notice desks"
         ],
-        businessOutcome: "Reduces idle portfolio time by dispatching files immediately."
+        businessOutcome: "Reduces idle portfolio time by dispatching files immediately once thresholds are met."
       },
       {
         title: "Dynamic Route Scheduler",
         desc: "Allocates field check-ins to local branch coordinators based on proximity. Optimizes coordinator travel schedules.",
         bullets: [
-          "GPS mapping matching coordinators to target grids",
+          "Geographic mapping matching coordinators to target grids",
           "Route direction plotting for doorstep visits",
-          "Automatic reassignment when coordinate mismatch occurs"
+          "Reassignment protocol when coordinate mismatch occurs"
         ],
         businessOutcome: "Maximizes travel efficiency and doorstep visit frequency."
       },
       {
         title: "Notice Drafting Queue",
-        desc: "Auto-populates registry and statutory notice templates with case details. Compresses the preparation timelines.",
+        desc: "Populates registry and statutory notice templates with case details as soon as a case escalates. Compresses preparation timelines.",
         bullets: [
-          "Auto-generation of Section 13(2) notice drafts",
+          "Structured Section 13(2) notice drafting workflow",
           "Secured handoffs of file dossiers to panel advocates",
           "Registry tracking logs checking notice delivery status"
         ],
@@ -871,11 +871,11 @@ export const platformContent = {
       },
       {
         title: "Access Control Safeguard",
-        desc: "Enforces user access profiles based on role and branch grid. Shields customer databases from unauthorized data extractions.",
+        desc: "Enforces user access profiles based on role and branch grid, under ISO/IEC 27001 certified data isolation policies. Shields customer records from unauthorized extraction.",
         bullets: [
           "Role-based access privileges for dialer and field teams",
-          "Database query logs tracking admin activities",
-          "ISO/IEC 27001 data isolation policies compliance"
+          "Query logs tracking administrative activity",
+          "ISO/IEC 27001 certified data isolation policies"
         ],
         businessOutcome: "Protects borrower personally identifiable information (PII) from data leaks."
       },
@@ -885,32 +885,32 @@ export const platformContent = {
         bullets: [
           "Dialer lockout between 07:00 PM and 08:00 AM daily",
           "Caller script checklists tracking call durations",
-          "Transcripts keyword analysis flagging threat language"
+          "Transcript keyword analysis flagging threat language"
         ],
         businessOutcome: "Avoids call-hours infractions and protects empanelment standing."
       },
       {
-        title: "Telemetry Event Logging",
-        desc: "Tracks and logs all case status updates, creating a complete audit trail. Simplifies record reviews for institutional risk audits.",
+        title: "Operational Audit Trail Logging",
+        desc: "Records every case status change and handoff, creating a complete audit trail. Simplifies record reviews for institutional risk audits.",
         bullets: [
-          "Automated audit trails detailing agent check-ins",
-          "Voice logs mapping to specific collections records",
+          "Documented audit trail for every agent check-in",
+          "Voice logs mapped to specific collections records",
           "Weekly operations summaries compiled for bank review"
         ],
         businessOutcome: "Simplifies audit procedures for bank risk committees."
       }
     ],
 
-    tabsHeading: "Inside the Data Engine",
+    tabsHeading: "Escalation Governance Framework",
     tabs: [
       {
         id: "operating-framework",
         label: "Operating Framework",
         heading: "Case Progression Rules",
-        overview: "Workflow Automation integrates dialing campaigns, ground outreach, and legal actions into a single escalation engine, removing manual tracking sheets.",
+        overview: "The Escalation Governance Framework integrates dialing campaigns, ground outreach, and legal actions into a single, rules-based escalation model, removing manual tracking sheets.",
         activities: [
-          "Configure delinquency buckets escalation triggers",
-          "Allocate coordinator routes automatically by postcode grids",
+          "Configure delinquency bucket escalation triggers",
+          "Allocate coordinator routes by postcode grid",
           "Track notice preparation deadlines with panel advocates"
         ],
         documents: [
@@ -928,18 +928,18 @@ export const platformContent = {
         id: "operational-governance",
         label: "Operational Governance",
         heading: "SLA and Script Enforcement",
-        overview: "System controls enforce compliance rules, protecting brand reputations by isolating call and field teams inside strict guidelines.",
+        overview: "Governance controls enforce compliance rules under ISO/IEC 27001 certified information security practices, protecting brand reputations by isolating call and field teams inside strict guidelines.",
         activities: [
           "Restrict outbound call dialer during non-approved hours",
           "Verify field agent IIBF DRA certification status before dispatch",
-          "Audit voice recordings transcripts via text analysis logs"
+          "Audit voice recording transcripts for script conformity"
         ],
         documents: [
           "Call hours compliance logger reports",
           "QA script checklist audits"
         ],
         risks: [
-          "Dialer setting manual adjustments",
+          "Dialer setting manual overrides",
           "Out-of-hours field contact attempts"
         ],
         deliverable: "Weekly Dialer QA Briefing",
@@ -951,8 +951,8 @@ export const platformContent = {
         heading: "Milestone-Driven Escalations",
         overview: "Accounts progress through escalating resolution actions, ensuring uncontactable files immediately trigger doorstep visits.",
         activities: [
-          "Move calling skips to geolocated doorstep check-in list",
-          "Hand off failed doorstep verifications to legal notice desk",
+          "Move calling skips to a GPS-enabled doorstep check-in list",
+          "Hand off failed doorstep verifications to the legal notice desk",
           "Track Section 14 CMM court petition calendars"
         ],
         documents: [
@@ -974,7 +974,7 @@ export const platformContent = {
         activities: [
           "Archive served notice proofs and registry cards",
           "Collect borrower OTS verification files and signatures",
-          "Save geofenced site photo logs with GPS metadata"
+          "Save GPS-enabled site photo logs with coordinate metadata"
         ],
         documents: [
           "Evidentiary checklist logs",
@@ -990,11 +990,11 @@ export const platformContent = {
       {
         id: "management-reporting",
         label: "Management Reporting",
-        heading: "Portfolio Diagnostic Dashboards",
+        heading: "Portfolio Diagnostic Reporting",
         overview: "Risk committees receive daily updates on recovery progress, collected funds, and geographical placements.",
         activities: [
           "Publish daily collections reconciliation registers",
-          "Output geographical placements maps of field agents",
+          "Output geographical placement maps of field agents",
           "Compile weekly settlement pipeline value forecasts"
         ],
         documents: [
@@ -1005,18 +1005,18 @@ export const platformContent = {
           "Data sync latency from remote branch grids",
           "Manual entry errors during payment logging"
         ],
-        deliverable: "Operations Performance Dashboard",
+        deliverable: "Operations Performance Report",
         benefit: "Provides real-time visibility into collections yields and cost efficiency."
       },
       {
         id: "business-outcomes-tab",
         label: "Business Outcomes",
         heading: "Capital Provision Write-Backs",
-        overview: "Workflow Automation drives credit lifecycle velocity, enabling lenders to release capital locked in NPA provisions.",
+        overview: "The Escalation Governance Framework drives credit lifecycle velocity, enabling lenders to release capital locked in NPA provisions.",
         activities: [
           "Track delinquency bucket rollback rates",
           "Monitor collateral possession warrant execution cycles",
-          "Reconcile resolved NPA accounts against provisions write-backs"
+          "Reconcile resolved NPA accounts against provision write-backs"
         ],
         documents: [
           "Closed portfolio outcome files",
@@ -1052,23 +1052,23 @@ export const platformContent = {
     ],
 
     overview: {
-      heading: "Workflow Automation: Compressing Resolution Turnaround Times",
+      heading: "Escalation Governance Framework: Compressing Resolution Turnaround Times",
       subheading: "Milestone-Driven Execution Guided by Rules-Based Escalation Controls",
-      summary: "Workflow Automation coordinates physical, legal, and dialer resources into a unified operating loop. By automating case dispatches based on borrower responses, we eliminate vendor lag and accelerate default resolutions.",
+      summary: "The Escalation Governance Framework coordinates physical, legal, and dialer resources into a single, rules-governed escalation model. By moving case dispatches on defined risk thresholds rather than manual review, we eliminate vendor lag and accelerate default resolutions.",
       outcomes: [
         {
           title: "Systematic Escalation",
-          desc: "Moves cases automatically through calling, doorstep verification, and advocate panels."
+          desc: "Moves cases automatically through calling, doorstep verification, and advocate panels on defined rules."
         },
         {
           title: "SLA Precision",
-          desc: "System-enforced calling locks and certified outreach protect empanelment compliance."
+          desc: "Calling-hour locks and certified outreach protect empanelment compliance at every step."
         }
       ],
       useCases: [
         {
           title: "Retail Personal Loan Collections",
-          desc: "Auto-escalating accounts from dialer queues to branch check-ins."
+          desc: "Escalating accounts from dialer queues to branch check-ins on a defined trigger."
         },
         {
           title: "SARFAESI Action Tracking",
@@ -1083,73 +1083,73 @@ export const platformContent = {
         title: "Slow Ground Mobilization",
         desc: "Spreadsheet-based file routing delays field agent deployment, allowing accounts to drift into deeper default buckets.",
         warningBadge: "LOGISTICAL LAGS",
-        impact: "SM Associates Approach: Real-time route allocations matching coordinators to local grids."
+        impact: "SM Associates Approach: Rules-based route allocations matching coordinators to local grids."
       },
       {
         title: "Inconsistent Notice Serving",
         desc: "Lacking a notice tracking process allows notice deadlines to lapse, delaying foreclosure timelines.",
         warningBadge: "TIMELINE CONTROLS",
-        impact: "SM Associates Approach: Automated notices tracking system monitoring advocate panel drafts."
+        impact: "SM Associates Approach: Structured notice tracking monitoring advocate panel drafts against deadline."
       },
       {
         title: "Auditing Gaps",
         desc: "Manual collections updates leave no auditable event log, creating compliance vulnerabilities.",
         warningBadge: "DATA GOVERNANCE",
-        impact: "SM Associates Approach: Automated event logs archiving borrower touchpoint histories."
+        impact: "SM Associates Approach: Documented event logs archiving every borrower touchpoint."
       }
     ],
 
     processFlow: {
-      title: "Operating Lifecycle",
-      desc: "How cases move through automated escalation paths under strict SLA supervision.",
+      title: "Escalation Governance Lifecycle",
+      desc: "How an account moves through defined escalation rules, from classification to continuous calibration.",
       steps: [
         {
           step: "01",
-          title: "Portfolio Intake",
-          desc: "Ingesting default records through secure transfer protocols and creating the case dossier.",
-          outcome: "Accounts registered and data validated."
+          title: "Delinquency Classification",
+          desc: "Grouping accounts into aging buckets and assigning risk scores at first sign of default.",
+          outcome: "Every account classified before any action is taken."
         },
         {
           step: "02",
-          title: "Operational Assessment",
-          desc: "Evaluating borrower profiles, default age, and collateral parameters to map the campaign.",
-          outcome: "Campaign parameters and calling locks configured."
+          title: "Escalation Rule Configuration",
+          desc: "Setting risk-threshold triggers that determine when a case moves from calling to doorstep visit to legal notice.",
+          outcome: "Clear, pre-agreed rules govern every escalation."
         },
         {
           step: "03",
-          title: "Case Allocation",
-          desc: "Assigning accounts to local regional branch grids and IIBF DRA-certified coordinators.",
-          outcome: "Regional field teams mobilized."
+          title: "Trigger Execution",
+          desc: "Advancing accounts once a defined trigger condition is met, without waiting on manual review.",
+          outcome: "No case stalls in an inactive bucket."
         },
         {
           step: "04",
-          title: "Field Execution",
-          desc: "Executing recorded collections calls and geotagged doorstep visits to locate borrowers.",
-          outcome: "Borrower contact established and logged."
+          title: "Cross-Team Handoff",
+          desc: "Transferring case ownership between calling teams, field coordinators, and legal desks with a documented handoff record.",
+          outcome: "Continuous case ownership, with no handoff gaps."
         },
         {
           step: "05",
-          title: "Documentation & Evidence",
-          desc: "Compiling served notices proofs and geotagged site verification photos for legal readiness.",
-          outcome: "Evidentiary file dossier prepared."
+          title: "SLA Monitoring",
+          desc: "Tracking each case against its milestone deadlines and flagging any at risk of breach.",
+          outcome: "Delays are caught before they become defaults."
         },
         {
           step: "06",
-          title: "Governance Review",
-          desc: "QA review of voice logs, visit coordinates, and notice compliance parameters.",
-          outcome: "Compliance check-offs completed."
+          title: "Exception Escalation",
+          desc: "Routing exceptions and rule conflicts to the operational governance desk for manual review.",
+          outcome: "Edge cases receive human judgment, not blind automation."
         },
         {
           step: "07",
-          title: "Executive Reporting",
-          desc: "Delivering cash reconciliation ledgers and portfolio status updates directly to risk committees.",
-          outcome: "Operations transparently documented."
+          title: "Rule Performance Review",
+          desc: "Assessing escalation rule effectiveness against resolution timelines each reporting cycle.",
+          outcome: "Rules are validated against real outcomes."
         },
         {
           step: "08",
-          title: "Continuous Improvement",
-          desc: "Facilitating OTS settlements or coordinating foreclosure possessions, and updating SOP metrics.",
-          outcome: "Capital released and NPA files closed."
+          title: "Continuous Calibration",
+          desc: "Adjusting trigger thresholds based on portfolio performance and regulatory updates.",
+          outcome: "The escalation model improves every cycle."
         }
       ]
     },
@@ -1157,19 +1157,19 @@ export const platformContent = {
     outcomesHeading: "Strategic Business Value",
     outcomes: [
       {
-        title: "Provision Capital Releases",
-        desc: "Standardized, milestone-driven execution minimizes delinquency aging, releasing provisioning reserves to improve Return on Assets (ROA).",
-        value: "ROA Improvement"
+        title: "Zero Stalled Accounts",
+        desc: "Rules-based triggers ensure no case sits idle in an early bucket waiting on manual review.",
+        value: "Escalation Velocity"
       },
       {
-        title: "Complete Conduct Insulation",
-        desc: "System-enforced compliance boundaries ensure all activities conform to RBI outsource circulars, protecting panel status.",
-        value: "Reputational Insulation"
+        title: "Documented Handoffs",
+        desc: "Every transfer between calling, field, and legal teams is logged, closing the gaps that cause disputes.",
+        value: "Handoff Integrity"
       },
       {
-        title: "Audit Readiness",
-        desc: "All call recordings, geotagged visit photos, and notice registries are archived, ensuring clean compliance audits.",
-        value: "Compliance Assured"
+        title: "SLA Accountability",
+        desc: "Milestone tracking flags at-risk cases before deadlines lapse, protecting statutory timelines.",
+        value: "Timeline Discipline"
       }
     ],
 
@@ -1177,27 +1177,27 @@ export const platformContent = {
     targetIndustries: [
       {
         name: "Scheduled Commercial Banks",
-        desc: "Managing high-volume retail defaults and secured commercial possessions under strict regulatory oversight."
+        desc: "Applying standardized escalation rules across high-volume retail and commercial default books."
       },
       {
         name: "Retail NBFCs",
-        desc: "Coordinating vehicle and tractor defaults with IIBF DRA-certified field dispatching."
+        desc: "Triggering doorstep dispatch automatically once tractor and vehicle finance accounts cross risk thresholds."
       },
       {
         name: "Housing Finance Companies",
-        desc: "Tracking residential foreclosures, property valuations, and public e-auctions."
+        desc: "Escalating mortgage defaults from demand notice to Section 14 filing on a defined statutory timeline."
       },
       {
         name: "Microfinance Institutions",
-        desc: "Executing crop-cycle aligned rural collections and local Panchayats liaison mediation."
+        desc: "Sequencing JLG group escalation actions around crop-cycle repayment patterns."
       },
       {
         name: "Fintech Lenders",
-        desc: "Performing swift doorstep contact verifications and early-stage Collections rollback campaigns."
+        desc: "Compressing early-bucket escalation cycles for short-tenure digital lending defaults."
       },
       {
         name: "Asset Reconstruction Companies",
-        desc: "Providing ex-military security yards custody, valuations, and e-auction support for acquired portfolios."
+        desc: "Escalating acquired-portfolio cases from custody review through auction referral."
       }
     ],
 
@@ -1209,11 +1209,11 @@ export const platformContent = {
       },
       {
         q: "How does the dialer system enforce calling hours regulations?",
-        a: "Our outbound dialing servers are programmed with system calling locks, restricting contact to 08:00 AM - 07:00 PM. Call scripts are verified, and call details are logged to support compliance audits."
+        a: "Outbound dialing is locked to 08:00 AM - 07:00 PM. Call scripts are verified, and call details are logged to support compliance audits."
       },
       {
-        q: "How are geofenced doorstep visits documented for verification?",
-        a: "The coordinator's mobile app logs coordinates at check-in, requiring a GPS match with the target address. Visit report updates, including photos of the served notice, are saved directly to the database."
+        q: "How are GPS-enabled doorstep visits documented for verification?",
+        a: "The coordinator's mobile app logs coordinates at check-in, requiring a GPS match with the target address. Visit report updates, including photos of the served notice, are saved directly to the case record."
       },
       {
         q: "Does the system track notice preparation by panel advocates?",
@@ -1226,27 +1226,27 @@ export const platformContent = {
     ],
 
     cta: {
-      heading: "Automate Your Default Resolution Operations",
-      subheading: "Consult with our risk desk to evaluate how workflow automation can compress your NPA cycles and protect brand compliance.",
-      buttonText: "Schedule Automation Consultation",
+      heading: "Bring Rule-Based Discipline to Your Escalations",
+      subheading: "Consult with our risk desk to evaluate how rules-based escalation governance can compress your NPA cycles and protect brand compliance.",
+      buttonText: "Schedule Escalation Framework Briefing",
       href: "/contact"
     }
   },
   'field-operations': {
     eyebrow: "Physical Operations Network",
-    title: "Field Operations: Geotagged Doorstep Outreach & Verification",
-    subtitle: "Deploying certified field coordinators to capture audited check-ins and evidence.",
-    description: "Traditional ground agencies submit paper-based visit logs that cannot be verified, leaving lenders exposed to collections conduct liabilities and audit failures. Field Operations coordinates on-ground dispatches across 19 branch grids, using geofenced mobile tools to capture verified visit proof.",
-    primaryCtaText: "Request Field App Demo",
+    title: "Field Operations: GPS-Enabled Doorstep Outreach & Verification",
+    subtitle: "Deploying IIBF DRA-certified field coordinators to capture audited check-ins and evidence.",
+    description: "Traditional ground agencies submit paper-based visit logs that cannot be verified, leaving lenders exposed to collections conduct liabilities and audit failures. Field Operations coordinates on-ground dispatches across 19 branch grids, using GPS-enabled mobile tools to capture verified visit proof.",
+    primaryCtaText: "Request Field Operations Briefing",
     primaryCtaHref: "/contact",
     secondaryCtaText: "Explore Branch Grid",
     secondaryCtaHref: "#capabilities",
 
     kpiCards: [
-      { icon: "users", title: "Active Coordinators", value: "900+ Field Staff" },
-      { icon: "map-pin", title: "GPS Audit Accuracy", value: "Geotagged Logs" },
-      { icon: "grid", title: "Coverage Density", value: "19 Branch Grids" },
-      { icon: "shield", title: "IIBF DRA Certs", value: "100% Certified" }
+      { icon: "fingerprint", title: "Certified Field Workforce", value: "100% IIBF DRA-Certified" },
+      { icon: "mapPin", title: "GPS-Enabled Verification", value: "Geotagged Doorstep Visits" },
+      { icon: "mapPinned", title: "Coverage Density", value: "19 Branch Grids" },
+      { icon: "briefcase", title: "Enterprise Workforce", value: "1,500+ Personnel" }
     ],
 
     capabilitiesHeading: "Field Mobile Features",
@@ -1263,9 +1263,9 @@ export const platformContent = {
       },
       {
         title: "DRA-Certified Dispatch",
-        desc: "Deploys only background-verified, IIBF-certified field coordinators. Enforces regulatory compliance during physical borrower outreach.",
+        desc: "Deploys only background-verified, IIBF DRA-certified field coordinators. Enforces regulatory compliance during physical borrower outreach.",
         bullets: [
-          "100% IIBF DRA certification checks for field staff",
+          "100% IIBF DRA certification for field staff",
           "Mandatory background verification processes",
           "Compliance handbook training and reviews"
         ],
@@ -1277,27 +1277,27 @@ export const platformContent = {
         bullets: [
           "Timestamped photos of property condition",
           "Affixed demand notice visual proofs",
-          "Secure file storage on local database layers"
+          "Secure storage of site evidence"
         ],
         businessOutcome: "Provides banks with defensible, audit-ready field evidence."
       },
       {
-        title: "Off-line Data Vault",
+        title: "Offline Visit Logging",
         desc: "Enables agents to record visit reports in regions without network coverage. Syncs data automatically when coverage is restored.",
         bullets: [
-          "Encrypted database storage on mobile devices",
-          "Automatic data transmission triggers upon sync",
+          "Encrypted local storage on mobile devices",
+          "Automatic data transmission on sync",
           "Prevents data loss during rural outreach campaigns"
         ],
         businessOutcome: "Prevents data loss during rural outreach campaigns."
       },
       {
-        title: "Notice Hand-Delivered",
+        title: "Notice Hand-Delivery Desk",
         desc: "Logs receipt signatures and affixation photos of Section 13(2) notices. Confirms serving proof before legal filings.",
         bullets: [
           "Affixation checks under local witness parameters",
           "Hand-delivered notice signature captures",
-          "Registry receipts tracking and upload"
+          "Registry receipt tracking and upload"
         ],
         businessOutcome: "Establishes clean notice serving proofs to expedite court petitions."
       },
@@ -1307,13 +1307,13 @@ export const platformContent = {
         bullets: [
           "Proximity-based dispatching matching agents to postcodes",
           "Optimized route directions to minimize travel time",
-          "SLA metrics monitoring coordinates latency daily"
+          "Coverage latency monitored daily"
         ],
         businessOutcome: "Lowers collection costs and increases regional visit frequency."
       }
     ],
 
-    tabsHeading: "Ground Dispatch Loop",
+    tabsHeading: "Field Execution Framework",
     tabs: [
       {
         id: "operating-framework",
@@ -1340,11 +1340,11 @@ export const platformContent = {
         id: "operational-governance",
         label: "Operational Governance",
         heading: "Certified Representative Conduct",
-        overview: "Field operations coordinates and monitors agent doorstep conduct, verifying IIBF DRA certifications and background histories to protect bank reputations.",
+        overview: "Field operations monitors agent doorstep conduct, verifying IIBF DRA certifications and background histories to protect bank reputations.",
         activities: [
-          "Monitor agent check-in times and coordinates logs",
+          "Monitor agent check-in times and coordinate logs",
           "Enforce compliance rules during physical consultations",
-          "Log IIBF certification registrations in database"
+          "Log IIBF certification registrations"
         ],
         documents: [
           "Agent IIBF DRA registration records",
@@ -1381,16 +1381,16 @@ export const platformContent = {
       {
         id: "documentation-standards",
         label: "Documentation Standards",
-        heading: "Geotagged Site Evidence",
+        heading: "GPS-Enabled Site Evidence",
         overview: "We compile verified, visual proofs of all ground activities to support foreclosure filings and compliance reviews.",
         activities: [
-          "Capture geofenced photos of served demand notices",
+          "Capture GPS-enabled photos of served demand notices",
           "Log property inventory metadata at repossession sites",
           "Verify registry serving proofs at local sub-registrar offices"
         ],
         documents: [
           "Served Section 13(2) notice photo proofs",
-          "Geotagged check-in coordinate logs"
+          "GPS-enabled check-in coordinate logs"
         ],
         risks: [
           "Objections to notice serving procedures",
@@ -1402,7 +1402,7 @@ export const platformContent = {
       {
         id: "management-reporting",
         label: "Management Reporting",
-        heading: "Field Activity Telemetry",
+        heading: "Field Activity Reporting",
         overview: "Lenders monitor field operations progress in real-time, receiving daily reports, travel logs, and coordinate maps.",
         activities: [
           "Publish daily doorstep visit status reports",
@@ -1414,7 +1414,7 @@ export const platformContent = {
           "Travel log audit files"
         ],
         risks: [
-          "Sync latency from remote branches logs",
+          "Sync latency from remote branches",
           "Manual entry errors during reconciliation"
         ],
         deliverable: "Operations Performance MIS",
@@ -1424,9 +1424,9 @@ export const platformContent = {
         id: "business-outcomes-tab",
         label: "Business Outcomes",
         heading: "Delinquency Bucket Rollbacks",
-        overview: "Geotagged outreach accelerates accounts rollback to early buckets, releasing capital locked in provisioning buckets.",
+        overview: "GPS-enabled outreach accelerates account rollback to early buckets, releasing capital locked in provisioning buckets.",
         activities: [
-          "Track accounts rollbacks across delinquency buckets",
+          "Track account rollbacks across delinquency buckets",
           "Monitor collateral repossession and yard transport cycles",
           "Measure collections cost-to-recovery efficiency ratios"
         ],
@@ -1464,7 +1464,7 @@ export const platformContent = {
     ],
 
     overview: {
-      heading: "Geotagged Field Sourcing: Auditable Presence on the Ground",
+      heading: "GPS-Enabled Field Sourcing: Auditable Presence on the Ground",
       subheading: "IIBF DRA-Certified Ground Assets Operating Under Strict SLA Controls",
       summary: "Our field operations network coordinates background-verified on-ground teams across South India. By requiring active GPS coordinate confirmation and timestamped check-in photos, we provide lenders with uncontestable evidence of physical outreach while protecting brand compliance.",
       outcomes: [
@@ -1474,7 +1474,7 @@ export const platformContent = {
         },
         {
           title: "Reputational Safety",
-          desc: "100% DRA-certified coordinators working under strict collections guidelines."
+          desc: "100% IIBF DRA-certified coordinators working under strict collections guidelines."
         }
       ],
       useCases: [
@@ -1495,13 +1495,13 @@ export const platformContent = {
         title: "Paper-Based Report Errors",
         desc: "Traditional collections agencies use manual logs, leaving lenders unable to verify doorstep check-in claims.",
         warningBadge: "REPORTING GAP",
-        impact: "SM Associates Approach: Geofenced mobile utilities logging coordinates directly at borrower sites."
+        impact: "SM Associates Approach: GPS-enabled mobile utilities logging coordinates directly at borrower sites."
       },
       {
         title: "Regulatory Conduct Exposure",
         desc: "Uncertified field agents using inappropriate tactics expose bank boards to direct liability under RBI guidelines.",
         warningBadge: "LIABILITY RISKS",
-        impact: "SM Associates Approach: IIBF DRA training checks and background verifications for all agents."
+        impact: "SM Associates Approach: IIBF DRA training checks and background verification for all agents."
       },
       {
         title: "Extended Travel TAT",
@@ -1512,56 +1512,56 @@ export const platformContent = {
     ],
 
     processFlow: {
-      title: "Operating Lifecycle",
-      desc: "How field campaigns move from case dispatch to physical resolution under strict SLA controls.",
+      title: "Field Execution Lifecycle",
+      desc: "How a case moves from branch assignment to physical resolution under strict SLA controls.",
       steps: [
         {
           step: "01",
-          title: "Portfolio Intake",
-          desc: "Ingesting default records through secure transfer protocols and creating the case dossier.",
-          outcome: "Accounts registered and data validated."
+          title: "Branch Grid Assignment",
+          desc: "Matching each case to its nearest regional branch grid based on borrower coordinates.",
+          outcome: "Cases assigned to the coordinator best positioned to act."
         },
         {
           step: "02",
-          title: "Operational Assessment",
-          desc: "Evaluating borrower profiles, default age, and collateral parameters to map the campaign.",
-          outcome: "Campaign parameters and calling locks configured."
+          title: "Coordinator Dispatch",
+          desc: "Deploying IIBF DRA-certified field coordinators for doorstep outreach.",
+          outcome: "Only certified representatives reach the borrower."
         },
         {
           step: "03",
-          title: "Case Allocation",
-          desc: "Assigning accounts to local regional branch grids and IIBF DRA-certified coordinators.",
-          outcome: "Regional field teams mobilized."
+          title: "Geofenced Check-In",
+          desc: "Confirming coordinator presence at the borrower address through GPS-enabled check-in.",
+          outcome: "Verified, timestamped proof of the visit."
         },
         {
           step: "04",
-          title: "Field Execution",
-          desc: "Executing recorded collections calls and geotagged doorstep visits to locate borrowers.",
-          outcome: "Borrower contact established and logged."
+          title: "On-Site Verification",
+          desc: "Assessing borrower circumstances, collateral condition, and contact details in person.",
+          outcome: "Ground-truth evidence replaces assumption."
         },
         {
           step: "05",
-          title: "Documentation & Evidence",
-          desc: "Compiling served notices proofs and geotagged site verification photos for legal readiness.",
-          outcome: "Evidentiary file dossier prepared."
+          title: "Notice Affixation & Serving",
+          desc: "Serving or affixing statutory notices and capturing signature or witness proof.",
+          outcome: "Legally defensible service of process."
         },
         {
           step: "06",
-          title: "Governance Review",
-          desc: "QA review of voice logs, visit coordinates, and notice compliance parameters.",
-          outcome: "Compliance check-offs completed."
+          title: "Field-to-HQ Data Sync",
+          desc: "Uploading visit reports, photos, and coordinates to the central case record, including offline visits once connectivity resumes.",
+          outcome: "No visit goes unrecorded, even in low-network areas."
         },
         {
           step: "07",
-          title: "Executive Reporting",
-          desc: "Delivering cash reconciliation ledgers and portfolio status updates directly to risk committees.",
-          outcome: "Operations transparently documented."
+          title: "Travel & Coverage Reporting",
+          desc: "Compiling regional coverage density and travel cost data for operations review.",
+          outcome: "Ground resources deployed where they are most productive."
         },
         {
           step: "08",
-          title: "Continuous Improvement",
-          desc: "Facilitating OTS settlements or coordinating foreclosure possessions, and updating SOP metrics.",
-          outcome: "Capital released and NPA files closed."
+          title: "Regional Performance Review",
+          desc: "Assessing branch-grid performance against visit and resolution targets each cycle.",
+          outcome: "Coverage gaps are identified and corrected."
         }
       ]
     },
@@ -1569,19 +1569,19 @@ export const platformContent = {
     outcomesHeading: "Strategic Business Value",
     outcomes: [
       {
-        title: "Provision Capital Releases",
-        desc: "Standardized, milestone-driven execution minimizes delinquency aging, releasing provisioning reserves to improve Return on Assets (ROA).",
-        value: "ROA Improvement"
+        title: "Uncontestable Field Evidence",
+        desc: "GPS-verified check-ins and timestamped photos give lenders defensible proof of every doorstep visit.",
+        value: "Verified Ground Presence"
       },
       {
-        title: "Complete Conduct Insulation",
-        desc: "System-enforced compliance boundaries ensure all activities conform to RBI outsource circulars, protecting panel status.",
-        value: "Reputational Insulation"
+        title: "Certified Conduct",
+        desc: "100% IIBF DRA-certified coordinators, background-verified before dispatch, protect lenders from conduct liability.",
+        value: "Conduct Insulation"
       },
       {
-        title: "Audit Readiness",
-        desc: "All call recordings, geotagged visit photos, and notice registries are archived, ensuring clean compliance audits.",
-        value: "Compliance Assured"
+        title: "Optimized Coverage",
+        desc: "19 branch grids place coordinators close to every case, reducing travel time and increasing visit frequency.",
+        value: "Coverage Efficiency"
       }
     ],
 
@@ -1589,27 +1589,27 @@ export const platformContent = {
     targetIndustries: [
       {
         name: "Scheduled Commercial Banks",
-        desc: "Managing high-volume retail defaults and secured commercial possessions under strict regulatory oversight."
+        desc: "Deploying certified coordinators for secured commercial and high-volume retail doorstep verification."
       },
       {
         name: "Retail NBFCs",
-        desc: "Coordinating vehicle and tractor defaults with IIBF DRA-certified field dispatching."
+        desc: "Executing tractor and vehicle finance site visits and repossession support in rural and semi-urban grids."
       },
       {
         name: "Housing Finance Companies",
-        desc: "Tracking residential foreclosures, property valuations, and public e-auctions."
+        desc: "Affixing mortgage foreclosure notices and conducting site inspections ahead of possession."
       },
       {
         name: "Microfinance Institutions",
-        desc: "Executing crop-cycle aligned rural collections and local Panchayats liaison mediation."
+        desc: "Coordinating in-person JLG group visits aligned with local repayment cycles."
       },
       {
         name: "Fintech Lenders",
-        desc: "Performing swift doorstep contact verifications and early-stage Collections rollback campaigns."
+        desc: "Performing rapid doorstep contact verification for early-stage digital lending defaults."
       },
       {
         name: "Asset Reconstruction Companies",
-        desc: "Providing ex-military security yards custody, valuations, and e-auction support for acquired portfolios."
+        desc: "Providing on-ground custody verification and site security for acquired collateral."
       }
     ],
 
@@ -1620,7 +1620,7 @@ export const platformContent = {
         a: "Yes. Our mobile utility stores check-in data and coordinates locally when offline, syncing reports automatically when coverage is restored."
       },
       {
-        q: "What is the accuracy of the geotagged visit log?",
+        q: "What is the accuracy of the GPS-enabled visit log?",
         a: "Check-ins are locked to the target coordinate, requiring active GPS coordinates matching the borrower's address."
       },
       {
@@ -1638,27 +1638,27 @@ export const platformContent = {
     ],
 
     cta: {
-      heading: "Deploy a Monitored Ground Sourcing Fleet",
-      subheading: "Consult with our operations desk to evaluate how our geotagged field network can lower default durations and protect compliance.",
-      buttonText: "Consult with Operations Desk",
+      heading: "Strengthen Your Ground Recovery Coverage",
+      subheading: "Consult with our operations desk to evaluate how our GPS-enabled field network can lower default durations and protect compliance.",
+      buttonText: "Consult with Field Operations Desk",
       href: "/contact"
     }
   },
   'compliance-monitoring': {
     eyebrow: "Regulatory Safety Framework",
     title: "Compliance Monitoring: Audited Operations & Brand Protection",
-    subtitle: "Enforcing RBI Fair Practice Codes through calling locks, script audits, and certified staff.",
-    description: "Institutional debt recovery carries significant compliance exposure under RBI outsource circulars. Compliance Monitoring implements strict calling locks, VoIP logs, and DRA registration checks to insulate client bank panels from conduct and regulatory risks.",
-    primaryCtaText: "Request Compliance Audit Brief",
+    subtitle: "Enforcing RBI Fair Practice Codes through calling locks, 100% call recording, and certified staff.",
+    description: "Institutional debt recovery carries significant compliance exposure under RBI outsource circulars. Compliance Monitoring implements strict calling locks, a 100% call recording process, and DRA registration checks to insulate client bank panels from conduct and regulatory risks.",
+    primaryCtaText: "Request Compliance Governance Briefing",
     primaryCtaHref: "/contact",
     secondaryCtaText: "View Compliance Guidelines",
     secondaryCtaHref: "#capabilities",
 
     kpiCards: [
-      { icon: "mic", title: "Voice Log Audits", value: "100% Calls Audited" },
-      { icon: "clock", title: "Calling Hours Lockout", value: "08:00 AM - 07:00 PM" },
-      { icon: "shield", title: "Staff Certified", value: "100% DRA Certified" },
-      { icon: "alert-triangle", title: "Dispute TAT", value: "24-Hour Reporting" }
+      { icon: "clipboardCheck", title: "Call Recording Coverage", value: "100% Calls Recorded" },
+      { icon: "timer", title: "Calling Hours Lockout", value: "08:00 AM - 07:00 PM" },
+      { icon: "fingerprint", title: "Certified Field & Call Staff", value: "IIBF DRA-Certified" },
+      { icon: "shieldCheck", title: "Information Security", value: "ISO/IEC 27001 Certified" }
     ],
 
     capabilitiesHeading: "Compliance Monitoring Modules",
@@ -1667,8 +1667,8 @@ export const platformContent = {
         title: "Calling Hours Lock",
         desc: "Locks outbound collections queues between 08:00 AM and 07:00 PM automatically. Prevents out-of-hours calling infractions.",
         bullets: [
-          "System dialing controls restrict dialing queues",
-          "Automated server lockout parameters",
+          "Dialing controls restrict queues to approved hours",
+          "Automated lockout parameters",
           "Daily call history records review"
         ],
         businessOutcome: "Prevents call-hours infractions and protects empanelment standing."
@@ -1677,19 +1677,19 @@ export const platformContent = {
         title: "100% Call Recording",
         desc: "Records all outbound conversations via secure voice loggers. Enables QA audits checking call transcripts for script compliance.",
         bullets: [
-          "VOIP logger recording all collections calls",
-          "Secure backups archived for 180 days on SFTP",
+          "100% of outbound collections calls recorded",
+          "Secure archival of recordings for audit purposes",
           "Keyword analysis logs flagging threat language"
         ],
         businessOutcome: "Provides auditable logs to defend against borrower complaints."
       },
       {
         title: "DRA Certification Registry",
-        desc: "Maintains active records database of agent IIBF registrations. Confirms representative credentials before portfolio assignment.",
+        desc: "Maintains active records of agent IIBF DRA registrations. Confirms representative credentials before portfolio assignment.",
         bullets: [
           "Mandatory IIBF training checks for field and call staff",
-          "DRA credentials tracking database",
-          "Compliance code audits tracking agent cert logs"
+          "DRA credentials tracking registry",
+          "Compliance code audits tracking agent certification logs"
         ],
         businessOutcome: "Guarantees all outreach is performed by certified representatives."
       },
@@ -1697,18 +1697,18 @@ export const platformContent = {
         title: "Grievance Resolution Feeds",
         desc: "Routes disputed accounts to an independent compliance desk immediately. Suspends dialer activities during reviews.",
         bullets: [
-          "Dispute flagging tools on dialing systems",
-          "Grievance investigations tracking coordinates",
-          "Submitting reports to bank panels within 24 hours"
+          "Dispute flagging tools on dialing and dispatch systems",
+          "Grievance investigation tracking",
+          "Submitting reports to bank panels within a defined window"
         ],
-        businessOutcome: "Resolves complaints within 48 hours to protect customer relationships."
+        businessOutcome: "Protects customer relationships through timely, documented complaint resolution."
       },
       {
-        title: "PII Encryption Layer",
-        desc: "Encrypts sensitive borrower records and tracks access histories. Shields data from unauthorized extractions.",
+        title: "PII Protection Layer",
+        desc: "Protects sensitive borrower records and tracks access histories under ISO/IEC 27001 certified information security practices.",
         bullets: [
-          "Role-based console access logs checking profiles",
-          "Database column encryption for borrower PII",
+          "Role-based access logs checking profiles",
+          "ISO/IEC 27001 certified data protection controls",
           "Auditable data custody logs tracking file views"
         ],
         businessOutcome: "Ensures compliance with data privacy regulations."
@@ -1718,49 +1718,49 @@ export const platformContent = {
         desc: "Verifies notice serving proofs ahead of Section 14 petition filings. Confirms evidentiary completeness before court filings.",
         bullets: [
           "Served Section 13 notice receipt audits",
-          "Geotagged site check-in GPS logs checks",
+          "GPS-enabled site check-in log checks",
           "Audit trail summaries compiled for legal panels"
         ],
         businessOutcome: "Prevents court filing delays due to documentation defects."
       }
     ],
 
-    tabsHeading: "Compliance Command Desk",
+    tabsHeading: "Compliance Governance Desk",
     tabs: [
       {
         id: "operating-framework",
         label: "Operating Framework",
         heading: "Compliance Checklists Setup",
-        overview: "Compliance Monitoring sets up call scripting controls, voice records logging, and DRA registration checks inside the default resolution pipeline.",
+        overview: "Compliance Monitoring sets up call scripting controls, 100% voice recording, and DRA registration checks inside the default resolution pipeline.",
         activities: [
           "Audit outbound caller script compliance",
           "Register agent IIBF credentials before file dispatch",
-          "Manage database encryption keys for borrower records"
+          "Maintain data protection controls certified to ISO/IEC 27001"
         ],
         documents: [
           "Compliance handbook guidelines",
           "DRA certification registry files"
         ],
         risks: [
-          "Dialer settings profile manual overrides",
+          "Dialer setting manual overrides",
           "Missing background check certifications"
         ],
-        deliverable: "System Compliance Setup Registry",
+        deliverable: "Compliance Setup Registry",
         benefit: "Regulated operations minimizing conduct risk exposure."
       },
       {
         id: "operational-governance",
         label: "Operational Governance",
         heading: "RBI Outsource Circular Checks",
-        overview: "System controls enforce compliance rules, protecting brand reputations by isolating call and field teams inside strict guidelines.",
+        overview: "Governance controls enforce compliance rules, protecting brand reputations by isolating call and field teams inside strict guidelines.",
         activities: [
-          "Enforce dialing constraints locking system call queues",
+          "Enforce dialing constraints locking call queues",
           "Verify field agent doorstep conduct rules",
           "Log grievance details on dispute registries"
         ],
         documents: [
           "Call hours log history files",
-          "Dispute logs summaries"
+          "Dispute log summaries"
         ],
         risks: [
           "Outbound dialing outside approved hours",
@@ -1775,13 +1775,13 @@ export const platformContent = {
         heading: "Dispute Routing Protocols",
         overview: "Disputed accounts are routed to an independent compliance desk immediately, suspending collections activity during reviews.",
         activities: [
-          "Flag disputed accounts on dials and dispatch systems",
+          "Flag disputed accounts on dialing and dispatch systems",
           "Suspend dialer queues for cases under compliance review",
           "Submit dispute investigation reports to panel advocates"
         ],
         documents: [
           "Dispute details dossiers",
-          "Notice serving receipts logs"
+          "Notice serving receipt logs"
         ],
         risks: [
           "Delayed dispute investigation feedback",
@@ -1796,12 +1796,12 @@ export const platformContent = {
         heading: "Audit Trail Compilation",
         overview: "We compile verified, visual proofs of all collections activities, creating audit-ready dossiers for compliance and court reviews.",
         activities: [
-          "Compile caller voice log recording archives",
+          "Compile caller voice recording archives",
           "Verify served notice receipt cards and registry logs",
-          "Document geotagged check-in coordinates at doorstep sites"
+          "Document GPS-enabled check-in coordinates at doorstep sites"
         ],
         documents: [
-          "Outbound call recordings databases",
+          "Outbound call recording archives",
           "Served Section 13 notice photo files"
         ],
         risks: [
@@ -1809,7 +1809,7 @@ export const platformContent = {
           "Missing field visit logs in dossiers"
         ],
         deliverable: "Audit-Ready Evidentiary Dossier",
-        benefit: "Audit readiness protecting banks from audit failures."
+        benefit: "Protects banks from audit failures."
       },
       {
         id: "management-reporting",
@@ -1822,11 +1822,11 @@ export const platformContent = {
           "Report calling patterns and script compliance indicators"
         ],
         documents: [
-          "Daily call logs registers",
+          "Daily call log registers",
           "Compliance audit reports"
         ],
         risks: [
-          "Sync latency from remote branches logs",
+          "Sync latency from remote branches",
           "Manual entry errors during logging"
         ],
         deliverable: "Weekly Operations Compliance Report",
@@ -1850,7 +1850,7 @@ export const platformContent = {
           "Panel empanelment delays",
           "Compliance audit score deviations"
         ],
-        deliverable: "Operations Governance Outflow Report",
+        deliverable: "Operations Governance Report",
         benefit: "Protected panel empanelments and brand safety."
       }
     ],
@@ -1877,26 +1877,26 @@ export const platformContent = {
 
     overview: {
       heading: "Zero-Tolerance Compliance Safeguards: Brand Protection in Credit Operations",
-      subheading: "VoIP Dialing Hour Locks and Audited Caller Logs Built on RBI Fair Practice Codes",
-      summary: "Our compliance monitoring framework integrates call scripting controls, voice records logging, and DRA registration checks into one console. This discipline ensures all collections actions strictly follow RBI guidelines, protecting institutional reputations.",
+      subheading: "Calling-Hour Locks and 100% Audited Call Records Built on RBI Fair Practice Codes",
+      summary: "Our compliance monitoring framework integrates call scripting controls, 100% voice recording, and DRA registration checks into one governance structure. This discipline ensures all collections actions strictly follow RBI guidelines, protecting institutional reputations.",
       outcomes: [
         {
           title: "Audited Call Records",
-          desc: "All conversations are logged, and transcripts are audited by our QA desk."
+          desc: "100% of conversations are logged, and transcripts are audited by our QA desk."
         },
         {
           title: "Data Security Compliance",
-          desc: "Borrower records are secured in alignment with ISO/IEC 27001 data protection frameworks."
+          desc: "Borrower records are secured under ISO/IEC 27001 certified information security practices."
         }
       ],
       useCases: [
         {
           title: "High-Volume Soft Collections Campaigns",
-          desc: "Audited scripting outbound dials using IIBF DRA certified staff."
+          desc: "Audited scripting outbound dials using IIBF DRA-certified staff."
         },
         {
           title: "Foreclosure Enforcement Auditing",
-          desc: "Auditing Section 13 notices serving and physical possession records."
+          desc: "Auditing Section 13 notice serving and physical possession records."
         }
       ]
     },
@@ -1913,67 +1913,67 @@ export const platformContent = {
         title: "Late Calling Hour Infractions",
         desc: "Calling borrower contacts outside approved hours violates RBI Fair Practice Codes, risking fines.",
         warningBadge: "DIALER CONTROLS",
-        impact: "SM Associates Approach: VoIP servers locked to disable calls outside 08:00 AM - 07:00 PM."
+        impact: "SM Associates Approach: Dialer systems locked to disable calls outside 08:00 AM - 07:00 PM."
       },
       {
         title: "Unverified Agent Outreach",
         desc: "Deploying on-ground representatives lacking background verification and training violates outsourcing circulars.",
         warningBadge: "STAFF STANDARDS",
-        impact: "SM Associates Approach: Mandatory IIBF DRA certifications checked before portfolio dispatch."
+        impact: "SM Associates Approach: Mandatory IIBF DRA certification confirmed before every portfolio dispatch."
       }
     ],
 
     processFlow: {
-      title: "Operating Lifecycle",
-      desc: "How compliance audits are integrated into our daily default resolution workflows.",
+      title: "Compliance Governance Lifecycle",
+      desc: "How compliance oversight is applied continuously across every case, not just at intake.",
       steps: [
         {
           step: "01",
-          title: "Portfolio Intake",
-          desc: "Ingesting default records through secure transfer protocols and creating the case dossier.",
-          outcome: "Accounts registered and data validated."
+          title: "Script & Conduct Standards Setup",
+          desc: "Establishing approved call scripts and doorstep conduct standards before any account is worked.",
+          outcome: "Every representative operates from the same approved standard."
         },
         {
           step: "02",
-          title: "Operational Assessment",
-          desc: "Evaluating borrower profiles, default age, and collateral parameters to map the campaign.",
-          outcome: "Campaign parameters and calling locks configured."
+          title: "Real-Time Call Recording",
+          desc: "Recording 100% of outbound collections calls through secure voice logging.",
+          outcome: "A complete, unedited record of every borrower conversation."
         },
         {
           step: "03",
-          title: "Case Allocation",
-          desc: "Assigning accounts to local regional branch grids and IIBF DRA-certified coordinators.",
-          outcome: "Regional field teams mobilized."
+          title: "Calling Hours Enforcement",
+          desc: "Locking dialer queues outside the 08:00 AM-07:00 PM window automatically.",
+          outcome: "No outreach outside RBI-permitted hours."
         },
         {
           step: "04",
-          title: "Field Execution",
-          desc: "Executing recorded collections calls and geotagged doorstep visits to locate borrowers.",
-          outcome: "Borrower contact established and logged."
+          title: "Grievance Intake",
+          desc: "Routing any borrower complaint to an independent compliance desk immediately, suspending related account activity.",
+          outcome: "Disputes are isolated from active collections work."
         },
         {
           step: "05",
-          title: "Documentation & Evidence",
-          desc: "Compiling served notices proofs and geotagged site verification photos for legal readiness.",
-          outcome: "Evidentiary file dossier prepared."
+          title: "Independent QA Review",
+          desc: "Auditing call transcripts and field visit reports against script and conduct standards.",
+          outcome: "Deviations are caught, not assumed absent."
         },
         {
           step: "06",
-          title: "Governance Review",
-          desc: "QA review of voice logs, visit coordinates, and notice compliance parameters.",
-          outcome: "Compliance check-offs completed."
+          title: "Dispute Investigation",
+          desc: "Investigating flagged grievances and preparing findings for the bank panel.",
+          outcome: "Every complaint receives a documented resolution."
         },
         {
           step: "07",
-          title: "Executive Reporting",
-          desc: "Delivering cash reconciliation ledgers and portfolio status updates directly to risk committees.",
-          outcome: "Operations transparently documented."
+          title: "Compliance Scorecard Reporting",
+          desc: "Publishing daily audit scores and dispute summaries to lender risk committees.",
+          outcome: "Lenders see compliance performance, not just claims of it."
         },
         {
           step: "08",
-          title: "Continuous Improvement",
-          desc: "Facilitating OTS settlements or coordinating foreclosure possessions, and updating SOP metrics.",
-          outcome: "Capital released and NPA files closed."
+          title: "Regulatory Audit Readiness",
+          desc: "Maintaining archived call recordings, DRA registries, and grievance logs for regulator or panel review.",
+          outcome: "Always ready for an unannounced compliance audit."
         }
       ]
     },
@@ -1981,19 +1981,19 @@ export const platformContent = {
     outcomesHeading: "Strategic Business Value",
     outcomes: [
       {
-        title: "Provision Capital Releases",
-        desc: "Standardized, milestone-driven execution minimizes delinquency aging, releasing provisioning reserves to improve Return on Assets (ROA).",
-        value: "ROA Improvement"
+        title: "Defensible Call Records",
+        desc: "100% call recording gives lenders a complete, auditable defense against borrower complaints.",
+        value: "Conduct Defensibility"
       },
       {
-        title: "Complete Conduct Insulation",
-        desc: "System-enforced compliance boundaries ensure all activities conform to RBI outsource circulars, protecting panel status.",
-        value: "Reputational Insulation"
+        title: "Certified Workforce Assurance",
+        desc: "IIBF DRA-certified staff, verified before dispatch, keep outreach within regulatory bounds.",
+        value: "Regulatory Alignment"
       },
       {
-        title: "Audit Readiness",
-        desc: "All call recordings, geotagged visit photos, and notice registries are archived, ensuring clean compliance audits.",
-        value: "Compliance Assured"
+        title: "Empanelment Protection",
+        desc: "Independent grievance handling and QA scoring protect bank panel standing from conduct-related suspension.",
+        value: "Panel Safety"
       }
     ],
 
@@ -2001,27 +2001,27 @@ export const platformContent = {
     targetIndustries: [
       {
         name: "Scheduled Commercial Banks",
-        desc: "Managing high-volume retail defaults and secured commercial possessions under strict regulatory oversight."
+        desc: "Providing audit-ready call and conduct records for high-volume retail collections panels."
       },
       {
         name: "Retail NBFCs",
-        desc: "Coordinating vehicle and tractor defaults with IIBF DRA-certified field dispatching."
+        desc: "Maintaining DRA registration and call compliance records across tractor and vehicle finance books."
       },
       {
         name: "Housing Finance Companies",
-        desc: "Tracking residential foreclosures, property valuations, and public e-auctions."
+        desc: "Documenting notice-serving conduct ahead of Section 14 possession proceedings."
       },
       {
         name: "Microfinance Institutions",
-        desc: "Executing crop-cycle aligned rural collections and local Panchayats liaison mediation."
+        desc: "Applying heightened conduct safeguards to high-touch, high-volume MFI collections."
       },
       {
         name: "Fintech Lenders",
-        desc: "Performing swift doorstep contact verifications and early-stage Collections rollback campaigns."
+        desc: "Supporting rapid empanelment reviews with complete call and field audit trails."
       },
       {
         name: "Asset Reconstruction Companies",
-        desc: "Providing ex-military security yards custody, valuations, and e-auction support for acquired portfolios."
+        desc: "Documenting custody and recovery conduct for acquired-portfolio governance reviews."
       }
     ],
 
@@ -2029,19 +2029,19 @@ export const platformContent = {
     faqs: [
       {
         q: "How does the system ensure callers do not violate calling hours rules?",
-        a: "Dialer servers are programmed with system calling locks, restricting outbound collections calls to 08:00 AM - 07:00 PM automatically."
+        a: "Dialer systems are locked automatically, restricting outbound collections calls to 08:00 AM - 07:00 PM."
       },
       {
         q: "What is the grievance resolution timeline?",
         a: "Grievances are routed to our compliance desk immediately. We investigate and submit a report to the bank panel within 24 hours, aiming for resolution within 48 hours."
       },
       {
-        q: "How long are call recording voice logs stored?",
-        a: "Voice logs are backed up on secure SFTP storage and archived for 180 days, providing clean records for audits."
+        q: "How long are call recordings retained?",
+        a: "Voice recordings are securely archived to support audits and are retained for a defined compliance window in line with our internal policy."
       },
       {
         q: "Are field representatives background-verified?",
-        a: "Yes. All on-ground coordinators pass reference checks and register active IIBF DRA certifications before portfolio dispatch."
+        a: "Yes. All on-ground coordinators pass reference checks and hold active IIBF DRA certifications before portfolio dispatch."
       },
       {
         q: "Where is our compliance handbook detailed?",
@@ -2057,31 +2057,31 @@ export const platformContent = {
     }
   },
   'recovery-analytics': {
-    eyebrow: "Predictive Yield Diagnostics",
-    title: "Recovery Analytics: Portfolio Sourcing & Diagnostics",
+    eyebrow: "Recovery Intelligence Framework",
+    title: "Recovery Intelligence Framework: Portfolio Sourcing & Diagnostics",
     subtitle: "Using propensity scoring models and historical data to optimize collection placements.",
-    description: "Traditional collections dispatch agents to every account, leading to high travel overheads and low recovery yields. Recovery Analytics uses historical payment behaviors and demographic records to score settlement propensities, helping risk desks target collections resources.",
-    primaryCtaText: "Request Portfolio Analysis Pitch",
+    description: "Traditional collections dispatch agents to every account, leading to high travel overheads and low recovery yields. The Recovery Intelligence Framework uses historical payment behaviors and demographic records to score settlement propensities, helping risk desks target collections resources.",
+    primaryCtaText: "Request Portfolio Diagnostics Briefing",
     primaryCtaHref: "/contact",
     secondaryCtaText: "View Analytics Templates",
     secondaryCtaHref: "#capabilities",
 
     kpiCards: [
-      { icon: "bar-chart-2", title: "Propensity Accuracy", value: "Forecast Accuracy" },
-      { icon: "database", title: "Portfolios Analyzed", value: "2,500+ Cr Analyzed" },
-      { icon: "trending-up", title: "Sourcing Yields", value: "Improved Recovery" },
-      { icon: "dollar-sign", title: "Cost Efficiency", value: "Reduced Travel Cost" }
+      { icon: "briefcase", title: "Diagnostic Scope", value: "Multi-Portfolio Propensity Modeling" },
+      { icon: "shieldCheck", title: "Data Governance", value: "ISO/IEC 27001 Certified" },
+      { icon: "mapPin", title: "Field Optimization", value: "GPS-Enabled Route Intelligence" },
+      { icon: "clipboardCheck", title: "Reporting Cadence", value: "Weekly Executive Diagnostics" }
     ],
 
-    capabilitiesHeading: "Telemetry Modules",
+    capabilitiesHeading: "Portfolio Diagnostics Capabilities",
     capabilities: [
       {
         title: "Settlement Propensity Scoring",
         desc: "Analyzes borrower default profiles to score recovery propensities. Helps risk desks focus collections resources on high-potential cases.",
         bullets: [
-          "Historical payment patterns analysis",
-          "Propensity scores mapping account flags",
-          "Daily sync of profile statistics registers"
+          "Historical payment pattern analysis",
+          "Propensity scores mapped to account flags",
+          "Regular sync of profile statistics"
         ],
         businessOutcome: "Helps risk desks focus collections resources on high-potential cases."
       },
@@ -2091,7 +2091,7 @@ export const platformContent = {
         bullets: [
           "Proximity calculations matching agents to postcodes",
           "Optimal route plotting for doorstep visits",
-          "Weekly analysis checking travel logs templates"
+          "Weekly review of travel cost logs"
         ],
         businessOutcome: "Reduces ground travel expenses and increases visit frequency."
       },
@@ -2100,8 +2100,8 @@ export const platformContent = {
         desc: "Recommends the optimal bucket timing to shift files from calling to physical visits. Compresses delinquency durations by avoiding delays.",
         bullets: [
           "Bucket threshold triggers mapping default days",
-          "Caller to field dispatch indicators logs",
-          "Advocate notice desk trigger flags checks"
+          "Caller-to-field dispatch indicator logs",
+          "Advocate notice desk trigger checks"
         ],
         businessOutcome: "Compresses delinquency durations by avoiding processing delays."
       },
@@ -2109,74 +2109,74 @@ export const platformContent = {
         title: "Liquidation Value Estimator",
         desc: "Forecasts auction yields for collateral properties. Supports reserve pricing decisions during foreclosure auctions.",
         bullets: [
-          "Government-approved valuer benchmark databases",
-          "Local market valuation statistics files",
-          "Distress yield forecasting logic models"
+          "Government-approved valuer benchmarks",
+          "Local market valuation reference data",
+          "Distress yield forecasting models"
         ],
         businessOutcome: "Supports reserve pricing decisions during foreclosure auctions."
       },
       {
         title: "Daily Reconciliation Sync",
-        desc: "Updates recovered payment logs against bank ledgers daily. Keeps bank audit trails clean and provides real-time default rollback logs.",
+        desc: "Updates recovered payment logs against bank ledgers daily. Keeps bank audit trails clean and provides real-time default rollback visibility.",
         bullets: [
-          "Deposit receipt logs syncing with bank registries",
-          "24-hour funds deposit checklist monitoring",
-          "Daily CSV reconciliation records compiled"
+          "Deposit receipt logs synced with bank registries",
+          "24-hour funds deposit monitoring",
+          "Daily reconciliation records compiled"
         ],
-        businessOutcome: "Keeps bank audit trails clean and provides real-time default rollback logs."
+        businessOutcome: "Keeps bank audit trails clean and provides real-time default rollback visibility."
       },
       {
         title: "Grievance Risk Scoring",
         desc: "Flags borrower profiles that present high dispute propensities. Minimizes reputation risks during outreach.",
         bullets: [
-          "Complaint analysis checking historic records",
-          "High-risk account routing flags triggers",
-          "QA script checklist audits calibration"
+          "Complaint analysis against historic records",
+          "High-risk account routing flags",
+          "QA script checklist calibration"
         ],
         businessOutcome: "Protects empanelments by routing high-risk files to senior compliance staff."
       }
     ],
 
-    tabsHeading: "Command Hub for Operations",
+    tabsHeading: "Portfolio Diagnostics Framework",
     tabs: [
       {
         id: "operating-framework",
         label: "Operating Framework",
-        heading: "Data Schema Standardizations",
-        overview: "Recovery Analytics formats raw debt files, parsing demographic details and default records to build a secure portfolio database.",
+        heading: "Data Normalization Standards",
+        overview: "The Recovery Intelligence Framework standardizes raw debt files, parsing demographic details and default records to build a secure, analyzable portfolio record.",
         activities: [
-          "Format loan books files before database ingestion",
-          "Parse borrower demographic details and defaults history",
-          "Map geographic grids coordinates for routing checks"
+          "Format loan book files ahead of analysis",
+          "Parse borrower demographic details and default history",
+          "Map geographic grid coordinates for routing checks"
         ],
         documents: [
-          "Data validation schemas checklists",
-          "Ingested portfolio logs summaries"
+          "Data validation checklists",
+          "Ingested portfolio summaries"
         ],
         risks: [
-          "Missing database fields formatting errors",
+          "Missing field formatting errors",
           "Coordinate mapping failures"
         ],
         deliverable: "Standardized Analytical Case Record",
-        benefit: "Unified database files establishing immediate data control."
+        benefit: "Unified data files establishing immediate diagnostic control."
       },
       {
         id: "operational-governance",
         label: "Operational Governance",
         heading: "Propensity Logic Audits",
-        overview: "Compliance checks verify analytics equations and access control logs, checking that customer privacy is maintained.",
+        overview: "Governance checks verify analytics equations and access control logs under ISO/IEC 27001 certified information security practices, ensuring customer privacy is maintained.",
         activities: [
-          "Validate propensity score calculation equations",
-          "Audit database security encryption certificates logs",
-          "Monitor role-based access histories records"
+          "Validate propensity score calculation logic",
+          "Audit data protection controls",
+          "Monitor role-based access history records"
         ],
         documents: [
-          "Propensity algorithms validation logs",
-          "PII encryption audit reports"
+          "Propensity model validation logs",
+          "PII protection audit reports"
         ],
         risks: [
           "Model scoring variations",
-          "Unauthorized database access attempts"
+          "Unauthorized access attempts"
         ],
         deliverable: "Analytics Compliance Audit Record",
         benefit: "Secured risk diagnostics safeguarding borrower privacy."
@@ -2188,15 +2188,15 @@ export const platformContent = {
         overview: "Our workflow schedules outreach based on propensity scores, routing cases to calls, doorstep check-ins, or legal notice panels.",
         activities: [
           "Assign call lists based on propensity ratings",
-          "Trigger doorstep visits grids for unlocatable files",
+          "Trigger doorstep visit grids for unlocatable files",
           "Coordinate Section 13 notice drafting with panel advocates"
         ],
         documents: [
           "Campaign schedule dispatch lists",
-          "Advocate panel dossiers logs"
+          "Advocate panel dossier logs"
         ],
         risks: [
-          "Delayed doorstep visit logs updates",
+          "Delayed doorstep visit log updates",
           "Advocate notice serving lags"
         ],
         deliverable: "Operational Placements Matrix",
@@ -2205,41 +2205,41 @@ export const platformContent = {
       {
         id: "documentation-standards",
         label: "Documentation Standards",
-        heading: "Performance Reports Compilations",
-        overview: "We compile detailed reports of collections yields, coordinates check-ins, and deposit ledgers, ensuring audit readiness.",
+        heading: "Performance Reports Compilation",
+        overview: "We compile detailed reports of collections yields, coordinate check-ins, and deposit ledgers, ensuring audit readiness.",
         activities: [
-          "Compile geographic collections yield maps logs",
-          "Archive daily cash deposits reconciliation registers",
-          "Save forecast accuracy evaluations logs files"
+          "Compile geographic collections yield maps",
+          "Archive daily cash deposit reconciliation registers",
+          "Save forecast accuracy evaluations"
         ],
         documents: [
           "Deposit verification receipt files",
-          "Served Section 13 notice photos logs"
+          "Served Section 13 notice photo logs"
         ],
         risks: [
           "Missing receipt confirmations",
           "Incomplete event logs in case folders"
         ],
         deliverable: "Verified Performance Dossier",
-        benefit: "Audit-ready analytics logs protecting lenders from audit exceptions."
+        benefit: "Audit-ready diagnostics protecting lenders from audit exceptions."
       },
       {
         id: "management-reporting",
         label: "Management Reporting",
-        heading: "Portfolio Diagnostic Dashboards",
-        overview: "Lenders check recovery trends, collections cost efficiency, and default patterns through our reporting dashboard.",
+        heading: "Portfolio Diagnostic Reporting",
+        overview: "Lenders review recovery trends, collections cost efficiency, and default patterns through our weekly diagnostics reporting.",
         activities: [
           "Output daily collections ledger reconciliation updates",
           "Publish agent geographical check-in coordinate maps",
-          "Generate weekly portfolio resolution forecasts reports"
+          "Generate weekly portfolio resolution forecasts"
         ],
         documents: [
           "Daily deposit logs",
           "Reconciled ledger registries"
         ],
         risks: [
-          "Remote branch logs sync delays",
-          "Manual entry errors during reconciliations"
+          "Remote branch sync delays",
+          "Manual entry errors during reconciliation"
         ],
         deliverable: "Weekly Risk Operations Report",
         benefit: "Complete sourcing visibility for bank recovery committees."
@@ -2252,7 +2252,7 @@ export const platformContent = {
         activities: [
           "Track bucket rollback rates across portfolios",
           "Monitor collateral possession warrant timelines",
-          "Audit collection cost efficiency indicators scores"
+          "Audit collection cost efficiency indicators"
         ],
         documents: [
           "NPA case resolution summaries",
@@ -2317,7 +2317,7 @@ export const platformContent = {
     challenges: [
       {
         title: "High Sourcing Travel Cost",
-        desc: "Routing agents without geographic coordination increases travel costs and lowers visits velocity.",
+        desc: "Routing agents without geographic coordination increases travel costs and lowers visit velocity.",
         warningBadge: "TRAVEL OVERHEAD",
         impact: "SM Associates Approach: Proximity routing calculations assigning agents to optimal local grids."
       },
@@ -2325,67 +2325,67 @@ export const platformContent = {
         title: "Lagging Performance Sync",
         desc: "Manual entry systems take days to sync payment logs with bank records, stalling rollback tracking.",
         warningBadge: "REPORTING GAP",
-        impact: "SM Associates Approach: Automated daily CSV updates and secure SFTP file uploads."
+        impact: "SM Associates Approach: Daily reporting and secure SFTP file uploads."
       },
       {
         title: "Unsecured PII Sharing",
         desc: "Sharing borrower details through unencrypted channels exposes lenders to regulatory compliance audits.",
         warningBadge: "DATA GOVERNANCE",
-        impact: "SM Associates Approach: Database columns encryption and role-based access logs."
+        impact: "SM Associates Approach: ISO/IEC 27001 certified data protection and role-based access controls."
       }
     ],
 
     processFlow: {
-      title: "Operating Lifecycle",
-      desc: "How collections data is analyzed and mapped to campaign routing schedules.",
+      title: "Portfolio Diagnostics Lifecycle",
+      desc: "How collections data is analyzed, scored, and mapped to campaign routing schedules.",
       steps: [
         {
           step: "01",
-          title: "Portfolio Intake",
-          desc: "Ingesting default records through secure transfer protocols and creating the case dossier.",
-          outcome: "Accounts registered and data validated."
+          title: "Portfolio Data Normalization",
+          desc: "Standardizing loan-book fields and borrower demographic data into one analyzable format.",
+          outcome: "A clean dataset ready for scoring."
         },
         {
           step: "02",
-          title: "Operational Assessment",
-          desc: "Evaluating borrower profiles, default age, and collateral parameters to map the campaign.",
-          outcome: "Campaign parameters and calling locks configured."
+          title: "Historical Behavior Modeling",
+          desc: "Analyzing historic payment behavior and default patterns across the portfolio.",
+          outcome: "Patterns replace guesswork in resource planning."
         },
         {
           step: "03",
-          title: "Case Allocation",
-          desc: "Assigning accounts to local regional branch grids and IIBF DRA-certified coordinators.",
-          outcome: "Regional field teams mobilized."
+          title: "Propensity Scoring",
+          desc: "Scoring each account's settlement propensity based on behavioral and demographic indicators.",
+          outcome: "Every account ranked by recovery likelihood."
         },
         {
           step: "04",
-          title: "Field Execution",
-          desc: "Executing recorded collections calls and geotagged doorstep visits to locate borrowers.",
-          outcome: "Borrower contact established and logged."
+          title: "Resource Allocation Recommendation",
+          desc: "Recommending which accounts merit calling, doorstep visits, or legal escalation based on score.",
+          outcome: "Field and call resources directed where they yield the most."
         },
         {
           step: "05",
-          title: "Documentation & Evidence",
-          desc: "Compiling served notices proofs and geotagged site verification photos for legal readiness.",
-          outcome: "Evidentiary file dossier prepared."
+          title: "Route & Cost Optimization",
+          desc: "Calculating optimal travel grids to reduce field coordinator travel cost.",
+          outcome: "Lower cost per doorstep visit."
         },
         {
           step: "06",
-          title: "Governance Review",
-          desc: "QA review of voice logs, visit coordinates, and notice compliance parameters.",
-          outcome: "Compliance check-offs completed."
+          title: "Yield & Cost Tracking",
+          desc: "Monitoring collections yield against operational cost on a rolling basis.",
+          outcome: "Cost-to-recovery ratio stays visible, not assumed."
         },
         {
           step: "07",
-          title: "Executive Reporting",
-          desc: "Delivering cash reconciliation ledgers and portfolio status updates directly to risk committees.",
-          outcome: "Operations transparently documented."
+          title: "Forecast Accuracy Review",
+          desc: "Comparing predicted propensity outcomes against actual case resolutions.",
+          outcome: "The model is checked against reality every cycle."
         },
         {
           step: "08",
-          title: "Continuous Improvement",
-          desc: "Facilitating OTS settlements or coordinating foreclosure possessions, and updating SOP metrics.",
-          outcome: "Capital released and NPA files closed."
+          title: "Executive Diagnostics Reporting",
+          desc: "Delivering portfolio-level diagnostics and optimization recommendations to risk committees weekly.",
+          outcome: "Risk desks make placement decisions backed by data."
         }
       ]
     },
@@ -2393,19 +2393,19 @@ export const platformContent = {
     outcomesHeading: "Strategic Business Value",
     outcomes: [
       {
-        title: "Provision Capital Releases",
-        desc: "Standardized, milestone-driven execution minimizes delinquency aging, releasing provisioning reserves to improve Return on Assets (ROA).",
-        value: "ROA Improvement"
+        title: "Targeted Resource Allocation",
+        desc: "Propensity scoring directs field and call effort to the accounts most likely to resolve, cutting wasted visits.",
+        value: "Sourcing Efficiency"
       },
       {
-        title: "Complete Conduct Insulation",
-        desc: "System-enforced compliance boundaries ensure all activities conform to RBI outsource circulars, protecting panel status.",
-        value: "Reputational Insulation"
+        title: "Defensible Reserve Pricing",
+        desc: "Liquidation value estimates support realistic reserve pricing ahead of collateral auctions.",
+        value: "Auction Readiness"
       },
       {
-        title: "Audit Readiness",
-        desc: "All call recordings, geotagged visit photos, and notice registries are archived, ensuring clean compliance audits.",
-        value: "Compliance Assured"
+        title: "Continuous Model Validation",
+        desc: "Forecast accuracy is checked against actual outcomes every cycle, not assumed static.",
+        value: "Diagnostic Integrity"
       }
     ],
 
@@ -2413,27 +2413,27 @@ export const platformContent = {
     targetIndustries: [
       {
         name: "Scheduled Commercial Banks",
-        desc: "Managing high-volume retail defaults and secured commercial possessions under strict regulatory oversight."
+        desc: "Scoring high-volume retail portfolios to prioritize collections resource allocation."
       },
       {
         name: "Retail NBFCs",
-        desc: "Coordinating vehicle and tractor defaults with IIBF DRA-certified field dispatching."
+        desc: "Benchmarking tractor and vehicle collateral liquidation values ahead of auction."
       },
       {
         name: "Housing Finance Companies",
-        desc: "Tracking residential foreclosures, property valuations, and public e-auctions."
+        desc: "Modeling mortgage default propensity to time doorstep and legal escalation correctly."
       },
       {
         name: "Microfinance Institutions",
-        desc: "Executing crop-cycle aligned rural collections and local Panchayats liaison mediation."
+        desc: "Analyzing JLG group repayment patterns aligned to crop-cycle seasonality."
       },
       {
         name: "Fintech Lenders",
-        desc: "Performing swift doorstep contact verifications and early-stage Collections rollback campaigns."
+        desc: "Scoring short-tenure digital lending defaults for early-stage rollback targeting."
       },
       {
         name: "Asset Reconstruction Companies",
-        desc: "Providing ex-military security yards custody, valuations, and e-auction support for acquired portfolios."
+        desc: "Forecasting recovery yields across acquired portfolios to support pricing decisions."
       }
     ],
 
@@ -2441,11 +2441,11 @@ export const platformContent = {
     faqs: [
       {
         q: "How do you protect customer data privacy?",
-        a: "We encrypt database fields and log all system access. Data handling matches ISO/IEC 27001 data protection frameworks, keeping borrower details secure."
+        a: "We protect data under practices certified to the ISO/IEC 27001 standard and log all system access, keeping borrower details secure."
       },
       {
-        q: "What is the data sync latency with core banking databases?",
-        a: "We support daily database file imports and secure SFTP file exchanges, reconciling payment records daily."
+        q: "What is the data sync cadence with core banking systems?",
+        a: "We support regular file imports and secure SFTP file exchanges, reconciling payment records daily."
       },
       {
         q: "Can the propensity scoring model be customized?",
@@ -2469,181 +2469,181 @@ export const platformContent = {
     }
   },
   'ai-recovery': {
-    eyebrow: "AI Operating Framework",
+    eyebrow: "AI Pilot Governance Framework",
     title: "AI-Coordinated Sourcing: Next-Generation Resolution",
-    subtitle: "Piloting propensity scoring models, automated voice dialers, and route optimization.",
-    description: "Modern collections operations require advanced technology to handle rising default volumes. AI Recovery presents our forward-looking technology pilots, showing how propensity scoring models, voice dialers, and route optimizers can compress cycle times.",
-    primaryCtaText: "Request AI Pilot Brief",
+    subtitle: "Piloting propensity scoring models, automated voice dialers, and route optimization under human oversight.",
+    description: "Modern collections operations require advanced technology to handle rising default volumes. AI Recovery presents our forward-looking technology pilots, showing how propensity scoring models, voice dialers, and route optimizers can compress cycle times, each pilot governed by a human oversight and compliance gate.",
+    primaryCtaText: "Request AI Pilot Briefing",
     primaryCtaHref: "/contact",
     secondaryCtaText: "View Future Roadmap",
     secondaryCtaHref: "#capabilities",
 
     kpiCards: [
-      { icon: "map-pin", title: "Target Route Savings", value: "Up to 30% Savings" },
-      { icon: "target", title: "Model Accuracy Target", value: "Up to 85% Hit Rate" },
-      { icon: "phone-call", title: "Dialing Efficiency", value: "Automated Dialing" },
-      { icon: "shield", title: "Compliance Check TAT", value: "Real-Time Verification" }
+      { icon: "mapPin", title: "Target Route Savings", value: "Up to 30% (Pilot Target)" },
+      { icon: "clipboardCheck", title: "Model Accuracy Target", value: "Up to 85% (Pilot Target)" },
+      { icon: "shieldCheck", title: "Governance Gate", value: "Human-Reviewed Compliance Checks" },
+      { icon: "briefcase", title: "Pilot Scope", value: "Controlled Deployment Model" }
     ],
 
     capabilitiesHeading: "AI Pilot Modules",
     capabilities: [
       {
         title: "AI Route Optimizers",
-        desc: "Maps optimized travel grids for field check-in dispatching automatically. Redirection logs are synced to local coordinator dispatch maps.",
+        desc: "Maps optimized travel grids for field check-in dispatching. Recommendations are synced to local coordinator dispatch plans for review.",
         bullets: [
           "Travel path plotting matching local postcode coordinates",
           "Proximity-based dispatching reducing travel times",
-          "Automated updates checking coordinators locations"
+          "Coordinator location updates checked against plan"
         ],
-        businessOutcome: "Lowers ground collections costs and increases doorstep visit frequency."
+        businessOutcome: "Targets lower ground collections costs and higher doorstep visit frequency."
       },
       {
         title: "Propensity Scoring Pilots",
-        desc: "Evaluates historic default profiles using predictive models. Directs physical doorstep check-ins to high-probability accounts.",
+        desc: "Evaluates historic default profiles using predictive models. Recommendations direct physical doorstep check-ins to high-probability accounts.",
         bullets: [
           "Default risk classification based on historic files",
-          "Propensity scores mapping dialer response rates",
-          "Placements diagnostics checking settlement propensity"
+          "Propensity scores mapped to dialer response rates",
+          "Placement diagnostics checking settlement propensity"
         ],
-        businessOutcome: "Directs physical outreach to accounts with high settlement propensity."
+        businessOutcome: "Aims to direct physical outreach to accounts with high settlement propensity."
       },
       {
         title: "Automated Dialing Desk",
-        desc: "Configures outbound call lists and locks calling queues automatically. Restricts dialer contact hours to approved periods.",
+        desc: "Configures outbound call lists and locks calling queues automatically. Restricts dialer contact hours to RBI-approved periods.",
         bullets: [
-          "Dialer call queues locked outside RBI approved hours",
+          "Dialer call queues locked outside RBI-approved hours",
           "Automated caller script verification checks",
-          "Call durations logs database registry syncs"
+          "Call duration logs registered for review"
         ],
         businessOutcome: "Prevents call-hours infractions and protects empanelment standing."
       },
       {
         title: "Document Parsing Engines",
-        desc: "Extracts key loan details from scanned title deeds and agreements. Compiles case record details for notice drafting.",
+        desc: "Extracts key loan details from scanned title deeds and agreements. Compiles case record details for notice drafting, subject to manual verification.",
         bullets: [
           "Agreement metadata parser mapping loan variables",
-          "OCR extraction of sub-registrar property registries details",
-          "Document verification alerts checking files completeness"
+          "Extraction of sub-registrar property registry details",
+          "Document verification alerts checking file completeness"
         ],
-        businessOutcome: "Compresses the time required to assemble legal case files."
+        businessOutcome: "Aims to compress the time required to assemble legal case files."
       },
       {
-        title: "Real-Time Address Mapping",
-        desc: "Corrects unstructured debtor address fields using geographic records. Identifies municipal boundaries for doorstep visits.",
+        title: "Address Mapping Pilots",
+        desc: "Corrects unstructured debtor address fields using geographic reference data. Identifies municipal boundaries for doorstep visits.",
         bullets: [
           "Address parsing algorithms correcting unstructured text",
-          "Municipal database cross-matching checking locations",
-          "Geographic check-in coordinates mapping matching postcodes"
+          "Municipal reference cross-matching checking locations",
+          "GPS-enabled check-in coordinates matched to postcodes"
         ],
-        businessOutcome: "Restores asset visibility by validating unrecorded doorstep sites."
+        businessOutcome: "Aims to restore asset visibility by validating unrecorded doorstep sites."
       },
       {
         title: "Algorithmic Compliance Gate",
-        desc: "Monitors call transcripts automatically for compliance scripting. Identifies script variations instantly.",
+        desc: "Monitors call transcripts for compliance scripting and flags script variations for human review before any action is taken.",
         bullets: [
-          "Transcripts text verification checking keywords",
+          "Transcript text verification checking keywords",
           "Automated flags logging script deviation occurrences",
-          "Weekly QA compliance audit reports compilation"
+          "Weekly QA compliance audit reports compiled"
         ],
-        businessOutcome: "Identifies script variations instantly to protect empanelment standing."
+        businessOutcome: "Flags script variations for review to protect empanelment standing."
       }
     ],
 
-    tabsHeading: "Ground Routing Syncs",
+    tabsHeading: "AI Pilot Governance Framework",
     tabs: [
       {
         id: "operating-framework",
         label: "Operating Framework",
-        heading: "AI Model Ingestion Pipelines",
-        overview: "Our operations pilots ingest unstructured default files, standardizing address fields and mapping coordinators to local grids.",
+        heading: "Pilot Data Ingestion Standards",
+        overview: "Our pilots ingest anonymized historic default files, standardizing address fields and mapping coordinators to local grids for testing.",
         activities: [
-          "Ingest unstructured loan records from bank portals",
+          "Ingest anonymized historic loan records",
           "Standardize debtor address fields using parser scripts",
           "Map geographic coordinate boundaries for routing checks"
         ],
         documents: [
-          "Data validation schemas registers",
-          "Ingestion log file summaries"
+          "Data validation registers",
+          "Pilot ingestion log summaries"
         ],
         risks: [
           "Model parsing inconsistencies",
           "Incomplete address mapping coordinates"
         ],
-        deliverable: "Standardized Analytical Case Dossier",
-        benefit: "Audit-ready data models establishing data controls."
+        deliverable: "Standardized Pilot Case Dossier",
+        benefit: "Audit-ready pilot data establishing controlled testing conditions."
       },
       {
         id: "operational-governance",
         label: "Operational Governance",
-        heading: "Secured Call Safeguards",
-        overview: "System controls manage outbound calling hours and script parameters automatically, protecting brand reputations.",
+        heading: "Human Oversight & Compliance Gate",
+        overview: "Every pilot recommendation is routed through a human oversight and compliance gate before any borrower-facing action proceeds.",
         activities: [
-          "Configure dialing locks restricting call queues",
-          "Audit voice recordings transcripts via text verify scripts",
-          "Verify system database encryption certificates logs"
+          "Route model recommendations through compliance review",
+          "Audit voice recording transcripts against script standards",
+          "Verify data protection controls before pilot data use"
         ],
         documents: [
-          "System compliance log databases",
-          "Outbound calls compliance audits"
+          "Pilot governance sign-off logs",
+          "Outbound call compliance audits"
         ],
         risks: [
-          "System override adjustments",
+          "Model recommendation overrides required",
           "Calling hours configuration errors"
         ],
-        deliverable: "Dialer Compliance Audit Record",
-        benefit: "Protected collections outreach isolating brands from conduct risks."
+        deliverable: "Pilot Governance Audit Record",
+        benefit: "Ensures no automated action reaches a borrower without human review."
       },
       {
         id: "execution-workflow",
         label: "Execution Workflow",
-        heading: "Automated Dispatch Deciders",
-        overview: "Cases progress automatically, dispatching coordinators to local branch grids or routing files to panel advocates.",
+        heading: "Controlled Pilot Deployment",
+        overview: "Pilots run on a limited, defined account segment, with cases dispatched to branches or advocate panels only after review.",
         activities: [
-          "Assign cases to branches by proximity coordinate checks",
+          "Assign pilot cases to branches by proximity coordinate checks",
           "Track notice drafting deadlines with advocate panels",
-          "Generate draft notices templates from case database logs"
+          "Generate draft notice templates for advocate review"
         ],
         documents: [
-          "Dispatch schedule lists",
+          "Pilot dispatch schedule lists",
           "Notice tracking logs"
         ],
         risks: [
           "Ground visit sync delays",
           "Advocate notice serving lags"
         ],
-        deliverable: "Milestone-Driven Escalations Report",
-        benefit: "Compressed cycle times accelerating default resolution milestones."
+        deliverable: "Pilot Deployment Report",
+        benefit: "Contains pilot risk to a bounded, monitored test population."
       },
       {
         id: "documentation-standards",
         label: "Documentation Standards",
-        heading: "Complete Audit Dossier",
-        overview: "We compile verified visual and location evidence of physical visits to support legal actions.",
+        heading: "Pilot Evidence Compilation",
+        overview: "We compile verified visual and location evidence of physical visits arising from pilot recommendations to support legal actions.",
         activities: [
           "Save doorstep check-in GPS coordinate metadata",
           "Log property inventory photos at repossession sites",
-          "Verify served notice registry receipt cards signatures"
+          "Verify served notice registry receipt signatures"
         ],
         documents: [
           "Served notice signature scans",
-          "Geotagged site check-in logs"
+          "GPS-enabled site check-in logs"
         ],
         risks: [
           "Notice serving signature objections",
           "Missing check-in coordinate logs"
         ],
-        deliverable: "Evidentiary Case Dossier",
-        benefit: "Expedited Section 14 CMM warrant filings."
+        deliverable: "Evidentiary Pilot Dossier",
+        benefit: "Maintains the same evidentiary standard as live operations."
       },
       {
         id: "management-reporting",
         label: "Management Reporting",
-        heading: "Sourcing Visibility",
-        overview: "Risk managers check collections performance, cash deposits, and coordinator coordinate maps in real-time.",
+        heading: "Pilot Performance Visibility",
+        overview: "Risk managers review pilot performance, cash deposits, and coordinator coordinate maps against a live-operations baseline.",
         activities: [
           "Sync daily collections deposit ledgers with bank accounts",
-          "Publish daily agent coordinate check-in maps logs",
-          "Generate weekly collections yields forecasts reports"
+          "Publish daily agent coordinate check-in maps",
+          "Generate weekly pilot-versus-baseline performance reports"
         ],
         documents: [
           "Daily deposit logs",
@@ -2651,31 +2651,31 @@ export const platformContent = {
         ],
         risks: [
           "Remote branch data sync delays",
-          "Manual entry errors during payment logs reconciliations"
+          "Manual entry errors during reconciliation"
         ],
-        deliverable: "Operations Telemetry MIS Report",
-        benefit: "Complete performance visibility for bank risk committees."
+        deliverable: "Pilot Performance Report",
+        benefit: "Complete visibility for bank risk committees ahead of any scale decision."
       },
       {
         id: "business-outcomes-tab",
         label: "Business Outcomes",
-        heading: "Delinquency Buckets Rollbacks",
-        overview: "AI-guided routing helps banks accelerate delinquency bucket rollbacks, releasing capital locked in provisioning buckets.",
+        heading: "Evidence for Scale Decisions",
+        overview: "Structured pilots generate the evidence risk committees need to decide whether and how to scale AI-assisted operations.",
         activities: [
-          "Measure account rollback rates across segments",
-          "Track collateral possession timelines with panels",
-          "Audit collection cost efficiency metrics scores"
+          "Measure pilot account rollback rates against baseline",
+          "Track collateral possession timelines for pilot cases",
+          "Audit collection cost efficiency of pilot segments"
         ],
         documents: [
-          "NPA resolution outcome registers",
-          "Released provisioning capital records"
+          "Pilot outcome registers",
+          "Baseline comparison records"
         ],
         risks: [
-          "Extended court possession timelines",
-          "Property e-auction delay check"
+          "Insufficient pilot sample size",
+          "Baseline comparison distortions"
         ],
-        deliverable: "Return on Assets (ROA) Yield Report",
-        benefit: "Improved Return on Assets (ROA) through optimized travel costs."
+        deliverable: "Pilot Evidence Report",
+        benefit: "Gives leadership an evidence-based basis for any scale-up decision."
       }
     ],
 
@@ -2701,26 +2701,26 @@ export const platformContent = {
 
     overview: {
       heading: "AI-Coordinated Collections: Next-Generation Credit Operations",
-      subheading: "Propensity Modeling and Geofenced Route Optimization to Speed Up Resolution",
-      summary: "Our AI recovery framework integrates predictive propensity modeling, geographic routing algorithms, and automated calling controls into one console. These pilots help risk desks target collections resources and compress foreclosure timelines.",
+      subheading: "Propensity Modeling and Route Optimization Piloted Under Human and Compliance Oversight",
+      summary: "Our AI recovery framework pilots predictive propensity modeling, geographic routing algorithms, and automated calling controls within a bounded, governed test environment. These pilots help risk desks evaluate whether AI-assisted targeting and routing can compress foreclosure timelines, with every recommendation reviewed by our operations and compliance teams before it reaches a borrower.",
       outcomes: [
         {
           title: "Smart Route Mapping",
-          desc: "Calculates optimal travel paths for representatives, reducing travel costs."
+          desc: "Calculates candidate travel paths for representatives, targeted at reducing travel costs."
         },
         {
           title: "Compliant Outreach",
-          desc: "Enforces automated scripting audits and calling hour locks to protect empanelments."
+          desc: "Enforces automated scripting audits and calling-hour locks, with human sign-off, to protect empanelments."
         }
       ],
       useCases: [
         {
           title: "Unsecured Digital Portfolio Pilots",
-          desc: "Scoring delinquent fintech lists to map dialer schedules and address verifications."
+          desc: "Scoring delinquent fintech lists to map dialer schedules and address verifications under review."
         },
         {
-          title: "Geofenced Route Planning",
-          desc: "Optimizing branch grids coordinate paths for doorstep collections dispatching."
+          title: "Route Planning Pilots",
+          desc: "Testing branch-grid coordinate paths for doorstep collections dispatching."
         }
       ]
     },
@@ -2731,73 +2731,73 @@ export const platformContent = {
         title: "High Ground Travel Cost",
         desc: "Coordinators mapping routes manually face high travel costs and lower visit efficiency.",
         warningBadge: "TRAVEL OVERHEAD",
-        impact: "SM Associates Approach: Proximity routing models mapping optimal local grids."
+        impact: "SM Associates Approach: Piloting proximity routing models mapping optimal local grids, reviewed before deployment."
       },
       {
         title: "Delayed Field Sync",
         desc: "Traditional sync tools delay status updates, slowing down account escalation decisions.",
         warningBadge: "DATA LATENCY",
-        impact: "SM Associates Approach: Secure SFTP data exchanges and daily CSV logs."
+        impact: "SM Associates Approach: Secure SFTP data exchanges and daily reporting logs."
       },
       {
         title: "Notice Serving Errors",
         desc: "Delayed advocate coordination slows notice servings, dragging out default cycles.",
         warningBadge: "TIMELINE CONTROLS",
-        impact: "SM Associates Approach: Notice serving tracker logging registry receipts."
+        impact: "SM Associates Approach: Notice serving tracker logging registry receipts against deadline."
       }
     ],
 
     processFlow: {
-      title: "Operating Lifecycle",
-      desc: "How collections data is analyzed and mapped to campaign routing schedules.",
+      title: "AI Pilot Governance Lifecycle",
+      desc: "How an AI pilot moves from data ingestion to an evidence-based scale decision, entirely under human oversight.",
       steps: [
         {
           step: "01",
-          title: "Portfolio Intake",
-          desc: "Ingesting default records through secure transfer protocols and creating the case dossier.",
-          outcome: "Accounts registered and data validated."
+          title: "Pilot Data Ingestion",
+          desc: "Ingesting anonymized historic case data to train and calibrate pilot models.",
+          outcome: "Models trained on real portfolio patterns, not synthetic data."
         },
         {
           step: "02",
-          title: "Operational Assessment",
-          desc: "Evaluating borrower profiles, default age, and collateral parameters to map the campaign.",
-          outcome: "Campaign parameters and calling locks configured."
+          title: "Model Calibration",
+          desc: "Tuning propensity scoring and route optimization models against known outcomes.",
+          outcome: "Pilot models are grounded before deployment."
         },
         {
           step: "03",
-          title: "Case Allocation",
-          desc: "Assigning accounts to local regional branch grids and IIBF DRA-certified coordinators.",
-          outcome: "Regional field teams mobilized."
+          title: "Controlled Pilot Deployment",
+          desc: "Running pilot models on a limited, defined account segment under close supervision.",
+          outcome: "Risk is contained to a bounded test population."
         },
         {
           step: "04",
-          title: "Field Execution",
-          desc: "Executing recorded collections calls and geotagged doorstep visits to locate borrowers.",
-          outcome: "Borrower contact established and logged."
+          title: "Human Oversight Gate",
+          desc: "Routing every automated recommendation through a compliance and operations review before action.",
+          outcome: "No AI-driven action proceeds without human sign-off."
         },
         {
           step: "05",
-          title: "Documentation & Evidence",
-          desc: "Compiling served notices proofs and geotagged site verification photos for legal readiness.",
-          outcome: "Evidentiary file dossier prepared."
+          title: "Compliance Gate Review",
+          desc: "Verifying pilot activity against calling-hour rules and script standards before any scale consideration.",
+          outcome: "Pilots are held to the same regulatory bar as live operations."
         },
         {
           step: "06",
-          title: "Governance Review",
-          desc: "QA review of voice logs, visit coordinates, and notice compliance parameters.",
-          outcome: "Compliance check-offs completed."
+          title: "Outcome Measurement",
+          desc: "Comparing pilot segment outcomes against a standard operations control group.",
+          outcome: "Results are benchmarked, not assumed."
         },
         {
           step: "07",
-          title: "Executive Reporting",
-          desc: "Delivering cash reconciliation ledgers and portfolio status updates directly to risk committees.",
-          outcome: "Operations transparently documented."
+          title: "Model Refinement",
+          desc: "Adjusting model parameters based on measured pilot performance.",
+          outcome: "Each pilot cycle improves on the last."
         },
         {
           step: "08",
-          title: "Continuous Improvement",
-          desc: "Facilitating OTS settlements or coordinating foreclosure possessions, and updating SOP metrics.",
-          outcome: "Capital released and NPA files closed."
+          title: "Executive Governance Reporting",
+          desc: "Reporting pilot results, risks, and scale-readiness to the executive committee.",
+          outcome: "Scale-up decisions rest with leadership, not the model."
         }
       ]
     },
@@ -2805,19 +2805,19 @@ export const platformContent = {
     outcomesHeading: "Strategic Business Value",
     outcomes: [
       {
-        title: "Provision Capital Releases",
-        desc: "Standardized, milestone-driven execution minimizes delinquency aging, releasing provisioning reserves to improve Return on Assets (ROA).",
-        value: "ROA Improvement"
+        title: "Governed Innovation",
+        desc: "Every pilot runs inside a human oversight and compliance gate — no autonomous action reaches a borrower unreviewed.",
+        value: "Controlled Deployment"
       },
       {
-        title: "Complete Conduct Insulation",
-        desc: "System-enforced compliance boundaries ensure all activities conform to RBI outsource circulars, protecting panel status.",
-        value: "Reputational Insulation"
+        title: "Benchmarked Results",
+        desc: "Pilot outcomes are measured against a live operations control group, not reported in isolation.",
+        value: "Evidence-Based Roadmap"
       },
       {
-        title: "Audit Readiness",
-        desc: "All call recordings, geotagged visit photos, and notice registries are archived, ensuring clean compliance audits.",
-        value: "Compliance Assured"
+        title: "Future-Ready Foundation",
+        desc: "Structured pilots build the evidentiary basis for scaling AI-assisted operations responsibly.",
+        value: "Scale Readiness"
       }
     ],
 
@@ -2825,27 +2825,27 @@ export const platformContent = {
     targetIndustries: [
       {
         name: "Scheduled Commercial Banks",
-        desc: "Managing high-volume retail defaults and secured commercial possessions under strict regulatory oversight."
+        desc: "Piloting propensity-guided collections targeting for high-volume retail books, under full compliance oversight."
       },
       {
         name: "Retail NBFCs",
-        desc: "Coordinating vehicle and tractor defaults with IIBF DRA-certified field dispatching."
+        desc: "Testing route-optimization models for tractor and vehicle finance field dispatch efficiency."
       },
       {
         name: "Housing Finance Companies",
-        desc: "Tracking residential foreclosures, property valuations, and public e-auctions."
+        desc: "Evaluating document-parsing pilots to speed up mortgage case file assembly, subject to manual verification."
       },
       {
         name: "Microfinance Institutions",
-        desc: "Executing crop-cycle aligned rural collections and local Panchayats liaison mediation."
+        desc: "Assessing propensity models against JLG group repayment behavior patterns."
       },
       {
         name: "Fintech Lenders",
-        desc: "Performing swift doorstep contact verifications and early-stage Collections rollback campaigns."
+        desc: "Piloting rapid-response models suited to short-tenure unsecured digital lending portfolios."
       },
       {
         name: "Asset Reconstruction Companies",
-        desc: "Providing ex-military security yards custody, valuations, and e-auction support for acquired portfolios."
+        desc: "Exploring predictive liquidation modeling for acquired-portfolio pricing decisions."
       }
     ],
 
@@ -2853,11 +2853,11 @@ export const platformContent = {
     faqs: [
       {
         q: "Are conversational voice agent pilots active?",
-        a: "Conversational call scripts are set up inside pilot dialing queues, letting banks test response rates for early default buckets."
+        a: "Conversational call scripts are set up inside pilot dialing queues, letting banks test response rates for early default buckets under human supervision."
       },
       {
         q: "Are outbound call limits enforced during AI dialing?",
-        a: "Yes. System dialing servers enforce approved hours lockout parameters, disabling calling lists automatically outside 08:00 AM - 07:00 PM."
+        a: "Yes. Dialing systems enforce approved hours lockout parameters, disabling calling lists automatically outside 08:00 AM - 07:00 PM, even during pilots."
       },
       {
         q: "Can the propensity scoring rules match our bank's parameters?",
@@ -2865,18 +2865,18 @@ export const platformContent = {
       },
       {
         q: "How does the route optimizer update coordinator logs?",
-        a: "Route paths calculations are synced with coordinator dashboards, routing doorstep visits based on postcode grids."
+        a: "Route path calculations are shared with coordinators for review, routing doorstep visits based on postcode grids once confirmed."
       },
       {
         q: "Where can we review the pilot specifications document?",
-        a: "Pilot roadmaps, tech specifications, and data safety checklists are available to bank panels during evaluation calls."
+        a: "Pilot roadmaps, technical specifications, and data safety checklists are available to bank panels during evaluation calls."
       }
     ],
 
     cta: {
       heading: "Partner in Building the Future of Credit Operations",
-      subheading: "Consult with our technology desk to evaluate how AI-coordinated route planning and compliance auditing can lower collections costs.",
-      buttonText: "Consult with Technology Desk",
+      subheading: "Consult with our innovation desk to evaluate how governed AI pilots for route planning and compliance auditing can lower collections costs.",
+      buttonText: "Request AI Pilot Briefing",
       href: "/contact"
     }
   }

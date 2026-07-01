@@ -1,4 +1,4 @@
-export const verificationContent = {
+﻿export const verificationContent = {
   'cpv-services': {
     eyebrow: 'Pre-Disbursal Risk Intelligence',
     title: 'Customer Personal Verification (CPV)',
@@ -34,9 +34,9 @@ export const verificationContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     capabilities: [
@@ -136,9 +136,9 @@ export const verificationContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     capabilities: [
@@ -238,9 +238,9 @@ export const verificationContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     capabilities: [
@@ -339,9 +339,9 @@ export const verificationContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     capabilities: [
@@ -441,9 +441,9 @@ export const verificationContent = {
 
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
-      { icon: 'users', title: 'DRA Certified Field Force', value: '1,000+ Officers' },
-      { icon: 'shield', title: 'SLA & Audit Compliance', value: '100% Compliant' },
-      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '₹4,800 Cr+' }
+      { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
+      { icon: 'shield', title: 'SLA & Audit Compliance', value: 'RBI Aligned' },
+      { icon: 'trendingUp', title: 'Resolved Default Capital', value: '[DRAFT]' }
     ],
 
     capabilities: [

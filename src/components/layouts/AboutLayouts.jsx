@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring, useTransform, useMotionValue, animate } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { clientLogos } from '../../data/clientLogos';
 import { getPageContent } from '../../data/pagesContent';
 import {
   ArrowRight,
@@ -66,24 +65,12 @@ const drawLine = {
   visible: { pathLength: 1, transition: { duration: 1, ease: "easeInOut" } }
 };
 
-// Simple monochrome logo list for the institutional trust band
-const InstitutionalLogos = () => (
-  <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 items-center opacity-40 grayscale hover:grayscale-0 transition-all duration-300">
-    <span className="font-bold text-xs tracking-widest text-[#0F172A] font-mono border border-[#E2E8F0] px-4 py-2 rounded-xl bg-[#F8FAFC]">SBI CARDS</span>
-    <span className="font-bold text-xs tracking-widest text-[#0F172A] font-mono border border-[#E2E8F0] px-4 py-2 rounded-xl bg-[#F8FAFC]">AXIS BANK</span>
-    <span className="font-bold text-xs tracking-widest text-[#0F172A] font-mono border border-[#E2E8F0] px-4 py-2 rounded-xl bg-[#F8FAFC]">BAJAJ FINANCE</span>
-    <span className="font-bold text-xs tracking-widest text-[#0F172A] font-mono border border-[#E2E8F0] px-4 py-2 rounded-xl bg-[#F8FAFC]">SHRIRAM FINANCE</span>
-    <span className="font-bold text-xs tracking-widest text-[#0F172A] font-mono border border-[#E2E8F0] px-4 py-2 rounded-xl bg-[#F8FAFC]">HDB FINANCIAL</span>
-  </div>
-);
-
 // ----------------------------------------------------
 // 1. COMPANY OVERVIEW LAYOUT (`/about`)
 // ----------------------------------------------------
 export function CompanyOverviewLayout({ content }) {
   const [activeYear, setActiveYear] = useState('2000');
   const [selectedLeader, setSelectedLeader] = useState(null);
-  const [selectedCaseStudy, setSelectedCaseStudy] = useState(0);
 
   // Load other pages' content to act as single-source-of-truth
   const leadershipContent = getPageContent('leadership') || {};
@@ -244,7 +231,7 @@ export function CompanyOverviewLayout({ content }) {
                     </div>
                     <div className="text-left leading-none">
                       <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Field Strength</span>
-                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">916+</span>
+                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">1,500+</span>
                     </div>
                   </motion.div>
                 </foreignObject>
@@ -274,7 +261,7 @@ export function CompanyOverviewLayout({ content }) {
                     </div>
                     <div className="text-left leading-none">
                       <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Branches</span>
-                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">35</span>
+                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">19</span>
                     </div>
                   </motion.div>
                 </foreignObject>
@@ -318,8 +305,8 @@ export function CompanyOverviewLayout({ content }) {
                       <Heart className="h-4 w-4" />
                     </div>
                     <div className="text-left leading-none">
-                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Client Retention</span>
-                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">98%</span>
+                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Years of Legacy</span>
+                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">25+</span>
                     </div>
                   </motion.div>
                 </foreignObject>
@@ -889,7 +876,7 @@ export function CompanyOverviewLayout({ content }) {
               },
               {
                 title: 'Enterprise Operations',
-                value: 'A massive ground footprint of 916+ recovery specialists executing over 5,000 daily borrower visits.',
+                value: 'A massive ground footprint of 1,500+ recovery specialists executing over 5,000 daily borrower visits.',
                 advantage: 'Allows instant scalability of portfolios without compromising on-ground file velocity.'
               },
               {
@@ -909,7 +896,7 @@ export function CompanyOverviewLayout({ content }) {
               },
               {
                 title: 'Regional Presence',
-                value: '35 branch offices covering all key credit markets of TN, Karnataka, Kerala, AP and Telangana.',
+                value: '19 branch offices covering all key credit markets of TN, Karnataka, Kerala, AP and Telangana.',
                 advantage: 'Combines local language fluency and local authority liaising under unified SLAs.'
               }
             ].map((card, i) => (
@@ -1011,40 +998,31 @@ export function CompanyOverviewLayout({ content }) {
               );
             })}
           </div>
-        </div>
-      </motion.section>
 
-      {/* ── INTERACTIVE RBI COMPLIANCE MATRIX ── */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVar}
-        className="py-20 bg-[#FFFFFF] border-b border-[#E2E8F0]"
-      >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
-          <div className="max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Regulatory Safeguards</span>
-            <h3 className="text-2xl font-bold font-serif text-[#0F172A]">RBI Compliance Matrix</h3>
-            <p className="text-xs text-slate-500">
-              How we enforce RBI fair practice collection codes through server-side locks and agent logs.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto text-left">
-            {complianceContent.rbiMatrix?.map((row, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 12px 20px -8px rgba(37, 99, 235, 0.08)' }}
-                className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-2xl p-6 space-y-3 transition-all duration-300 shadow-sm cursor-pointer"
-              >
-                <span className="inline-block text-[8px] font-bold text-slate-400 font-mono uppercase tracking-wider">Guideline</span>
-                <h4 className="font-bold text-sm text-[#0F172A] font-serif leading-none">{row.guideline}</h4>
-                <div className="space-y-2 pt-2 border-t border-slate-200/60">
-                  <p className="text-xs text-slate-500"><strong className="text-slate-700 font-serif">Code:</strong> {row.code}</p>
-                  <p className="text-xs text-[#2563EB] font-semibold"><strong className="text-[#2563EB]">SM Enforcement:</strong> {row.smAction}</p>
-                </div>
-              </motion.div>
-            ))}
+          <div className="pt-8 mt-4 border-t border-slate-200 space-y-8">
+            <div className="max-w-2xl mx-auto space-y-3">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Regulatory Safeguards</span>
+              <h3 className="text-2xl font-bold font-serif text-[#0F172A]">RBI Compliance Matrix</h3>
+              <p className="text-xs text-slate-500">
+                How we enforce RBI fair practice collection codes through server-side locks and agent logs.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto text-left">
+              {complianceContent.rbiMatrix?.map((row, idx) => (
+                <motion.div
+                  key={idx}
+                  whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 12px 20px -8px rgba(37, 99, 235, 0.08)' }}
+                  className="border border-[#E2E8F0] bg-white rounded-2xl p-6 space-y-3 transition-all duration-300 shadow-sm cursor-pointer"
+                >
+                  <span className="inline-block text-[8px] font-bold text-slate-400 font-mono uppercase tracking-wider">Guideline</span>
+                  <h4 className="font-bold text-sm text-[#0F172A] font-serif leading-none">{row.guideline}</h4>
+                  <div className="space-y-2 pt-2 border-t border-slate-200/60">
+                    <p className="text-xs text-slate-500"><strong className="text-slate-700 font-serif">Code:</strong> {row.code}</p>
+                    <p className="text-xs text-[#2563EB] font-semibold"><strong className="text-[#2563EB]">SM Enforcement:</strong> {row.smAction}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </motion.section>
@@ -1075,14 +1053,14 @@ export function CompanyOverviewLayout({ content }) {
               <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Geographic Reach</span>
               <h3 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Branch Network &amp; Field Force Density</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Operating a structured network of 35 physical branches covering Tamil Nadu, Karnataka, Kerala, Andhra Pradesh, Telangana, and Puducherry.
+                Operating a structured network of 19 physical branches covering Tamil Nadu, Karnataka, Kerala, Andhra Pradesh, and Telangana.
               </p>
 
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { label: 'Operating States', val: '5 States + UT' },
-                  { label: 'Physical Branches', val: '35 Offices' },
-                  { label: 'DRA Field Force', val: '916+ Crew' },
+                  { label: 'Operating States', val: '5 States' },
+                  { label: 'Physical Branches', val: '19 Offices' },
+                  { label: 'DRA Field Force', val: '1,500+ Crew' },
                   { label: 'Secure Storage Yards', val: '25+ Yards' }
                 ].map((item, idx) => (
                   <motion.div
@@ -1159,10 +1137,7 @@ export function CompanyOverviewLayout({ content }) {
             </p>
           </div>
 
-          {/* Institutional monochrome logos band */}
-          <InstitutionalLogos />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left pt-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left pt-2 max-w-6xl mx-auto">
             {clienteleContent.segments?.map((seg, idx) => (
               <motion.div
                 key={idx}
@@ -1171,83 +1146,8 @@ export function CompanyOverviewLayout({ content }) {
               >
                 <h4 className="font-bold text-sm text-[#0F172A] font-serif leading-none border-l-2 border-[#2563EB] pl-3">{seg.name}</h4>
                 <p className="text-[11px] text-slate-500 leading-relaxed">{seg.desc}</p>
-                <div className="pt-2 border-t border-slate-200 flex flex-wrap gap-1.5">
-                  {seg.clients?.map((cl, i) => (
-                    <span key={i} className="text-[9px] font-bold text-slate-700 bg-white border border-[#E2E8F0] rounded px-2 py-0.5 font-mono">{cl}</span>
-                  ))}
-                </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* ── INTERACTIVE CASE STUDIES DECK ── */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVar}
-        className="py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]"
-      >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="max-w-2xl mx-auto text-center space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Proven Performance</span>
-            <h3 className="text-2xl font-bold font-serif text-[#0F172A]">Portfolio Resolution Case Studies</h3>
-            <p className="text-xs text-slate-500">
-              Explore how we resolve complex delinquencies for different classes of empanelled partners.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto bg-white border border-[#E2E8F0] rounded-[32px] p-8 shadow-md space-y-6 hover:shadow-lg transition-shadow duration-300">
-            {/* Tabs */}
-            <div className="flex flex-wrap gap-2 border-b border-slate-100 pb-4">
-              {clienteleContent.caseStudies?.map((cs, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setSelectedCaseStudy(idx)}
-                  className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all ${selectedCaseStudy === idx
-                      ? 'bg-[#2563EB] text-white shadow-md'
-                      : 'bg-slate-50 text-slate-600 hover:bg-slate-100'
-                    }`}
-                >
-                  {cs.segment}
-                </button>
-              ))}
-            </div>
-
-            {/* Tab content */}
-            {clienteleContent.caseStudies?.[selectedCaseStudy] && (
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={selectedCaseStudy}
-                  initial={{ opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -10 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-6 text-left"
-                >
-                  <div>
-                    <h4 className="text-xs font-bold text-[#2563EB] uppercase tracking-wider font-mono">Project Title</h4>
-                    <h3 className="text-lg font-bold text-[#0F172A] font-serif mt-1">{clienteleContent.caseStudies[selectedCaseStudy].title}</h3>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-slate-100">
-                    <div>
-                      <h5 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">The Challenge</h5>
-                      <p className="text-xs text-slate-600 mt-1 leading-relaxed">{clienteleContent.caseStudies[selectedCaseStudy].challenge}</p>
-                    </div>
-                    <div>
-                      <h5 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">Our Action</h5>
-                      <p className="text-xs text-slate-600 mt-1 leading-relaxed">{clienteleContent.caseStudies[selectedCaseStudy].action}</p>
-                    </div>
-                    <div>
-                      <h5 className="text-[10px] font-bold text-[#2563EB] uppercase tracking-wider font-mono">The Outcome</h5>
-                      <p className="text-xs text-[#2563EB] mt-1 leading-relaxed font-semibold">{clienteleContent.caseStudies[selectedCaseStudy].outcome}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            )}
           </div>
         </div>
       </motion.section>

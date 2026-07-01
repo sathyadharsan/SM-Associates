@@ -1,4 +1,4 @@
-export const operationalContent = {
+﻿export const operationalContent = {
   "call-centre": {
     "eyebrow": "Compliant Outbound Calling Operations",
     "title": "Call Centre Operations",
@@ -69,18 +69,17 @@ export const operationalContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -459,18 +458,17 @@ export const operationalContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -780,403 +778,181 @@ export const operationalContent = {
     }
   },
   "facility-management": {
-    "eyebrow": "Facility & Yard Security",
-    "title": "Facility Management & Yard Custody",
-    "subtitle": "Asset Protection & Secure Facility Custody",
-    "description": "Providing on-site caretakers, facility security, and environmental upkeep for possessed commercial properties.",
-    "primaryCtaText": "Request Operational Briefing",
-    "secondaryCtaText": "Explore Service Standards",
-    "primaryCtaHref": "/contact",
-    "secondaryCtaHref": "#capabilities",
-    "kpiCards": [
-      {
-        "icon": "building",
-        "title": "Regional Office Network",
-        "value": "19 Offices"
-      },
-      {
-        "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
-      },
-      {
-        "icon": "shield",
-        "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
-      },
-      {
-        "icon": "trendingUp",
-        "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
-      }
-    ],
-    "problemStatementEyebrow": "Operational Risks",
-    "problemStatementHeading": "Assets Protection Risks",
+    "eyebrow": "Possessed Property Custody",
+    "title": "Facility Management",
+    "subtitle": "Protecting Possessed Properties From Deterioration Until Auction Day",
+    "description": "Deploying guards, caretakers, and maintenance teams to preserve possessed commercial and residential properties for auction.",
+    "primaryCtaText": "Request a Facility Management Walkthrough",
+    "secondaryCtaText": "Download Custody Standards Overview",
     "problemStatement": [
-      {
-        "icon": "fileWarning",
-        "title": "Vandalism and Encroachment",
-        "desc": "Unsecured commercial properties targeted by trespassers or damaged prior to public auction."
-      },
-      {
-        "icon": "shieldAlert",
-        "title": "Compliance & Audit Exposure",
-        "desc": "Unverified field practices triggering regulatory or client audit exceptions."
-      },
-      {
-        "icon": "timer",
-        "title": "Operational Delay Gaps",
-        "desc": "Extended execution timelines due to fragmented vendor handoffs."
-      }
+      { "icon": "shieldAlert", "title": "Vandalism & Encroachment", "desc": "Unsecured possessed properties are targeted by trespassers, reducing auction value." },
+      { "icon": "trendingDown", "title": "Structural Deterioration", "desc": "Without active maintenance, possessed buildings deteriorate rapidly before sale." },
+      { "icon": "fileWarning", "title": "Utility Disconnection", "desc": "Power and water disconnections accelerate property damage and deter auction buyers." },
+      { "icon": "briefcase", "title": "Audit Documentation Gaps", "desc": "Lenders face compliance risk when property custody lacks a documented audit trail." }
     ],
     "overview": {
-      "heading": "Facility Custody: Safeguarding Possessed Real Estate",
-      "subheading": "Maintaining Value and Security of Closed Properties",
-      "summary": "Possessed factories, offices, and residential structures require active care to prevent structural deterioration and illegal encroachment. Facility Management deploys caretakers and security guards to possessed properties. We manage power connections, coordinate structural repairs, and conduct regular maintenance audits. This protective care preserves the property's resale value and ensures it remains presentable for prospective auction buyers.",
+      "heading": "Why a Possessed Property Needs Active Custody — Not Just a Lock",
+      "subheading": "Preserving Auction Value From Possession Day to Sale Day",
+      "summary": "After a lender takes symbolic or physical possession of a property under SARFAESI, the clock starts ticking. An empty, unsecured commercial or residential property deteriorates quickly — through vandalism, encroachment, utility disconnection, or structural neglect. Facility Management deploys on-site guards, caretakers, and maintenance coordinators to keep the property secure and in presentable condition from possession day through to auction. SM Associates manages this across Tamil Nadu, Kerala, Karnataka, Telangana, Andhra Pradesh, and Puducherry from 19 branch offices.",
       "outcomes": [
-        {
-          "title": "Geotagged Evidence Logs",
-          "desc": "Timestamped GPS coordinates and audit photos.",
-          "value": "Auditable Records"
-        },
-        {
-          "title": "Structured Escalation",
-          "desc": "Defined operational triggers for legal or field action.",
-          "value": "Workflow Control"
-        }
+        { "title": "Preserved Auction Value", "desc": "Active maintenance prevents structural deterioration between possession and sale." },
+        { "title": "Encroachment Prevention", "desc": "On-site presence deters unauthorized entry and trespassers." },
+        { "title": "Documented Custody Trail", "desc": "Every inspection and incident is logged for lender audit and legal defense." }
       ],
       "useCases": [
-        {
-          "title": "Banking Portfolio Operations",
-          "desc": "Supporting commercial and retail bank portfolios."
-        },
-        {
-          "title": "NBFC Field Management",
-          "desc": "Managing decentralized branch field queues."
-        }
+        { "title": "Possessed Commercial Properties", "desc": "Factories, offices, and shops secured under SARFAESI enforcement." },
+        { "title": "Residential Properties Under Possession", "desc": "Homes and apartments kept secure and maintained ahead of E-auction." },
+        { "title": "Multi-Property Portfolio Custody", "desc": "Managing simultaneous custody across a lender's possessed portfolio." }
       ]
     },
-    "capabilitiesHeading": "Service Focus Areas",
+    "kpiCards": [
+      { "icon": "mapPinned", "title": "Branch Coverage", "value": "[DRAFT]" },
+      { "icon": "shieldCheck", "title": "Properties Under Active Custody", "value": "[DRAFT]" },
+      { "icon": "clipboardCheck", "title": "Inspection Compliance Rate", "value": "[DRAFT]" },
+      { "icon": "timer", "title": "Avg. Custody-to-Auction Turnaround", "value": "[DRAFT]" }
+    ],
     "capabilities": [
-      {
-        "title": "Yard Custody & Perimeter Security",
-        "desc": "24/7 guard shifts and CCTV telemetry monitoring.",
-        "bullets": [
-          "24/7 security guard presence",
-          "CCTV telemetry logs",
-          "Detailed inventory inflow audits"
-        ],
-        "businessOutcome": "Protects institutional asset quality and compliance standards."
-      }
+      { "title": "On-Site Guard Deployment", "desc": "Placing trained security personnel at possessed properties on defined shift schedules.", "bullets": ["24/7 or daytime shift options", "Guard attendance logging", "Incident reporting protocol"], "businessOutcome": "Prevents unauthorized access and vandalism at the property." },
+      { "title": "Caretaker & Housekeeping Services", "desc": "Maintaining cleanliness and basic upkeep of possessed residential and commercial spaces.", "bullets": ["Regular cleaning and minor upkeep", "Pest control coordination", "Exterior maintenance visits"], "businessOutcome": "Keeps the property presentable for auction visits and valuation inspections." },
+      { "title": "Utility Connection Management", "desc": "Coordinating with power and water boards to maintain or restore utility connections.", "bullets": ["Electricity board liaison", "Water supply coordination", "Disconnection dispute follow-up"], "businessOutcome": "Prevents accelerated deterioration caused by utility disconnection." },
+      { "title": "Structural Maintenance Coordination", "desc": "Arranging minor repairs and maintenance to prevent structural deterioration.", "bullets": ["Roof and wall inspection", "Minor civil repair coordination", "Structural condition reporting"], "businessOutcome": "Protects the lender's recoverable asset value ahead of auction." },
+      { "title": "Custody Documentation & Inventory", "desc": "Logging all assets, fixtures, and condition details at possession and throughout custody.", "bullets": ["Possession-day inventory documentation", "Periodic condition inspection logs", "Photographic evidence at each visit"], "businessOutcome": "Creates a defensible audit trail for lender compliance and legal defense." },
+      { "title": "Pre-Auction Presentation", "desc": "Preparing the property for auction visits, buyer inspections, and E-auction listing.", "bullets": ["Pre-auction deep cleaning", "Condition summary for auction catalog", "Buyer inspection coordination support"], "businessOutcome": "Maximises buyer interest and auction participation." }
     ],
     "tabs": [
-      {
-        "id": "evidence-audit-trail",
-        "label": "Evidence & Audit Trail",
-        "heading": "Structured Evidence Collection & Audit-Ready Governance",
-        "overview": "Demonstrating a structured and defensible verification process aligned with institutional documentation standards.",
-        "activities": [
-          "Capture GPS-enabled field verification metrics and location coordinates",
-          "Log time-stamped visit records and photographic verification evidence",
-          "Maintain digital verification checklists and audit-ready operational records"
-        ],
-        "documents": [
-          "Digital verification checklists and field inspection dossiers",
-          "Time-stamped GPS visit logs and structured evidence files"
-        ],
-        "risks": [
-          "Unverified field documentation exceptions",
-          "Audit trail compliance gaps"
-        ],
-        "deliverable": "Audit-ready operational documentation dossier.",
-        "benefit": "Provides institutional clients with transparent, defensible verification records."
-      },
-      {
-        "id": "operational-execution",
-        "label": "Yard Security",
-        "heading": "Managing Perimeter & Yard Security",
-        "overview": "Structured execution workflows managed under strict SLA limits.",
-        "activities": [
-          "Workflow allocation",
-          "Progress auditing"
-        ],
-        "documents": [
-          "Operational reports"
-        ],
-        "risks": [
-          "Execution delays"
-        ],
-        "deliverable": "Verified execution log.",
-        "benefit": "Ensures operational transparency."
-      }
+      { "id": "intake", "label": "Property Intake", "heading": "Documenting the Property at Possession", "overview": "On possession day, the property is inspected, inventoried, and documented before custody begins.", "activities": ["Possession-day inspection", "Inventory log creation", "Condition photography"], "documents": ["Possession memo", "Inventory log", "Condition report with photographs"], "risks": ["Undocumented pre-existing damage creating liability"], "deliverable": "Possession-day condition and inventory dossier.", "benefit": "Creates a clean baseline record the lender can rely on if the property is challenged." },
+      { "id": "security", "label": "Security Deployment", "heading": "Placing Guards and Monitoring the Perimeter", "overview": "Trained guards are deployed on defined shift schedules to secure the property perimeter.", "activities": ["Guard shift scheduling", "Guard attendance tracking", "Incident log maintenance"], "documents": ["Daily guard attendance log", "Incident report"], "risks": ["Unauthorized entry while guards are off-shift"], "deliverable": "Daily security log with incident summary.", "benefit": "Prevents vandalism and encroachment that would reduce auction value." },
+      { "id": "maintenance", "label": "Maintenance", "heading": "Active Upkeep to Prevent Structural Deterioration", "overview": "Regular maintenance visits keep the property structurally sound and presentable.", "activities": ["Periodic condition inspection", "Minor repair coordination", "Utility connection management"], "documents": ["Maintenance visit log", "Repair coordination record"], "risks": ["Unchecked deterioration reducing recoverable value"], "deliverable": "Maintenance visit summary with condition status.", "benefit": "Protects the lender's recoverable value between possession and auction." },
+      { "id": "custody-docs", "label": "Custody Documentation", "heading": "Maintaining a Continuous Audit Trail", "overview": "Every inspection, maintenance visit, and incident is logged and reported to the lender.", "activities": ["Inspection log compilation", "Photo evidence filing", "Lender status reporting"], "documents": ["Periodic inspection reports", "Photographic evidence archive"], "risks": ["Compliance exposure from undocumented custody period"], "deliverable": "Periodic custody documentation report.", "benefit": "Gives the lender a defensible, timestamped record of the entire custody period." },
+      { "id": "pre-auction", "label": "Pre-Auction Prep", "heading": "Preparing the Property for Auction Visits", "overview": "Before E-auction listing or buyer inspections, the property is cleaned and a condition summary is prepared.", "activities": ["Pre-auction deep cleaning", "Condition summary preparation", "Buyer inspection scheduling support"], "documents": ["Pre-auction condition summary", "Auction catalog inputs"], "risks": ["Poor presentation reducing bidder participation"], "deliverable": "Pre-auction readiness report.", "benefit": "Maximises buyer interest and the final auction recovery value." },
+      { "id": "fm-reporting", "label": "Client Reporting", "heading": "Keeping the Lender Informed Throughout Custody", "overview": "Consolidated reporting on property condition, security incidents, and maintenance status.", "activities": ["Report compilation", "Internal quality check", "Lender submission"], "documents": [], "risks": ["Lender unaware of incidents during custody period"], "deliverable": "Periodic property custody status report.", "benefit": "Removes the need for the lender to chase property status manually." }
     ],
-    "challengesHeading": "Operational Challenges",
+    "challengesHeading": "Enterprise Facility Management Risks",
     "challenges": [
-      {
-        "title": "Vandalism and Encroachment",
-        "desc": "Unsecured commercial properties targeted by trespassers or damaged prior to public auction.",
-        "warningBadge": "OPERATIONAL RISK",
-        "impact": "SM Associates Operational Approach: Structured coordinator dispatch and audit-ready documentation custody."
-      }
+      { "title": "Vandalism & Trespass", "desc": "Unsecured properties attract trespassers and vandals, reducing recoverable value before auction.", "warningBadge": "Security Risk", "impact": "Lower auction realization from damaged or occupied properties." },
+      { "title": "Structural Deterioration", "desc": "Without active maintenance, possessed properties deteriorate rapidly between possession and sale.", "warningBadge": "Asset Risk", "impact": "Reduced auction bid values from visibly distressed properties." },
+      { "title": "Utility Disconnection", "desc": "Power and water disconnections accelerate damage and make buyer inspections impractical.", "warningBadge": "Maintenance Risk", "impact": "Properties without utilities are harder to present to auction buyers." },
+      { "title": "Unauthorized Occupation", "desc": "Occupied or squatted properties require eviction proceedings before auction can proceed.", "warningBadge": "Legal Risk", "impact": "Eviction delays push back auction timelines and increase holding costs." },
+      { "title": "Documentation Gaps", "desc": "Custody periods without a documented audit trail create compliance and legal exposure for the lender.", "warningBadge": "Compliance Risk", "impact": "Undocumented custody periods are vulnerable to challenge in court or audit." },
+      { "title": "Multi-Property Coordination", "desc": "Managing simultaneous custody across large possessed portfolios without a central tracking system.", "warningBadge": "Operational Risk", "impact": "Properties slip through inspection schedules without systematic tracking." }
     ],
     "processFlow": {
-      "title": "Service Engagement Journey",
-      "desc": "Milestone-tracked operational workflow.",
+      "title": "Facility Management Lifecycle",
+      "desc": "A structured custody model from possession day to auction handoff.",
       "steps": [
-        {
-          "step": "01",
-          "title": "Assessment",
-          "desc": "File intake",
-          "outcome": "Dossier ready"
-        },
-        {
-          "step": "02",
-          "title": "Planning",
-          "desc": "Resource allocation",
-          "outcome": "SOP locked"
-        },
-        {
-          "step": "03",
-          "title": "Deployment",
-          "desc": "Ground execution",
-          "outcome": "Metrics logged"
-        },
-        {
-          "step": "04",
-          "title": "Monitoring",
-          "desc": "Quality control",
-          "outcome": "Audit verified"
-        },
-        {
-          "step": "05",
-          "title": "Continuous Improvement",
-          "desc": "Ledger upload",
-          "outcome": "Service complete"
-        }
+        { "step": "01", "title": "Property Intake", "desc": "Possession-day inspection, inventory log, and condition photography.", "outcome": "Documented baseline for the entire custody period." },
+        { "step": "02", "title": "Security Deployment", "desc": "Guards placed on shift schedules with daily attendance logging.", "outcome": "Active perimeter security from day one of custody." },
+        { "step": "03", "title": "Active Custody & Maintenance", "desc": "Periodic inspections, minor repairs, and utility management.", "outcome": "Property maintained in auction-ready condition." },
+        { "step": "04", "title": "Incident Management", "desc": "Any trespass, damage, or utility event is logged and escalated.", "outcome": "Incidents contained and documented before they worsen." },
+        { "step": "05", "title": "Pre-Auction Handoff", "desc": "Property cleaned, condition-summarized, and handed off for auction.", "outcome": "Auction-ready property with a complete custody dossier." }
       ]
     },
-    "outcomesHeading": "Strategic Outcomes",
+    "outcomesHeading": "Enterprise Business Outcomes",
     "outcomes": [
-      {
-        "title": "Operational Efficiency",
-        "desc": "Improved execution speed and audit compliance.",
-        "value": "Audit Compliant"
-      }
+      { "title": "Preserved Auction Recovery", "desc": "Active custody prevents deterioration that would reduce the final auction bid.", "value": "Higher recoverable value from well-maintained possessed assets." },
+      { "title": "Encroachment Prevention", "desc": "On-site security deters unauthorized entry from possession day onwards.", "value": "No encroachment incidents during the custody period." },
+      { "title": "Compliance Documentation", "desc": "Every visit, incident, and maintenance action is logged for lender audit.", "value": "A defensible custody trail covering the entire possession period." },
+      { "title": "Reduced Lender Overhead", "desc": "SM Associates manages the full custody operation without requiring lender-side coordination.", "value": "Single-point accountability for the entire custody period." },
+      { "title": "Faster Auction Readiness", "desc": "Pre-auction preparation means properties go to market in presentable condition.", "value": "Shorter time from possession to auction listing." },
+      { "title": "Multi-State Portfolio Coverage", "desc": "19 branches across 6 states support simultaneous custody across geographies.", "value": "No gap in custody coverage across a lender's south India portfolio." }
     ],
     "faqs": [
-      {
-        "q": "How does SM Associates ensure compliance during field operations?",
-        "a": "All operations are conducted by IIBF DRA-certified coordinators operating under strict statutory calling windows and recorded VoIP infrastructure."
-      },
-      {
-        "q": "What is the typical SLA turnaround for field assignments?",
-        "a": "We deliver geotagged verification and field status reports within 24 to 48 hours of assignment allocation."
-      }
+      { "q": "What types of property does SM Associates manage under Facility Management?", "a": "We manage possessed commercial properties (factories, offices, shops) and residential properties (apartments, houses) — any real estate taken into lender custody under SARFAESI." },
+      { "q": "How is custody documented for lender compliance?", "a": "Every inspection, maintenance visit, and security incident is logged with timestamps and photographs, and compiled into a periodic custody report submitted to the lender." }
     ],
     "cta": {
-      "heading": "Schedule an Operational Briefing",
-      "subheading": "Connect with our service desk to review our empanelment packs and operational SLAs.",
+      "heading": "Protect Your Possessed Properties From Possession Day to Auction",
+      "subheading": "Request a facility management walkthrough for your active possession portfolio.",
       "buttonText": "Request Empanelment Proposal",
       "href": "/contact"
     }
   },
   "liaising": {
-    "eyebrow": "Government & Legal Liaison",
-    "title": "Government & Institutional Liaising",
-    "subtitle": "Local Authority Coordination Operations",
-    "description": "Coordinating with district administrations, police departments, and municipal authorities to support physical possessions.",
-    "primaryCtaText": "Request Operational Briefing",
-    "secondaryCtaText": "Explore Service Standards",
-    "primaryCtaHref": "/contact",
-    "secondaryCtaHref": "#capabilities",
-    "kpiCards": [
-      {
-        "icon": "building",
-        "title": "Regional Office Network",
-        "value": "19 Offices"
-      },
-      {
-        "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
-      },
-      {
-        "icon": "shield",
-        "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
-      },
-      {
-        "icon": "trendingUp",
-        "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
-      }
-    ],
-    "problemStatementEyebrow": "Operational Risks",
-    "problemStatementHeading": "Regulatory Interoperability Risks",
+    "eyebrow": "Government & Regulatory Liaison",
+    "title": "Liaising Services",
+    "subtitle": "Managing Every Government Interface So Enforcement Actions Actually Execute",
+    "description": "Coordinating with district magistrates, police, RTO, and municipal bodies to support SARFAESI possession, eviction, and vehicle repossession operations.",
+    "primaryCtaText": "Request a Liaising Services Walkthrough",
+    "secondaryCtaText": "Download Authority Coordination Overview",
     "problemStatement": [
-      {
-        "icon": "fileWarning",
-        "title": "Authority Filing Delays",
-        "desc": "Misalignment with local municipal offices delaying property possessions or vehicle repossessions."
-      },
-      {
-        "icon": "shieldAlert",
-        "title": "Compliance & Audit Exposure",
-        "desc": "Unverified field practices triggering regulatory or client audit exceptions."
-      },
-      {
-        "icon": "timer",
-        "title": "Operational Delay Gaps",
-        "desc": "Extended execution timelines due to fragmented vendor handoffs."
-      }
+      { "icon": "timer", "title": "Delayed Magistrate Approvals", "desc": "Section 14 petitions without active follow-up stall for months in overcrowded district courts." },
+      { "icon": "shieldAlert", "title": "Police Non-Cooperation", "desc": "Physical possession operations without prior police coordination carry confrontation and safety risk." },
+      { "icon": "fileWarning", "title": "RTO Process Delays", "desc": "Vehicle repossession without RTO declaration leaves the lender legally exposed on ownership transfer." },
+      { "icon": "briefcase", "title": "Multi-Authority Complexity", "desc": "Coordinating simultaneously with DM, police, RTO, and municipal bodies without local relationships causes cascading delays." }
     ],
     "overview": {
-      "heading": "Liaison Operations: Navigating Local Regulatory Protocols",
-      "subheading": "Securing Public Support for Lawful Asset Possessions",
-      "summary": "Physical possessions and eviction operations under Section 14 of the SARFAESI Act require close coordination with district magistrates and local police. Liaising manages this administrative interface. We prepare petitions, coordinate scheduling, secure necessary police escorts, and coordinate public notices. By managing these administrative relationships, we ensure enforcement actions proceed safely and in full alignment with local administrative protocols.",
+      "heading": "Why Enforcement Actions Stall — and How Active Liaising Fixes That",
+      "subheading": "The Administrative Interface Between Lender Orders and Ground-Level Execution",
+      "summary": "Physical possession under SARFAESI Section 14, eviction of occupants, and vehicle repossession all require coordination with government authorities who have no obligation to respond quickly without active follow-up. Liaising Services manages this entire interface — preparing and tracking Section 14 petitions, securing police escort coordination, managing RTO declarations for vehicle repossessions, and coordinating with municipal bodies for public notice requirements. SM Associates' 19-branch network across Tamil Nadu, Kerala, Karnataka, Telangana, Andhra Pradesh, and Puducherry gives us established working relationships with local authorities in each jurisdiction.",
       "outcomes": [
-        {
-          "title": "Geotagged Evidence Logs",
-          "desc": "Timestamped GPS coordinates and audit photos.",
-          "value": "Auditable Records"
-        },
-        {
-          "title": "Structured Escalation",
-          "desc": "Defined operational triggers for legal or field action.",
-          "value": "Workflow Control"
-        }
+        { "title": "Faster Possession Execution", "desc": "Active petition tracking and authority follow-up reduces statutory approval delays." },
+        { "title": "Safer Field Operations", "desc": "Pre-coordinated police presence prevents confrontation at possession sites." },
+        { "title": "Clean Ownership Transfer", "desc": "RTO declarations and documentation ensure vehicles are legally repossessed." }
       ],
       "useCases": [
-        {
-          "title": "Banking Portfolio Operations",
-          "desc": "Supporting commercial and retail bank portfolios."
-        },
-        {
-          "title": "NBFC Field Management",
-          "desc": "Managing decentralized branch field queues."
-        }
+        { "title": "SARFAESI Section 14 Petitions", "desc": "Filing and tracking DM or CJM petitions for physical possession orders." },
+        { "title": "Vehicle Repossession Declarations", "desc": "RTO liaison to complete legal repossession documentation for auto loans." },
+        { "title": "Eviction Support Coordination", "desc": "Police escort and municipal coordination for occupied property evictions." }
       ]
     },
-    "capabilitiesHeading": "Service Focus Areas",
+    "kpiCards": [
+      { "icon": "mapPinned", "title": "Jurisdictions Covered", "value": "[DRAFT]" },
+      { "icon": "clipboardCheck", "title": "Petitions Filed & Tracked", "value": "[DRAFT]" },
+      { "icon": "timer", "title": "Avg. Section 14 Follow-Up Cycle", "value": "[DRAFT]" },
+      { "icon": "shieldCheck", "title": "Police Escort Coordination Rate", "value": "[DRAFT]" }
+    ],
     "capabilities": [
-      {
-        "title": "Authority & Police Coordination",
-        "desc": "Direct liaising for magistrate warrants execution.",
-        "bullets": [
-          "CJM court petition filings",
-          "Police assistance coordination",
-          "RTO repossession declarations"
-        ],
-        "businessOutcome": "Protects institutional asset quality and compliance standards."
-      }
+      { "title": "Section 14 Petition Filing & Tracking", "desc": "Preparing and actively following up DM/CJM petitions for physical possession orders.", "bullets": ["Petition drafting and court submission", "Hearing date tracking and follow-up", "Order copy collection and client submission"], "businessOutcome": "Moves possession orders through the court system without losing momentum." },
+      { "title": "Police Escort Coordination", "desc": "Coordinating police presence for physical possession and eviction operations.", "bullets": ["Local police station liaison", "Escort scheduling for possession day", "Post-possession incident documentation"], "businessOutcome": "Prevents confrontation at possession sites and ensures safety of field teams." },
+      { "title": "RTO Liaison for Vehicle Repossession", "desc": "Managing RTO declarations, forms, and ownership documentation for repossessed vehicles.", "bullets": ["RTO Form 35 and seizure declaration filing", "Hypothecation termination follow-up", "RC transfer coordination"], "businessOutcome": "Completes the legal transfer of vehicle custody to the lender without title exposure." },
+      { "title": "Municipal Body Coordination", "desc": "Coordinating with municipal authorities for public notice requirements and local permissions.", "bullets": ["Public auction notice filings", "Municipal NOC coordination", "Local authority permission management"], "businessOutcome": "Ensures auction and eviction processes are compliant with local municipal requirements." },
+      { "title": "DRT & Court Interface", "desc": "Liaising with Debt Recovery Tribunals and district courts for filing and hearing tracking.", "bullets": ["DRT application submission", "Hearing schedule tracking", "Recovery certificate follow-up"], "businessOutcome": "Keeps DRT and court-based recovery actions on an active track." },
+      { "title": "Liaison Documentation & Reporting", "desc": "Maintaining a documented record of every authority interaction and submission.", "bullets": ["Petition and filing copies", "Correspondence logs with authorities", "Client status reports"], "businessOutcome": "Gives the lender a clear, auditable record of every government interface." }
     ],
     "tabs": [
-      {
-        "id": "evidence-audit-trail",
-        "label": "Evidence & Audit Trail",
-        "heading": "Structured Evidence Collection & Audit-Ready Governance",
-        "overview": "Demonstrating a structured and defensible verification process aligned with institutional documentation standards.",
-        "activities": [
-          "Capture GPS-enabled field verification metrics and location coordinates",
-          "Log time-stamped visit records and photographic verification evidence",
-          "Maintain digital verification checklists and audit-ready operational records"
-        ],
-        "documents": [
-          "Digital verification checklists and field inspection dossiers",
-          "Time-stamped GPS visit logs and structured evidence files"
-        ],
-        "risks": [
-          "Unverified field documentation exceptions",
-          "Audit trail compliance gaps"
-        ],
-        "deliverable": "Audit-ready operational documentation dossier.",
-        "benefit": "Provides institutional clients with transparent, defensible verification records."
-      },
-      {
-        "id": "operational-execution",
-        "label": "Institutional Liaison",
-        "heading": "Managing Municipal & Legal Handoffs",
-        "overview": "Structured execution workflows managed under strict SLA limits.",
-        "activities": [
-          "Workflow allocation",
-          "Progress auditing"
-        ],
-        "documents": [
-          "Operational reports"
-        ],
-        "risks": [
-          "Execution delays"
-        ],
-        "deliverable": "Verified execution log.",
-        "benefit": "Ensures operational transparency."
-      }
+      { "id": "sec14-petition", "label": "Section 14 Petition", "heading": "Filing and Tracking the DM/CJM Possession Order", "overview": "The Section 14 petition under SARFAESI is prepared, filed with the district magistrate or CJM, and actively tracked through hearings to the final order.", "activities": ["Petition drafting", "Court submission", "Hearing date tracking", "Order collection"], "documents": ["Section 14 petition draft", "Bank authorization letter", "Property possession notice copies"], "risks": ["Petition stalling without active follow-up in overcrowded court calendars"], "deliverable": "Section 14 order copy for the lender's enforcement file.", "benefit": "Converts a pending petition into an active order without the lender managing the court calendar." },
+      { "id": "police-escort", "label": "Police Escort", "heading": "Coordinating Police Presence for Physical Possession", "overview": "Local police stations are contacted and police escort is arranged for possession day — preventing confrontation and ensuring the operation proceeds safely.", "activities": ["Local station liaison", "Escort scheduling", "Possession day coordination", "Post-possession incident log"], "documents": ["Police assistance request", "Escort coordination record"], "risks": ["Possession operations without police presence creating confrontation risk"], "deliverable": "Police escort confirmation and possession day incident log.", "benefit": "Ensures field team safety and gives the possession operation official backing." },
+      { "id": "rto-liaison", "label": "RTO Liaison", "heading": "Managing Vehicle Repossession Documentation at the RTO", "overview": "Form 35, seizure declarations, and RC transfer documentation are filed and tracked with the RTO to complete legal vehicle repossession.", "activities": ["Form 35 filing", "Seizure declaration submission", "Hypothecation termination follow-up", "RC transfer coordination"], "documents": ["RTO Form 35", "Seizure intimation letter", "Hypothecation termination certificate"], "risks": ["Vehicles repossessed without RTO declaration leaving ownership status unresolved"], "deliverable": "RTO-acknowledged repossession documentation set.", "benefit": "Fully resolves the legal ownership of the repossessed vehicle for the lender." },
+      { "id": "municipal", "label": "Municipal Coordination", "heading": "Managing Local Authority Permissions and Public Notices", "overview": "Public auction notices, local permissions, and municipal NOCs are coordinated with the relevant municipal bodies.", "activities": ["Public notice filing", "Municipal NOC coordination", "Local permission management"], "documents": ["Public auction notice copy", "Municipal NOC"], "risks": ["Auction or eviction operations challenged for non-compliance with local municipal rules"], "deliverable": "Municipal compliance documentation set.", "benefit": "Ensures enforcement operations cannot be challenged on procedural grounds at the local level." },
+      { "id": "drt-interface", "label": "DRT Interface", "heading": "Filing and Tracking Debt Recovery Tribunal Applications", "overview": "DRT applications are prepared, filed, and tracked through hearing schedules to recovery certificates.", "activities": ["DRT application submission", "Hearing schedule tracking", "Recovery certificate follow-up"], "documents": ["DRT application", "Recovery certificate copy"], "risks": ["DRT cases stalling without active hearing follow-up"], "deliverable": "DRT status update and recovery certificate when issued.", "benefit": "Keeps court-based recovery actions moving rather than lapsing into inactivity." },
+      { "id": "liaison-report", "label": "Status Reporting", "heading": "Giving the Lender a Clear View of Every Authority Interface", "overview": "Consolidated reporting on petition status, escort scheduling, RTO filings, and DRT hearings across all active matters.", "activities": ["Report compilation", "Internal quality check", "Lender submission"], "documents": [], "risks": ["Lender unaware of delays or stalled matters across multiple authorities"], "deliverable": "Liaison status report covering all active authority interfaces.", "benefit": "Single-window visibility into every government interaction without the lender managing each individually." }
     ],
-    "challengesHeading": "Operational Challenges",
+    "challengesHeading": "Enterprise Liaising Risks",
     "challenges": [
-      {
-        "title": "Authority Filing Delays",
-        "desc": "Misalignment with local municipal offices delaying property possessions or vehicle repossessions.",
-        "warningBadge": "OPERATIONAL RISK",
-        "impact": "SM Associates Operational Approach: Structured coordinator dispatch and audit-ready documentation custody."
-      }
+      { "title": "Delayed Magistrate Approvals", "desc": "Section 14 petitions without active follow-up stall for months in overcrowded district court calendars.", "warningBadge": "Timeline Risk", "impact": "Possession operations delayed while the property continues to deteriorate." },
+      { "title": "Police Non-Cooperation", "desc": "Physical possession without pre-coordinated police presence carries confrontation and legal risk.", "warningBadge": "Safety Risk", "impact": "Possession operations abandoned or escalated without police backing." },
+      { "title": "RTO Documentation Gaps", "desc": "Vehicle repossession without RTO declaration leaves ownership status legally unresolved.", "warningBadge": "Legal Risk", "impact": "Lender title exposure on repossessed vehicles without completed RTO documentation." },
+      { "title": "Multi-Authority Coordination Failures", "desc": "Managing DM, police, RTO, and municipal bodies simultaneously without local relationships causes cascading delays.", "warningBadge": "Coordination Risk", "impact": "Enforcement operations that require multiple approvals stall at the first bottleneck." },
+      { "title": "Jurisdiction-Specific Complexity", "desc": "Each district and state has different filing requirements, court procedures, and authority contacts.", "warningBadge": "Knowledge Risk", "impact": "Petitions or filings rejected for non-compliance with local procedural requirements." },
+      { "title": "Documentation Compliance Gaps", "desc": "Enforcement actions without a documented liaison trail create compliance exposure for the lender.", "warningBadge": "Compliance Risk", "impact": "Authority interactions that can't be evidenced in audit or court challenge." }
     ],
     "processFlow": {
-      "title": "Service Engagement Journey",
-      "desc": "Milestone-tracked operational workflow.",
+      "title": "Liaising Services Lifecycle",
+      "desc": "A structured authority coordination model from petition filing to possession execution.",
       "steps": [
-        {
-          "step": "01",
-          "title": "Assessment",
-          "desc": "File intake",
-          "outcome": "Dossier ready"
-        },
-        {
-          "step": "02",
-          "title": "Planning",
-          "desc": "Resource allocation",
-          "outcome": "SOP locked"
-        },
-        {
-          "step": "03",
-          "title": "Deployment",
-          "desc": "Ground execution",
-          "outcome": "Metrics logged"
-        },
-        {
-          "step": "04",
-          "title": "Monitoring",
-          "desc": "Quality control",
-          "outcome": "Audit verified"
-        },
-        {
-          "step": "05",
-          "title": "Continuous Improvement",
-          "desc": "Ledger upload",
-          "outcome": "Service complete"
-        }
+        { "step": "01", "title": "Matter Intake & Authority Mapping", "desc": "The enforcement action is reviewed and the relevant authorities (DM, police, RTO, municipal) are mapped for each jurisdiction.", "outcome": "A clear authority coordination plan for the enforcement action." },
+        { "step": "02", "title": "Petition Filing & Initial Coordination", "desc": "Section 14 petitions, RTO declarations, or DRT applications are drafted and filed.", "outcome": "Filings submitted with correct documentation to the right authority." },
+        { "step": "03", "title": "Active Follow-Up & Hearing Tracking", "desc": "Each pending matter is actively tracked — court calendars monitored, hearing dates logged, and authority delays escalated.", "outcome": "No petition or filing sitting dormant without follow-up." },
+        { "step": "04", "title": "Possession Day Coordination", "desc": "Police escort is confirmed, possession timing is coordinated, and the field team is briefed.", "outcome": "A safe, coordinated possession operation with all parties aligned." },
+        { "step": "05", "title": "Post-Possession Documentation", "desc": "Order copies, escort records, RTO acknowledgements, and incident logs are compiled and submitted to the lender.", "outcome": "A complete, auditable liaison record for the enforcement action." }
       ]
     },
-    "outcomesHeading": "Strategic Outcomes",
+    "outcomesHeading": "Enterprise Business Outcomes",
     "outcomes": [
-      {
-        "title": "Operational Efficiency",
-        "desc": "Improved execution speed and audit compliance.",
-        "value": "Audit Compliant"
-      }
+      { "title": "Faster Possession Execution", "desc": "Active petition tracking and authority follow-up reduces delays in statutory approvals.", "value": "Shorter gap between court order and physical possession execution." },
+      { "title": "Safer Field Operations", "desc": "Pre-coordinated police presence prevents confrontation at possession sites.", "value": "Field teams operate with official backing and reduced safety risk." },
+      { "title": "Clean Legal Ownership Transfer", "desc": "RTO declarations and documentation complete the legal transfer of repossessed vehicles.", "value": "No title exposure on vehicles repossessed without completed RTO documentation." },
+      { "title": "Reduced Lender Coordination Burden", "desc": "SM Associates manages every authority interface without requiring lender-side coordination.", "value": "Single-point accountability for all government liaison across enforcement actions." },
+      { "title": "Multi-Jurisdiction Coverage", "desc": "19 branches across 6 states give SM Associates local relationships with authorities in each district.", "value": "No gap in liaison coverage across south India enforcement operations." },
+      { "title": "Documented Audit Trail", "desc": "Every petition, filing, correspondence, and coordination is documented and submitted to the lender.", "value": "A complete, defensible record of every authority interaction for audit or legal use." }
     ],
     "faqs": [
-      {
-        "q": "How does SM Associates ensure compliance during field operations?",
-        "a": "All operations are conducted by IIBF DRA-certified coordinators operating under strict statutory calling windows and recorded VoIP infrastructure."
-      },
-      {
-        "q": "What is the typical SLA turnaround for field assignments?",
-        "a": "We deliver geotagged verification and field status reports within 24 to 48 hours of assignment allocation."
-      }
+      { "q": "Which states does SM Associates cover for liaising services?", "a": "We coordinate with authorities across Tamil Nadu, Kerala, Karnataka, Telangana, Andhra Pradesh, and Puducherry through 19 branch offices — each with established local authority contacts." },
+      { "q": "Does SM Associates handle both SARFAESI Section 14 and vehicle RTO liaison?", "a": "Yes — we manage Section 14 DM/CJM petitions for property possession and RTO Form 35 filings and RC transfer coordination for vehicle repossession in the same engagement." }
     ],
     "cta": {
-      "heading": "Schedule an Operational Briefing",
-      "subheading": "Connect with our service desk to review our empanelment packs and operational SLAs.",
+      "heading": "Stop Letting Authority Delays Stall Your Enforcement Operations",
+      "subheading": "Request a liaising services walkthrough for your active SARFAESI or repossession portfolio.",
       "buttonText": "Request Empanelment Proposal",
       "href": "/contact"
     }

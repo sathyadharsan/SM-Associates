@@ -1,4 +1,4 @@
-export const assetContent = {
+﻿export const assetContent = {
   "valuation-services": {
     "eyebrow": "Independent Asset Valuation",
     "title": "Valuation Services",
@@ -69,18 +69,17 @@ export const assetContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -459,18 +458,17 @@ export const assetContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -849,18 +847,17 @@ export const assetContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -1172,202 +1169,91 @@ export const assetContent = {
     }
   },
   "asset-tracing": {
-    "eyebrow": "Collateral Location Tracking",
-    "title": "Commercial & Vehicle Asset Tracing",
-    "subtitle": "Collateral Mapping & Asset Identification",
-    "description": "Locating unlisted or hidden borrower assets through local intelligence, registries, and field investigations to back litigation.",
-    "primaryCtaText": "Request Operational Briefing",
-    "secondaryCtaText": "Explore Service Standards",
-    "primaryCtaHref": "/contact",
-    "secondaryCtaHref": "#capabilities",
-    "kpiCards": [
-      {
-        "icon": "building",
-        "title": "Regional Office Network",
-        "value": "19 Offices"
-      },
-      {
-        "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
-      },
-      {
-        "icon": "shield",
-        "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
-      },
-      {
-        "icon": "trendingUp",
-        "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
-      }
-    ],
-    "problemStatementEyebrow": "Operational Risks",
-    "problemStatementHeading": "Collateral Visibility Risks",
+    "eyebrow": "Collateral Location Intelligence",
+    "title": "Asset Tracing",
+    "subtitle": "Locating Hidden and Relocated Borrower Assets to Back Enforcement and Litigation",
+    "description": "Field and registry-based asset tracing — mapping borrower properties, vehicles, equipment, and commercial assets to give legal teams the intelligence needed for attachment orders and recovery action.",
+    "primaryCtaText": "Request an Asset Tracing Walkthrough",
+    "secondaryCtaText": "Download Collateral Investigation Standards",
     "problemStatement": [
-      {
-        "icon": "fileWarning",
-        "title": "Asset Relocation & Concealment",
-        "desc": "Commercial fleet vehicles or tractors moved across state lines to avoid repossession notices."
-      },
-      {
-        "icon": "shieldAlert",
-        "title": "Compliance & Audit Exposure",
-        "desc": "Unverified field practices triggering regulatory or client audit exceptions."
-      },
-      {
-        "icon": "timer",
-        "title": "Operational Delay Gaps",
-        "desc": "Extended execution timelines due to fragmented vendor handoffs."
-      }
+      { "icon": "mapPin", "title": "Concealed and Transferred Assets", "desc": "Defaulted borrowers transferring properties or equipment to family members or shell entities to place them beyond the lender's recovery reach." },
+      { "icon": "fileWarning", "title": "Vehicles Relocated Across States", "desc": "Commercial vehicles, tractors, and two-wheelers moved across state lines to avoid RTO tracing and repossession." },
+      { "icon": "shieldAlert", "title": "Undisclosed Property Holdings", "desc": "Borrowers with undisclosed properties or alternative assets that weren't declared at loan origination — missed without active investigation." },
+      { "icon": "trendingDown", "title": "Litigation Without Asset Intelligence", "desc": "Legal teams filing attachment petitions without verified asset locations get court orders they can't execute." }
     ],
     "overview": {
-      "heading": "Collateral Intelligence: Sourcing Recoverable Assets",
-      "subheading": "Mitigating Recovery Gaps via Asset Mapping",
-      "summary": "When high-value accounts default, borrowers frequently conceal or transfer assets to evade recovery. Asset Tracing identifies recoverable collateral to back court complaints and execution petitions. SM Associates combines local field intelligence, neighbor inquiries, and land registry searches to map borrower properties, factories, and vehicles. This intelligence provides legal teams and ARCs with the evidentiary grounding needed to obtain attachment orders, ensuring litigation leads to tangible recovery.",
+      "heading": "Why Enforcement Stalls Without Asset Intelligence — and How Tracing Fixes That",
+      "subheading": "Converting Unknown Asset Positions Into Verified, Executable Recovery Targets",
+      "summary": "Court attachment orders and SARFAESI enforcement are only as effective as the asset intelligence behind them. When a borrower defaults on a high-value account, assets are frequently concealed, transferred, or relocated before enforcement teams can act. Asset Tracing maps recoverable collateral through land registry cross-checks, RTO vehicle searches, local field intelligence, and neighborhood inquiry. The result is a verified asset dossier that gives legal teams the exact coordinates, ownership status, and custody evidence needed to obtain and execute attachment orders.",
       "outcomes": [
-        {
-          "title": "Geotagged Evidence Logs",
-          "desc": "Timestamped GPS coordinates and audit photos.",
-          "value": "Auditable Records"
-        },
-        {
-          "title": "Structured Escalation",
-          "desc": "Defined operational triggers for legal or field action.",
-          "value": "Workflow Control"
-        }
+        { "title": "Verified Asset Locations", "desc": "Confirmed physical coordinates and custody status for each identified asset." },
+        { "title": "Litigation-Ready Intelligence", "desc": "Asset evidence compiled in a format legal teams can attach to court petitions." },
+        { "title": "Concealment Detection", "desc": "Transferred or hidden assets surfaced through registry cross-checks and local inquiry." }
       ],
       "useCases": [
-        {
-          "title": "Banking Portfolio Operations",
-          "desc": "Supporting commercial and retail bank portfolios."
-        },
-        {
-          "title": "NBFC Field Management",
-          "desc": "Managing decentralized branch field queues."
-        }
+        { "title": "Pre-Attachment Order Asset Mapping", "desc": "Mapping borrower assets before filing attachment petition with DRT or civil court." },
+        { "title": "Vehicle Location Tracing", "desc": "Locating commercial vehicles and two-wheelers relocated to avoid repossession." },
+        { "title": "ARC Portfolio Asset Intelligence", "desc": "Mapping recoverable assets across acquired stressed portfolios for enforcement planning." }
       ]
     },
-    "capabilitiesHeading": "Service Focus Areas",
+    "kpiCards": [
+      { "icon": "mapPinned", "title": "Assets Located & Verified", "value": "[DRAFT]" },
+      { "icon": "timer", "title": "Avg. Asset Trace TAT", "value": "[DRAFT]" },
+      { "icon": "building", "title": "States Covered", "value": "[DRAFT]" },
+      { "icon": "shieldCheck", "title": "Attachment-Ready Dossiers", "value": "[DRAFT]" }
+    ],
     "capabilities": [
-      {
-        "title": "Commercial Collateral Tracking",
-        "desc": "Locating high-value equipment and commercial vehicles.",
-        "bullets": [
-          "RTO registration cross-checking",
-          "Local informant network tracing",
-          "Geotagged site coordinate verification"
-        ],
-        "businessOutcome": "Protects institutional asset quality and compliance standards."
-      }
+      { "title": "Property Registry Search", "desc": "Cross-checking land and property registry records for borrower-owned or recently transferred properties.", "bullets": ["Sub-registrar office record search", "Recent transfer and encumbrance check", "Benami or related-party transfer detection"], "businessOutcome": "Surfaces both declared and undisclosed property holdings the borrower may not have mentioned." },
+      { "title": "Vehicle & RTO Tracing", "desc": "Locating registered vehicles through RTO records and ground informant networks.", "bullets": ["RTO registration cross-check by owner name", "Alternate state RTO query for relocated vehicles", "Local informant network for vehicle sighting"], "businessOutcome": "Tracks relocated commercial vehicles and two-wheelers across state lines." },
+      { "title": "Commercial Equipment Tracing", "desc": "Locating plant, machinery, and commercial equipment at current operational locations.", "bullets": ["On-site factory and yard investigation", "Equipment serial number and registration cross-check", "Local knowledge network for equipment movement"], "businessOutcome": "Identifies commercial assets at their actual operating location, not the declared loan address." },
+      { "title": "Registry & MCA Cross-Check", "desc": "Checking corporate registry and MCA filings for business assets and directorship interests.", "bullets": ["MCA director and company cross-check", "GST registration and business address verification", "Related-entity asset mapping"], "businessOutcome": "Surfaces business assets and interests the borrower holds through related companies." },
+      { "title": "Geotagged Asset Confirmation", "desc": "Providing GPS coordinates and photographic evidence of located assets.", "bullets": ["GPS coordinate capture at asset location", "Photographic evidence log", "Custody status observation at time of visit"], "businessOutcome": "Gives legal teams court-admissible location evidence for attachment petition support." },
+      { "title": "Asset Intelligence Dossier", "desc": "Compiling all located assets into a structured dossier for legal team use.", "bullets": ["Per-asset location, ownership status, and custody notes", "Registry evidence and photo documentation", "Risk-priority classification of recoverable assets"], "businessOutcome": "Delivers a single, litigation-ready document covering all identified assets." }
     ],
     "tabs": [
-      {
-        "id": "evidence-audit-trail",
-        "label": "Evidence & Audit Trail",
-        "heading": "Structured Evidence Collection & Audit-Ready Governance",
-        "overview": "Demonstrating a structured and defensible verification process aligned with institutional documentation standards.",
-        "activities": [
-          "Capture GPS-enabled field verification metrics and location coordinates",
-          "Log time-stamped visit records and photographic verification evidence",
-          "Maintain digital verification checklists and audit-ready operational records"
-        ],
-        "documents": [
-          "Digital verification checklists and field inspection dossiers",
-          "Time-stamped GPS visit logs and structured evidence files"
-        ],
-        "risks": [
-          "Unverified field documentation exceptions",
-          "Audit trail compliance gaps"
-        ],
-        "deliverable": "Audit-ready operational documentation dossier.",
-        "benefit": "Provides institutional clients with transparent, defensible verification records."
-      },
-      {
-        "id": "operational-execution",
-        "label": "Asset Tracing",
-        "heading": "Managing Collateral Visibility",
-        "overview": "Structured execution workflows managed under strict SLA limits.",
-        "activities": [
-          "Workflow allocation",
-          "Progress auditing"
-        ],
-        "documents": [
-          "Operational reports"
-        ],
-        "risks": [
-          "Execution delays"
-        ],
-        "deliverable": "Verified execution log.",
-        "benefit": "Ensures operational transparency."
-      }
+      { "id": "case-intake", "label": "Case Intake", "heading": "Scoping the Asset Search Before Field Resources Are Deployed", "overview": "The defaulted account is reviewed, known asset declarations are cross-checked, and the asset tracing scope is defined.", "activities": ["Known asset declaration review", "Registry pre-query", "Field scope definition"], "documents": ["Asset tracing scope note"], "risks": ["Missing undisclosed assets if scope is limited to declared holdings only"], "deliverable": "Active asset tracing file with confirmed search scope.", "benefit": "Ensures the investigation covers both declared and potentially undisclosed assets from the outset." },
+      { "id": "registry-search", "label": "Registry Search", "heading": "Cross-Checking Land, Vehicle, and Corporate Registries", "overview": "Property registries, RTO records, and MCA filings are queried to identify all assets associated with the borrower.", "activities": ["Land registry search", "RTO vehicle cross-check", "MCA and GST registry query"], "documents": ["Registry search leads log"], "risks": ["Recent transfers or benami registrations not showing on standard registry queries"], "deliverable": "Registry-sourced asset leads log.", "benefit": "Surfaces assets across property, vehicle, and corporate registries before field resources are committed." },
+      { "id": "field-investigation", "label": "Field Investigation", "heading": "Confirming Asset Location and Custody Status On-Site", "overview": "Field investigators visit identified locations to confirm asset presence and observe custody status.", "activities": ["On-site asset location visit", "Neighbor and local community inquiry", "Custody status observation"], "documents": [], "risks": ["Asset moved before field visit without updated tracing"], "deliverable": "Field investigation report with custody status.", "benefit": "Converts a registry lead into a physically confirmed asset location." },
+      { "id": "vehicle-tracing", "label": "Vehicle Tracing", "heading": "Tracking Relocated Vehicles Through RTO and Local Networks", "overview": "Commercial vehicles and two-wheelers relocated across districts or states are traced through RTO cross-checks and local informant coordination.", "activities": ["Alternate state RTO query", "Local informant network coordination", "Vehicle sighting confirmation"], "documents": [], "risks": ["Vehicles registered in a different state name remaining untraced without multi-state RTO query"], "deliverable": "Vehicle location and sighting record.", "benefit": "Locates vehicles that have been moved specifically to evade the lender's local repossession network." },
+      { "id": "geotag", "label": "Geotagged Confirmation", "heading": "Capturing Location Evidence for Legal Use", "overview": "All located assets are geotagged with GPS coordinates and photographic evidence for litigation support.", "activities": ["GPS coordinate capture", "Photo documentation", "Time-stamp logging"], "documents": ["Geotagged photo evidence set per asset"], "risks": ["No physical evidence to support attachment petition if asset location is challenged"], "deliverable": "GPS-stamped asset location confirmation record.", "benefit": "Provides court-admissible location evidence for attachment petition support." },
+      { "id": "dossier", "label": "Asset Dossier", "heading": "One Litigation-Ready Document Covering All Identified Assets", "overview": "All located assets, registry evidence, and photo documentation are compiled into a structured dossier.", "activities": ["Dossier compilation", "Risk-priority classification", "Legal team submission"], "documents": [], "risks": ["Fragmented findings across individual asset reports slowing legal team action"], "deliverable": "Consolidated asset intelligence dossier.", "benefit": "Gives the legal team one document to attach to the petition, not a pile of individual field reports." }
     ],
-    "challengesHeading": "Operational Challenges",
+    "challengesHeading": "Asset Tracing Risks",
     "challenges": [
-      {
-        "title": "Asset Relocation & Concealment",
-        "desc": "Commercial fleet vehicles or tractors moved across state lines to avoid repossession notices.",
-        "warningBadge": "OPERATIONAL RISK",
-        "impact": "SM Associates Operational Approach: Structured coordinator dispatch and audit-ready documentation custody."
-      }
+      { "title": "Concealed and Transferred Assets", "desc": "Borrowers transferring properties to family members or related entities before enforcement — deliberately placing them out of direct reach.", "warningBadge": "Concealment Risk", "impact": "Standard registry searches may not show the concealed transfer without active investigation." },
+      { "title": "Cross-State Vehicle Relocation", "desc": "Commercial vehicles and tractors moved to a different state to evade local RTO tracing and repossession networks.", "warningBadge": "Relocation Risk", "impact": "Vehicles unlocatable through the local branch network." },
+      { "title": "Benami Holdings", "desc": "Assets registered in the name of family members or associates rather than the borrower directly.", "warningBadge": "Ownership Risk", "impact": "Assets legally beyond the lender's direct enforcement reach without further legal action." },
+      { "title": "Outdated Registry Records", "desc": "Property or vehicle records not updated after transfer — showing the borrower as owner of assets already transferred.", "warningBadge": "Data Risk", "impact": "Registry shows ownership that no longer reflects ground reality." },
+      { "title": "Rapidly Moved Commercial Equipment", "desc": "Plant and machinery relocated from the declared factory address to an alternative site before field investigation.", "warningBadge": "Movement Risk", "impact": "Asset found missing at declared location without ground follow-up at alternate sites." },
+      { "title": "Litigation Without Asset Evidence", "desc": "Legal teams filing attachment petitions without verified asset intelligence get orders they cannot execute.", "warningBadge": "Legal Risk", "impact": "Court orders obtained but unenforceable without a confirmed asset location." }
     ],
     "processFlow": {
-      "title": "Service Engagement Journey",
-      "desc": "Milestone-tracked operational workflow.",
+      "title": "Asset Tracing Lifecycle",
+      "desc": "A structured investigation model from case intake to a litigation-ready asset intelligence dossier.",
       "steps": [
-        {
-          "step": "01",
-          "title": "Assessment",
-          "desc": "File intake",
-          "outcome": "Dossier ready"
-        },
-        {
-          "step": "02",
-          "title": "Planning",
-          "desc": "Resource allocation",
-          "outcome": "SOP locked"
-        },
-        {
-          "step": "03",
-          "title": "Deployment",
-          "desc": "Ground execution",
-          "outcome": "Metrics logged"
-        },
-        {
-          "step": "04",
-          "title": "Monitoring",
-          "desc": "Quality control",
-          "outcome": "Audit verified"
-        },
-        {
-          "step": "05",
-          "title": "Continuous Improvement",
-          "desc": "Ledger upload",
-          "outcome": "Service complete"
-        }
+        { "step": "01", "title": "Case Intake & Scope Definition", "desc": "Known asset declarations are reviewed, registry pre-queries are run, and the search scope is defined to cover declared and potentially undisclosed assets.", "outcome": "Active case with confirmed search scope covering all asset types." },
+        { "step": "02", "title": "Registry & Database Search", "desc": "Land registries, RTO records, MCA filings, and GST registrations are queried to identify all assets associated with the borrower.", "outcome": "Registry-sourced asset leads covering property, vehicles, and business interests." },
+        { "step": "03", "title": "Field Investigation & Confirmation", "desc": "Field investigators visit identified locations to confirm asset presence, observe custody status, and gather neighbor intelligence.", "outcome": "Physically confirmed asset locations with custody status noted." },
+        { "step": "04", "title": "Geotagged Evidence Capture", "desc": "All confirmed assets are geotagged with GPS coordinates and photographed for litigation support.", "outcome": "Court-admissible location evidence for each confirmed asset." },
+        { "step": "05", "title": "Asset Dossier Delivery", "desc": "All located assets, registry evidence, and photo documentation are compiled into a litigation-ready dossier.", "outcome": "Single document covering all identified assets, ready for legal team use." }
       ]
     },
-    "outcomesHeading": "Strategic Outcomes",
+    "outcomesHeading": "Enterprise Business Outcomes",
     "outcomes": [
-      {
-        "title": "Operational Efficiency",
-        "desc": "Improved execution speed and audit compliance.",
-        "value": "Audit Compliant"
-      }
+      { "title": "Executable Enforcement", "desc": "Verified asset locations allow legal teams to obtain and execute attachment orders without blind filing.", "value": "Court orders attached to confirmed asset locations, not unknown coordinates." },
+      { "title": "Concealed Asset Detection", "desc": "Registry cross-checks and local inquiry surface assets transferred or hidden by the borrower.", "value": "Recoverable assets identified beyond what the borrower declared." },
+      { "title": "Cross-State Vehicle Recovery", "desc": "Multi-state RTO queries and informant networks locate vehicles relocated specifically to avoid the lender's local network.", "value": "Vehicles traceable even after deliberate relocation across state lines." },
+      { "title": "Litigation-Ready Intelligence", "desc": "Structured dossiers give legal teams the exact evidence format needed for attachment petitions.", "value": "Less time spent preparing legal filings from raw field notes." },
+      { "title": "ARC Portfolio Asset Mapping", "desc": "Batch asset tracing across an acquired portfolio gives ARCs a clear picture of recoverable collateral before enforcement planning.", "value": "Stronger enforcement strategy grounded in verified asset positions." },
+      { "title": "Defensible Evidence Trail", "desc": "Geotagged photos and GPS records provide court-admissible evidence supporting each asset location.", "value": "Asset intelligence that holds up under legal challenge." }
     ],
     "faqs": [
-      {
-        "q": "How does SM Associates ensure compliance during field operations?",
-        "a": "All operations are conducted by IIBF DRA-certified coordinators operating under strict statutory calling windows and recorded VoIP infrastructure."
-      },
-      {
-        "q": "What is the typical SLA turnaround for field assignments?",
-        "a": "We deliver geotagged verification and field status reports within 24 to 48 hours of assignment allocation."
-      }
+      { "q": "Can you trace assets that have been transferred to family members or associates?", "a": "Registry cross-checks cover recent transfers, encumbrance records, and related-party names — surfacing assets moved to associates or family members before enforcement." },
+      { "q": "Do you cover vehicle tracing across multiple states?", "a": "Yes — alternate-state RTO queries and our 19-branch network across Tamil Nadu, Kerala, Karnataka, Telangana, AP, and Puducherry cover multi-state vehicle relocation." }
     ],
     "cta": {
-      "heading": "Schedule an Operational Briefing",
-      "subheading": "Connect with our service desk to review our empanelment packs and operational SLAs.",
+      "heading": "Don't File Attachment Petitions Without Asset Intelligence",
+      "subheading": "Request an asset tracing walkthrough for your enforcement or ARC portfolio.",
       "buttonText": "Request Empanelment Proposal",
       "href": "/contact"
     }
@@ -1442,18 +1328,17 @@ export const assetContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -1832,18 +1717,17 @@ export const assetContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [

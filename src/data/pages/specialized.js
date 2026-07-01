@@ -1,4 +1,4 @@
-export const specializedContent = {
+﻿export const specializedContent = {
   "resolution-strategy": {
     "eyebrow": "Account-Level Resolution Strategy",
     "title": "Resolution Strategy",
@@ -69,18 +69,17 @@ export const specializedContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -459,18 +458,17 @@ export const specializedContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -849,18 +847,17 @@ export const specializedContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -1239,18 +1236,17 @@ export const specializedContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -1629,18 +1625,17 @@ export const specializedContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -2019,18 +2014,17 @@ export const specializedContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "capabilities": [
@@ -2356,18 +2350,17 @@ export const specializedContent = {
       },
       {
         "icon": "users",
-        "title": "DRA Certified Field Force",
-        "value": "1,000+ Officers"
+        "title": "Trained Professionals", "value": "1,500+"
       },
       {
         "icon": "shield",
         "title": "SLA & Audit Compliance",
-        "value": "100% Compliant"
+        "value": "RBI Aligned"
       },
       {
         "icon": "trendingUp",
         "title": "Resolved Default Capital",
-        "value": "₹4,800 Cr+"
+        "value": "[DRAFT]"
       }
     ],
     "problemStatementEyebrow": "Operational Risks",
