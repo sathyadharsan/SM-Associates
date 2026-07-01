@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+
 import { 
   ChevronDown, Menu, X, CalendarDays, Shield, ArrowRight,
   FileCheck, Users, Scale, Car, Search, LineChart,
@@ -146,6 +146,7 @@ export default function Header() {
   const [hoverKey, setHoverKey] = useState(null);
   const [expandedCategory, setExpandedCategory] = useState(null);
   const location = useLocation();
+  const timeoutRef = useRef(null);
 
   // Filter out Home, Careers, Contact from middle nav since they might be standalone or placed elsewhere
   const middleNavItems = navigationData.mainNav.filter(
@@ -165,6 +166,33 @@ export default function Header() {
     return false;
   };
 
+  const handleMouseEnter = (key) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setActiveMenu(key);
+    setHoverKey(key);
+  };
+
+  const handleMouseLeave = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setActiveMenu(null);
+      setHoverKey(null);
+    }, 150);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -173,14 +201,17 @@ export default function Header() {
 
   useEffect(() => {
     setMobileOpen(false);
-    if (!hoverKey) {
-      setActiveMenu(null);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
     }
+    setActiveMenu(null);
+    setHoverKey(null);
     const activeItem = middleNavItems.find(item => isItemActive(item));
     if (activeItem) {
       setMobileExpanded(activeItem.label);
     }
-  }, [location, hoverKey]);
+  }, [location]);
 
   useEffect(() => {
     setExpandedCategory(null);
@@ -199,15 +230,21 @@ export default function Header() {
         <div
           className="relative overflow-visible rounded-2xl transition-all duration-300"
           style={{
-            background: scrolled ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.7)',
-            backdropFilter: 'blur(26px) saturate(160%)',
-            WebkitBackdropFilter: 'blur(26px) saturate(160%)',
             border: '1px solid rgba(15,23,42,0.08)',
             boxShadow: scrolled
               ? `0 18px 50px -12px rgba(15,23,42,0.10), 0 0 0 1px rgba(255,255,255,0.04), 0 0 40px -8px ${BRAND}33`
               : `0 24px 60px -16px rgba(15,23,42,0.08), 0 0 30px -10px ${BRAND}26`,
           }}
         >
+          {/* Background blur layer to avoid stacking context & text blur issues in children */}
+          <div 
+            className="absolute inset-0 -z-10 rounded-2xl pointer-events-none"
+            style={{
+              background: scrolled ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.7)',
+              backdropFilter: 'blur(26px) saturate(160%)',
+              WebkitBackdropFilter: 'blur(26px) saturate(160%)',
+            }}
+          />
 
           {/* Main nav row */}
           <div className="flex h-[60px] items-center px-5 lg:px-7">
@@ -228,23 +265,17 @@ export default function Header() {
                   <div
                     key={key}
                     className={`flex items-center ${navItem.isMegaMenu ? "static" : "relative"}`}
-                    onMouseEnter={() => {
-                      setActiveMenu(key);
-                      setHoverKey(key);
-                    }}
-                    onMouseLeave={() => {
-                      setActiveMenu(null);
-                      setHoverKey(null);
-                    }}
+                    onMouseEnter={() => handleMouseEnter(key)}
+                    onMouseLeave={handleMouseLeave}
                   >
                     {hasDropdown ? (
                       <Link
                         to={navItem.href}
-                        onMouseEnter={() => setActiveMenu(key)}
+                        onMouseEnter={() => handleMouseEnter(key)}
                         onClick={() => {
                           setActiveMenu(activeMenu === key ? null : key);
                         }}
-                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-[-0.01em] transition-colors duration-200"
+                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-[-0.01em] transition-colors duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                         style={{ color: isItemActive(navItem) || activeMenu === key || hoverKey === key ? BRAND : 'rgba(15, 23, 42, 0.65)' }}
                       >
                         {navItem.label}
@@ -261,24 +292,31 @@ export default function Header() {
                     ) : (
                       <Link
                         to={navItem.href}
-                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-[-0.01em] transition-colors duration-200"
+                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-[-0.01em] transition-colors duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                         style={{ color: isItemActive(navItem) ? BRAND : 'rgba(15, 23, 42, 0.65)' }}
                       >
                         {navItem.label}
                       </Link>
                     )}
 
-                    <AnimatePresence>
-                      {activeMenu === key && hasDropdown && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 12, scale: 0.98, x: "-50%" }}
-                          animate={{ opacity: 1, y: 0, scale: 1, x: "-50%" }}
-                          exit={{ opacity: 0, y: 8, scale: 0.98, x: "-50%" }}
-                          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                          className={`absolute top-full left-1/2 pt-4 z-50 ${
-                            navItem.isMegaMenu ? 'w-[680px]' : navItem.children?.length >= 6 ? 'w-[480px]' : 'w-[280px]'
-                          }`}
-                        >
+                    {hasDropdown && (
+                      <div
+                        style={{
+                          position: 'absolute',
+                          top: '100%',
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                          paddingTop: '16px',
+                          zIndex: 50,
+                          width: navItem.isMegaMenu ? '680px' : navItem.children?.length >= 6 ? '480px' : '280px',
+                          visibility: activeMenu === key ? 'visible' : 'hidden',
+                          opacity: activeMenu === key ? 1 : 0,
+                          pointerEvents: activeMenu === key ? 'auto' : 'none',
+                          transition: activeMenu === key
+                            ? 'opacity 0.15s ease'
+                            : 'opacity 0.1s ease, visibility 0s linear 0.1s',
+                        }}
+                      >
                           <div
                             className={`w-full max-h-[75vh] overflow-y-auto overflow-x-hidden rounded-2xl ${navItem.isMegaMenu ? '' : 'p-3'}`}
                             style={{
@@ -319,24 +357,33 @@ export default function Header() {
                                   </div>
                                 </div>
 
-                                <div className="min-w-[400px] flex-1 p-6">
-                                  {(() => {
+                                <div
+                                  className="min-w-[400px] flex-1 p-6"
+                                  style={{ position: 'relative', minHeight: '320px' }}
+                                >
+                                  {navItem.columns.map((col) => {
                                     const activeTitle = expandedCategory ?? navItem.columns[0].title;
-                                    const activeCol = navItem.columns.find((c) => c.title === activeTitle);
+                                    const isActive = col.title === activeTitle;
+
                                     return (
-                                      <motion.div
-                                        key={activeTitle}
-                                        initial={{ opacity: 0, y: 4 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.15 }}
+                                      <div
+                                        key={col.title}
+                                        style={{
+                                          position: 'absolute',
+                                          inset: '24px',
+                                          visibility: isActive ? 'visible' : 'hidden',
+                                          pointerEvents: isActive ? 'auto' : 'none',
+                                          userSelect: isActive ? 'auto' : 'none',
+                                        }}
+                                        aria-hidden={!isActive}
                                       >
                                         <div className="grid grid-cols-2 gap-x-5 gap-y-2">
-                                          {activeCol.items.map((item) => (
+                                          {col.items.map((item) => (
                                             <Link
                                               key={item.label}
                                               to={item.href}
                                               onClick={() => setActiveMenu(null)}
-                                              className="group flex items-center justify-between gap-2 rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50"
+                                              className="group flex items-center justify-between gap-2 rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                                             >
                                               <span className="text-[15px] font-medium text-slate-700 transition-colors group-hover:text-slate-900">
                                                 {item.label}
@@ -353,16 +400,17 @@ export default function Header() {
                                           <Link
                                             to="/contact"
                                             onClick={() => setActiveMenu(null)}
-                                            className="shrink-0 rounded-lg px-3.5 py-2 text-[13px] font-semibold text-white transition-transform hover:-translate-y-0.5"
+                                            className="shrink-0 rounded-lg px-3.5 py-2 text-[13px] font-semibold text-white transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                                             style={{ background: `linear-gradient(135deg, ${BRAND}, ${VIOLET})` }}
                                           >
                                             Contact Us
                                           </Link>
                                         </div>
-                                      </motion.div>
+                                      </div>
                                     );
-                                  })()}
+                                  })}
                                 </div>
+
                               </div>
                             ) : (
                               <div className={navItem.children.length >= 6 ? 'grid grid-cols-2 gap-2' : 'flex flex-col gap-2'}>
@@ -394,9 +442,9 @@ export default function Header() {
                               </div>
                             )}
                           </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                      </div>
+                    )}
+
                   </div>
                 );
               })}
@@ -406,13 +454,13 @@ export default function Header() {
             <div className="hidden shrink-0 items-center gap-4 xl:flex">
               <Link
                 to="/careers"
-                className="relative inline-flex items-center px-3 py-2 text-[15px] font-semibold text-gray-900/65 transition-colors duration-200 hover:text-gray-950"
+                className="relative inline-flex items-center px-3 py-2 text-[15px] font-semibold text-gray-900/65 transition-colors duration-200 hover:text-gray-950 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
               >
                 Careers
               </Link>
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[15px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[15px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                 style={{
                   background: `linear-gradient(135deg, ${BRAND}, ${VIOLET})`,
                   boxShadow: `0 8px 24px -4px ${BRAND}66, 0 0 0 1px rgba(255,255,255,0.15) inset`,
@@ -426,7 +474,7 @@ export default function Header() {
             {/* Mobile toggle */}
             <button
               onClick={() => setMobileOpen((v) => !v)}
-              className="ml-auto flex h-9 w-9 items-center justify-center rounded-lg border text-gray-700 xl:hidden"
+              className="ml-auto flex h-9 w-9 items-center justify-center rounded-lg border text-gray-700 xl:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
               style={{ borderColor: 'rgba(15,23,42,0.12)' }}
               aria-label="Toggle menu"
             >
@@ -435,15 +483,11 @@ export default function Header() {
           </div>
 
           {/* Mobile menu */}
-          <AnimatePresence>
-            {mobileOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                className="overflow-hidden border-t xl:hidden"
-                style={{ borderColor: 'rgba(15,23,42,0.08)' }}
-              >
+          {mobileOpen && (
+            <div
+              className="overflow-hidden border-t xl:hidden"
+              style={{ borderColor: 'rgba(15,23,42,0.08)' }}
+            >
                 <div className="max-h-[calc(100dvh-120px)] overflow-y-auto px-5 py-4 space-y-1 bg-white/95">
                   {middleNavItems.map((navItem) => {
                     const key = navItem.label;
@@ -453,17 +497,19 @@ export default function Header() {
                       <div key={key}>
                         {hasDropdown ? (
                           <>
-                            <Link
-                              to={navItem.href}
+                            <button
                               onClick={() => {
                                 setMobileExpanded(mobileExpanded === key ? null : key);
-                                setMobileOpen(false);
                               }}
-                              className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-[14px] font-semibold transition-colors hover:bg-gray-50"
+                              className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-[14px] font-semibold transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                               style={{ color: isItemActive(navItem) || mobileExpanded === key ? BRAND : 'rgba(17, 24, 39, 0.75)' }}
                             >
                               {navItem.label}
-                            </Link>
+                              <ChevronDown 
+                                className="h-4 w-4 transition-transform duration-200 text-gray-400"
+                                style={{ transform: mobileExpanded === key ? 'rotate(180deg)' : 'none' }}
+                              />
+                            </button>
                             <AnimatePresence>
                               {mobileExpanded === key && (
                                 <motion.div
@@ -473,6 +519,15 @@ export default function Header() {
                                   className="overflow-hidden"
                                 >
                                   <div className="ml-3 mt-1 space-y-2 border-l-2 pl-3 pb-2" style={{ borderColor: 'rgba(15,23,42,0.08)' }}>
+                                    {/* View All category link */}
+                                    <Link
+                                      to={navItem.href}
+                                      onClick={() => setMobileOpen(false)}
+                                      className="block rounded-lg px-2 py-1.5 text-[13px] font-semibold text-blue-600 hover:text-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+                                    >
+                                      View All {navItem.label}
+                                    </Link>
+
                                     {navItem.isMegaMenu ? (
                                       navItem.columns.map((col, idx) => (
                                         <div key={idx} className="mb-2">
@@ -482,7 +537,7 @@ export default function Header() {
                                               key={item.label}
                                               to={item.href}
                                               onClick={() => setMobileOpen(false)}
-                                              className="block rounded-lg px-2 py-1.5 text-[13px] font-medium text-gray-900/60 hover:text-gray-950"
+                                              className="block rounded-lg px-2 py-1.5 text-[13px] font-medium text-gray-900/60 hover:text-gray-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                                             >
                                               {item.label}
                                             </Link>
@@ -495,7 +550,7 @@ export default function Header() {
                                           key={item.label}
                                           to={item.href}
                                           onClick={() => setMobileOpen(false)}
-                                          className="block rounded-lg px-2 py-1.5 text-[13px] font-medium text-gray-900/60 hover:text-gray-950"
+                                          className="block rounded-lg px-2 py-1.5 text-[13px] font-medium text-gray-900/60 hover:text-gray-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                                         >
                                           {item.label}
                                         </Link>
@@ -537,9 +592,8 @@ export default function Header() {
                     </Link>
                   </div>
                 </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+            </div>
+          )}
         </div>
       </div>
     </div>

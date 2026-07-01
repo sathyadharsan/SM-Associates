@@ -92,9 +92,9 @@ export const pagesContent = {
       { level: 'Operations Leaders', count: '25+' }
     ],
     mdSpotlight: {
-      name: 'Arun Kumar R.',
+      name: 'Jebaraj.M',
       role: 'Managing Director',
-      photo: '/images/arun_kumar.png',
+      photo: '/images/jebaraj.M MD.png',
       quote: 'Our purpose is simple — to protect the financial system\'s integrity by combining ground execution strength with compliance, technology and ethical operations.',
       linkedin: 'https://linkedin.com/in/arunkumar-r',
       stats: [
@@ -271,7 +271,7 @@ export const pagesContent = {
           'Managed 150K+ accounts successfully'
         ],
         activeStates: ['Tamil Nadu', 'Karnataka', 'Kerala'],
-         impact: [
+        impact: [
           { value: '3', label: 'States Covered' },
           { value: '250+', label: 'Field Force' },
           { value: '8', label: 'Offices' },
@@ -580,7 +580,7 @@ export const getPageContent = (path) => {
   if (pagesContent[cleanPath]) {
     return pagesContent[cleanPath];
   }
-  
+
   // Generic fallback template based on folder routing
   const title = path
     .split('/')

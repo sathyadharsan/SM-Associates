@@ -3,15 +3,15 @@ import { motion, AnimatePresence, useScroll, useSpring, useTransform, useMotionV
 import { Link } from 'react-router-dom';
 import { clientLogos } from '../../data/clientLogos';
 import { getPageContent } from '../../data/pagesContent';
-import { 
-  ArrowRight, 
-  CheckCircle2, 
-  ChevronRight, 
-  Award, 
-  Shield, 
-  Users, 
-  Clock, 
-  Building2, 
+import {
+  ArrowRight,
+  CheckCircle2,
+  ChevronRight,
+  Award,
+  Shield,
+  Users,
+  Clock,
+  Building2,
   MapPin,
   TrendingUp,
   FileText,
@@ -40,13 +40,13 @@ import {
 import { INDIA_OUTLINE_PATH, INDIA_PATH_TRANSFORM } from '../../data/LocationData';
 
 const Linkedin = ({ className, ...props }) => (
-  <svg 
-    viewBox="0 0 24 24" 
-    fill="currentColor" 
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
     className={className}
     {...props}
   >
-    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
   </svg>
 );
 
@@ -116,7 +116,7 @@ export function CompanyOverviewLayout({ content }) {
       <div className="h-24 bg-[#FFFFFF]" />
 
       {/* ── SECTION 1: HERO SECTION ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         animate="visible"
         variants={sectionVar}
@@ -124,7 +124,7 @@ export function CompanyOverviewLayout({ content }) {
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.06),transparent_60%)] pointer-events-none" />
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 w-full relative z-10 text-center space-y-8">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
@@ -132,7 +132,7 @@ export function CompanyOverviewLayout({ content }) {
           >
             <Sparkles className="h-3 w-3 animate-pulse" /> ISO 27001 & Compliance First
           </motion.span>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
@@ -141,7 +141,7 @@ export function CompanyOverviewLayout({ content }) {
             South India's Premier<br />
             <span className="text-[#2563EB] bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] bg-clip-text text-transparent">Debt Recovery</span> &amp; <span className="text-amber-500">Enforcement</span> Partner
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -149,7 +149,7 @@ export function CompanyOverviewLayout({ content }) {
           >
             Delivering end-to-end NPA lifecycle resolution, pre-disbursal verification, and physical asset repossession services for nationalized banks, NBFCs, Housing Finance Companies, and ARCs since 2000.
           </motion.p>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
@@ -161,7 +161,7 @@ export function CompanyOverviewLayout({ content }) {
               </span>
             ))}
           </motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
@@ -178,7 +178,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── SECTION 2: COMPANY OVERVIEW ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -220,7 +220,7 @@ export function CompanyOverviewLayout({ content }) {
             {/* Scale Node Graphic */}
             <div className="relative w-full h-[380px] bg-slate-50 border border-[#E2E8F0] rounded-[32px] overflow-hidden p-4 flex items-center justify-center shadow-inner">
               <div className="absolute inset-0 bg-radial-gradient from-blue-500/5 via-transparent to-transparent pointer-events-none" />
-              
+
               <svg viewBox="0 0 400 360" className="w-full h-full overflow-visible select-none">
                 <line x1="200" y1="180" x2="75" y2="45" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
                 <line x1="200" y1="180" x2="325" y2="45" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
@@ -235,7 +235,7 @@ export function CompanyOverviewLayout({ content }) {
                 </g>
 
                 <foreignObject x="10" y="10" width="130" height="70">
-                  <motion.div 
+                  <motion.div
                     whileHover={{ y: -4, borderColor: '#2563EB', boxShadow: '0 8px 16px -6px rgba(37, 99, 235, 0.15)' }}
                     className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm transition-all duration-300 flex items-center gap-2 h-full cursor-pointer"
                   >
@@ -250,7 +250,7 @@ export function CompanyOverviewLayout({ content }) {
                 </foreignObject>
 
                 <foreignObject x="260" y="10" width="130" height="70">
-                  <motion.div 
+                  <motion.div
                     whileHover={{ y: -4, borderColor: '#2563EB', boxShadow: '0 8px 16px -6px rgba(37, 99, 235, 0.15)' }}
                     className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm transition-all duration-300 flex items-center gap-2 h-full cursor-pointer"
                   >
@@ -265,7 +265,7 @@ export function CompanyOverviewLayout({ content }) {
                 </foreignObject>
 
                 <foreignObject x="5" y="145" width="130" height="70">
-                  <motion.div 
+                  <motion.div
                     whileHover={{ y: -4, borderColor: '#2563EB', boxShadow: '0 8px 16px -6px rgba(37, 99, 235, 0.15)' }}
                     className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm transition-all duration-300 flex items-center gap-2 h-full cursor-pointer"
                   >
@@ -280,7 +280,7 @@ export function CompanyOverviewLayout({ content }) {
                 </foreignObject>
 
                 <foreignObject x="265" y="145" width="130" height="70">
-                  <motion.div 
+                  <motion.div
                     whileHover={{ y: -4, borderColor: '#2563EB', boxShadow: '0 8px 16px -6px rgba(37, 99, 235, 0.15)' }}
                     className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm transition-all duration-300 flex items-center gap-2 h-full cursor-pointer"
                   >
@@ -295,7 +295,7 @@ export function CompanyOverviewLayout({ content }) {
                 </foreignObject>
 
                 <foreignObject x="10" y="280" width="130" height="70">
-                  <motion.div 
+                  <motion.div
                     whileHover={{ y: -4, borderColor: '#2563EB', boxShadow: '0 8px 16px -6px rgba(37, 99, 235, 0.15)' }}
                     className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm transition-all duration-300 flex items-center gap-2 h-full cursor-pointer"
                   >
@@ -310,7 +310,7 @@ export function CompanyOverviewLayout({ content }) {
                 </foreignObject>
 
                 <foreignObject x="260" y="280" width="130" height="70">
-                  <motion.div 
+                  <motion.div
                     whileHover={{ y: -4, borderColor: '#2563EB', boxShadow: '0 8px 16px -6px rgba(37, 99, 235, 0.15)' }}
                     className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm transition-all duration-300 flex items-center gap-2 h-full cursor-pointer"
                   >
@@ -330,7 +330,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── SECTION 3: OUR JOURNEY (Serpentine Timeline) ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -352,14 +352,14 @@ export function CompanyOverviewLayout({ content }) {
               {/* SVG winding serpent path */}
               <div className="absolute inset-0 pointer-events-none z-0">
                 <svg className="w-full h-full" viewBox="0 0 1024 500" fill="none">
-                  <path 
-                    d="M 160 80 L 864 80 A 85 85 0 0 1 864 250 L 160 250 A 85 85 0 0 0 160 420 L 864 420" 
-                    stroke="#E2E8F0" 
-                    strokeWidth="28" 
-                    strokeLinecap="round" 
+                  <path
+                    d="M 160 80 L 864 80 A 85 85 0 0 1 864 250 L 160 250 A 85 85 0 0 0 160 420 L 864 420"
+                    stroke="#E2E8F0"
+                    strokeWidth="28"
+                    strokeLinecap="round"
                     opacity="0.8"
                   />
-                  
+
                   <defs>
                     <linearGradient id="gradRow1Seg1" x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" stopColor="#FBBF24" />
@@ -410,13 +410,12 @@ export function CompanyOverviewLayout({ content }) {
               {/* Content & interactive nodes overlay */}
               <div className="relative z-10 h-full">
                 <div className="absolute left-[160px] top-[80px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <button 
+                  <button
                     onClick={() => setActiveYear('2000')}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${
-                      activeYear === '2000' 
-                        ? 'bg-amber-400 text-white ring-4 ring-amber-400/30 scale-110' 
+                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2000'
+                        ? 'bg-amber-400 text-white ring-4 ring-amber-400/30 scale-110'
                         : 'bg-white text-slate-700 border-2 border-amber-400 hover:scale-105'
-                    }`}
+                      }`}
                   >
                     2000
                   </button>
@@ -431,26 +430,24 @@ export function CompanyOverviewLayout({ content }) {
                     <h4 className="text-xs font-bold text-slate-800">Early Foundation</h4>
                     <p className="text-[10px] text-slate-500 mt-1">Onboarded nationalized bank panels, integrated IIBF DRA agent trainings.</p>
                   </div>
-                  <button 
+                  <button
                     onClick={() => setActiveYear('2005')}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${
-                      activeYear === '2005' 
-                        ? 'bg-orange-500 text-white ring-4 ring-orange-500/30 scale-110' 
+                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2005'
+                        ? 'bg-orange-500 text-white ring-4 ring-orange-500/30 scale-110'
                         : 'bg-white text-slate-700 border-2 border-orange-500 hover:scale-105'
-                    }`}
+                      }`}
                   >
                     2005
                   </button>
                 </div>
 
                 <div className="absolute left-[864px] top-[80px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <button 
+                  <button
                     onClick={() => setActiveYear('2010')}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${
-                      activeYear === '2010' 
-                        ? 'bg-red-500 text-white ring-4 ring-red-500/30 scale-110' 
+                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2010'
+                        ? 'bg-red-500 text-white ring-4 ring-red-500/30 scale-110'
                         : 'bg-white text-slate-700 border-2 border-red-500 hover:scale-105'
-                    }`}
+                      }`}
                   >
                     2010
                   </button>
@@ -465,26 +462,24 @@ export function CompanyOverviewLayout({ content }) {
                     <h4 className="text-xs font-bold text-slate-800">Strategic Scale-Up</h4>
                     <p className="text-[10px] text-slate-500 mt-1">Launched SARFAESI legal notice desk, built 12 secured yards in South India.</p>
                   </div>
-                  <button 
+                  <button
                     onClick={() => setActiveYear('2015')}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${
-                      activeYear === '2015' 
-                        ? 'bg-purple-600 text-white ring-4 ring-purple-600/30 scale-110' 
+                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2015'
+                        ? 'bg-purple-600 text-white ring-4 ring-purple-600/30 scale-110'
                         : 'bg-white text-slate-700 border-2 border-purple-600 hover:scale-105'
-                    }`}
+                      }`}
                   >
                     2015
                   </button>
                 </div>
 
                 <div className="absolute left-[512px] top-[260px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <button 
+                  <button
                     onClick={() => setActiveYear('2020')}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${
-                      activeYear === '2020' 
-                        ? 'bg-pink-500 text-white ring-4 ring-pink-500/30 scale-110' 
+                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2020'
+                        ? 'bg-pink-500 text-white ring-4 ring-pink-500/30 scale-110'
                         : 'bg-white text-slate-700 border-2 border-pink-500 hover:scale-105'
-                    }`}
+                      }`}
                   >
                     2020
                   </button>
@@ -499,26 +494,24 @@ export function CompanyOverviewLayout({ content }) {
                     <h4 className="text-xs font-bold text-slate-800">Digital Shift</h4>
                     <p className="text-[10px] text-slate-500 mt-1">GPS field tracking, automated telemetry client SFTP integrations.</p>
                   </div>
-                  <button 
+                  <button
                     onClick={() => setActiveYear('2025')}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${
-                      activeYear === '2025' 
-                        ? 'bg-emerald-500 text-white ring-4 ring-emerald-500/30 scale-110' 
+                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2025'
+                        ? 'bg-emerald-500 text-white ring-4 ring-emerald-500/30 scale-110'
                         : 'bg-white text-slate-700 border-2 border-emerald-500 hover:scale-105'
-                    }`}
+                      }`}
                   >
                     2025
                   </button>
                 </div>
 
                 <div className="absolute left-[512px] top-[440px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <button 
+                  <button
                     onClick={() => setActiveYear('2026')}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${
-                      activeYear === '2026' 
-                        ? 'bg-teal-500 text-white ring-4 ring-teal-500/30 scale-110' 
+                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2026'
+                        ? 'bg-teal-500 text-white ring-4 ring-teal-500/30 scale-110'
                         : 'bg-white text-slate-700 border-2 border-teal-500 hover:scale-105'
-                    }`}
+                      }`}
                   >
                     2026
                   </button>
@@ -606,7 +599,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── SECTION 4: VISION & MISSION ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -616,7 +609,7 @@ export function CompanyOverviewLayout({ content }) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Vision Card */}
-            <motion.div 
+            <motion.div
               whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 20px 25px -5px rgba(37,99,235,0.06), 0 8px 10px -6px rgba(37,99,235,0.06)' }}
               className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-[32px] p-8 lg:p-12 space-y-6 text-left transition-all duration-300 cursor-pointer"
             >
@@ -644,7 +637,7 @@ export function CompanyOverviewLayout({ content }) {
             </motion.div>
 
             {/* Mission Card */}
-            <motion.div 
+            <motion.div
               whileHover={{ y: -5, borderColor: '#F59E0B', boxShadow: '0 20px 25px -5px rgba(245,158,11,0.06), 0 8px 10px -6px rgba(245,158,11,0.06)' }}
               className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-[32px] p-8 lg:p-12 space-y-6 text-left transition-all duration-300 cursor-pointer"
             >
@@ -675,7 +668,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── SECTION 5: LEADERSHIP & MANAGEMENT (Reused exactly) ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -694,15 +687,15 @@ export function CompanyOverviewLayout({ content }) {
           {/* MD Spotlight Spot */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
             <div className="lg:col-span-5 relative">
-              <motion.div 
+              <motion.div
                 whileHover={{ y: -4, borderColor: '#2563EB' }}
                 className="border border-[#E2E8F0] bg-white rounded-3xl p-5 shadow-sm space-y-4 transition-colors duration-300"
               >
                 <div className="h-80 w-full rounded-2xl overflow-hidden border border-[#E2E8F0] bg-slate-100 relative">
-                  <img 
-                    src={leadershipContent.mdSpotlight?.photo || "/images/arun_kumar.png"} 
-                    alt={leadershipContent.mdSpotlight?.name} 
-                    className="w-full h-full object-cover" 
+                  <img
+                    src={leadershipContent.mdSpotlight?.photo || "/images/jebaraj.M MD.png"}
+                    alt={leadershipContent.mdSpotlight?.name}
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
@@ -710,10 +703,10 @@ export function CompanyOverviewLayout({ content }) {
                   <p className="text-xs text-[#2563EB] font-bold uppercase tracking-wider font-mono mt-0.5">{leadershipContent.mdSpotlight?.role}</p>
                 </div>
                 <div className="pt-2 border-t border-[#E2E8F0]">
-                  <a 
-                    href={leadershipContent.mdSpotlight?.linkedin} 
-                    target="_blank" 
-                    rel="noreferrer" 
+                  <a
+                    href={leadershipContent.mdSpotlight?.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
                     className="inline-flex items-center gap-1.5 rounded-lg border border-[#E2E8F0] px-4 py-2 text-xs font-bold text-[#0F172A] hover:bg-slate-50 transition-colors w-full justify-center"
                   >
                     <Linkedin className="h-3.5 w-3.5 text-[#2563EB] fill-[#2563EB]" /> Connect on LinkedIn
@@ -727,7 +720,7 @@ export function CompanyOverviewLayout({ content }) {
               <blockquote className="text-[#0F172A] text-lg font-medium font-serif leading-relaxed italic border-l-4 border-[#2563EB] pl-6 py-1">
                 "{leadershipContent.mdSpotlight?.quote}"
               </blockquote>
-              
+
               <div className="grid grid-cols-2 gap-4">
                 {leadershipContent.mdSpotlight?.stats?.map((stat, idx) => (
                   <div key={idx} className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-xl px-4 py-3 text-left">
@@ -757,16 +750,16 @@ export function CompanyOverviewLayout({ content }) {
             <h3 className="text-2xl font-bold font-serif text-[#0F172A]">The Executive Board</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {leadershipContent.executiveDirectors?.map((member, i) => (
-                <motion.div 
-                  key={i} 
+                <motion.div
+                  key={i}
                   whileHover={{ y: -6, borderColor: '#2563EB', boxShadow: '0 20px 25px -5px rgba(0,0,0,0.06), 0 8px 10px -6px rgba(0,0,0,0.06)' }}
                   className="group border border-[#E2E8F0] bg-[#FFFFFF] rounded-2xl overflow-hidden shadow-sm transition-all duration-300 flex flex-col justify-between cursor-pointer"
                 >
                   <div className="h-64 w-full overflow-hidden bg-slate-50 border-b border-[#E2E8F0] relative">
-                    <img 
-                      src={member.photo} 
-                      alt={member.name} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   <div className="p-6 text-left flex flex-col justify-between flex-grow">
@@ -775,23 +768,23 @@ export function CompanyOverviewLayout({ content }) {
                       <p className="text-[10px] text-[#2563EB] font-bold uppercase tracking-wider font-mono leading-none">{member.role}</p>
                       <p className="text-[10px] text-slate-400 font-mono pt-1">Tenure: {member.experience}</p>
                     </div>
-                    
+
                     <div className="mt-4 pt-3 border-t border-[#E2E8F0] text-[10px] text-slate-500 leading-relaxed font-mono">
                       <span className="text-slate-400 font-semibold block uppercase tracking-wider text-[8px] mb-1">Former Position:</span>
                       <span>{member.former}</span>
                     </div>
 
                     <div className="mt-6 flex items-center justify-between">
-                      <button 
-                        onClick={() => setSelectedLeader(member)} 
+                      <button
+                        onClick={() => setSelectedLeader(member)}
                         className="inline-flex items-center gap-1 text-xs font-bold text-[#2563EB] hover:underline"
                       >
                         View Profile <ChevronRight className="h-3 w-3 animate-bounce-horizontal" />
                       </button>
-                      <a 
-                        href={member.linkedin} 
-                        target="_blank" 
-                        rel="noreferrer" 
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noreferrer"
                         className="h-7 w-7 rounded-full border border-[#E2E8F0] flex items-center justify-center text-slate-400 hover:text-[#2563EB] hover:border-[#2563EB] transition-colors"
                       >
                         <Linkedin className="h-3.5 w-3.5 fill-current" />
@@ -806,7 +799,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── SECTION 6: CORE VALUES ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -824,29 +817,29 @@ export function CompanyOverviewLayout({ content }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
             {[
-              { 
-                value: 'Integrity', 
-                meaning: '100% adherence to codes of conduct and fair practices.', 
-                impact: 'Guarantees brand safety and credit policy alignment for bank partners.' 
+              {
+                value: 'Integrity',
+                meaning: '100% adherence to codes of conduct and fair practices.',
+                impact: 'Guarantees brand safety and credit policy alignment for bank partners.'
               },
-              { 
-                value: 'Compliance', 
-                meaning: 'VoIP calling restriction gates and IIBF-DRA certification matrices.', 
-                impact: 'Eliminates legal recourse liabilities and regulatory audit penalties.' 
+              {
+                value: 'Compliance',
+                meaning: 'VoIP calling restriction gates and IIBF-DRA certification matrices.',
+                impact: 'Eliminates legal recourse liabilities and regulatory audit penalties.'
               },
-              { 
-                value: 'Accountability', 
-                meaning: 'Automated telemetry mapping and GPS validation log entries.', 
-                impact: 'Provides clean audit trails and transparent field force activity checks.' 
+              {
+                value: 'Accountability',
+                meaning: 'Automated telemetry mapping and GPS validation log entries.',
+                impact: 'Provides clean audit trails and transparent field force activity checks.'
               },
-              { 
-                value: 'Operational Excellence', 
-                meaning: 'Decentralized branch networks executing fast TAT mobilizations.', 
-                impact: 'Accelerates capital recovery, immediately lowering Bank NPA provisions.' 
+              {
+                value: 'Operational Excellence',
+                meaning: 'Decentralized branch networks executing fast TAT mobilizations.',
+                impact: 'Accelerates capital recovery, immediately lowering Bank NPA provisions.'
               }
             ].map((v, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 12px 20px -8px rgba(37, 99, 235, 0.08)' }}
                 className="bg-white border border-[#E2E8F0] rounded-2xl p-6 space-y-4 shadow-sm transition-all duration-300 cursor-pointer"
               >
@@ -871,7 +864,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── SECTION 7: WHY SM ASSOCIATES ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -889,39 +882,39 @@ export function CompanyOverviewLayout({ content }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
             {[
-              { 
-                title: 'Banking Expertise', 
-                value: 'Decades of combined board leadership derived directly from senior tiers of SBI, Canara Bank, and HDFC.', 
-                advantage: 'Aligns recovery operations directly with internal banking policies and security priorities.' 
+              {
+                title: 'Banking Expertise',
+                value: 'Decades of combined board leadership derived directly from senior tiers of SBI, Canara Bank, and HDFC.',
+                advantage: 'Aligns recovery operations directly with internal banking policies and security priorities.'
               },
-              { 
-                title: 'Enterprise Operations', 
-                value: 'A massive ground footprint of 916+ recovery specialists executing over 5,000 daily borrower visits.', 
-                advantage: 'Allows instant scalability of portfolios without compromising on-ground file velocity.' 
+              {
+                title: 'Enterprise Operations',
+                value: 'A massive ground footprint of 916+ recovery specialists executing over 5,000 daily borrower visits.',
+                advantage: 'Allows instant scalability of portfolios without compromising on-ground file velocity.'
               },
-              { 
-                title: 'Governance Framework', 
-                value: 'ISO/IEC 27001 data compliance framework protecting data custody through PGP-encrypted SFTP feeds.', 
-                advantage: 'Ensures zero leakage of borrower information and total information security isolation.' 
+              {
+                title: 'Governance Framework',
+                value: 'ISO/IEC 27001 data compliance framework protecting data custody through PGP-encrypted SFTP feeds.',
+                advantage: 'Ensures zero leakage of borrower information and total information security isolation.'
               },
-              { 
-                title: 'Recovery Experience', 
-                value: 'Over 1 Million accounts resolved across retail, mortgage, auto, agricultural and SME loan classes.', 
-                advantage: 'Equips field agents with localized negotiation models for every delinquency bucket.' 
+              {
+                title: 'Recovery Experience',
+                value: 'Over 1 Million accounts resolved across retail, mortgage, auto, agricultural and SME loan classes.',
+                advantage: 'Equips field agents with localized negotiation models for every delinquency bucket.'
               },
-              { 
-                title: 'Structured Documentation', 
-                value: 'Dedicated legal desk coordinating Sec 13(2)/13(4) notices and district magistrate order executions.', 
-                advantage: 'Shortens foreclosure delay times, preserving physical collateral value.' 
+              {
+                title: 'Structured Documentation',
+                value: 'Dedicated legal desk coordinating Sec 13(2)/13(4) notices and district magistrate order executions.',
+                advantage: 'Shortens foreclosure delay times, preserving physical collateral value.'
               },
-              { 
-                title: 'Regional Presence', 
-                value: '35 branch offices covering all key credit markets of TN, Karnataka, Kerala, AP and Telangana.', 
-                advantage: 'Combines local language fluency and local authority liaising under unified SLAs.' 
+              {
+                title: 'Regional Presence',
+                value: '35 branch offices covering all key credit markets of TN, Karnataka, Kerala, AP and Telangana.',
+                advantage: 'Combines local language fluency and local authority liaising under unified SLAs.'
               }
             ].map((card, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 12px 20px -8px rgba(37, 99, 235, 0.08)' }}
                 className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-2xl p-6 space-y-3 transition-all duration-300 shadow-sm cursor-pointer"
               >
@@ -938,7 +931,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── INTERACTIVE COMPARISON DASHBOARD ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -977,7 +970,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── SECTION 8: CERTIFICATIONS & COMPLIANCE ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -1004,8 +997,8 @@ export function CompanyOverviewLayout({ content }) {
             ].map((cert, i) => {
               const CertIcon = cert.icon;
               return (
-                <motion.div 
-                  key={i} 
+                <motion.div
+                  key={i}
                   whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 12px 20px -8px rgba(37, 99, 235, 0.08)' }}
                   className="bg-white border border-[#E2E8F0] rounded-2xl p-5 space-y-3 shadow-sm transition-all duration-300 cursor-pointer"
                 >
@@ -1022,7 +1015,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── INTERACTIVE RBI COMPLIANCE MATRIX ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -1039,8 +1032,8 @@ export function CompanyOverviewLayout({ content }) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto text-left">
             {complianceContent.rbiMatrix?.map((row, idx) => (
-              <motion.div 
-                key={idx} 
+              <motion.div
+                key={idx}
                 whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 12px 20px -8px rgba(37, 99, 235, 0.08)' }}
                 className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-2xl p-6 space-y-3 transition-all duration-300 shadow-sm cursor-pointer"
               >
@@ -1057,7 +1050,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── SECTION 9: BRANCH NETWORK & OPERATIONAL PRESENCE ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -1069,10 +1062,10 @@ export function CompanyOverviewLayout({ content }) {
             {/* Map Column */}
             <div className="lg:col-span-6 flex items-center justify-center bg-[#F8FAFC] border border-[#E2E8F0] rounded-[32px] p-8 shadow-sm">
               <div className="w-full max-w-sm relative">
-                <img 
-                  src="/images/india_coverage_map.png" 
-                  alt="SM Associates Southern India Regional Footprint Map" 
-                  className="w-full h-auto object-contain rounded-2xl" 
+                <img
+                  src="/images/india_coverage_map.png"
+                  alt="SM Associates Southern India Regional Footprint Map"
+                  className="w-full h-auto object-contain rounded-2xl"
                 />
               </div>
             </div>
@@ -1092,8 +1085,8 @@ export function CompanyOverviewLayout({ content }) {
                   { label: 'DRA Field Force', val: '916+ Crew' },
                   { label: 'Secure Storage Yards', val: '25+ Yards' }
                 ].map((item, idx) => (
-                  <motion.div 
-                    key={idx} 
+                  <motion.div
+                    key={idx}
                     whileHover={{ y: -3, borderColor: '#2563EB' }}
                     className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-xl px-4 py-3 text-left transition-colors duration-300"
                   >
@@ -1108,7 +1101,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── SECTION 10: INDUSTRIES WE SERVE (Reused style) ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -1133,8 +1126,8 @@ export function CompanyOverviewLayout({ content }) {
               { name: 'Microfinance Institutions (MFIs)', desc: 'Coordinating low-ticket doorstep collection campaigns aligned to fair recovery codes.', tag: 'High outreach' },
               { name: 'Asset Reconstruction Companies (ARCs)', desc: 'Conducting stressed asset valuation support, custody logistics, and liquidation coordination.', tag: 'Aspirational' }
             ].map((ind, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 12px 20px -8px rgba(37, 99, 235, 0.08)' }}
                 className="bg-white border border-[#E2E8F0] rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-sm cursor-pointer"
               >
@@ -1150,7 +1143,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── SECTION 11: CLIENTS & PARTNERSHIPS ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -1171,8 +1164,8 @@ export function CompanyOverviewLayout({ content }) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left pt-6 max-w-6xl mx-auto">
             {clienteleContent.segments?.map((seg, idx) => (
-              <motion.div 
-                key={idx} 
+              <motion.div
+                key={idx}
                 whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 12px 20px -8px rgba(37, 99, 235, 0.08)' }}
                 className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-2xl p-6 space-y-4 shadow-sm transition-all duration-300 cursor-pointer"
               >
@@ -1190,7 +1183,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── INTERACTIVE CASE STUDIES DECK ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -1213,11 +1206,10 @@ export function CompanyOverviewLayout({ content }) {
                 <button
                   key={idx}
                   onClick={() => setSelectedCaseStudy(idx)}
-                  className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all ${
-                    selectedCaseStudy === idx
+                  className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all ${selectedCaseStudy === idx
                       ? 'bg-[#2563EB] text-white shadow-md'
                       : 'bg-slate-50 text-slate-600 hover:bg-slate-100'
-                  }`}
+                    }`}
                 >
                   {cs.segment}
                 </button>
@@ -1261,7 +1253,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── SECTION 12: ENTERPRISE OPERATING PHILOSOPHY ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -1279,21 +1271,21 @@ export function CompanyOverviewLayout({ content }) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto text-left">
             {[
-              { 
-                title: 'Solve Business Problems First', 
-                desc: 'Every file assigned to us is audited for collateral validity, borrower propensity, and settlement avenues rather than applying generic calling scripts.' 
+              {
+                title: 'Solve Business Problems First',
+                desc: 'Every file assigned to us is audited for collateral validity, borrower propensity, and settlement avenues rather than applying generic calling scripts.'
               },
-              { 
-                title: 'Build Systemic Customer Trust', 
-                desc: 'Outreach agents undergo mandatory Fair Practice Code reviews, stress-management workshops, and background verification checkpoints before dispatch.' 
+              {
+                title: 'Build Systemic Customer Trust',
+                desc: 'Outreach agents undergo mandatory Fair Practice Code reviews, stress-management workshops, and background verification checkpoints before dispatch.'
               },
-              { 
-                title: 'Deliver Measurable Outcomes', 
-                desc: 'Accelerating asset recovery cycle times allows financial institutions to directly claw back provisions onto active balance sheets.' 
+              {
+                title: 'Deliver Measurable Outcomes',
+                desc: 'Accelerating asset recovery cycle times allows financial institutions to directly claw back provisions onto active balance sheets.'
               }
             ].map((phil, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 12px 20px -8px rgba(37, 99, 235, 0.08)' }}
                 className="bg-white border border-[#E2E8F0] rounded-3xl p-8 space-y-4 shadow-sm transition-all duration-300 cursor-pointer"
               >
@@ -1309,7 +1301,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── INTERACTIVE ONBOARDING PIPELINE ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -1326,8 +1318,8 @@ export function CompanyOverviewLayout({ content }) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-left relative">
             {whyContent.onboardingSteps?.map((step, idx) => (
-              <motion.div 
-                key={idx} 
+              <motion.div
+                key={idx}
                 whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 12px 20px -8px rgba(37, 99, 235, 0.08)' }}
                 className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-2xl p-6 space-y-3 relative shadow-sm transition-all duration-300 cursor-pointer"
               >
@@ -1341,7 +1333,7 @@ export function CompanyOverviewLayout({ content }) {
       </motion.section>
 
       {/* ── SECTION 13: CALL TO ACTION ── */}
-      <motion.section 
+      <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -1370,14 +1362,14 @@ export function CompanyOverviewLayout({ content }) {
       <AnimatePresence>
         {selectedLeader && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="bg-white border border-[#E2E8F0] rounded-3xl max-w-4xl w-full shadow-2xl overflow-hidden relative flex flex-col md:flex-row max-h-[90vh] md:max-h-[80vh]"
             >
-              <button 
-                onClick={() => setSelectedLeader(null)} 
+              <button
+                onClick={() => setSelectedLeader(null)}
                 className="absolute right-6 top-6 z-10 p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-700 transition-colors"
               >
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1404,10 +1396,10 @@ export function CompanyOverviewLayout({ content }) {
                 </div>
 
                 <div className="mt-6 w-full">
-                  <a 
-                    href={selectedLeader.linkedin} 
-                    target="_blank" 
-                    rel="noreferrer" 
+                  <a
+                    href={selectedLeader.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
                     className="inline-flex items-center justify-center gap-2 w-full rounded-xl border border-[#E2E8F0] hover:border-slate-350 bg-white px-4 py-2.5 text-xs font-bold text-[#0F172A] hover:bg-slate-50 transition-colors"
                   >
                     <Linkedin className="h-4 w-4 text-[#2563EB] fill-[#2563EB]" /> Connect on LinkedIn
