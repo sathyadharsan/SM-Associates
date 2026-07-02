@@ -15,8 +15,8 @@ export default function FlagshipCtaSection() {
           <div className="cta6-grid-deco" />
           <div className="cta6-glow" />
           <div className="cta6-inner">
-            <div className="cta6-status">ALL SYSTEMS READY</div>
-            <h2>Put your recovery<br />on infrastructure.</h2>
+            <div className="cta6-status">READY TO ENGAGE</div>
+            <h2>Put your recovery<br />on a governed operating model.</h2>
             <p>
               Bring us a book. We&apos;ll return a recovery plan, a coverage map and a compliance framework — before you commit to anything.
             </p>
@@ -26,7 +26,7 @@ export default function FlagshipCtaSection() {
               </Link>
               <a ref={secondaryRef} className="fg-btn fg-btn-s" href="#model">Review Operating Model</a>
             </div>
-            <div className="cta6-assure">Confidential portfolio review · No obligation · Response within 48 hours</div>
+            <div className="cta6-assure">Confidential portfolio review · No obligation</div>
           </div>
         </div>
       </div>

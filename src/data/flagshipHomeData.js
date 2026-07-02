@@ -17,12 +17,12 @@ export const heroServiceCards = [
 ];
 
 export const metrics = [
-  { idx: '01', value: 22, suffix: 'YRS', label: 'Continuous Operations', desc: 'Since 2003 — through every credit cycle.' },
-  { idx: '02', value: 38, suffix: '', label: 'Branch Operations', desc: 'Under direct management across India.' },
-  { idx: '03', value: 1200, suffix: '+', label: 'Field Officers', desc: 'Trained, certified & continuously audited.' },
-  { idx: '04', value: 4800, suffix: ' Cr+', prefix: '₹', label: 'Cumulative Recovery', desc: 'Value delivered to lending partners.' },
-  { idx: '05', value: 73, suffix: '%', label: 'Resolution Rate', desc: 'Average across active portfolio books.' },
-  { idx: '06', value: 200, suffix: '+', label: 'Institutional Partners', desc: 'Banks, NBFCs, ARCs & HFCs.' },
+  { idx: '01', value: 25, suffix: '+ YRS', label: 'Continuous Operations', desc: 'Since 2000 — through every credit cycle.' },
+  { idx: '02', value: 19, suffix: '', label: 'Branch Network', desc: 'Under direct management across South India.' },
+  { idx: '03', value: 1500, suffix: '+', label: 'Field Workforce', desc: 'IIBF DRA-certified & continuously audited.' },
+  { idx: '04', value: 5, suffix: '', label: 'States Covered', desc: 'Tamil Nadu, Karnataka, Kerala, AP & Telangana.' },
+  { idx: '05', value: 1, suffix: 'M+', label: 'Accounts Managed', desc: 'Resolved and managed across retail loan classes.' },
+  { idx: '06', value: 100, suffix: '+', label: 'Institutional Partners', desc: 'Banks, NBFCs, ARCs & HFCs.' },
 ];
 
 export const operatingModelStages = [
@@ -37,38 +37,38 @@ export const operatingModelStages = [
 export const capabilityNodes = [
   {
     icon: 'Users', tag: 'FIELD OPS', title: 'Field Recovery Force',
-    desc: 'A managed, trained and continuously audited field network — 1,200+ officers, 8,640 visits per day.',
-    stats: [{ v: '1,200+', k: 'OFFICERS' }, { v: '8,640', k: 'VISITS/DAY' }],
-    list: ['Background-verified, DRA-certified officers', 'Live geo-tagged field activity', 'Branch-level supervision & QA'],
+    desc: 'A managed, trained and continuously audited field network — GPS-tracked doorstep operations across 19 branches.',
+    stats: [{ v: '1,500+', k: 'PERSONNEL' }, { v: 'GPS', k: 'TRACKED VISITS' }],
+    list: ['Background-verified, IIBF DRA-certified officers', 'Live geo-tagged field activity', 'Branch-level supervision & QA'],
   },
   {
     icon: 'Landmark', tag: 'ENFORCEMENT', title: 'Legal Enforcement',
-    desc: 'End-to-end litigation, notices and recovery suits managed by an in-house legal operations team.',
-    stats: [{ v: '62K+', k: 'ACTIONS' }, { v: '9', k: 'STATES' }],
+    desc: 'End-to-end litigation, notices and recovery suits managed by a dedicated legal coordination desk.',
+    stats: [{ v: '5', k: 'STATES' }, { v: 'Panel', k: 'ADVOCATE NETWORK' }],
     list: ['Recovery suits & demand notices', 'Empanelled advocate coordination', 'Case status tracking for lenders'],
   },
   {
     icon: 'Gavel', tag: 'ENFORCEMENT', title: 'SARFAESI Execution',
     desc: 'Sec 13(2)/13(4) notices, possession and auction support within statutory timelines.',
-    stats: [{ v: '41%', k: 'FASTER' }, { v: '100%', k: 'STATUTORY' }],
+    stats: [{ v: '100%', k: 'STATUTORY' }, { v: 'Sec 13/14', k: 'END TO END' }],
     list: ['Demand & possession notices', 'Physical & symbolic possession', 'Auction & sale support'],
   },
   {
     icon: 'Search', tag: 'INTELLIGENCE', title: 'Verification & Skip-tracing',
-    desc: 'Address, asset and identity verification with advanced skip-tracing to re-establish contact.',
-    stats: [{ v: '94%', k: 'TRACE SUCCESS' }, { v: '48h', k: 'TURNAROUND' }],
+    desc: 'Address, asset and identity verification with multi-source skip-tracing to re-establish contact.',
+    stats: [{ v: 'Pre & Post', k: 'DISBURSAL' }, { v: 'Multi-source', k: 'SKIP TRACE' }],
     list: ['Field & digital address verification', 'Asset condition reporting', 'Multi-source skip-trace'],
   },
   {
     icon: 'LineChart', tag: 'INTELLIGENCE', title: 'Portfolio Analytics',
     desc: "Segmentation, propensity scoring and recovery forecasting tuned to each lender's book.",
-    stats: [{ v: '73%', k: 'RESOLUTION' }, { v: 'Real-time', k: 'FORECASTING' }],
+    stats: [{ v: 'Propensity', k: 'SCORING' }, { v: 'Book-level', k: 'FORECASTS' }],
     list: ['Risk & propensity segmentation', 'Book-level recovery forecasts', 'Effort prioritisation models'],
   },
   {
     icon: 'ShieldCheck', tag: 'GOVERNANCE', title: 'Compliance & Audit',
     desc: 'RBI code-of-conduct adherence with complete, defensible audit trails on every action.',
-    stats: [{ v: '99.2%', k: 'AUDIT CLEAN' }, { v: '100%', k: 'LOGGED' }],
+    stats: [{ v: '100%', k: 'CALL RECORDING' }, { v: 'ISO 27001', k: 'CERTIFIED' }],
     list: ['RBI Fair Practices alignment', 'Immutable, time-stamped trails', 'Grievance & escalation framework'],
   },
 ];
@@ -100,55 +100,50 @@ export const recoveryOsLayers = [
   },
 ];
 
+// Anonymized, qualitative engagement snapshots. Deliberately number-free:
+// no verified outcome KPIs exist in the approved knowledge base yet.
+// When management supplies real, verified figures (case-studies data
+// collection in progress), upgrade these in place.
 export const outcomes = [
   {
-    tag: 'Mid-size NBFC · Unsecured', head: 'A stalled book, reworked',
-    title: 'Mid-size NBFC · Unsecured lending',
-    headline: "A stalled book turned into the quarter's biggest recovery.",
-    big: { n: 68, suffix: '%' },
-    desc: 'Resolution rate on a stressed unsecured book within two recovery cycles.',
-    barValue: 68,
-    sub: [{ v: '₹612 Cr', k: 'BOOK SIZE' }, { v: '2 cycles', k: 'TIMEFRAME' }],
-    quote: "They didn't just chase accounts — they restructured how the entire book was worked.",
-    who: '— Head of Collections, leading NBFC',
+    tag: 'Banking · Portfolio Recovery', head: 'A stalled book, restructured',
+    title: 'Banking · Portfolio Recovery Program',
+    headline: 'A large overdue portfolio brought under one accountable operating model.',
+    challenge: 'A large overdue portfolio required structured recovery coordination across field teams, legal partners and borrower communication channels.',
+    approach: 'Deployed a recovery operating model with verification checks, collection sequencing, escalation control and documentation discipline.',
+    result: 'Improved recovery visibility, faster escalation and stronger coordination between field operations and legal stakeholders.',
   },
   {
-    tag: 'Housing Finance · Secured', head: 'SARFAESI at scale',
-    title: 'Housing Finance Company · Secured',
-    headline: 'Enforcement executed inside statutory timelines, at scale.',
-    big: { n: 41, suffix: '%' },
-    desc: "Faster SARFAESI possession vs. the lender's prior panel agencies.",
-    barValue: 41,
-    sub: [{ v: '2,400+', k: 'ACCOUNTS' }, { v: '9 states', k: 'EXECUTION' }],
-    quote: 'SARFAESI became our most predictable lever — coordinated possession across nine states without a compliance slip.',
-    who: '— Recovery Head, housing finance lender',
+    tag: 'SARFAESI · Enforcement', head: 'Enforcement, coordinated',
+    title: 'SARFAESI · Enforcement Coordination',
+    headline: 'Secured-asset enforcement executed inside the statutory framework.',
+    challenge: 'Secured asset recovery required careful coordination between possession support, documentation, legal teams and institutional stakeholders.',
+    approach: 'Created a controlled workflow for asset readiness, legal alignment, stakeholder updates and recovery follow-through.',
+    result: 'Structured enforcement support with improved documentation control and operational transparency.',
   },
   {
-    tag: 'Private Bank · Retail', head: '12 vendors → 1 partner',
-    title: 'Private Sector Bank · Retail',
-    headline: 'One panel partner replacing twelve fragmented vendors.',
-    big: { n: 940, suffix: ' Cr', prefix: '₹' },
-    desc: 'Recovered across a multi-state retail portfolio in 18 months.',
-    barValue: 86,
-    sub: [{ v: '11 states', k: 'FOOTPRINT' }, { v: '99.2%', k: 'AUDIT CLEAN' }],
-    quote: 'The recovery lift was real — the governance was the bigger win.',
-    who: '— Chief Risk Officer, private sector bank',
+    tag: 'Verification · Fraud Control', head: 'Leakage, controlled',
+    title: 'Verification · Fraud Control Program',
+    headline: 'Stronger validation to cut misrepresentation and portfolio leakage.',
+    challenge: 'A lender needed stronger pre-disbursal and post-disbursal validation to reduce misrepresentation and portfolio leakage.',
+    approach: 'Supported field verification, document validation, address checks, business authenticity checks and risk signal reporting.',
+    result: 'Better lending decision support and stronger visibility into borrower and asset-level risk.',
   },
 ];
 
 export const complianceRows = [
   { title: 'RBI Fair Practices adherence', desc: 'Every borrower interaction follows mandated conduct, timing and disclosure rules.', reg: 'RBI/FPC' },
-  { title: 'Trained & certified field officers', desc: 'Background-verified, DRA-certified officers under continuous supervision.', reg: 'DRA CERT.' },
+  { title: 'Trained & certified field officers', desc: 'Background-verified, IIBF DRA-certified officers under continuous supervision.', reg: 'DRA CERT.' },
+  { title: '100% call recording & QA audit', desc: 'Every outbound collections call recorded, with transcripts audited for script compliance.', reg: 'CALL QA' },
   { title: 'Immutable audit trails', desc: 'Time-stamped, geo-tagged record of every contact, notice and action taken.', reg: 'AUDIT' },
-  { title: 'Data security & confidentiality', desc: 'Controlled access, encryption and strict borrower-data handling protocols.', reg: 'INFOSEC' },
+  { title: 'ISO/IEC 27001 certified information security', desc: 'Certified practices governing borrower-data custody, encryption and access control.', reg: 'ISO 27001' },
   { title: 'SARFAESI statutory compliance', desc: "Enforcement executed strictly within the Act's procedural framework.", reg: 'SARFAESI' },
   { title: 'Grievance & escalation framework', desc: 'Defined borrower grievance channels with lender-visible resolution tracking.', reg: 'GRIEVANCE' },
 ];
 
 export const flagshipFaqs = [
-  { q: 'How quickly can you onboard a new portfolio?', a: 'Most portfolios are live in the field within 7–10 working days, depending on data readiness and geography. Pilot books can move faster.' },
-  { q: 'How do you ensure regulatory and conduct compliance?', a: 'Every officer is background-verified and conduct-trained, every interaction is logged with time and location, and all activity follows RBI Fair Practices — producing a complete, regulator-ready audit trail.' },
-  { q: 'What visibility do we get into ongoing recovery?', a: 'Live dashboards covering allocation status, field activity, resolution and recovery — down to the account — plus scheduled reporting packs aligned to your review cadence.' },
+  { q: 'How quickly can you onboard a new portfolio?', a: 'Onboarding timelines depend on data readiness and geography — portfolios move from handover to live field activity quickly, and pilot books move fastest. Our regional branch grid means field teams are already positioned near your borrowers.' },
+  { q: 'How do you ensure regulatory and conduct compliance?', a: 'Every officer is background-verified and IIBF DRA-certified, 100% of collections calls are recorded and QA-audited, every field interaction is logged with time and GPS location, and all activity follows RBI Fair Practices — producing a complete, regulator-ready audit trail.' },
+  { q: 'What visibility do we get into ongoing recovery?', a: 'Daily status reporting covering allocation, field activity, resolution and recovery — down to the account — plus scheduled MIS packs aligned to your review cadence.' },
   { q: 'Do you handle both secured and unsecured portfolios?', a: 'Yes. Unsecured retail collections through to secured enforcement and SARFAESI execution, across the full delinquency curve, under one accountable operating model.' },
-  { q: 'What is Recovery OS and when is it available?', a: 'Recovery OS is the intelligence layer built on our field operations — propensity scoring, forecasting and live dashboards. Core visibility tooling is in active rollout; advanced AI modules are near-term.' },
 ];

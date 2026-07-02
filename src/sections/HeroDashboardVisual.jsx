@@ -5,7 +5,7 @@ import { LayoutDashboard, FolderKanban, FileBarChart, MapPin, FileText } from 'l
 // figures — case IDs, statuses and chart values here are illustrative UI
 // sample data (the same convention any SaaS marketing screenshot uses),
 // kept deliberately separate from the real disclosed stats used elsewhere
-// (MetricsSection). Only "6 States / 38 Branches" in the coverage strip
+// (MetricsSection). Only "5 States / 19 Branches" in the coverage strip
 // reuses an actual disclosed figure.
 const CHART = [38, 52, 41, 67, 58, 74, 63];
 
@@ -157,7 +157,7 @@ export default function HeroDashboardVisual() {
       )}
 
       <div className="dbv6-coverage">
-        <MapPin size={13} /> 6 States · 38 Branches Live
+        <MapPin size={13} /> 5 States · 19 Branches Live
       </div>
     </div>
   );

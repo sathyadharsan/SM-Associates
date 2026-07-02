@@ -29,8 +29,8 @@ export default function CommandCenterSection() {
             Chennai-led command,<br />built for the South.
           </h2>
           <p style={{ marginTop: 16, fontSize: 17, color: 'var(--ink-2)', maxWidth: '56ch' }}>
-            {southLocations.length} offices across {SOUTH_STATES.join(', ')} — coordinated from Chennai HQ.
-            Select an office to see its real, on-the-ground footprint.
+            19 branches across {SOUTH_STATES.join(', ')} — coordinated from Chennai HQ
+            through the {southLocations.length} regional hubs shown here. Select a hub to see its coverage.
           </p>
         </div>
 

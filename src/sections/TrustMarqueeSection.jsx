@@ -1,6 +1,10 @@
-import { clientLogos } from '../data/clientLogos';
+import { clientSections } from '../data/clientsPageData';
 
-const track = [...clientLogos, ...clientLogos];
+// Approved, permission-cleared client list (same source as the /clients
+// page) — flattened for the marquee. Do NOT source from the legacy
+// clientLogos.js list, which predates the client-permission review.
+const approvedLogos = clientSections.flatMap((s) => s.clients);
+const track = [...approvedLogos, ...approvedLogos];
 
 export default function TrustMarqueeSection() {
   return (
@@ -9,8 +13,12 @@ export default function TrustMarqueeSection() {
       <div className="trust6-marquee">
         <div className="trust6-track">
           {track.map((client, i) => (
-            <span className="tlogo" key={`${client.id}-${i}`}>
-              <img src={client.logo} alt={client.name} />
+            <span className="tlogo" key={`${client.slug}-${i}`}>
+              <img
+                src={client.logo}
+                alt={client.name}
+                onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
+              />
             </span>
           ))}
         </div>

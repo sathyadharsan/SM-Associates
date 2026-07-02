@@ -62,7 +62,7 @@ export default function ComplianceScanSection() {
             <h2 style={{ fontSize: 'clamp(26px,3.4vw,44px)', marginTop: 18 }}>Built to be defensible<br />in front of a regulator.</h2>
           </div>
           <p style={{ color: 'var(--ink-2)', fontSize: 17 }}>
-            Governance isn&apos;t a department here — it&apos;s the operating system. Watch the compliance scan run.
+            Governance isn&apos;t a department here — it&apos;s the operating discipline. These are the standing controls behind every engagement.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ export default function ComplianceScanSection() {
             <span className="ttl">compliance-scan --portfolio=all</span>
             <button type="button" onClick={runScan}>↻ Re-run</button>
             <span className={`st ${!scanning ? 'ok' : ''}`}>
-              {scanning ? <><span className="spin" /> SCANNING…</> : '✓ ALL CHECKS PASSED'}
+              {scanning ? <><span className="spin" /> LOADING…</> : '✓ ALL CONTROLS IN FORCE'}
             </span>
           </div>
 
@@ -83,7 +83,7 @@ export default function ComplianceScanSection() {
                 <p>{row.desc}</p>
               </div>
               <span className="reg">{row.reg}</span>
-              <span className="cst">{status[i] === 'ok' ? 'VERIFIED' : 'PENDING'}</span>
+              <span className="cst">{status[i] === 'ok' ? 'IN FORCE' : 'LOADING'}</span>
             </div>
           ))}
         </div>

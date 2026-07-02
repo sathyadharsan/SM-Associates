@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { Users, Building2, Calendar, CheckCircle2, MapPin } from 'lucide-react';
+import { CheckCircle2, MapPin } from 'lucide-react';
 import { tierColor, tierLabel } from '../../data/LocationData';
-
-const toInt = (v) => parseInt(String(v).replace(/\D/g, ''), 10) || 0;
 
 function Counter({ to }) {
   const ref = useRef(null);
@@ -26,21 +24,17 @@ function Counter({ to }) {
 }
 
 /**
- * Default (no office selected) view — a South-India-scoped aggregate
- * computed from the offices actually shown on this map. Deliberately
- * distinct from the homepage's single Metrics section: regional totals
- * across these offices, not the company-wide headline figures.
+ * Default (no office selected) view — company-confirmed headline figures
+ * only. Do not compute aggregates from per-office sample data here; the
+ * per-office fields in LocationData are illustrative until branch-level
+ * numbers are confirmed by management.
  */
 function RegionSummary({ locations, states }) {
-  const totalTeam = locations.reduce((acc, l) => acc + toInt(l.team), 0);
-  const totalPartners = locations.reduce((acc, l) => acc + toInt(l.partners), 0);
-  const avgSuccess = Math.round(locations.reduce((acc, l) => acc + l.successRate, 0) / locations.length);
-
   const stats = [
-    { label: 'Recovery Team (South India)', value: totalTeam, suffix: '+' },
-    { label: 'Partner Institutions', value: totalPartners, suffix: '+' },
-    { label: 'Offices', value: locations.length, suffix: '' },
-    { label: 'Blended Success Rate', value: avgSuccess, suffix: '%' },
+    { label: 'Field Workforce', value: 1500, suffix: '+' },
+    { label: 'Partner Institutions', value: 100, suffix: '+' },
+    { label: 'Branches', value: 19, suffix: '' },
+    { label: 'States Covered', value: states.length, suffix: '' },
   ];
 
   return (
@@ -97,25 +91,6 @@ function LocationDetail({ loc }) {
         ))}
       </div>
 
-      <div className="my-5 h-px bg-gray-100" />
-
-      <div className="grid grid-cols-3 gap-2.5">
-        <div className="rounded-xl p-3.5" style={{ background: 'rgba(51,102,255,0.04)' }}>
-          <Users className="h-4 w-4" style={{ color }} />
-          <p className="mt-2 text-base font-bold text-gray-900">{loc.team}</p>
-          <p className="mt-0.5 text-[10px] font-semibold leading-tight text-gray-400">Recovery Team</p>
-        </div>
-        <div className="rounded-xl p-3.5" style={{ background: 'rgba(51,102,255,0.04)' }}>
-          <Building2 className="h-4 w-4" style={{ color }} />
-          <p className="mt-2 text-base font-bold text-gray-900">{loc.partners}</p>
-          <p className="mt-0.5 text-[10px] font-semibold leading-tight text-gray-400">Partner Institutions</p>
-        </div>
-        <div className="rounded-xl p-3.5" style={{ background: 'rgba(51,102,255,0.04)' }}>
-          <Calendar className="h-4 w-4" style={{ color }} />
-          <p className="mt-2 text-base font-bold text-gray-900">{loc.since}</p>
-          <p className="mt-0.5 text-[10px] font-semibold leading-tight text-gray-400">Operational Since</p>
-        </div>
-      </div>
     </motion.div>
   );
 }

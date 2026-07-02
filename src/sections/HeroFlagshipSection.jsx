@@ -42,7 +42,7 @@ export default function HeroFlagshipSection() {
       <div className="fg-wrap">
         <div className="hero6-grid">
           <div>
-            <div className="hero6-eyebrow"><span className="live-dot" />India&apos;s Recovery Operations Infrastructure Platform</div>
+            <div className="hero6-eyebrow"><span className="live-dot" />India&apos;s Enterprise Recovery Operations Partner</div>
             <h1 className="hero6-h1">
               <span className="ln"><span ref={(el) => (lineRefs.current[0] = el)}>We Don&apos;t Just</span></span>
               <span className="ln"><span ref={(el) => (lineRefs.current[1] = el)}>Recover.</span></span>
@@ -53,7 +53,7 @@ export default function HeroFlagshipSection() {
               </span>
             </h1>
             <p ref={subRef} className={`hero6-sub fg-r ${subIn ? 'in' : ''}`}>
-              End-to-end recovery operations backed by technology, compliance and 22+ years of field excellence.
+              End-to-end recovery operations backed by technology, compliance and 25+ years of field excellence.
             </p>
             <div ref={actionsRef} className={`hero6-actions fg-r ${actionsIn ? 'in' : ''}`}>
               <a ref={ctaPrimaryRef} className="fg-btn fg-btn-p" href="#cta">Partner With Us <ArrowRight size={16} className="arr" /></a>
