@@ -25,7 +25,7 @@ export default function ClientLogoSection({ title, clients }) {
 
       <div className="flex flex-wrap justify-center gap-8 sm:gap-10">
         {clients.map((client, i) => (
-          <ClientLogoTile key={client.slug} name={client.name} logo={client.logo} index={i} />
+          <ClientLogoTile key={client.slug} client={client} category={title} index={i} />
         ))}
       </div>
     </div>

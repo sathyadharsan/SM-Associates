@@ -1,14 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import { fUp } from './shared/motion';
 import { ICON_ROTATION } from './shared/icons';
 import { DEFAULT_TARGET_INDUSTRIES } from './shared/targetIndustries';
 import { SECTION_DEFAULTS } from './shared/sectionDefaults';
 import { serifHeading } from './shared/typography';
+import { resolveIndustryHref } from './shared/crossLinks';
 
 // Reads `content.targetIndustries: [{name, desc}]`, falling back to the
 // shared default segment list. Gold accent lines and rotating icons on hover.
+// Cards whose name matches a known industry page auto-link to it
+// (self-links on the current page are suppressed).
 export default function IndustriesSection({ content }) {
+  const { pathname } = useLocation();
   const items = content.targetIndustries || DEFAULT_TARGET_INDUSTRIES;
   if (!Array.isArray(items) || items.length === 0) return null;
   const defaults = SECTION_DEFAULTS.targetIndustries;
@@ -24,6 +30,8 @@ export default function IndustriesSection({ content }) {
         <div className="flex flex-wrap justify-center gap-5">
           {items.map((ind, i) => {
             const IndIcon = ICON_ROTATION[i % ICON_ROTATION.length];
+            const href = resolveIndustryHref(ind.name);
+            const linked = href && href !== pathname;
             return (
               <motion.div
                 key={ind.name}
@@ -45,6 +53,14 @@ export default function IndustriesSection({ content }) {
                     </li>
                   ))}
                 </ul>
+                {linked && (
+                  <Link
+                    to={href}
+                    className="mt-4 inline-flex items-center gap-1.5 text-[12px] font-bold text-[#C8A45D] opacity-0 group-hover:opacity-100 hover:text-amber-700 transition-all duration-300"
+                  >
+                    Explore industry <ArrowRight className="h-3 w-3" />
+                  </Link>
+                )}
               </motion.div>
             );
           })}

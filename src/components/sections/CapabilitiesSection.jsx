@@ -1,13 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { fUp } from './shared/motion';
 import { SECTION_DEFAULTS } from './shared/sectionDefaults';
 import { serifHeading } from './shared/typography';
+import { resolveServiceHref } from './shared/crossLinks';
 
 // Reads `content.capabilities: [{title, desc, bullets[], businessOutcome}]`.
 // Premium styled cards with dynamic gradient top-bar and glow shadow on hover.
+// Capability titles matching a known service page auto-link to it
+// (self-links on the current page are suppressed).
 export default function CapabilitiesSection({ content }) {
+  const { pathname } = useLocation();
   const items = content.capabilities;
   if (!Array.isArray(items) || items.length === 0) return null;
   const defaults = SECTION_DEFAULTS.capabilities;
@@ -21,7 +26,10 @@ export default function CapabilitiesSection({ content }) {
           <h2 style={serifHeading} className="text-3xl sm:text-4xl font-bold tracking-[-0.01em] text-slate-900 mt-4">{content.capabilitiesHeading || defaults.heading}</h2>
         </motion.div>
         <div className="flex flex-wrap justify-center gap-6">
-          {items.map((c, i) => (
+          {items.map((c, i) => {
+            const href = resolveServiceHref(c.title);
+            const linked = href && href !== pathname;
+            return (
             <motion.div
               key={c.title}
               initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={fUp}
@@ -60,8 +68,17 @@ export default function CapabilitiesSection({ content }) {
                   {c.businessOutcome}
                 </p>
               )}
+              {linked && (
+                <Link
+                  to={href}
+                  className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-bold text-slate-400 opacity-0 group-hover:opacity-100 hover:text-blue-600 transition-all duration-300"
+                >
+                  Explore this service <ArrowRight className="h-3 w-3" />
+                </Link>
+              )}
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

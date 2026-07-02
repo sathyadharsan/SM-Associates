@@ -45,13 +45,12 @@ export default function ClientsPage() {
 
       <div className="relative">
         {clientSections.map((section, i) => (
-          <div
+          <section
             key={section.title}
-            className={`sticky top-0 flex h-screen items-center justify-center ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}`}
-            style={{ zIndex: i + 1, boxShadow: i === 0 ? 'none' : '0 -24px 60px rgba(15,23,42,0.08)' }}
+            className={`py-16 sm:py-20 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}`}
           >
             <ClientLogoSection title={section.title} clients={section.clients} />
-          </div>
+          </section>
         ))}
       </div>
     </div>

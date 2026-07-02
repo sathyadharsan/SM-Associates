@@ -1,20 +1,123 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X } from 'lucide-react';
+
+const CARD_WIDTH = 320;
 
 // Small bordered logo chip + name caption beneath it — matches a compact
 // "verified partner directory" style rather than a loose logo wall.
-export default function ClientLogoTile({ name, logo, index = 0 }) {
+// Hovering (or tapping on touch devices) reveals an engagement profile
+// card centered above the logo. Cards near the viewport edges align to
+// the tile's left/right edge instead so they never render off-screen.
+export default function ClientLogoTile({ client, category, index = 0 }) {
+  const { name, logo, products, services, since, states } = client;
   const [failed, setFailed] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [align, setAlign] = useState('center');
+  const tileRef = useRef(null);
+
+  const openCard = () => {
+    const rect = tileRef.current?.getBoundingClientRect();
+    if (rect) {
+      const centerX = rect.left + rect.width / 2;
+      const half = CARD_WIDTH / 2;
+      if (centerX - half < 12) setAlign('left');
+      else if (centerX + half > window.innerWidth - 12) setAlign('right');
+      else setAlign('center');
+    }
+    setOpen(true);
+  };
+
+  const cardStyle =
+    align === 'left' ? { left: 0 }
+    : align === 'right' ? { right: 0 }
+    : { left: '50%', marginLeft: -(CARD_WIDTH / 2) };
+
+  const arrowPos =
+    align === 'left' ? 'ml-14'
+    : align === 'right' ? 'ml-auto mr-14'
+    : 'mx-auto';
 
   return (
     <motion.div
+      ref={tileRef}
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.5), ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ scale: 1.05, y: -4 }}
-      className="flex w-36 flex-col items-center gap-2 sm:w-44"
+      className="relative flex w-36 flex-col items-center gap-2 sm:w-44"
+      style={{ zIndex: open ? 40 : 'auto' }}
+      onMouseEnter={openCard}
+      onMouseLeave={() => setOpen(false)}
+      onFocus={openCard}
+      onBlur={() => setOpen(false)}
+      onClick={() => (open ? setOpen(false) : openCard())}
+      tabIndex={0}
     >
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 12, scale: 0.94 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 8, scale: 0.96 }}
+            transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+            className="pointer-events-none absolute bottom-full z-50 mb-3 w-80"
+            style={cardStyle}
+          >
+            <div className="relative rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-[0_20px_50px_rgba(15,23,42,0.18)]">
+              <button
+                type="button"
+                aria-label="Close"
+                onClick={(e) => { e.stopPropagation(); setOpen(false); }}
+                className="pointer-events-auto absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-700"
+              >
+                <X className="h-4 w-4" />
+              </button>
+
+              <h4 className="pr-8 font-sora text-base font-semibold leading-snug text-slate-900">{name}</h4>
+              <span className="mt-1.5 inline-block rounded-full bg-brand-500/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-brand-500">
+                {category}
+              </span>
+
+              {products && products.length > 0 && (
+                <div className="mt-4">
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    Portfolios We Manage
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {products.map((p) => (
+                      <span
+                        key={p}
+                        className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700"
+                      >
+                        {p}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {services && (
+                <div className="mt-4">
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    Services
+                  </p>
+                  <p className="text-xs leading-relaxed text-slate-600">{services}</p>
+                </div>
+              )}
+
+              {(since || states) && (
+                <p className="mt-4 border-t border-slate-100 pt-2.5 text-[11px] font-medium text-slate-400">
+                  {[since && `Partner since ${since}`, states].filter(Boolean).join(' · ')}
+                </p>
+              )}
+            </div>
+            <div className={`-mt-1.5 h-3 w-3 rotate-45 border-b border-r border-slate-200 bg-white ${arrowPos}`} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="flex h-24 w-36 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-shadow duration-300 hover:border-brand-200 hover:shadow-[0_10px_28px_rgba(51,102,255,0.18)] sm:h-28 sm:w-44">
         {!failed ? (
           <img

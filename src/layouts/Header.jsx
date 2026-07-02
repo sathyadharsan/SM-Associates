@@ -318,6 +318,7 @@ export default function Header() {
                           paddingTop: '16px',
                           zIndex: 50,
                           width: navItem.isMegaMenu ? '680px' : navItem.children?.length >= 6 ? '480px' : '280px',
+                          display: activeMenu === key ? 'block' : 'none',
                           visibility: activeMenu === key ? 'visible' : 'hidden',
                           opacity: activeMenu === key ? 1 : 0,
                           pointerEvents: activeMenu === key ? 'auto' : 'none',
