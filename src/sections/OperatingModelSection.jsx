@@ -286,8 +286,8 @@ function PvReport() {
 
       <rect x="36" y="360" width="328" height="206" rx="12" fill={INK} />
       <text x="56" y="390" fontSize="9.5" fill="#94A3B8" style={MONO}>AUDIT TRAIL</text>
-      <rect x="252" y="376" width="92" height="20" rx="10" fill={BLUE} opacity="0.25" />
-      <text x="298" y="389.5" fontSize="8.5" fontWeight="700" fill={BLUE} textAnchor="middle" style={MONO}>IMMUTABLE</text>
+      <rect x="252" y="376" width="92" height="20" rx="10" fill="rgba(51,102,255,0.25)" />
+      <text x="298" y="389.5" fontSize="8.5" fontWeight="700" fill="#7C9EFF" textAnchor="middle" style={MONO}>IMMUTABLE</text>
       {trail.map((r, i) => (
         <g key={r.t}>
           <circle cx="66" cy={420 + i * 42} r="4" fill={BLUE} />
