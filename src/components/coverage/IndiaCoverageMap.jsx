@@ -153,19 +153,25 @@ export default function IndiaCoverageMap({
           </svg>
         </div>
 
-        {/* City name labels — outside the zoomed layer so text stays crisp and legible */}
+        {/* City name labels — outside the zoomed layer so text stays crisp and legible.
+            HQ gets extra vertical clearance since its pin is bigger and carries a
+            pulsing ring, which otherwise crowds right into the label underneath. */}
         {mapLocations.map((l, i) => (
           <motion.div
             key={`lbl-${l.id}`}
             className="absolute pointer-events-none z-10"
-            style={{ left: `${toScreen(l.x, cx)}%`, top: `${toScreen(l.y, cy)}%`, transform: 'translate(-50%, 14px)' }}
+            style={{
+              left: `${toScreen(l.x, cx)}%`,
+              top: `${toScreen(l.y, cy)}%`,
+              transform: `translate(-50%, ${l.tier === 'hq' ? 22 : 17}px)`,
+            }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: l.modes.includes(activeMode) ? 1 : 0.25 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 + i * 0.05 }}
           >
             <span
-              className="whitespace-nowrap rounded-md px-1.5 py-0.5 text-[10.5px] font-bold leading-tight"
+              className="whitespace-nowrap rounded-md px-1 py-0.5 text-[8.5px] font-bold leading-tight"
               style={{
                 color: l.tier === 'hq' ? '#8a6412' : '#1e3a8a',
                 background: l.tier === 'hq' ? 'rgba(254,243,199,0.96)' : 'rgba(219,234,254,0.94)',

@@ -89,6 +89,7 @@ const LEAFLET_STYLES = `
     100% { transform: translate(-50%,-50%) scale(2.8); opacity: 0; }
   }
   /* Zoom controls */
+  .leaflet-bottom.leaflet-right { z-index: 500 !important; margin-bottom: 74px !important; }
   .leaflet-control-zoom {
     border: none !important; border-radius: 12px !important;
     overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.25) !important;
@@ -430,9 +431,11 @@ export default function CommandCenterSection() {
         <LocationList selected={selected} onSelect={setSelected} />
       </div>
 
-      {/* Stats strip — bottom */}
-      <div className="absolute inset-x-0 bottom-0 z-[400] flex justify-center pb-4">
-        <div className="flex items-center gap-1 overflow-hidden rounded-2xl border border-slate-200 bg-white/90 shadow-soft backdrop-blur-sm">
+      {/* Stats strip — bottom (pointer-events-none on the wrapper so the
+          invisible full-width flex row never blocks the Leaflet zoom
+          control sitting bottom-right underneath it) */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[400] flex justify-center pb-4">
+        <div className="pointer-events-auto flex items-center gap-1 overflow-hidden rounded-2xl border border-slate-200 bg-white/90 shadow-soft backdrop-blur-sm">
           {[
             { value: '20', label: 'Offices' },
             { value: '916+', label: 'Staff' },
