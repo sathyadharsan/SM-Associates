@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { AlertTriangle, Workflow, TrendingUp } from 'lucide-react';
 import { outcomes } from '../data/flagshipHomeData';
 
 const reducedMotion = () =>
@@ -6,35 +8,46 @@ const reducedMotion = () =>
     ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
     : false;
 
-const BLOCK_LABEL = {
-  fontSize: 10.5,
-  fontWeight: 700,
-  letterSpacing: '0.14em',
-  textTransform: 'uppercase',
-  color: 'var(--ink-3, #94a3b8)',
-  marginBottom: 6,
-};
+const STEPS = [
+  { key: 'challenge', label: 'The Challenge', icon: AlertTriangle, color: '#E11D48' },
+  { key: 'approach', label: 'Our Approach', icon: Workflow, color: '#3366FF' },
+  { key: 'result', label: 'The Outcome', icon: TrendingUp, color: '#16A34A' },
+];
 
 function OutcomePanel({ outcome }) {
   return (
-    <div className="oc6-panel on">
+    <motion.div
+      className="oc6-panel"
+      initial={{ opacity: 0, x: 18 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -18 }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+    >
       <div className="oct">{outcome.title}</div>
       <h3>{outcome.headline}</h3>
-      <div style={{ display: 'grid', gap: 22, marginTop: 28 }}>
-        <div>
-          <div style={BLOCK_LABEL}>The Challenge</div>
-          <div className="oc-desc">{outcome.challenge}</div>
-        </div>
-        <div>
-          <div style={BLOCK_LABEL}>Our Approach</div>
-          <div className="oc-desc">{outcome.approach}</div>
-        </div>
-        <div style={{ borderTop: '1px solid rgba(51,102,255,0.14)', paddingTop: 18 }}>
-          <div style={{ ...BLOCK_LABEL, color: 'var(--blue, #3366FF)' }}>The Outcome</div>
-          <div className="oc-desc" style={{ color: 'var(--ink-1, #0f172a)', fontWeight: 500 }}>{outcome.result}</div>
-        </div>
+      <div className="oc6-steps">
+        {STEPS.map((step, i) => {
+          const Icon = step.icon;
+          return (
+            <motion.div
+              className="oc6-step"
+              key={step.key}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.14 + i * 0.1, duration: 0.35 }}
+            >
+              <span className="oc6-step-ico" style={{ color: step.color, background: `${step.color}17` }}>
+                <Icon size={16} />
+              </span>
+              <div className="oc6-step-body">
+                <div className="oc6-step-label" style={{ color: step.color }}>{step.label}</div>
+                <p className="oc-desc">{outcome[step.key]}</p>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -111,7 +124,9 @@ export default function OutcomesSection() {
             ))}
           </div>
           <div className="oc6-view">
-            <OutcomePanel key={active} outcome={outcomes[active]} />
+            <AnimatePresence mode="wait">
+              <OutcomePanel key={active} outcome={outcomes[active]} />
+            </AnimatePresence>
           </div>
         </div>
       </div>

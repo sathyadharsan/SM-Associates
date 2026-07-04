@@ -488,6 +488,11 @@ export default function CommandCenterSection() {
       {/* Full-bleed Leaflet map */}
       <div ref={mapRef} className="absolute inset-0 z-0" />
 
+      {/* Soft top/bottom fade — blends the hard rectangular map edge into
+          the white sections above and below instead of a flat cut */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[300] h-20 bg-gradient-to-b from-white to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[300] h-20 bg-gradient-to-t from-white to-transparent" />
+
       {/* ── Overlays (z-[400] to sit above Leaflet tiles) ── */}
 
       {/* Section label — top center */}
