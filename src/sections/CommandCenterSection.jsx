@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, X, MapPin, ChevronRight, Navigation } from 'lucide-react';
+import { Star, X, MapPin, ChevronRight, Navigation, LocateFixed, List } from 'lucide-react';
 
 /* ── All 20 offices with real lat/lon ──────────────────────────────────── */
 const OFFICES = [
@@ -74,6 +74,18 @@ const OFFICES = [
 const TIER_COLOR = { hq: '#D4AF37', branch: '#3366FF' };
 const pinColor = (tier) => TIER_COLOR[tier] ?? '#3366FF';
 
+// Cities with more than one office — clustered into a single marker until
+// the user zooms in close enough to tell the individual pins apart.
+const CITY_GROUPS = Object.values(
+  OFFICES.reduce((acc, o) => {
+    (acc[o.city] ||= []).push(o);
+    return acc;
+  }, {})
+);
+const CLUSTER_ZOOM_THRESHOLD = 11;
+
+const BOUNDS = OFFICES.map((o) => [o.lat, o.lon]);
+
 /* ── Leaflet styles ─────────────────────────────────────────────────────── */
 const LEAFLET_STYLES = `
   .sm-pin-wrap { background: transparent !important; border: none !important; }
@@ -88,8 +100,14 @@ const LEAFLET_STYLES = `
     0%   { transform: translate(-50%,-50%) scale(0.7); opacity: 0.8; }
     100% { transform: translate(-50%,-50%) scale(2.8); opacity: 0; }
   }
+  /* Cluster marker — count badge for cities with multiple offices */
+  .sm-cluster { cursor: pointer; display: flex; align-items: center; justify-content: center;
+    border-radius: 50%; color: #fff; font-weight: 800; font-family: inherit;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4), 0 0 0 4px rgba(255,255,255,0.85);
+    transition: transform .22s cubic-bezier(0.22,1,0.36,1); }
+  .sm-cluster:hover { transform: scale(1.12); }
   /* Zoom controls */
-  .leaflet-bottom.leaflet-right { z-index: 500 !important; margin-bottom: 74px !important; }
+  .leaflet-bottom.leaflet-right { z-index: 500 !important; margin-bottom: 18px !important; }
   .leaflet-control-zoom {
     border: none !important; border-radius: 12px !important;
     overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.25) !important;
@@ -109,8 +127,8 @@ const LEAFLET_STYLES = `
     font-size: 9px !important; color: #94a3b8 !important;
   }
   .leaflet-control-attribution a { color: #3366FF !important; }
-  /* Let scroll pass through map to page */
-  .leaflet-container { touch-action: auto !important; }
+  /* Let scroll pass through map to page; pinch-zoom still works on touch */
+  .leaflet-container { touch-action: pan-y !important; }
   .leaflet-grab { cursor: default !important; }
   .leaflet-dragging .leaflet-grab { cursor: default !important; }
   /* Location name labels */
@@ -155,6 +173,13 @@ function buildPinHTML(tier) {
       ${isHQ ? `<circle cx="14" cy="10" r="2.5" fill="${c}"/>` : ''}
     </svg>
   </div>`;
+}
+
+/* ── Cluster badge HTML — count of offices grouped at this city ──────────── */
+function buildClusterHTML(count, hasHQ) {
+  const c = hasHQ ? TIER_COLOR.hq : TIER_COLOR.branch;
+  const size = 40 + Math.min(count, 6) * 2;
+  return `<div class="sm-cluster" style="width:${size}px;height:${size}px;background:${c};font-size:${count > 9 ? 13 : 15}px;">${count}</div>`;
 }
 
 /* ── Overlay Info Card (top-left, always visible) ───────────────────────── */
@@ -244,48 +269,37 @@ function InfoCard({ selected, onClose, onReset }) {
         Chennai headquarters anchoring a network of 19 branch offices across South India.
       </p>
       <p className="mt-3 text-[11px] text-slate-400">
-        Click any <span className="font-bold text-brand-600">pin</span> for office details. Use <span className="font-bold">+ −</span> to zoom.
+        Click any <span className="font-bold text-brand-600">pin</span> for office details. Pinch or use <span className="font-bold">+ −</span> to zoom.
       </p>
     </motion.div>
   );
 }
 
-/* ── Location list sidebar (right side) ─────────────────────────────────── */
+/* ── Location list — shared by desktop sidebar and mobile bottom sheet ──── */
 function LocationList({ selected, onSelect }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.4 }}
-      className="w-[200px] rounded-2xl bg-white shadow-[0_8px_48px_rgba(0,0,0,0.22)] overflow-hidden"
-      style={{ maxHeight: 460 }}
-    >
-      <div className="border-b border-slate-100 px-4 py-3">
-        <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">All Locations</p>
-      </div>
-      <div className="overflow-y-auto scrollbar-hide" style={{ maxHeight: 410 }}>
-        {OFFICES.map((o) => {
-          const c = pinColor(o.tier);
-          const isActive = selected?.id === o.id;
-          return (
-            <button
-              key={o.id}
-              onClick={() => onSelect(o)}
-              className={`group flex w-full items-center gap-2.5 px-4 py-2.5 text-left transition ${isActive ? 'bg-slate-50' : 'hover:bg-slate-50'}`}
-            >
-              <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: c }} />
-              <div className="min-w-0 flex-1">
-                <p className={`truncate text-[11.5px] font-semibold ${isActive ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'}`}>
-                  {o.city}
-                </p>
-                <p className="text-[10px] font-mono text-slate-400">{o.code}</p>
-              </div>
-              {isActive && <ChevronRight className="h-3 w-3 shrink-0 text-brand-500" />}
-            </button>
-          );
-        })}
-      </div>
-    </motion.div>
+    <div className="overflow-y-auto scrollbar-hide" style={{ maxHeight: 410 }}>
+      {OFFICES.map((o) => {
+        const c = pinColor(o.tier);
+        const isActive = selected?.id === o.id;
+        return (
+          <button
+            key={o.id}
+            onClick={() => onSelect(o)}
+            className={`group flex w-full items-center gap-2.5 px-4 py-2.5 text-left transition ${isActive ? 'bg-slate-50' : 'hover:bg-slate-50'}`}
+          >
+            <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: c }} />
+            <div className="min-w-0 flex-1">
+              <p className={`truncate text-[11.5px] font-semibold ${isActive ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'}`}>
+                {o.city}
+              </p>
+              <p className="text-[10px] font-mono text-slate-400">{o.code}</p>
+            </div>
+            {isActive && <ChevronRight className="h-3 w-3 shrink-0 text-brand-500" />}
+          </button>
+        );
+      })}
+    </div>
   );
 }
 
@@ -293,8 +307,10 @@ function LocationList({ selected, onSelect }) {
 export default function CommandCenterSection() {
   const mapRef = useRef(null);
   const leafletMapRef = useRef(null);
+  const markerLayerRef = useRef(null);
   const [selected, setSelected] = useState(null);
   const [mapReady, setMapReady] = useState(false);
+  const [mobileListOpen, setMobileListOpen] = useState(false);
 
   useEffect(() => {
     if (!document.getElementById('sm-leaflet-styles')) {
@@ -307,23 +323,105 @@ export default function CommandCenterSection() {
 
   useEffect(() => {
     let map;
+    let L;
+
+    // Renders individual pins or a single cluster badge per city, depending
+    // on the current zoom level — keeps Chennai's 4 offices and
+    // Coimbatore's 2 from overlapping into an unreadable pile at low zoom.
+    function renderMarkers() {
+      const layer = markerLayerRef.current;
+      if (!layer) return;
+      layer.clearLayers();
+      const zoom = map.getZoom();
+
+      CITY_GROUPS.forEach((group) => {
+        if (group.length === 1 || zoom >= CLUSTER_ZOOM_THRESHOLD) {
+          group.forEach((office) => {
+            const isHQ = office.tier === 'hq';
+            const icon = L.divIcon({
+              html: buildPinHTML(office.tier),
+              className: 'sm-pin-wrap',
+              iconSize: [isHQ ? 42 : 34, isHQ ? 50 : 42],
+              iconAnchor: [isHQ ? 21 : 17, isHQ ? 50 : 42],
+            });
+            const marker = L.marker([office.lat, office.lon], {
+              icon,
+              keyboard: true,
+              alt: `${office.name}, ${office.city}`,
+              title: `${office.name}, ${office.city}`,
+            })
+              .addTo(layer)
+              .on('click', (e) => { L.DomEvent.stopPropagation(e); setSelected(office); });
+
+            marker.bindTooltip(
+              `<span>${isHQ ? '★ ' : ''}${office.city}</span>`,
+              {
+                permanent: true,
+                direction: 'right',
+                offset: [isHQ ? 14 : 10, isHQ ? -28 : -24],
+                className: `sm-label ${isHQ ? 'sm-label-hq' : 'sm-label-branch'}`,
+              }
+            );
+          });
+        } else {
+          const hasHQ = group.some((o) => o.tier === 'hq');
+          const centroid = [
+            group.reduce((s, o) => s + o.lat, 0) / group.length,
+            group.reduce((s, o) => s + o.lon, 0) / group.length,
+          ];
+          const size = 40 + Math.min(group.length, 6) * 2;
+          const icon = L.divIcon({
+            html: buildClusterHTML(group.length, hasHQ),
+            className: 'sm-pin-wrap',
+            iconSize: [size, size],
+            iconAnchor: [size / 2, size / 2],
+          });
+          const marker = L.marker(centroid, {
+            icon,
+            keyboard: true,
+            alt: `${group[0].city} — ${group.length} offices`,
+            title: `${group[0].city} — ${group.length} offices, click to zoom in`,
+          })
+            .addTo(layer)
+            .on('click', (e) => {
+              L.DomEvent.stopPropagation(e);
+              const groupBounds = L.latLngBounds(group.map((o) => [o.lat, o.lon]));
+              map.flyToBounds(groupBounds, { padding: [60, 60], maxZoom: CLUSTER_ZOOM_THRESHOLD + 1, duration: 0.6 });
+            });
+
+          marker.bindTooltip(
+            `<span>${hasHQ ? '★ ' : ''}${group[0].city} (${group.length})</span>`,
+            {
+              permanent: true,
+              direction: 'right',
+              offset: [size / 2 - 6, -size / 2 + 8],
+              className: `sm-label ${hasHQ ? 'sm-label-hq' : 'sm-label-branch'}`,
+            }
+          );
+        }
+      });
+    }
+
     async function init() {
-      const L = (await import('leaflet')).default;
+      L = (await import('leaflet')).default;
       await import('leaflet/dist/leaflet.css');
       if (leafletMapRef.current || !mapRef.current) return;
 
+      const bounds = L.latLngBounds(BOUNDS);
+
       map = L.map(mapRef.current, {
-        center: [11.8, 78.8],
-        zoom: 6,
         zoomControl: true,
-        scrollWheelZoom: false,  // scroll wheel = page scroll (NOT map zoom)
-        dragging: true,          // mouse click + drag = map pans ✓
-        touchZoom: false,        // disable pinch zoom (use +/- buttons)
+        scrollWheelZoom: false, // scroll wheel = page scroll (NOT map zoom)
+        dragging: true,         // mouse click + drag = map pans ✓
+        touchZoom: true,        // pinch-to-zoom enabled on touch devices
         doubleClickZoom: false,
         boxZoom: false,
-        keyboard: false,
+        keyboard: true,         // arrow keys pan, +/- keys zoom
         tap: false,
+        minZoom: 5,
+        maxZoom: 13,
       });
+      map.fitBounds(bounds, { padding: [48, 48] });
 
       // Touch devices: vertical swipe → page scrolls (not map pan)
       // Desktop: mouse drag → map pans (dragging:true handles this)
@@ -331,7 +429,7 @@ export default function CommandCenterSection() {
       leafletMapRef.current = map;
 
       // ESRI Ocean Basemap — deep sea depth shading & ocean feel
-      L.tileLayer(
+      const baseLayer = L.tileLayer(
         'https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}',
         {
           attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
@@ -347,40 +445,31 @@ export default function CommandCenterSection() {
 
       map.zoomControl.setPosition('bottomright');
 
-      OFFICES.forEach((office) => {
-        const isHQ = office.tier === 'hq';
-        const icon = L.divIcon({
-          html: buildPinHTML(office.tier),
-          className: 'sm-pin-wrap',
-          iconSize:   [isHQ ? 42 : 34, isHQ ? 50 : 42],
-          iconAnchor: [isHQ ? 21 : 17, isHQ ? 50 : 42],
-        });
-        const marker = L.marker([office.lat, office.lon], { icon })
-          .addTo(map)
-          .on('click', (e) => { L.DomEvent.stopPropagation(e); setSelected(office); });
+      markerLayerRef.current = L.layerGroup().addTo(map);
+      renderMarkers();
+      map.on('zoomend', renderMarkers);
 
-        // Permanent city name label next to the pin
-        marker.bindTooltip(
-          `<span>${isHQ ? '★ ' : ''}${office.city}</span>`,
-          {
-            permanent: true,
-            direction: 'right',
-            offset: [isHQ ? 14 : 10, isHQ ? -28 : -24],
-            className: `sm-label ${isHQ ? 'sm-label-hq' : 'sm-label-branch'}`,
-          }
-        );
-      });
-
-      setMapReady(true);
+      // Reveal the map only once tiles have actually painted, not just once
+      // markers are set up — avoids a flash of pins floating on blank tiles.
+      let readyTimer = setTimeout(() => setMapReady(true), 2500);
+      baseLayer.once('load', () => { clearTimeout(readyTimer); setMapReady(true); });
     }
     init();
-    return () => { if (leafletMapRef.current) { leafletMapRef.current.remove(); leafletMapRef.current = null; } };
+    return () => {
+      if (map) map.off('zoomend', renderMarkers);
+      if (leafletMapRef.current) { leafletMapRef.current.remove(); leafletMapRef.current = null; }
+    };
   }, []);
 
   // No flyTo — map stays at full South India view when a pin is clicked
   // Only the detail card opens/closes
   const handleReset = () => {
     setSelected(null);
+  };
+
+  const handleRecenter = () => {
+    if (!leafletMapRef.current) return;
+    leafletMapRef.current.flyToBounds(BOUNDS, { padding: [48, 48], duration: 0.7 });
   };
 
   return (
@@ -426,10 +515,80 @@ export default function CommandCenterSection() {
         </AnimatePresence>
       </div>
 
-      {/* Location list — right side (hidden on mobile) */}
+      {/* Location list — desktop sidebar, right side */}
       <div className="absolute right-4 top-16 z-[400] hidden sm:right-6 lg:block">
-        <LocationList selected={selected} onSelect={setSelected} />
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4 }}
+          className="w-[200px] rounded-2xl bg-white shadow-[0_8px_48px_rgba(0,0,0,0.22)] overflow-hidden"
+        >
+          <div className="border-b border-slate-100 px-4 py-3">
+            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">All Locations</p>
+          </div>
+          <LocationList selected={selected} onSelect={setSelected} />
+        </motion.div>
       </div>
+
+      {/* Mobile controls — recenter + "All Locations" toggle */}
+      <div className="absolute right-4 top-16 z-[400] flex flex-col gap-2 lg:hidden">
+        <button
+          onClick={handleRecenter}
+          aria-label="Recenter map on South India"
+          className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-slate-600 shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition hover:text-brand-600"
+        >
+          <LocateFixed className="h-4.5 w-4.5" />
+        </button>
+        <button
+          onClick={() => setMobileListOpen(true)}
+          aria-label="View all office locations"
+          className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-slate-600 shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition hover:text-brand-600"
+        >
+          <List className="h-4.5 w-4.5" />
+        </button>
+      </div>
+
+      {/* Recenter — desktop, next to the location sidebar */}
+      <button
+        onClick={handleRecenter}
+        aria-label="Recenter map on South India"
+        className="absolute right-4 top-16 z-[400] hidden h-10 w-10 items-center justify-center rounded-xl bg-white text-slate-600 shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition hover:text-brand-600 sm:right-6 lg:right-[224px] lg:flex"
+      >
+        <LocateFixed className="h-4.5 w-4.5" />
+      </button>
+
+      {/* Mobile "All Locations" bottom sheet */}
+      <AnimatePresence>
+        {mobileListOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[600] bg-slate-900/40 lg:hidden"
+            onClick={() => setMobileListOpen(false)}
+          >
+            <motion.div
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+              className="absolute inset-x-0 bottom-0 max-h-[70vh] rounded-t-3xl bg-white shadow-2xl"
+            >
+              <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">All Locations</p>
+                <button onClick={() => setMobileListOpen(false)} aria-label="Close" className="text-slate-400">
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+              <LocationList
+                selected={selected}
+                onSelect={(o) => { setSelected(o); setMobileListOpen(false); }}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Stats strip — bottom (pointer-events-none on the wrapper so the
           invisible full-width flex row never blocks the Leaflet zoom
