@@ -348,38 +348,53 @@ export function CompanyOverviewLayout({ content }) {
                   />
 
                   <defs>
-                    <linearGradient id="gradRow1Seg1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    {/* One continuous hue flow — gold -> orange -> red -> pink ->
+                        purple -> indigo -> blue -> teal -> green — carried through
+                        the connector arcs too, so the path never breaks colour.
+                        gradientUnits="userSpaceOnUse" with real path coordinates —
+                        the default objectBoundingBox mode silently fails to paint
+                        on perfectly horizontal/vertical paths, since their bounding
+                        box has zero height/width and the gradient becomes degenerate. */}
+                    <linearGradient id="gradRow1Seg1" gradientUnits="userSpaceOnUse" x1="160" y1="80" x2="512" y2="80">
                       <stop offset="0%" stopColor="#FBBF24" />
                       <stop offset="100%" stopColor="#F97316" />
                     </linearGradient>
-                    <linearGradient id="gradRow1Seg2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <linearGradient id="gradRow1Seg2" gradientUnits="userSpaceOnUse" x1="512" y1="80" x2="864" y2="80">
                       <stop offset="0%" stopColor="#F97316" />
                       <stop offset="100%" stopColor="#EF4444" />
                     </linearGradient>
-                    <linearGradient id="gradRow2Seg1" x1="100%" y1="0%" x2="0%" y2="0%">
-                      <stop offset="0%" stopColor="#8B5CF6" />
-                      <stop offset="100%" stopColor="#D946EF" />
-                    </linearGradient>
-                    <linearGradient id="gradRow2Seg2" x1="100%" y1="0%" x2="0%" y2="0%">
-                      <stop offset="0%" stopColor="#D946EF" />
+                    <linearGradient id="gradConnector1" gradientUnits="userSpaceOnUse" x1="864" y1="80" x2="864" y2="250">
+                      <stop offset="0%" stopColor="#EF4444" />
                       <stop offset="100%" stopColor="#EC4899" />
                     </linearGradient>
-                    <linearGradient id="gradRow3Seg1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <linearGradient id="gradRow2Seg1" gradientUnits="userSpaceOnUse" x1="864" y1="250" x2="512" y2="250">
+                      <stop offset="0%" stopColor="#EC4899" />
+                      <stop offset="100%" stopColor="#8B5CF6" />
+                    </linearGradient>
+                    <linearGradient id="gradRow2Seg2" gradientUnits="userSpaceOnUse" x1="512" y1="250" x2="160" y2="250">
+                      <stop offset="0%" stopColor="#8B5CF6" />
+                      <stop offset="100%" stopColor="#6366F1" />
+                    </linearGradient>
+                    <linearGradient id="gradConnector2" gradientUnits="userSpaceOnUse" x1="160" y1="250" x2="160" y2="420">
+                      <stop offset="0%" stopColor="#6366F1" />
+                      <stop offset="100%" stopColor="#3B82F6" />
+                    </linearGradient>
+                    <linearGradient id="gradRow3Seg1" gradientUnits="userSpaceOnUse" x1="160" y1="420" x2="512" y2="420">
+                      <stop offset="0%" stopColor="#3B82F6" />
+                      <stop offset="100%" stopColor="#06B6D4" />
+                    </linearGradient>
+                    <linearGradient id="gradRow3Seg2" gradientUnits="userSpaceOnUse" x1="512" y1="420" x2="864" y2="420">
                       <stop offset="0%" stopColor="#06B6D4" />
                       <stop offset="100%" stopColor="#10B981" />
-                    </linearGradient>
-                    <linearGradient id="gradRow3Seg2" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#10B981" />
-                      <stop offset="100%" stopColor="#84CC16" />
                     </linearGradient>
                   </defs>
 
                   <path d="M 160 80 L 512 80" stroke="url(#gradRow1Seg1)" strokeWidth="22" strokeLinecap="round" />
                   <path d="M 512 80 L 864 80" stroke="url(#gradRow1Seg2)" strokeWidth="22" strokeLinecap="round" />
-                  <path d="M 864 80 A 85 85 0 0 1 864 250" stroke="#D1D5DB" strokeWidth="22" />
+                  <path d="M 864 80 A 85 85 0 0 1 864 250" stroke="url(#gradConnector1)" strokeWidth="22" />
                   <path d="M 864 250 L 512 250" stroke="url(#gradRow2Seg1)" strokeWidth="22" strokeLinecap="round" />
                   <path d="M 512 250 L 160 250" stroke="url(#gradRow2Seg2)" strokeWidth="22" strokeLinecap="round" />
-                  <path d="M 160 250 A 85 85 0 0 0 160 420" stroke="#D1D5DB" strokeWidth="22" />
+                  <path d="M 160 250 A 85 85 0 0 0 160 420" stroke="url(#gradConnector2)" strokeWidth="22" />
                   <path d="M 160 420 L 512 420" stroke="url(#gradRow3Seg1)" strokeWidth="22" strokeLinecap="round" />
                   <path d="M 512 420 L 864 420" stroke="url(#gradRow3Seg2)" strokeWidth="22" strokeLinecap="round" />
 
@@ -452,8 +467,8 @@ export function CompanyOverviewLayout({ content }) {
                   <button
                     onClick={() => setActiveYear('2015')}
                     className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2015'
-                        ? 'bg-purple-600 text-white ring-4 ring-purple-600/30 scale-110'
-                        : 'bg-white text-slate-700 border-2 border-purple-600 hover:scale-105'
+                        ? 'bg-pink-500 text-white ring-4 ring-pink-500/30 scale-110'
+                        : 'bg-white text-slate-700 border-2 border-pink-500 hover:scale-105'
                       }`}
                   >
                     2015
@@ -464,8 +479,8 @@ export function CompanyOverviewLayout({ content }) {
                   <button
                     onClick={() => setActiveYear('2020')}
                     className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2020'
-                        ? 'bg-pink-500 text-white ring-4 ring-pink-500/30 scale-110'
-                        : 'bg-white text-slate-700 border-2 border-pink-500 hover:scale-105'
+                        ? 'bg-violet-500 text-white ring-4 ring-violet-500/30 scale-110'
+                        : 'bg-white text-slate-700 border-2 border-violet-500 hover:scale-105'
                       }`}
                   >
                     2020
@@ -484,8 +499,8 @@ export function CompanyOverviewLayout({ content }) {
                   <button
                     onClick={() => setActiveYear('2025')}
                     className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2025'
-                        ? 'bg-emerald-500 text-white ring-4 ring-emerald-500/30 scale-110'
-                        : 'bg-white text-slate-700 border-2 border-emerald-500 hover:scale-105'
+                        ? 'bg-blue-500 text-white ring-4 ring-blue-500/30 scale-110'
+                        : 'bg-white text-slate-700 border-2 border-blue-500 hover:scale-105'
                       }`}
                   >
                     2025
@@ -496,8 +511,8 @@ export function CompanyOverviewLayout({ content }) {
                   <button
                     onClick={() => setActiveYear('2026')}
                     className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2026'
-                        ? 'bg-teal-500 text-white ring-4 ring-teal-500/30 scale-110'
-                        : 'bg-white text-slate-700 border-2 border-teal-500 hover:scale-105'
+                        ? 'bg-cyan-500 text-white ring-4 ring-cyan-500/30 scale-110'
+                        : 'bg-white text-slate-700 border-2 border-cyan-500 hover:scale-105'
                       }`}
                   >
                     2026
@@ -517,10 +532,10 @@ export function CompanyOverviewLayout({ content }) {
               { yr: '2000', color: 'border-amber-400 text-amber-500', name: 'The Beginning', desc: 'Established Chennai HQ, formed first pre-disbursal desk with 12 experts.' },
               { yr: '2005', color: 'border-orange-500 text-orange-500', name: 'Early Foundation', desc: 'Onboarded nationalized bank panels, integrated IIBF DRA agent trainings.' },
               { yr: '2010', color: 'border-red-500 text-red-500', name: 'Expanding Footprint', desc: 'Entered Karnataka & Kerala, established 6 regional offices with 250+ crew.' },
-              { yr: '2015', color: 'border-purple-600 text-purple-500', name: 'Strategic Scale-Up', desc: 'Launched SARFAESI legal notice desk, built 12 secured yards in South India.' },
-              { yr: '2020', color: 'border-pink-500 text-pink-500', name: 'Pan-South India', desc: 'Expanded to AP & Telangana, secured ISO 27001 data compliance certification.' },
-              { yr: '2025', color: 'border-emerald-500 text-emerald-500', name: 'Digital Shift', desc: 'GPS field tracking, automated telemetry client SFTP integrations.' },
-              { yr: '2026', color: 'border-teal-500 text-teal-500', name: 'The Road Ahead', desc: 'Predictive AI recovery analytics routing, expanding to West & North regions.' }
+              { yr: '2015', color: 'border-pink-500 text-pink-500', name: 'Strategic Scale-Up', desc: 'Launched SARFAESI legal notice desk, built 12 secured yards in South India.' },
+              { yr: '2020', color: 'border-violet-500 text-violet-500', name: 'Pan-South India', desc: 'Expanded to AP & Telangana, secured ISO 27001 data compliance certification.' },
+              { yr: '2025', color: 'border-blue-500 text-blue-500', name: 'Digital Shift', desc: 'GPS field tracking, automated telemetry client SFTP integrations.' },
+              { yr: '2026', color: 'border-cyan-500 text-cyan-500', name: 'The Road Ahead', desc: 'Predictive AI recovery analytics routing, expanding to West & North regions.' }
             ].map((node, i) => (
               <div key={i} className="relative space-y-2">
                 <div className={`absolute -left-[35px] top-1 bg-white border-2 ${node.color} rounded-full w-4 h-4 flex items-center justify-center z-10`} />
@@ -533,8 +548,11 @@ export function CompanyOverviewLayout({ content }) {
             ))}
           </div>
 
-          {/* Interactive details dashboard */}
-          <div className="max-w-5xl mx-auto mt-12 bg-white/70 backdrop-blur-md border border-slate-200 rounded-[32px] p-8 shadow-md text-left">
+          {/* Interactive details dashboard — glow shifts to match the active milestone's colour */}
+          <div
+            className="max-w-5xl mx-auto mt-12 bg-white/70 backdrop-blur-md border border-slate-200 rounded-[32px] p-8 text-left transition-shadow duration-500"
+            style={{ boxShadow: activeMilestone.color ? `0 20px 60px -30px ${activeMilestone.color}55, 0 4px 12px -4px rgba(15,23,42,.08)` : '0 4px 6px -1px rgba(0,0,0,.1)' }}
+          >
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeYear}
@@ -546,19 +564,22 @@ export function CompanyOverviewLayout({ content }) {
               >
                 <div className="md:col-span-4 flex flex-col justify-between space-y-6">
                   <div className="space-y-3">
-                    <div className="text-5xl font-black text-[#2563EB] font-mono tracking-tight">{activeMilestone.year}</div>
+                    <div className="text-5xl font-black font-mono tracking-tight" style={{ color: activeMilestone.color || '#2563EB' }}>{activeMilestone.year}</div>
                     <h3 className="text-xl font-bold text-[#0F172A] font-serif leading-snug">{activeMilestone.title}</h3>
                     <p className="text-xs text-slate-500 leading-relaxed font-inter">{activeMilestone.summary}</p>
                   </div>
                 </div>
 
-                <div className="md:col-span-8 flex flex-col justify-between space-y-6 border-t md:border-t-0 md:border-l border-slate-100 pt-6 md:pt-0 md:pl-8">
+                <div
+                  className="md:col-span-8 flex flex-col justify-between space-y-6 border-t md:border-t-0 md:border-l pt-6 md:pt-0 md:pl-8 transition-colors duration-300"
+                  style={{ borderColor: activeMilestone.color ? `${activeMilestone.color}33` : undefined }}
+                >
                   <div className="space-y-4">
                     <h4 className="text-[10px] font-bold text-[#0F172A] uppercase tracking-widest font-mono">Milestone Accomplishments</h4>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {activeMilestone.highlights?.map((hl, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-xs text-slate-600">
-                          <CheckCircle2 className="h-4 w-4 text-[#2563EB] shrink-0 mt-0.5" />
+                          <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5" style={{ color: activeMilestone.color || '#2563EB' }} />
                           <span>{hl}</span>
                         </li>
                       ))}
@@ -569,8 +590,12 @@ export function CompanyOverviewLayout({ content }) {
                     <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-mono">Key Business Impact</h4>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                       {activeMilestone.impact?.map((imp, idx) => (
-                        <div key={idx} className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-left">
-                          <div className="text-base font-bold text-[#2563EB] font-serif leading-none">
+                        <div
+                          key={idx}
+                          className="rounded-xl px-3 py-2 text-left transition-colors duration-300"
+                          style={{ background: activeMilestone.color ? `${activeMilestone.color}0d` : '#F8FAFC', border: `1px solid ${activeMilestone.color ? `${activeMilestone.color}33` : '#E2E8F0'}` }}
+                        >
+                          <div className="text-base font-bold font-serif leading-none" style={{ color: activeMilestone.color || '#2563EB' }}>
                             <AnimatedCounter targetValue={imp.value} />
                           </div>
                           <div className="text-[8px] font-bold text-slate-400 uppercase tracking-wider mt-1">{imp.label}</div>

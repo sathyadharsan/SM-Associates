@@ -24,6 +24,7 @@ export default function WhySmAssociatesSection() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.35, delay: i * 0.07 }}
                 className="why6-item"
+                style={{ '--card-c': w.color }}
               >
                 <span className="why6-ico"><Icon size={20} /></span>
                 <div>

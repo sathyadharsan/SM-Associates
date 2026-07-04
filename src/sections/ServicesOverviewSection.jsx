@@ -26,7 +26,9 @@ export default function ServicesOverviewSection() {
                 transition={{ duration: 0.4, delay: i * 0.06 }}
                 whileHover={{ y: -4 }}
                 className="svc6-card"
+                style={{ '--card-c': s.color }}
               >
+                <span className="svc6-idx">{String(i + 1).padStart(2, '0')}</span>
                 <span className="svc6-ico"><Icon size={20} /></span>
                 <h4>{s.name}</h4>
                 <p>{s.desc}</p>

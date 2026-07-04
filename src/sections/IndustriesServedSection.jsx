@@ -25,7 +25,7 @@ export default function IndustriesServedSection() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.35, delay: i * 0.05 }}
               >
-                <Link to={ind.href} className="ind6-card">
+                <Link to={ind.href} className="ind6-card" style={{ '--card-c': ind.color }}>
                   <span className="ind6-ico"><Icon size={18} /></span>
                   <span>{ind.name}</span>
                 </Link>

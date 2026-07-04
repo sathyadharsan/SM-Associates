@@ -225,6 +225,7 @@ export const pagesContent = {
     timelineMilestones: [
       {
         year: '2000',
+        color: '#FBBF24',
         title: 'The Beginning',
         summary: 'SM Associates was founded with a mission to bring professionalism and transparency to risk management and recovery operations.',
         highlights: [
@@ -243,6 +244,7 @@ export const pagesContent = {
       },
       {
         year: '2005',
+        color: '#F97316',
         title: 'Early Growth & Foundation',
         summary: 'Expanded operations, built core processes and onboarded initial banking partners across Tamil Nadu.',
         highlights: [
@@ -261,6 +263,7 @@ export const pagesContent = {
       },
       {
         year: '2010',
+        color: '#EF4444',
         title: 'Expanding Footprint',
         summary: 'A defining milestone as we entered Karnataka and Kerala, building strong regional teams and enhancing our field investigation and recovery capabilities.',
         highlights: [
@@ -280,6 +283,7 @@ export const pagesContent = {
       },
       {
         year: '2015',
+        color: '#EC4899',
         title: 'Strategic Scale-Up',
         summary: 'Launched specialized legal recovery vertical and scaled technology enablement for end-to-end visibility.',
         highlights: [
@@ -298,6 +302,7 @@ export const pagesContent = {
       },
       {
         year: '2020',
+        color: '#8B5CF6',
         title: 'Pan-South India Presence',
         summary: 'Expanded to Telangana and Andhra Pradesh, establishing regional offices and strengthening local networks.',
         highlights: [
@@ -316,6 +321,7 @@ export const pagesContent = {
       },
       {
         year: '2025',
+        color: '#3B82F6',
         title: 'Transformation & Innovation',
         summary: 'Invested in automation, analytics and digital platforms to drive efficiency, compliance and performance.',
         highlights: [
@@ -334,6 +340,7 @@ export const pagesContent = {
       },
       {
         year: '2026',
+        color: '#06B6D4',
         title: 'The Road Ahead',
         summary: 'Continuing our journey to become India\'s most trusted risk management and recovery partner.',
         highlights: [

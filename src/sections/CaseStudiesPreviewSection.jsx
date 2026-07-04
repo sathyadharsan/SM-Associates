@@ -6,6 +6,16 @@ import { caseStudies } from '../data/caseStudies';
 const featured = caseStudies.filter((s) => s.featured).slice(0, 3);
 const preview = featured.length >= 3 ? featured : caseStudies.slice(0, 3);
 
+// Mirrors the service-division colors used in ServicesOverviewSection so a
+// SARFAESI case study, say, reads in the same hue as the SARFAESI service card.
+const SERVICE_COLORS = {
+  sarfaesi: '#E11D48',
+  'field-collections': '#16A34A',
+  'security-custodian': '#C8922A',
+  'npa-management': '#7C3AED',
+  'fraud-control': '#0891B2',
+};
+
 export default function CaseStudiesPreviewSection() {
   return (
     <section className="csp6" id="case-studies">
@@ -25,6 +35,7 @@ export default function CaseStudiesPreviewSection() {
               transition={{ duration: 0.4, delay: i * 0.08 }}
               whileHover={{ y: -4 }}
               className="csp6-card"
+              style={{ '--card-c': SERVICE_COLORS[study.serviceId] }}
             >
               <span className="csp6-tag">{study.serviceLabel}</span>
               <h4>{study.title}</h4>

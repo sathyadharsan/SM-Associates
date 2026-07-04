@@ -152,34 +152,34 @@ export const flagshipFaqs = [
 // Card-based Services Overview — one representative, real route per
 // business division (matches src/data/navigation.js mega-menu categories).
 export const servicesOverview = [
-  { icon: 'Search', name: 'Verification', desc: 'Pre-disbursal CPV, residence, office and document verification.', href: '/services/verification/cpv-services' },
-  { icon: 'PhoneCall', name: 'Collections', desc: 'Early-stage through hard and field collections, across every bucket.', href: '/services/collections/field-collections' },
-  { icon: 'RefreshCw', name: 'Recovery Operations', desc: 'NPA recovery and portfolio-level resolution strategy.', href: '/services/specialized/npa-recovery' },
-  { icon: 'Gavel', name: 'SARFAESI Support', desc: 'End-to-end statutory enforcement, from notice to auction.', href: '/services/legal-recovery/sarfaesi-support' },
-  { icon: 'Warehouse', name: 'Asset Recovery', desc: 'Repossession, custody, valuation and auction coordination.', href: '/services/asset-recovery/asset-recovery' },
-  { icon: 'FileSearch', name: 'Investigation', desc: 'Skip tracing, due diligence and fraud investigation.', href: '/services/investigation/due-diligence' },
+  { icon: 'Search', name: 'Verification', desc: 'Pre-disbursal CPV, residence, office and document verification.', href: '/services/verification/cpv-services', color: '#3366FF' },
+  { icon: 'PhoneCall', name: 'Collections', desc: 'Early-stage through hard and field collections, across every bucket.', href: '/services/collections/field-collections', color: '#16A34A' },
+  { icon: 'RefreshCw', name: 'Recovery Operations', desc: 'NPA recovery and portfolio-level resolution strategy.', href: '/services/specialized/npa-recovery', color: '#7C3AED' },
+  { icon: 'Gavel', name: 'SARFAESI Support', desc: 'End-to-end statutory enforcement, from notice to auction.', href: '/services/legal-recovery/sarfaesi-support', color: '#E11D48' },
+  { icon: 'Warehouse', name: 'Asset Recovery', desc: 'Repossession, custody, valuation and auction coordination.', href: '/services/asset-recovery/asset-recovery', color: '#C8922A' },
+  { icon: 'FileSearch', name: 'Investigation', desc: 'Skip tracing, due diligence and fraud investigation.', href: '/services/investigation/due-diligence', color: '#0891B2' },
 ];
 
 // Card-based Industries We Serve — mirrors the top-level entries under the
 // "Industries" mega-menu so Home stays in sync with real destination pages.
 export const industriesOverview = [
-  { icon: 'Landmark', name: 'Banking', href: '/industries/banking' },
-  { icon: 'Building2', name: 'NBFC', href: '/industries/nbfc' },
-  { icon: 'Home', name: 'Housing Finance', href: '/industries/housing-finance' },
-  { icon: 'Users', name: 'Microfinance', href: '/industries/microfinance' },
-  { icon: 'Smartphone', name: 'Fintech', href: '/industries/fintech' },
-  { icon: 'Layers', name: 'Asset Reconstruction', href: '/industries/arc' },
-  { icon: 'ShieldCheck', name: 'Insurance', href: '/industries/insurance' },
-  { icon: 'Briefcase', name: 'Commercial Lending', href: '/industries/commercial-lending' },
+  { icon: 'Landmark', name: 'Banking', href: '/industries/banking', color: '#3366FF' },
+  { icon: 'Building2', name: 'NBFC', href: '/industries/nbfc', color: '#7C3AED' },
+  { icon: 'Home', name: 'Housing Finance', href: '/industries/housing-finance', color: '#C8922A' },
+  { icon: 'Users', name: 'Microfinance', href: '/industries/microfinance', color: '#16A34A' },
+  { icon: 'Smartphone', name: 'Fintech', href: '/industries/fintech', color: '#0891B2' },
+  { icon: 'Layers', name: 'Asset Reconstruction', href: '/industries/arc', color: '#E11D48' },
+  { icon: 'ShieldCheck', name: 'Insurance', href: '/industries/insurance', color: '#4F46E5' },
+  { icon: 'Briefcase', name: 'Commercial Lending', href: '/industries/commercial-lending', color: '#EA580C' },
 ];
 
 // "Why SM Associates" — qualitative differentiation only; the numbers
 // behind these points already live in the Metrics section above, so this
 // section argues the *case*, not the count.
 export const whyUsPoints = [
-  { icon: 'History', title: 'Enterprise Experience', desc: 'Two and a half decades operating through multiple credit cycles — not a vendor new to the discipline of recovery.' },
-  { icon: 'Network', title: 'Operational Scale', desc: 'A direct branch network across South India, not a subcontracted patchwork of local agents.' },
-  { icon: 'ShieldCheck', title: 'Governance-Driven Delivery', desc: 'Every engagement runs on documented conduct, recorded calls and an audit trail built for regulator scrutiny.' },
-  { icon: 'Workflow', title: 'Structured Recovery Operations', desc: 'One accountable operating model spanning allocation, field execution, legal escalation and reporting.' },
-  { icon: 'Landmark', title: 'Banking Domain Expertise', desc: 'Built specifically around how banks, NBFCs and HFCs actually manage stressed portfolios.' },
+  { icon: 'History', title: 'Enterprise Experience', desc: 'Two and a half decades operating through multiple credit cycles — not a vendor new to the discipline of recovery.', color: '#C8922A' },
+  { icon: 'Network', title: 'Operational Scale', desc: 'A direct branch network across South India, not a subcontracted patchwork of local agents.', color: '#3366FF' },
+  { icon: 'ShieldCheck', title: 'Governance-Driven Delivery', desc: 'Every engagement runs on documented conduct, recorded calls and an audit trail built for regulator scrutiny.', color: '#16A34A' },
+  { icon: 'Workflow', title: 'Structured Recovery Operations', desc: 'One accountable operating model spanning allocation, field execution, legal escalation and reporting.', color: '#7C3AED' },
+  { icon: 'Landmark', title: 'Banking Domain Expertise', desc: 'Built specifically around how banks, NBFCs and HFCs actually manage stressed portfolios.', color: '#0891B2' },
 ];
