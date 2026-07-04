@@ -229,11 +229,6 @@ export default function Header() {
   return (
     <div className="fixed inset-x-0 top-0 z-50">
 
-      {/* Ambient purple-blue glow behind the floating navbar */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[140px] overflow-hidden">
-        <div className="absolute left-1/2 top-[-60px] h-[200px] w-[900px] -translate-x-1/2 rounded-full opacity-30 blur-[70px]"
-          style={{ background: `linear-gradient(90deg, ${BRAND}, ${VIOLET})` }} />
-      </div>
 
       <div className="relative mx-auto max-w-[1400px] px-3 pt-3 sm:px-4 lg:px-6">
         <div
@@ -249,9 +244,7 @@ export default function Header() {
           <div 
             className="absolute inset-0 -z-10 rounded-2xl pointer-events-none"
             style={{
-              background: scrolled ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.7)',
-              backdropFilter: 'blur(26px) saturate(160%)',
-              WebkitBackdropFilter: 'blur(26px) saturate(160%)',
+              background: scrolled ? '#ffffff' : 'rgba(255,255,255,0.96)',
             }}
           />
 
