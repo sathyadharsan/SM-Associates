@@ -16,7 +16,7 @@ export default function FlagshipCtaSection() {
           <div className="cta6-glow" />
           <div className="cta6-inner">
             <div className="cta6-status">READY TO ENGAGE</div>
-            <h2>Put your recovery<br />on a governed operating model.</h2>
+            <h2>Put your recovery<br />on a <em className="fg-hl">governed operating model.</em></h2>
             <p>
               Bring us a book. We&apos;ll return a recovery plan, a coverage map and a compliance framework — before you commit to anything.
             </p>

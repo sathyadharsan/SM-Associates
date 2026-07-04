@@ -1,16 +1,72 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { locations as allLocations, tierColor, tierLabel, MAP_VIEWPORT, MAP_MODES } from '../../data/LocationData';
+import { locations as allLocations, tierColor, tierLabel, MAP_MODES } from '../../data/LocationData';
 
-/**
- * South India Coverage Map — Gemini AI generated 1024×1024 square map.
- * Shows all SM Associates South India offices with precise white dot markers.
- * North India offices (Pune, Ahmedabad, Jaipur, Lucknow) are flagged northOffice:true
- * and shown only in the legend panel, not as map dots.
- *
- * Coordinate system (x,y = 0-100 image percentages):
- *   x = 10 + ((lon − 72) / 13) × 82   [72°E–85°E]
- *   y = 5  + ((20 − lat) / 12) × 90   [20°N–8°N, Y inverted]
- */
+// Padding (in the map image's 0-100 percent space) kept around the fitted
+// set of markers when auto-zooming — keeps pins off the very edge.
+const FIT_PAD = 6;
+
+/* Map-pin marker — teardrop shape with the anchor at its bottom tip
+   (drawn at local origin), gradient fill by tier color, white core dot,
+   soft drop shadow + ground shadow ellipse. Replaces the old dot+ring
+   style with a standard "pin drop" look. */
+function Pin({ loc, isHover, isActive, isRelevant, index, onHover, onSelect, activeId }) {
+  const color = tierColor(loc.tier);
+  const isHQ = loc.tier === 'hq';
+  const dimmed = !isRelevant;
+  const emphasized = isHover || isActive;
+  const baseScale = isHQ ? 1.3 : 1;
+  const liveScale = emphasized ? baseScale * 1.18 : baseScale;
+  const gradId = `pin-grad-${loc.id}`;
+
+  return (
+    <motion.g
+      style={{ cursor: 'pointer' }}
+      initial={{ opacity: 0, scale: 0.4 }}
+      whileInView={{ opacity: dimmed ? 0.35 : 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.15 + index * 0.06, type: 'spring', stiffness: 240, damping: 18 }}
+      onMouseEnter={() => onHover(loc.id)}
+      onMouseLeave={() => onHover(null)}
+      onClick={(e) => { e.stopPropagation(); onSelect(loc.id === activeId ? null : loc.id); }}
+    >
+      <g
+        transform={`translate(${loc.x} ${loc.y}) scale(${liveScale})`}
+        style={{ transition: 'transform .28s cubic-bezier(0.22,1,0.36,1)', opacity: dimmed ? 0.4 : 1 }}
+      >
+        <defs>
+          <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor={color} stopOpacity="1" />
+            <stop offset="100%" stopColor={color} stopOpacity="0.74" />
+          </linearGradient>
+        </defs>
+
+        <ellipse cx="0" cy="0.2" rx={isHQ ? 1.3 : 1.0} ry="0.38" fill="rgba(15,23,42,0.25)" style={{ filter: 'blur(1px)' }} />
+
+        {isHQ && (
+          <motion.circle
+            cx="0" cy="-2.55" r="0.6"
+            fill="none" stroke={color} strokeWidth="0.16"
+            initial={{ scale: 1, opacity: 0.7 }}
+            animate={{ scale: [1, 3.2], opacity: [0.7, 0] }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut' }}
+          />
+        )}
+
+        <path
+          d="M0,0 C-1.05,-1.55 -1.35,-1.95 -1.35,-2.55 A1.35,1.35 0 1 1 1.35,-2.55 C1.35,-1.95 1.05,-1.55 0,0 Z"
+          fill={`url(#${gradId})`}
+          stroke="rgba(255,255,255,0.92)"
+          strokeWidth="0.12"
+          style={{ filter: emphasized ? 'drop-shadow(0 0.6px 1.6px rgba(15,23,42,0.5))' : 'drop-shadow(0 0.4px 1px rgba(15,23,42,0.32))' }}
+        />
+        <circle cx="0" cy="-2.55" r={isHQ ? 0.55 : 0.42} fill="#fff" />
+
+        <circle cx="0" cy="-1.3" r={isHQ ? 2.2 : 1.8} fill="transparent" />
+      </g>
+    </motion.g>
+  );
+}
+
 export default function IndiaCoverageMap({
   activeMode,
   activeId,
@@ -18,25 +74,38 @@ export default function IndiaCoverageMap({
   onHover,
   onSelect,
   locations = allLocations,
-  viewport = MAP_VIEWPORT,
 }) {
   const accent = MAP_MODES.find((m) => m.id === activeMode)?.color ?? '#3FA9FF';
   const hoverLocation = locations.find((l) => l.id === hoverId);
 
-  // Only show locations that have valid map coordinates (South India)
   const mapLocations = locations.filter((l) => !l.northOffice && l.x >= 0 && l.y >= 0);
   const northLocations = locations.filter((l) => l.northOffice);
+
+  // Auto-fit zoom: compute a uniform (non-distorting) scale + center so the
+  // markers actually in scope fill the frame, instead of a fixed 0-100
+  // viewBox that leaves the crop wherever the base image happens to sit.
+  const xs = mapLocations.map((l) => l.x);
+  const ys = mapLocations.map((l) => l.y);
+  const minX = Math.min(...xs) - FIT_PAD;
+  const maxX = Math.max(...xs) + FIT_PAD;
+  const minY = Math.min(...ys) - FIT_PAD;
+  const maxY = Math.max(...ys) + FIT_PAD;
+  const cx = (minX + maxX) / 2;
+  const cy = (minY + maxY) / 2;
+  const fitScale = 100 / Math.max(maxX - minX, maxY - minY, 40); // never zoom past a sane floor
+  // screen-space position (0-100%) for any raw map coordinate, matching the
+  // CSS transform applied to the image+pin layer below.
+  const toScreen = (v, c) => 50 + fitScale * (v - c);
 
   return (
     <div
       className="relative overflow-hidden rounded-[28px] border"
       style={{
-        background: 'linear-gradient(160deg, #dbeafe 0%, #f8fbff 50%, #ffffff 100%)',
-        borderColor: 'rgba(37,99,235,0.15)',
+        background: 'linear-gradient(160deg, #f7f8fc 0%, #fbfcff 50%, #ffffff 100%)',
+        borderColor: 'rgba(200,164,93,0.22)',
       }}
       onClick={() => onSelect(null)}
     >
-      {/* Subtle dot-grid */}
       <div
         className="absolute inset-0 pointer-events-none rounded-[28px]"
         style={{
@@ -46,146 +115,62 @@ export default function IndiaCoverageMap({
         }}
       />
 
-      {/* ── Map area — 1:1 square aspect matches the 1024×1024 image ── */}
-      <div
-        className="relative w-full"
-        style={{ aspectRatio: '1 / 1', maxHeight: 600, overflow: 'hidden' }}
-      >
-        {/* South India map image */}
-        <img
-          src="/images/south_india_coverage_map.png"
-          alt="SM Associates South India Coverage Map"
-          className="absolute inset-0 w-full h-full select-none pointer-events-none"
-          style={{ objectFit: 'contain', objectPosition: 'center', opacity: 0.95 }}
-          draggable={false}
-        />
-
-        {/*
-         * SVG overlay: viewBox "0 0 100 100" (square) + xMidYMid meet.
-         * Both image and SVG are 1:1 → identical letterboxing → perfect alignment.
-         */}
-        <svg
-          viewBox="0 0 100 100"
-          preserveAspectRatio="xMidYMid meet"
-          className="absolute inset-0 w-full h-full"
-          style={{ overflow: 'visible' }}
+      <div className="relative w-full" style={{ aspectRatio: '1 / 1', maxHeight: 600, overflow: 'hidden' }}>
+        {/* Zoomed layer — image + pins scaled/panned together so they never drift apart */}
+        <div
+          className="absolute inset-0"
+          style={{
+            transform: `translate(${(50 - cx) * fitScale}%, ${(50 - cy) * fitScale}%) scale(${fitScale})`,
+            transformOrigin: 'center',
+          }}
         >
-          {mapLocations.map((l, i) => {
-            const color = tierColor(l.tier);
-            const isHQ = l.tier === 'hq';
-            const isRelevant = l.modes.includes(activeMode);
-            const isHover = hoverId === l.id;
-            const isActive = activeId === l.id;
-            const dimmed = !isRelevant;
-            const emphasized = isHover || isActive;
-
-            // Small white dot + colored ring (as requested)
-            const dotR  = isHQ ? 1.5 : 0.95;
-            const ringR = isHQ ? 2.4 : 1.65;
-            const glowR = isHQ ? 4.0  : 2.8;
-
-            return (
-              <g
+          <img
+            src="/images/south_india_coverage_map.png"
+            alt="SM Associates South India Coverage Map"
+            className="absolute inset-0 w-full h-full select-none pointer-events-none"
+            style={{ objectFit: 'contain', objectPosition: 'center', opacity: 0.95 }}
+            draggable={false}
+          />
+          <svg
+            viewBox="0 0 100 100"
+            preserveAspectRatio="xMidYMid meet"
+            className="absolute inset-0 h-full w-full"
+            style={{ overflow: 'visible' }}
+          >
+            {mapLocations.map((l, i) => (
+              <Pin
                 key={l.id}
-                style={{ cursor: 'pointer' }}
-                onMouseEnter={() => onHover(l.id)}
-                onMouseLeave={() => onHover(null)}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onSelect(l.id === activeId ? null : l.id);
-                }}
-              >
-                {/* Soft glow behind */}
-                <circle
-                  cx={l.x} cy={l.y} r={glowR}
-                  fill={color}
-                  opacity={dimmed ? 0.04 : emphasized ? 0.32 : isHQ ? 0.2 : 0.12}
-                  style={{ filter: 'blur(3px)', transition: 'opacity 0.25s' }}
-                />
+                loc={l}
+                index={i}
+                isHover={hoverId === l.id}
+                isActive={activeId === l.id}
+                isRelevant={l.modes.includes(activeMode)}
+                onHover={onHover}
+                onSelect={onSelect}
+                activeId={activeId}
+              />
+            ))}
+          </svg>
+        </div>
 
-                {/* HQ: animated pulse rings */}
-                {isHQ && (
-                  <>
-                    <motion.circle
-                      cx={l.x} cy={l.y} r={ringR}
-                      fill="none" stroke={color} strokeWidth="0.55"
-                      initial={{ scale: 1, opacity: 0.75 }}
-                      animate={{ scale: [1, 3.5], opacity: [0.75, 0] }}
-                      transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut' }}
-                      style={{ transformOrigin: `${l.x}px ${l.y}px` }}
-                    />
-                    <motion.circle
-                      cx={l.x} cy={l.y} r={ringR}
-                      fill="none" stroke={color} strokeWidth="0.45"
-                      initial={{ scale: 1, opacity: 0.45 }}
-                      animate={{ scale: [1, 2.3], opacity: [0.45, 0] }}
-                      transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut', delay: 0.85 }}
-                      style={{ transformOrigin: `${l.x}px ${l.y}px` }}
-                    />
-                  </>
-                )}
-
-                {/* Colored outer ring — all locations */}
-                <motion.circle
-                  cx={l.x} cy={l.y}
-                  r={emphasized ? ringR * 1.18 : ringR}
-                  fill="none"
-                  stroke={color}
-                  strokeWidth={isHQ ? '0.75' : '0.55'}
-                  opacity={dimmed ? 0.2 : 1}
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 + i * 0.07, type: 'spring', stiffness: 220 }}
-                  style={{ transformOrigin: `${l.x}px ${l.y}px` }}
-                />
-
-                {/* WHITE filled core dot — small & crisp */}
-                <motion.circle
-                  cx={l.x} cy={l.y}
-                  r={emphasized ? dotR * 1.25 : dotR}
-                  fill="white"
-                  stroke={color}
-                  strokeWidth="0.35"
-                  opacity={dimmed ? 0.45 : 1}
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  animate={{ opacity: dimmed ? 0.45 : 1 }}
-                  transition={{ delay: 0.18 + i * 0.07, type: 'spring', stiffness: 260 }}
-                  style={{
-                    transformOrigin: `${l.x}px ${l.y}px`,
-                    filter: emphasized ? `drop-shadow(0 0 3px ${color})` : 'none',
-                  }}
-                />
-
-                {/* Transparent hit area */}
-                <circle cx={l.x} cy={l.y} r={6} fill="transparent" />
-              </g>
-            );
-          })}
-        </svg>
-
-        {/* City name label pills */}
+        {/* City name labels — outside the zoomed layer so text stays crisp and legible */}
         {mapLocations.map((l, i) => (
           <motion.div
             key={`lbl-${l.id}`}
             className="absolute pointer-events-none z-10"
-            style={{ left: `${l.x}%`, top: `${l.y}%`, transform: 'translate(-50%, 11px)' }}
+            style={{ left: `${toScreen(l.x, cx)}%`, top: `${toScreen(l.y, cy)}%`, transform: 'translate(-50%, 14px)' }}
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: l.modes.includes(activeMode) ? 1 : 0.2 }}
+            whileInView={{ opacity: l.modes.includes(activeMode) ? 1 : 0.25 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 + i * 0.05 }}
           >
             <span
-              className="whitespace-nowrap rounded px-1 py-px text-[8px] font-bold leading-tight"
+              className="whitespace-nowrap rounded-md px-1.5 py-0.5 text-[10.5px] font-bold leading-tight"
               style={{
-                color: l.tier === 'hq' ? '#92400e' : '#1e3a8a',
-                background: l.tier === 'hq'
-                  ? 'rgba(254,243,199,0.95)'
-                  : 'rgba(219,234,254,0.92)',
+                color: l.tier === 'hq' ? '#8a6412' : '#1e3a8a',
+                background: l.tier === 'hq' ? 'rgba(254,243,199,0.96)' : 'rgba(219,234,254,0.94)',
                 backdropFilter: 'blur(4px)',
-                boxShadow: '0 1px 4px rgba(0,0,0,0.1)',
+                boxShadow: '0 1px 5px rgba(0,0,0,0.12)',
               }}
             >
               {l.name}
@@ -193,20 +178,20 @@ export default function IndiaCoverageMap({
           </motion.div>
         ))}
 
-        {/* Hover tooltip */}
+        {/* Hover tooltip — pointer arrow + fixed size so it never gets swallowed by a neighboring pin */}
         <AnimatePresence>
           {hoverLocation && !hoverLocation.northOffice && (
             <motion.div
               initial={{ opacity: 0, y: 4, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="pointer-events-none absolute z-30 whitespace-nowrap rounded-xl border px-3 py-1.5 text-[11px] font-semibold text-gray-800 shadow-xl"
+              className="pointer-events-none absolute z-40 whitespace-nowrap rounded-xl border px-3 py-1.5 text-[11px] font-semibold text-gray-800 shadow-xl"
               style={{
-                left: `${hoverLocation.x}%`,
-                top: `${hoverLocation.y}%`,
-                transform: 'translate(-50%, -148%)',
-                background: 'rgba(255,255,255,0.97)',
-                borderColor: 'rgba(37,99,235,0.2)',
+                left: `${toScreen(hoverLocation.x, cx)}%`,
+                top: `${toScreen(hoverLocation.y, cy)}%`,
+                transform: 'translate(-50%, -220%)',
+                background: 'rgba(255,255,255,0.98)',
+                borderColor: 'rgba(37,99,235,0.22)',
               }}
             >
               {hoverLocation.tier === 'hq' ? '★ ' : '● '}
@@ -214,11 +199,14 @@ export default function IndiaCoverageMap({
               <span className="ml-1.5 text-gray-400 font-normal">
                 · {tierLabel(hoverLocation.tier)}
               </span>
+              <span
+                className="absolute left-1/2 top-full h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rotate-45 border-b border-r"
+                style={{ background: 'rgba(255,255,255,0.98)', borderColor: 'rgba(37,99,235,0.22)' }}
+              />
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* North India offices badge — top-left corner */}
         {northLocations.length > 0 && (
           <div
             className="absolute top-3 left-3 z-20 rounded-xl border px-3 py-2 text-[10px] font-semibold shadow-lg"
@@ -244,9 +232,9 @@ export default function IndiaCoverageMap({
       </div>
 
       {/* Legend */}
-      <div className="relative px-5 py-3 flex flex-wrap items-center justify-center gap-4 text-[10px] font-semibold text-gray-500 border-t border-blue-50">
-        <span className="inline-flex items-center gap-1.5">
-          <span className="h-3 w-3 rounded-full border-2 bg-white" style={{ borderColor: '#D4AF37' }} />
+      <div className="relative flex flex-wrap items-center justify-center gap-5 border-t px-5 py-3.5 text-[11.5px] font-semibold text-gray-500" style={{ borderColor: 'rgba(200,164,93,0.18)' }}>
+        <span className="inline-flex items-center gap-2 font-bold text-gray-700">
+          <span className="h-3.5 w-3.5 rounded-full border-[2.5px] bg-white" style={{ borderColor: '#D4AF37' }} />
           Chennai HQ
         </span>
         <span className="inline-flex items-center gap-1.5">

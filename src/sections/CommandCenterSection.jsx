@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import IndiaCoverageMap from '../components/coverage/IndiaCoverageMap';
 import LocationPanel from '../components/coverage/LocationPanel';
-import MapModeTabs from '../components/coverage/MapModeTabs';
 import { locations as allLocations } from '../data/LocationData';
 
 // SM Associates is a South India operation, Chennai HQ — these are the
@@ -10,11 +9,10 @@ import { locations as allLocations } from '../data/LocationData';
 // North/West India and out of scope here).
 const SOUTH_IDS = ['chennai', 'bengaluru', 'hyderabad', 'coimbatore', 'madurai', 'trichy', 'salem', 'tirunelveli', 'kochi'];
 const southLocations = allLocations.filter((l) => SOUTH_IDS.includes(l.id));
-const SOUTH_VIEWPORT = { x: 26, y: 56, w: 24, h: 38 };
 const SOUTH_STATES = ['Tamil Nadu', 'Kerala', 'Karnataka', 'Andhra Pradesh', 'Telangana'];
 
 export default function CommandCenterSection() {
-  const [activeMode, setActiveMode] = useState('coverage');
+  const activeMode = 'coverage';
   const [activeId, setActiveId] = useState(null);
   const [hoverId, setHoverId] = useState(null);
 
@@ -34,12 +32,9 @@ export default function CommandCenterSection() {
           </p>
         </div>
 
-        <MapModeTabs activeMode={activeMode} onChange={setActiveMode} />
-
-        <div className="grid gap-5 lg:grid-cols-[1fr_360px]">
+        <div className="grid gap-5 lg:grid-cols-[1fr_360px] lg:items-start">
           <IndiaCoverageMap
             locations={southLocations}
-            viewport={SOUTH_VIEWPORT}
             activeMode={activeMode}
             activeId={activeId}
             hoverId={hoverId}

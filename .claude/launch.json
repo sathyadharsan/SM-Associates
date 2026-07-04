@@ -5,7 +5,6 @@
       "name": "sm-associates",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
-      "cwd": ".",
       "port": 5173
     }
   ]
