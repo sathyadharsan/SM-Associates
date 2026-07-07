@@ -1,3 +1,11 @@
+// AI-generated case study images — content-matched, no stock photo downloads
+import cs001Img from '../assets/case-studies/cs-001-sarfaesi.png';
+import cs002Img from '../assets/case-studies/cs-002-security.png';
+import cs003Img from '../assets/case-studies/cs-003-npa.png';
+import cs004Img from '../assets/case-studies/cs-004-field.png';
+import cs005Img from '../assets/case-studies/cs-005-fraud.png';
+import cs006Img from '../assets/case-studies/cs-006-credit.png';
+
 // Case study content — the ONLY place this page's copy lives. To publish
 // real results later, update metrics[].value / quote / quoteAuthor /
 // engagementPeriod here — no component changes needed.
@@ -51,6 +59,7 @@ export const caseStudies = [
     engagementPeriodExample: 'Jan 2023 – Dec 2024',
     portfolioType: 'Secured Home Loan / LAP NPAs',
     tag: 'Flagship Service',
+    image: cs001Img,
     featured: true,
   },
   {
@@ -82,6 +91,7 @@ export const caseStudies = [
     engagementPeriodExample: 'Apr 2022 – Present',
     portfolioType: 'Commercial Vehicles / Equipment / Residential Property',
     tag: 'Unique Capability',
+    image: cs002Img,
     featured: true,
   },
   {
@@ -114,6 +124,7 @@ export const caseStudies = [
     engagementPeriodExample: 'Jun 2022 – Ongoing',
     portfolioType: 'Mixed secured portfolio (Home Loan, Business Loan, CV)',
     tag: 'Strategic Engagement',
+    image: cs003Img,
     featured: false,
   },
   {
@@ -145,6 +156,7 @@ export const caseStudies = [
     engagementPeriodExample: 'Jan 2024 – Dec 2024',
     portfolioType: 'Business Loans + Personal Loans (SMA-1 / SMA-2 buckets)',
     tag: 'High Volume',
+    image: cs004Img,
     featured: false,
   },
   {
@@ -175,6 +187,7 @@ export const caseStudies = [
     engagementPeriodExample: 'Mar 2023 – Ongoing',
     portfolioType: 'Business Loans + LAP (Loan Against Property)',
     tag: 'Risk Prevention',
+    image: cs005Img,
     featured: false,
   },
   {
@@ -208,6 +221,7 @@ export const caseStudies = [
     engagementPeriodExample: 'Jul 2024 – Ongoing',
     portfolioType: 'Credit Card Portfolio (30+ / 60+ / 90+ DPD buckets)',
     tag: 'Multi-Bucket Recovery',
+    image: cs006Img,
     featured: false,
   },
 ];

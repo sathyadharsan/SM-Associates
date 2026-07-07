@@ -192,19 +192,31 @@
 
 /* ── Trusted & Certified (merged marquee + governance facts) ─────────── */
 .tc7{background:#faf9f7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:52px 0 44px;}
+.tc7-head{text-align:center;}
+.tc7-title{margin-top:16px;font-family:var(--serif);font-weight:600;font-size:clamp(24px,3vw,36px);letter-spacing:-.02em;line-height:1.25;color:var(--ink);max-width:640px;margin-left:auto;margin-right:auto;}
+.tc7-underline{position:relative;display:block;width:72px;height:3px;margin:22px auto 0;border-radius:100px;overflow:hidden;background:linear-gradient(90deg,var(--blue),var(--gold));}
+.tc7-underline::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.85),transparent);animation:tc7-shimmer 2.8s ease-in-out infinite;}
+@keyframes tc7-shimmer{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
 .tc7-facts{margin-top:36px;padding-top:32px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:center;}
 .tc7-fact{display:flex;align-items:center;gap:12px;padding:6px 30px;}
 .tc7-fact-ico{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;background:var(--blue-t);color:var(--blue);flex-shrink:0;}
 .tc7-fact-v{display:block;font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.01em;}
 .tc7-fact-k{display:block;font-size:11.5px;color:var(--ink-3);margin-top:2px;}
 .trust6-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);text-align:center;margin-bottom:30px;}
+.trust6-rows{display:flex;flex-direction:column;gap:36px;}
 .trust6-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);}
 .trust6-track{display:flex;gap:52px;width:max-content;align-items:center;animation:trust-scroll 40s linear infinite;}
+.trust6-track--rev{animation-name:trust-scroll-rev;}
 .trust6-marquee:hover .trust6-track{animation-play-state:paused;}
-.tlogo{display:flex;align-items:center;gap:10px;white-space:nowrap;opacity:.9;transition:opacity .4s var(--ease),transform .3s var(--ease);cursor:default;}
-.tlogo img{height:30px;width:auto;max-width:140px;object-fit:contain;}
-.tlogo:hover{opacity:1;transform:translateY(-2px);}
+/* Fixed optical slot per logo — height and max-width are fixed, and the
+   image always fills that box (width/height:100% + object-fit:contain), so
+   a low-res source logo and a hi-res one both read as the same visual size.
+   object-fit:contain never stretches/distorts — it only letterboxes. */
+.tlogo{display:flex;align-items:center;justify-content:center;height:60px;max-width:176px;padding:8px 14px;box-sizing:border-box;flex-shrink:0;cursor:default;transition:transform .3s var(--ease);}
+.tlogo:hover{transform:translateY(-2px);}
+.tlogo img{display:block;width:100%;height:100%;object-fit:contain;}
 @keyframes trust-scroll{to{transform:translateX(-50%);}}
+@keyframes trust-scroll-rev{from{transform:translateX(-50%);}to{transform:translateX(0);}}
 
 /* ═══════════════════════════════════════════════
    3 · METRICS  (white, large numbers)
@@ -687,8 +699,7 @@
 .trust6-label::before{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(15,23,42,.12));}
 .trust6-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(15,23,42,.12),transparent);}
 
-/* ── Bigger marquee logos ─────────────────────────────────────── */
-.tlogo img{height:52px;max-width:220px;}
+/* ── Marquee row spacing (logo sizing now lives in the .tlogo slot rule above) ── */
 .trust6-track{gap:68px;}
 
 /* ── Brand selection color ────────────────────────────────────── */
