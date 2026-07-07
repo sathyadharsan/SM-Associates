@@ -69,18 +69,12 @@ const drawLine = {
 // 1. COMPANY OVERVIEW LAYOUT (`/about`)
 // ----------------------------------------------------
 export function CompanyOverviewLayout({ content }) {
-  const [activeYear, setActiveYear] = useState('2000');
   const [selectedLeader, setSelectedLeader] = useState(null);
 
   // Load other pages' content to act as single-source-of-truth
   const leadershipContent = getPageContent('leadership') || {};
   const historyContent = getPageContent('history') || {};
-  const whyContent = getPageContent('why-sm-associates') || {};
-  const clienteleContent = getPageContent('clientele') || {};
   const complianceContent = getPageContent('compliance') || {};
-
-  // Find active milestone for the serpentine roadmap
-  const activeMilestone = historyContent.timelineMilestones?.find(m => m.year === activeYear) || historyContent.timelineMilestones?.[0] || {};
 
   // Framer Motion Animation Presets
   const sectionVar = {
@@ -208,35 +202,20 @@ export function CompanyOverviewLayout({ content }) {
             <div className="relative w-full h-[380px] bg-slate-50 border border-[#E2E8F0] rounded-[32px] overflow-hidden p-4 flex items-center justify-center shadow-inner">
               <div className="absolute inset-0 bg-radial-gradient from-blue-500/5 via-transparent to-transparent pointer-events-none" />
 
+              {/* Trimmed to 3 identity-scale facts that don't restate the
+                  operational footprint numbers (branches/field force/yards)
+                  — those live once, in the Branch Network section below. */}
               <svg viewBox="0 0 400 360" className="w-full h-full overflow-visible select-none">
-                <line x1="200" y1="180" x2="75" y2="45" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
-                <line x1="200" y1="180" x2="325" y2="45" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
-                <line x1="200" y1="180" x2="70" y2="180" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
-                <line x1="200" y1="180" x2="330" y2="180" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
-                <line x1="200" y1="180" x2="75" y2="315" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
-                <line x1="200" y1="180" x2="325" y2="315" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
+                <line x1="200" y1="180" x2="75" y2="75" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
+                <line x1="200" y1="180" x2="325" y2="75" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
+                <line x1="200" y1="180" x2="200" y2="290" stroke="#2563EB" strokeWidth="1" strokeDasharray="3,3" className="opacity-40" />
 
                 <g className="filter drop-shadow-md">
                   <circle cx="200" cy="180" r="32" fill="#FFFFFF" stroke="#2563EB" strokeWidth="2" />
                   <path d="M200 166 L203.5 174 L212 174 L205 179 L207.5 188 L200 183 L192.5 188 L195 179 L188 174 L196.5 174 Z" fill="#2563EB" />
                 </g>
 
-                <foreignObject x="10" y="10" width="130" height="70">
-                  <motion.div
-                    whileHover={{ y: -4, borderColor: '#2563EB', boxShadow: '0 8px 16px -6px rgba(37, 99, 235, 0.15)' }}
-                    className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm transition-all duration-300 flex items-center gap-2 h-full cursor-pointer"
-                  >
-                    <div className="h-8 w-8 rounded-lg bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center shrink-0">
-                      <Users className="h-4 w-4" />
-                    </div>
-                    <div className="text-left leading-none">
-                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Field Strength</span>
-                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">1,500+</span>
-                    </div>
-                  </motion.div>
-                </foreignObject>
-
-                <foreignObject x="260" y="10" width="130" height="70">
+                <foreignObject x="10" y="40" width="130" height="70">
                   <motion.div
                     whileHover={{ y: -4, borderColor: '#2563EB', boxShadow: '0 8px 16px -6px rgba(37, 99, 235, 0.15)' }}
                     className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm transition-all duration-300 flex items-center gap-2 h-full cursor-pointer"
@@ -251,22 +230,7 @@ export function CompanyOverviewLayout({ content }) {
                   </motion.div>
                 </foreignObject>
 
-                <foreignObject x="5" y="145" width="130" height="70">
-                  <motion.div
-                    whileHover={{ y: -4, borderColor: '#2563EB', boxShadow: '0 8px 16px -6px rgba(37, 99, 235, 0.15)' }}
-                    className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm transition-all duration-300 flex items-center gap-2 h-full cursor-pointer"
-                  >
-                    <div className="h-8 w-8 rounded-lg bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center shrink-0">
-                      <Building2 className="h-4 w-4" />
-                    </div>
-                    <div className="text-left leading-none">
-                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Branches</span>
-                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">19</span>
-                    </div>
-                  </motion.div>
-                </foreignObject>
-
-                <foreignObject x="265" y="145" width="130" height="70">
+                <foreignObject x="260" y="40" width="130" height="70">
                   <motion.div
                     whileHover={{ y: -4, borderColor: '#2563EB', boxShadow: '0 8px 16px -6px rgba(37, 99, 235, 0.15)' }}
                     className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm transition-all duration-300 flex items-center gap-2 h-full cursor-pointer"
@@ -281,22 +245,7 @@ export function CompanyOverviewLayout({ content }) {
                   </motion.div>
                 </foreignObject>
 
-                <foreignObject x="10" y="280" width="130" height="70">
-                  <motion.div
-                    whileHover={{ y: -4, borderColor: '#2563EB', boxShadow: '0 8px 16px -6px rgba(37, 99, 235, 0.15)' }}
-                    className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm transition-all duration-300 flex items-center gap-2 h-full cursor-pointer"
-                  >
-                    <div className="h-8 w-8 rounded-lg bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center shrink-0">
-                      <Server className="h-4 w-4" />
-                    </div>
-                    <div className="text-left leading-none">
-                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Secure Yards</span>
-                      <span className="text-sm font-extrabold text-[#2563EB] font-serif block mt-1">25+</span>
-                    </div>
-                  </motion.div>
-                </foreignObject>
-
-                <foreignObject x="260" y="280" width="130" height="70">
+                <foreignObject x="135" y="255" width="130" height="70">
                   <motion.div
                     whileHover={{ y: -4, borderColor: '#2563EB', boxShadow: '0 8px 16px -6px rgba(37, 99, 235, 0.15)' }}
                     className="bg-white border border-[#E2E8F0] rounded-2xl p-2.5 shadow-sm transition-all duration-300 flex items-center gap-2 h-full cursor-pointer"
@@ -316,7 +265,14 @@ export function CompanyOverviewLayout({ content }) {
         </div>
       </motion.section>
 
-      {/* ── SECTION 3: OUR JOURNEY (Serpentine Timeline) ── */}
+      {/* ── SECTION 3: OUR JOURNEY (Vertical Timeline) ──
+           Replaced the rainbow serpentine map with a restrained, alternating
+           vertical timeline — the standard enterprise "our history" pattern
+           (McKinsey/BCG-style). Naturally responsive at any width, no
+           scale/scroll tricks needed, and reads as more restrained/premium
+           than a snake-shaped multi-hue path. Single accent colour (brand
+           blue) throughout, with gold reserved for the final "road ahead"
+           milestone to signal the future distinctly. */}
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -324,7 +280,7 @@ export function CompanyOverviewLayout({ content }) {
         variants={sectionVar}
         className="py-24 bg-[#F8FAFC] border-b border-[#E2E8F0] relative overflow-hidden"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto space-y-3 text-center">
             <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Evolution Journey</span>
             <h2 className="text-4xl font-extrabold tracking-tight text-[#0F172A] font-serif leading-tight">Our Journey</h2>
@@ -333,279 +289,63 @@ export function CompanyOverviewLayout({ content }) {
             </p>
           </div>
 
-          {/* Desktop serpentine loop */}
-          <div className="hidden lg:block overflow-x-auto pb-6">
-            <div className="w-[1024px] mx-auto relative h-[520px] bg-white border border-[#E2E8F0] rounded-[36px] p-8 shadow-sm">
-              {/* SVG winding serpent path */}
-              <div className="absolute inset-0 pointer-events-none z-0">
-                <svg className="w-full h-full" viewBox="0 0 1024 500" fill="none">
-                  <path
-                    d="M 160 80 L 864 80 A 85 85 0 0 1 864 250 L 160 250 A 85 85 0 0 0 160 420 L 864 420"
-                    stroke="#E2E8F0"
-                    strokeWidth="28"
-                    strokeLinecap="round"
-                    opacity="0.8"
-                  />
+          <div className="relative mt-16">
+            {/* Central line — left-aligned on mobile, centred from lg up */}
+            <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-px bg-slate-200 lg:-translate-x-1/2" />
 
-                  <defs>
-                    {/* One continuous hue flow — gold -> orange -> red -> pink ->
-                        purple -> indigo -> blue -> teal -> green — carried through
-                        the connector arcs too, so the path never breaks colour.
-                        gradientUnits="userSpaceOnUse" with real path coordinates —
-                        the default objectBoundingBox mode silently fails to paint
-                        on perfectly horizontal/vertical paths, since their bounding
-                        box has zero height/width and the gradient becomes degenerate. */}
-                    <linearGradient id="gradRow1Seg1" gradientUnits="userSpaceOnUse" x1="160" y1="80" x2="512" y2="80">
-                      <stop offset="0%" stopColor="#FBBF24" />
-                      <stop offset="100%" stopColor="#F97316" />
-                    </linearGradient>
-                    <linearGradient id="gradRow1Seg2" gradientUnits="userSpaceOnUse" x1="512" y1="80" x2="864" y2="80">
-                      <stop offset="0%" stopColor="#F97316" />
-                      <stop offset="100%" stopColor="#EF4444" />
-                    </linearGradient>
-                    <linearGradient id="gradConnector1" gradientUnits="userSpaceOnUse" x1="864" y1="80" x2="864" y2="250">
-                      <stop offset="0%" stopColor="#EF4444" />
-                      <stop offset="100%" stopColor="#EC4899" />
-                    </linearGradient>
-                    <linearGradient id="gradRow2Seg1" gradientUnits="userSpaceOnUse" x1="864" y1="250" x2="512" y2="250">
-                      <stop offset="0%" stopColor="#EC4899" />
-                      <stop offset="100%" stopColor="#8B5CF6" />
-                    </linearGradient>
-                    <linearGradient id="gradRow2Seg2" gradientUnits="userSpaceOnUse" x1="512" y1="250" x2="160" y2="250">
-                      <stop offset="0%" stopColor="#8B5CF6" />
-                      <stop offset="100%" stopColor="#6366F1" />
-                    </linearGradient>
-                    <linearGradient id="gradConnector2" gradientUnits="userSpaceOnUse" x1="160" y1="250" x2="160" y2="420">
-                      <stop offset="0%" stopColor="#6366F1" />
-                      <stop offset="100%" stopColor="#3B82F6" />
-                    </linearGradient>
-                    <linearGradient id="gradRow3Seg1" gradientUnits="userSpaceOnUse" x1="160" y1="420" x2="512" y2="420">
-                      <stop offset="0%" stopColor="#3B82F6" />
-                      <stop offset="100%" stopColor="#06B6D4" />
-                    </linearGradient>
-                    <linearGradient id="gradRow3Seg2" gradientUnits="userSpaceOnUse" x1="512" y1="420" x2="864" y2="420">
-                      <stop offset="0%" stopColor="#06B6D4" />
-                      <stop offset="100%" stopColor="#10B981" />
-                    </linearGradient>
-                  </defs>
+            <div className="space-y-6 lg:space-y-3">
+              {(historyContent.timelineMilestones || []).map((m, i, arr) => {
+                const isFuture = i === arr.length - 1;
+                const accent = isFuture ? '#C8922A' : '#2563EB';
+                const onRight = i % 2 === 1;
 
-                  <path d="M 160 80 L 512 80" stroke="url(#gradRow1Seg1)" strokeWidth="22" strokeLinecap="round" />
-                  <path d="M 512 80 L 864 80" stroke="url(#gradRow1Seg2)" strokeWidth="22" strokeLinecap="round" />
-                  <path d="M 864 80 A 85 85 0 0 1 864 250" stroke="url(#gradConnector1)" strokeWidth="22" />
-                  <path d="M 864 250 L 512 250" stroke="url(#gradRow2Seg1)" strokeWidth="22" strokeLinecap="round" />
-                  <path d="M 512 250 L 160 250" stroke="url(#gradRow2Seg2)" strokeWidth="22" strokeLinecap="round" />
-                  <path d="M 160 250 A 85 85 0 0 0 160 420" stroke="url(#gradConnector2)" strokeWidth="22" />
-                  <path d="M 160 420 L 512 420" stroke="url(#gradRow3Seg1)" strokeWidth="22" strokeLinecap="round" />
-                  <path d="M 512 420 L 864 420" stroke="url(#gradRow3Seg2)" strokeWidth="22" strokeLinecap="round" />
-
-                  <path d="M 160 80 L 864 80" stroke="#FFFFFF" strokeWidth="3" strokeDasharray="8,8" opacity="0.7" />
-                  <path d="M 864 80 A 85 85 0 0 1 864 250" stroke="#FFFFFF" strokeWidth="3" strokeDasharray="8,8" opacity="0.7" />
-                  <path d="M 864 250 L 160 250" stroke="#FFFFFF" strokeWidth="3" strokeDasharray="8,8" opacity="0.7" />
-                  <path d="M 160 250 A 85 85 0 0 0 160 420" stroke="#FFFFFF" strokeWidth="3" strokeDasharray="8,8" opacity="0.7" />
-                  <path d="M 160 420 L 864 420" stroke="#FFFFFF" strokeWidth="3" strokeDasharray="8,8" opacity="0.7" />
-
-                  <path d="M 943 158 L 949 166 L 955 158" stroke="#9CA3AF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M 69 328 L 75 336 L 81 328" stroke="#9CA3AF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-
-              {/* Content & interactive nodes overlay */}
-              <div className="relative z-10 h-full">
-                <div className="absolute left-[160px] top-[80px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <button
-                    onClick={() => setActiveYear('2000')}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2000'
-                        ? 'bg-amber-400 text-white ring-4 ring-amber-400/30 scale-110'
-                        : 'bg-white text-slate-700 border-2 border-amber-400 hover:scale-105'
-                      }`}
-                  >
-                    2000
-                  </button>
-                  <div className="absolute top-10 w-52 bg-white p-3 rounded-2xl border border-slate-100 shadow-sm mt-4 text-left pointer-events-auto">
-                    <h4 className="text-xs font-bold text-slate-800">The Beginning</h4>
-                    <p className="text-[10px] text-slate-500 mt-1">Established Chennai HQ, formed first pre-disbursal desk with 12 experts.</p>
-                  </div>
-                </div>
-
-                <div className="absolute left-[512px] top-[80px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <div className="absolute bottom-10 w-52 bg-white p-3 rounded-2xl border border-slate-100 shadow-sm mb-4 text-left pointer-events-auto">
-                    <h4 className="text-xs font-bold text-slate-800">Early Foundation</h4>
-                    <p className="text-[10px] text-slate-500 mt-1">Onboarded nationalized bank panels, integrated IIBF DRA agent trainings.</p>
-                  </div>
-                  <button
-                    onClick={() => setActiveYear('2005')}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2005'
-                        ? 'bg-orange-500 text-white ring-4 ring-orange-500/30 scale-110'
-                        : 'bg-white text-slate-700 border-2 border-orange-500 hover:scale-105'
-                      }`}
-                  >
-                    2005
-                  </button>
-                </div>
-
-                <div className="absolute left-[864px] top-[80px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <button
-                    onClick={() => setActiveYear('2010')}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2010'
-                        ? 'bg-red-500 text-white ring-4 ring-red-500/30 scale-110'
-                        : 'bg-white text-slate-700 border-2 border-red-500 hover:scale-105'
-                      }`}
-                  >
-                    2010
-                  </button>
-                  <div className="absolute top-10 w-52 bg-white p-3 rounded-2xl border border-slate-100 shadow-sm mt-4 text-left pointer-events-auto">
-                    <h4 className="text-xs font-bold text-slate-800">Expanding Footprint</h4>
-                    <p className="text-[10px] text-slate-500 mt-1">Entered Karnataka & Kerala, established 6 regional offices with 250+ crew.</p>
-                  </div>
-                </div>
-
-                <div className="absolute left-[864px] top-[260px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <div className="absolute bottom-10 w-52 bg-white p-3 rounded-2xl border border-slate-100 shadow-sm mb-4 text-left pointer-events-auto">
-                    <h4 className="text-xs font-bold text-slate-800">Strategic Scale-Up</h4>
-                    <p className="text-[10px] text-slate-500 mt-1">Launched SARFAESI legal notice desk, built 12 secured yards in South India.</p>
-                  </div>
-                  <button
-                    onClick={() => setActiveYear('2015')}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2015'
-                        ? 'bg-pink-500 text-white ring-4 ring-pink-500/30 scale-110'
-                        : 'bg-white text-slate-700 border-2 border-pink-500 hover:scale-105'
-                      }`}
-                  >
-                    2015
-                  </button>
-                </div>
-
-                <div className="absolute left-[512px] top-[260px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <button
-                    onClick={() => setActiveYear('2020')}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2020'
-                        ? 'bg-violet-500 text-white ring-4 ring-violet-500/30 scale-110'
-                        : 'bg-white text-slate-700 border-2 border-violet-500 hover:scale-105'
-                      }`}
-                  >
-                    2020
-                  </button>
-                  <div className="absolute top-10 w-52 bg-white p-3 rounded-2xl border border-slate-100 shadow-sm mt-4 text-left pointer-events-auto">
-                    <h4 className="text-xs font-bold text-slate-800">Pan-South India</h4>
-                    <p className="text-[10px] text-slate-500 mt-1">Expanded to AP & Telangana, secured ISO 27001 data compliance certification.</p>
-                  </div>
-                </div>
-
-                <div className="absolute left-[160px] top-[440px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <div className="absolute bottom-10 w-52 bg-white p-3 rounded-2xl border border-slate-100 shadow-sm mb-4 text-left pointer-events-auto">
-                    <h4 className="text-xs font-bold text-slate-800">Digital Shift</h4>
-                    <p className="text-[10px] text-slate-500 mt-1">GPS field tracking, automated telemetry client SFTP integrations.</p>
-                  </div>
-                  <button
-                    onClick={() => setActiveYear('2025')}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2025'
-                        ? 'bg-blue-500 text-white ring-4 ring-blue-500/30 scale-110'
-                        : 'bg-white text-slate-700 border-2 border-blue-500 hover:scale-105'
-                      }`}
-                  >
-                    2025
-                  </button>
-                </div>
-
-                <div className="absolute left-[512px] top-[440px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <button
-                    onClick={() => setActiveYear('2026')}
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all shadow-lg duration-300 ${activeYear === '2026'
-                        ? 'bg-cyan-500 text-white ring-4 ring-cyan-500/30 scale-110'
-                        : 'bg-white text-slate-700 border-2 border-cyan-500 hover:scale-105'
-                      }`}
-                  >
-                    2026
-                  </button>
-                  <div className="absolute top-10 w-52 bg-white p-3 rounded-2xl border border-slate-100 shadow-sm mt-4 text-left pointer-events-auto">
-                    <h4 className="text-xs font-bold text-slate-800">The Road Ahead</h4>
-                    <p className="text-[10px] text-slate-500 mt-1">Predictive AI recovery analytics routing, expanding to West & North regions.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile vertical timeline */}
-          <div className="lg:hidden relative max-w-md mx-auto space-y-8 text-left border-l-2 border-slate-200 pl-6 ml-4">
-            {[
-              { yr: '2000', color: 'border-amber-400 text-amber-500', name: 'The Beginning', desc: 'Established Chennai HQ, formed first pre-disbursal desk with 12 experts.' },
-              { yr: '2005', color: 'border-orange-500 text-orange-500', name: 'Early Foundation', desc: 'Onboarded nationalized bank panels, integrated IIBF DRA agent trainings.' },
-              { yr: '2010', color: 'border-red-500 text-red-500', name: 'Expanding Footprint', desc: 'Entered Karnataka & Kerala, established 6 regional offices with 250+ crew.' },
-              { yr: '2015', color: 'border-pink-500 text-pink-500', name: 'Strategic Scale-Up', desc: 'Launched SARFAESI legal notice desk, built 12 secured yards in South India.' },
-              { yr: '2020', color: 'border-violet-500 text-violet-500', name: 'Pan-South India', desc: 'Expanded to AP & Telangana, secured ISO 27001 data compliance certification.' },
-              { yr: '2025', color: 'border-blue-500 text-blue-500', name: 'Digital Shift', desc: 'GPS field tracking, automated telemetry client SFTP integrations.' },
-              { yr: '2026', color: 'border-cyan-500 text-cyan-500', name: 'The Road Ahead', desc: 'Predictive AI recovery analytics routing, expanding to West & North regions.' }
-            ].map((node, i) => (
-              <div key={i} className="relative space-y-2">
-                <div className={`absolute -left-[35px] top-1 bg-white border-2 ${node.color} rounded-full w-4 h-4 flex items-center justify-center z-10`} />
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">{node.yr}</span>
-                  <h4 className="text-xs font-bold text-slate-800">{node.name}</h4>
-                </div>
-                <p className="text-[10px] text-slate-500 leading-relaxed">{node.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Interactive details dashboard — glow shifts to match the active milestone's colour */}
-          <div
-            className="max-w-5xl mx-auto mt-12 bg-white/70 backdrop-blur-md border border-slate-200 rounded-[32px] p-8 text-left transition-shadow duration-500"
-            style={{ boxShadow: activeMilestone.color ? `0 20px 60px -30px ${activeMilestone.color}55, 0 4px 12px -4px rgba(15,23,42,.08)` : '0 4px 6px -1px rgba(0,0,0,.1)' }}
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeYear}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch"
-              >
-                <div className="md:col-span-4 flex flex-col justify-between space-y-6">
-                  <div className="space-y-3">
-                    <div className="text-5xl font-black font-mono tracking-tight" style={{ color: activeMilestone.color || '#2563EB' }}>{activeMilestone.year}</div>
-                    <h3 className="text-xl font-bold text-[#0F172A] font-serif leading-snug">{activeMilestone.title}</h3>
-                    <p className="text-xs text-slate-500 leading-relaxed font-inter">{activeMilestone.summary}</p>
-                  </div>
-                </div>
-
-                <div
-                  className="md:col-span-8 flex flex-col justify-between space-y-6 border-t md:border-t-0 md:border-l pt-6 md:pt-0 md:pl-8 transition-colors duration-300"
-                  style={{ borderColor: activeMilestone.color ? `${activeMilestone.color}33` : undefined }}
-                >
-                  <div className="space-y-4">
-                    <h4 className="text-[10px] font-bold text-[#0F172A] uppercase tracking-widest font-mono">Milestone Accomplishments</h4>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      {activeMilestone.highlights?.map((hl, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-xs text-slate-600">
-                          <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5" style={{ color: activeMilestone.color || '#2563EB' }} />
-                          <span>{hl}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="space-y-4 pt-4 border-t border-slate-100">
-                    <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-mono">Key Business Impact</h4>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                      {activeMilestone.impact?.map((imp, idx) => (
-                        <div
-                          key={idx}
-                          className="rounded-xl px-3 py-2 text-left transition-colors duration-300"
-                          style={{ background: activeMilestone.color ? `${activeMilestone.color}0d` : '#F8FAFC', border: `1px solid ${activeMilestone.color ? `${activeMilestone.color}33` : '#E2E8F0'}` }}
-                        >
-                          <div className="text-base font-bold font-serif leading-none" style={{ color: activeMilestone.color || '#2563EB' }}>
-                            <AnimatedCounter targetValue={imp.value} />
+                const card = (
+                  <div className="bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-sm">
+                    <div className="font-mono text-2xl font-black tracking-tight mb-2" style={{ color: accent }}>{m.year}</div>
+                    <h3 className="text-lg font-bold text-[#0F172A] font-serif leading-snug">{m.title}</h3>
+                    <p className="mt-2 text-xs text-slate-500 leading-relaxed">{m.summary}</p>
+                    {m.highlights?.length > 0 && (
+                      <ul className="mt-4 space-y-1.5">
+                        {m.highlights.slice(0, 3).map((hl, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-xs text-slate-600">
+                            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 mt-0.5" style={{ color: accent }} />
+                            <span>{hl}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {m.impact?.length > 0 && (
+                      <div className="mt-4 grid grid-cols-2 gap-3 border-t border-slate-100 pt-4">
+                        {m.impact.slice(0, 2).map((imp, idx) => (
+                          <div key={idx}>
+                            <div className="text-sm font-bold font-serif" style={{ color: accent }}>{imp.value}</div>
+                            <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wide mt-0.5">{imp.label}</div>
                           </div>
-                          <div className="text-[8px] font-bold text-slate-400 uppercase tracking-wider mt-1">{imp.label}</div>
-                        </div>
-                      ))}
-                    </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+                );
+
+                return (
+                  <motion.div
+                    key={m.year}
+                    initial={{ opacity: 0, x: onRight ? 40 : -40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ duration: 0.5 }}
+                    className="relative pl-12 lg:pl-0 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-10 lg:items-start"
+                  >
+                    <span
+                      className="absolute left-4 top-1.5 lg:static lg:left-auto lg:top-2 lg:col-start-2 lg:justify-self-center h-3.5 w-3.5 -translate-x-1/2 lg:translate-x-0 rounded-full border-[3px] border-white shadow-md z-10"
+                      style={{ background: accent }}
+                    />
+                    <div className="lg:col-start-1 lg:flex lg:justify-end">{!onRight && <div className="lg:max-w-md">{card}</div>}</div>
+                    <div className="lg:col-start-3">{onRight && <div className="lg:max-w-md">{card}</div>}</div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </motion.section>
@@ -836,12 +576,12 @@ export function CompanyOverviewLayout({ content }) {
               },
               {
                 value: 'Compliance',
-                meaning: 'VoIP calling restriction gates and IIBF-DRA certification matrices.',
+                meaning: 'Adherence to regulatory codes and fair-practice guidelines in every borrower interaction.',
                 impact: 'Eliminates legal recourse liabilities and regulatory audit penalties.'
               },
               {
                 value: 'Accountability',
-                meaning: 'Automated telemetry mapping and GPS validation log entries.',
+                meaning: 'Ownership of outcomes at every level of the field organization, not just at head office.',
                 impact: 'Provides clean audit trails and transparent field force activity checks.'
               },
               {
@@ -875,7 +615,11 @@ export function CompanyOverviewLayout({ content }) {
         </div>
       </motion.section>
 
-      {/* ── SECTION 7: WHY SM ASSOCIATES ── */}
+      {/* ── SECTION 7: WHY SM ASSOCIATES ──
+           Consolidates what used to be three separate sections making
+           overlapping "why choose us" arguments (this card grid, a
+           SM-vs-Traditional-Agencies comparison table, and "Enterprise
+           Operating Philosophy") into one concise differentiation section. */}
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -888,41 +632,36 @@ export function CompanyOverviewLayout({ content }) {
             <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Enterprise Edge</span>
             <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Why Institutions Choose SM Associates</h2>
             <p className="text-xs text-slate-500 leading-relaxed">
-              We resolve complex stressed asset lifecycles through institutional scale and strict operational controls.
+              Five reasons banks, NBFCs and HFCs trust us with stressed portfolios that carry real regulatory and reputational risk.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
             {[
               {
-                title: 'Banking Expertise',
-                value: 'Decades of combined board leadership derived directly from senior tiers of SBI, Canara Bank, and HDFC.',
-                advantage: 'Aligns recovery operations directly with internal banking policies and security priorities.'
+                title: 'Enterprise Experience',
+                value: 'Two and a half decades operating through multiple credit cycles, not a vendor new to the discipline of recovery.',
+                advantage: 'A track record institutions can diligence, not a pitch deck promise.'
               },
               {
-                title: 'Enterprise Operations',
-                value: 'A massive ground footprint of 1,500+ recovery specialists executing over 5,000 daily borrower visits.',
-                advantage: 'Allows instant scalability of portfolios without compromising on-ground file velocity.'
+                title: 'Operational Excellence',
+                value: 'A direct, managed field network executing structured recovery workflows end to end — not subcontracted local agents.',
+                advantage: 'Predictable execution quality across every branch, every case.'
               },
               {
-                title: 'Governance Framework',
-                value: 'ISO/IEC 27001 data compliance framework protecting data custody through PGP-encrypted SFTP feeds.',
-                advantage: 'Ensures zero leakage of borrower information and total information security isolation.'
+                title: 'Governance',
+                value: 'Every engagement runs on documented conduct, recorded calls and an audit trail built for regulator scrutiny.',
+                advantage: 'De-risks the institution’s own compliance exposure, not just ours.'
               },
               {
-                title: 'Recovery Experience',
-                value: 'Over 1 Million accounts resolved across retail, mortgage, auto, agricultural and SME loan classes.',
-                advantage: 'Equips field agents with localized negotiation models for every delinquency bucket.'
+                title: 'Banking Domain Expertise',
+                value: 'Built specifically around how banks, NBFCs and HFCs actually manage stressed portfolios — not generic collections.',
+                advantage: 'Fewer translation gaps between what the lender needs and what the field executes.'
               },
               {
-                title: 'Structured Documentation',
-                value: 'Dedicated legal desk coordinating Sec 13(2)/13(4) notices and district magistrate order executions.',
-                advantage: 'Shortens foreclosure delay times, preserving physical collateral value.'
-              },
-              {
-                title: 'Regional Presence',
-                value: '19 branch offices covering all key credit markets of TN, Karnataka, Kerala, AP and Telangana.',
-                advantage: 'Combines local language fluency and local authority liaising under unified SLAs.'
+                title: 'Regional Execution Capability',
+                value: '19 branch offices across South India, with local language fluency and local authority liaising under one accountable model.',
+                advantage: 'Reach without the coordination overhead of managing multiple regional vendors.'
               }
             ].map((card, i) => (
               <motion.div
@@ -938,45 +677,6 @@ export function CompanyOverviewLayout({ content }) {
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* ── INTERACTIVE COMPARISON DASHBOARD ── */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVar}
-        className="py-20 bg-white border-b border-[#E2E8F0]"
-      >
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
-          <div className="max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Performance Auditing</span>
-            <h3 className="text-2xl font-bold font-serif text-[#0F172A]">Operations Metrics Comparison</h3>
-            <p className="text-xs text-slate-500">
-              See how our digital workflows and compliance safeguards compare to traditional agencies.
-            </p>
-          </div>
-          <div className="border border-[#E2E8F0] rounded-[32px] overflow-hidden shadow-md bg-[#F8FAFC] transition-shadow duration-300 hover:shadow-lg">
-            <table className="w-full text-left border-collapse text-xs">
-              <thead>
-                <tr className="bg-slate-100 border-b border-[#E2E8F0]">
-                  <th className="p-5 font-bold text-[#0F172A] w-1/4">Operational Parameter</th>
-                  <th className="p-5 font-bold text-[#2563EB] w-3/8">SM Associates Safeguards</th>
-                  <th className="p-5 font-bold text-slate-500 w-3/8">Traditional Agencies</th>
-                </tr>
-              </thead>
-              <tbody>
-                {whyContent.comparison?.map((row, idx) => (
-                  <tr key={idx} className="border-b border-[#E2E8F0] hover:bg-white transition-colors">
-                    <td className="p-5 font-bold text-[#0F172A] font-serif">{row.metric}</td>
-                    <td className="p-5 text-[#2563EB] font-semibold bg-blue-500/5">{row.sm}</td>
-                    <td className="p-5 text-slate-500">{row.traditional}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
           </div>
         </div>
       </motion.section>
@@ -1103,159 +803,49 @@ export function CompanyOverviewLayout({ content }) {
         </div>
       </motion.section>
 
-      {/* ── SECTION 10: INDUSTRIES WE SERVE (Reused style) ── */}
+      {/* ── EXPLORE MORE (Industries + Clients teaser) ──
+           Industries We Serve and Clients & Partnerships used to be full
+           card-grid sections here, duplicating the dedicated /industries
+           and /clients pages. Replaced with a compact link strip so About
+           stays focused on "who is SM Associates" rather than becoming a
+           second Industries or Clients page. */}
       <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={sectionVar}
-        className="py-24 bg-[#F8FAFC] border-b border-[#E2E8F0]"
+        className="py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
-          <div className="max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Target Segments</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Industries We Serve</h2>
-            <p className="text-xs text-slate-500 leading-relaxed">
-              We deliver tailored NPA resolution and risk management structures configured for each credit class.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left max-w-6xl mx-auto">
-            {[
-              { name: 'Commercial Banking', desc: 'Providing retail credit cards recovery, mortgage foreclosures, and DRA outreach programs.', tag: 'Core segment' },
-              { name: 'Non-Banking Financial Companies (NBFCs)', desc: 'Managing auto loans, tractor finance repossession coordination, and SME default recoveries.', tag: 'High-density' },
-              { name: 'Housing Finance Companies (HFCs)', desc: 'Executing Section 13 notice servers, symbolic and physical home repossession processes.', tag: 'Collateral-focused' },
-              { name: 'Fintech & Digital Lenders', desc: 'Syncing dialer analytics, micro-loan collection dashboards, and secure SFTP file handovers.', tag: 'API integrated' },
-              { name: 'Microfinance Institutions (MFIs)', desc: 'Coordinating low-ticket doorstep collection campaigns aligned to fair recovery codes.', tag: 'High outreach' },
-              { name: 'Asset Reconstruction Companies (ARCs)', desc: 'Conducting stressed asset valuation support, custody logistics, and liquidation coordination.', tag: 'Aspirational' }
-            ].map((ind, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 12px 20px -8px rgba(37, 99, 235, 0.08)' }}
-                className="bg-white border border-[#E2E8F0] rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 shadow-sm cursor-pointer"
-              >
-                <div className="space-y-3">
-                  <span className="inline-block text-[8px] font-bold text-[#2563EB] bg-[#2563EB]/10 px-2 py-0.5 rounded font-mono uppercase tracking-wider">{ind.tag}</span>
-                  <h4 className="font-bold text-sm text-[#0F172A] font-serif">{ind.name}</h4>
-                  <p className="text-xs text-slate-500 leading-relaxed">{ind.desc}</p>
-                </div>
-              </motion.div>
-            ))}
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link
+              to="/industries"
+              className="group flex items-center justify-between gap-4 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-5 text-left shadow-sm transition-all duration-300 hover:border-[#2563EB] hover:shadow-md"
+            >
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#2563EB] font-mono">Explore</span>
+                <h4 className="mt-1 font-bold text-sm text-[#0F172A] font-serif">Industries We Serve</h4>
+              </div>
+              <ArrowRight className="h-4 w-4 text-[#2563EB] transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              to="/clients"
+              className="group flex items-center justify-between gap-4 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-5 text-left shadow-sm transition-all duration-300 hover:border-[#2563EB] hover:shadow-md"
+            >
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#2563EB] font-mono">Explore</span>
+                <h4 className="mt-1 font-bold text-sm text-[#0F172A] font-serif">Clients &amp; Partnerships</h4>
+              </div>
+              <ArrowRight className="h-4 w-4 text-[#2563EB] transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </motion.section>
 
-      {/* ── SECTION 11: CLIENTS & PARTNERSHIPS ── */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVar}
-        className="py-24 bg-[#FFFFFF] border-b border-[#E2E8F0]"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
-          <div className="max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Empanelled Partners</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Client Portfolios Managed</h2>
-            <p className="text-xs text-slate-500 leading-relaxed">
-              We manage verification, collections, and foreclosure portfolios for India's leading financial institutions.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left pt-2 max-w-6xl mx-auto">
-            {clienteleContent.segments?.map((seg, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 12px 20px -8px rgba(37, 99, 235, 0.08)' }}
-                className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-2xl p-6 space-y-4 shadow-sm transition-all duration-300 cursor-pointer"
-              >
-                <h4 className="font-bold text-sm text-[#0F172A] font-serif leading-none border-l-2 border-[#2563EB] pl-3">{seg.name}</h4>
-                <p className="text-[11px] text-slate-500 leading-relaxed">{seg.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* ── SECTION 12: ENTERPRISE OPERATING PHILOSOPHY ── */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVar}
-        className="py-24 bg-[#F8FAFC] border-b border-[#E2E8F0]"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
-          <div className="max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Operating Model</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Enterprise Operating Philosophy</h2>
-            <p className="text-xs text-slate-500 leading-relaxed">
-              Our business model prioritizes long-term governance and systemic compliance over transactional collections.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto text-left">
-            {[
-              {
-                title: 'Solve Business Problems First',
-                desc: 'Every file assigned to us is audited for collateral validity, borrower propensity, and settlement avenues rather than applying generic calling scripts.'
-              },
-              {
-                title: 'Build Systemic Customer Trust',
-                desc: 'Outreach agents undergo mandatory Fair Practice Code reviews, stress-management workshops, and background verification checkpoints before dispatch.'
-              },
-              {
-                title: 'Deliver Measurable Outcomes',
-                desc: 'Accelerating asset recovery cycle times allows financial institutions to directly claw back provisions onto active balance sheets.'
-              }
-            ].map((phil, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 12px 20px -8px rgba(37, 99, 235, 0.08)' }}
-                className="bg-white border border-[#E2E8F0] rounded-3xl p-8 space-y-4 shadow-sm transition-all duration-300 cursor-pointer"
-              >
-                <span className="h-9 w-9 rounded-full bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center font-bold font-mono text-xs">
-                  0{i + 1}
-                </span>
-                <h4 className="font-bold text-sm text-[#0F172A] font-serif leading-snug">{phil.title}</h4>
-                <p className="text-xs text-slate-500 leading-relaxed font-inter">{phil.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* ── INTERACTIVE ONBOARDING PIPELINE ── */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVar}
-        className="py-20 bg-white border-b border-[#E2E8F0]"
-      >
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
-          <div className="max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Empanelled Partners</span>
-            <h3 className="text-2xl font-bold font-serif text-[#0F172A]">Lender Onboarding Pipeline</h3>
-            <p className="text-xs text-slate-500">
-              How we coordinate code alignment, SFTP connections, and team dispatch rules in under 14 days.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-left relative">
-            {whyContent.onboardingSteps?.map((step, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 12px 20px -8px rgba(37, 99, 235, 0.08)' }}
-                className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-2xl p-6 space-y-3 relative shadow-sm transition-all duration-300 cursor-pointer"
-              >
-                <span className="absolute right-4 top-4 text-2xl font-black text-[#2563EB]/15 font-mono">{step.id}</span>
-                <h4 className="font-bold text-xs text-[#0F172A] font-serif">{step.title}</h4>
-                <p className="text-slate-500 text-[10px] leading-relaxed">{step.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+      {/* Lender Onboarding Pipeline removed from About per architecture
+          refinement — it's process/services content ("how to start working
+          with us"), not company-identity content. Belongs on Contact or
+          Services; not re-implemented there yet, flagged as a follow-up. */}
 
       {/* ── SECTION 13: CALL TO ACTION ── */}
       <motion.section

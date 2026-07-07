@@ -2,13 +2,16 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { isPlaceholder } from '../../data/caseStudies';
 
-function MetricBox({ label, value }) {
+function MetricBox({ label, value, example }) {
   const placeholder = isPlaceholder(value);
   return (
     <div className="flex-1 rounded-xl bg-gray-50 p-3 text-center">
-      <p className={`text-[13px] font-bold ${placeholder ? 'italic text-gray-400' : 'text-slate-900'}`}>
-        {placeholder ? '[ Client to provide ]' : value}
+      <p className={`text-[13px] font-bold ${placeholder ? 'italic text-amber-600' : 'text-slate-900'}`}>
+        {placeholder ? example : value}
       </p>
+      {placeholder && (
+        <p className="mt-0.5 text-[8.5px] font-bold uppercase tracking-wide text-amber-500">Sample data</p>
+      )}
       <p className="mt-1 text-[10px] font-semibold uppercase tracking-wide text-gray-400">{label}</p>
     </div>
   );
@@ -39,7 +42,7 @@ export default function CaseStudyCard({ study, index, onOpen }) {
 
       <div className="mt-5 flex flex-col gap-2.5 sm:flex-row">
         {study.metrics.map((m) => (
-          <MetricBox key={m.label} label={m.label} value={m.value} />
+          <MetricBox key={m.label} label={m.label} value={m.value} example={m.example} />
         ))}
       </div>
 

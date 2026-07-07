@@ -76,7 +76,12 @@ export default function CaseStudyModal({ study, onClose }) {
               <p>
                 <span className="font-bold text-slate-700">Engagement Period:</span>{' '}
                 {isPlaceholder(study.engagementPeriod)
-                  ? <span className="italic text-gray-400">[ Client to provide ]</span>
+                  ? (
+                    <span className="italic text-amber-600">
+                      {study.engagementPeriodExample}{' '}
+                      <span className="text-[10px] font-bold not-italic uppercase tracking-wide text-amber-500">(Sample data)</span>
+                    </span>
+                  )
                   : study.engagementPeriod}
               </p>
             </div>
@@ -102,9 +107,12 @@ export default function CaseStudyModal({ study, onClose }) {
                 const placeholder = isPlaceholder(m.value);
                 return (
                   <div key={m.label} className="rounded-xl bg-gray-50 p-3 text-center">
-                    <p className={`text-[13px] font-bold ${placeholder ? 'italic text-gray-400' : 'text-slate-900'}`}>
-                      {placeholder ? '[ Client to provide ]' : m.value}
+                    <p className={`text-[13px] font-bold ${placeholder ? 'italic text-amber-600' : 'text-slate-900'}`}>
+                      {placeholder ? m.example : m.value}
                     </p>
+                    {placeholder && (
+                      <p className="mt-0.5 text-[8.5px] font-bold uppercase tracking-wide text-amber-500">Sample data</p>
+                    )}
                     <p className="mt-1 text-[9.5px] font-semibold uppercase tracking-wide text-gray-400">{m.label}</p>
                   </div>
                 );
@@ -115,6 +123,11 @@ export default function CaseStudyModal({ study, onClose }) {
               <div className="mt-6 rounded-2xl bg-gray-50 p-5">
                 <p className="text-[14px] italic leading-relaxed text-gray-600">&ldquo;{study.quote}&rdquo;</p>
                 {study.quoteAuthor && <p className="mt-2 text-[11.5px] font-bold text-gray-400">— {study.quoteAuthor}</p>}
+                {study.quoteIsExample && (
+                  <p className="mt-2 text-[10px] font-bold uppercase tracking-wide text-amber-500">
+                    Sample quote — replace with real client feedback
+                  </p>
+                )}
               </div>
             )}
           </motion.div>

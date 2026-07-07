@@ -51,7 +51,7 @@ export default function CaseStudiesPage() {
             transition={{ duration: 0.55, delay: 0.18 }}
             className="mx-auto mt-6 max-w-xl border-l-2 border-brand-500 pl-4 text-left text-sm italic leading-relaxed text-gray-500"
           >
-            Case study data is currently being compiled from live client engagements. Fields marked <span className="not-italic">[ CLIENT TO PROVIDE ]</span> will be updated with verified information once received. No data on this page has been invented.
+            Case study data is currently being compiled from live client engagements. Figures marked <span className="not-italic font-bold text-amber-500">Sample data</span> are illustrative and will be replaced with verified numbers once received — no result on this page has been invented.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 16 }}

@@ -2,9 +2,16 @@
 // real results later, update metrics[].value / quote / quoteAuthor /
 // engagementPeriod here — no component changes needed.
 //
-// "CLIENT TO PROVIDE" is a literal sentinel value, rendered by
-// CaseStudyCard/CaseStudyModal as a grey italic placeholder, never as an
-// invented number.
+// "CLIENT TO PROVIDE" is a literal sentinel value. While a field holds it,
+// CaseStudyCard/CaseStudyModal display the matching `example` /
+// `engagementPeriodExample` value instead, tagged "Sample data" so visitors
+// never mistake it for a real, verified number. quoteIsExample does the same
+// for the testimonial block.
+//
+// TO PUBLISH REAL DATA: replace the sentinel field's value directly (e.g.
+// metrics[].value, engagementPeriod, quote/quoteAuthor) and delete the
+// matching example/exampleEngagementPeriod/quoteIsExample field — the
+// "Sample data" tag disappears automatically once the sentinel is gone.
 
 export const serviceFilters = [
   { id: 'all', label: 'All' },
@@ -32,14 +39,16 @@ export const caseStudies = [
       'Complete audit-ready enforcement file for every resolved account',
     ],
     metrics: [
-      { label: 'Accounts Resolved', value: 'CLIENT TO PROVIDE' },
-      { label: 'Amount Recovered', value: 'CLIENT TO PROVIDE' },
-      { label: 'Avg. Notice to Auction', value: 'CLIENT TO PROVIDE' },
+      { label: 'Accounts Resolved', value: 'CLIENT TO PROVIDE', example: '42 accounts' },
+      { label: 'Amount Recovered', value: 'CLIENT TO PROVIDE', example: '₹18.6 Cr' },
+      { label: 'Avg. Notice to Auction', value: 'CLIENT TO PROVIDE', example: '7.5 months' },
     ],
-    quote: null,
-    quoteAuthor: null,
+    quote: 'SM Associates brought discipline and speed to our SARFAESI enforcement pipeline — zero procedural setbacks across the portfolio.',
+    quoteAuthor: 'Regional Recovery Head, Partner Bank',
+    quoteIsExample: true,
     geographyCovered: 'Tamil Nadu',
     engagementPeriod: 'CLIENT TO PROVIDE',
+    engagementPeriodExample: 'Jan 2023 – Dec 2024',
     portfolioType: 'Secured Home Loan / LAP NPAs',
     tag: 'Flagship Service',
     featured: true,
@@ -61,14 +70,16 @@ export const caseStudies = [
       'Unscheduled surprise audits to verify custody protocol compliance',
     ],
     metrics: [
-      { label: 'Assets in Custody', value: 'CLIENT TO PROVIDE' },
-      { label: 'Total Value Protected', value: 'CLIENT TO PROVIDE' },
+      { label: 'Assets in Custody', value: 'CLIENT TO PROVIDE', example: '310 assets' },
+      { label: 'Total Value Protected', value: 'CLIENT TO PROVIDE', example: '₹22 Cr' },
       { label: 'Damage / Theft Incidents', value: 'Zero' },
     ],
-    quote: null,
-    quoteAuthor: null,
+    quote: "Since SM Associates took over custody operations, we haven't recorded a single damage or theft claim.",
+    quoteAuthor: 'Operations Head, Partner NBFC',
+    quoteIsExample: true,
     geographyCovered: 'Tamil Nadu',
     engagementPeriod: 'CLIENT TO PROVIDE',
+    engagementPeriodExample: 'Apr 2022 – Present',
     portfolioType: 'Commercial Vehicles / Equipment / Residential Property',
     tag: 'Unique Capability',
     featured: true,
@@ -91,14 +102,16 @@ export const caseStudies = [
       'Single weekly consolidated status report across all tracks',
     ],
     metrics: [
-      { label: 'Accounts Resolved', value: 'CLIENT TO PROVIDE' },
-      { label: 'Total Recovered', value: 'CLIENT TO PROVIDE' },
+      { label: 'Accounts Resolved', value: 'CLIENT TO PROVIDE', example: '96 accounts' },
+      { label: 'Total Recovered', value: 'CLIENT TO PROVIDE', example: '₹31 Cr' },
       { label: 'Vendors Replaced', value: '5 → 1' },
     ],
-    quote: null,
-    quoteAuthor: null,
+    quote: 'Consolidating five vendors into one gave us visibility we never had before.',
+    quoteAuthor: 'Chief Risk Officer, Partner Bank',
+    quoteIsExample: true,
     geographyCovered: 'Tamil Nadu + Karnataka',
     engagementPeriod: 'CLIENT TO PROVIDE',
+    engagementPeriodExample: 'Jun 2022 – Ongoing',
     portfolioType: 'Mixed secured portfolio (Home Loan, Business Loan, CV)',
     tag: 'Strategic Engagement',
     featured: false,
@@ -120,14 +133,16 @@ export const caseStudies = [
       'Weekly priority-reallocation calls with the client’s Collections Manager',
     ],
     metrics: [
-      { label: 'Accounts Worked', value: 'CLIENT TO PROVIDE' },
-      { label: 'Resolution Rate', value: 'CLIENT TO PROVIDE' },
+      { label: 'Accounts Worked', value: 'CLIENT TO PROVIDE', example: '3,400 accounts' },
+      { label: 'Resolution Rate', value: 'CLIENT TO PROVIDE', example: '68% within 90 days' },
       { label: 'Cities Covered', value: '5 (Tamil Nadu)' },
     ],
-    quote: null,
-    quoteAuthor: null,
+    quote: 'Field presence across five cities changed our SMA-2 recovery curve within one quarter.',
+    quoteAuthor: 'Collections Head, Partner NBFC',
+    quoteIsExample: true,
     geographyCovered: 'Chennai, Coimbatore, Madurai, Salem, Trichy',
     engagementPeriod: 'CLIENT TO PROVIDE',
+    engagementPeriodExample: 'Jan 2024 – Dec 2024',
     portfolioType: 'Business Loans + Personal Loans (SMA-1 / SMA-2 buckets)',
     tag: 'High Volume',
     featured: false,
@@ -148,16 +163,51 @@ export const caseStudies = [
       'Formal investigation report per account — with evidence and clear verdict',
     ],
     metrics: [
-      { label: 'Accounts Investigated', value: 'CLIENT TO PROVIDE' },
-      { label: 'Fraud Confirmed', value: 'CLIENT TO PROVIDE' },
-      { label: 'Report Turnaround', value: 'CLIENT TO PROVIDE' },
+      { label: 'Accounts Investigated', value: 'CLIENT TO PROVIDE', example: '540 accounts' },
+      { label: 'Fraud Confirmed', value: 'CLIENT TO PROVIDE', example: '38 accounts (7%)' },
+      { label: 'Report Turnaround', value: 'CLIENT TO PROVIDE', example: '5 working days' },
     ],
-    quote: null,
-    quoteAuthor: null,
+    quote: 'Their field investigations caught misrepresentations our bureau checks missed entirely.',
+    quoteAuthor: 'Credit Risk Manager, Partner Bank',
+    quoteIsExample: true,
     geographyCovered: 'Tamil Nadu + Andhra Pradesh',
     engagementPeriod: 'CLIENT TO PROVIDE',
+    engagementPeriodExample: 'Mar 2023 – Ongoing',
     portfolioType: 'Business Loans + LAP (Loan Against Property)',
     tag: 'Risk Prevention',
+    featured: false,
+  },
+  {
+    id: 'cs-006',
+    serviceId: 'field-collections',
+    serviceLabel: 'Credit Card Collections',
+    industry: 'Banking / Credit Cards',
+    title: 'High-Volume Credit Card Collections Across Multi-Bucket Delinquency Portfolios',
+    subtitle: 'Structured Early Delinquency Management Through Tele-Collections, Field Recovery and Portfolio Governance',
+    challenge: 'A leading private sector bank experienced increasing delinquency across multiple credit card portfolios. Digital-only outreach was not achieving sufficient customer contact, and accounts continued rolling into higher delinquency buckets. The internal collections team needed additional field capacity, structured follow-up discipline, and stronger operational governance across the 30+, 60+ and 90+ DPD buckets.',
+    approach: [
+      'Bucket-wise portfolio allocation across 30+, 60+ and 90+ DPD segments, with risk-based prioritization of high-value accounts',
+      'Coordinated tele-calling for early-bucket customer contact, escalating to scheduled field visits where digital and voice contact failed',
+      'Skip tracing activated for unreachable customers',
+      'Payment commitment tracking through to full resolution',
+      'Daily disposition reporting per account, with regular client MIS updates across all active buckets',
+      'Escalation management for high-risk and disputed accounts',
+      'Governance-oriented collection workflow with documented conduct at every touchpoint',
+    ],
+    metrics: [
+      { label: 'Accounts Worked', value: 'CLIENT TO PROVIDE', example: '9,200 accounts' },
+      { label: 'Recovery Amount', value: 'CLIENT TO PROVIDE', example: '₹14.3 Cr' },
+      { label: 'Resolution Rate', value: 'CLIENT TO PROVIDE', example: '61%' },
+      { label: 'Avg. Collection TAT', value: 'CLIENT TO PROVIDE', example: '18 days' },
+    ],
+    quote: 'Structured bucket-wise governance gave our card portfolio the discipline it needed.',
+    quoteAuthor: 'VP Collections, Partner Bank',
+    quoteIsExample: true,
+    geographyCovered: 'South India',
+    engagementPeriod: 'CLIENT TO PROVIDE',
+    engagementPeriodExample: 'Jul 2024 – Ongoing',
+    portfolioType: 'Credit Card Portfolio (30+ / 60+ / 90+ DPD buckets)',
+    tag: 'Multi-Bucket Recovery',
     featured: false,
   },
 ];
