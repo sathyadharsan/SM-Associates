@@ -32,15 +32,13 @@ export default function FaqSection() {
   return (
     <section className="faq6" id="faq">
       <div className="fg-wrap">
-        <div className="faq6-grid">
-          <div>
-            <span className="fg-eyebrow">Questions enterprises ask</span>
-            <h2 style={{ fontSize: 'clamp(26px,3vw,38px)', marginTop: 18 }}>Before the first mandate.</h2>
-            <p style={{ color: 'var(--ink-2)', marginTop: 14, fontSize: 15.5 }}>
-              The questions risk and recovery leaders raise most often before engaging.
-            </p>
-          </div>
-          <div className="faq6-list">
+        <div className="fg-section-header">
+          <span className="fg-eyebrow">Questions enterprises ask</span>
+          <h2>Before the first mandate.</h2>
+        </div>
+
+        <div className="fg-section-card" style={{ maxWidth: '840px', margin: '0 auto' }}>
+          <div className="faq6-list" style={{ borderTop: 'none' }}>
             {flagshipFaqs.map((faq, i) => (
               <FaqItem
                 key={faq.q}

@@ -35,7 +35,6 @@ export default function TrustedCertifiedSection() {
       <div className="fg-wrap tc7-head">
         <span className="fg-eyebrow">Trusted &amp; Certified</span>
         <h2 className="tc7-title">Banks, NBFCs and fintechs already backing our execution.</h2>
-        <span className="tc7-underline" aria-hidden="true" />
       </div>
 
       <div className="trust6-rows" style={{ marginTop: 28 }}>

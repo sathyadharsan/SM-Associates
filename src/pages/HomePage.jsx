@@ -55,6 +55,10 @@ export default function HomePage() {
 
   return (
     <div className="fg-home">
+      {/* Ambient background glows */}
+      <div className="ambient-glow ambient-glow--1" />
+      <div className="ambient-glow ambient-glow--2" />
+      <div className="ambient-glow ambient-glow--3" />
       <ScrollProgressBar />
       <HeroFlagshipSection />
       <SectionReveal><TrustedCertifiedSection /></SectionReveal>

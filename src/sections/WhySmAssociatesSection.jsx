@@ -80,26 +80,36 @@ export default function WhySmAssociatesSection() {
   return (
     <section className="why6" id="why-us">
       <div className="fg-wrap">
-        <div className="why6-split">
-          
-          {/* Left Column — Sticky Intro */}
-          <div className="why6-sticky-left">
-            <span className="fg-eyebrow">Why SM Associates</span>
-            <h2 style={{ fontSize: 'clamp(28px,3.5vw,44px)', marginTop: 18, lineHeight: 1.1 }}>
-              What sets the operating<br />model apart.
-            </h2>
-            <p className="why6-intro">
-              We bring industrial scale, legal precision, and institutional-grade compliance to recovery operations across South India, protecting lender reputation at every step.
-            </p>
-          </div>
+        <div className="fg-section-header">
+          <span className="fg-eyebrow">Why SM Associates</span>
+          <h2>What sets the operating<br />model apart.</h2>
+        </div>
 
-          {/* Right Column — Stacked Benefit Cards */}
-          <div className="why6-stack">
-            {whyUsPoints.map((w, i) => (
-              <WhyCard key={w.title} w={w} i={i} />
-            ))}
-          </div>
+        <div className="fg-section-card">
+          <div className="why6-split">
+            
+            {/* Left Column — Intro */}
+            <div className="why6-sticky-left" style={{ top: 40 }}>
+              <p className="why6-intro" style={{ fontSize: '16.5px', marginTop: 0, maxWidth: '32ch' }}>
+                We bring industrial scale, legal precision, and institutional-grade compliance to recovery operations across South India, protecting lender reputation at every step.
+              </p>
+              <div className="why6-highlight-card">
+                <span className="fg-mono-tag" style={{ color: 'var(--blue)', fontWeight: 600 }}>OPERATIONAL GUARANTEE</span>
+                <h4>100% Compliant Resolution</h4>
+                <p>
+                  Every account is managed strictly under RBI guidelines, backed by immutable GPS logs, certified DRA representatives, and full call archiving.
+                </p>
+              </div>
+            </div>
 
+            {/* Right Column — Stacked Benefit Cards */}
+            <div className="why6-stack">
+              {whyUsPoints.map((w, i) => (
+                <WhyCard key={w.title} w={w} i={i} />
+              ))}
+            </div>
+
+          </div>
         </div>
       </div>
     </section>

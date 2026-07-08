@@ -473,20 +473,27 @@ export default function CommandCenterSection() {
   };
 
   return (
-    <section id="cmd" className="relative w-full" style={{ height: '88vh', minHeight: 600 }}>
-
-      {/* Loading */}
-      {!mapReady && (
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100">
-          <div className="flex flex-col items-center gap-3">
-            <div className="h-9 w-9 animate-spin rounded-full border-2 border-brand-500 border-t-transparent" />
-            <p className="text-[13px] font-medium text-slate-500">Loading map…</p>
-          </div>
+    <section id="cmd" className="py-16 bg-[var(--stone)] relative w-full">
+      <div className="fg-wrap" style={{ marginBottom: 40 }}>
+        <div className="fg-section-header" style={{ marginBottom: 0 }}>
+          <span className="fg-eyebrow">Geographic Depth</span>
+          <h2>20 offices, 1,500+ field recovery professionals.</h2>
         </div>
-      )}
+      </div>
 
-      {/* Full-bleed Leaflet map */}
-      <div ref={mapRef} className="absolute inset-0 z-0" />
+      <div className="relative w-full" style={{ height: '70vh', minHeight: 520 }}>
+        {/* Loading */}
+        {!mapReady && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100">
+            <div className="flex flex-col items-center gap-3">
+              <div className="h-9 w-9 animate-spin rounded-full border-2 border-brand-500 border-t-transparent" />
+              <p className="text-[13px] font-medium text-slate-500">Loading map…</p>
+            </div>
+          </div>
+        )}
+
+        {/* Full-bleed Leaflet map */}
+        <div ref={mapRef} className="absolute inset-0 z-0" />
 
       {/* Soft top/bottom fade — blends the hard rectangular map edge into
           the white sections above and below instead of a flat cut */}
@@ -617,6 +624,7 @@ export default function CommandCenterSection() {
         </div>
       </div>
 
+      </div> {/* End map container */}
     </section>
   );
 }

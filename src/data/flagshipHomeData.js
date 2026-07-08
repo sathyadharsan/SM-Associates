@@ -146,6 +146,8 @@ export const flagshipFaqs = [
   { q: 'How do you ensure regulatory and conduct compliance?', a: 'Every officer is background-verified and IIBF DRA-certified, 100% of collections calls are recorded and QA-audited, every field interaction is logged with time and GPS location, and all activity follows RBI Fair Practices — producing a complete, regulator-ready audit trail.' },
   { q: 'What visibility do we get into ongoing recovery?', a: 'Daily status reporting covering allocation, field activity, resolution and recovery — down to the account — plus scheduled MIS packs aligned to your review cadence.' },
   { q: 'Do you handle both secured and unsecured portfolios?', a: 'Yes. Unsecured retail collections through to secured enforcement and SARFAESI execution, across the full delinquency curve, under one accountable operating model.' },
+  { q: 'What is your commercial and pricing model?', a: 'We operate on structured success-fee percentages tailored to portfolio age, security type, bucket status, and geographic density. For legal support and SARFAESI mandates, we work on standardized milestones/flat fee-per-stage agreements.' },
+  { q: 'How do you guarantee customer data protection and information security?', a: 'We adhere strictly to ISO/IEC 27001 standard practices. All customer data resides on secured servers with role-based access controls, encrypted at rest and in transit, with full audit trail logging and active firewalls/malware monitoring.' },
 ];
 
 // ─── Home Page Architecture Refinement (production pass) ──────────────────

@@ -113,33 +113,35 @@ export default function CaseStudiesPreviewSection() {
     <section className="csp6" id="case-studies">
       <div className="fg-wrap">
         <motion.div
-          style={{ marginBottom: 44 }}
+          className="fg-section-header"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="fg-eyebrow">Proof of Work</span>
-          <h2 style={{ fontSize: 'clamp(28px,3.8vw,48px)', marginTop: 18 }}>Real engagements,<br />documented outcomes.</h2>
+          <h2>Real engagements,<br />documented outcomes.</h2>
         </motion.div>
 
-        <div className="csp6-grid">
-          {preview.map((study, i) => (
-            <PremiumCard key={study.id} study={study} i={i} />
-          ))}
+        <div className="fg-section-card">
+          <div className="csp6-grid">
+            {preview.map((study, i) => (
+              <PremiumCard key={study.id} study={study} i={i} />
+            ))}
+          </div>
+
+          <motion.div
+            style={{ marginTop: 48, textAlign: 'center' }}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.36 }}
+          >
+            <Link to="/insights/case-studies" className="fg-btn fg-btn-s">
+              View All Case Studies <ArrowRight size={16} className="arr" />
+            </Link>
+          </motion.div>
         </div>
-
-        <motion.div
-          style={{ marginTop: 44, textAlign: 'center' }}
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45, delay: 0.36 }}
-        >
-          <Link to="/insights/case-studies" className="fg-btn fg-btn-s">
-            View All Case Studies <ArrowRight size={16} className="arr" />
-          </Link>
-        </motion.div>
       </div>
     </section>
   );
