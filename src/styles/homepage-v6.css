@@ -214,8 +214,8 @@
    object-fit:contain never stretches/distorts — it only letterboxes. */
 .tlogo{display:flex;align-items:center;justify-content:center;height:60px;max-width:176px;padding:8px 14px;box-sizing:border-box;flex-shrink:0;cursor:default;transition:transform .3s var(--ease);}
 .tlogo:hover{transform:translateY(-2px);}
-.tlogo img{display:block;width:100%;height:100%;object-fit:contain;opacity:0.48;filter:grayscale(1);transition:opacity .35s var(--ease),filter .35s var(--ease);}
-.tlogo:hover img{opacity:0.88;filter:grayscale(0);}
+.tlogo img{display:block;width:100%;height:100%;object-fit:contain;opacity:0.85;transition:opacity .3s var(--ease);}
+.tlogo:hover img{opacity:1;}
 @keyframes trust-scroll{to{transform:translateX(-50%);}}
 @keyframes trust-scroll-rev{from{transform:translateX(-50%);}to{transform:translateX(0);}}
 
