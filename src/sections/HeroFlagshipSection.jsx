@@ -42,7 +42,7 @@ export default function HeroFlagshipSection() {
       <div className="fg-wrap">
         <div className="hero6-grid">
           <div>
-            <div className="hero6-eyebrow"><span className="live-dot" />India&apos;s Enterprise Recovery Operations Partner</div>
+            <div className="hero6-eyebrow"><span className="live-dot" />South India&apos;s Enterprise Recovery Operations Partner</div>
             <h1 className="hero6-h1">
               <span className="ln"><span ref={(el) => (lineRefs.current[0] = el)}>We Don&apos;t Just</span></span>
               <span className="ln"><span ref={(el) => (lineRefs.current[1] = el)}>Recover.</span></span>

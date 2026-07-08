@@ -35,7 +35,7 @@ export default function CaseStudyCard({ study, index, onOpen }) {
             src={study.image}
             alt={study.title}
             loading="lazy"
-            className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <div className="h-full w-full bg-gradient-to-br from-slate-700 to-slate-900" />

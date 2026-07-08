@@ -26,10 +26,9 @@ export default function MetricsSection() {
       <div className="fg-wrap">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 20, marginBottom: 48 }}>
           <div>
-            <span className="fg-eyebrow">Infrastructure at scale</span>
+            <span className="fg-eyebrow">Infrastructure at Scale</span>
             <h2 style={{ fontSize: 'clamp(28px,3.8vw,48px)', marginTop: 18 }}>Operational depth,<br /><em className="fg-hl">measured in the field.</em></h2>
           </div>
-          <span className="fg-mono-tag">FIG.03 — OPERATING METRICS</span>
         </div>
         <div className="m6-grid">
           {metrics.map((m) => <MetricCell key={m.idx} m={m} />)}

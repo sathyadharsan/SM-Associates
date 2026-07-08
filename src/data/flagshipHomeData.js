@@ -163,14 +163,14 @@ export const servicesOverview = [
 // Card-based Industries We Serve — mirrors the top-level entries under the
 // "Industries" mega-menu so Home stays in sync with real destination pages.
 export const industriesOverview = [
-  { icon: 'Landmark', name: 'Banking', href: '/industries/banking', color: '#3366FF' },
-  { icon: 'Building2', name: 'NBFC', href: '/industries/nbfc', color: '#7C3AED' },
-  { icon: 'Home', name: 'Housing Finance', href: '/industries/housing-finance', color: '#C8922A' },
-  { icon: 'Users', name: 'Microfinance', href: '/industries/microfinance', color: '#16A34A' },
-  { icon: 'Smartphone', name: 'Fintech', href: '/industries/fintech', color: '#0891B2' },
-  { icon: 'Layers', name: 'Asset Reconstruction', href: '/industries/arc', color: '#E11D48' },
-  { icon: 'ShieldCheck', name: 'Insurance', href: '/industries/insurance', color: '#4F46E5' },
-  { icon: 'Briefcase', name: 'Commercial Lending', href: '/industries/commercial-lending', color: '#EA580C' },
+  { icon: 'Landmark', name: 'Banking', desc: 'Retail, SME & secured NPA recovery for nationalised and private banks.', href: '/industries/banking', color: '#3366FF' },
+  { icon: 'Building2', name: 'NBFC', desc: 'High-volume collections and portfolio NPA resolution for NBFCs.', href: '/industries/nbfc', color: '#7C3AED' },
+  { icon: 'Home', name: 'Housing Finance', desc: 'SARFAESI enforcement and mortgage recovery for HFCs.', href: '/industries/housing-finance', color: '#C8922A' },
+  { icon: 'Users', name: 'Microfinance', desc: 'Field collections and early-bucket resolution for MFI portfolios.', href: '/industries/microfinance', color: '#16A34A' },
+  { icon: 'Smartphone', name: 'Fintech', desc: 'Tele and field recovery for digital lending books.', href: '/industries/fintech', color: '#0891B2' },
+  { icon: 'Layers', name: 'Asset Reconstruction', desc: 'Distressed asset resolution and enforcement support for ARCs.', href: '/industries/arc', color: '#E11D48' },
+  { icon: 'ShieldCheck', name: 'Insurance', desc: 'Premium recovery and fraudulent claim investigation support.', href: '/industries/insurance', color: '#4F46E5' },
+  { icon: 'Briefcase', name: 'Commercial Lending', desc: 'Business loan recovery, legal support and skip-tracing services.', href: '/industries/commercial-lending', color: '#EA580C' },
 ];
 
 // "Why SM Associates" — qualitative differentiation only; the numbers

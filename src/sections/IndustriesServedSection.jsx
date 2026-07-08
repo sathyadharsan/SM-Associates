@@ -20,14 +20,19 @@ export default function IndustriesServedSection() {
             return (
               <motion.div
                 key={ind.name}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.35, delay: i * 0.05 }}
+                transition={{ duration: 0.4, delay: i * 0.055, ease: [0.22, 1, 0.36, 1] }}
               >
                 <Link to={ind.href} className="ind6-card" style={{ '--card-c': ind.color }}>
+                  {/* Accent bar */}
                   <span className="ind6-ico"><Icon size={18} /></span>
-                  <span>{ind.name}</span>
+                  <div className="ind6-body">
+                    <span className="ind6-name">{ind.name}</span>
+                    {ind.desc && <span className="ind6-desc">{ind.desc}</span>}
+                  </div>
+                  <ArrowRight className="ind6-arr" size={14} />
                 </Link>
               </motion.div>
             );
