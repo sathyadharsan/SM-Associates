@@ -29,6 +29,13 @@
 @media(max-width:1100px){:root{--gut:32px;}}
 @media(max-width:640px){:root{--gut:20px;}}
 
+/* Lenis smooth scroll optimization */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overflow: clip; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+
 .fg-home{font-family:var(--sans);}
 .fg-home h1,.fg-home h2,.fg-home h3,.fg-home h4,.fg-home h5{font-weight:700;letter-spacing:-.03em;line-height:1.04;text-wrap:balance;}
 .fg-home p{text-wrap:pretty;}
@@ -188,10 +195,10 @@
 /* ═══════════════════════════════════════════════
    2 · TRUST  (white, institutional grid)
 ═══════════════════════════════════════════════ */
-.trust6{background:var(--stone);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:52px 0;}
+.trust6{background:var(--stone);border:none;padding:52px 0;}
 
 /* ── Trusted & Certified (merged marquee + governance facts) ─────────── */
-.tc7{background:var(--stone);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:52px 0 44px;}
+.tc7{background:var(--stone);border:none;padding:52px 0 44px;}
 .tc7-head{text-align:center;}
 .tc7-title{margin-top:16px;font-family:var(--serif);font-weight:600;font-size:clamp(24px,3vw,36px);letter-spacing:-.02em;line-height:1.25;color:var(--ink);max-width:640px;margin-left:auto;margin-right:auto;}
 .tc7-underline{position:relative;display:block;width:72px;height:3px;margin:22px auto 0;border-radius:100px;overflow:hidden;background:linear-gradient(90deg,var(--blue),var(--gold));}
@@ -830,8 +837,8 @@
 /* ── Brand selection color ────────────────────────────────────── */
 .fg-home ::selection{background:var(--blue);color:#fff;}
 
-/* ── Stone sections — warm hairline separation ────────────────── */
-.svc6,.model6,.why6{border-top:1px solid rgba(15,23,42,.05);border-bottom:1px solid rgba(15,23,42,.05);}
+/* ── Stone sections — border-less seamless transitions ────────── */
+.svc6,.model6,.why6{border:none;}
 
 /* ── Outcomes stage + arch — crisper premium borders ──────────── */
 .oc6-stage{box-shadow:0 1px 2px rgba(20,30,70,.05),0 32px 80px -50px rgba(20,30,70,.3),inset 0 1px 0 #fff;}

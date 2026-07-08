@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import Lenis from 'lenis';
 import '../styles/homepage-v6.css';
 import ScrollProgressBar from '../components/ScrollProgressBar';
 import SectionReveal from '../components/SectionReveal';
@@ -22,6 +24,35 @@ import FlagshipCtaSection from '../sections/FlagshipCtaSection';
 // restored to their original scroll-pinned filmstrip / full interactive
 // Leaflet map designs.
 export default function HomePage() {
+  useEffect(() => {
+    // Initialize Lenis smooth scroll engine
+    const lenis = new Lenis({
+      duration: 1.25,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Sync scroll-based plugins/animations on update if needed
+    lenis.on('scroll', () => {
+      // triggers framer-motion scroll updates if active
+    });
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <div className="fg-home">
       <ScrollProgressBar />
