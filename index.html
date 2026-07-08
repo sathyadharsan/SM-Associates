@@ -11,6 +11,7 @@
     <!-- Sora for hero headings, Inter for body/UI -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.clarity.ms" />
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <!-- Plus Jakarta Sans + IBM Plex Mono for the flagship homepage -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -26,6 +27,46 @@
     </script>
     <!-- SM Associates first-party analytics -> Google Sheets (idle until ENDPOINT is set inside the file) -->
     <script defer src="/sm-analytics.js"></script>
+
+    <!-- Organization + WebSite structured data (site-wide, does not change per route).
+         Facts sourced verbatim from src/data/contactOfficesData.js (COMPANY / PRIMARY_CONTACT),
+         which is itself transcribed from the official printed Corporate Profile PDF.
+         sameAs intentionally omitted — footer social links are still placeholders (href="#");
+         add real profile URLs here once they exist, do not fabricate. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "S M Associates Risk Management Private Limited",
+      "alternateName": "SM Associates",
+      "url": "https://www.smassociate.in",
+      "logo": "https://www.smassociate.in/sm-logo.png",
+      "foundingDate": "2000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "No. 10/17, East Ellaiamman Koil Street, Kotturpuram",
+        "addressLocality": "Chennai",
+        "addressRegion": "Tamil Nadu",
+        "postalCode": "600085",
+        "addressCountry": "IN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-44-4306-0206",
+        "contactType": "customer service",
+        "areaServed": "IN",
+        "availableLanguage": ["English", "Tamil"]
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SM Associates Risk Management Pvt. Ltd.",
+      "url": "https://www.smassociate.in"
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

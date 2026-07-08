@@ -148,9 +148,9 @@ export default function Header() {
   const location = useLocation();
   const timeoutRef = useRef(null);
 
-  // Filter out Home, Careers, Contact from middle nav since they might be standalone or placed elsewhere
+  // Filter out Careers, Contact from middle nav since they're placed separately on the right
   const middleNavItems = navigationData.mainNav.filter(
-    (item) => item.label !== 'Home' && item.label !== 'Careers' && item.label !== 'Contact'
+    (item) => item.label !== 'Careers' && item.label !== 'Contact'
   );
 
   const isItemActive = (item) => {
@@ -252,9 +252,16 @@ export default function Header() {
           <div className="flex h-[60px] items-center px-5 lg:px-7">
 
             {/* Logo */}
-            <Link to="/" className="flex shrink-0 items-center gap-2.5">
-              <Shield className="h-7 w-7" strokeWidth={1.6} style={{ color: BRAND }} />
-              <span className="text-[16px] font-bold text-gray-900">SM Associates</span>
+            <Link to="/" className="flex shrink-0 items-center gap-2">
+              <img
+                src="/sm-logo.png"
+                alt="SM Associates Logo"
+                className="h-11 w-auto object-contain"
+              />
+              <span className="flex flex-col leading-tight">
+                <span className="text-[16px] font-bold text-gray-900">SM Associates</span>
+                <span className="text-[10.5px] font-semibold text-gray-500 tracking-wide whitespace-nowrap">Risk Management Pvt. Ltd.</span>
+              </span>
             </Link>
 
             {/* Desktop nav */}
@@ -276,8 +283,8 @@ export default function Header() {
                         onClick={() => {
                           setActiveMenu(activeMenu === key ? null : key);
                         }}
-                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-[-0.01em] transition-colors duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-                        style={{ color: isItemActive(navItem) || activeMenu === key || hoverKey === key ? BRAND : 'rgba(15, 23, 42, 0.65)' }}
+                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[16px] font-bold tracking-[-0.01em] transition-colors duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+                        style={{ color: isItemActive(navItem) || activeMenu === key || hoverKey === key ? BRAND : '#0a0e1a' }}
                       >
                         {navItem.label}
                         <span
@@ -293,8 +300,9 @@ export default function Header() {
                     ) : (
                       <Link
                         to={navItem.href}
-                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[15px] font-semibold tracking-[-0.01em] transition-colors duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-                        style={{ color: isItemActive(navItem) ? BRAND : 'rgba(15, 23, 42, 0.65)' }}
+                        onMouseEnter={() => handleMouseEnter(key)}
+                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[16px] font-bold tracking-[-0.01em] transition-colors duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+                        style={{ color: isItemActive(navItem) || hoverKey === key ? BRAND : '#0a0e1a' }}
                       >
                         {navItem.label}
                       </Link>
@@ -451,19 +459,25 @@ export default function Header() {
                   </div>
                 );
               })}
+
+              {/* Careers — kept in the same gap-1 flow as the rest of the nav so its
+                  spacing to Case Studies matches every other item, instead of being
+                  pinned to a separately-spaced right-side block. */}
+              <div className="flex items-center">
+                <Link
+                  to="/careers"
+                  className="relative inline-flex items-center px-3 py-2 text-[16px] font-bold text-[#0a0e1a] transition-colors duration-200 hover:text-[#3366FF] rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+                >
+                  Careers
+                </Link>
+              </div>
             </nav>
 
-            {/* Right: Careers + Login + CTA */}
-            <div className="hidden shrink-0 items-center gap-4 xl:flex">
-              <Link
-                to="/careers"
-                className="relative inline-flex items-center px-3 py-2 text-[15px] font-semibold text-gray-900/65 transition-colors duration-200 hover:text-gray-950 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-              >
-                Careers
-              </Link>
+            {/* Right: CTA */}
+            <div className="hidden shrink-0 items-center xl:flex">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[15px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+                className="group inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[15px] font-bold text-white transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                 style={{
                   background: `linear-gradient(135deg, ${BRAND}, ${VIOLET})`,
                   boxShadow: `0 8px 24px -4px ${BRAND}66, 0 0 0 1px rgba(255,255,255,0.15) inset`,
@@ -504,8 +518,8 @@ export default function Header() {
                               onClick={() => {
                                 setMobileExpanded(mobileExpanded === key ? null : key);
                               }}
-                              className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-[14px] font-semibold transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-                              style={{ color: isItemActive(navItem) || mobileExpanded === key ? BRAND : 'rgba(17, 24, 39, 0.75)' }}
+                              className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-[15px] font-bold transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+                              style={{ color: isItemActive(navItem) || mobileExpanded === key ? BRAND : '#0a0e1a' }}
                             >
                               {navItem.label}
                               <ChevronDown 
@@ -568,7 +582,7 @@ export default function Header() {
                           <Link
                             to={navItem.href}
                             onClick={() => setMobileOpen(false)}
-                            className="block rounded-xl px-3 py-2.5 text-[14px] font-semibold text-gray-900/75 hover:bg-gray-50"
+                            className="block rounded-xl px-3 py-2.5 text-[15px] font-bold text-[#0a0e1a] hover:bg-gray-50"
                           >
                             {navItem.label}
                           </Link>
@@ -581,7 +595,7 @@ export default function Header() {
                     <Link
                       to="/careers"
                       onClick={() => setMobileOpen(false)}
-                      className="block rounded-xl px-3 py-2.5 text-[14px] font-semibold text-gray-900/75 hover:bg-gray-50"
+                      className="block rounded-xl px-3 py-2.5 text-[15px] font-bold text-[#0a0e1a] hover:bg-gray-50"
                     >
                       Careers
                     </Link>

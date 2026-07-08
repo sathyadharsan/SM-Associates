@@ -51,7 +51,8 @@ export default function TrustedCertifiedSection() {
                   <span className="tlogo" key={`${client.slug}-${i}`}>
                     <img
                       src={client.logo}
-                      alt={client.name}
+                      alt={`${client.name} logo`}
+                      loading="lazy"
                       onError={(e) => { e.currentTarget.parentElement.style.display = 'none'; }}
                     />
                   </span>

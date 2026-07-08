@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Globe, Link2, Mail, MapPin, Phone, Share2 } from 'lucide-react';
 import { servicesMenu, industries } from '../data/homeData';
 
@@ -7,8 +7,8 @@ const quickLinks = [
   { label: 'About Us', to: '/about' },
   { label: 'Services', to: '/services' },
   { label: 'Industries', to: '/industries' },
-  { label: 'Capabilities', to: '/capabilities' },
-  { label: 'Resources', to: '/resources' },
+  { label: 'Capabilities', to: '/platform' },
+  { label: 'Resources', to: '/insights' },
   { label: 'Careers', to: '/careers' },
   { label: 'Contact', to: '/contact' }
 ];
@@ -29,8 +29,12 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.25fr_0.85fr_0.95fr_0.95fr_1.2fr]">
           <div>
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-sm font-bold text-gray-950">
-                SM
+              <div className="flex h-14 w-12 items-center justify-center rounded-xl bg-white p-1.5 shadow-md">
+                <img
+                  src="/sm-logo.png"
+                  alt="SM Associates Risk Management logo"
+                  className="h-full w-auto object-contain"
+                />
               </div>
               <div>
                 <p className="text-base font-bold">SM Associates</p>

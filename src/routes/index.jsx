@@ -1,94 +1,97 @@
+import { lazy } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import SiteLayout from '../layouts/SiteLayout';
+
+// HomePage stays eagerly imported — it's the landing route and lazy-loading
+// it would delay first paint. Every other page is code-split via React.lazy
+// so first-time visitors only download the route they're on; the Suspense
+// boundary lives in SiteLayout around <Outlet />, keeping header/footer
+// visible while a chunk loads.
 import HomePage from '../pages/HomePage';
 
-// About Pages
-import CompanyOverviewPage from '../pages/about/CompanyOverviewPage';
-import LeadershipTeamPage from '../pages/about/LeadershipTeamPage';
-import CompanyHistoryPage from '../pages/about/CompanyHistoryPage';
-import WhySMAssociatesPage from '../pages/about/WhySMAssociatesPage';
-import ClientelePage from '../pages/about/ClientelePage';
-import ComplianceEthicsPage from '../pages/about/ComplianceEthicsPage';
+// About
+const CompanyOverviewPage = lazy(() => import('../pages/about/CompanyOverviewPage'));
 
-// Services Pages
-import ServicesIndex from '../pages/services/ServicesIndex';
-import CpvServicesPage from '../pages/services/verification/CpvServicesPage';
-import ResidenceVerificationPage from '../pages/services/verification/ResidenceVerificationPage';
-import OfficeVerificationPage from '../pages/services/verification/OfficeVerificationPage';
-import BusinessVerificationPage from '../pages/services/verification/BusinessVerificationPage';
-import DocumentVerificationPage from '../pages/services/verification/DocumentVerificationPage';
-import PdcCollectionsPage from '../pages/services/collections/PdcCollectionsPage';
-import EarlyStageCollectionsPage from '../pages/services/collections/EarlyStageCollectionsPage';
-import SoftCollectionsPage from '../pages/services/collections/SoftCollectionsPage';
-import HardCollectionsPage from '../pages/services/collections/HardCollectionsPage';
-import FieldCollectionsPage from '../pages/services/collections/FieldCollectionsPage';
-import DebtRecoveryPage from '../pages/services/collections/DebtRecoveryPage';
-import ChequeBounceNoticesPage from '../pages/services/legal-recovery/ChequeBounceNoticesPage';
-import SarfaesiSupportPage from '../pages/services/legal-recovery/SarfaesiSupportPage';
-import PossessionSupportPage from '../pages/services/legal-recovery/PossessionSupportPage';
-import LegalCoordinationPage from '../pages/services/legal-recovery/LegalCoordinationPage';
-import LitigationSupportPage from '../pages/services/legal-recovery/LitigationSupportPage';
-import VehicleRepossessionPage from '../pages/services/asset-recovery/VehicleRepossessionPage';
-import AssetTracingPage from '../pages/services/asset-recovery/AssetTracingPage';
-import AssetRecoveryPage from '../pages/services/asset-recovery/AssetRecoveryPage';
-import AuctionCoordinationPage from '../pages/services/asset-recovery/AuctionCoordinationPage';
-import ValuationServicesPage from '../pages/services/asset-recovery/ValuationServicesPage';
-import CustodianServicesPage from '../pages/services/asset-recovery/CustodianServicesPage';
-import DueDiligencePage from '../pages/services/investigation/DueDiligencePage';
-import SkipTracingPage from '../pages/services/investigation/SkipTracingPage';
-import AddressTracingPage from '../pages/services/investigation/AddressTracingPage';
-import ContactVerificationPage from '../pages/services/investigation/ContactVerificationPage';
-import FraudInvestigationPage from '../pages/services/investigation/FraudInvestigationPage';
-import PortfolioManagementPage from '../pages/services/specialized/PortfolioManagementPage';
-import NpaManagementPage from '../pages/services/specialized/NpaManagementPage';
-import ResolutionStrategyPage from '../pages/services/specialized/ResolutionStrategyPage';
-import NpaRecoveryPage from '../pages/services/specialized/NpaRecoveryPage';
-import RecoveryAnalyticsPage from '../pages/services/specialized/RecoveryAnalyticsPage';
-import RecoveryConsultingPage from '../pages/services/specialized/RecoveryConsultingPage';
-import CallCentrePage from '../pages/services/operational/CallCentrePage';
-import ManpowerPage from '../pages/services/operational/ManpowerPage';
-import FacilityManagementPage from '../pages/services/operational/FacilityManagementPage';
-import LiaisingPage from '../pages/services/operational/LiaisingPage';
+// Services
+const ServicesIndex = lazy(() => import('../pages/services/ServicesIndex'));
+const CpvServicesPage = lazy(() => import('../pages/services/verification/CpvServicesPage'));
+const ResidenceVerificationPage = lazy(() => import('../pages/services/verification/ResidenceVerificationPage'));
+const OfficeVerificationPage = lazy(() => import('../pages/services/verification/OfficeVerificationPage'));
+const BusinessVerificationPage = lazy(() => import('../pages/services/verification/BusinessVerificationPage'));
+const DocumentVerificationPage = lazy(() => import('../pages/services/verification/DocumentVerificationPage'));
+const PdcCollectionsPage = lazy(() => import('../pages/services/collections/PdcCollectionsPage'));
+const EarlyStageCollectionsPage = lazy(() => import('../pages/services/collections/EarlyStageCollectionsPage'));
+const SoftCollectionsPage = lazy(() => import('../pages/services/collections/SoftCollectionsPage'));
+const HardCollectionsPage = lazy(() => import('../pages/services/collections/HardCollectionsPage'));
+const FieldCollectionsPage = lazy(() => import('../pages/services/collections/FieldCollectionsPage'));
+const DebtRecoveryPage = lazy(() => import('../pages/services/collections/DebtRecoveryPage'));
+const ChequeBounceNoticesPage = lazy(() => import('../pages/services/legal-recovery/ChequeBounceNoticesPage'));
+const SarfaesiSupportPage = lazy(() => import('../pages/services/legal-recovery/SarfaesiSupportPage'));
+const PossessionSupportPage = lazy(() => import('../pages/services/legal-recovery/PossessionSupportPage'));
+const LegalCoordinationPage = lazy(() => import('../pages/services/legal-recovery/LegalCoordinationPage'));
+const LitigationSupportPage = lazy(() => import('../pages/services/legal-recovery/LitigationSupportPage'));
+const VehicleRepossessionPage = lazy(() => import('../pages/services/asset-recovery/VehicleRepossessionPage'));
+const AssetTracingPage = lazy(() => import('../pages/services/asset-recovery/AssetTracingPage'));
+const AssetRecoveryPage = lazy(() => import('../pages/services/asset-recovery/AssetRecoveryPage'));
+const AuctionCoordinationPage = lazy(() => import('../pages/services/asset-recovery/AuctionCoordinationPage'));
+const ValuationServicesPage = lazy(() => import('../pages/services/asset-recovery/ValuationServicesPage'));
+const CustodianServicesPage = lazy(() => import('../pages/services/asset-recovery/CustodianServicesPage'));
+const DueDiligencePage = lazy(() => import('../pages/services/investigation/DueDiligencePage'));
+const SkipTracingPage = lazy(() => import('../pages/services/investigation/SkipTracingPage'));
+const AddressTracingPage = lazy(() => import('../pages/services/investigation/AddressTracingPage'));
+const ContactVerificationPage = lazy(() => import('../pages/services/investigation/ContactVerificationPage'));
+const FraudInvestigationPage = lazy(() => import('../pages/services/investigation/FraudInvestigationPage'));
+const PortfolioManagementPage = lazy(() => import('../pages/services/specialized/PortfolioManagementPage'));
+const NpaManagementPage = lazy(() => import('../pages/services/specialized/NpaManagementPage'));
+const ResolutionStrategyPage = lazy(() => import('../pages/services/specialized/ResolutionStrategyPage'));
+const NpaRecoveryPage = lazy(() => import('../pages/services/specialized/NpaRecoveryPage'));
+const RecoveryAnalyticsPage = lazy(() => import('../pages/services/specialized/RecoveryAnalyticsPage'));
+const RecoveryConsultingPage = lazy(() => import('../pages/services/specialized/RecoveryConsultingPage'));
+const CallCentrePage = lazy(() => import('../pages/services/operational/CallCentrePage'));
+const ManpowerPage = lazy(() => import('../pages/services/operational/ManpowerPage'));
+const FacilityManagementPage = lazy(() => import('../pages/services/operational/FacilityManagementPage'));
+const LiaisingPage = lazy(() => import('../pages/services/operational/LiaisingPage'));
 
-// Industries Pages
-import IndustriesIndex from '../pages/industries/IndustriesIndex';
-import BankingPage from '../pages/industries/BankingPage';
-import NbfcPage from '../pages/industries/NbfcPage';
-import HousingFinancePage from '../pages/industries/HousingFinancePage';
-import MicrofinancePage from '../pages/industries/MicrofinancePage';
-import FintechPage from '../pages/industries/FintechPage';
-import ArcPage from '../pages/industries/ArcPage';
-import CommercialLendingPage from '../pages/industries/CommercialLendingPage';
-import InsurancePage from '../pages/industries/InsurancePage';
-import VehicleFinancePage from '../pages/industries/VehicleFinancePage';
-import GoldLoanPage from '../pages/industries/GoldLoanPage';
-import RetailProductsPage from '../pages/industries/products/RetailProductsPage';
-import AutoProductsPage from '../pages/industries/products/AutoProductsPage';
-import SmeProductsPage from '../pages/industries/products/SmeProductsPage';
-import AgriProductsPage from '../pages/industries/products/AgriProductsPage';
-import JewelProductsPage from '../pages/industries/products/JewelProductsPage';
-import EducationProductsPage from '../pages/industries/products/EducationProductsPage';
+// Industries
+const IndustriesIndex = lazy(() => import('../pages/industries/IndustriesIndex'));
+const BankingPage = lazy(() => import('../pages/industries/BankingPage'));
+const NbfcPage = lazy(() => import('../pages/industries/NbfcPage'));
+const HousingFinancePage = lazy(() => import('../pages/industries/HousingFinancePage'));
+const MicrofinancePage = lazy(() => import('../pages/industries/MicrofinancePage'));
+const FintechPage = lazy(() => import('../pages/industries/FintechPage'));
+const ArcPage = lazy(() => import('../pages/industries/ArcPage'));
+const CommercialLendingPage = lazy(() => import('../pages/industries/CommercialLendingPage'));
+const InsurancePage = lazy(() => import('../pages/industries/InsurancePage'));
+const VehicleFinancePage = lazy(() => import('../pages/industries/VehicleFinancePage'));
+const GoldLoanPage = lazy(() => import('../pages/industries/GoldLoanPage'));
+const RetailProductsPage = lazy(() => import('../pages/industries/products/RetailProductsPage'));
+const AutoProductsPage = lazy(() => import('../pages/industries/products/AutoProductsPage'));
+const SmeProductsPage = lazy(() => import('../pages/industries/products/SmeProductsPage'));
+const AgriProductsPage = lazy(() => import('../pages/industries/products/AgriProductsPage'));
+const JewelProductsPage = lazy(() => import('../pages/industries/products/JewelProductsPage'));
+const EducationProductsPage = lazy(() => import('../pages/industries/products/EducationProductsPage'));
 
-// Recovery Operations
-import RecoveryOperationsIndex from '../pages/recovery-operations/RecoveryOperationsIndex';
-import RecoveryOsPage from '../pages/recovery-operations/RecoveryOsPage';
-import WorkflowAutomationPage from '../pages/recovery-operations/WorkflowAutomationPage';
-import FieldOperationsPage from '../pages/recovery-operations/FieldOperationsPage';
-import ComplianceMonitoringPage from '../pages/recovery-operations/ComplianceMonitoringPage';
-import OperationsRecoveryAnalyticsPage from '../pages/recovery-operations/RecoveryAnalyticsPage'; // Aliased to avoid clash
-import AiRecoveryPage from '../pages/recovery-operations/AiRecoveryPage';
+// Platform
+const RecoveryOperationsIndex = lazy(() => import('../pages/recovery-operations/RecoveryOperationsIndex'));
+const RecoveryOsPage = lazy(() => import('../pages/recovery-operations/RecoveryOsPage'));
+const WorkflowAutomationPage = lazy(() => import('../pages/recovery-operations/WorkflowAutomationPage'));
+const FieldOperationsPage = lazy(() => import('../pages/recovery-operations/FieldOperationsPage'));
+const ComplianceMonitoringPage = lazy(() => import('../pages/recovery-operations/ComplianceMonitoringPage'));
+const OperationsRecoveryAnalyticsPage = lazy(() => import('../pages/recovery-operations/RecoveryAnalyticsPage'));
+const AiRecoveryPage = lazy(() => import('../pages/recovery-operations/AiRecoveryPage'));
 
 // Insights
-import InsightsIndex from '../pages/insights/InsightsIndex';
-import CaseStudiesPage from '../pages/insights/CaseStudiesPage';
-import BlogPage from '../pages/insights/BlogPage';
-import NewsUpdatesPage from '../pages/insights/NewsUpdatesPage';
+const InsightsIndex = lazy(() => import('../pages/insights/InsightsIndex'));
+const CaseStudiesPage = lazy(() => import('../pages/insights/CaseStudiesPage'));
+const BlogPage = lazy(() => import('../pages/insights/BlogPage'));
+const NewsUpdatesPage = lazy(() => import('../pages/insights/NewsUpdatesPage'));
 
 // Others
-import ClientsPage from '../pages/ClientsPage';
-import CareersPage from '../pages/CareersPage';
-import ContactPage from '../pages/ContactPage';
-import LoginPage from '../pages/LoginPage';
+const ClientsPage = lazy(() => import('../pages/ClientsPage'));
+const CareersPage = lazy(() => import('../pages/CareersPage'));
+const ContactPage = lazy(() => import('../pages/ContactPage'));
+const LoginPage = lazy(() => import('../pages/LoginPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 export default function AppRoutes() {
   return (
@@ -192,6 +195,9 @@ export default function AppRoutes() {
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<LoginPage />} />
+
+        {/* Catch-all — must stay last */}
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   );

@@ -1,10 +1,10 @@
 // AI-generated case study images — content-matched, no stock photo downloads
-import cs001Img from '../assets/case-studies/cs-001-sarfaesi.png';
-import cs002Img from '../assets/case-studies/cs-002-security.png';
-import cs003Img from '../assets/case-studies/cs-003-npa.png';
-import cs004Img from '../assets/case-studies/cs-004-field.png';
-import cs005Img from '../assets/case-studies/cs-005-fraud.png';
-import cs006Img from '../assets/case-studies/cs-006-credit.png';
+import cs001Img from '../assets/case-studies/cs-001-sarfaesi.webp';
+import cs002Img from '../assets/case-studies/cs-002-security.webp';
+import cs003Img from '../assets/case-studies/cs-003-npa.webp';
+import cs004Img from '../assets/case-studies/cs-004-field.webp';
+import cs005Img from '../assets/case-studies/cs-005-fraud.webp';
+import cs006Img from '../assets/case-studies/cs-006-credit.webp';
 
 // Case study content — the ONLY place this page's copy lives. To publish
 // real results later, update metrics[].value / quote / quoteAuthor /
