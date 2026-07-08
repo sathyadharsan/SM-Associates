@@ -23,7 +23,7 @@
   --ease-io:cubic-bezier(0.16,1,0.3,1);
   --max:1320px; --gut:48px;
   --navy:#0f172a; --navy-2:#131c35; --navy-3:#1a2540;
-  --stone:#f5f4ef; --stone-2:#edebe4;
+  --stone:#f8fafc; --stone-2:#f1f5f9;
   --amber:#d4a843; --amber-t:rgba(212,168,67,.15);
 }
 @media(max-width:1100px){:root{--gut:32px;}}
@@ -188,10 +188,10 @@
 /* ═══════════════════════════════════════════════
    2 · TRUST  (white, institutional grid)
 ═══════════════════════════════════════════════ */
-.trust6{background:#faf9f7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:52px 0;}
+.trust6{background:var(--stone);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:52px 0;}
 
 /* ── Trusted & Certified (merged marquee + governance facts) ─────────── */
-.tc7{background:#faf9f7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:52px 0 44px;}
+.tc7{background:var(--stone);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:52px 0 44px;}
 .tc7-head{text-align:center;}
 .tc7-title{margin-top:16px;font-family:var(--serif);font-weight:600;font-size:clamp(24px,3vw,36px);letter-spacing:-.02em;line-height:1.25;color:var(--ink);max-width:640px;margin-left:auto;margin-right:auto;}
 .tc7-underline{position:relative;display:block;width:72px;height:3px;margin:22px auto 0;border-radius:100px;overflow:hidden;background:linear-gradient(90deg,var(--blue),var(--gold));}
@@ -214,7 +214,8 @@
    object-fit:contain never stretches/distorts — it only letterboxes. */
 .tlogo{display:flex;align-items:center;justify-content:center;height:60px;max-width:176px;padding:8px 14px;box-sizing:border-box;flex-shrink:0;cursor:default;transition:transform .3s var(--ease);}
 .tlogo:hover{transform:translateY(-2px);}
-.tlogo img{display:block;width:100%;height:100%;object-fit:contain;}
+.tlogo img{display:block;width:100%;height:100%;object-fit:contain;opacity:0.48;filter:grayscale(1);transition:opacity .35s var(--ease),filter .35s var(--ease);}
+.tlogo:hover img{opacity:0.88;filter:grayscale(0);}
 @keyframes trust-scroll{to{transform:translateX(-50%);}}
 @keyframes trust-scroll-rev{from{transform:translateX(-50%);}to{transform:translateX(0);}}
 
@@ -612,12 +613,17 @@
    WHY SM ASSOCIATES  (stone, ultra-premium card grid)
 ═══════════════════════════════════════════════ */
 .why6{background:var(--stone);padding:120px 0;}
-.why6-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-@media(max-width:960px){.why6-grid{grid-template-columns:1fr;}}
+.why6-split{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:start;}
+@media(max-width:960px){.why6-split{grid-template-columns:1fr;gap:40px;}}
 
-/* Premium 3D-tilt card — transform comes from framer-motion, CSS handles shadows */
-.why6-item{position:relative;overflow:hidden;display:flex;gap:18px;align-items:flex-start;background:#fff;
-  border:1px solid var(--line);border-radius:20px;padding:26px;
+.why6-sticky-left{position:sticky;top:100px;}
+.why6-intro{margin-top:20px;font-size:15px;line-height:1.65;color:var(--ink-2);max-width:38ch;}
+
+.why6-stack{display:flex;flex-direction:column;gap:18px;}
+
+/* Premium 3D-tilt card — stacked row style */
+.why6-item{position:relative;overflow:hidden;display:flex;gap:20px;align-items:flex-start;background:#fff;
+  border:1px solid var(--line);border-radius:22px;padding:30px 28px;
   box-shadow:0 1px 2px rgba(15,23,42,.04),0 1px 1px rgba(15,23,42,.03);
   transition:box-shadow .55s var(--ease),border-color .55s var(--ease);
   will-change:transform;}
