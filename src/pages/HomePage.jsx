@@ -15,10 +15,12 @@ import FlagshipCtaSection from '../sections/FlagshipCtaSection';
 
 // Home Page Architecture Refinement (production pass):
 // Hero -> Trusted & Certified -> Metrics -> Services -> Industries ->
-// Operating Model -> Case Studies -> Coverage (map) -> Why Us -> FAQ -> CTA.
-// Metrics keeps its exact existing design (untouched, per instruction).
-// Operating Model and Coverage intentionally restored to their original
-// scroll-pinned filmstrip / full interactive Leaflet map designs.
+// Operating Model -> Coverage (map) -> Case Studies -> Why Us -> FAQ -> CTA.
+// Coverage map sits before Case Studies so the network-scale proof lands
+// before the results narrative. Metrics keeps its exact existing design
+// (untouched, per instruction). Operating Model and Coverage intentionally
+// restored to their original scroll-pinned filmstrip / full interactive
+// Leaflet map designs.
 export default function HomePage() {
   return (
     <div className="fg-home">
@@ -32,8 +34,8 @@ export default function HomePage() {
           scroll filmstrip — a motion wrapper's transform would break that,
           so it's intentionally left unwrapped. */}
       <OperatingModelSection />
-      <SectionReveal><CaseStudiesPreviewSection /></SectionReveal>
       <SectionReveal><CommandCenterSection /></SectionReveal>
+      <SectionReveal><CaseStudiesPreviewSection /></SectionReveal>
       <SectionReveal><WhySmAssociatesSection /></SectionReveal>
       <SectionReveal><FaqSection /></SectionReveal>
       <SectionReveal><FlagshipCtaSection /></SectionReveal>

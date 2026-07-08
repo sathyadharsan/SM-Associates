@@ -176,10 +176,12 @@ export const industriesOverview = [
 // "Why SM Associates" — qualitative differentiation only; the numbers
 // behind these points already live in the Metrics section above, so this
 // section argues the *case*, not the count.
+// Three cards only, deliberately: "Operational Scale" is already proven by
+// the Coverage map + Metrics sections, and "Structured Recovery Operations"
+// is the entire Operating Model section — repeating them here diluted the
+// section. The full five-point version lives on the About page.
 export const whyUsPoints = [
   { icon: 'History', title: 'Enterprise Experience', desc: 'Two and a half decades operating through multiple credit cycles — not a vendor new to the discipline of recovery.', color: '#C8922A' },
-  { icon: 'Network', title: 'Operational Scale', desc: 'A direct branch network across South India, not a subcontracted patchwork of local agents.', color: '#3366FF' },
   { icon: 'ShieldCheck', title: 'Governance-Driven Delivery', desc: 'Every engagement runs on documented conduct, recorded calls and an audit trail built for regulator scrutiny.', color: '#16A34A' },
-  { icon: 'Workflow', title: 'Structured Recovery Operations', desc: 'One accountable operating model spanning allocation, field execution, legal escalation and reporting.', color: '#7C3AED' },
   { icon: 'Landmark', title: 'Banking Domain Expertise', desc: 'Built specifically around how banks, NBFCs and HFCs actually manage stressed portfolios.', color: '#0891B2' },
 ];

@@ -57,7 +57,7 @@ export default function HeroFlagshipSection() {
             </p>
             <div ref={actionsRef} className={`hero6-actions fg-r ${actionsIn ? 'in' : ''}`}>
               <a ref={ctaPrimaryRef} className="fg-btn fg-btn-p" href="#cta">Partner With Us <ArrowRight size={16} className="arr" /></a>
-              <a ref={ctaSecondaryRef} className="fg-btn fg-btn-s" href="#cap">Explore Capabilities <ArrowRight size={16} className="arr" /></a>
+              <a ref={ctaSecondaryRef} className="fg-btn fg-btn-s" href="#services">Explore Capabilities <ArrowRight size={16} className="arr" /></a>
             </div>
             <div ref={pillarsRef} className={`hero6-pillars fg-r ${pillarsIn ? 'in' : ''}`}>
               <span>ETHICS</span><span className="sep">·</span><span>EXPERTISE</span><span className="sep">·</span><span>EXECUTION</span>

@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import { History, Network, ShieldCheck, Workflow, Landmark } from 'lucide-react';
+import { History, ShieldCheck, Landmark } from 'lucide-react';
 import { whyUsPoints } from '../data/flagshipHomeData';
 
-const iconMap = { History, Network, ShieldCheck, Workflow, Landmark };
+const iconMap = { History, ShieldCheck, Landmark };
 
 export default function WhySmAssociatesSection() {
   return (
