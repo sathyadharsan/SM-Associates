@@ -103,7 +103,7 @@ export default function ServicesOverviewSection() {
             ))}
           </div>
 
-          <div style={{ marginTop: 48, textAlign: 'center' }}>
+          <div style={{ marginTop: 32, textAlign: 'center' }}>
             <Link to="/services" className="fg-btn fg-btn-s">
               Explore All Services <ArrowRight size={16} className="arr" />
             </Link>

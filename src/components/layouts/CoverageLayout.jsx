@@ -36,7 +36,7 @@ export function CoverageLayout({ content }) {
   const filteredBranches = locations.filter(loc => activeStateObj?.branches.includes(loc.id));
 
   return (
-    <div className="relative min-h-screen bg-white text-[#0a1128] overflow-hidden font-inter">
+    <div className="relative min-h-screen bg-white text-[#0a1128] overflow-x-hidden font-inter">
       {/* Background radial coordinates grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] bg-[size:2.5rem_2.5rem] opacity-35 pointer-events-none" />
 

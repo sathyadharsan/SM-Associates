@@ -49,7 +49,7 @@ export function CareersLayout({ content }) {
   };
 
   return (
-    <div className="relative min-h-screen bg-slate-50 text-[#0a1128] font-inter overflow-hidden">
+    <div className="relative min-h-screen bg-slate-50 text-[#0a1128] font-inter overflow-x-hidden">
       {/* SECTION 1: HERO */}
       <section className="relative pt-44 pb-24 bg-slate-950 border-b border-slate-900 text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none z-0">
@@ -272,7 +272,7 @@ export function ContactLayout({ content }) {
   };
 
   return (
-    <div className="relative min-h-screen bg-white text-[#0a1128] font-inter overflow-hidden">
+    <div className="relative min-h-screen bg-white text-[#0a1128] font-inter overflow-x-hidden">
       {/* SECTION 1: HERO */}
       <section className="relative pt-44 pb-24 bg-slate-950 border-b border-slate-900 text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none z-0">
@@ -472,7 +472,7 @@ export function LoginLayout({ content }) {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#030712] text-white overflow-hidden font-inter text-left">
+    <div className="relative min-h-screen bg-[#030712] text-white overflow-x-hidden font-inter text-left">
       {/* Background radial overlays */}
       <div className="absolute top-[-20%] left-[-20%] h-[600px] w-[600px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
 

@@ -201,11 +201,14 @@ export default function HeroSection() {
       <div className="mt-12 lg:mt-16" style={{ borderTop: `1px solid ${C.border}`, background: C.surface }}>
         <div className="mx-auto max-w-[1360px] px-6 lg:px-10">
           <div className="grid grid-cols-2 gap-6 py-6 sm:grid-cols-4">
+            {/* Verified Corporate Profile facts only — the previous values
+                (24+ yrs, ₹500Cr+, 1,200+, 98%) conflicted with the homepage
+                metrics and had no source in the approved knowledge base. */}
             {[
-              { v: '24+',     l: 'Years in Recovery'    },
-              { v: '₹500Cr+', l: 'Portfolio Recovered'  },
-              { v: '1,200+',  l: 'Field Professionals'  },
-              { v: '98%',     l: 'Client Retention'     },
+              { v: '25+',  l: 'Years in Recovery'       },
+              { v: '19',   l: 'Branch Offices'          },
+              { v: '5+',   l: 'States Covered'          },
+              { v: '100+', l: 'Institutional Partners'  },
             ].map((s, i) => (
               <motion.div key={s.l}
                 initial={{ opacity: 0, y: 8 }}

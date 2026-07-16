@@ -131,7 +131,7 @@ export default function CaseStudiesPreviewSection() {
           </div>
 
           <motion.div
-            style={{ marginTop: 48, textAlign: 'center' }}
+            style={{ marginTop: 32, textAlign: 'center' }}
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
