@@ -13,9 +13,9 @@ const sortedLogos = [...approvedLogos].sort((a, b) => a.name.localeCompare(b.nam
 
 // Caps how many logos share one marquee row — once the roster grows past
 // that, another row is added automatically instead of cramming the extras
-// into the existing rows. Always at least 2 rows.
-const MAX_PER_ROW = 16;
-const ROW_COUNT = Math.max(2, Math.ceil(sortedLogos.length / MAX_PER_ROW));
+// into the existing rows. Always at least 4 rows.
+const MAX_PER_ROW = 12;
+const ROW_COUNT = Math.max(4, Math.ceil(sortedLogos.length / MAX_PER_ROW));
 const chunkSize = Math.ceil(sortedLogos.length / ROW_COUNT);
 const logoRows = Array.from({ length: ROW_COUNT }, (_, i) =>
   sortedLogos.slice(i * chunkSize, (i + 1) * chunkSize)
