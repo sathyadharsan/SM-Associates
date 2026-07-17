@@ -105,6 +105,150 @@ const Fade = ({ children, y = 16, className = '' }) => (
   </motion.div>
 );
 
+// ── Mini Sparkline bars (CSS-only, no external deps) ────────────────
+function Sparkline({ bars, color }) {
+  return (
+    <div className="flex items-end gap-[3px]" style={{ height: 28 }}>
+      {bars.map((h, i) => (
+        <div
+          key={i}
+          className="rounded-sm flex-1 transition-all duration-300"
+          style={{
+            height: `${h}%`,
+            background: color,
+            opacity: 0.28 + (i / bars.length) * 0.72,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+// ── SVG Circular progress ring ─────────────────────────────────────
+function RingProgress({ pct, color, size = 44 }) {
+  const r = (size - 6) / 2;
+  const circ = 2 * Math.PI * r;
+  const dash = (pct / 100) * circ;
+  return (
+    <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
+      <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="#e8edf4" strokeWidth={4.5} />
+      <circle
+        cx={size / 2} cy={size / 2} r={r} fill="none"
+        stroke={color} strokeWidth={4.5}
+        strokeDasharray={`${dash} ${circ - dash}`}
+        strokeLinecap="round"
+        style={{ transition: 'stroke-dasharray 1.2s ease' }}
+      />
+    </svg>
+  );
+}
+
+// ── Premium hero metric cards data ─────────────────────────────────
+const heroStats = [
+  {
+    value: '25+',
+    label: 'Years in Recovery',
+    sub: 'Since 2000',
+    color: '#3366FF',
+    bars: [38, 50, 58, 52, 68, 80, 95],
+    ring: 92,
+    delta: 'Est. 2000',
+  },
+  {
+    value: '19',
+    label: 'Branch Offices',
+    sub: 'South India Network',
+    color: '#16A34A',
+    bars: [48, 58, 52, 66, 64, 76, 88],
+    ring: 76,
+    delta: 'All Active',
+  },
+  {
+    value: '5+',
+    label: 'States Covered',
+    sub: 'TN · KA · KL · AP · TS',
+    color: '#C8922A',
+    bars: [28, 42, 38, 52, 58, 62, 74],
+    ring: 60,
+    delta: 'Expanding',
+  },
+  {
+    value: '100+',
+    label: 'Partner Banks & NBFCs',
+    sub: 'Institutional Trust',
+    color: '#7C3AED',
+    bars: [52, 58, 66, 63, 72, 84, 98],
+    ring: 98,
+    delta: '+12 YoY',
+  },
+];
+
+function HeroStatCard({ stat, index }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.09, duration: 0.52, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -5, transition: { type: 'spring', stiffness: 380, damping: 22 } }}
+      className="relative bg-white rounded-2xl border overflow-hidden group cursor-default"
+      style={{
+        borderColor: '#e2e8f0',
+        boxShadow: '0 2px 16px -4px rgba(10,14,26,0.08), 0 1px 3px rgba(10,14,26,0.04)',
+      }}
+    >
+      {/* Colored top accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: stat.color }} />
+
+      {/* Hover radial glow */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{ background: `radial-gradient(ellipse at 50% 0%, ${stat.color}12, transparent 65%)` }}
+      />
+
+      <div className="p-4 flex flex-col gap-2.5">
+        {/* Row 1: Big value + Ring */}
+        <div className="flex items-start justify-between gap-2">
+          <div>
+            <div
+              className="font-extrabold tracking-tight leading-none"
+              style={{ fontSize: 'clamp(22px, 3vw, 30px)', color: '#0a0e1a' }}
+            >
+              {stat.value}
+            </div>
+            <div className="text-[10px] font-bold uppercase tracking-widest mt-1.5" style={{ color: stat.color }}>
+              {stat.label}
+            </div>
+          </div>
+          <div className="relative flex-shrink-0 mt-0.5">
+            <RingProgress pct={stat.ring} color={stat.color} size={42} />
+            <div
+              className="absolute inset-0 flex items-center justify-center font-bold"
+              style={{ fontSize: 8, color: stat.color }}
+            >
+              {stat.ring}%
+            </div>
+          </div>
+        </div>
+
+        {/* Row 2: Sparkline */}
+        <Sparkline bars={stat.bars} color={stat.color} />
+
+        {/* Row 3: Sub label + delta badge */}
+        <div className="flex items-center justify-between gap-1 mt-0.5">
+          <span className="text-[11px] text-slate-500 font-medium truncate">{stat.sub}</span>
+          <span
+            className="flex-shrink-0 inline-flex items-center gap-1 text-[9px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap"
+            style={{ background: `${stat.color}14`, color: stat.color }}
+          >
+            ↑ {stat.delta}
+          </span>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function HeroSection() {
   const go = (id) => (e) => {
     e.preventDefault();
@@ -197,32 +341,17 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ═══ Stats strip ═══ */}
-      <div className="mt-12 lg:mt-16" style={{ borderTop: `1px solid ${C.border}`, background: C.surface }}>
-        <div className="mx-auto max-w-[1360px] px-6 lg:px-10">
-          <div className="grid grid-cols-2 gap-6 py-6 sm:grid-cols-4">
-            {/* Verified Corporate Profile facts only — the previous values
-                (24+ yrs, ₹500Cr+, 1,200+, 98%) conflicted with the homepage
-                metrics and had no source in the approved knowledge base. */}
-            {[
-              { v: '25+',  l: 'Years in Recovery'       },
-              { v: '19',   l: 'Branch Offices'          },
-              { v: '5+',   l: 'States Covered'          },
-              { v: '100+', l: 'Institutional Partners'  },
-            ].map((s, i) => (
-              <motion.div key={s.l}
-                initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.06, duration: 0.4 }}
-                className="text-center sm:text-left">
-                <p className="text-[20px] font-extrabold tracking-[-0.025em]" style={{ color: C.ink }}>{s.v}</p>
-                <p className="mt-0.5 text-[11px] font-semibold uppercase tracking-[0.13em]" style={{ color: C.muted }}>{s.l}</p>
-              </motion.div>
+      {/* ═══ Premium Dashboard KPI Metric Cards ═══ */}
+      <div className="mt-12 lg:mt-16" style={{ borderTop: `1px solid ${C.border}`, background: '#f6f8fb' }}>
+        <div className="mx-auto max-w-[1360px] px-6 py-8 lg:px-10">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {heroStats.map((stat, i) => (
+              <HeroStatCard key={stat.label} stat={stat} index={i} />
             ))}
           </div>
         </div>
       </div>
+
     </section>
   );
 }
