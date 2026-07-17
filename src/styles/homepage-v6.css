@@ -320,7 +320,11 @@ html.lenis, html.lenis body { height: auto; }
 .trust6{background:var(--stone);border:none;padding:52px 0;}
 
 /* ── Trusted & Certified (merged marquee + governance facts) ─────────── */
-.tc7{background:var(--stone);border:none;padding:52px 0 44px;}
+/* position+z-index: during the cinematic hero hand-off (homeCinematic.js)
+   the hero is pinned (fixed) and this section slides up OVER it — it needs
+   its own stacking context above the hero, and an opaque background so the
+   receding hero never shows through. */
+.tc7{background:var(--stone);border:none;padding:52px 0 44px;position:relative;z-index:2;}
 .tc7-head {
   display: flex;
   flex-direction: column;
@@ -864,17 +868,20 @@ html.lenis, html.lenis body { height: auto; }
 ═══════════════════════════════════════════════ */
 /* padding-top floor stays ≥96px so the white→navy gradient stop at 90px
    always completes before the card begins. */
-.cta6{background:linear-gradient(180deg,#fff 0%,var(--navy) 90px,var(--navy) 100%);padding:clamp(96px,11vh,120px) 0 clamp(100px,12vh,130px);}
-.cta6-card{position:relative;overflow:hidden;border-radius:26px;padding:80px 60px;background:linear-gradient(135deg,#141f3d 0%,#0d1628 55%,#0b1525 100%);border:1px solid rgba(255,255,255,.08);text-align:center;}
-.cta6-grid-deco{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(80% 80% at 50% 0%,#000,transparent 72%);mask-image:radial-gradient(80% 80% at 50% 0%,#000,transparent 72%);}
-.cta6-glow{position:absolute;width:600px;height:400px;left:50%;bottom:-180px;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(51,102,255,.32),transparent 70%);filter:blur(36px);}
+/* Light-mode CTA (converted from the original navy card): white bento card
+   on the stone section ground, ink typography — matches the site-wide light
+   design language. */
+.cta6{background:var(--stone);padding:clamp(96px,11vh,120px) 0 clamp(100px,12vh,130px);}
+.cta6-card{position:relative;overflow:hidden;border-radius:26px;padding:80px 60px;background:#fff;border:1px solid var(--line);text-align:center;}
+.cta6-grid-deco{position:absolute;inset:0;background-image:linear-gradient(rgba(15,23,42,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,.045) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(80% 80% at 50% 0%,#000,transparent 72%);mask-image:radial-gradient(80% 80% at 50% 0%,#000,transparent 72%);}
+.cta6-glow{position:absolute;width:600px;height:400px;left:50%;bottom:-180px;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(51,102,255,.14),transparent 70%);filter:blur(36px);}
 .cta6-inner{position:relative;z-index:2;}
 .cta6-status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--green);margin-bottom:20px;}
 .cta6-status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px var(--green-t);}
-.cta6-card h2{font-size:clamp(30px,4.8vw,62px);letter-spacing:-.045em;color:#fff;}
-.cta6-card p{margin:20px auto 0;max-width:52ch;color:rgba(255,255,255,.6);font-size:18px;}
+.cta6-card h2{font-size:clamp(30px,4.8vw,62px);letter-spacing:-.045em;color:var(--ink);}
+.cta6-card p{margin:20px auto 0;max-width:52ch;color:var(--ink-2);font-size:18px;}
 .cta6-actions{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-.cta6-assure{margin-top:22px;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.04em;}
+.cta6-assure{margin-top:22px;font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;}
 
 /* ═══════════════════════════════════════════════
    11 · TESTIMONIAL VIDEO
@@ -945,8 +952,8 @@ html.lenis, html.lenis body { height: auto; }
 .metrics6>.fg-wrap{position:relative;z-index:1;}
 
 /* ── CTA dark — secondary button goes glass ───────────────────── */
-.cta6 .fg-btn-s{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.15);}
-.cta6 .fg-btn-s:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.28);transform:translateY(-2px);}
+.cta6 .fg-btn-s{background:#fff;color:var(--ink);border-color:var(--line);}
+.cta6 .fg-btn-s:hover{background:var(--stone);border-color:rgba(15,23,42,.22);transform:translateY(-2px);}
 
 /* ── Operating Model dark — panel stays white, pv-dash too ───────── */
 .model6 .panel6{background:#fff;}
@@ -992,7 +999,10 @@ html.lenis, html.lenis body { height: auto; }
 /* ── Editorial serif highlight (used inside h2s) ──────────────── */
 .fg-hl{font-family:var(--serif);font-style:italic;font-weight:600;letter-spacing:-.015em;}
 .metrics6 .fg-hl{background:linear-gradient(100deg,var(--gold) 10%,#b9791f 55%,var(--gold-2) 115%);-webkit-background-clip:text;background-clip:text;color:transparent;}
-.cta6-card .fg-hl{background:linear-gradient(100deg,var(--blue-3),#a7c0ff 55%,var(--gold-2) 130%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+/* CTA highlight: plain sans, solid brand blue. The serif-italic gradient
+   treatment was dropped here — it read as decorative rather than executive
+   on the white card. Same face and weight as the heading, colour only. */
+.cta6-card .fg-hl{font-family:inherit;font-style:normal;font-weight:inherit;letter-spacing:inherit;background:none;-webkit-background-clip:initial;background-clip:initial;color:var(--blue);}
 
 /* ── Film grain on dark sections (depth, kills flatness) ──────── */
 .cta6{position:relative;}
@@ -1002,7 +1012,7 @@ html.lenis, html.lenis body { height: auto; }
 
 /* ── Gold hairline atop dark anchor sections ──────────────────── */
 .metrics6{border-top:1px solid rgba(212,168,67,.25);}
-.cta6-card{box-shadow:0 0 0 1px rgba(255,255,255,.06),0 40px 100px -30px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.08);}
+.cta6-card{box-shadow:0 1px 2px rgba(20,30,70,.05),0 32px 80px -40px rgba(20,30,70,.28),inset 0 1px 0 #fff;}
 
 /* ── Pill buttons — executive finish ──────────────────────────── */
 .fg-home .fg-btn{border-radius:100px;padding:14px 26px;letter-spacing:-.005em;}

@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import SEOManager from '../components/SEOManager';
+import ChatWidget from '../chatbot/ChatWidget';
 
 // Suspense fallback for lazy-loaded route chunks: an empty full-height block
 // (not a spinner) so the header/footer hold position without any flash while
@@ -28,6 +29,9 @@ export default function SiteLayout() {
         </Suspense>
       </main>
       <Footer />
+      {/* Business assistant — launcher on every page; the chat window and
+          its content index lazy-load into a separate chunk on first open. */}
+      <ChatWidget />
     </>
   );
 }
