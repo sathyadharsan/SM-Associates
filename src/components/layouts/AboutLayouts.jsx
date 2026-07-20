@@ -144,6 +144,39 @@ export function CompanyOverviewLayout({ content }) {
   const historyContent = getPageContent('history') || {};
   const complianceContent = getPageContent('compliance') || {};
 
+  const filteredMilestones = (historyContent.timelineMilestones || [])
+    .filter(m => ['2000', '2010', '2020', '2026'].includes(String(m.year)));
+  const leftMilestones = filteredMilestones.filter((_, idx) => idx % 2 === 0);
+  const rightMilestones = filteredMilestones.filter((_, idx) => idx % 2 === 1);
+
+  const renderMilestoneCard = (m, accent) => (
+    <PremiumTiltCard color={accent} className="p-6 text-left w-full">
+      <div className="font-mono text-2xl font-black tracking-tight mb-2" style={{ color: accent }}>{m.year}</div>
+      <h3 className="text-lg font-bold text-[#0F172A] font-serif leading-snug">{m.title}</h3>
+      <p className="mt-2 text-sm text-slate-600 leading-relaxed">{m.summary}</p>
+      {m.highlights?.length > 0 && (
+        <ul className="mt-4 space-y-1.5">
+          {m.highlights.slice(0, 3).map((hl, idx) => (
+            <li key={idx} className="flex items-start gap-2 text-sm text-slate-600">
+              <CheckCircle2 className="h-3.5 w-3.5 shrink-0 mt-0.5" style={{ color: accent }} />
+              <span>{hl}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      {m.impact?.length > 0 && (
+        <div className="mt-4 grid grid-cols-2 gap-3 border-t border-slate-100 pt-4">
+          {m.impact.slice(0, 2).map((imp, idx) => (
+            <div key={idx}>
+              <div className="text-base font-bold font-serif" style={{ color: accent }}>{imp.value}</div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-wide mt-0.5">{imp.label}</div>
+            </div>
+          ))}
+        </div>
+      )}
+    </PremiumTiltCard>
+  );
+
   // Framer Motion Animation Presets
   const sectionVar = {
     hidden: { opacity: 0, y: 30 },
@@ -182,22 +215,22 @@ export function CompanyOverviewLayout({ content }) {
             <div className="space-y-8 text-left">
               <div className="space-y-3">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono block">ORGANIZATIONAL PROFILE</span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0F172A] font-serif leading-tight">
-                  Aligning Institutional Governance with High-Performance Recovery
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">
+                  Who We Are
                 </h2>
                 <div className="w-16 h-1 bg-[#2563EB] rounded-full" />
               </div>
 
               {/* Editorial Highlight Statement */}
               <div className="border-l-4 border-[#2563EB] pl-5 py-2">
-                <p className="text-base md:text-lg font-medium text-slate-700 font-serif italic leading-relaxed">
+                <p className="text-base md:text-lg font-medium text-slate-750 font-serif italic leading-relaxed">
                   "Pioneering compliant debt resolution, asset tracing, and physical custody operations across South India since 2000."
                 </p>
               </div>
 
               {/* Refined Description */}
-              <p className="text-sm text-slate-500 leading-relaxed">
-                S M Associates Risk Management Pvt. Ltd. is South India's premier recovery and risk management partner. We deliver institutional-grade solutions for nationalized banks, NBFCs, Housing Finance Companies, and ARCs, safeguarding reputation while maximizing asset yields.
+              <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+                South India's institutional recovery and risk management partner — built for nationalized banks, NBFCs, HFCs, and ARCs.
               </p>
 
               {/* Core Competencies Bento Grid */}
@@ -278,9 +311,9 @@ export function CompanyOverviewLayout({ content }) {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto space-y-3 text-center">
             <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">HISTORICAL TIMELINE</span>
-            <h2 className="text-4xl font-extrabold tracking-tight text-[#0F172A] font-serif leading-tight">A Quarter-Century of Operational Evolution</h2>
-            <p className="text-sm text-slate-650 max-w-lg mx-auto">
-              Follow our chronological milestones as we scaled from a local recovery desk to a premier risk management ecosystem.
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Our Journey</h2>
+            <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              From a single Chennai desk in 2000 to a five-state risk operations network — built milestone by milestone.
             </p>
           </div>
 
@@ -288,60 +321,77 @@ export function CompanyOverviewLayout({ content }) {
             {/* Central line — left-aligned on mobile, centred from lg up */}
             <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-px bg-slate-200 lg:-translate-x-1/2" />
 
-            <div className="space-y-6 lg:space-y-3">
-              {(historyContent.timelineMilestones || [])
-                .filter(m => ['2000', '2010', '2020', '2026'].includes(String(m.year)))
-                .map((m, i, arr) => {
-                const isFuture = i === arr.length - 1;
+            {/* Mobile Layout (stacked sequentially) */}
+            <div className="space-y-8 lg:hidden">
+              {filteredMilestones.map((m, i) => {
+                const isFuture = m.year === '2026';
                 const accent = isFuture ? '#C8922A' : '#2563EB';
-                const onRight = i % 2 === 1;
-
-                const card = (
-                  <PremiumTiltCard delay={i * 0.06} color={accent} className="p-6 text-left w-full">
-                    <div className="font-mono text-2xl font-black tracking-tight mb-2" style={{ color: accent }}>{m.year}</div>
-                    <h3 className="text-lg font-bold text-[#0F172A] font-serif leading-snug">{m.title}</h3>
-                    <p className="mt-2 text-sm text-slate-650 leading-relaxed">{m.summary}</p>
-                    {m.highlights?.length > 0 && (
-                      <ul className="mt-4 space-y-1.5">
-                        {m.highlights.slice(0, 3).map((hl, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-slate-650">
-                            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 mt-0.5" style={{ color: accent }} />
-                            <span>{hl}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    {m.impact?.length > 0 && (
-                      <div className="mt-4 grid grid-cols-2 gap-3 border-t border-slate-100 pt-4">
-                        {m.impact.slice(0, 2).map((imp, idx) => (
-                          <div key={idx}>
-                            <div className="text-base font-bold font-serif" style={{ color: accent }}>{imp.value}</div>
-                            <div className="text-xs font-bold text-slate-500 uppercase tracking-wide mt-0.5">{imp.label}</div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </PremiumTiltCard>
-                );
-
                 return (
                   <motion.div
                     key={m.year}
-                    initial={{ opacity: 0, x: onRight ? 40 : -40 }}
+                    initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: '-60px' }}
-                    transition={{ duration: 0.5 }}
-                    className="relative pl-12 lg:pl-0 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-10 lg:items-start"
+                    className="relative pl-12 text-left"
                   >
                     <span
-                      className="absolute left-4 top-1.5 lg:static lg:left-auto lg:top-2 lg:col-start-2 lg:justify-self-center h-3.5 w-3.5 -translate-x-1/2 lg:translate-x-0 rounded-full border-[3px] border-white shadow-md z-10"
+                      className="absolute left-4 top-8 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-[3px] border-white shadow-md z-10"
                       style={{ background: accent }}
                     />
-                    <div className="lg:col-start-1 lg:flex lg:justify-end">{!onRight && <div className="lg:max-w-md">{card}</div>}</div>
-                    <div className="lg:col-start-3">{onRight && <div className="lg:max-w-md">{card}</div>}</div>
+                    {renderMilestoneCard(m, accent)}
                   </motion.div>
                 );
               })}
+            </div>
+
+            {/* Desktop Layout (staggered columns with overlap) */}
+            <div className="hidden lg:grid lg:grid-cols-2 lg:gap-24 relative">
+              {/* Left Column (even items: 2000, 2020) */}
+              <div className="space-y-24 text-right flex flex-col items-end pr-12">
+                {leftMilestones.map((m) => {
+                  const accent = '#2563EB';
+                  return (
+                    <motion.div
+                      key={m.year}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: '-100px' }}
+                      className="max-w-md w-full relative"
+                    >
+                      {/* Timeline dot positioned on the center line */}
+                      <span
+                        className="absolute -right-[48px] top-8 h-3.5 w-3.5 rounded-full border-[3px] border-white shadow-md z-10 translate-x-1/2"
+                        style={{ background: accent }}
+                      />
+                      {renderMilestoneCard(m, accent)}
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* Right Column (odd items: 2010, 2026) - Offset down by mt-32 to center align with the gaps */}
+              <div className="space-y-24 text-left flex flex-col items-start pl-12 mt-32">
+                {rightMilestones.map((m) => {
+                  const isFuture = m.year === '2026';
+                  const accent = isFuture ? '#C8922A' : '#2563EB';
+                  return (
+                    <motion.div
+                      key={m.year}
+                      initial={{ opacity: 0, x: 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: '-100px' }}
+                      className="max-w-md w-full relative"
+                    >
+                      {/* Timeline dot positioned on the center line */}
+                      <span
+                        className="absolute -left-[48px] top-8 h-3.5 w-3.5 rounded-full border-[3px] border-white shadow-md z-10 -translate-x-1/2"
+                        style={{ background: accent }}
+                      />
+                      {renderMilestoneCard(m, accent)}
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -355,85 +405,41 @@ export function CompanyOverviewLayout({ content }) {
         variants={sectionVar}
         className="py-[clamp(56px,8vh,88px)] bg-[#FFFFFF] border-b border-[#E2E8F0]"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
-          {/* Vision Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 text-left">
-              <motion.div
-                whileHover={{ y: -5, borderColor: '#2563EB', boxShadow: '0 20px 25px -5px rgba(37,99,235,0.06)' }}
-                className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-[32px] p-8 lg:p-12 space-y-6 text-left transition-all duration-300 cursor-pointer"
-              >
-                <span className="h-10 w-10 rounded-xl bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mx-auto text-center space-y-3 mb-12">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">DIRECTION</span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Vision &amp; Mission</h2>
+            <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">Where we are going, and how we operate to get there.</p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <PremiumTiltCard color="#2563EB" delay={0} className="p-8 space-y-5 text-left">
+              <div className="flex items-center gap-3">
+                <span className="h-10 w-10 rounded-xl bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center shrink-0">
                   <Sparkles className="h-5 w-5" />
                 </span>
-                <h3 className="text-2xl font-bold font-serif text-[#0F172A]">Charting the Vision for Risk Leadership</h3>
-                <p className="text-base md:text-lg text-slate-700 leading-relaxed font-serif italic">
-                  "To become India's most trusted Recovery and Risk Management organization by combining operational excellence, technology, and future AI-driven capabilities."
-                </p>
-                <div className="space-y-4 pt-4 border-t border-slate-200">
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest font-mono">Strategic Philosophy</h4>
-                    <p className="text-sm text-slate-650 mt-1 leading-relaxed">
-                      Upholding financial system integrity through long-term bank partnerships, transparent telemetry reporting, and DRA certified ground teams.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest font-mono">Future Roadmap</h4>
-                    <p className="text-sm text-slate-650 mt-1 leading-relaxed">
-                      Active expansion from South India to West and North zones while deploying machine learning default propensity routing.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-            <div className="lg:col-span-5 relative h-[380px] bg-slate-50 border border-[#E2E8F0] rounded-[32px] overflow-hidden shadow-md">
-              <img
-                src="/images/vision_analytics.png"
-                alt="Our Vision Forward: Predictive Analytics"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent pointer-events-none" />
-            </div>
-          </div>
-
-          {/* Mission Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5 lg:order-1 order-2 relative h-[380px] bg-slate-50 border border-[#E2E8F0] rounded-[32px] overflow-hidden shadow-md">
-              <img
-                src="/images/mission_training.png"
-                alt="Our Corporate Mission: Compliance Training"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent pointer-events-none" />
-            </div>
-            <div className="lg:col-span-7 lg:order-2 order-1 text-left">
-              <motion.div
-                whileHover={{ y: -5, borderColor: '#F59E0B', boxShadow: '0 20px 25px -5px rgba(245,158,11,0.06)' }}
-                className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-[32px] p-8 lg:p-12 space-y-6 text-left transition-all duration-300 cursor-pointer"
-              >
-                <span className="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
+                <h3 className="text-xl font-bold font-serif text-[#0F172A]">Vision</h3>
+              </div>
+              <p className="text-base text-slate-700 font-serif italic leading-relaxed border-l-4 border-[#2563EB]/30 pl-4">
+                &ldquo;To become India&rsquo;s most trusted Recovery and Risk Management organization by combining operational excellence, technology, and AI-driven capabilities.&rdquo;
+              </p>
+              <p className="text-sm text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
+                Expanding from South India to national scale through disciplined execution, long-term bank partnerships, and continuous investment in field intelligence.
+              </p>
+            </PremiumTiltCard>
+            <PremiumTiltCard color="#F59E0B" delay={0.08} className="p-8 space-y-5 text-left">
+              <div className="flex items-center gap-3">
+                <span className="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
                   <Shield className="h-5 w-5" />
                 </span>
-                <h3 className="text-2xl font-bold font-serif text-[#0F172A]">Pioneering the Standard for Secure Recovery</h3>
-                <p className="text-base md:text-lg text-slate-700 leading-relaxed font-serif italic">
-                  "Deliver enterprise-grade recovery and risk management services through structured processes, professional execution, regulatory compliance, and continuous innovation."
-                </p>
-                <div className="space-y-4 pt-4 border-t border-slate-200">
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest font-mono">Operational Commitment</h4>
-                    <p className="text-sm text-slate-650 mt-1 leading-relaxed">
-                      Continuous training updates for 100% of outreach officers, weekly QA caller audits, and secure information barriers to protect client data.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-500 uppercase tracking-widest font-mono">Lender Value Realization</h4>
-                    <p className="text-sm text-slate-650 mt-1 leading-relaxed">
-                      Maximizing recovery yields in Stage-3 delinquencies to directly release locked provisioning capital back onto balance sheets.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
+                <h3 className="text-xl font-bold font-serif text-[#0F172A]">Mission</h3>
+              </div>
+              <p className="text-base text-slate-700 font-serif italic leading-relaxed border-l-4 border-amber-400/30 pl-4">
+                &ldquo;Deliver enterprise-grade recovery and risk management through structured processes, professional execution, and continuous innovation.&rdquo;
+              </p>
+              <p className="text-sm text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
+                Every engagement runs on documented conduct, recorded calls, and a regulator-ready audit trail — protecting the lender&rsquo;s reputation at every step.
+              </p>
+            </PremiumTiltCard>
           </div>
         </div>
       </motion.section>
@@ -446,48 +452,34 @@ export function CompanyOverviewLayout({ content }) {
         variants={sectionVar}
         className="py-[clamp(56px,8vh,88px)] bg-[#F8FAFC] border-b border-[#E2E8F0]"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="max-w-3xl mx-auto text-center space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">TECHNOLOGY INTEGRATION</span>
-            <h2 className="text-3xl font-extrabold tracking-tight text-[#0F172A] font-serif leading-tight">Augmenting Field Operations with AI Agents &amp; Automation</h2>
-            <p className="text-sm md:text-base text-slate-650 leading-relaxed max-w-xl mx-auto">
-              SM Associates is pioneering the next era of debt resolution by combining field force strength with state-of-the-art AI agents and compliance monitoring bots.
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="max-w-2xl mx-auto text-center space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">TECHNOLOGY</span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Technology</h2>
+            <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              AI-augmented field operations, ML-based portfolio routing, and real-time compliance engines — active across every mandate.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch text-left">
-            {/* Holographic Dashboard graphic */}
-            <div className="lg:col-span-5 relative min-h-[420px] bg-slate-55 border border-[#E2E8F0] rounded-[32px] overflow-hidden shadow-md flex flex-col justify-end">
-              <img
-                src="/images/ai_operations.png"
-                alt="AI Agent Command Center dashboard"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-900/30 to-transparent pointer-events-none" />
-              <div className="relative p-8 text-white z-10">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400 font-mono block mb-1">AI Integration</span>
-                <h4 className="text-xl font-bold font-serif leading-snug">The Next Era: Digital Agents &amp; Real-time Compliance</h4>
-              </div>
-            </div>
-
-            {/* AI Pillars grid */}
+            {/* Left Column (Cards): ~60% */}
             <div className="lg:col-span-7 flex flex-col justify-between gap-6">
               {[
                 {
-                  title: 'Multilingual Voice AI Outreach',
-                  desc: 'Automated pre-delinquency voice agents communicating with borrowers in Tamil, Telugu, Kannada, Malayalam, and English to offer quick resolution paths.',
+                  title: 'Smart Outreach',
+                  desc: 'Multilingual AI voice agents handle pre-delinquency borrower contact in 5 languages, routing complex accounts to certified field officers.',
                   icon: Volume2,
                   color: '#2563EB'
                 },
                 {
-                  title: 'Dynamic Portfolio Allocation AI',
-                  desc: 'Machine learning algorithms that analyze borrower behavior history and automatically dispatch digital notifications or route complex accounts to field DRA officers.',
+                  title: 'Portfolio Routing',
+                  desc: 'ML algorithms prioritize accounts by recovery probability — maximizing field effort where resolution outcomes are highest.',
                   icon: Activity,
                   color: '#7C3AED'
                 },
                 {
-                  title: 'Automated Compliance Verification',
-                  desc: 'Server-side compliance engines validating device GPS location, timestamp, and field-outreach logs in real-time to guarantee 100% RBI Fair Practice compliance.',
+                  title: 'Compliance Automation',
+                  desc: 'Server-side engines validate GPS location, timestamps, and outreach logs in real time — guaranteeing RBI Fair Practice adherence.',
                   icon: UserCheck,
                   color: '#10B981'
                 }
@@ -496,7 +488,7 @@ export function CompanyOverviewLayout({ content }) {
                 return (
                   <PremiumTiltCard
                     key={idx}
-                    delay={idx * 0.1}
+                    delay={idx * 0.08}
                     color={item.color}
                     className="flex-1 flex gap-5 items-start p-6"
                   >
@@ -516,6 +508,30 @@ export function CompanyOverviewLayout({ content }) {
                 );
               })}
             </div>
+
+            {/* Right Column (AI Illustration): ~40% */}
+            <div className="lg:col-span-5 relative min-h-[320px] lg:min-h-0 bg-slate-50 border border-[#E2E8F0] rounded-[32px] overflow-hidden shadow-md flex flex-col justify-end">
+              <img
+                src="/images/ai_operations.png"
+                alt="AI Agent Command Center dashboard"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-900/30 to-transparent pointer-events-none" />
+              <div className="relative p-8 text-white z-10">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400 font-mono block mb-1">AI Integration</span>
+                <h4 className="text-lg font-bold font-serif leading-snug">Smart Portfolio Routing &amp; Outreach</h4>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center pt-2">
+            <Link
+              to="/platform"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#2563EB] hover:text-[#1D4ED8] transition-colors group"
+            >
+              Explore Our Platform
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </motion.section>
@@ -531,9 +547,9 @@ export function CompanyOverviewLayout({ content }) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-16">
           <div className="max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">EXECUTIVE DIRECTION</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Guiding Operations with Seasoned Banking Authority</h2>
-            <p className="text-sm text-slate-650 leading-relaxed">
-              Decades of combined banking recovery leadership guiding operational execution, legal compliance, and strategic alliances.
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Leadership</h2>
+            <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Banking veterans with 250+ combined years directing recovery operations, legal enforcement, and institutional strategy.
             </p>
           </div>
 
@@ -649,86 +665,6 @@ export function CompanyOverviewLayout({ content }) {
         </div>
       </motion.section>
 
-      {/* ── SECTION 6: CORE VALUES ── */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVar}
-        className="py-[clamp(56px,8vh,88px)] bg-[#F8FAFC] border-b border-[#E2E8F0]"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
-          <div className="max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">ETHICAL FOUNDATION</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">The Principles Driving Institutional Trust</h2>
-            <p className="text-sm text-slate-650 leading-relaxed">
-              Every decision we execute aligns with our values of transparency, regulatory compliance, and operational excellence.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-            {[
-              {
-                value: 'Integrity',
-                meaning: '100% adherence to codes of conduct and fair practices.',
-                impact: 'Guarantees brand safety and credit policy alignment for bank partners.'
-              },
-              {
-                value: 'Compliance',
-                meaning: 'Adherence to regulatory codes and fair-practice guidelines in every borrower interaction.',
-                impact: 'Eliminates legal recourse liabilities and regulatory audit penalties.'
-              },
-              {
-                value: 'Accountability',
-                meaning: 'Ownership of outcomes at every level of the field organization, not just at head office.',
-                impact: 'Provides clean audit trails and transparent field force activity checks.'
-              },
-              {
-                value: 'Operational Excellence',
-                meaning: 'Decentralized branch networks executing fast TAT mobilizations.',
-                impact: 'Accelerates capital recovery, immediately lowering Bank NPA provisions.'
-              }
-            ].map((v, i) => {
-              const valueData = [
-                { color: '#2563EB', icon: Shield },
-                { color: '#10B981', icon: FileCheck },
-                { color: '#7C3AED', icon: UserCheck },
-                { color: '#D97706', icon: TrendingUp }
-              ][i];
-              const ValIcon = valueData.icon;
-              return (
-                <PremiumTiltCard key={i} delay={i * 0.08} color={valueData.color} className="space-y-4 text-left">
-                  <div className="flex items-center justify-between">
-                    <span 
-                      className="h-8 w-8 rounded-lg flex items-center justify-center text-xs font-bold font-mono text-white shadow-sm"
-                      style={{ backgroundColor: valueData.color }}
-                    >
-                      0{i + 1}
-                    </span>
-                    <span 
-                      className="h-8 w-8 rounded-lg flex items-center justify-center text-xs"
-                      style={{ backgroundColor: `color-mix(in srgb, ${valueData.color} 12%, transparent)`, color: valueData.color }}
-                    >
-                      <ValIcon className="h-4 w-4" />
-                    </span>
-                  </div>
-                  <h4 className="font-bold text-base text-[#0F172A] font-serif">{v.value}</h4>
-                  <div className="space-y-2 border-t border-slate-100 pt-3">
-                    <div className="text-xs text-slate-650 leading-relaxed">
-                      <span className="font-bold uppercase font-mono block text-[10px] text-slate-400">Business Meaning:</span>
-                      {v.meaning}
-                    </div>
-                    <div className="text-xs text-slate-650 leading-relaxed">
-                      <span className="font-bold uppercase font-mono block text-[10px]" style={{ color: valueData.color }}>Operational Impact:</span>
-                      {v.impact}
-                    </div>
-                  </div>
-                </PremiumTiltCard>
-              );
-            })}
-          </div>
-        </div>
-      </motion.section>
 
       {/* ── SECTION 7: WHY SM ASSOCIATES ──
            Consolidates what used to be three separate sections making
@@ -745,9 +681,9 @@ export function CompanyOverviewLayout({ content }) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
           <div className="max-w-2xl mx-auto space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">DIFFERENTIATION MATRIX</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">What Anchors Our Empanelment with Top Lenders</h2>
-            <p className="text-sm text-slate-650 leading-relaxed">
-              Five reasons banks, NBFCs and HFCs trust us with stressed portfolios that carry real regulatory and reputational risk.
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Why SM</h2>
+            <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Five structural advantages that make us the low-risk, high-accountability partner for stressed portfolio management.
             </p>
           </div>
 
@@ -814,8 +750,8 @@ export function CompanyOverviewLayout({ content }) {
                         <CardIcon className="h-4 w-4" />
                       </span>
                     </div>
-                    <p className="text-sm text-slate-650 leading-relaxed">{card.value}</p>
-                    <div className="pt-2 border-t border-slate-200/60 text-xs text-slate-650 font-mono">
+                    <p className="text-sm text-slate-600 leading-relaxed">{card.value}</p>
+                    <div className="pt-2 border-t border-slate-200/60 text-xs text-slate-500 font-mono">
                       <span className="font-bold uppercase tracking-wider block text-[10px]" style={{ color: cardData.color }}>Advantage:</span>
                       {card.advantage}
                     </div>
@@ -837,10 +773,10 @@ export function CompanyOverviewLayout({ content }) {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
           <div className="max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">RISK MITIGATION</span>
-            <h2 className="text-3xl font-bold tracking-tight text-[#0F172A] font-serif">Certifications, Security Standards &amp; Regulatory Audits</h2>
-            <p className="text-sm text-slate-650 leading-relaxed">
-              We systematically control operational risk through certified processes and audited field structures.
+            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">INSTITUTIONAL GOVERNANCE</span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Governance</h2>
+            <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              ISO 27001 certified, 100% DRA-certified staff, and RBI Fair Practice compliant — built for institutional-grade scrutiny.
             </p>
           </div>
 
@@ -881,8 +817,8 @@ export function CompanyOverviewLayout({ content }) {
                       >
                         <CertIcon className="h-4 w-4" />
                       </div>
-                      <h4 className="font-bold text-sm text-[#0F172A]">{cert.title}</h4>
-                      <p className="text-xs text-slate-650 leading-relaxed">{cert.desc}</p>
+                      <h4 className="font-bold text-sm text-[#0F172A] font-serif">{cert.title}</h4>
+                      <p className="text-xs text-slate-600 leading-relaxed">{cert.desc}</p>
                     </div>
                   </PremiumTiltCard>
                 );
@@ -891,11 +827,10 @@ export function CompanyOverviewLayout({ content }) {
           </div>
 
           <div className="pt-8 mt-4 border-t border-slate-200 space-y-8">
-            <div className="max-w-2xl mx-auto space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">REGULATORY MATRIX</span>
-              <h3 className="text-2xl font-bold font-serif text-[#0F172A]">RBI Fair Practice Compliance Architecture</h3>
-              <p className="text-sm text-slate-655">
-                How we enforce RBI fair practice collection codes through server-side locks and agent logs.
+            <div className="max-w-2xl mx-auto space-y-2">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">RBI COMPLIANCE MATRIX</span>
+              <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+                Four Fair Practice guidelines enforced through server-side controls, certified agent protocols, and real-time dispute tracking.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto text-left">
@@ -920,7 +855,7 @@ export function CompanyOverviewLayout({ content }) {
                     </div>
                     <h4 className="font-bold text-base text-[#0F172A] font-serif leading-none">{row.guideline}</h4>
                     <div className="space-y-2 pt-2 border-t border-slate-200/60">
-                      <p className="text-sm text-slate-650"><strong className="text-slate-700 font-serif">Code:</strong> {row.code}</p>
+                      <p className="text-sm text-slate-600"><strong className="text-slate-700 font-serif">Code:</strong> {row.code}</p>
                       <p className="text-sm font-semibold" style={{ color: matrixData.color }}><strong style={{ color: matrixData.color }}>SM Enforcement:</strong> {row.smAction}</p>
                     </div>
                   </PremiumTiltCard>
@@ -931,50 +866,6 @@ export function CompanyOverviewLayout({ content }) {
         </div>
       </motion.section>
 
-      {/* ── EXPLORE MORE (Industries + Clients teaser) ──
-           Industries We Serve and Clients & Partnerships used to be full
-           card-grid sections here, duplicating the dedicated /industries
-           and /clients pages. Replaced with a compact link strip so About
-           stays focused on "who is SM Associates" rather than becoming a
-           second Industries or Clients page. */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVar}
-        className="py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]"
-      >
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Link
-              to="/industries"
-              className="group flex items-center justify-between gap-4 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-5 text-left shadow-sm transition-all duration-300 hover:border-[#2563EB] hover:shadow-md"
-            >
-              <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">Explore</span>
-                <h4 className="mt-1 font-bold text-base text-[#0F172A] font-serif">Industries We Serve</h4>
-              </div>
-              <ArrowRight className="h-4 w-4 text-[#2563EB] transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link
-              to="/clients"
-              className="group flex items-center justify-between gap-4 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-5 text-left shadow-sm transition-all duration-300 hover:border-[#2563EB] hover:shadow-md"
-            >
-              <div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[#2563EB] font-mono">Explore</span>
-                <h4 className="mt-1 font-bold text-sm text-[#0F172A] font-serif">Clients &amp; Partnerships</h4>
-              </div>
-              <ArrowRight className="h-4 w-4 text-[#2563EB] transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Lender Onboarding Pipeline removed from About per architecture
-          refinement — it's process/services content ("how to start working
-          with us"), not company-identity content. Belongs on Contact or
-          Services; not re-implemented there yet, flagged as a follow-up. */}
-
       {/* ── SECTION 13: CALL TO ACTION ── */}
       <motion.section
         initial="hidden"
@@ -984,11 +875,11 @@ export function CompanyOverviewLayout({ content }) {
         className="py-[clamp(56px,8vh,88px)] bg-[#0F172A] relative overflow-hidden"
       >
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-          <h2 className="text-4xl font-extrabold text-white font-serif leading-tight">
-            Partner with India's Leading Risk Operations Desk
+          <h2 className="text-3xl md:text-4xl font-bold text-white font-serif leading-tight">
+            Ready to Partner?
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
-            Invite Bank committees, NBFCs, Housing Finance Companies, and ARCs to initiate vendor due diligence and empanelment.
+          <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            Initiate vendor due diligence and empanelment for your portfolio — banks, NBFCs, HFCs, and ARCs welcome.
           </p>
           <div className="flex flex-wrap gap-4 justify-center pt-4">
             <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-8 py-4 text-sm font-bold text-white hover:bg-[#1D4ED8] transition-all hover:scale-[1.02] hover:shadow-xl shadow-[#2563EB]/35">
@@ -997,6 +888,20 @@ export function CompanyOverviewLayout({ content }) {
             <a href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-slate-600 bg-transparent px-8 py-4 text-sm font-bold text-white hover:bg-slate-800 transition-all hover:scale-[1.02]">
               Schedule Leadership Meeting
             </a>
+          </div>
+          <div className="flex flex-wrap gap-6 justify-center pt-2">
+            <Link
+              to="/industries"
+              className="text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors inline-flex items-center gap-1"
+            >
+              Industries We Serve <ArrowRight className="h-3 w-3" />
+            </Link>
+            <Link
+              to="/clients"
+              className="text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors inline-flex items-center gap-1"
+            >
+              Clients &amp; Partnerships <ArrowRight className="h-3 w-3" />
+            </Link>
           </div>
         </div>
       </motion.section>
