@@ -26,6 +26,7 @@
     "autoprefixer": "latest",
     "postcss": "latest",
     "tailwindcss": "^3.4.17",
-    "vite": "latest"
+    "vite": "latest",
+    "vitest": "^4.1.10"
   }
 }

@@ -42,14 +42,14 @@ export default function IndustriesSection({ content }) {
               >
                 <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#C8A45D] to-[#E6C87A] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                 <div className="h-12 w-12 rounded-xl bg-amber-50/50 text-[#C8A45D] flex items-center justify-center mx-auto mb-5 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-sm border border-amber-100/50">
-                  <IndIcon className="h-5.5 w-5.5" />
+                  <IndIcon className="h-5 w-5" />
                 </div>
                 <h3 className="font-bold text-slate-900 text-sm tracking-tight mb-3">{ind.name}</h3>
                 <ul className="space-y-2 mt-3">
                   {ind.desc.split(/\.(?:\s+|$)/).filter(Boolean).map((s, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-[12px] leading-relaxed text-slate-600 justify-center">
                       <span className="h-1.5 w-1.5 rounded-full bg-[#C8A45D] mt-2 flex-none" />
-                      <span>{s.trim()}.</span>
+                      <span>{s.trim()}{s.trim().endsWith('.') ? '' : '.'}</span>
                     </li>
                   ))}
                 </ul>

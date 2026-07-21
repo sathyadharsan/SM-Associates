@@ -37,7 +37,9 @@ export default function ChatWidget() {
     const t = setTimeout(() => {
       if (!flagRead() && !useChatStore.getState().open) {
         flagSet();
-        openChat();
+        // auto:true — the window opens without stealing keyboard focus
+        // from whatever the visitor is doing (QA BUG-05).
+        openChat({ auto: true });
       }
     }, AUTO_OPEN_MS);
     return () => clearTimeout(t);
@@ -47,6 +49,7 @@ export default function ChatWidget() {
     <>
       <motion.button
         type="button"
+        id="smb-launcher-btn"
         className="smb-launcher"
         aria-label={open ? 'Close business assistant' : 'Open business assistant'}
         aria-expanded={open}

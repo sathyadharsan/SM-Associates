@@ -82,7 +82,7 @@ export function CoverageLayout({ content }) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
           <span className="text-xs font-bold uppercase tracking-widest text-[#C5A021] font-mono">Regional Coordinates</span>
           <h3 className="text-2xl font-bold font-sora text-[#0a1128]">Decentralized Regional Hubs Presence</h3>
-          <p className="text-slate-600 text-xs leading-relaxed max-w-3xl font-inter">
+          <p className="text-slate-600 text-sm md:text-base leading-relaxed max-w-3xl font-inter">
             We manage credit defaults outreach, pre-disbursal checks, and symbolic foreclosure notices directly out of physically staffed branches. This minimizes geofenced travel delays and matches local police procedures.
           </p>
         </div>
@@ -94,18 +94,18 @@ export function CoverageLayout({ content }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-2">
               <div className="text-blue-600"><Users className="h-5 w-5" /></div>
-              <h4 className="font-bold text-xs font-sora text-[#0a1128]">Local Staff Capacity</h4>
-              <p className="text-slate-500 text-[11px] leading-relaxed">Each region maintains active call desks and local ground field investigators.</p>
+              <h4 className="font-bold text-sm md:text-base font-sora text-[#0a1128]">Local Staff Capacity</h4>
+              <p className="text-slate-500 text-xs md:text-sm leading-relaxed">Each region maintains active call desks and local ground field investigators.</p>
             </div>
             <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-2">
               <div className="text-blue-600"><Building2 className="h-5 w-5" /></div>
-              <h4 className="font-bold text-xs font-sora text-[#0a1128]">Secure Yards Nodes</h4>
-              <p className="text-slate-500 text-[11px] leading-relaxed">Equipped with 24/7 security watch logs and inventory checklists for vehicle assets.</p>
+              <h4 className="font-bold text-sm md:text-base font-sora text-[#0a1128]">Secure Yards Nodes</h4>
+              <p className="text-slate-500 text-xs md:text-sm leading-relaxed">Equipped with 24/7 security watch logs and inventory checklists for vehicle assets.</p>
             </div>
             <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-2">
               <div className="text-blue-600"><Compass className="h-5 w-5" /></div>
-              <h4 className="font-bold text-xs font-sora text-[#0a1128]">Geofenced Routes</h4>
-              <p className="text-slate-500 text-[11px] leading-relaxed">Visit check-in coordinates are verified and synchronized back to core banking systems.</p>
+              <h4 className="font-bold text-sm md:text-base font-sora text-[#0a1128]">Geofenced Routes</h4>
+              <p className="text-slate-500 text-xs md:text-sm leading-relaxed">Visit check-in coordinates are verified and synchronized back to core banking systems.</p>
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@ export function CoverageLayout({ content }) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Operational Focus</span>
           <h3 className="text-2xl font-bold font-sora">Delinquency Mitigation Loops</h3>
-          <p className="text-slate-500 text-xs leading-relaxed max-w-3xl font-inter">
+          <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-3xl font-inter">
             Lenders coordinate local collections and foreclosure filings. Branch managers monitor local court calendars (e.g. local District Magistrates approval timelines) to expedite secured asset evictions.
           </p>
         </div>
@@ -189,7 +189,7 @@ export function CoverageLayout({ content }) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
           <span className="text-xs font-bold uppercase tracking-widest text-[#C5A021] font-mono">Regional Managers Desk</span>
           <h3 className="text-2xl font-bold font-sora">Executive Branch Coordinators</h3>
-          <p className="text-slate-500 text-xs leading-relaxed max-w-3xl font-inter">
+          <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-3xl font-inter">
             All regional branches operate under direct managing directors oversight. Dialing schedules and ground evictions notices audits are checked weekly by corporate compliance heads.
           </p>
         </div>
@@ -213,7 +213,7 @@ export function CoverageLayout({ content }) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Ground Precision</span>
           <h3 className="text-2xl font-bold font-sora">SLA Timelines and Travel Geotags</h3>
-          <p className="text-slate-500 text-xs leading-relaxed max-w-3xl">
+          <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-3xl">
             Pre-disbursal candidate profile verification checks are completed within average 48 Hours. On-ground collections pickup coordinates are geofenced to block audit errors.
           </p>
         </div>
@@ -226,7 +226,7 @@ export function CoverageLayout({ content }) {
             <div className="lg:col-span-7 space-y-4">
               <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Database Integration</span>
               <h3 className="text-2xl font-bold font-sora">Core Banking SFTP Transaction Syncs</h3>
-              <p className="text-slate-400 text-xs leading-relaxed">
+              <p className="text-slate-400 text-sm md:text-base leading-relaxed">
                 Lenders upload defaulted lists via secure SSH FTP folders daily. Ground dispatch logs sync back to bank risk panels automatically.
               </p>
             </div>
@@ -243,7 +243,7 @@ export function CoverageLayout({ content }) {
         <div className="mx-auto max-w-5xl px-4 bg-slate-50 border border-slate-200 rounded-[32px] p-8 md:p-12 space-y-4">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Resolution Sourcing</span>
           <h3 className="text-2xl font-bold font-sora text-[#0a1128]">[CLIENT COUNT]+ Lenders Empanelled</h3>
-          <p className="text-slate-500 text-xs leading-relaxed font-inter">
+          <p className="text-slate-500 text-sm md:text-base leading-relaxed font-inter">
             Over the past decades, we have resolved high-delinquency portfolios and vehicle repossession cases across South India.
           </p>
         </div>
@@ -253,7 +253,7 @@ export function CoverageLayout({ content }) {
       <section className="py-20 bg-slate-50 border-t border-b border-slate-150 text-left">
         <div className="mx-auto max-w-4xl px-4 bg-white border border-slate-200 rounded-[32px] p-8 space-y-4">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Partners Feedback</span>
-          <p className="italic text-slate-600 text-xs leading-relaxed">
+          <p className="italic text-slate-600 text-sm md:text-base leading-relaxed">
             "SM Associates branch network coverage in remote districts helped us accelerate agricultural tractor repossession timeline SLA loops."
           </p>
           <div className="text-[10px] font-bold text-[#0a1128] font-mono">— NBFC Chief Risk Officer</div>

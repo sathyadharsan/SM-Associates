@@ -22,17 +22,72 @@ function persistLocally(entry) {
   }
 }
 
-function deliver(entry) {
-  if (!ENDPOINT) return;
+const PENDING_KEY = 'sm-chatbot-pending';
+
+function readPending() {
   try {
-    const blob = new Blob([JSON.stringify(entry)], { type: 'application/json' });
-    // sendBeacon survives page navigation; fetch keepalive as fallback.
-    if (!navigator.sendBeacon?.(ENDPOINT, blob)) {
-      fetch(ENDPOINT, { method: 'POST', body: JSON.stringify(entry), keepalive: true, headers: { 'Content-Type': 'application/json' } }).catch(() => {});
-    }
+    return JSON.parse(localStorage.getItem(PENDING_KEY) || '[]');
   } catch {
-    /* network failure must never break the chat UX */
+    return [];
   }
+}
+
+function writePending(list) {
+  try {
+    localStorage.setItem(PENDING_KEY, JSON.stringify(list.slice(-25)));
+  } catch {
+    /* storage unavailable */
+  }
+}
+
+function queuePending(entry) {
+  writePending([...readPending(), entry]);
+}
+
+function post(entry) {
+  const blob = new Blob([JSON.stringify(entry)], { type: 'application/json' });
+  // sendBeacon survives page navigation; fetch keepalive as fallback.
+  if (navigator.sendBeacon?.(ENDPOINT, blob)) return Promise.resolve(true);
+  return fetch(ENDPOINT, {
+    method: 'POST',
+    body: JSON.stringify(entry),
+    keepalive: true,
+    headers: { 'Content-Type': 'application/json' },
+  }).then((r) => r.ok, () => false);
+}
+
+function deliver(entry) {
+  // No endpoint configured → entry stays in the pending queue so it is
+  // delivered automatically the moment an endpoint ships. Losing a lead
+  // now requires delivery to fail AND the visitor never returning.
+  if (!ENDPOINT) {
+    queuePending(entry);
+    return;
+  }
+  try {
+    post(entry).then((ok) => {
+      if (!ok) queuePending(entry);
+    });
+  } catch {
+    queuePending(entry);
+  }
+}
+
+/** Retry anything queued from earlier visits. Called on widget open. */
+export function replayPending() {
+  if (!ENDPOINT) return;
+  const pending = readPending();
+  if (!pending.length) return;
+  writePending([]);
+  pending.forEach((entry) => {
+    try {
+      post(entry).then((ok) => {
+        if (!ok) queuePending(entry);
+      });
+    } catch {
+      queuePending(entry);
+    }
+  });
 }
 
 /**

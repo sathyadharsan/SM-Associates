@@ -147,7 +147,7 @@ export function PlatformLayout({ content }) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">Unified Console</span>
           <h3 className="text-2xl font-bold font-sora">Stressed Asset Operating Engine</h3>
-          <p className="text-slate-400 text-xs leading-relaxed max-w-3xl">
+          <p className="text-slate-400 text-sm md:text-base leading-relaxed max-w-3xl">
             We digitize portfolio uploads, ground officer route maps, caller voice recordings, and secured repossession metrics. Lenders manage enpanellments SLAs and check transaction audits under a bank-grade console.
           </p>
         </div>
@@ -160,7 +160,7 @@ export function PlatformLayout({ content }) {
             <div className="lg:col-span-7 space-y-4">
               <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">Core System Architecture</span>
               <h3 className="text-2xl font-bold font-sora">Lending Books API Connectivity</h3>
-              <p className="text-slate-400 text-xs leading-relaxed">
+              <p className="text-slate-400 text-sm md:text-base leading-relaxed">
                 Our database coordinates daily SFTP file imports and REST endpoints to trigger outbound call queues and branch dispatch.
               </p>
             </div>
@@ -183,17 +183,17 @@ export function PlatformLayout({ content }) {
             <div className="p-6 bg-white/5 border border-white/10 rounded-2xl space-y-3">
               <div className="text-blue-400"><Cpu className="h-5 w-5" /></div>
               <h4 className="font-bold text-sm font-sora">Workflow Automation</h4>
-              <p className="text-slate-400 text-xs leading-relaxed">Configuring dialer queue assignments and notice serving timelines.</p>
+              <p className="text-slate-400 text-sm leading-relaxed">Configuring dialer queue assignments and notice serving timelines.</p>
             </div>
             <div className="p-6 bg-white/5 border border-white/10 rounded-2xl space-y-3">
               <div className="text-blue-400"><Activity className="h-5 w-5" /></div>
               <h4 className="font-bold text-sm font-sora">Field Route Tracking</h4>
-              <p className="text-slate-400 text-xs leading-relaxed">Geofenced field officers visit check-in logs and witness photo records.</p>
+              <p className="text-slate-400 text-sm leading-relaxed">Geofenced field officers visit check-in logs and witness photo records.</p>
             </div>
             <div className="p-6 bg-white/5 border border-white/10 rounded-2xl space-y-3">
               <div className="text-blue-400"><Database className="h-5 w-5" /></div>
               <h4 className="font-bold text-sm font-sora">Compliance Auditor Log</h4>
-              <p className="text-slate-400 text-xs leading-relaxed">Auto auditing call recordings to match RBI Fair practices conduct.</p>
+              <p className="text-slate-400 text-sm leading-relaxed">Auto auditing call recordings to match RBI Fair practices conduct.</p>
             </div>
           </div>
         </div>
@@ -255,7 +255,7 @@ export function PlatformLayout({ content }) {
           <h3 className="text-2xl font-bold font-sora flex items-center gap-2">
             <Lock className="h-5 w-5 text-amber-500" /> ISO 27001 Bank-Grade Data Custody
           </h3>
-          <p className="text-slate-400 text-xs leading-relaxed max-w-3xl">
+          <p className="text-slate-400 text-sm md:text-base leading-relaxed max-w-3xl">
             We isolate borrower transaction records and verification files coordinates inside secure, encrypted database tables. No data is stored outside pre-vetted banking firewalls.
           </p>
         </div>
@@ -266,7 +266,7 @@ export function PlatformLayout({ content }) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">Auditable Logs</span>
           <h3 className="text-2xl font-bold font-sora">Continuous Audit Trails</h3>
-          <p className="text-slate-400 text-xs leading-relaxed max-w-3xl">
+          <p className="text-slate-400 text-sm md:text-base leading-relaxed max-w-3xl">
             Outbound calling hour rules are geofenced automatically. Every ground representative geolocated visit check is recorded with timing and witness logs.
           </p>
         </div>
@@ -277,7 +277,7 @@ export function PlatformLayout({ content }) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">Ingestion Sync</span>
           <h3 className="text-2xl font-bold font-sora mt-2">SFTP and REST Connections</h3>
-          <p className="text-slate-400 text-xs leading-relaxed max-w-3xl">
+          <p className="text-slate-400 text-sm md:text-base leading-relaxed max-w-3xl">
             Lenders set up daily automated batch case files uploads via secure SSH FTP lines. Status updates sync back to core underwriting or collection desks daily.
           </p>
         </div>
@@ -290,7 +290,7 @@ export function PlatformLayout({ content }) {
             <div className="lg:col-span-7 space-y-4">
               <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">Performance Yields</span>
               <h3 className="text-2xl font-bold font-sora">Blended Resolution Metrics</h3>
-              <p className="text-slate-400 text-xs leading-relaxed">
+              <p className="text-slate-400 text-sm md:text-base leading-relaxed">
                 We maintain high-velocity TAT loops for pre-disbursal checks (average 48 Hours) and coordinate symbolic possessions or police liaisons under strict statutory timelines.
               </p>
             </div>
@@ -319,7 +319,7 @@ export function PlatformLayout({ content }) {
       <section className="py-20 bg-[#050914] border-t border-b border-slate-900 text-left">
         <div className="mx-auto max-w-4xl px-4 bg-white/5 border border-white/10 rounded-[32px] p-8 md:p-12 space-y-4">
           <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">Partners Feedback</span>
-          <p className="italic text-slate-350 text-sm leading-relaxed">
+          <p className="italic text-slate-300 text-sm md:text-base leading-relaxed">
             "Ingesting our auto loan default book coordinates directly to SM Associates branch dispatch desks minimized local eviction delays and cleared NPAprovisioning buckets."
           </p>
           <div className="text-xs font-bold text-white font-mono">— Nationalized Bank Risk Committee</div>

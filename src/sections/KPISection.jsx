@@ -226,7 +226,7 @@ export default function KPISection() {
                         className="absolute inset-0 flex items-center justify-center font-bold"
                         style={{
                           fontSize: isFeatured ? 11 : 9,
-                          color: isFeatured ? meta.color : meta.color,
+                          color: meta.color,
                         }}
                       >
                         {meta.ring}%

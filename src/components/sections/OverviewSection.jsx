@@ -30,7 +30,7 @@ export default function OverviewSection({ content }) {
                   {o.desc.split(/\.(?:\s+|$)/).filter(Boolean).map((s, idx) => (
                     <li key={idx} className="flex items-start gap-1.5 text-xs text-slate-600">
                       <span className="h-1.5 w-1.5 rounded-full bg-blue-400 mt-1.5 flex-none" />
-                      <span>{s.trim()}.</span>
+                      <span>{s.trim()}{s.trim().endsWith('.') ? '' : '.'}</span>
                     </li>
                   ))}
                 </ul>
@@ -43,7 +43,7 @@ export default function OverviewSection({ content }) {
                   {u.desc.split(/\.(?:\s+|$)/).filter(Boolean).map((s, idx) => (
                     <li key={idx} className="flex items-start gap-1.5 text-xs text-slate-600">
                       <span className="h-1.5 w-1.5 rounded-full bg-slate-400 mt-1.5 flex-none" />
-                      <span>{s.trim()}.</span>
+                      <span>{s.trim()}{s.trim().endsWith('.') ? '' : '.'}</span>
                     </li>
                   ))}
                 </ul>

@@ -15,6 +15,7 @@ import {
   industryAgent,
   coverageAgent,
   caseStudyAgent,
+  clientsAgent,
   aboutAgent,
 } from './agents/knowledgeAgents';
 import {
@@ -33,6 +34,7 @@ const AGENTS = {
   industry: industryAgent,
   coverage: coverageAgent,
   'case-study': caseStudyAgent,
+  clients: clientsAgent,
   about: aboutAgent,
   lead: leadAgent,
   booking: bookingAgent,
@@ -59,10 +61,13 @@ export const QUICK_ACTIONS = [
  * @returns {object} agent response (see coreAgents.js contract)
  */
 export function processMessage(text, forcedIntent) {
-  const intent = forcedIntent || detectIntent(text).intent;
+  const detection = detectIntent(text);
+  const intent = forcedIntent || detection.intent;
   const agent = AGENTS[intent] || searchAgent;
   try {
-    return agent.handle(text);
+    // Agents receive the raw text (search normalizes internally) plus the
+    // normalized form for pattern work (e.g. navigation aliases).
+    return agent.handle(text, detection.normalized);
   } catch (err) {
     if (import.meta.env.DEV) console.error('[chatbot] agent error:', intent, err);
     return {

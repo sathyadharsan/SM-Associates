@@ -37,7 +37,18 @@ let cachedIndex = null;
 function pageDocs() {
   // Every public route's SEO title + description doubles as its search
   // summary — the same strings Google sees, so answers match the site voice.
-  return Object.entries(seoMeta)
+  // The homepage gets an explicit doc with navigation-alias keywords so
+  // "home"/"homepage" can NEVER fuzzy-drift to e.g. Housing Finance (QA BUG-02).
+  const home = {
+    id: 'page:/',
+    type: 'page',
+    title: 'Home',
+    summary: seoMeta['/'].description,
+    body: '',
+    href: '/',
+    keywords: 'home homepage main page landing page start',
+  };
+  return [home, ...Object.entries(seoMeta)
     .filter(([path, meta]) => !meta.noindex && path !== '/')
     .map(([path, meta]) => ({
       id: `page:${path}`,
@@ -50,7 +61,7 @@ function pageDocs() {
       body: '',
       href: path,
       keywords: path.split('/').filter(Boolean).join(' ').replace(/-/g, ' '),
-    }));
+    }))];
 }
 
 function faqDocs() {
