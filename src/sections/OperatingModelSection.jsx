@@ -66,8 +66,24 @@ export default function OperatingModelSection() {
     const update = () => {
       const total = pinWrap.offsetHeight - window.innerHeight;
       const p = clamp(-pinWrap.getBoundingClientRect().top / (total || 1), 0, 1);
-      strip.style.transform = `translateX(${-p * maxShiftRef.current}px)`;
-      const stageIdx = clamp(Math.floor(p * 6) + 1, 1, 6);
+      const currentShift = p * maxShiftRef.current;
+      strip.style.transform = `translateX(${-currentShift}px)`;
+      
+      const viewportCenter = currentShift + (window.innerWidth / 2);
+      const panels = Array.from(strip.querySelectorAll('.panel6'));
+      
+      let stageIdx = 1;
+      let minDistance = Infinity;
+      
+      panels.forEach((panel, i) => {
+        const panelCenter = panel.offsetLeft + (panel.offsetWidth / 2);
+        const distance = Math.abs(panelCenter - viewportCenter);
+        if (distance < minDistance) {
+          minDistance = distance;
+          stageIdx = i + 1;
+        }
+      });
+
       if (stageRef.current) stageRef.current.textContent = String(stageIdx).padStart(2, '0');
       if (railBarRef.current) railBarRef.current.style.width = `${p * 100}%`;
       dotsRef.current.forEach((dot, i) => {

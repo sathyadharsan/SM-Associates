@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
-import { 
+import {
   ChevronDown, Menu, X, CalendarDays, Shield, ArrowRight,
   FileCheck, Users, Scale, Car, Search, LineChart,
   Briefcase, Zap, Layout, ChevronRight, CheckCircle2,
@@ -138,8 +139,60 @@ const getMenuSubtitle = (label) => {
   }
 };
 
+// Reference behaviour (client-supplied video, collekt.ai): the nav does NOT
+// scrub continuously with scroll position — it's a single threshold crossing
+// that plays a springy "settle" animation: flat edge-to-edge → the pill
+// overshoots NARROW (and a secondary link fades out to give it room) →
+// eases back out to a wider, still-floating resting width (link fades back
+// in). Scrolling back to top simply tweens straight back to flat — the
+// overshoot only plays on the way IN, matching what was recorded.
+const NAV_FLAT = { width: '100%', radius: 0, shadow: '0 0px 0px rgba(15,23,42,0)' };
+const NAV_DIP = { width: 'max-content', radius: 24, shadow: '0 24px 60px -20px rgba(15,23,42,0.22)' };
+const NAV_SETTLED = { width: 'max-content', radius: 20, shadow: '0 16px 40px -18px rgba(15,23,42,0.14)' };
+
+function useFloatingNav(scrolled) {
+  const widthKeyframes = scrolled ? [NAV_FLAT.width, NAV_DIP.width, NAV_SETTLED.width] : NAV_FLAT.width;
+  const radiusKeyframes = scrolled ? [NAV_FLAT.radius, NAV_DIP.radius, NAV_SETTLED.radius] : NAV_FLAT.radius;
+  const shadowKeyframes = scrolled ? [NAV_FLAT.shadow, NAV_DIP.shadow, NAV_SETTLED.shadow] : NAV_FLAT.shadow;
+  const times = scrolled ? [0, 0.45, 1] : undefined;
+
+  return {
+    cardAnimate: {
+      width: widthKeyframes,
+      borderRadius: radiusKeyframes,
+      borderColor: scrolled ? 'rgba(15,23,42,0.08)' : 'rgba(15,23,42,0.06)',
+      boxShadow: shadowKeyframes,
+    },
+    cardTransition: { duration: 0.65, times, ease: [0.22, 1, 0.36, 1] },
+    glassAnimate: {
+      borderRadius: radiusKeyframes,
+      backgroundColor: scrolled ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,1)',
+    },
+    glassTransition: { duration: 0.65, times, ease: [0.22, 1, 0.36, 1] },
+    rowAnimate: { height: scrolled ? 56 : 76 },
+    rowTransition: { duration: 0.4, ease: 'easeOut' },
+    logoAnimate: { scale: scrolled ? 0.92 : 1.02 },
+    logoTransition: { type: 'spring', stiffness: 300, damping: 24 },
+    // The de-emphasized link (Careers, standing in for the reference's
+    // "Login") dips out only during the narrow overshoot, then returns.
+    deemphasizedAnimate: { opacity: scrolled ? [1, 0, 1] : 1 },
+    deemphasizedTransition: { duration: 0.65, times, ease: [0.22, 1, 0.36, 1] },
+  };
+}
+
 export default function Header() {
+  // Threshold-crossing boolean (not continuous scroll tracking) — matches
+  // the reference video's behaviour of a single triggered settle animation
+  // rather than a scrubbed one. 24px gives a little dead zone so a stray
+  // 1-2px scroll-restoration jiggle on route change doesn't retrigger it.
   const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  const nav = useFloatingNav(scrolled);
   const [activeMenu, setActiveMenu] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState(null);
@@ -148,9 +201,9 @@ export default function Header() {
   const location = useLocation();
   const timeoutRef = useRef(null);
 
-  // Filter out Careers, Contact from middle nav since they're placed separately on the right
+  // Filter out only Contact from middle nav, since Careers should be in the main list
   const middleNavItems = navigationData.mainNav.filter(
-    (item) => item.label !== 'Careers' && item.label !== 'Contact'
+    (item) => item.label !== 'Contact'
   );
 
   const isItemActive = (item) => {
@@ -203,12 +256,6 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
     setMobileOpen(false);
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -230,42 +277,82 @@ export default function Header() {
     <div className="fixed inset-x-0 top-0 z-50">
 
 
-      <div className="relative mx-auto max-w-[1400px] px-3 pt-3 sm:px-4 lg:px-6">
-        <div
-          className="relative overflow-visible rounded-2xl transition-all duration-300"
-          style={{
-            border: '1px solid rgba(15,23,42,0.08)',
-            boxShadow: scrolled
-              ? `0 18px 50px -12px rgba(15,23,42,0.10), 0 0 0 1px rgba(255,255,255,0.04), 0 0 40px -8px ${BRAND}33`
-              : `0 24px 60px -16px rgba(15,23,42,0.08), 0 0 30px -10px ${BRAND}26`,
-          }}
+      <div className={`relative mx-auto w-full transition-all duration-300 ${
+        scrolled 
+          ? 'max-w-[1400px] px-3 pt-3 sm:px-4 lg:px-6' 
+          : 'max-w-none px-0 pt-0'
+      }`}>
+        {/* Outer shell: overflow VISIBLE is load-bearing — mega-menu dropdowns
+            are positioned absolute inside this element and must be able to
+            render outside the rounded card's bounds. Width/border/shadow
+            live here; background+blur live on the separate inset layer below
+            so they clip to the rounded shape without clipping the dropdowns. */}
+        <motion.div
+          className="relative overflow-visible"
+          initial={false}
+          animate={nav.cardAnimate}
+          transition={nav.cardTransition}
+          style={{ margin: '0 auto', borderWidth: scrolled ? 1 : 0, borderBottomWidth: 1, borderStyle: 'solid' }}
         >
-          {/* Background blur layer to avoid stacking context & text blur issues in children */}
-          <div 
-            className="absolute inset-0 -z-10 rounded-2xl pointer-events-none"
+          {/* Glass background + blur — clipped to the rounded rect, sits
+              behind all content, never affects dropdown overflow above.
+              Blur itself is a plain CSS-transitioned style (not a framer
+              `animate` target) — kept simple and reliable rather than
+              relying on filter-string keyframe interpolation. */}
+          <motion.div
+            className="absolute inset-0 -z-10 pointer-events-none transition-[backdrop-filter] duration-500"
+            initial={false}
+            animate={nav.glassAnimate}
+            transition={nav.glassTransition}
             style={{
-              background: scrolled ? '#ffffff' : 'rgba(255,255,255,0.96)',
+              backdropFilter: scrolled ? 'blur(16px) saturate(160%)' : 'blur(0px)',
+              WebkitBackdropFilter: scrolled ? 'blur(16px) saturate(160%)' : 'blur(0px)',
             }}
           />
 
           {/* Main nav row */}
-          <div className="flex h-[60px] items-center px-5 lg:px-7">
+          <motion.div
+            className={`flex items-center justify-center gap-6 lg:gap-8 transition-all duration-300 mx-auto w-full ${
+              scrolled ? 'px-5 lg:px-6' : 'px-8 lg:px-12 max-w-[1400px]'
+            }`}
+            initial={false}
+            animate={nav.rowAnimate}
+            transition={nav.rowTransition}
+          >
 
-            {/* Logo */}
-            <Link to="/" className="flex shrink-0 items-center gap-2">
-              <img
-                src="/sm-logo.png"
-                alt="SM Associates Logo"
-                className="h-11 w-auto object-contain"
-              />
-              <span className="flex flex-col leading-tight">
-                <span className="text-[16px] font-bold text-gray-900">SM Associates</span>
-                <span className="text-[10.5px] font-semibold text-gray-500 tracking-wide whitespace-nowrap">Risk Management Pvt. Ltd.</span>
-              </span>
+            {/* Logo — only this inner group scales; the Link itself (click
+                target) stays full-size so the hit area never shrinks. */}
+            <Link to="/" className="flex shrink-0 items-center">
+              <motion.div
+                className="flex items-center"
+                initial={false}
+                animate={nav.logoAnimate}
+                transition={nav.logoTransition}
+                style={{ transformOrigin: 'left center' }}
+              >
+                <img
+                  src="/sm-logo.png"
+                  alt="SM Associates Logo"
+                  className="h-11 w-auto object-contain"
+                />
+                <motion.span 
+                  className="flex flex-col leading-tight overflow-hidden"
+                  initial={false}
+                  animate={{
+                    width: scrolled ? 0 : 'auto',
+                    opacity: scrolled ? 0 : 1,
+                    marginLeft: scrolled ? 0 : 8,
+                  }}
+                  transition={{ duration: 0.35, ease: 'easeInOut' }}
+                >
+                  <span className="text-[16px] font-bold text-gray-900">SM Associates</span>
+                  <span className="text-[10.5px] font-semibold text-gray-500 tracking-wide whitespace-nowrap">Risk Management Pvt. Ltd.</span>
+                </motion.span>
+              </motion.div>
             </Link>
 
             {/* Desktop nav */}
-            <nav className="hidden flex-1 h-full items-stretch justify-center gap-1 xl:flex">
+            <nav className="hidden h-full items-center gap-6 lg:gap-8 xl:flex">
               {middleNavItems.map((navItem) => {
                 const key = navItem.label;
                 const hasDropdown = navItem.children || navItem.isMegaMenu;
@@ -283,7 +370,7 @@ export default function Header() {
                         onClick={() => {
                           setActiveMenu(activeMenu === key ? null : key);
                         }}
-                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[16px] font-bold tracking-[-0.01em] transition-colors duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[14px] font-semibold tracking-[-0.01em] whitespace-nowrap transition-colors duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                         style={{ color: isItemActive(navItem) || activeMenu === key || hoverKey === key ? BRAND : '#0a0e1a' }}
                       >
                         {navItem.label}
@@ -301,7 +388,7 @@ export default function Header() {
                       <Link
                         to={navItem.href}
                         onMouseEnter={() => handleMouseEnter(key)}
-                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[16px] font-bold tracking-[-0.01em] transition-colors duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+                        className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[14px] font-semibold tracking-[-0.01em] whitespace-nowrap transition-colors duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                         style={{ color: isItemActive(navItem) || hoverKey === key ? BRAND : '#0a0e1a' }}
                       >
                         {navItem.label}
@@ -459,18 +546,6 @@ export default function Header() {
                   </div>
                 );
               })}
-
-              {/* Careers — kept in the same gap-1 flow as the rest of the nav so its
-                  spacing to Case Studies matches every other item, instead of being
-                  pinned to a separately-spaced right-side block. */}
-              <div className="flex items-center">
-                <Link
-                  to="/careers"
-                  className="relative inline-flex items-center px-3 py-2 text-[16px] font-bold text-[#0a0e1a] transition-colors duration-200 hover:text-[#3366FF] rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-                >
-                  Careers
-                </Link>
-              </div>
             </nav>
 
             {/* Right: CTA */}
@@ -497,7 +572,7 @@ export default function Header() {
             >
               {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
-          </div>
+          </motion.div>
 
           {/* Mobile menu */}
           {mobileOpen && (
@@ -611,7 +686,7 @@ export default function Header() {
                 </div>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
