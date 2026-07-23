@@ -22,22 +22,22 @@ export const designTokens = {
       card: 'rgba(255, 255, 255, 0.78)'
     },
     text: {
-      primary: '#2563EB',
-      secondary: '#1D4ED8',
+      primary: '#0072bc',
+      secondary: '#0072bc',
       muted: '#64748B',
       footer: '#FFFFFF'
     },
     accent: {
-      gold: '#C8A45D',
-      softGold: '#E6C87A',
-      blueLine: '#2563EB',
-      goldLine: '#C8A45D'
+      gold: '#0072bc',
+      softGold: '#0072bc',
+      blueLine: '#0072bc',
+      goldLine: '#0072bc'
     },
     border: {
       soft: 'rgba(203, 213, 225, 0.78)',
-      hover: 'rgba(200, 164, 93, 0.45)'
+      hover: 'rgba(0, 114, 188, 0.08)'
     },
-    footer: '#1D4ED8'
+    footer: '#0072bc'
   },
   typography: {
     fontFamily: 'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -83,18 +83,18 @@ export const designTokens = {
     cardDuration: 0.45,
     marqueeDuration: 34,
     floatDuration: 7,
-    hoverElevation: '0 32px 90px rgba(37, 99, 235, 0.14)'
+    hoverElevation: '0 32px 90px rgba(0, 114, 188, 0.14)'
   },
   buttons: {
     primary: {
-      bg: '#2563EB',
+      bg: '#0072bc',
       text: '#FFFFFF',
-      hover: '#1D4ED8'
+      hover: '#0072bc'
     },
     secondary: {
       bg: '#FFFFFF',
-      border: '#2563EB',
-      text: '#2563EB'
+      border: '#0072bc',
+      text: '#0072bc'
     }
   }
 };

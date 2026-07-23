@@ -21,16 +21,16 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.08, duration: 0.55 }}
-              className="glass-card group rounded-[24px] p-8 transition duration-300 hover:-translate-y-1 hover:border-[#3366FF]/40 hover:shadow-enterpriseHover"
+              className="glass-card group rounded-[24px] p-8 transition duration-300 hover:-translate-y-1 hover:border-[#0072bc]/40 hover:shadow-enterpriseHover"
             >
-              <div className="mb-7 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3366FF]/10 text-[#3366FF]">
+              <div className="mb-7 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0072bc]/10 text-[#0072bc]">
                 <Quote className="h-6 w-6" />
               </div>
               <p className="text-lg leading-8 text-gray-900">{testimonial.quote}</p>
               <div className="mt-8 border-t border-slate-200 pt-6">
                 <p className="font-semibold text-gray-900">{testimonial.name}</p>
                 <p className="mt-1 text-sm font-medium text-slate-500">{testimonial.role}</p>
-                <p className="mt-2 inline-flex rounded-full bg-[#3366FF] px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-gray-950">
+                <p className="mt-2 inline-flex rounded-full bg-[#0072bc] px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-gray-950">
                   {testimonial.institution}
                 </p>
               </div>

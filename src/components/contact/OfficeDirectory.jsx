@@ -17,7 +17,7 @@ function CopyBtn({ value }) {
       className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-2.5 py-1.5 text-[11px] font-semibold text-slate-500 transition hover:border-brand-400 hover:text-brand-600"
       title="Copy address"
     >
-      {copied ? <Check className="h-3.5 w-3.5 text-emerald-500" /> : <Copy className="h-3.5 w-3.5" />}
+      {copied ? <Check className="h-3.5 w-3.5 text-brand-500" /> : <Copy className="h-3.5 w-3.5" />}
       {copied ? 'Copied' : 'Copy'}
     </button>
   );
@@ -27,11 +27,11 @@ function OfficeCard({ office, city, state, isHQ }) {
   return (
     <div
       className={`relative rounded-2xl border p-5 transition hover:shadow-soft ${
-        isHQ ? 'border-gold-400/50 bg-gradient-to-br from-amber-50/70 to-white' : 'border-slate-200 bg-white'
+        isHQ ? 'border-brand-500/50 bg-gradient-to-br from-blue-50/70 to-white' : 'border-slate-200 bg-white'
       }`}
     >
       {isHQ && (
-        <span className="absolute -top-3 left-5 rounded-full bg-gold-500 px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow-soft">
+        <span className="absolute -top-3 left-5 rounded-full bg-brand-500 px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow-soft">
           Head Office
         </span>
       )}
@@ -40,7 +40,7 @@ function OfficeCard({ office, city, state, isHQ }) {
           <p className="font-sora text-[15px] font-bold text-slate-900">{office.name}</p>
           <p className="mt-0.5 text-[11px] font-bold uppercase tracking-wide text-slate-400">{office.code} · {city} · {state}</p>
         </div>
-        <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${isHQ ? 'bg-gold-500/15 text-gold-500' : 'bg-brand-50 text-brand-500'}`}>
+        <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${isHQ ? 'bg-brand-500/15 text-brand-500' : 'bg-brand-50 text-brand-500'}`}>
           <Building2 className="h-4 w-4" />
         </span>
       </div>

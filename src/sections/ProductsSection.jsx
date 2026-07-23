@@ -1,7 +1,7 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import SectionHeader from '../components/SectionHeader';
 import { products } from '../data/homeData';
-import { getIcon } from '../utils/icons.jsx';
+import RichIcon from '../components/sections/shared/RichIcon';
 
 export default function ProductsSection() {
   return (
@@ -21,10 +21,10 @@ export default function ProductsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.18 }}
               transition={{ delay: index * 0.05, duration: 0.5 }}
-              className="glass-card group rounded-[20px] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#3366FF]/40 hover:shadow-enterpriseHover"
+              className="glass-card group rounded-[20px] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#0072bc]/40 hover:shadow-enterpriseHover"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-gray-900 shadow-soft transition group-hover:bg-[#3366FF] group-hover:text-gray-950">
-                {getIcon(product.icon)}
+              <div className="mb-5 flex items-center justify-start group-hover:scale-105 transition-transform duration-300">
+                <RichIcon type={product.icon || product.title} size={48} />
               </div>
               <h3 className="text-lg font-semibold text-gray-900">{product.title}</h3>
               <p className="mt-2 text-sm text-slate-500">Recovery, collections and verification support.</p>

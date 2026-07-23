@@ -62,7 +62,7 @@ export default function CaseStudyModal({ study, onClose }) {
               <span className="rounded-full bg-gray-100 px-3 py-1 text-[10.5px] font-semibold text-gray-700">
                 {study.industry}
               </span>
-              <span className="rounded-full border border-blue-200 px-3 py-1 text-[10.5px] font-bold text-brand-500">
+              <span className="rounded-full border border-brand-500 px-3 py-1 text-[10.5px] font-bold text-brand-500">
                 {study.tag}
               </span>
             </div>
@@ -77,9 +77,9 @@ export default function CaseStudyModal({ study, onClose }) {
                 <span className="font-bold text-slate-700">Engagement Period:</span>{' '}
                 {isPlaceholder(study.engagementPeriod)
                   ? (
-                    <span className="italic text-amber-600">
+                    <span className="italic text-brand-500">
                       {study.engagementPeriodExample}{' '}
-                      <span className="text-[10px] font-bold not-italic uppercase tracking-wide text-amber-500">(Sample data)</span>
+                      <span className="text-[10px] font-bold not-italic uppercase tracking-wide text-brand-500">(Sample data)</span>
                     </span>
                   )
                   : study.engagementPeriod}
@@ -107,11 +107,11 @@ export default function CaseStudyModal({ study, onClose }) {
                 const placeholder = isPlaceholder(m.value);
                 return (
                   <div key={m.label} className="rounded-xl bg-gray-50 p-3 text-center">
-                    <p className={`text-[13px] font-bold ${placeholder ? 'italic text-amber-600' : 'text-slate-900'}`}>
+                    <p className={`text-[13px] font-bold ${placeholder ? 'italic text-brand-500' : 'text-slate-900'}`}>
                       {placeholder ? m.example : m.value}
                     </p>
                     {placeholder && (
-                      <p className="mt-0.5 text-[8.5px] font-bold uppercase tracking-wide text-amber-500">Sample data</p>
+                      <p className="mt-0.5 text-[8.5px] font-bold uppercase tracking-wide text-brand-500">Sample data</p>
                     )}
                     <p className="mt-1 text-[9.5px] font-semibold uppercase tracking-wide text-gray-400">{m.label}</p>
                   </div>
@@ -124,7 +124,7 @@ export default function CaseStudyModal({ study, onClose }) {
                 <p className="text-[14px] italic leading-relaxed text-gray-600">&ldquo;{study.quote}&rdquo;</p>
                 {study.quoteAuthor && <p className="mt-2 text-[11.5px] font-bold text-gray-400">— {study.quoteAuthor}</p>}
                 {study.quoteIsExample && (
-                  <p className="mt-2 text-[10px] font-bold uppercase tracking-wide text-amber-500">
+                  <p className="mt-2 text-[10px] font-bold uppercase tracking-wide text-brand-500">
                     Sample quote — replace with real client feedback
                   </p>
                 )}

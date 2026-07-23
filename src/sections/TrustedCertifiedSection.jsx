@@ -1,19 +1,11 @@
-import { ShieldCheck, BadgeCheck, Mic, MapPin } from 'lucide-react';
+import React from 'react';
 import { clientSections } from '../data/clientsPageData';
+import RichIcon from '../components/sections/shared/RichIcon';
 
-// Approved, permission-cleared client list (same source as the /clients
-// page) — flattened for the marquee. Do NOT source from the legacy
-// clientLogos.js list, which predates the client-permission review.
+// Approved, permission-cleared client list
 const approvedLogos = clientSections.flatMap((s) => s.clients);
-
-// A-Z order so the wall reads left-to-right, top-to-bottom like a directory —
-// row 1 starts with the alphabetically-first client, the final row ends
-// with the alphabetically-last one.
 const sortedLogos = [...approvedLogos].sort((a, b) => a.name.localeCompare(b.name));
 
-// Caps how many logos share one marquee row — once the roster grows past
-// that, another row is added automatically instead of cramming the extras
-// into the existing rows. Always at least 4 rows.
 const MAX_PER_ROW = 12;
 const ROW_COUNT = Math.max(4, Math.ceil(sortedLogos.length / MAX_PER_ROW));
 const chunkSize = Math.ceil(sortedLogos.length / ROW_COUNT);
@@ -21,23 +13,23 @@ const logoRows = Array.from({ length: ROW_COUNT }, (_, i) =>
   sortedLogos.slice(i * chunkSize, (i + 1) * chunkSize)
 ).filter((row) => row.length > 0);
 
-// Confirmed, management-approved trust facts only.
+// Confirmed, management-approved trust facts with Storyset-style RichIcon vector artwork
 const FACTS = [
-  { icon: ShieldCheck, v: 'ISO/IEC 27001', k: 'Certified Information Security' },
-  { icon: BadgeCheck, v: 'IIBF DRA', k: 'Certified Field Recovery Teams' },
-  { icon: Mic, v: '100%', k: 'Call Recording & Audit Trail' },
-  { icon: MapPin, v: 'GPS-Enabled', k: 'Ground Operations' },
+  { artType: 'compliance', v: 'ISO/IEC 27001', k: 'Certified Information Security', color: '#0072bc' },
+  { artType: 'mission', v: 'IIBF DRA', k: 'Certified Field Recovery Teams', color: '#059669' },
+  { artType: 'dialer', v: '100%', k: 'Call Recording & Audit Trail', color: '#7c3aed' },
+  { artType: 'trace', v: 'GPS-Enabled', k: 'Ground Operations', color: '#d97706' },
 ];
 
 export default function TrustedCertifiedSection() {
   return (
-    <section className="tc7" id="trust">
-      <div className="fg-wrap tc7-head">
-        <span className="fg-eyebrow">Trusted &amp; Certified</span>
-        <h2 className="tc7-title">Banks, NBFCs and fintechs already backing our execution.</h2>
+    <section className="tc7 bg-white py-16 border-b border-slate-200/80" id="trust">
+      <div className="fg-wrap tc7-head text-center max-w-3xl mx-auto mb-10">
+        <span className="fg-eyebrow text-xs font-mono font-bold uppercase tracking-widest text-[#0072bc]">Trusted &amp; Certified</span>
+        <h2 className="tc7-title text-3xl font-serif font-bold text-slate-900 mt-2">Banks, NBFCs and fintechs already backing our execution.</h2>
       </div>
 
-      <div className="trust6-rows" style={{ marginTop: 28 }}>
+      <div className="trust6-rows mb-12">
         {logoRows.map((row, r) => {
           const track = [...row, ...row];
           return (
@@ -62,20 +54,22 @@ export default function TrustedCertifiedSection() {
         })}
       </div>
 
-      <div className="fg-wrap">
-        <div className="tc7-facts">
-          {FACTS.map((f, i) => {
-            const Icon = f.icon;
-            return (
-              <div key={f.v} className="tc7-fact" style={{ borderLeft: i > 0 ? '1px solid var(--line)' : 'none' }}>
-                <span className="tc7-fact-ico"><Icon size={18} /></span>
-                <span>
-                  <span className="tc7-fact-v">{f.v}</span>
-                  <span className="tc7-fact-k">{f.k}</span>
-                </span>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {FACTS.map((f) => (
+            <div 
+              key={f.v} 
+              className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md transition-all duration-300 group"
+            >
+              <div className="p-1 rounded-2xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
+                <RichIcon type={f.artType} size={44} />
               </div>
-            );
-          })}
+              <div>
+                <span className="block text-base font-extrabold text-slate-900 tracking-tight leading-snug">{f.v}</span>
+                <span className="block text-xs font-medium text-slate-500 mt-0.5 leading-relaxed">{f.k}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -30,14 +30,14 @@ export default function ResourcesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.08, duration: 0.55 }}
-              className="glass-card group block rounded-[24px] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#3366FF]/40 hover:shadow-enterpriseHover"
+              className="glass-card group block rounded-[24px] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#0072bc]/40 hover:shadow-enterpriseHover"
             >
-              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#3366FF] text-white transition group-hover:bg-gold-500">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0072bc] text-white transition group-hover:bg-brand-500">
                 {iconMap[card.icon] || <FileText className="h-6 w-6" />}
               </div>
               <h3 className="text-xl font-semibold text-gray-950">{card.title}</h3>
               <p className="mt-3 text-sm leading-7 text-slate-500">{card.description}</p>
-              <div className="mt-6 flex items-center gap-2 text-sm font-bold text-gray-950 transition group-hover:text-[#3366FF]">
+              <div className="mt-6 flex items-center gap-2 text-sm font-bold text-gray-950 transition group-hover:text-[#0072bc]">
                 Explore <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
               </div>
             </motion.a>

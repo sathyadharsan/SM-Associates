@@ -6,11 +6,11 @@ export default function PageLayout({ eyebrow, title, description, children, cta 
   return (
     <section className="relative overflow-hidden bg-white pt-28 pb-20 sm:pt-32 lg:pb-28">
       <div className="noise-overlay absolute inset-0 opacity-70" />
-      <div className="absolute left-1/2 top-20 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-blue-400/10 blur-3xl" />
+      <div className="absolute left-1/2 top-20 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-brand-500/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {eyebrow && (
-          <p className="text-xs font-bold uppercase tracking-[0.32em] text-blue-700">{eyebrow}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-500">{eyebrow}</p>
         )}
         <h1 className="mt-5 text-balance text-4xl font-semibold tracking-[-0.055em] text-gray-950 sm:text-5xl lg:text-7xl">
           {title}
@@ -35,7 +35,7 @@ export default function PageLayout({ eyebrow, title, description, children, cta 
             <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-500">{cta.subheading}</p>
             <Link
               to={cta.href}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#3366FF] px-6 py-3 font-bold text-white shadow-soft transition hover:bg-blue-700"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#0072bc] px-6 py-3 font-bold text-white shadow-soft transition hover:bg-brand-500"
             >
               {cta.buttonText} <ArrowRight className="h-4 w-4" />
             </Link>

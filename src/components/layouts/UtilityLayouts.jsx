@@ -54,15 +54,15 @@ export function CareersLayout({ content }) {
       <section className="relative pt-44 pb-24 bg-slate-950 border-b border-slate-900 text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none z-0">
           <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-35" />
-          <div className="absolute left-[20%] top-[10%] h-[500px] w-[500px] rounded-full bg-blue-600/5 blur-[100px] animate-pulse" />
-          <div className="absolute right-[20%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-violet-600/5 blur-[100px] animate-pulse" />
+          <div className="absolute left-[20%] top-[10%] h-[500px] w-[500px] rounded-full bg-brand-500/5 blur-[100px] animate-pulse" />
+          <div className="absolute right-[20%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-brand-500/5 blur-[100px] animate-pulse" />
         </div>
 
         <div className="relative mx-auto max-w-5xl px-4 z-10 space-y-6">
           <motion.span 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-400 font-mono"
+            className="inline-flex items-center gap-2 rounded-full bg-brand-500/10 border border-brand-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-500 font-mono"
           >
             <Briefcase className="h-3.5 w-3.5" />
             {content.eyebrow}
@@ -89,7 +89,7 @@ export function CareersLayout({ content }) {
       {/* SECTION 2: COMPANY MISSION */}
       <section className="py-20 bg-white text-left">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#C5A021] font-mono">Corporate Mission</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">Corporate Mission</span>
           <h3 className="text-2xl font-bold font-sora">DRA Certified Ground Mediation Sourcing</h3>
           <p className="text-slate-500 text-xs leading-relaxed max-w-3xl">
             We are dedicated to building India's most compliant B2B credit recovery operations and CPV verification network. We hire and train representatives to adhere to RBI fair practices.
@@ -121,7 +121,7 @@ export function CareersLayout({ content }) {
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Open Opportunities</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Open Opportunities</span>
             <h2 className="text-3xl font-bold font-sora mt-2">Active Positions</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -129,7 +129,7 @@ export function CareersLayout({ content }) {
               <div key={idx} className="bg-slate-50 border border-slate-200 rounded-3xl p-6 text-left shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                 <div className="space-y-4">
                   <div className="flex justify-between items-start">
-                    <div className="h-10 w-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center"><Briefcase className="h-5 w-5" /></div>
+                    <div className="h-10 w-10 bg-brand-500 text-brand-500 rounded-xl flex items-center justify-center"><Briefcase className="h-5 w-5" /></div>
                     <span className="text-[10px] font-bold uppercase bg-slate-200 px-2.5 py-0.5 rounded text-slate-700">{job.type}</span>
                   </div>
                   <div>
@@ -138,7 +138,7 @@ export function CareersLayout({ content }) {
                   </div>
                   <p className="text-slate-500 text-xs leading-relaxed">{job.desc}</p>
                 </div>
-                <button onClick={() => setSelectedJob(job)} className="mt-6 w-full rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-3 text-center transition-all">
+                <button onClick={() => setSelectedJob(job)} className="mt-6 w-full rounded-xl bg-brand-500 hover:bg-brand-500 text-white font-bold text-xs py-3 text-center transition-all">
                   Apply For Role
                 </button>
               </div>
@@ -150,7 +150,7 @@ export function CareersLayout({ content }) {
       {/* SECTION 5: BENEFITS / PERKS CARDS */}
       <section className="py-20 bg-slate-50 border-t border-b border-slate-150 text-left">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#C5A021] font-mono">Employee Support</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">Employee Support</span>
           <h3 className="text-2xl font-bold font-sora">Corporate Welfare Perks</h3>
           <p className="text-slate-500 text-xs leading-relaxed">
             We provide structured employee health programs, monthly performance payouts, and travel allowances for all ground verification check officers.
@@ -161,7 +161,7 @@ export function CareersLayout({ content }) {
       {/* SECTION 6: EMPLOYEE TESTIMONIALS */}
       <section className="py-20 bg-white text-left">
         <div className="mx-auto max-w-4xl px-4 bg-slate-50 border border-slate-250 rounded-[32px] p-8 space-y-4 shadow-sm">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Staff Feedback</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Staff Feedback</span>
           <p className="italic text-slate-600 text-xs leading-relaxed font-inter">
             "The training program at the DRA Academy helped me verify credit delinquency cases with high confidence while adhering to RBI guidelines."
           </p>
@@ -172,7 +172,7 @@ export function CareersLayout({ content }) {
       {/* SECTION 7: DRA TRAINING ACADEMY DETAILS */}
       <section className="py-20 bg-slate-50 border-t border-b border-slate-150 text-left">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">DRA Academy</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">DRA Academy</span>
           <h3 className="text-2xl font-bold font-sora">RBI DRA Vetting School</h3>
           <p className="text-slate-500 text-xs leading-relaxed max-w-3xl font-inter">
             Before physical client dispatch, all call center and ground outreach staff are audited for calling etiquette standards and pass RBI DRA certification testing.
@@ -183,7 +183,7 @@ export function CareersLayout({ content }) {
       {/* SECTION 8: BRANCH NETWORK */}
       <section className="py-20 bg-white text-left border-b border-slate-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Geographic Footprint</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Geographic Footprint</span>
           <h3 className="text-2xl font-bold font-sora">Operational Branch Locations</h3>
           <p className="text-slate-500 text-xs leading-relaxed">
             Our teams operate directly out of Chennai HQ and [BRANCH COUNT] branches across Tamil Nadu, Karnataka, Kerala, Telangana, Andhra Pradesh, and Puducherry.
@@ -194,7 +194,7 @@ export function CareersLayout({ content }) {
       {/* SECTION 9: APPLICATION INGESTION WORKFLOW */}
       <section className="py-20 bg-slate-50 text-left border-b border-slate-150">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#C5A021] font-mono">Ingestion Pipeline</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">Ingestion Pipeline</span>
           <h3 className="text-2xl font-bold font-sora">Candidate Onboarding Stages</h3>
           <p className="text-slate-400 text-xs leading-relaxed">
             1. Resume screening checks &gt; 2. Local office interviews &gt; 3. DRA compliance training &gt; 4. Branch dispatch validation.
@@ -205,7 +205,7 @@ export function CareersLayout({ content }) {
       {/* SECTION 10: COMPLIANCE CODES */}
       <section className="py-16 bg-[#0a1128] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <h3 className="text-lg font-bold font-sora text-amber-400">Zero Tolerance Regulatory Conduct</h3>
+          <h3 className="text-lg font-bold font-sora text-brand-500">Zero Tolerance Regulatory Conduct</h3>
           <div className="flex flex-wrap justify-center gap-4">
             <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-xs font-mono">RBI Call boundaries 08:00 AM - 07:00 PM</span>
             <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-xs font-mono">No third-party disclosures check logs</span>
@@ -248,7 +248,7 @@ export function CareersLayout({ content }) {
               <form onSubmit={handleSubmit} className="space-y-4 mt-4">
                 <input required type="text" placeholder="Name..." className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-[#0a1128]" />
                 <input required type="email" placeholder="Email..." className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-[#0a1128]" />
-                <button type="submit" className="w-full rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-3 text-center transition-all">Submit application</button>
+                <button type="submit" className="w-full rounded-xl bg-brand-500 hover:bg-brand-500 text-white font-bold text-xs py-3 text-center transition-all">Submit application</button>
               </form>
             </motion.div>
           </div>
@@ -277,15 +277,15 @@ export function ContactLayout({ content }) {
       <section className="relative pt-44 pb-24 bg-slate-950 border-b border-slate-900 text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none z-0">
           <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-35" />
-          <div className="absolute left-[20%] top-[10%] h-[500px] w-[500px] rounded-full bg-blue-600/5 blur-[100px] animate-pulse" />
-          <div className="absolute right-[20%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-violet-600/5 blur-[100px] animate-pulse" />
+          <div className="absolute left-[20%] top-[10%] h-[500px] w-[500px] rounded-full bg-brand-500/5 blur-[100px] animate-pulse" />
+          <div className="absolute right-[20%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-brand-500/5 blur-[100px] animate-pulse" />
         </div>
 
         <div className="relative mx-auto max-w-5xl px-4 z-10 space-y-6">
           <motion.span 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-400 font-mono"
+            className="inline-flex items-center gap-2 rounded-full bg-brand-500/10 border border-brand-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-500 font-mono"
           >
             <Compass className="h-3.5 w-3.5 animate-pulse" />
             {content.eyebrow}
@@ -330,7 +330,7 @@ export function ContactLayout({ content }) {
               <p className="text-slate-500 text-xs leading-relaxed">No.8, Ground Floor, Gandhi Nagar Second Street, Kodambakkam, Chennai - 600024.</p>
             </div>
             <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-2">
-              <span className="text-xs font-bold text-blue-600 font-mono">Telephone Desk</span>
+              <span className="text-xs font-bold text-brand-500 font-mono">Telephone Desk</span>
               <h4 className="font-bold text-sm font-sora">Outreach channels</h4>
               <p className="text-slate-500 text-xs leading-relaxed">Landline: 044-48600024 / 48600042</p>
             </div>
@@ -341,7 +341,7 @@ export function ContactLayout({ content }) {
       {/* SECTION 4: TELEPHONE LOGS */}
       <section className="py-20 bg-white text-left">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Branch Lines</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Branch Lines</span>
           <h3 className="text-2xl font-bold font-sora">Fax & Dial Log Directory</h3>
           <p className="text-slate-500 text-xs leading-relaxed max-w-3xl">
             Branch phone networks are monitored by corporate auditors. Outbound call lines strictly log client IDs to block compliance check errors.
@@ -352,7 +352,7 @@ export function ContactLayout({ content }) {
       {/* SECTION 5: SECURE FTP DETAILS */}
       <section className="py-20 bg-slate-50 border-t border-b border-slate-150 text-left">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Ingestion portal</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Ingestion portal</span>
           <h3 className="text-2xl font-bold font-sora">Secure SSL FTP parameters</h3>
           <p className="text-slate-500 text-xs leading-relaxed max-w-3xl">
             Banks transmit defaulted client lists through SSH encrypted port logs daily. Reconciled payment logs are exported weekly.
@@ -366,7 +366,7 @@ export function ContactLayout({ content }) {
           <h3 className="text-2xl font-bold font-sora text-[#0a1128] mb-6">Submit Empanelment Proposal</h3>
           {submitted ? (
             <div className="text-center py-12 space-y-3">
-              <CheckCircle2 className="h-10 w-10 text-emerald-500 mx-auto" />
+              <CheckCircle2 className="h-10 w-10 text-brand-500 mx-auto" />
               <p className="font-bold text-xs">Proposal Request Logged Successfully</p>
             </div>
           ) : (
@@ -374,7 +374,7 @@ export function ContactLayout({ content }) {
               <input required type="text" placeholder="Banking Institution Name..." className="w-full rounded-xl border border-slate-250 bg-white px-4 py-3 text-xs" />
               <input required type="email" placeholder="Corporate Contact Email..." className="w-full rounded-xl border border-slate-250 bg-white px-4 py-3 text-xs" />
               <textarea required rows="4" placeholder="Detail empanelment coordinates or ground verification checking needed..." className="w-full rounded-xl border border-slate-250 bg-white px-4 py-3 text-xs"></textarea>
-              <button type="submit" className="w-full rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-3.5 text-center transition-all shadow-md">
+              <button type="submit" className="w-full rounded-xl bg-brand-500 hover:bg-brand-500 text-white font-bold text-xs py-3.5 text-center transition-all shadow-md">
                 Submit Proposal Inquiry
               </button>
             </form>
@@ -385,7 +385,7 @@ export function ContactLayout({ content }) {
       {/* SECTION 7: STATE TAB SELECTOR */}
       <section className="py-20 bg-slate-50 border-t border-b border-slate-150 text-left">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#C5A021] font-mono">Branch Networks</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">Branch Networks</span>
           <h3 className="text-2xl font-bold font-sora">Decentralized Regional Offices</h3>
           <p className="text-slate-500 text-xs leading-relaxed max-w-3xl">
             We cover South India branches network out of physical branch offices. Select coverage tabs on Coverage page to verify managers coordinates.
@@ -396,7 +396,7 @@ export function ContactLayout({ content }) {
       {/* SECTION 8: SLA COMMITMENTS */}
       <section className="py-20 bg-white text-left border-b border-slate-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Precision SLA</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Precision SLA</span>
           <h3 className="text-2xl font-bold font-sora">Timeline TAT Targets</h3>
           <p className="text-slate-500 text-xs leading-relaxed">
             CPV candidate document checks are completed within average 48 Hours. SEC 13 demand notices are served within 3 Days from file assignment log.
@@ -407,7 +407,7 @@ export function ContactLayout({ content }) {
       {/* SECTION 9: CONDUCT STANDARDS */}
       <section className="py-20 bg-slate-50 text-left border-b border-slate-150">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Outreach Ethics</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Outreach Ethics</span>
           <h3 className="text-2xl font-bold font-sora">Mandatory RBI caller audit protocols</h3>
           <p className="text-slate-500 text-xs leading-relaxed">
             Outbound dialing hours bounds are strictly locked. Caller recordings are audited daily to block fair practices violation logs.
@@ -418,7 +418,7 @@ export function ContactLayout({ content }) {
       {/* SECTION 10: COMPLIANCE AUDITING */}
       <section className="py-16 bg-[#0a1128] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <h3 className="text-lg font-bold font-sora text-amber-400">Zero Tolerance Regulatory Conduct</h3>
+          <h3 className="text-lg font-bold font-sora text-brand-500">Zero Tolerance Regulatory Conduct</h3>
           <div className="flex flex-wrap justify-center gap-4">
             <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-xs font-mono">100% DRA Certified Staff</span>
             <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-xs font-mono">ISO Data Security check loops</span>
@@ -474,21 +474,21 @@ export function LoginLayout({ content }) {
   return (
     <div className="relative min-h-screen bg-[#030712] text-white overflow-x-hidden font-inter text-left">
       {/* Background radial overlays */}
-      <div className="absolute top-[-20%] left-[-20%] h-[600px] w-[600px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-[-20%] left-[-20%] h-[600px] w-[600px] bg-brand-500/10 rounded-full blur-[100px] pointer-events-none" />
 
       {/* SECTION 1: HERO */}
       <section className="relative pt-44 pb-24 bg-slate-950 border-b border-slate-900 text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none z-0">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-35" />
-          <div className="absolute left-[20%] top-[10%] h-[500px] w-[500px] rounded-full bg-blue-600/5 blur-[100px] animate-pulse" />
-          <div className="absolute right-[20%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-indigo-600/5 blur-[100px] animate-pulse" />
+          <div className="absolute left-[20%] top-[10%] h-[500px] w-[500px] rounded-full bg-brand-500/5 blur-[100px] animate-pulse" />
+          <div className="absolute right-[20%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-brand-500/5 blur-[100px] animate-pulse" />
         </div>
 
         <div className="relative mx-auto max-w-5xl px-4 z-10 space-y-6">
           <motion.span 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full text-[10px] font-bold text-blue-400 uppercase font-mono"
+            className="inline-flex items-center gap-1.5 bg-brand-500/10 border border-brand-500/20 px-3 py-1.5 rounded-full text-[10px] font-bold text-brand-500 uppercase font-mono"
           >
             <Lock className="h-3.5 w-3.5" /> Secure Client Console
           </motion.span>
@@ -517,7 +517,7 @@ export function LoginLayout({ content }) {
           <div className="bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl backdrop-blur-md space-y-6">
             {success ? (
               <div className="text-center py-10 space-y-4">
-                <CheckCircle2 className="h-12 w-12 text-emerald-400 mx-auto" />
+                <CheckCircle2 className="h-12 w-12 text-brand-500 mx-auto" />
                 <h4 className="font-bold text-sm">Authentication Validated</h4>
                 <p className="text-slate-400 text-xs">Accessing dashboard ledger...</p>
               </div>
@@ -525,17 +525,17 @@ export function LoginLayout({ content }) {
               <form onSubmit={handleLoginSubmit} className="space-y-4">
                 <div>
                   <label className="block text-[10px] font-bold text-slate-400 uppercase font-mono">Corporate User ID</label>
-                  <input required type="text" placeholder="e.g. bank_axis_user01" className="mt-1.5 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500" />
+                  <input required type="text" placeholder="e.g. bank_axis_user01" className="mt-1.5 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-500" />
                 </div>
                 <div>
                   <label className="block text-[10px] font-bold text-slate-400 uppercase font-mono">Terminal Password</label>
-                  <input required type="password" placeholder="••••••••••••" className="mt-1.5 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-blue-500" />
+                  <input required type="password" placeholder="••••••••••••" className="mt-1.5 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-500" />
                 </div>
                 <div className="flex items-center gap-2 pt-2">
-                  <input type="checkbox" id="mfa" checked={mfaChecked} onChange={() => setMfaChecked(!mfaChecked)} className="rounded bg-white/5 border-white/10 text-blue-600 focus:ring-0 cursor-pointer" />
+                  <input type="checkbox" id="mfa" checked={mfaChecked} onChange={() => setMfaChecked(!mfaChecked)} className="rounded bg-white/5 border-white/10 text-brand-500 focus:ring-0 cursor-pointer" />
                   <label htmlFor="mfa" className="text-[10px] font-bold text-slate-400 uppercase cursor-pointer select-none">Verify OTP / Mobile MFA Check</label>
                 </div>
-                <button type="submit" disabled={!mfaChecked} className={`w-full rounded-xl text-xs font-bold py-3.5 text-center shadow-lg transition-all ${mfaChecked ? 'bg-blue-600 hover:bg-blue-700 text-white cursor-pointer' : 'bg-white/5 text-slate-500 cursor-not-allowed border border-white/5'}`}>
+                <button type="submit" disabled={!mfaChecked} className={`w-full rounded-xl text-xs font-bold py-3.5 text-center shadow-lg transition-all ${mfaChecked ? 'bg-brand-500 hover:bg-brand-500 text-white cursor-pointer' : 'bg-white/5 text-slate-500 cursor-not-allowed border border-white/5'}`}>
                   Sign In to Vault
                 </button>
               </form>
@@ -547,7 +547,7 @@ export function LoginLayout({ content }) {
       {/* SECTION 3: 256-BIT ENCRYPTION DETAILS */}
       <section className="py-20 bg-[#050914] border-b border-slate-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">Data Protection</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Data Protection</span>
           <h3 className="text-2xl font-bold font-sora">Bank-Grade Database Security</h3>
           <p className="text-slate-400 text-xs leading-relaxed max-w-3xl">
             All transaction files and geolocated visit logs are encrypted at rest using AES-256 coordinates loops. Database nodes access requires pre-vetted banking IP ranges.
@@ -558,7 +558,7 @@ export function LoginLayout({ content }) {
       {/* SECTION 4: ISO SECURITY LOGS */}
       <section className="py-20 bg-[#030712] border-b border-slate-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">System Auditing</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">System Auditing</span>
           <h3 className="text-2xl font-bold font-sora">ISO 27001 Data Custody Protocols</h3>
           <p className="text-slate-400 text-xs leading-relaxed max-w-3xl">
             We are audited annually by third-party bank cybersecurity auditors. Connection logs sync parameters are validated monthly to prevent synthetic data leaks.
@@ -569,7 +569,7 @@ export function LoginLayout({ content }) {
       {/* SECTION 5: USER SECURITY GUIDELINES */}
       <section className="py-20 bg-[#050914] border-b border-slate-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">User Codes</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">User Codes</span>
           <h3 className="text-2xl font-bold font-sora">Corporate credentials safety directives</h3>
           <p className="text-slate-400 text-xs leading-relaxed max-w-3xl">
             Users must update passcodes every 90 Days. Login session tokens expire within 15 Minutes of terminal inactivity.
@@ -580,7 +580,7 @@ export function LoginLayout({ content }) {
       {/* SECTION 6: COMPLIANCE CODE GUIDELINES */}
       <section className="py-20 bg-[#030712] border-b border-slate-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">Regulatory loop</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Regulatory loop</span>
           <h3 className="text-2xl font-bold font-sora">Outbound Caller boundaries</h3>
           <p className="text-slate-400 text-xs leading-relaxed">
             Portals disable manual phone number exports to comply with data privacy policies and RBI Fair Practices codes.
@@ -591,7 +591,7 @@ export function LoginLayout({ content }) {
       {/* SECTION 7: BRANCH NETWORK SECURITY */}
       <section className="py-20 bg-[#050914] border-b border-slate-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">Office Vetting</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Office Vetting</span>
           <h3 className="text-2xl font-bold font-sora">Local physical data safety</h3>
           <p className="text-slate-400 text-xs leading-relaxed">
             All regional branches operate CCTV watch logs and restrict physical paper files storage to block borrower data exposures.
@@ -602,7 +602,7 @@ export function LoginLayout({ content }) {
       {/* SECTION 8: INGESTION FTP PARAMETERS */}
       <section className="py-20 bg-[#030712] border-b border-slate-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">Ingestion ports</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Ingestion ports</span>
           <h3 className="text-2xl font-bold font-sora">SFTP SSH coordinates</h3>
           <p className="text-slate-400 text-xs leading-relaxed">
             Case directories sync parameters require authorized private keys files coordinates to establish upload handshakes.
@@ -613,7 +613,7 @@ export function LoginLayout({ content }) {
       {/* SECTION 9: AUDITABLE VOICE LOG DETAILS */}
       <section className="py-20 bg-[#050914] border-b border-slate-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-400 font-mono">Outbound Auditing</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Outbound Auditing</span>
           <h3 className="text-2xl font-bold font-sora">Call logger archives</h3>
           <p className="text-slate-400 text-xs leading-relaxed">
             Outbound dialer calling logs are archived automatically and forwarded to client banking audit panels monthly.
@@ -624,7 +624,7 @@ export function LoginLayout({ content }) {
       {/* SECTION 10: COMPLIANCE STATUS */}
       <section className="py-16 bg-[#0a1128] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <h3 className="text-lg font-bold font-sora text-amber-400">Security Certifications Vetting</h3>
+          <h3 className="text-lg font-bold font-sora text-brand-500">Security Certifications Vetting</h3>
           <div className="flex flex-wrap justify-center gap-4">
             <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-xs font-mono">ISO 27001 Certified Custody</span>
             <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-xs font-mono">RBI Fair Practices Compliant System</span>
@@ -647,9 +647,9 @@ export function LoginLayout({ content }) {
 
       {/* SECTION 12: SYSTEM STATUS CTA */}
       <section className="py-20 bg-[#050914] text-center">
-        <div className="mx-auto max-w-4xl px-4 bg-blue-600 rounded-[32px] p-12 text-white space-y-6 shadow-2xl">
+        <div className="mx-auto max-w-4xl px-4 bg-brand-500 rounded-[32px] p-12 text-white space-y-6 shadow-2xl">
           <h2 className="text-3xl font-extrabold font-sora">Security System Status: Online</h2>
-          <p className="text-blue-100 max-w-md mx-auto text-xs leading-relaxed">
+          <p className="text-brand-500 max-w-md mx-auto text-xs leading-relaxed">
             All SSH FTP servers, outbound dialers logging pipelines, and geofencing systems are fully functional.
           </p>
         </div>

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Navigation, X, Building2 } from 'lucide-react';
 import { officeCities, COMPANY, mapsUrl } from '../../data/contactOfficesData';
 
-const HQ_COLOR = '#C8A45D';
+const HQ_COLOR = '#0072bc';
 const BRANCH_COLOR = '#3FA9FF';
 
 function CityMarker({ loc, isActive, onSelect }) {
@@ -54,7 +54,7 @@ function CityPopup({ loc, onClose }) {
         <X className="h-4 w-4" />
       </button>
       <div className="flex items-center gap-2">
-        <span className={`rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide ${loc.tier === 'hq' ? 'bg-gold-500/15 text-gold-500' : 'bg-brand-50 text-brand-500'}`}>
+        <span className={`rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide ${loc.tier === 'hq' ? 'bg-brand-500/15 text-brand-500' : 'bg-brand-50 text-brand-500'}`}>
           {loc.tier === 'hq' ? 'Head Office' : 'Branch Location'}
         </span>
         <span className="text-[11px] font-semibold text-slate-400">{loc.state}</span>
@@ -94,7 +94,7 @@ export default function OperationalMap() {
     <section className="relative overflow-hidden bg-slate-950 py-20 sm:py-24" id="operational-presence">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:34px_34px] opacity-40" />
       <div className="pointer-events-none absolute left-[10%] top-[10%] h-[420px] w-[420px] rounded-full bg-brand-500/10 blur-[110px]" />
-      <div className="pointer-events-none absolute right-[10%] bottom-[10%] h-[380px] w-[380px] rounded-full bg-gold-500/10 blur-[110px]" />
+      <div className="pointer-events-none absolute right-[10%] bottom-[10%] h-[380px] w-[380px] rounded-full bg-brand-500/10 blur-[110px]" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">

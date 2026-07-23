@@ -14,7 +14,7 @@ export default function MapModeTabs({ activeMode, onChange }) {
             className="rounded-full px-4 py-2 text-[12px] font-semibold transition-all"
             style={active
               ? { background: `${mode.color}1a`, color: mode.color, border: `1px solid ${mode.color}55`, boxShadow: `0 0 16px -6px ${mode.color}` }
-              : { background: 'rgba(51,102,255,0.04)', color: 'rgba(10,14,26,0.45)', border: '1px solid rgba(51,102,255,0.1)' }}
+              : { background: 'rgba(0, 114, 188,0.04)', color: 'rgba(10,14,26,0.45)', border: '1px solid rgba(0, 114, 188,0.1)' }}
           >
             {mode.label}
           </button>

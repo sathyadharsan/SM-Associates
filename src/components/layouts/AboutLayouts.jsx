@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useScroll, useSpring, useTransform, useMotionV
 import { Link } from 'react-router-dom';
 import { getPageContent } from '../../data/pagesContent';
 import '../../styles/homepage-v6.css';
+import RichIcon from '../sections/shared/RichIcon';
 import {
   ArrowRight,
   CheckCircle2,
@@ -67,7 +68,7 @@ const drawLine = {
 };
 
 // ── Premium Interactive 3D-Tilt Card for About Page ──
-function PremiumTiltCard({ children, className = '', color = '#2563EB', delay = 0, style = {} }) {
+function PremiumTiltCard({ children, className = '', color = '#0072bc', delay = 0, style = {} }) {
   const cardRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
   const rawX = useMotionValue(0);
@@ -214,15 +215,15 @@ export function CompanyOverviewLayout({ content }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8 text-left">
               <div className="space-y-3">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono block">ORGANIZATIONAL PROFILE</span>
+                <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono block">ORGANIZATIONAL PROFILE</span>
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">
                   Who We Are
                 </h2>
-                <div className="w-16 h-1 bg-[#2563EB] rounded-full" />
+                <div className="w-16 h-1 bg-[#0072bc] rounded-full" />
               </div>
 
               {/* Editorial Highlight Statement */}
-              <div className="border-l-4 border-[#2563EB] pl-5 py-2">
+              <div className="border-l-4 border-[#0072bc] pl-5 py-2">
                 <p className="text-base md:text-lg font-medium text-slate-750 font-serif italic leading-relaxed">
                   "Pioneering compliant debt resolution, asset tracing, and physical custody operations across South India since 2000."
                 </p>
@@ -241,34 +242,31 @@ export function CompanyOverviewLayout({ content }) {
                     {
                       title: 'End-to-End NPA Lifecycle',
                       desc: 'Stage-1 early resolution through to Stage-3 legal enforcement.',
-                      color: '#2563EB'
+                      color: '#0072bc'
                     },
                     {
                       title: 'Zero-Tolerance Compliance',
                       desc: '100% adherence to RBI fair practice collection codes.',
-                      color: '#10B981'
+                      color: '#059669'
                     },
                     {
                       title: 'IIBF DRA Certified Staff',
                       desc: 'Examination-verified field representatives protect brand trust.',
-                      color: '#7C3AED'
+                      color: '#7c3aed'
                     },
                     {
                       title: 'Geotagged Visit Telemetry',
                       desc: 'Real-time GPS check-ins and immutable audit logging.',
-                      color: '#0D9488'
+                      color: '#d97706'
                     }
                   ].map((comp, idx) => (
                     <motion.div
                       key={idx}
                       whileHover={{ y: -3 }}
-                      className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-2xl p-4 flex gap-4 items-start transition-all duration-305 hover:border-slate-300 hover:shadow-sm"
+                      className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-2xl p-4 flex gap-4 items-start transition-all duration-305 hover:border-slate-300 hover:shadow-sm group"
                     >
-                      <div 
-                        className="h-8 w-8 rounded-lg flex items-center justify-center shrink-0"
-                        style={{ backgroundColor: `color-mix(in srgb, ${comp.color} 12%, transparent)`, color: comp.color }}
-                      >
-                        <CheckCircle2 className="h-4.5 w-4.5" />
+                      <div className="p-1 rounded-xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
+                        <RichIcon type={comp.title} size={40} />
                       </div>
                       <div className="space-y-0.5 text-left leading-tight">
                         <h5 className="font-bold text-sm text-[#0F172A] font-serif">{comp.title}</h5>
@@ -310,7 +308,7 @@ export function CompanyOverviewLayout({ content }) {
       >
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto space-y-3 text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">HISTORICAL TIMELINE</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">HISTORICAL TIMELINE</span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Our Journey</h2>
             <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
               From a single Chennai desk in 2000 to a five-state risk operations network — built milestone by milestone.
@@ -325,7 +323,7 @@ export function CompanyOverviewLayout({ content }) {
             <div className="space-y-8 lg:hidden">
               {filteredMilestones.map((m, i) => {
                 const isFuture = m.year === '2026';
-                const accent = isFuture ? '#C8922A' : '#2563EB';
+                const accent = isFuture ? '#0072bc' : '#0072bc';
                 return (
                   <motion.div
                     key={m.year}
@@ -349,7 +347,7 @@ export function CompanyOverviewLayout({ content }) {
               {/* Left Column (even items: 2000, 2020) */}
               <div className="space-y-24 text-right flex flex-col items-end pr-12">
                 {leftMilestones.map((m) => {
-                  const accent = '#2563EB';
+                  const accent = '#0072bc';
                   return (
                     <motion.div
                       key={m.year}
@@ -373,7 +371,7 @@ export function CompanyOverviewLayout({ content }) {
               <div className="space-y-24 text-left flex flex-col items-start pl-12 mt-32">
                 {rightMilestones.map((m) => {
                   const isFuture = m.year === '2026';
-                  const accent = isFuture ? '#C8922A' : '#2563EB';
+                  const accent = isFuture ? '#0072bc' : '#0072bc';
                   return (
                     <motion.div
                       key={m.year}
@@ -407,33 +405,39 @@ export function CompanyOverviewLayout({ content }) {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center space-y-3 mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">DIRECTION</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">DIRECTION</span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Vision &amp; Mission</h2>
             <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">Where we are going, and how we operate to get there.</p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <PremiumTiltCard color="#2563EB" delay={0} className="p-8 space-y-5 text-left">
+            <PremiumTiltCard color="#8b5cf6" delay={0} className="p-8 space-y-5 text-left group">
               <div className="flex items-center gap-3">
-                <span className="h-10 w-10 rounded-xl bg-[#2563EB]/10 text-[#2563EB] flex items-center justify-center shrink-0">
-                  <Sparkles className="h-5 w-5" />
-                </span>
-                <h3 className="text-xl font-bold font-serif text-[#0F172A]">Vision</h3>
+                <div className="p-1 rounded-2xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
+                  <RichIcon type="vision" size={48} />
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#8b5cf6] font-mono block">Strategic Future</span>
+                  <h3 className="text-xl font-bold font-serif text-[#0F172A]">Vision</h3>
+                </div>
               </div>
-              <p className="text-base text-slate-700 font-serif italic leading-relaxed border-l-4 border-[#2563EB]/30 pl-4">
+              <p className="text-base text-slate-700 font-serif italic leading-relaxed border-l-4 border-[#8b5cf6]/40 pl-4">
                 &ldquo;To become India&rsquo;s most trusted Recovery and Risk Management organization by combining operational excellence, technology, and AI-driven capabilities.&rdquo;
               </p>
               <p className="text-sm text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
                 Expanding from South India to national scale through disciplined execution, long-term bank partnerships, and continuous investment in field intelligence.
               </p>
             </PremiumTiltCard>
-            <PremiumTiltCard color="#F59E0B" delay={0.08} className="p-8 space-y-5 text-left">
+            <PremiumTiltCard color="#f43f5e" delay={0.08} className="p-8 space-y-5 text-left group">
               <div className="flex items-center gap-3">
-                <span className="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
-                  <Shield className="h-5 w-5" />
-                </span>
-                <h3 className="text-xl font-bold font-serif text-[#0F172A]">Mission</h3>
+                <div className="p-1 rounded-2xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
+                  <RichIcon type="mission" size={48} />
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#f43f5e] font-mono block">Core Purpose</span>
+                  <h3 className="text-xl font-bold font-serif text-[#0F172A]">Mission</h3>
+                </div>
               </div>
-              <p className="text-base text-slate-700 font-serif italic leading-relaxed border-l-4 border-amber-400/30 pl-4">
+              <p className="text-base text-slate-700 font-serif italic leading-relaxed border-l-4 border-[#f43f5e]/40 pl-4">
                 &ldquo;Deliver enterprise-grade recovery and risk management through structured processes, professional execution, and continuous innovation.&rdquo;
               </p>
               <p className="text-sm text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
@@ -454,7 +458,7 @@ export function CompanyOverviewLayout({ content }) {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="max-w-2xl mx-auto text-center space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">TECHNOLOGY</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">TECHNOLOGY</span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Technology</h2>
             <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
               AI-augmented field operations, ML-based portfolio routing, and real-time compliance engines — active across every mandate.
@@ -468,36 +472,29 @@ export function CompanyOverviewLayout({ content }) {
                 {
                   title: 'Smart Outreach',
                   desc: 'Multilingual AI voice agents handle pre-delinquency borrower contact in 5 languages, routing complex accounts to certified field officers.',
-                  icon: Volume2,
-                  color: '#2563EB'
+                  color: '#0072bc'
                 },
                 {
                   title: 'Portfolio Routing',
                   desc: 'ML algorithms prioritize accounts by recovery probability — maximizing field effort where resolution outcomes are highest.',
-                  icon: Activity,
-                  color: '#7C3AED'
+                  color: '#8b5cf6'
                 },
                 {
                   title: 'Compliance Automation',
                   desc: 'Server-side engines validate GPS location, timestamps, and outreach logs in real time — guaranteeing RBI Fair Practice adherence.',
-                  icon: UserCheck,
-                  color: '#10B981'
+                  color: '#059669'
                 }
               ].map((item, idx) => {
-                const Icon = item.icon;
                 return (
                   <PremiumTiltCard
                     key={idx}
                     delay={idx * 0.08}
                     color={item.color}
-                    className="flex-1 flex gap-5 items-start p-6"
+                    className="flex-1 flex gap-5 items-start p-6 group"
                   >
                     <div className="flex gap-5 items-start">
-                      <div
-                        className="h-10 w-10 rounded-xl flex items-center justify-center shrink-0 text-white shadow-md"
-                        style={{ backgroundColor: item.color }}
-                      >
-                        <Icon className="h-5 w-5" />
+                      <div className="p-1 rounded-xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
+                        <RichIcon type={item.title} size={42} />
                       </div>
                       <div className="text-left leading-snug">
                         <h4 className="font-bold text-base text-[#0F172A] font-serif mb-1">{item.title}</h4>
@@ -518,7 +515,7 @@ export function CompanyOverviewLayout({ content }) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-900/30 to-transparent pointer-events-none" />
               <div className="relative p-8 text-white z-10">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400 font-mono block mb-1">AI Integration</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-brand-500 font-mono block mb-1">AI Integration</span>
                 <h4 className="text-lg font-bold font-serif leading-snug">Smart Portfolio Routing &amp; Outreach</h4>
               </div>
             </div>
@@ -527,7 +524,7 @@ export function CompanyOverviewLayout({ content }) {
           <div className="text-center pt-2">
             <Link
               to="/platform"
-              className="inline-flex items-center gap-2 text-sm font-bold text-[#2563EB] hover:text-[#1D4ED8] transition-colors group"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#0072bc] hover:text-[#0072bc] transition-colors group"
             >
               Explore Our Platform
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -546,7 +543,7 @@ export function CompanyOverviewLayout({ content }) {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-16">
           <div className="max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">EXECUTIVE DIRECTION</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">EXECUTIVE DIRECTION</span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Leadership</h2>
             <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Banking veterans with 250+ combined years directing recovery operations, legal enforcement, and institutional strategy.
@@ -556,7 +553,7 @@ export function CompanyOverviewLayout({ content }) {
           {/* MD Spotlight Spot */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
             <div className="lg:col-span-5 relative">
-              <PremiumTiltCard color="#2563EB" className="p-5 space-y-4">
+              <PremiumTiltCard color="#0072bc" className="p-5 space-y-4">
                 <div className="h-80 w-full rounded-2xl overflow-hidden border border-[#E2E8F0] bg-slate-100 relative">
                   <img
                     src={leadershipContent.mdSpotlight?.photo || "/images/jebaraj.M MD.png"}
@@ -566,7 +563,7 @@ export function CompanyOverviewLayout({ content }) {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold font-serif text-[#0F172A]">{leadershipContent.mdSpotlight?.name}</h3>
-                  <p className="text-sm text-[#2563EB] font-bold uppercase tracking-wider font-mono mt-0.5">{leadershipContent.mdSpotlight?.role}</p>
+                  <p className="text-sm text-[#0072bc] font-bold uppercase tracking-wider font-mono mt-0.5">{leadershipContent.mdSpotlight?.role}</p>
                 </div>
                 <div className="pt-2 border-t border-[#E2E8F0]">
                   <a
@@ -575,22 +572,22 @@ export function CompanyOverviewLayout({ content }) {
                     rel="noreferrer"
                     className="inline-flex items-center gap-1.5 rounded-lg border border-[#E2E8F0] px-4 py-2 text-xs font-bold text-[#0F172A] hover:bg-slate-50 transition-colors w-full justify-center"
                   >
-                    <Linkedin className="h-3.5 w-3.5 text-[#2563EB] fill-[#2563EB]" /> Connect on LinkedIn
+                    <Linkedin className="h-3.5 w-3.5 text-[#0072bc] fill-[#0072bc]" /> Connect on LinkedIn
                   </a>
                 </div>
               </PremiumTiltCard>
             </div>
 
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono block">Managing Director's Statement</span>
-              <blockquote className="text-[#0F172A] text-lg font-medium font-serif leading-relaxed italic border-l-4 border-[#2563EB] pl-6 py-1">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono block">Managing Director's Statement</span>
+              <blockquote className="text-[#0F172A] text-lg font-medium font-serif leading-relaxed italic border-l-4 border-[#0072bc] pl-6 py-1">
                 "{leadershipContent.mdSpotlight?.quote}"
               </blockquote>
 
               <div className="grid grid-cols-2 gap-4">
                 {leadershipContent.mdSpotlight?.stats?.map((stat, idx) => (
                   <div key={idx} className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-xl px-4 py-3 text-left">
-                    <div className="text-lg font-bold text-[#2563EB] font-serif">{stat.value}</div>
+                    <div className="text-lg font-bold text-[#0072bc] font-serif">{stat.value}</div>
                     <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">{stat.label}</div>
                   </div>
                 ))}
@@ -601,7 +598,7 @@ export function CompanyOverviewLayout({ content }) {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-2">
                   {leadershipContent.mdSpotlight?.timeline.map((step, idx) => (
                     <div key={idx} className="space-y-1">
-                      <div className="text-xs font-bold text-[#2563EB] bg-[#2563EB]/10 px-2 py-0.5 rounded font-mono inline-block mb-1">{step.inst}</div>
+                      <div className="text-xs font-bold text-[#0072bc] bg-[#0072bc]/10 px-2 py-0.5 rounded font-mono inline-block mb-1">{step.inst}</div>
                       <div className="text-xs font-bold text-slate-500 font-mono">{step.year}</div>
                       <h5 className="font-bold text-xs text-[#0F172A] leading-snug">{step.role}</h5>
                     </div>
@@ -619,7 +616,7 @@ export function CompanyOverviewLayout({ content }) {
                 <PremiumTiltCard 
                   key={i} 
                   delay={i * 0.08} 
-                  color="#2563EB" 
+                  color="#0072bc" 
                   className="p-0 overflow-hidden flex flex-col justify-between h-full text-left"
                 >
                   <div className="h-64 w-full overflow-hidden bg-slate-50 border-b border-[#E2E8F0] relative">
@@ -632,7 +629,7 @@ export function CompanyOverviewLayout({ content }) {
                   <div className="p-6 text-left flex flex-col justify-between flex-grow">
                     <div className="space-y-1.5">
                       <h3 className="font-bold text-base text-[#0F172A] font-serif leading-snug">{member.name}</h3>
-                      <p className="text-xs text-[#2563EB] font-bold uppercase tracking-wider font-mono leading-none">{member.role}</p>
+                      <p className="text-xs text-[#0072bc] font-bold uppercase tracking-wider font-mono leading-none">{member.role}</p>
                       <p className="text-xs text-slate-500 font-mono pt-1">Tenure: {member.experience}</p>
                     </div>
 
@@ -644,7 +641,7 @@ export function CompanyOverviewLayout({ content }) {
                     <div className="mt-6 flex items-center justify-between">
                       <button
                         onClick={() => setSelectedLeader(member)}
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#2563EB] hover:underline"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#0072bc] hover:underline"
                       >
                         View Profile <ChevronRight className="h-3 w-3 animate-bounce-horizontal" />
                       </button>
@@ -652,7 +649,7 @@ export function CompanyOverviewLayout({ content }) {
                         href={member.linkedin}
                         target="_blank"
                         rel="noreferrer"
-                        className="h-7 w-7 rounded-full border border-[#E2E8F0] flex items-center justify-center text-slate-400 hover:text-[#2563EB] hover:border-[#2563EB] transition-colors"
+                        className="h-7 w-7 rounded-full border border-[#E2E8F0] flex items-center justify-center text-slate-400 hover:text-[#0072bc] hover:border-[#0072bc] transition-colors"
                       >
                         <Linkedin className="h-3.5 w-3.5 fill-current" />
                       </a>
@@ -680,7 +677,7 @@ export function CompanyOverviewLayout({ content }) {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
           <div className="max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">DIFFERENTIATION MATRIX</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">DIFFERENTIATION MATRIX</span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Why SM</h2>
             <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Five structural advantages that make us the low-risk, high-accountability partner for stressed portfolio management.
@@ -697,7 +694,7 @@ export function CompanyOverviewLayout({ content }) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/30 to-transparent pointer-events-none" />
               <div className="relative p-8 text-white z-10">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400 font-mono block mb-1">Corporate Trust</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-brand-500 font-mono block mb-1">Corporate Trust</span>
                 <h4 className="text-xl font-bold font-serif leading-snug">Partnerships Built on Performance &amp; Compliance</h4>
               </div>
             </div>
@@ -731,28 +728,19 @@ export function CompanyOverviewLayout({ content }) {
                   advantage: 'Reach without the coordination overhead of managing multiple regional vendors.'
                 }
               ].map((card, i) => {
-                const cardData = [
-                  { color: '#D97706', icon: Award },
-                  { color: '#2563EB', icon: Activity },
-                  { color: '#E11D48', icon: Fingerprint },
-                  { color: '#4F46E5', icon: Building2 },
-                  { color: '#0D9488', icon: MapPin }
-                ][i];
-                const CardIcon = cardData.icon;
+                const cardColors = ['#0072bc', '#059669', '#7c3aed', '#d97706', '#0284c7'];
+                const cardColor = cardColors[i % cardColors.length];
                 return (
-                  <PremiumTiltCard key={i} delay={i * 0.08} color={cardData.color} className="space-y-3 text-left">
+                  <PremiumTiltCard key={i} delay={i * 0.08} color={cardColor} className="space-y-3 text-left group">
                     <div className="flex items-center justify-between">
                       <h4 className="font-bold text-base text-[#0F172A] font-serif">{card.title}</h4>
-                      <span 
-                        className="h-7 w-7 rounded-lg flex items-center justify-center text-xs shrink-0"
-                        style={{ backgroundColor: `color-mix(in srgb, ${cardData.color} 12%, transparent)`, color: cardData.color }}
-                      >
-                        <CardIcon className="h-4 w-4" />
-                      </span>
+                      <div className="p-1 rounded-xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
+                        <RichIcon type={card.title} size={38} />
+                      </div>
                     </div>
                     <p className="text-sm text-slate-600 leading-relaxed">{card.value}</p>
                     <div className="pt-2 border-t border-slate-200/60 text-xs text-slate-500 font-mono">
-                      <span className="font-bold uppercase tracking-wider block text-[10px]" style={{ color: cardData.color }}>Advantage:</span>
+                      <span className="font-bold uppercase tracking-wider block text-[10px]" style={{ color: cardColor }}>Advantage:</span>
                       {card.advantage}
                     </div>
                   </PremiumTiltCard>
@@ -773,7 +761,7 @@ export function CompanyOverviewLayout({ content }) {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
           <div className="max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">INSTITUTIONAL GOVERNANCE</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">INSTITUTIONAL GOVERNANCE</span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Governance</h2>
             <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
               ISO 27001 certified, 100% DRA-certified staff, and RBI Fair Practice compliant — built for institutional-grade scrutiny.
@@ -790,7 +778,7 @@ export function CompanyOverviewLayout({ content }) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/30 to-transparent pointer-events-none" />
               <div className="relative p-8 text-white z-10">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[#2563EB] bg-[#FFFFFF]/10 backdrop-blur-sm px-2.5 py-1 rounded font-mono inline-block mb-2 border border-[#FFFFFF]/20">Information Security</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#0072bc] bg-[#FFFFFF]/10 backdrop-blur-sm px-2.5 py-1 rounded font-mono inline-block mb-2 border border-[#FFFFFF]/20">Information Security</span>
                 <h4 className="text-xl font-bold font-serif leading-snug">ISO 27001 Certified Audited Infrastructure</h4>
               </div>
             </div>
@@ -798,24 +786,20 @@ export function CompanyOverviewLayout({ content }) {
             {/* Grid of 6 certification cards */}
             <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[
-                { title: 'ISO/IEC 27001 Certified', desc: 'Secure data pipelines utilizing role-based access gates and encrypted SFTP vaults.', icon: Shield },
-                { title: '100% DRA Certified Staff', desc: 'Mandatory IIBF DRA curriculum certification before any field assignment.', icon: UserCheck },
-                { title: 'Structured Audit Trails', desc: 'Voice logs and geotagged field activity logs preserved securely for 180 days.', icon: FileCheck },
-                { title: 'GPS Geotagged Visits', desc: 'Agent check-ins require device geolocation matches and timestamped photos.', icon: MapPin },
-                { title: 'Dialer Hours Lockouts', desc: 'Outbound dialers restricted to 08:00 AM – 07:00 PM via server rules.', icon: Lock },
-                { title: 'Documentation Governance', desc: 'Standardized foreclosure file processing and title deed verification forensic checklists.', icon: FileText }
+                { title: 'ISO/IEC 27001 Certified', desc: 'Secure data pipelines utilizing role-based access gates and encrypted SFTP vaults.' },
+                { title: '100% DRA Certified Staff', desc: 'Mandatory IIBF DRA curriculum certification before any field assignment.' },
+                { title: 'Structured Audit Trails', desc: 'Voice logs and geotagged field activity logs preserved securely for 180 days.' },
+                { title: 'GPS Geotagged Visits', desc: 'Agent check-ins require device geolocation matches and timestamped photos.' },
+                { title: 'Dialer Hours Lockouts', desc: 'Outbound dialers restricted to 08:00 AM – 07:00 PM via server rules.' },
+                { title: 'Documentation Governance', desc: 'Standardized foreclosure file processing and title deed verification forensic checklists.' }
               ].map((cert, i) => {
-                const CertIcon = cert.icon;
-                const certColors = ['#2563EB', '#10B981', '#7C3AED', '#E11D48', '#D97706', '#0D9488'];
+                const certColors = ['#0072bc', '#059669', '#7c3aed', '#d97706', '#f43f5e', '#0284c7'];
                 const cardColor = certColors[i % certColors.length];
                 return (
-                  <PremiumTiltCard key={i} delay={i * 0.06} color={cardColor} className="p-5 flex flex-col justify-between h-full text-left">
+                  <PremiumTiltCard key={i} delay={i * 0.06} color={cardColor} className="p-5 flex flex-col justify-between h-full text-left group">
                     <div className="space-y-3">
-                      <div 
-                        className="h-8 w-8 rounded-lg flex items-center justify-center shrink-0 text-white shadow-sm"
-                        style={{ backgroundColor: cardColor }}
-                      >
-                        <CertIcon className="h-4 w-4" />
+                      <div className="p-1 rounded-xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 w-fit">
+                        <RichIcon type={cert.title} size={38} />
                       </div>
                       <h4 className="font-bold text-sm text-[#0F172A] font-serif">{cert.title}</h4>
                       <p className="text-xs text-slate-600 leading-relaxed">{cert.desc}</p>
@@ -828,35 +812,27 @@ export function CompanyOverviewLayout({ content }) {
 
           <div className="pt-8 mt-4 border-t border-slate-200 space-y-8">
             <div className="max-w-2xl mx-auto space-y-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#2563EB] font-mono">RBI COMPLIANCE MATRIX</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">RBI COMPLIANCE MATRIX</span>
               <p className="text-sm md:text-base text-slate-600 leading-relaxed">
                 Four Fair Practice guidelines enforced through server-side controls, certified agent protocols, and real-time dispute tracking.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto text-left">
               {complianceContent.rbiMatrix?.map((row, idx) => {
-                const matrixData = [
-                  { color: '#D97706', icon: Clock },
-                  { color: '#2563EB', icon: Users },
-                  { color: '#E11D48', icon: AlertCircle },
-                  { color: '#0D9488', icon: HelpCircle }
-                ][idx % 4];
-                const MatrixIcon = matrixData.icon;
+                const matrixColors = ['#0072bc', '#059669', '#f43f5e', '#d97706'];
+                const cardColor = matrixColors[idx % matrixColors.length];
                 return (
-                  <PremiumTiltCard key={idx} delay={idx * 0.08} color={matrixData.color} className="p-6 space-y-3 text-left">
+                  <PremiumTiltCard key={idx} delay={idx * 0.08} color={cardColor} className="p-6 space-y-3 text-left group">
                     <div className="flex items-center justify-between">
                       <span className="inline-block text-[8px] font-bold text-slate-400 font-mono uppercase tracking-wider">Guideline</span>
-                      <span 
-                        className="h-7 w-7 rounded-lg flex items-center justify-center text-xs shrink-0"
-                        style={{ backgroundColor: `color-mix(in srgb, ${matrixData.color} 12%, transparent)`, color: matrixData.color }}
-                      >
-                        <MatrixIcon className="h-4 w-4" />
-                      </span>
+                      <div className="p-1 rounded-xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
+                        <RichIcon type={row.guideline} size={38} />
+                      </div>
                     </div>
                     <h4 className="font-bold text-base text-[#0F172A] font-serif leading-none">{row.guideline}</h4>
                     <div className="space-y-2 pt-2 border-t border-slate-200/60">
                       <p className="text-sm text-slate-600"><strong className="text-slate-700 font-serif">Code:</strong> {row.code}</p>
-                      <p className="text-sm font-semibold" style={{ color: matrixData.color }}><strong style={{ color: matrixData.color }}>SM Enforcement:</strong> {row.smAction}</p>
+                      <p className="text-sm font-semibold" style={{ color: cardColor }}><strong style={{ color: cardColor }}>SM Enforcement:</strong> {row.smAction}</p>
                     </div>
                   </PremiumTiltCard>
                 );
@@ -882,7 +858,7 @@ export function CompanyOverviewLayout({ content }) {
             Initiate vendor due diligence and empanelment for your portfolio — banks, NBFCs, HFCs, and ARCs welcome.
           </p>
           <div className="flex flex-wrap gap-4 justify-center pt-4">
-            <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-8 py-4 text-sm font-bold text-white hover:bg-[#1D4ED8] transition-all hover:scale-[1.02] hover:shadow-xl shadow-[#2563EB]/35">
+            <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl bg-[#0072bc] px-8 py-4 text-sm font-bold text-white hover:bg-[#0072bc] transition-all hover:scale-[1.02] hover:shadow-xl shadow-[#0072bc]/35">
               Request Empanelment Proposal <ArrowRight className="h-4 w-4" />
             </Link>
             <a href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-slate-600 bg-transparent px-8 py-4 text-sm font-bold text-white hover:bg-slate-800 transition-all hover:scale-[1.02]">
@@ -933,14 +909,14 @@ export function CompanyOverviewLayout({ content }) {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold font-serif text-[#0F172A]">{selectedLeader.name}</h3>
-                    <p className="text-xs text-[#2563EB] font-bold uppercase tracking-wider font-mono mt-1">{selectedLeader.role}</p>
+                    <p className="text-xs text-[#0072bc] font-bold uppercase tracking-wider font-mono mt-1">{selectedLeader.role}</p>
                   </div>
                 </div>
 
                 <div className="mt-8 italic text-slate-500 text-xs px-4 relative">
-                  <span className="text-2xl font-serif text-[#2563EB]/20 absolute -top-4 -left-2">“</span>
+                  <span className="text-2xl font-serif text-[#0072bc]/20 absolute -top-4 -left-2">“</span>
                   <p className="relative z-10">"{selectedLeader.quote}"</p>
-                  <span className="text-2xl font-serif text-[#2563EB]/20 absolute -bottom-4 -right-2">”</span>
+                  <span className="text-2xl font-serif text-[#0072bc]/20 absolute -bottom-4 -right-2">”</span>
                 </div>
 
                 <div className="mt-6 w-full">
@@ -950,7 +926,7 @@ export function CompanyOverviewLayout({ content }) {
                     rel="noreferrer"
                     className="inline-flex items-center justify-center gap-2 w-full rounded-xl border border-[#E2E8F0] hover:border-slate-350 bg-white px-4 py-2.5 text-xs font-bold text-[#0F172A] hover:bg-slate-50 transition-colors"
                   >
-                    <Linkedin className="h-4 w-4 text-[#2563EB] fill-[#2563EB]" /> Connect on LinkedIn
+                    <Linkedin className="h-4 w-4 text-[#0072bc] fill-[#0072bc]" /> Connect on LinkedIn
                   </a>
                 </div>
               </div>
@@ -975,7 +951,7 @@ export function CompanyOverviewLayout({ content }) {
                     {selectedLeader.email && (
                       <div className="col-span-2 border-t border-[#E2E8F0] pt-2 mt-2">
                         <div className="text-slate-400 font-mono text-[9px] uppercase">Contact</div>
-                        <div className="font-bold text-[#2563EB] mt-0.5 inline-flex items-center gap-1">
+                        <div className="font-bold text-[#0072bc] mt-0.5 inline-flex items-center gap-1">
                           <Mail className="h-3.5 w-3.5" /> {selectedLeader.email}
                         </div>
                       </div>
@@ -998,7 +974,7 @@ export function CompanyOverviewLayout({ content }) {
                   <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-mono mb-3">Previous Institutions</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedLeader.prevInstitutions?.map((inst, idx) => (
-                      <span key={idx} className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-1.5 text-xs font-mono font-bold text-[#2563EB]">
+                      <span key={idx} className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-1.5 text-xs font-mono font-bold text-[#0072bc]">
                         {inst}
                       </span>
                     ))}
@@ -1010,10 +986,10 @@ export function CompanyOverviewLayout({ content }) {
                   <div className="space-y-4 border-l-2 border-slate-100 pl-4 ml-2">
                     {selectedLeader.careerTimeline?.map((item, idx) => (
                       <div key={idx} className="relative space-y-1">
-                        <div className="absolute -left-[22px] top-1 h-3.5 w-3.5 rounded-full border-2 border-[#2563EB] bg-white" />
+                        <div className="absolute -left-[22px] top-1 h-3.5 w-3.5 rounded-full border-2 border-[#0072bc] bg-white" />
                         <div className="text-[9px] font-mono font-bold text-slate-400 leading-none">{item.year}</div>
                         <h5 className="text-xs font-extrabold text-[#0F172A] leading-snug">{item.role}</h5>
-                        <p className="text-[10px] text-[#2563EB] font-bold font-mono">{item.inst}</p>
+                        <p className="text-[10px] text-[#0072bc] font-bold font-mono">{item.inst}</p>
                       </div>
                     ))}
                   </div>

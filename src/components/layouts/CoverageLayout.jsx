@@ -45,15 +45,15 @@ export function CoverageLayout({ content }) {
         {/* Dynamic neon grid nodes */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-35" />
-          <div className="absolute left-[20%] top-[10%] h-[500px] w-[500px] rounded-full bg-blue-600/5 blur-[100px] animate-pulse" />
-          <div className="absolute right-[20%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-violet-600/5 blur-[100px] animate-pulse" />
+          <div className="absolute left-[20%] top-[10%] h-[500px] w-[500px] rounded-full bg-brand-500/5 blur-[100px] animate-pulse" />
+          <div className="absolute right-[20%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-brand-500/5 blur-[100px] animate-pulse" />
         </div>
 
         <div className="relative mx-auto max-w-5xl px-4 z-10 space-y-6">
           <motion.span 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-400 font-mono"
+            className="inline-flex items-center gap-2 rounded-full bg-brand-500/10 border border-brand-500/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-500 font-mono"
           >
             <Compass className="h-3 w-3 animate-spin" style={{ animationDuration: '6s' }} />
             {content.eyebrow}
@@ -80,7 +80,7 @@ export function CoverageLayout({ content }) {
       {/* SECTION 2: STATE OVERVIEW */}
       <section className="py-20 bg-white text-left">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#C5A021] font-mono">Regional Coordinates</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">Regional Coordinates</span>
           <h3 className="text-2xl font-bold font-sora text-[#0a1128]">Decentralized Regional Hubs Presence</h3>
           <p className="text-slate-600 text-sm md:text-base leading-relaxed max-w-3xl font-inter">
             We manage credit defaults outreach, pre-disbursal checks, and symbolic foreclosure notices directly out of physically staffed branches. This minimizes geofenced travel delays and matches local police procedures.
@@ -93,17 +93,17 @@ export function CoverageLayout({ content }) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-2">
-              <div className="text-blue-600"><Users className="h-5 w-5" /></div>
+              <div className="text-brand-500"><Users className="h-5 w-5" /></div>
               <h4 className="font-bold text-sm md:text-base font-sora text-[#0a1128]">Local Staff Capacity</h4>
               <p className="text-slate-500 text-xs md:text-sm leading-relaxed">Each region maintains active call desks and local ground field investigators.</p>
             </div>
             <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-2">
-              <div className="text-blue-600"><Building2 className="h-5 w-5" /></div>
+              <div className="text-brand-500"><Building2 className="h-5 w-5" /></div>
               <h4 className="font-bold text-sm md:text-base font-sora text-[#0a1128]">Secure Yards Nodes</h4>
               <p className="text-slate-500 text-xs md:text-sm leading-relaxed">Equipped with 24/7 security watch logs and inventory checklists for vehicle assets.</p>
             </div>
             <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-2">
-              <div className="text-blue-600"><Compass className="h-5 w-5" /></div>
+              <div className="text-brand-500"><Compass className="h-5 w-5" /></div>
               <h4 className="font-bold text-sm md:text-base font-sora text-[#0a1128]">Geofenced Routes</h4>
               <p className="text-slate-500 text-xs md:text-sm leading-relaxed">Visit check-in coordinates are verified and synchronized back to core banking systems.</p>
             </div>
@@ -114,7 +114,7 @@ export function CoverageLayout({ content }) {
       {/* SECTION 4: LOCAL MARKET DYNAMICS */}
       <section className="py-20 bg-white text-left">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Operational Focus</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Operational Focus</span>
           <h3 className="text-2xl font-bold font-sora">Delinquency Mitigation Loops</h3>
           <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-3xl font-inter">
             Lenders coordinate local collections and foreclosure filings. Branch managers monitor local court calendars (e.g. local District Magistrates approval timelines) to expedite secured asset evictions.
@@ -126,7 +126,7 @@ export function CoverageLayout({ content }) {
       <section className="py-20 bg-slate-50 border-t border-b border-slate-150">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Branch Networks Selector</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Branch Networks Selector</span>
             <h2 className="text-3xl font-bold font-sora mt-2">Active Geographic Hubs</h2>
           </div>
           
@@ -137,8 +137,8 @@ export function CoverageLayout({ content }) {
                 onClick={() => setSelectedState(st.name)}
                 className={`px-6 py-3 rounded-full border text-xs font-bold uppercase tracking-wider transition-all ${
                   selectedState === st.name 
-                    ? 'bg-blue-600 border-blue-500 text-white shadow-md' 
-                    : 'bg-white border-slate-200 text-slate-600 hover:border-blue-400'
+                    ? 'bg-brand-500 border-brand-500 text-white shadow-md' 
+                    : 'bg-white border-slate-200 text-slate-600 hover:border-brand-500'
                 }`}
               >
                 {st.name}
@@ -159,7 +159,7 @@ export function CoverageLayout({ content }) {
                 >
                   <div className="space-y-3">
                     <div className="flex justify-between items-start">
-                      <div className="h-10 w-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center">
+                      <div className="h-10 w-10 bg-brand-500 text-brand-500 rounded-xl flex items-center justify-center">
                         <Building2 className="h-5 w-5" />
                       </div>
                       <span className="text-[10px] font-bold uppercase bg-slate-100 px-2.5 py-1 rounded-full text-slate-700">{loc.region}</span>
@@ -173,7 +173,7 @@ export function CoverageLayout({ content }) {
                       <div className="flex justify-between"><span>Active Ledgers</span><span>{loc.casesManaged}</span></div>
                     </div>
                   </div>
-                  <div className="pt-3 border-t border-slate-100 flex justify-between items-center text-xs font-bold text-blue-600">
+                  <div className="pt-3 border-t border-slate-100 flex justify-between items-center text-xs font-bold text-brand-500">
                     <span className="flex items-center gap-1"><MapPin className="h-3.5 w-3.5" /> {loc.coverageRadius} Radius</span>
                     <span className="text-slate-400 font-normal">Active Hub</span>
                   </div>
@@ -187,7 +187,7 @@ export function CoverageLayout({ content }) {
       {/* SECTION 6: BRANCH MANAGER TELEMETRY CARDS */}
       <section className="py-20 bg-white text-left">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#C5A021] font-mono">Regional Managers Desk</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">Regional Managers Desk</span>
           <h3 className="text-2xl font-bold font-sora">Executive Branch Coordinators</h3>
           <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-3xl font-inter">
             All regional branches operate under direct managing directors oversight. Dialing schedules and ground evictions notices audits are checked weekly by corporate compliance heads.
@@ -198,8 +198,8 @@ export function CoverageLayout({ content }) {
       {/* SECTION 7: COMPLIANCE LOOPS VETTING */}
       <section className="py-16 bg-[#0a1128] text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <h3 className="text-lg font-bold font-sora text-amber-400 flex items-center justify-center gap-2">
-            <Shield className="h-5 w-5 text-amber-400" /> Regulatory Code of Conduct Compliance
+          <h3 className="text-lg font-bold font-sora text-brand-500 flex items-center justify-center gap-2">
+            <Shield className="h-5 w-5 text-brand-500" /> Regulatory Code of Conduct Compliance
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
             <span className="bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-xs font-mono">RBI Fair Practices Compliant</span>
@@ -211,7 +211,7 @@ export function CoverageLayout({ content }) {
       {/* SECTION 8: GROUND SLA TRACK */}
       <section className="py-20 bg-white text-left border-b border-slate-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Ground Precision</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Ground Precision</span>
           <h3 className="text-2xl font-bold font-sora">SLA Timelines and Travel Geotags</h3>
           <p className="text-slate-500 text-sm md:text-base leading-relaxed max-w-3xl">
             Pre-disbursal candidate profile verification checks are completed within average 48 Hours. On-ground collections pickup coordinates are geofenced to block audit errors.
@@ -224,15 +224,15 @@ export function CoverageLayout({ content }) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-4">
-              <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Database Integration</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Database Integration</span>
               <h3 className="text-2xl font-bold font-sora">Core Banking SFTP Transaction Syncs</h3>
               <p className="text-slate-400 text-sm md:text-base leading-relaxed">
                 Lenders upload defaulted lists via secure SSH FTP folders daily. Ground dispatch logs sync back to bank risk panels automatically.
               </p>
             </div>
             <div className="lg:col-span-5 bg-slate-900 text-white rounded-2xl p-6 font-mono text-xs space-y-2">
-              <div className="flex gap-2 items-center"><FileCheck className="h-4 w-4 text-emerald-400" /> Secure SSL Connection Sync</div>
-              <div className="flex gap-2 items-center"><FileCheck className="h-4 w-4 text-emerald-400" /> Daily transaction log export</div>
+              <div className="flex gap-2 items-center"><FileCheck className="h-4 w-4 text-brand-500" /> Secure SSL Connection Sync</div>
+              <div className="flex gap-2 items-center"><FileCheck className="h-4 w-4 text-brand-500" /> Daily transaction log export</div>
             </div>
           </div>
         </div>
@@ -241,7 +241,7 @@ export function CoverageLayout({ content }) {
       {/* SECTION 10: CASE OUTCOMES */}
       <section className="py-20 bg-white text-left">
         <div className="mx-auto max-w-5xl px-4 bg-slate-50 border border-slate-200 rounded-[32px] p-8 md:p-12 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Resolution Sourcing</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Resolution Sourcing</span>
           <h3 className="text-2xl font-bold font-sora text-[#0a1128]">[CLIENT COUNT]+ Lenders Empanelled</h3>
           <p className="text-slate-500 text-sm md:text-base leading-relaxed font-inter">
             Over the past decades, we have resolved high-delinquency portfolios and vehicle repossession cases across South India.
@@ -252,7 +252,7 @@ export function CoverageLayout({ content }) {
       {/* SECTION 11: CLIENT TESTIMONIALS */}
       <section className="py-20 bg-slate-50 border-t border-b border-slate-150 text-left">
         <div className="mx-auto max-w-4xl px-4 bg-white border border-slate-200 rounded-[32px] p-8 space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 font-mono">Partners Feedback</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Partners Feedback</span>
           <p className="italic text-slate-600 text-sm md:text-base leading-relaxed">
             "SM Associates branch network coverage in remote districts helped us accelerate agricultural tractor repossession timeline SLA loops."
           </p>
@@ -267,7 +267,7 @@ export function CoverageLayout({ content }) {
           <p className="text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
             Connect with a local branch coordinator or schedule an onboarding meeting today.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-8 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-blue-500 transition-all hover:scale-[1.02]">
+          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-brand-500 transition-all hover:scale-[1.02]">
             Connect with Branch Head <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

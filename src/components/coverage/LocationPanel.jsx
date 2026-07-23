@@ -41,8 +41,8 @@ function RegionSummary({ locations, states }) {
     <motion.div key="region" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <div className="flex items-center justify-between">
         <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-gray-400">South India Command</p>
-        <span className="flex items-center gap-1.5 text-[11px] font-bold text-emerald-600">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />Live
+        <span className="flex items-center gap-1.5 text-[11px] font-bold text-brand-500">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-500" />Live
         </span>
       </div>
 
@@ -50,7 +50,7 @@ function RegionSummary({ locations, states }) {
 
       <div className="mt-5 grid grid-cols-2 gap-3">
         {stats.map((m) => (
-          <div key={m.label} className="rounded-xl border p-3.5" style={{ background: 'rgba(51,102,255,0.04)', borderColor: 'rgba(51,102,255,0.12)' }}>
+          <div key={m.label} className="rounded-xl border p-3.5" style={{ background: 'rgba(0, 114, 188,0.04)', borderColor: 'rgba(0, 114, 188,0.12)' }}>
             <p className="text-lg font-extrabold tracking-[-0.02em] text-gray-900">
               <Counter to={m.value} />{m.suffix}
             </p>
@@ -59,7 +59,7 @@ function RegionSummary({ locations, states }) {
         ))}
       </div>
 
-      <div className="mt-6 flex flex-col items-center justify-center rounded-xl border border-dashed px-4 py-8 text-center" style={{ borderColor: 'rgba(51,102,255,0.16)' }}>
+      <div className="mt-6 flex flex-col items-center justify-center rounded-xl border border-dashed px-4 py-8 text-center" style={{ borderColor: 'rgba(0, 114, 188,0.16)' }}>
         <MapPin className="h-6 w-6 text-gray-300" />
         <p className="mt-3 text-[12.5px] font-semibold text-gray-400">Click an office marker to view its operational details.</p>
       </div>
@@ -105,7 +105,7 @@ export default function LocationPanel({ location, locations = [], states = [] })
   return (
     <div
       className="rounded-[28px] border bg-white p-6 shadow-[0_24px_60px_-32px_rgba(20,30,70,0.25)] lg:sticky lg:top-24"
-      style={{ borderColor: 'rgba(51,102,255,0.14)' }}
+      style={{ borderColor: 'rgba(0, 114, 188,0.14)' }}
     >
       <AnimatePresence mode="wait">
         {!location ? <RegionSummary locations={locations} states={states} /> : <LocationDetail loc={location} />}

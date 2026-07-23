@@ -19,7 +19,7 @@ const floatingCards = [
 export default function FinancialIllustration() {
   return (
     <div className="relative mx-auto max-w-xl">
-      <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-gold-400/20 blur-3xl" />
+      <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-brand-500/20 blur-3xl" />
       <div className="absolute -right-8 bottom-12 h-48 w-48 rounded-full bg-navy-800/10 blur-3xl" />
 
       <motion.div
@@ -37,7 +37,7 @@ export default function FinancialIllustration() {
                 <p className="text-sm text-white/70">Recovery Operations Dashboard</p>
                 <h3 className="mt-1 text-2xl font-semibold tracking-tight">Risk Management OS</h3>
               </div>
-              <div className="rounded-2xl bg-white/12 p-3 text-[#3366FF]">
+              <div className="rounded-2xl bg-white/12 p-3 text-[#0072bc]">
                 <Activity className="h-6 w-6" />
               </div>
             </div>
@@ -78,10 +78,10 @@ export default function FinancialIllustration() {
                 className="glass-card rounded-3xl p-4"
               >
                 <div className="mb-3 flex items-center justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#3366FF]/5 text-[#3366FF]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#0072bc]/5 text-[#0072bc]">
                     <card.icon className="h-5 w-5" />
                   </div>
-                  <span className="rounded-full bg-[#3366FF]/10 px-2.5 py-1 text-xs font-semibold text-gray-900">Live</span>
+                  <span className="rounded-full bg-[#0072bc]/10 px-2.5 py-1 text-xs font-semibold text-gray-900">Live</span>
                 </div>
                 <p className="text-sm font-semibold text-gray-900">{card.title}</p>
                 <p className="mt-1 text-2xl font-semibold tracking-tight text-gray-900">{card.value}</p>
@@ -96,7 +96,7 @@ export default function FinancialIllustration() {
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#3366FF] text-gray-950">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#0072bc] text-gray-950">
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
@@ -110,7 +110,7 @@ export default function FinancialIllustration() {
                   initial={{ width: '0%' }}
                   animate={{ width: '82%' }}
                   transition={{ duration: 1.2, delay: 0.4 }}
-                  className="h-full rounded-full bg-[#3366FF]"
+                  className="h-full rounded-full bg-[#0072bc]"
                 />
               </div>
             </motion.div>

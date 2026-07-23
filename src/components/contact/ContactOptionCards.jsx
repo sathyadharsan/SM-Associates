@@ -15,7 +15,7 @@ function CopyChip({ value }) {
       }}
       className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[10.5px] font-semibold text-slate-500 transition hover:border-brand-400 hover:text-brand-600"
     >
-      {copied ? <Check className="h-3 w-3 text-emerald-500" /> : <Copy className="h-3 w-3" />}
+      {copied ? <Check className="h-3 w-3 text-brand-500" /> : <Copy className="h-3 w-3" />}
       {copied ? 'Copied' : 'Copy'}
     </button>
   );
@@ -25,7 +25,7 @@ const cards = [
   {
     icon: Phone,
     title: 'Call Us',
-    accent: '#3366FF',
+    accent: '#0072bc',
     rows: [
       { label: 'Corporate Landline', value: PRIMARY_CONTACT.landline },
       { label: 'HR & Careers Desk', value: PRIMARY_CONTACT.hrHelpdesk },
@@ -36,7 +36,7 @@ const cards = [
   {
     icon: Mail,
     title: 'Email Us',
-    accent: '#C8A45D',
+    accent: '#0072bc',
     rows: [
       { label: 'Corporate Office', value: PRIMARY_CONTACT.corporateEmail },
       { label: 'Head Office', value: PRIMARY_CONTACT.headOfficeEmail },
@@ -47,7 +47,7 @@ const cards = [
   {
     icon: MapPin,
     title: 'Visit Us',
-    accent: '#16A34A',
+    accent: '#0072bc',
     rows: [
       { label: 'Corporate Office', value: 'Kotturpuram, Chennai – 600 085' },
       { label: 'Network', value: `${COMPANY.officeCount} offices across ${COMPANY.statesCovered.length} states` },

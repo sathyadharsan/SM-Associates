@@ -5,8 +5,8 @@ import SectionHeader from '../components/SectionHeader';
 import { recoveryModules } from '../data/homeData';
 import { getIcon } from '../utils/icons.jsx';
 
-const B = '#3366FF';
-const V = '#7C3AED';
+const B = '#0072bc';
+const V = '#0072bc';
 const RADIUS = 230;
 
 export default function RecoveryOperatingSystemSection() {

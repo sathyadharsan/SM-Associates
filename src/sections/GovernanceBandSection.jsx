@@ -1,98 +1,55 @@
-import { ShieldCheck, BadgeCheck, Mic, MapPin } from 'lucide-react';
+import React from 'react';
+import RichIcon from '../components/sections/shared/RichIcon';
 
-// Confirmed, management-approved trust facts only — this band is the
-// homepage's certification strip. Do not add unverified claims here.
-// Workforce headcount is shown once, in the Metrics section below — not
-// duplicated here.
+// Confirmed, management-approved trust facts with Storyset-style RichIcon vector artwork
 const FACTS = [
-  { icon: ShieldCheck, v: 'ISO/IEC 27001', k: 'Certified Information Security' },
-  { icon: BadgeCheck, v: 'IIBF DRA', k: 'Certified Field Recovery Teams' },
-  { icon: Mic, v: '100%', k: 'Call Recording & Audit Trail' },
-  { icon: MapPin, v: 'GPS-Enabled', k: 'Ground Operations' },
+  { artType: 'compliance', v: 'ISO/IEC 27001', k: 'Certified Information Security', color: '#0072bc' },
+  { artType: 'mission', v: 'IIBF DRA', k: 'Certified Field Recovery Teams', color: '#059669' },
+  { artType: 'dialer', v: '100%', k: 'Call Recording & Audit Trail', color: '#7c3aed' },
+  { artType: 'trace', v: 'GPS-Enabled', k: 'Ground Operations', color: '#d97706' },
 ];
 
 export default function GovernanceBandSection() {
   return (
     <section
       id="governance-band"
-      style={{ background: '#fff', padding: '56px 0', borderTop: '1px solid #e8ecf4', borderBottom: '1px solid #e8ecf4' }}
+      className="bg-white py-14 border-t border-b border-slate-200/80"
     >
-      <div className="fg-wrap">
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: 28,
-          }}
-        >
-          <div style={{ minWidth: 180 }}>
-            <div
-              style={{
-                fontSize: 11,
-                fontWeight: 700,
-                letterSpacing: '0.16em',
-                textTransform: 'uppercase',
-                color: '#C8922A',
-              }}
-            >
-              Governance & Certification
-            </div>
-            <div style={{ marginTop: 8, fontSize: 14, color: '#7b849e', maxWidth: '24ch', lineHeight: 1.5 }}>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+          
+          {/* Eyebrow & Title */}
+          <div className="min-w-[200px]">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#0072bc]">
+              Governance &amp; Certification
+            </span>
+            <p className="mt-1 text-sm font-medium text-slate-500 max-w-xs leading-relaxed">
               The controls behind every engagement.
-            </div>
+            </p>
           </div>
 
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-            }}
-          >
-            {FACTS.map((f, i) => {
-              const Icon = f.icon;
-              return (
-                <div
-                  key={f.v}
-                  className="gband-fact"
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 12,
-                    padding: '4px 28px',
-                    borderLeft: i > 0 ? '1px solid #e8ecf4' : 'none',
-                    transition: 'transform .3s cubic-bezier(0.22,1,0.36,1)',
-                  }}
-                >
-                  <span
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: 38,
-                      height: 38,
-                      borderRadius: 12,
-                      background: 'rgba(51,102,255,0.09)',
-                      color: '#3366FF',
-                      flexShrink: 0,
-                    }}
-                  >
-                    <Icon size={18} />
+          {/* 4 Storyset Artwork Fact Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 flex-1">
+            {FACTS.map((f) => (
+              <div
+                key={f.v}
+                className="flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50/80 border border-slate-200/80 shadow-2xs hover:bg-white hover:shadow-md transition-all duration-300 group"
+              >
+                <div className="p-1 rounded-xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
+                  <RichIcon type={f.artType} size={42} />
+                </div>
+                <div>
+                  <span className="block text-sm font-extrabold text-slate-900 tracking-tight leading-snug">
+                    {f.v}
                   </span>
-                  <span>
-                    <span style={{ display: 'block', fontSize: 15, fontWeight: 700, color: '#0a0e1a', letterSpacing: '-0.01em' }}>
-                      {f.v}
-                    </span>
-                    <span style={{ display: 'block', fontSize: 11.5, color: '#7b849e', marginTop: 2 }}>
-                      {f.k}
-                    </span>
+                  <span className="block text-[11px] font-medium text-slate-500 mt-0.5 leading-tight">
+                    {f.k}
                   </span>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
+
         </div>
       </div>
     </section>

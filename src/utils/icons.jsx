@@ -1,3 +1,5 @@
+import React from 'react';
+import RichIcon from '../components/sections/shared/RichIcon';
 import {
   Award,
   Briefcase,
@@ -58,7 +60,7 @@ export const iconMap = {
   Calendar
 };
 
-export function getIcon(name) {
-  const Icon = iconMap[name];
-  return Icon ? <Icon className="h-5 w-5" /> : <ShieldCheck className="h-5 w-5" />;
+// Global Content-Based Artwork Micro-Illustration Resolver
+export function getIcon(name, size = 44) {
+  return <RichIcon type={name} size={size} />;
 }

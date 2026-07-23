@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { Award, Handshake, Sprout, UserCheck } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 
-const B = '#3366FF';
-const V = '#7C3AED';
+const B = '#0072bc';
+const V = '#0072bc';
 
 const whyCards = [
   {
@@ -12,28 +12,33 @@ const whyCards = [
     icon: UserCheck,
     span: 'lg:col-span-2 lg:row-span-2',
     featured: true,
+    color: '#0072bc',
   },
   {
     title: 'Genuine Client Approach',
     description: 'Client-first strategy with transparent operations.',
     icon: Handshake,
     span: 'lg:col-span-1',
+    color: '#059669',
   },
   {
     title: 'Excellence in Execution',
     description: 'Consistent delivery across recovery and verification workflows.',
     icon: Award,
     span: 'lg:col-span-1',
+    color: '#7c3aed',
   },
   {
     title: 'Premier Market Position',
     description: 'Trusted by leading banks and NBFCs for recovery operations.',
     icon: Sprout,
     span: 'lg:col-span-2',
+    color: '#d97706',
   },
 ];
 
 function BentoCard({ card, index }) {
+  const color = card.color || '#0072bc';
   return (
     <motion.div
       initial={{ opacity: 0, y: 28 }}
@@ -50,14 +55,14 @@ function BentoCard({ card, index }) {
     >
       {/* Animated gradient border glow on hover */}
       <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        style={{ boxShadow: `inset 0 0 0 1px ${B}40, 0 12px 32px -10px ${B}30` }} />
+        style={{ boxShadow: `inset 0 0 0 1px ${color}40, 0 12px 32px -10px ${color}30` }} />
       {/* Soft glow blob */}
       <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
-        style={{ background: `radial-gradient(circle, ${V}33, transparent 70%)` }} />
+        style={{ background: `radial-gradient(circle, ${color}33, transparent 70%)` }} />
 
       <div className="relative">
         <div className={`flex items-center justify-center rounded-xl ${card.featured ? 'h-14 w-14' : 'h-11 w-11'}`}
-          style={{ background: `${B}14`, color: B }}>
+          style={{ background: `${color}14`, color: color }}>
           <card.icon className={card.featured ? 'h-6 w-6' : 'h-5 w-5'} />
         </div>
         <h3 className={`mt-6 font-sora font-bold text-gray-950 ${card.featured ? 'text-[26px] leading-tight' : 'text-lg'}`}
@@ -70,8 +75,8 @@ function BentoCard({ card, index }) {
       </div>
 
       {card.featured && (
-        <div className="relative mt-8 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.14em]" style={{ color: B }}>
-          <span className="h-1.5 w-1.5 rounded-full" style={{ background: B }} />
+        <div className="relative mt-8 flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.14em]" style={{ color: color }}>
+          <span className="h-1.5 w-1.5 rounded-full" style={{ background: color }} />
           Since 2000
         </div>
       )}

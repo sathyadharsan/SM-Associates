@@ -27,8 +27,8 @@ function ClosingCta() {
             className="pointer-events-none absolute inset-0 rounded-[28px]"
             style={{
               background:
-                'radial-gradient(ellipse 70% 50% at 50% -10%, rgba(51,102,255,0.06) 0%, transparent 60%),' +
-                'radial-gradient(ellipse 50% 40% at 50% 110%, rgba(200,164,93,0.06) 0%, transparent 60%)',
+                'radial-gradient(ellipse 70% 50% at 50% -10%, rgba(0, 114, 188,0.06) 0%, transparent 60%),' +
+                'radial-gradient(ellipse 50% 40% at 50% 110%, rgba(0, 114, 188, 0.08) 0%, transparent 60%)',
             }}
           />
 
@@ -44,7 +44,7 @@ function ClosingCta() {
           <div className="relative mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
               href="#enquiry"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-8 py-3.5 text-sm font-bold text-white shadow-[0_0_32px_rgba(51,102,255,0.4)] transition hover:bg-brand-600 hover:shadow-[0_0_48px_rgba(51,102,255,0.55)]"
+              className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-8 py-3.5 text-sm font-bold text-white shadow-[0_0_32px_rgba(0, 114, 188,0.4)] transition hover:bg-brand-600 hover:shadow-[0_0_48px_rgba(0, 114, 188,0.55)]"
             >
               Contact Enterprise Team
             </a>

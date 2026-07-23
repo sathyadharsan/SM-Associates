@@ -118,7 +118,7 @@ export default function ClientLogoTile({ client, category, index = 0 }) {
         )}
       </AnimatePresence>
 
-      <div className="flex h-24 w-36 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-shadow duration-300 hover:border-brand-200 hover:shadow-[0_10px_28px_rgba(51,102,255,0.18)] sm:h-28 sm:w-44">
+      <div className="flex h-24 w-36 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-shadow duration-300 hover:border-brand-200 hover:shadow-[0_10px_28px_rgba(0, 114, 188,0.18)] sm:h-28 sm:w-44">
         {!failed ? (
           <img
             src={logo}

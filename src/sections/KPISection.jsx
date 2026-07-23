@@ -5,7 +5,7 @@ import { kpis } from '../data/homeData';
 
 // ── Shared micro-components ────────────────────────────────────────
 
-function Sparkline({ bars, color = '#3366FF', height = 32 }) {
+function Sparkline({ bars, color = '#0072bc', height = 32 }) {
   return (
     <div className="flex items-end gap-[3px]" style={{ height }}>
       {bars.map((h, i) => (
@@ -24,7 +24,7 @@ function Sparkline({ bars, color = '#3366FF', height = 32 }) {
   );
 }
 
-function RingProgress({ pct, color = '#3366FF', size = 52 }) {
+function RingProgress({ pct, color = '#0072bc', size = 52 }) {
   const r = (size - 7) / 2;
   const circ = 2 * Math.PI * r;
   const dash = (pct / 100) * circ;
@@ -57,27 +57,27 @@ function DeltaBadge({ label, color, up = true }) {
 const cardMeta = [
   // Large card: 24+ Years
   {
-    color: '#3366FF', bars: [38, 50, 62, 56, 72, 80, 94], ring: 92,
-    delta: 'Est. 2000', category: 'Legacy', accent: 'bg-blue-50 text-blue-600',
+    color: '#0072bc', bars: [38, 50, 62, 56, 72, 80, 94], ring: 92,
+    delta: 'Est. 2000', category: 'Legacy', accent: 'bg-brand-500 text-brand-500',
   },
   // Tall card: 1,200+ Professionals
   {
-    color: '#7C3AED', bars: [42, 55, 50, 65, 60, 74, 88], ring: 88,
-    delta: '+18% YoY', category: 'Workforce', accent: 'bg-violet-50 text-violet-600',
+    color: '#0072bc', bars: [42, 55, 50, 65, 60, 74, 88], ring: 88,
+    delta: '+18% YoY', category: 'Workforce', accent: 'bg-brand-500 text-brand-500',
   },
   // Wide card: Tamil Nadu Wide (no value)
   {
-    color: '#C8922A', bars: [55, 60, 58, 68, 72, 78, 85], ring: 78,
-    delta: 'Pan South', category: 'Coverage', accent: 'bg-amber-50 text-amber-700',
+    color: '#0072bc', bars: [55, 60, 58, 68, 72, 78, 85], ring: 78,
+    delta: 'Pan South', category: 'Coverage', accent: 'bg-brand-500 text-brand-500',
   },
   // Standard: 20+ Banks & NBFCs
   {
-    color: '#16A34A', bars: [45, 52, 60, 55, 68, 76, 90], ring: 90,
-    delta: '+12 New', category: 'Partners', accent: 'bg-green-50 text-green-700',
+    color: '#0072bc', bars: [45, 52, 60, 55, 68, 76, 90], ring: 90,
+    delta: '+12 New', category: 'Partners', accent: 'bg-brand-500 text-brand-500',
   },
   // Standard: 5 Core Verticals
   {
-    color: '#0891B2', bars: [40, 48, 55, 52, 62, 68, 80], ring: 80,
+    color: '#0072bc', bars: [40, 48, 55, 52, 62, 68, 80], ring: 80,
     delta: 'Full Suite', category: 'Services', accent: 'bg-cyan-50 text-cyan-700',
   },
 ];
@@ -232,25 +232,6 @@ export default function KPISection() {
                         {meta.ring}%
                       </div>
                     </div>
-                  </div>
-
-                  {/* ── Sparkline footer ── */}
-                  <div className="mt-5 pt-4" style={{ borderTop: `1px solid ${isFeatured ? 'rgba(255,255,255,0.08)' : '#f0f4f8'}` }}>
-                    <div className="flex items-center justify-between mb-2">
-                      <span
-                        className="text-[10px] font-semibold uppercase tracking-wider"
-                        style={{ color: isFeatured ? 'rgba(255,255,255,0.35)' : '#94a3b8' }}
-                      >
-                        Performance trend
-                      </span>
-                      <span
-                        className="text-[10px] font-bold"
-                        style={{ color: meta.color }}
-                      >
-                        ↑ Upward
-                      </span>
-                    </div>
-                    <Sparkline bars={meta.bars} color={meta.color} height={isLarge ? 44 : 28} />
                   </div>
                 </div>
               </motion.div>

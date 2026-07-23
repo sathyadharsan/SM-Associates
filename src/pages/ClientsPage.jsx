@@ -7,9 +7,9 @@ export default function ClientsPage() {
     <div className="bg-slate-50">
       <section className="relative overflow-hidden bg-white pb-16 pt-44 text-center">
         <div className="aurora-a absolute left-[10%] top-[-10%] h-[480px] w-[480px] rounded-full blur-[110px]"
-          style={{ background: 'radial-gradient(circle, rgba(51,102,255,0.10), transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(0, 114, 188,0.10), transparent 70%)' }} />
         <div className="aurora-b absolute right-[8%] top-[0%] h-[420px] w-[420px] rounded-full blur-[100px]"
-          style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.07), transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(0, 114, 188,0.07), transparent 70%)' }} />
 
         <div className="relative mx-auto max-w-5xl px-6">
           <motion.span

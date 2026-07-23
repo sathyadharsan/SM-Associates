@@ -10,28 +10,28 @@ import {
 } from 'lucide-react';
 import { navigationData } from '../data/navigation';
 
-const BRAND  = '#3366FF';
-const VIOLET = '#7C3AED';
+const BRAND  = '#0072bc';
+const VIOLET = '#0072bc';
 
 // Map icons to column titles for the Mega Menu
 const getColumnIcon = (title) => {
   switch (title) {
-    case 'Verification Services': return <FileCheck className="h-4 w-4 text-blue-400" />;
-    case 'Collections & Recovery': return <Users className="h-4 w-4 text-blue-400" />;
-    case 'Legal Recovery': return <Scale className="h-4 w-4 text-blue-400" />;
-    case 'Asset Recovery': return <Car className="h-4 w-4 text-blue-400" />;
-    case 'Investigation Services': return <Search className="h-4 w-4 text-blue-400" />;
-    case 'Operational & Specialized': return <LineChart className="h-4 w-4 text-blue-400" />;
-    case 'Financial Institutions': return <Landmark className="h-4 w-4 text-blue-400" />;
-    case 'Specialized Lending': return <Zap className="h-4 w-4 text-blue-400" />;
-    case 'Asset-Based Lending': return <Building2 className="h-4 w-4 text-blue-400" />;
-    case 'Loan Products': return <BadgeCheck className="h-4 w-4 text-blue-400" />;
-    default: return <Shield className="h-4 w-4 text-blue-400" />;
+    case 'Verification Services': return <FileCheck className="h-4 w-4 text-brand-500" />;
+    case 'Collections & Recovery': return <Users className="h-4 w-4 text-brand-500" />;
+    case 'Legal Recovery': return <Scale className="h-4 w-4 text-brand-500" />;
+    case 'Asset Recovery': return <Car className="h-4 w-4 text-brand-500" />;
+    case 'Investigation Services': return <Search className="h-4 w-4 text-brand-500" />;
+    case 'Operational & Specialized': return <LineChart className="h-4 w-4 text-brand-500" />;
+    case 'Financial Institutions': return <Landmark className="h-4 w-4 text-brand-500" />;
+    case 'Specialized Lending': return <Zap className="h-4 w-4 text-brand-500" />;
+    case 'Asset-Based Lending': return <Building2 className="h-4 w-4 text-brand-500" />;
+    case 'Loan Products': return <BadgeCheck className="h-4 w-4 text-brand-500" />;
+    default: return <Shield className="h-4 w-4 text-brand-500" />;
   }
 };
 
 // Generic small icon for items
-const ItemIcon = () => <ChevronRight className="h-3.5 w-3.5 text-slate-600 transition-colors group-hover:text-blue-400" />;
+const ItemIcon = () => <ChevronRight className="h-3.5 w-3.5 text-slate-600 transition-colors group-hover:text-brand-500" />;
 
 // Map item labels to description strings for premium look
 const getItemDescription = (label) => {
@@ -486,7 +486,7 @@ export default function Header() {
                                               <span className="text-[15px] font-medium text-slate-700 transition-colors group-hover:text-slate-900">
                                                 {item.label}
                                               </span>
-                                              <ArrowRight className="h-4 w-4 shrink-0 text-slate-300 transition-all group-hover:translate-x-0.5 group-hover:text-blue-500" />
+                                              <ArrowRight className="h-4 w-4 shrink-0 text-slate-300 transition-all group-hover:translate-x-0.5 group-hover:text-brand-500" />
                                             </Link>
                                           ))}
                                         </div>
@@ -519,7 +519,7 @@ export default function Header() {
                                     onClick={() => setActiveMenu(null)}
                                     className="group flex items-start gap-3 rounded-xl p-2 transition-colors hover:bg-slate-50"
                                   >
-                                    <div className="mt-1 shrink-0 p-1 rounded-lg bg-slate-100 group-hover:bg-blue-500/10 transition-colors">
+                                    <div className="mt-1 shrink-0 p-1 rounded-lg bg-slate-100 group-hover:bg-brand-500/10 transition-colors">
                                       <ItemIcon />
                                     </div>
                                     <div className="flex flex-col">
@@ -530,7 +530,7 @@ export default function Header() {
                                         {getItemDescription(item.label)}
                                       </span>
                                       {item.isFuture && (
-                                        <span className="mt-1 inline-block rounded bg-indigo-50 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-indigo-600 w-fit border border-indigo-200">
+                                        <span className="mt-1 inline-block rounded bg-brand-500 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-brand-500 w-fit border border-brand-500">
                                           Future Release
                                         </span>
                                       )}
@@ -615,7 +615,7 @@ export default function Header() {
                                     <Link
                                       to={navItem.href}
                                       onClick={() => setMobileOpen(false)}
-                                      className="block rounded-lg px-2 py-1.5 text-[13px] font-semibold text-blue-600 hover:text-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
+                                      className="block rounded-lg px-2 py-1.5 text-[13px] font-semibold text-brand-500 hover:text-brand-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                                     >
                                       View All {navItem.label}
                                     </Link>

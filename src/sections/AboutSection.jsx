@@ -63,9 +63,9 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.08, duration: 0.55 }}
-              className="glass-card group rounded-[24px] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#3366FF]/40 hover:shadow-enterpriseHover"
+              className="glass-card group rounded-[24px] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#0072bc]/40 hover:shadow-enterpriseHover"
             >
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3366FF] text-white transition group-hover:bg-[#3366FF]">
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0072bc] text-white transition group-hover:bg-[#0072bc]">
                 <card.icon className="h-5 w-5" />
               </div>
               <h3 className="text-xl font-semibold tracking-[-0.02em] text-gray-950">{card.title}</h3>

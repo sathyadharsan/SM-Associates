@@ -23,7 +23,7 @@ export default function ProcessFlowSection() {
               whileInView={{ scaleY: 1 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 1.2, ease: 'easeInOut' }}
-              className="absolute bottom-4 left-9 top-4 z-10 hidden w-0.5 origin-top bg-gold-400 lg:block"
+              className="absolute bottom-4 left-9 top-4 z-10 hidden w-0.5 origin-top bg-brand-500 lg:block"
             />
 
             <div className="space-y-4">
@@ -37,13 +37,13 @@ export default function ProcessFlowSection() {
                   transition={{ delay: index * 0.06, duration: 0.45 }}
                   className={`relative z-10 flex w-full items-center gap-4 rounded-[20px] border p-4 text-left transition duration-300 hover:shadow-enterpriseHover ${
                     activeStep === index
-                      ? 'border-gold-400/50 bg-white shadow-enterprise'
-                      : 'border-slate-200 bg-white/80 hover:border-gold-400/35'
+                      ? 'border-brand-500/50 bg-white shadow-enterprise'
+                      : 'border-slate-200 bg-white/80 hover:border-brand-500/35'
                   }`}
                 >
                   <div
                     className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-sm font-bold transition duration-300 ${
-                      activeStep === index ? 'bg-[#3366FF] text-gray-950' : 'bg-slate-100 text-slate-500'
+                      activeStep === index ? 'bg-[#0072bc] text-gray-950' : 'bg-slate-100 text-slate-500'
                     }`}
                   >
                     {step.step}
@@ -66,7 +66,7 @@ export default function ProcessFlowSection() {
               transition={{ duration: 0.35 }}
               className="glass-card rounded-[28px] p-8 sm:p-10"
             >
-              <span className="text-xs font-bold uppercase tracking-[0.26em] text-[#3366FF]">
+              <span className="text-xs font-bold uppercase tracking-[0.26em] text-[#0072bc]">
                 Workflow Stage {processSteps[activeStep].step}
               </span>
               <h3 className="mt-4 text-3xl font-semibold tracking-[-0.03em] text-gray-900">
@@ -89,7 +89,7 @@ export default function ProcessFlowSection() {
                   initial={{ width: '0%' }}
                   animate={{ width: `${((activeStep + 1) / processSteps.length) * 100}%` }}
                   transition={{ duration: 0.5 }}
-                  className="h-full rounded-full bg-[#3366FF]"
+                  className="h-full rounded-full bg-[#0072bc]"
                 />
               </div>
             </motion.div>

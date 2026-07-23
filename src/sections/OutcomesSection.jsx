@@ -9,9 +9,9 @@ const reducedMotion = () =>
     : false;
 
 const STEPS = [
-  { key: 'challenge', label: 'The Challenge', icon: AlertTriangle, color: '#E11D48' },
-  { key: 'approach', label: 'Our Approach', icon: Workflow, color: '#3366FF' },
-  { key: 'result', label: 'The Outcome', icon: TrendingUp, color: '#16A34A' },
+  { key: 'challenge', label: 'The Challenge', icon: AlertTriangle, color: '#f43f5e' },
+  { key: 'approach', label: 'Our Approach', icon: Workflow, color: '#0072bc' },
+  { key: 'result', label: 'The Outcome', icon: TrendingUp, color: '#10b981' },
 ];
 
 function OutcomePanel({ outcome }) {

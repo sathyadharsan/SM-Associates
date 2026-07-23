@@ -23,7 +23,7 @@ export default function FAQSection({ content }) {
         className="mx-auto max-w-3xl px-4"
       >
         <div className="text-center mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600">{defaults.eyebrow}</span>
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-500">{defaults.eyebrow}</span>
           <h2 style={serifHeading} className="text-3xl font-bold tracking-[-0.01em] text-slate-900 mt-2">{content.faqsHeading || defaults.heading}</h2>
         </div>
         <div className="space-y-4">

@@ -24,7 +24,7 @@ export default function CareersSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: index * 0.06, duration: 0.5 }}
-                className="glass-card group rounded-[20px] p-6 transition duration-300 hover:border-gold-400/40 hover:shadow-enterpriseHover"
+                className="glass-card group rounded-[20px] p-6 transition duration-300 hover:border-brand-500/40 hover:shadow-enterpriseHover"
               >
                 <div className="flex items-start justify-between">
                   <div>
@@ -38,12 +38,12 @@ export default function CareersSection() {
                         <MapPin className="h-4 w-4" />
                         {position.location}
                       </span>
-                      <span className="inline-flex items-center gap-1 rounded-full bg-blue-100 px-2 py-0.5 text-xs font-bold text-blue-700">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-brand-500 px-2 py-0.5 text-xs font-bold text-brand-500">
                         {position.type}
                       </span>
                     </div>
                   </div>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#3366FF] text-white transition group-hover:bg-gold-500">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0072bc] text-white transition group-hover:bg-brand-500">
                     <ArrowRight className="h-5 w-5" />
                   </div>
                 </div>
@@ -67,7 +67,7 @@ export default function CareersSection() {
           </p>
           <a
             href="mailto:smarmpl.ho@gmail.com"
-            className="mt-6 inline-flex items-center justify-center rounded-full bg-[#3366FF] px-6 py-3 text-sm font-bold text-white shadow-soft transition hover:bg-blue-700"
+            className="mt-6 inline-flex items-center justify-center rounded-full bg-[#0072bc] px-6 py-3 text-sm font-bold text-white shadow-soft transition hover:bg-brand-500"
           >
             Send Your Resume
           </a>

@@ -102,14 +102,14 @@ export default function IndiaCoverageMap({
       className="relative overflow-hidden rounded-[28px] border"
       style={{
         background: 'linear-gradient(160deg, #f7f8fc 0%, #fbfcff 50%, #ffffff 100%)',
-        borderColor: 'rgba(200,164,93,0.22)',
+        borderColor: 'rgba(0, 114, 188, 0.08)',
       }}
       onClick={() => onSelect(null)}
     >
       <div
         className="absolute inset-0 pointer-events-none rounded-[28px]"
         style={{
-          backgroundImage: 'radial-gradient(circle, rgba(37,99,235,0.06) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle, rgba(0, 114, 188,0.06) 1px, transparent 1px)',
           backgroundSize: '24px 24px',
           opacity: 0.6,
         }}
@@ -197,7 +197,7 @@ export default function IndiaCoverageMap({
                 top: `${toScreen(hoverLocation.y, cy)}%`,
                 transform: 'translate(-50%, -220%)',
                 background: 'rgba(255,255,255,0.98)',
-                borderColor: 'rgba(37,99,235,0.22)',
+                borderColor: 'rgba(0, 114, 188,0.22)',
               }}
             >
               {hoverLocation.tier === 'hq' ? '★ ' : '● '}
@@ -207,7 +207,7 @@ export default function IndiaCoverageMap({
               </span>
               <span
                 className="absolute left-1/2 top-full h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rotate-45 border-b border-r"
-                style={{ background: 'rgba(255,255,255,0.98)', borderColor: 'rgba(37,99,235,0.22)' }}
+                style={{ background: 'rgba(255,255,255,0.98)', borderColor: 'rgba(0, 114, 188,0.22)' }}
               />
             </motion.div>
           )}
@@ -218,17 +218,17 @@ export default function IndiaCoverageMap({
             className="absolute top-3 left-3 z-20 rounded-xl border px-3 py-2 text-[10px] font-semibold shadow-lg"
             style={{
               background: 'rgba(255,255,255,0.93)',
-              borderColor: 'rgba(37,99,235,0.18)',
+              borderColor: 'rgba(0, 114, 188,0.18)',
               backdropFilter: 'blur(6px)',
             }}
           >
-            <div className="text-blue-700 font-bold mb-1 flex items-center gap-1.5">
+            <div className="text-brand-500 font-bold mb-1 flex items-center gap-1.5">
               <span>🗺️</span> Pan-India Reach
             </div>
             <div className="text-gray-500 text-[9px] space-y-0.5">
               {northLocations.map((l) => (
                 <div key={l.id} className="flex items-center gap-1">
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue-400 inline-block" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-500 inline-block" />
                   {l.name}
                 </div>
               ))}
@@ -238,9 +238,9 @@ export default function IndiaCoverageMap({
       </div>
 
       {/* Legend */}
-      <div className="relative flex flex-wrap items-center justify-center gap-5 border-t px-5 py-3.5 text-[11.5px] font-semibold text-gray-500" style={{ borderColor: 'rgba(200,164,93,0.18)' }}>
+      <div className="relative flex flex-wrap items-center justify-center gap-5 border-t px-5 py-3.5 text-[11.5px] font-semibold text-gray-500" style={{ borderColor: 'rgba(0, 114, 188, 0.08)' }}>
         <span className="inline-flex items-center gap-2 font-bold text-gray-700">
-          <span className="h-3.5 w-3.5 rounded-full border-[2.5px] bg-white" style={{ borderColor: '#D4AF37' }} />
+          <span className="h-3.5 w-3.5 rounded-full border-[2.5px] bg-white" style={{ borderColor: '#0072bc' }} />
           Chennai HQ
         </span>
         <span className="inline-flex items-center gap-1.5">
@@ -252,7 +252,7 @@ export default function IndiaCoverageMap({
           Branch Location
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <span className="h-2 w-3.5 rounded-sm" style={{ background: '#2563EB' }} />
+          <span className="h-2 w-3.5 rounded-sm" style={{ background: '#0072bc' }} />
           Operational States
         </span>
       </div>

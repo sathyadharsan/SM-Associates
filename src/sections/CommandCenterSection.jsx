@@ -71,8 +71,8 @@ const OFFICES = [
     address: 'Old Door No. 446, New Door No. 152, 1st Floor, Bharathiyar Salai, Lawspet – 605 008' },
 ];
 
-const TIER_COLOR = { hq: '#D4AF37', branch: '#3366FF' };
-const pinColor = (tier) => TIER_COLOR[tier] ?? '#3366FF';
+const TIER_COLOR = { hq: '#0072bc', branch: '#0072bc' };
+const pinColor = (tier) => TIER_COLOR[tier] ?? '#0072bc';
 
 // Cities with more than one office — clustered into a single marker until
 // the user zooms in close enough to tell the individual pins apart.
@@ -119,14 +119,14 @@ const LEAFLET_STYLES = `
     width: 36px !important; height: 36px !important; line-height: 36px !important;
     transition: background .15s, color .15s;
   }
-  .leaflet-control-zoom a:hover { background: #3366FF !important; color: #fff !important; }
+  .leaflet-control-zoom a:hover { background: #0072bc !important; color: #fff !important; }
   .leaflet-control-zoom-in  { border-radius: 12px 12px 0 0 !important; }
   .leaflet-control-zoom-out { border-radius: 0 0 12px 12px !important; border-bottom: none !important; }
   .leaflet-control-attribution {
     background: rgba(255,255,255,0.88) !important; border-radius: 8px 0 0 0 !important;
     font-size: 9px !important; color: #94a3b8 !important;
   }
-  .leaflet-control-attribution a { color: #3366FF !important; }
+  .leaflet-control-attribution a { color: #0072bc !important; }
   /* Let scroll pass through map to page; pinch-zoom still works on touch */
   .leaflet-container { touch-action: pan-y !important; }
   .leaflet-grab { cursor: default !important; }
@@ -147,9 +147,9 @@ const LEAFLET_STYLES = `
   .sm-label-hq {
     color: #92651a !important;
     background: rgba(255,248,220,0.97) !important;
-    border: 1px solid rgba(212,175,55,0.35) !important;
+    border: 1px solid rgba(0, 114, 188, 0.1) !important;
   }
-  .sm-label-branch { color: #1d4ed8 !important; }
+  .sm-label-branch { color: #0072bc !important; }
 `;
 
 /* ── Pin HTML ────────────────────────────────────────────────────────────── */
@@ -257,8 +257,8 @@ function InfoCard({ selected, onClose, onReset }) {
       className="w-[260px] rounded-2xl bg-white p-5 shadow-[0_8px_48px_rgba(0,0,0,0.22)]"
     >
       <div className="flex items-center gap-2">
-        <span className="flex h-2 w-2 rounded-full bg-emerald-500">
-          <span className="h-2 w-2 animate-ping rounded-full bg-emerald-400 opacity-75 absolute" />
+        <span className="flex h-2 w-2 rounded-full bg-brand-500">
+          <span className="h-2 w-2 animate-ping rounded-full bg-brand-500 opacity-75 absolute" />
         </span>
         <p className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-slate-500">South India Operations</p>
       </div>
@@ -506,8 +506,8 @@ export default function CommandCenterSection() {
       <div className="pointer-events-none absolute inset-x-0 top-5 z-[400] flex justify-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/90 px-4 py-1.5 shadow-sm backdrop-blur-sm">
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-500 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-500" />
           </span>
           <span className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-slate-600">
             SM Associates — South India Operations

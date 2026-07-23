@@ -13,12 +13,12 @@ const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
 // Stage accent colors — drive CSS color-mix for tag pills and badge
 const STAGE_COLORS = {
-  alloc:   '#3366FF',
-  verify:  '#16A34A',
-  engage:  '#7C3AED',
-  legal:   '#E11D48',
-  resolve: '#C8922A',
-  report:  '#0891B2',
+  alloc:   '#0072bc',
+  verify:  '#0284c7',
+  engage:  '#8b5cf6',
+  legal:   '#f43f5e',
+  resolve: '#10b981',
+  report:  '#f59e0b',
 };
 
 // Stage image map
@@ -112,7 +112,7 @@ export default function OperatingModelSection() {
 
   return (
     <section className="model6" id="model">
-      <div className="pin-wrap" ref={pinWrapRef} style={{ height: '280vh' }}>
+      <div className="pin-wrap" ref={pinWrapRef} style={{ height: '520vh' }}>
         <div className="pin-stage">
 
           {/* ── Header ── */}
@@ -129,7 +129,7 @@ export default function OperatingModelSection() {
           {/* ── Filmstrip ── */}
           <div className="filmstrip6" ref={filmstripRef}>
             {operatingModelStages.map((stage) => {
-              const color = STAGE_COLORS[stage.visual] ?? '#3366FF';
+              const color = STAGE_COLORS[stage.visual] ?? '#0072bc';
               const img   = STAGE_IMAGES[stage.visual];
               const pos   = STAGE_POSITION[stage.visual] ?? 'center center';
               return (

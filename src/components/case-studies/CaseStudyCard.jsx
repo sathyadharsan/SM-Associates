@@ -6,11 +6,11 @@ function MetricBox({ label, value, example }) {
   const placeholder = isPlaceholder(value);
   return (
     <div className="flex-1 rounded-xl bg-gray-50 p-3 text-center">
-      <p className={`text-[13px] font-bold ${placeholder ? 'italic text-amber-600' : 'text-slate-900'}`}>
+      <p className={`text-[13px] font-bold ${placeholder ? 'italic text-brand-500' : 'text-slate-900'}`}>
         {placeholder ? example : value}
       </p>
       {placeholder && (
-        <p className="mt-0.5 text-[8.5px] font-bold uppercase tracking-wide text-amber-500">Sample data</p>
+        <p className="mt-0.5 text-[8.5px] font-bold uppercase tracking-wide text-brand-500">Sample data</p>
       )}
       <p className="mt-1 text-[10px] font-semibold uppercase tracking-wide text-gray-400">{label}</p>
     </div>

@@ -32,8 +32,8 @@ export default function RecoveryOSVisual() {
 
   return (
     <div className="relative mx-auto max-w-xl">
-      <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-blue-400/20 blur-3xl" />
-      <div className="absolute -right-8 bottom-12 h-48 w-48 rounded-full bg-blue-800/10 blur-3xl" />
+      <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-brand-500/20 blur-3xl" />
+      <div className="absolute -right-8 bottom-12 h-48 w-48 rounded-full bg-brand-500/10 blur-3xl" />
 
       <motion.div
         initial={{ opacity: 0, y: 28, scale: 0.98 }}
@@ -50,7 +50,7 @@ export default function RecoveryOSVisual() {
                 <p className="text-sm text-white/70">Interactive Recovery Operating System</p>
                 <h3 className="mt-1 text-2xl font-semibold tracking-tight">Risk Management OS</h3>
               </div>
-              <div className="rounded-2xl bg-white/12 p-3 text-yellow-400">
+              <div className="rounded-2xl bg-white/12 p-3 text-brand-500">
                 <Activity className="h-6 w-6" />
               </div>
             </div>
@@ -67,7 +67,7 @@ export default function RecoveryOSVisual() {
                       y1="160"
                       x2={x}
                       y2={y}
-                      stroke={activeIndex === index ? '#E6C87A' : 'rgba(255,255,255,0.22)'}
+                      stroke={activeIndex === index ? '#0072bc' : 'rgba(255,255,255,0.22)'}
                       strokeWidth={activeIndex === index ? 2.5 : 1.5}
                       initial={{ pathLength: 0, opacity: 0 }}
                       animate={{ pathLength: 1, opacity: 1 }}
@@ -77,7 +77,7 @@ export default function RecoveryOSVisual() {
                 })}
               </svg>
 
-              <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#3366FF] text-center shadow-enterprise">
+              <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#0072bc] text-center shadow-enterprise">
                 <div>
                   <p className="text-xs text-white/60">Live OS</p>
                   <p className="text-lg font-bold">SM</p>
@@ -92,12 +92,12 @@ export default function RecoveryOSVisual() {
                     onFocus={() => setActiveIndex(index)}
                     className={`absolute flex h-20 w-28 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-2xl border p-3 text-center transition ${
                       activeIndex === index
-                        ? 'border-yellow-400 bg-white text-gray-950 shadow-enterprise'
+                        ? 'border-brand-500 bg-white text-gray-950 shadow-enterprise'
                         : 'border-white/15 bg-white/10 text-white hover:bg-white/15'
                     }`}
                     style={positions[index]}
                   >
-                    <Icon className={`h-5 w-5 ${activeIndex === index ? 'text-yellow-500' : 'text-white'}`} />
+                    <Icon className={`h-5 w-5 ${activeIndex === index ? 'text-brand-500' : 'text-white'}`} />
                     <span className="mt-1 text-[11px] font-bold leading-tight">{module.title}</span>
                   </motion.button>
                 );
@@ -116,11 +116,11 @@ export default function RecoveryOSVisual() {
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-yellow-500">{active.signal}</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-brand-500">{active.signal}</p>
                   <h3 className="mt-2 text-2xl font-semibold tracking-[-0.03em] text-gray-950">{active.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-slate-500">{active.description}</p>
                 </div>
-                <div className="rounded-2xl bg-[#3366FF] p-3 text-white">
+                <div className="rounded-2xl bg-[#0072bc] p-3 text-white">
                   {(() => {
                     const Icon = iconMap[active.icon];
                     return Icon ? <Icon className="h-5 w-5" /> : <ShieldAlert className="h-5 w-5" />;
@@ -129,10 +129,10 @@ export default function RecoveryOSVisual() {
               </div>
               <div className="mt-5 flex items-center justify-between rounded-2xl bg-[#EEF2FF] px-4 py-3">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-700">Outcome</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-500">Outcome</p>
                   <p className="text-sm font-bold text-gray-950">{active.outcome}</p>
                 </div>
-                <ArrowRight className="h-4 w-4 text-blue-700" />
+                <ArrowRight className="h-4 w-4 text-brand-500" />
               </div>
             </motion.div>
           </AnimatePresence>

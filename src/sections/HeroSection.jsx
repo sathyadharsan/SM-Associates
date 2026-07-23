@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Trophy, ShieldCheck, BadgeCheck } from 'lucide-react';
 
-const B = '#3366FF';
+const B = '#0072bc';
 const C = {
   ink:     '#0a0e1a',
   sub:     '#536070',
@@ -50,9 +50,9 @@ function AuroraBackground() {
 
       {/* Soft aurora blobs — much lower opacity on white */}
       <div className="aurora-a absolute left-[10%] top-[-10%] h-[600px] w-[600px] rounded-full blur-[110px]"
-        style={{ background: 'radial-gradient(circle, rgba(51,102,255,0.10), transparent 70%)' }} />
+        style={{ background: 'radial-gradient(circle, rgba(0, 114, 188,0.10), transparent 70%)' }} />
       <div className="aurora-b absolute right-[5%] top-[5%] h-[520px] w-[520px] rounded-full blur-[100px]"
-        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.08), transparent 70%)' }} />
+        style={{ background: 'radial-gradient(circle, rgba(0, 114, 188,0.08), transparent 70%)' }} />
       <div className="aurora-c absolute left-[35%] top-[30%] h-[480px] w-[480px] rounded-full blur-[120px]"
         style={{ background: 'radial-gradient(circle, rgba(56,189,248,0.06), transparent 70%)' }} />
       <div className="aurora-a absolute bottom-[-15%] right-[20%] h-[460px] w-[460px] rounded-full blur-[110px]"
@@ -60,7 +60,7 @@ function AuroraBackground() {
 
       {/* Fading technical grid */}
       <div className="absolute inset-0 opacity-[0.05]" style={{
-        backgroundImage: 'linear-gradient(#3366FF 1px, transparent 1px), linear-gradient(90deg, #3366FF 1px, transparent 1px)',
+        backgroundImage: 'linear-gradient(#0072bc 1px, transparent 1px), linear-gradient(90deg, #0072bc 1px, transparent 1px)',
         backgroundSize: '54px 54px',
         maskImage: 'radial-gradient(ellipse 70% 60% at 50% 35%, black 0%, transparent 75%)',
         WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 35%, black 0%, transparent 75%)',
@@ -76,7 +76,7 @@ function AuroraBackground() {
             top: `${p.top}%`,
             width: `${p.size}px`,
             height: `${p.size}px`,
-            background: '#3366FF',
+            background: '#0072bc',
             animationDuration: `${p.dur}s`,
             animationDelay: `${p.delay}s`,
             '--p-op': p.op * 0.5,
@@ -149,7 +149,7 @@ const heroStats = [
     value: '25+',
     label: 'Years in Recovery',
     sub: 'Since 2000',
-    color: '#3366FF',
+    color: '#0072bc',
     bars: [38, 50, 58, 52, 68, 80, 95],
     ring: 92,
     delta: 'Est. 2000',
@@ -158,7 +158,7 @@ const heroStats = [
     value: '19',
     label: 'Branch Offices',
     sub: 'South India Network',
-    color: '#16A34A',
+    color: '#0072bc',
     bars: [48, 58, 52, 66, 64, 76, 88],
     ring: 76,
     delta: 'All Active',
@@ -167,7 +167,7 @@ const heroStats = [
     value: '5+',
     label: 'States Covered',
     sub: 'TN · KA · KL · AP · TS',
-    color: '#C8922A',
+    color: '#0072bc',
     bars: [28, 42, 38, 52, 58, 62, 74],
     ring: 60,
     delta: 'Expanding',
@@ -176,7 +176,7 @@ const heroStats = [
     value: '100+',
     label: 'Partner Banks & NBFCs',
     sub: 'Institutional Trust',
-    color: '#7C3AED',
+    color: '#0072bc',
     bars: [52, 58, 66, 63, 72, 84, 98],
     ring: 98,
     delta: '+12 YoY',
@@ -191,19 +191,18 @@ function HeroStatCard({ stat, index }) {
       viewport={{ once: true }}
       transition={{ delay: index * 0.09, duration: 0.52, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -5, transition: { type: 'spring', stiffness: 380, damping: 22 } }}
-      className="relative bg-white rounded-2xl border overflow-hidden group cursor-default"
+      className="relative bg-white rounded-2xl border overflow-hidden group cursor-default shadow-md hover:shadow-xl transition-all duration-300"
       style={{
-        borderColor: '#e2e8f0',
-        boxShadow: '0 2px 16px -4px rgba(10,14,26,0.08), 0 1px 3px rgba(10,14,26,0.04)',
+        borderColor: '#cbd5e1',
       }}
     >
-      {/* Colored top accent bar */}
-      <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: stat.color }} />
+      {/* Dual-tone top telemetry accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#0072bc] via-cyan-500 to-[#0072bc]" />
 
-      {/* Hover radial glow */}
+      {/* Hover radial cyan/blue telemetry glow */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{ background: `radial-gradient(ellipse at 50% 0%, ${stat.color}12, transparent 65%)` }}
+        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(0, 114, 188, 0.15), transparent 70%)' }}
       />
 
       <div className="p-4 flex flex-col gap-2.5">
@@ -211,35 +210,31 @@ function HeroStatCard({ stat, index }) {
         <div className="flex items-start justify-between gap-2">
           <div>
             <div
-              className="font-extrabold tracking-tight leading-none"
-              style={{ fontSize: 'clamp(22px, 3vw, 30px)', color: '#0a0e1a' }}
+              className="font-extrabold tracking-tight leading-none text-slate-900"
+              style={{ fontSize: 'clamp(22px, 3vw, 30px)' }}
             >
               {stat.value}
             </div>
-            <div className="text-[10px] font-bold uppercase tracking-widest mt-1.5" style={{ color: stat.color }}>
+            <div className="text-[10px] font-extrabold uppercase tracking-widest mt-1.5 text-[#0072bc]">
               {stat.label}
             </div>
           </div>
           <div className="relative flex-shrink-0 mt-0.5">
             <RingProgress pct={stat.ring} color={stat.color} size={42} />
             <div
-              className="absolute inset-0 flex items-center justify-center font-bold"
-              style={{ fontSize: 8, color: stat.color }}
+              className="absolute inset-0 flex items-center justify-center font-extrabold"
+              style={{ fontSize: 9, color: stat.color }}
             >
               {stat.ring}%
             </div>
           </div>
         </div>
 
-        {/* Row 2: Sparkline */}
-        <Sparkline bars={stat.bars} color={stat.color} />
-
         {/* Row 3: Sub label + delta badge */}
-        <div className="flex items-center justify-between gap-1 mt-0.5">
-          <span className="text-[11px] text-slate-500 font-medium truncate">{stat.sub}</span>
+        <div className="flex items-center justify-between gap-1 mt-0.5 pt-1 border-t border-slate-100">
+          <span className="text-[11px] text-slate-500 font-semibold truncate">{stat.sub}</span>
           <span
-            className="flex-shrink-0 inline-flex items-center gap-1 text-[9px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap"
-            style={{ background: `${stat.color}14`, color: stat.color }}
+            className="flex-shrink-0 inline-flex items-center gap-1 text-[9px] font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap bg-[#0072bc]/10 text-[#0072bc]"
           >
             ↑ {stat.delta}
           </span>
@@ -269,6 +264,16 @@ export default function HeroSection() {
         {/* ── Hero content ── */}
         <div className="relative mx-auto max-w-[1360px] px-6 py-20 lg:px-10 lg:py-28">
           <Seq>
+            <Fade y={16}>
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#0072bc]/10 border border-[#0072bc]/20 text-[#0072bc] text-xs font-extrabold mb-6 shadow-2xs">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0072bc] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#0072bc]" />
+                </span>
+                <span className="uppercase tracking-wider">LIVE TELEMETRY: 24/7 CPV & RECOVERY DISPATCH ACTIVE • PAN-SOUTH INDIA</span>
+              </div>
+            </Fade>
+
             <Fade y={20}>
               <h1
                 className="font-sora font-extrabold"
@@ -297,7 +302,7 @@ export default function HeroSection() {
                 <a
                   href="#contact"
                   onClick={go('#contact')}
-                  className="inline-flex items-center gap-2 rounded-md border px-6 py-3 text-[13.5px] font-semibold transition hover:bg-blue-50"
+                  className="inline-flex items-center gap-2 rounded-md border px-6 py-3 text-[13.5px] font-semibold transition hover:bg-brand-500"
                   style={{ borderColor: B, color: C.ink }}
                 >
                   Schedule a Consultation

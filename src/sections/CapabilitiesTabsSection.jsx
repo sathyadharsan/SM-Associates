@@ -25,12 +25,12 @@ export default function CapabilitiesTabsSection() {
                   onClick={() => setActiveTab(index)}
                   className={`flex items-center justify-between rounded-2xl px-4 py-4 text-left text-sm font-bold transition ${
                     activeTab === index
-                      ? 'bg-[#3366FF] text-gray-950'
+                      ? 'bg-[#0072bc] text-gray-950'
                       : 'text-slate-600 hover:bg-white hover:text-gray-900'
                   }`}
                 >
                   <span>{tab.title}</span>
-                  <span className={`h-2 w-2 rounded-full ${activeTab === index ? 'bg-gold-400' : 'bg-slate-200'}`} />
+                  <span className={`h-2 w-2 rounded-full ${activeTab === index ? 'bg-brand-500' : 'bg-slate-200'}`} />
                 </button>
               ))}
             </div>
@@ -45,7 +45,7 @@ export default function CapabilitiesTabsSection() {
               transition={{ duration: 0.35 }}
               className="glass-card rounded-[20px] p-7 sm:p-9"
             >
-              <span className="text-xs font-bold uppercase tracking-[0.26em] text-[#3366FF]">
+              <span className="text-xs font-bold uppercase tracking-[0.26em] text-[#0072bc]">
                 Capability {String(activeTab + 1).padStart(2, '0')}
               </span>
               <h3 className="mt-4 text-3xl font-semibold tracking-tight text-gray-900">{capabilityTabs[activeTab].title}</h3>
@@ -54,7 +54,7 @@ export default function CapabilitiesTabsSection() {
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {capabilityTabs[activeTab].points.map(point => (
                   <div key={point} className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#3366FF]" />
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0072bc]" />
                     <p className="text-sm font-semibold leading-6 text-gray-900">{point}</p>
                   </div>
                 ))}

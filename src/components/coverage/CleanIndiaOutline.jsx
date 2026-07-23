@@ -5,7 +5,7 @@
  * the MAP_VIEWPORT constant.
  *
  * The map image (india_map_south_highlighted.png) was AI-generated with accurate
- * state boundaries and South India highlighted in the brand blue #2563EB.
+ * state boundaries and South India highlighted in the brand blue #0072bc.
  */
 export default function CleanIndiaOutline({ accentColor }) {
   // We don't actually use accentColor here because the image already has the

@@ -1,52 +1,165 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { fUp } from './shared/motion';
-import { SECTION_DEFAULTS } from './shared/sectionDefaults';
+import { CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 import { serifHeading } from './shared/typography';
+import RichIcon from './shared/RichIcon';
 
-// Reads `content.processFlow: {title, desc, steps: [{step, title, desc, outcome}]}`.
-// Premium operating-model stepper with active line connectors and spring transitions.
+// Single-accent brand rule: every stage uses brand blue — stages are
+// distinguished by icon + label, not by a per-stage hue.
+const STAGE_THEMES = [
+  {
+    color: '#0072BC',
+    lightBg: 'bg-blue-50/90',
+    text: 'text-[#0072BC]',
+    border: 'border-blue-200',
+    badgeBg: 'bg-blue-100/80',
+    iconType: 'bank'
+  },
+  {
+    color: '#0072BC',
+    lightBg: 'bg-blue-50/90',
+    text: 'text-[#0072BC]',
+    border: 'border-blue-200',
+    badgeBg: 'bg-blue-100/80',
+    iconType: 'agent'
+  },
+  {
+    color: '#0072BC',
+    lightBg: 'bg-blue-50/90',
+    text: 'text-[#0072BC]',
+    border: 'border-blue-200',
+    badgeBg: 'bg-blue-100/80',
+    iconType: 'app'
+  },
+  {
+    color: '#0072BC',
+    lightBg: 'bg-blue-50/90',
+    text: 'text-[#0072BC]',
+    border: 'border-blue-200',
+    badgeBg: 'bg-blue-100/80',
+    iconType: 'analytics'
+  },
+  {
+    color: '#0072BC',
+    lightBg: 'bg-blue-50/90',
+    text: 'text-[#0072BC]',
+    border: 'border-blue-200',
+    badgeBg: 'bg-blue-100/80',
+    iconType: 'legal'
+  }
+];
+
 export default function LifecycleSection({ content }) {
-  const flow = content.processFlow;
+  const flow = content?.processFlow;
   if (!flow || !Array.isArray(flow.steps) || flow.steps.length === 0) return null;
-  const defaults = SECTION_DEFAULTS.processFlow;
+
+  const totalSteps = flow.steps.length;
 
   return (
-    <section className="py-24 bg-white border-y border-slate-100 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-blue-50/10 via-transparent to-transparent pointer-events-none" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.15 }} variants={fUp} className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full">{defaults.eyebrow}</span>
-          <h2 style={serifHeading} className="text-3xl sm:text-4xl font-bold tracking-[-0.01em] text-slate-900 mt-4">{flow.title}</h2>
-          {flow.desc && <p className="text-slate-600 mt-4 leading-relaxed">{flow.desc}</p>}
+    <section id="lifecycle" className="relative overflow-hidden bg-slate-50/60 py-20 lg:py-28 border-y border-slate-200/80 font-inter">
+      {/* Background dot pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-10">
+        
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-bold text-blue-700 shadow-sm mb-4">
+            <Sparkles className="h-4 w-4 text-blue-600" />
+            <span>Process Lifecycle & Workflow</span>
+          </div>
+
+          <h2 style={serifHeading} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
+            {flow.title || 'Verification Stages & Workflow'}
+          </h2>
+
+          {flow.desc && (
+            <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+              {flow.desc}
+            </p>
+          )}
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 relative">
-          {flow.steps.map((s, i) => (
-            <motion.div
-              key={s.step}
-              initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} variants={fUp}
-              whileHover={{ y: -8, scale: 1.02, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
-              transition={{ delay: i * 0.06 }}
-              className="relative overflow-hidden bg-slate-50/80 backdrop-blur-sm border border-slate-200/80 hover:border-blue-500/30 rounded-2xl p-6 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.02)] hover:shadow-[0_24px_50px_-8px_rgba(37,99,235,0.06)] transition-all duration-300 group"
-            >
-              <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-blue-600 to-emerald-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              <div className="flex items-center justify-between mb-4">
-                <span className="h-9 w-9 rounded-full bg-blue-600 text-white text-xs font-bold flex items-center justify-center flex-none shadow-[0_4px_12px_rgba(37,99,235,0.25)] group-hover:scale-110 transition-transform duration-300">{i + 1}</span>
-                <span className="text-[10px] font-bold text-slate-350 tracking-widest uppercase">Step 0{i + 1}</span>
-              </div>
-              <h3 className="font-bold text-slate-900 text-sm tracking-tight mb-2.5">{s.title}</h3>
-              <p className="text-[12px] leading-relaxed text-slate-655 mb-4">{s.desc}</p>
-              {s.outcome && (
-                <div className="border-t border-slate-200/60 pt-3.5 mt-auto">
-                  <p className="text-[11px] font-bold text-emerald-600 flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    {s.outcome}
-                  </p>
-                </div>
-              )}
-            </motion.div>
-          ))}
+
+        {/* ── 5 Stage Pipeline Infographic Cards with Rich Vector Icons ── */}
+        <div className="relative">
+          
+          {/* Connector Line for Desktop */}
+          <div className="hidden lg:block absolute top-[58px] left-[5%] right-[5%] h-1 bg-slate-200 z-0 rounded-full border-t border-b border-slate-300/50" />
+
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${Math.min(totalSteps, 5)} gap-6 relative z-10 items-stretch`}>
+            {flow.steps.map((s, i) => {
+              const theme = STAGE_THEMES[i % STAGE_THEMES.length];
+              const stepNum = s.step || `0${i + 1}`;
+              const isLast = i === totalSteps - 1;
+
+              return (
+                <motion.div
+                  key={s.step || s.title + i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: i * 0.1 }}
+                  whileHover={{ y: -6 }}
+                  className={`group relative rounded-3xl bg-white border-2 ${theme.border} p-6 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between space-y-5 overflow-hidden`}
+                >
+                  {/* Top Color Accent Line */}
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-1.5"
+                    style={{ backgroundColor: theme.color }}
+                  />
+
+                  {/* Desktop Step Arrow Indicator */}
+                  {!isLast && (
+                    <div className="hidden lg:flex absolute -right-4 top-10 w-8 h-8 rounded-full bg-white border border-slate-200 shadow-md items-center justify-center text-slate-400 z-20">
+                      <ArrowRight className="h-4 w-4" style={{ color: theme.color }} />
+                    </div>
+                  )}
+
+                  <div className="space-y-4">
+                    {/* Top Row: Rich Multi-Color Vector Icon + Stage Badge */}
+                    <div className="flex items-center justify-between">
+                      <div className="p-1 rounded-2xl bg-white border border-slate-200/80 shadow-xs group-hover:scale-110 transition-transform duration-300">
+                        <RichIcon type={theme.iconType || s.title} size={48} />
+                      </div>
+
+                      <span className={`text-[10px] font-black uppercase tracking-widest ${theme.text} ${theme.badgeBg} px-3 py-1 rounded-full border border-slate-200/50`}>
+                        STAGE {stepNum}
+                      </span>
+                    </div>
+
+                    {/* Step Title & Description */}
+                    <div>
+                      <h3 className="font-black text-slate-900 text-base sm:text-lg tracking-tight leading-snug">
+                        {s.title}
+                      </h3>
+                      <p className="mt-2 text-xs leading-relaxed text-slate-600 font-normal">
+                        {s.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Deliverable / Outcome Badge */}
+                  {s.outcome && (
+                    <div className="pt-3 border-t border-slate-100">
+                      <div className={`text-xs font-bold ${theme.text} ${theme.lightBg} p-3 rounded-xl flex items-start gap-2 border border-slate-200/60`}>
+                        <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5" />
+                        <span className="leading-snug">{s.outcome}</span>
+                      </div>
+                    </div>
+                  )}
+                </motion.div>
+              );
+            })}
+          </div>
+
         </div>
+
       </div>
     </section>
   );

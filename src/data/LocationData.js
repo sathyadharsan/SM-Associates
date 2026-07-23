@@ -1,5 +1,5 @@
 // ─── Brand tokens ────────────────────────────────────────────────────────
-export const GOLD = '#D4AF37';
+export const GOLD = '#0072bc';
 export const ELECTRIC_BLUE = '#3FA9FF';
 export const NAVY_BG = '#081120';
 

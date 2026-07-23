@@ -20,7 +20,7 @@ export default function IndustriesSection() {
 
   return (
     <section id="industries" className="relative py-20 sm:py-24 lg:py-28" style={{ background: '#f6f8fb' }}>
-      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, #3366FF, transparent)' }} />
+      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, #0072bc, transparent)' }} />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
@@ -41,7 +41,7 @@ export default function IndustriesSection() {
                       ? 'shadow-enterprise text-gray-950'
                       : 'text-gray-500 hover:bg-gray-100 hover:text-gray-950'
                   }`}
-                  style={activeIndustry === index ? { background: '#3366FF', color: '#ffffff' } : {}}
+                  style={activeIndustry === index ? { background: '#0072bc', color: '#ffffff' } : {}}
                 >
                   <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${
                     activeIndustry === index ? 'bg-white/20' : 'bg-gray-100 text-gray-500'
@@ -68,12 +68,12 @@ export default function IndustriesSection() {
               transition={{ duration: 0.35 }}
               className="relative overflow-hidden rounded-[32px] border border-gray-200 bg-white p-8 sm:p-10"
             >
-              <div className="absolute -right-28 -top-28 h-80 w-80 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #3366FF, transparent)' }} />
+              <div className="absolute -right-28 -top-28 h-80 w-80 rounded-full opacity-10" style={{ background: 'radial-gradient(circle, #0072bc, transparent)' }} />
               <div className="relative">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#3366FF]/12 text-[#3366FF]">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0072bc]/12 text-[#0072bc]">
                   {getIcon(active.icon)}
                 </div>
-                <p className="mt-7 text-xs font-bold uppercase tracking-[0.26em] text-[#3366FF]">Industry Solution</p>
+                <p className="mt-7 text-xs font-bold uppercase tracking-[0.26em] text-[#0072bc]">Industry Solution</p>
                 <h3 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-gray-950">{active.title}</h3>
                 <p className="mt-5 text-lg leading-8 text-gray-500">{active.description}</p>
 
@@ -86,7 +86,7 @@ export default function IndustriesSection() {
                   ))}
                 </div>
 
-                <a href="#contact" onClick={handleScrollTo('#contact')} className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#3366FF] transition hover:text-gray-950">
+                <a href="#contact" onClick={handleScrollTo('#contact')} className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#0072bc] transition hover:text-gray-950">
                   Discuss {active.title} <ArrowRight className="h-4 w-4" />
                 </a>
               </div>

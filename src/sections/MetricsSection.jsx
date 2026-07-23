@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import { useReveal } from '../hooks/useReveal';
 import { useCounter } from '../hooks/useCounter';
 import { metrics } from '../data/flagshipHomeData';
+import { Layers, ShieldCheck, Sparkles, Building2, Users, MapPin, PieChart, Network, Award } from 'lucide-react';
+import { serifHeading } from '../components/sections/shared/typography';
 
 /* ═══════════════════════════════════════════════════════
    CARD 1 — 25+ YRS · Legacy Timeline
-   Visual: Horizontal year-progress strip 2000 → 2026
 ═══════════════════════════════════════════════════════ */
 function CardLegacy({ m }) {
   const [ref, display] = useCounter({ to: m.value });
@@ -16,61 +16,69 @@ function CardLegacy({ m }) {
       initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }} transition={{ duration: 0.55 }}
       whileHover={{ y: -5, transition: { type: 'spring', stiffness: 340, damping: 22 } }}
-      className="relative overflow-hidden rounded-2xl bg-[#0a0e1a] border border-white/8 group cursor-default h-full flex flex-col"
-      style={{ boxShadow: '0 8px 40px -8px rgba(51,102,255,0.35)' }}
+      className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0a0e1a] border border-slate-700/80 group cursor-default h-full flex flex-col p-6 shadow-2xl"
     >
-      {/* Blue glow */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#3366FF]" />
-      <div className="absolute top-0 left-1/4 w-1/2 h-32 bg-[#3366FF]/10 blur-3xl pointer-events-none" />
+      {/* Top Luminous Cyan Accent */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0072bc] via-[#38bdf8] to-[#0072bc]" />
+      <div className="absolute top-0 right-0 w-40 h-40 bg-[#0072bc]/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="p-6 relative">
-        <div className="flex items-start justify-between mb-5">
-          <div>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#3366FF] bg-[#3366FF]/15 px-2.5 py-1 rounded-full">
+      <div className="relative flex flex-col justify-between h-full">
+        <div>
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-[10px] font-black uppercase tracking-widest text-amber-300 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full flex items-center gap-1.5">
+              <Award className="w-3 h-3 text-amber-400" />
               LEGACY · EST. 2000
             </span>
-            <div className="mt-3 flex items-baseline gap-1">
-              <span className="text-[56px] font-black tracking-[-0.05em] leading-none text-white">
-                <span ref={ref}>{display}</span>
-              </span>
-              <span className="text-2xl font-black text-[#3366FF]">{m.suffix}</span>
-            </div>
-            <div className="text-sm font-semibold text-white/70 mt-1">{m.label}</div>
+            <span className="text-[10px] font-extrabold text-sky-400 bg-sky-500/10 px-2.5 py-0.5 rounded-full border border-sky-500/20">
+              Quarter-Century
+            </span>
           </div>
-          {/* Year wheel */}
-          <div className="relative w-16 h-16 flex-shrink-0">
-            <svg viewBox="0 0 64 64" className="w-full h-full" style={{ transform: 'rotate(-90deg)' }}>
-              <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="7" />
-              <circle cx="32" cy="32" r="26" fill="none" stroke="#3366FF" strokeWidth="7"
-                strokeDasharray={`${(25/26)*163.36} 163.36`} strokeLinecap="round" />
-            </svg>
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <span className="text-[10px] font-bold text-white leading-none">25</span>
-              <span className="text-[7px] text-white/40 font-semibold">YRS</span>
+
+          <div className="flex items-start justify-between">
+            <div>
+              <div className="flex items-baseline gap-1">
+                <span className="text-5xl sm:text-6xl font-black tracking-tight leading-none text-white">
+                  <span ref={ref}>{display}</span>
+                </span>
+                <span className="text-3xl font-black text-[#38bdf8]">{m.suffix}</span>
+              </div>
+              <div className="text-sm font-extrabold text-slate-200 mt-2">{m.label}</div>
+            </div>
+
+            {/* Glowing Ring Badge */}
+            <div className="relative w-16 h-16 flex-shrink-0">
+              <svg viewBox="0 0 64 64" className="w-full h-full" style={{ transform: 'rotate(-90deg)' }}>
+                <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="6" />
+                <circle cx="32" cy="32" r="26" fill="none" stroke="#38bdf8" strokeWidth="6"
+                  strokeDasharray={`${(25/26)*163.36} 163.36`} strokeLinecap="round" />
+              </svg>
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <span className="text-xs font-black text-white leading-none">25</span>
+                <span className="text-[8px] text-amber-400 font-extrabold">YRS</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Timeline strip */}
-        <div className="mt-2">
-          <div className="relative h-1.5 bg-white/10 rounded-full overflow-hidden mb-2">
+        <div className="mt-6">
+          <div className="relative h-2 bg-slate-800 rounded-full overflow-hidden mb-3 border border-slate-700">
             <motion.div
-              initial={{ width: 0 }} whileInView={{ width: '96%' }}
+              initial={{ width: 0 }} whileInView={{ width: '98%' }}
               viewport={{ once: true }} transition={{ duration: 1.4, ease: 'easeOut', delay: 0.3 }}
-              className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#3366FF] to-[#7C3AED] rounded-full"
+              className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#0072bc] via-[#38bdf8] to-[#10b981] rounded-full"
             />
           </div>
           <div className="flex justify-between">
             {years.map(y => (
-              <div key={y} className="flex flex-col items-center gap-0.5">
-                <div className={`w-px h-2 ${y <= now ? 'bg-[#3366FF]/60' : 'bg-white/20'}`} />
-                <span className={`text-[9px] font-bold ${y <= now ? 'text-[#3366FF]' : 'text-white/30'}`}>{y}</span>
+              <div key={y} className="flex flex-col items-center gap-1">
+                <div className={`w-0.5 h-2 ${y <= now ? 'bg-[#38bdf8]' : 'bg-slate-700'}`} />
+                <span className={`text-[9.5px] font-black ${y <= now ? 'text-sky-300' : 'text-slate-500'}`}>{y}</span>
               </div>
             ))}
           </div>
+          <p className="mt-4 text-xs text-slate-300 leading-relaxed pt-3 border-t border-slate-800">{m.desc}</p>
         </div>
-
-        <p className="mt-4 text-[12px] text-white/40 leading-relaxed">{m.desc}</p>
       </div>
     </motion.div>
   );
@@ -78,214 +86,197 @@ function CardLegacy({ m }) {
 
 /* ═══════════════════════════════════════════════════════
    CARD 2 — 19 Branches · State Column Bar Chart
-   Visual: 5 animated column bars — one per state
 ═══════════════════════════════════════════════════════ */
 function CardNetwork({ m }) {
   const [ref, display] = useCounter({ to: m.value });
   const stateBranches = [
-    { abbr: 'TN', name: 'Tamil Nadu',     count: 10, pct: 100 },
-    { abbr: 'KA', name: 'Karnataka',      count: 4,  pct: 40  },
-    { abbr: 'KL', name: 'Kerala',         count: 2,  pct: 20  },
-    { abbr: 'AP', name: 'Andhra Pradesh', count: 2,  pct: 20  },
-    { abbr: 'TS', name: 'Telangana',      count: 1,  pct: 10  },
+    { abbr: 'TN', name: 'Tamil Nadu',     count: 10, pct: 100, color: 'from-[#0072bc] to-[#38bdf8]' },
+    { abbr: 'KA', name: 'Karnataka',      count: 4,  pct: 40,  color: 'from-[#2563eb] to-[#60a5fa]' },
+    { abbr: 'KL', name: 'Kerala',         count: 2,  pct: 20,  color: 'from-[#059669] to-[#34d399]' },
+    { abbr: 'AP', name: 'Andhra Pradesh', count: 2,  pct: 20,  color: 'from-[#d97706] to-[#fbbf24]' },
+    { abbr: 'TS', name: 'Telangana',      count: 1,  pct: 10,  color: 'from-[#e11d48] to-[#fb7185]' },
   ];
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.05 }}
       whileHover={{ y: -5, transition: { type: 'spring', stiffness: 340, damping: 22 } }}
-      className="relative overflow-hidden rounded-2xl bg-white border border-[#e8edf4] group cursor-default h-full"
+      className="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 group cursor-default h-full p-6 shadow-xl flex flex-col justify-between"
     >
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#4F46E5]" />
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(79,70,229,0.06), transparent 65%)' }}
-      />
-      <div className="p-5 relative">
-        {/* Header row */}
-        <div className="flex items-center justify-between mb-3">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#4F46E5] bg-[#4F46E5]/10 px-2.5 py-1 rounded-full">
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2563eb] to-[#38bdf8]" />
+
+      <div>
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-[10px] font-black uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 px-3 py-1 rounded-full border border-[#0072bc]/20 flex items-center gap-1.5">
+            <Building2 className="w-3 h-3 text-[#0072bc]" />
             BRANCH NETWORK
           </span>
-          <span className="text-[10px] font-bold text-[#4F46E5] bg-[#4F46E5]/10 px-2 py-0.5 rounded-full">● Live</span>
+          <span className="text-[10px] font-extrabold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+            ● Live Hubs
+          </span>
         </div>
 
-        {/* Big number */}
         <div className="flex items-baseline gap-1 mb-4">
-          <span className="text-[46px] font-black tracking-[-0.05em] leading-none text-[#0a0e1a]">
+          <span className="text-5xl font-black tracking-tight leading-none text-slate-900">
             <span ref={ref}>{display}</span>
           </span>
-          <div className="flex flex-col ml-1">
-            <span className="text-[11px] font-bold text-slate-700 leading-tight">Offices</span>
-            <span className="text-[10px] text-[#4F46E5] font-semibold">South India</span>
+          <div className="flex flex-col ml-1.5">
+            <span className="text-sm font-extrabold text-slate-800 leading-tight">Regional Offices</span>
+            <span className="text-xs text-[#0072bc] font-bold">South India Command</span>
           </div>
         </div>
 
-        {/* State column bar chart */}
-        <div className="flex items-end justify-between gap-2" style={{ height: 72 }}>
+        {/* Multi-Color State Column Bar Chart */}
+        <div className="flex items-end justify-between gap-2 my-2" style={{ height: 84 }}>
           {stateBranches.map((s, i) => (
-            <div key={s.abbr} className="flex flex-col items-center gap-1 flex-1">
-              {/* Count label */}
-              <span className="text-[10px] font-black text-[#4F46E5]">{s.count}</span>
-              {/* Bar */}
-              <div className="w-full rounded-t-md overflow-hidden relative" style={{ height: 48, background: '#f1f5f9' }}>
+            <div key={s.abbr} className="flex flex-col items-center gap-1.5 flex-1">
+              <span className="text-[10px] font-black text-slate-900">{s.count}</span>
+              <div className="w-full rounded-t-xl overflow-hidden relative bg-slate-100" style={{ height: 58 }}>
                 <motion.div
                   initial={{ height: 0 }}
                   whileInView={{ height: `${s.pct}%` }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, delay: 0.3 + i * 0.1, ease: 'easeOut' }}
-                  className="absolute bottom-0 left-0 right-0 rounded-t-md"
-                  style={{
-                    background: i === 0
-                      ? 'linear-gradient(180deg, #4F46E5, #818CF8)'
-                      : `rgba(79,70,229,${0.25 + i * 0.05})`,
-                  }}
+                  className={`absolute bottom-0 left-0 right-0 rounded-t-xl bg-gradient-to-t ${s.color}`}
                 />
               </div>
-              {/* State abbr */}
-              <span className="text-[9px] font-black text-slate-500">{s.abbr}</span>
+              <span className="text-[9.5px] font-black text-slate-600">{s.abbr}</span>
             </div>
           ))}
         </div>
-
-        <p className="text-[11px] text-slate-400 mt-3 leading-relaxed border-t border-slate-100 pt-2">{m.desc}</p>
       </div>
+
+      <p className="text-xs text-slate-600 font-medium leading-relaxed border-t border-slate-100 pt-3 mt-4">{m.desc}</p>
     </motion.div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════
-   CARD 3 — 1,500+ Workforce · Person-icon stacked bars
-   Visual: Horizontal stacked bar chart showing team tiers
+   CARD 3 — 1,500+ Workforce · Team Tiers Bar
 ═══════════════════════════════════════════════════════ */
 function CardWorkforce({ m }) {
   const [ref, display] = useCounter({ to: m.value });
   const tiers = [
-    { label: 'Field Officers', pct: 62, color: '#7C3AED' },
-    { label: 'Supervisors',    pct: 22, color: '#A78BFA' },
-    { label: 'Operations',     pct: 16, color: '#DDD6FE' },
+    { label: 'Field Officers', pct: 62, color: 'bg-gradient-to-r from-[#0072bc] to-[#3b82f6]', badge: '#0072bc' },
+    { label: 'Supervisors',    pct: 22, color: 'bg-gradient-to-r from-[#7c3aed] to-[#8b5cf6]', badge: '#7c3aed' },
+    { label: 'Operations',     pct: 16, color: 'bg-gradient-to-r from-[#059669] to-[#10b981]', badge: '#059669' },
   ];
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.1 }}
       whileHover={{ y: -5, transition: { type: 'spring', stiffness: 340, damping: 22 } }}
-      className="relative overflow-hidden rounded-2xl bg-white border border-[#e8edf4] group cursor-default h-full"
+      className="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 group cursor-default h-full p-6 shadow-xl flex flex-col justify-between"
     >
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#7C3AED]" />
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(124,58,237,0.06), transparent 65%)' }}
-      />
-      <div className="p-5 relative">
-        <span className="text-[10px] font-bold uppercase tracking-widest text-[#7C3AED] bg-[#7C3AED]/10 px-2.5 py-1 rounded-full">
-          WORKFORCE
-        </span>
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#7c3aed] to-[#8b5cf6]" />
 
-        <div className="flex items-baseline gap-1 mt-3">
-          <span className="text-[42px] font-black tracking-[-0.04em] leading-none text-[#0a0e1a]">
+      <div>
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-[10px] font-black uppercase tracking-widest text-purple-700 bg-purple-50 px-3 py-1 rounded-full border border-purple-200 flex items-center gap-1.5">
+            <Users className="w-3 h-3 text-purple-600" />
+            FIELD WORKFORCE
+          </span>
+          <span className="text-[10px] font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-full border border-purple-200">
+            DRA Certified
+          </span>
+        </div>
+
+        <div className="flex items-baseline gap-1 mb-1">
+          <span className="text-5xl font-black tracking-tight leading-none text-slate-900">
             <span ref={ref}>{display}</span>
           </span>
-          <span className="text-lg font-black text-[#7C3AED]">{m.suffix}</span>
+          <span className="text-2xl font-black text-purple-600">{m.suffix}</span>
         </div>
-        <div className="text-[12px] font-bold text-slate-600 mt-0.5">{m.label}</div>
+        <div className="text-xs font-extrabold text-slate-700">{m.label}</div>
 
-        {/* Stacked horizontal bar */}
-        <div className="mt-4 rounded-lg overflow-hidden h-5 flex">
+        {/* Stacked Multi-Color Horizontal Bar */}
+        <div className="mt-4 rounded-xl overflow-hidden h-4 flex gap-1 p-0.5 bg-slate-100 border border-slate-200">
           {tiers.map((t, i) => (
             <motion.div
               key={t.label}
               initial={{ width: 0 }} whileInView={{ width: `${t.pct}%` }}
               viewport={{ once: true }} transition={{ duration: 1, delay: 0.4 + i * 0.15, ease: 'easeOut' }}
-              style={{ background: t.color, height: '100%' }}
+              className={`rounded-lg ${t.color}`}
               title={`${t.label}: ${t.pct}%`}
             />
           ))}
         </div>
 
         {/* Legend */}
-        <div className="mt-3 flex flex-col gap-1.5">
+        <div className="mt-4 space-y-2">
           {tiers.map(t => (
-            <div key={t.label} className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 rounded-sm" style={{ background: t.color }} />
-                <span className="text-[10px] text-slate-500 font-medium">{t.label}</span>
+            <div key={t.label} className="flex items-center justify-between text-xs">
+              <div className="flex items-center gap-2">
+                <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: t.badge }} />
+                <span className="font-bold text-slate-700">{t.label}</span>
               </div>
-              <span className="text-[10px] font-bold" style={{ color: t.color }}>{t.pct}%</span>
+              <span className="font-extrabold text-slate-900">{t.pct}%</span>
             </div>
           ))}
         </div>
-
-        <p className="mt-3 text-[11px] text-slate-400 border-t border-slate-100 pt-2">{m.desc}</p>
       </div>
+
+      <p className="text-xs text-slate-600 font-medium leading-relaxed border-t border-slate-100 pt-3 mt-4">{m.desc}</p>
     </motion.div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════
-   CARD 4 — 5 States · State coverage pills
-   Visual: Each state shown as a colored pill with a
-           mini horizontal fill bar
+   CARD 4 — 5 States · State Coverage Fill Bars
 ═══════════════════════════════════════════════════════ */
 function CardCoverage({ m }) {
   const [ref, display] = useCounter({ to: m.value });
   const states = [
-    { name: 'Tamil Nadu',       abbr: 'TN', pct: 95, color: '#F59E0B' },
-    { name: 'Karnataka',        abbr: 'KA', pct: 78, color: '#C8922A' },
-    { name: 'Kerala',           abbr: 'KL', pct: 62, color: '#D97706' },
-    { name: 'Andhra Pradesh',   abbr: 'AP', pct: 55, color: '#B45309' },
-    { name: 'Telangana',        abbr: 'TS', pct: 50, color: '#92400E' },
+    { name: 'Tamil Nadu',       abbr: 'TN', pct: 95, color: 'from-[#0072bc] to-[#38bdf8]' },
+    { name: 'Karnataka',        abbr: 'KA', pct: 78, color: 'from-[#2563eb] to-[#60a5fa]' },
+    { name: 'Kerala',           abbr: 'KL', pct: 62, color: 'from-[#059669] to-[#34d399]' },
+    { name: 'Andhra Pradesh',   abbr: 'AP', pct: 55, color: 'from-[#d97706] to-[#fbbf24]' },
+    { name: 'Telangana',        abbr: 'TS', pct: 50, color: 'from-[#e11d48] to-[#fb7185]' },
   ];
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.15 }}
       whileHover={{ y: -5, transition: { type: 'spring', stiffness: 340, damping: 22 } }}
-      className="relative overflow-hidden rounded-2xl bg-white border border-[#e8edf4] group cursor-default h-full"
+      className="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 group cursor-default h-full p-6 shadow-xl flex flex-col justify-between"
     >
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#F59E0B] to-[#C8922A]" />
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(200,146,42,0.07), transparent 65%)' }}
-      />
-      <div className="p-5 relative">
-        <div className="flex items-start justify-between mb-3">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#C8922A] bg-[#C8922A]/10 px-2.5 py-1 rounded-full">
-            COVERAGE
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#059669] to-[#34d399]" />
+
+      <div>
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-[10px] font-black uppercase tracking-widest text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 flex items-center gap-1.5">
+            <MapPin className="w-3 h-3 text-emerald-600" />
+            REGIONAL COVERAGE
           </span>
-          <span className="text-[10px] font-bold text-[#C8922A]">South India</span>
+          <span className="text-[10px] font-extrabold text-emerald-700">South India</span>
         </div>
 
         <div className="flex items-baseline gap-1.5 mb-4">
-          <span className="text-[48px] font-black tracking-[-0.05em] leading-none text-[#0a0e1a]">
+          <span className="text-5xl font-black tracking-tight leading-none text-slate-900">
             <span ref={ref}>{display}</span>
           </span>
           <div className="flex flex-col">
-            <span className="text-[12px] font-bold text-slate-600 leading-tight">States</span>
-            <span className="text-[10px] text-[#C8922A] font-semibold">Covered</span>
+            <span className="text-sm font-extrabold text-slate-800 leading-tight">Key States</span>
+            <span className="text-xs text-emerald-700 font-bold">100% Penetration</span>
           </div>
         </div>
 
-        {/* Per-state progress bars */}
-        <div className="space-y-2">
+        {/* Per-state colorful progress bars */}
+        <div className="space-y-2.5">
           {states.map((s, i) => (
-            <div key={s.abbr} className="flex items-center gap-2">
-              <span
-                className="w-7 text-[9px] font-black text-white rounded px-1 py-0.5 text-center flex-shrink-0"
-                style={{ background: s.color }}
-              >
+            <div key={s.abbr} className="flex items-center gap-2.5">
+              <span className="w-7 text-[10px] font-black text-slate-700 text-center flex-none">
                 {s.abbr}
               </span>
-              <div className="flex-1 bg-slate-100 rounded-full h-1.5 overflow-hidden">
+              <div className="flex-1 bg-slate-100 rounded-full h-2 overflow-hidden border border-slate-200/60">
                 <motion.div
                   initial={{ width: 0 }} whileInView={{ width: `${s.pct}%` }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.9, delay: 0.5 + i * 0.1, ease: 'easeOut' }}
-                  className="h-full rounded-full"
-                  style={{ background: s.color }}
+                  className={`h-full rounded-full bg-gradient-to-r ${s.color}`}
                 />
               </div>
-              <span className="text-[9px] font-bold text-slate-400 w-7 text-right">{s.pct}%</span>
+              <span className="text-[10px] font-extrabold text-slate-900 w-8 text-right">{s.pct}%</span>
             </div>
           ))}
         </div>
@@ -296,14 +287,13 @@ function CardCoverage({ m }) {
 
 /* ═══════════════════════════════════════════════════════
    CARD 5 — 1M+ Accounts · Concentric Portfolio Rings
-   Visual: Big number at top + 4 stacked rings below
 ═══════════════════════════════════════════════════════ */
 function CardScale({ m }) {
   const segments = [
-    { label: 'Retail Loans', pct: 82, color: '#10B981', r: 58, strokeW: 9 },
-    { label: 'Auto Loans',   pct: 64, color: '#34D399', r: 45, strokeW: 8 },
-    { label: 'Housing',      pct: 48, color: '#6EE7B7', r: 32, strokeW: 7 },
-    { label: 'MSME',         pct: 35, color: '#A7F3D0', r: 19, strokeW: 6 },
+    { label: 'Retail Loans', pct: 82, color: '#0072bc', r: 58, strokeW: 9 },
+    { label: 'Auto Loans',   pct: 64, color: '#7c3aed', r: 45, strokeW: 8 },
+    { label: 'Housing',      pct: 48, color: '#059669', r: 32, strokeW: 7 },
+    { label: 'MSME',         pct: 35, color: '#f59e0b', r: 19, strokeW: 6 },
   ];
   const cx = 72, cy = 72;
   return (
@@ -311,44 +301,39 @@ function CardScale({ m }) {
       initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.2 }}
       whileHover={{ y: -5, transition: { type: 'spring', stiffness: 340, damping: 22 } }}
-      className="relative overflow-hidden rounded-2xl bg-white border border-[#e8edf4] group cursor-default h-full flex flex-col"
-      style={{ boxShadow: '0 4px 24px -4px rgba(16,185,129,0.14)' }}
+      className="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 group cursor-default h-full p-6 shadow-xl flex flex-col justify-between"
     >
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#10B981]" />
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(16,185,129,0.07), transparent 65%)' }}
-      />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0072bc] via-[#7c3aed] to-[#059669]" />
 
-      <div className="p-5 relative flex flex-col flex-1 gap-3">
-        {/* ── Row 1: badge + trend ── */}
-        <div className="flex items-center justify-between">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#10B981] bg-[#10B981]/10 px-2.5 py-1 rounded-full">
+      <div>
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-[10px] font-black uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 px-3 py-1 rounded-full border border-[#0072bc]/20 flex items-center gap-1.5">
+            <PieChart className="w-3 h-3 text-[#0072bc]" />
             PORTFOLIO SCALE
           </span>
-          <span className="text-[10px] font-bold text-[#10B981]">↑ Growing</span>
+          <span className="text-[10px] font-extrabold text-[#0072bc] bg-[#0072bc]/10 px-2 py-0.5 rounded-full">
+            ↑ Growing
+          </span>
         </div>
 
-        {/* ── Row 2: Big 1M+ number (always visible) ── */}
-        <div className="flex items-baseline gap-1">
-          <span className="text-[46px] font-black tracking-[-0.05em] leading-none text-[#0a0e1a]">
+        <div className="flex items-baseline gap-1 mb-2">
+          <span className="text-5xl font-black tracking-tight leading-none text-slate-900">
             1
           </span>
-          <span className="text-[24px] font-black text-[#10B981] leading-none">M+</span>
-          <span className="text-[12px] font-bold text-slate-500 ml-1 self-end pb-1">{m.label}</span>
+          <span className="text-2xl font-black text-[#0072bc]">M+</span>
+          <span className="text-xs font-bold text-slate-600 ml-1.5">{m.label}</span>
         </div>
 
-        {/* ── Row 3: Rings + legend side by side ── */}
-        <div className="flex items-center gap-3 flex-1">
-          {/* Concentric rings SVG */}
-          <div className="relative flex-shrink-0" style={{ width: 144, height: 144 }}>
-            <svg viewBox="0 0 144 144" width="144" height="144">
+        {/* Concentric Multi-Color SVG Rings */}
+        <div className="flex items-center gap-3 my-2">
+          <div className="relative flex-shrink-0" style={{ width: 136, height: 136 }}>
+            <svg viewBox="0 0 144 144" width="136" height="136">
               {segments.map((s, i) => {
                 const circ = 2 * Math.PI * s.r;
                 const dash = (s.pct / 100) * circ;
                 return (
                   <g key={s.label}>
-                    <circle cx={cx} cy={cy} r={s.r} fill="none" stroke="#f0fdf4" strokeWidth={s.strokeW} />
+                    <circle cx={cx} cy={cy} r={s.r} fill="none" stroke="#f1f5f9" strokeWidth={s.strokeW} />
                     <motion.circle
                       cx={cx} cy={cy} r={s.r}
                       fill="none" stroke={s.color} strokeWidth={s.strokeW}
@@ -362,131 +347,122 @@ function CardScale({ m }) {
                   </g>
                 );
               })}
-              {/* Center emerald dot */}
-              <circle cx={cx} cy={cy} r={8} fill="#10B981" opacity={0.9} />
-              <text x={cx} y={cy + 3} textAnchor="middle"
-                style={{ fontSize: 6, fontWeight: 800, fill: 'white' }}>
+              <circle cx={cx} cy={cy} r={8} fill="#0072bc" opacity={0.9} />
+              <text x={cx} y={cy + 3} textAnchor="middle" style={{ fontSize: 6, fontWeight: 900, fill: 'white' }}>
                 1M
               </text>
             </svg>
           </div>
 
-          {/* Legend */}
-          <div className="flex flex-col gap-2.5 flex-1">
+          <div className="flex flex-col gap-2 flex-1">
             {segments.map(s => (
-              <div key={s.label} className="flex items-center justify-between gap-1.5">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: s.color }} />
-                  <span className="text-[11px] text-slate-500 font-medium leading-tight">{s.label}</span>
+              <div key={s.label} className="flex items-center justify-between text-xs">
+                <div className="flex items-center gap-2">
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: s.color }} />
+                  <span className="font-bold text-slate-700">{s.label}</span>
                 </div>
-                <span className="text-[11px] font-bold flex-shrink-0" style={{ color: s.color }}>{s.pct}%</span>
+                <span className="font-extrabold" style={{ color: s.color }}>{s.pct}%</span>
               </div>
             ))}
           </div>
         </div>
-
-        {/* ── Row 4: desc ── */}
-        <p className="text-[11px] text-slate-400 leading-relaxed border-t border-slate-100 pt-2.5">
-          {m.desc}
-        </p>
       </div>
+
+      <p className="text-xs text-slate-600 font-medium leading-relaxed border-t border-slate-100 pt-3 mt-4">{m.desc}</p>
     </motion.div>
   );
 }
 
-
 /* ═══════════════════════════════════════════════════════
-   CARD 6 — 100+ Partners · Network node graph
-   Visual: Light card with SVG node-connection diagram
+   CARD 6 — 100+ Partners · Network Node Graph
 ═══════════════════════════════════════════════════════ */
 function CardPartners({ m }) {
   const [ref, display] = useCounter({ to: m.value });
   const nodes = [
-    { x: 80,  y: 30,  label: 'Banks',   r: 18, color: '#E11D48' },
-    { x: 30,  y: 75,  label: 'NBFCs',   r: 14, color: '#FB7185' },
-    { x: 130, y: 75,  label: 'ARCs',    r: 12, color: '#FCA5A5' },
-    { x: 20,  y: 125, label: 'HFCs',    r: 11, color: '#FECACA' },
-    { x: 80,  y: 115, label: 'FinTech', r: 10, color: '#FDA4AF' },
-    { x: 140, y: 122, label: 'Ins.',    r: 9,  color: '#FECDD3' },
+    { x: 75,  y: 30,  label: 'SM Hub',  r: 18, color: '#0072bc' },
+    { x: 28,  y: 75,  label: 'Banks',   r: 14, color: '#2563eb' },
+    { x: 122, y: 75,  label: 'NBFCs',   r: 13, color: '#7c3aed' },
+    { x: 18,  y: 120, label: 'ARCs',    r: 11, color: '#059669' },
+    { x: 75,  y: 115, label: 'FinTech', r: 11, color: '#f59e0b' },
+    { x: 130, y: 120, label: 'MFIs',    r: 10, color: '#ec4899' },
   ];
   const edges = [[0,1],[0,2],[0,3],[0,4],[1,3],[2,5],[0,5]];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }} transition={{ duration: 0.55, delay: 0.25 }}
       whileHover={{ y: -5, transition: { type: 'spring', stiffness: 340, damping: 22 } }}
-      className="relative overflow-hidden rounded-2xl bg-white border border-[#e8edf4] group cursor-default h-full"
-      style={{ boxShadow: '0 4px 24px -4px rgba(225,29,72,0.12)' }}
+      className="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 group cursor-default h-full p-6 shadow-xl flex flex-col justify-between"
     >
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#E11D48] to-[#FB7185]" />
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(225,29,72,0.05), transparent 65%)' }}
-      />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2563eb] via-[#7c3aed] to-[#ec4899]" />
 
-      <div className="p-5 relative flex gap-3 h-full">
-        {/* Left: number + info */}
-        <div className="flex-1 flex flex-col">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-[#E11D48] bg-[#E11D48]/10 px-2.5 py-1 rounded-full self-start">
-            PARTNERS
+      <div>
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-[10px] font-black uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 px-3 py-1 rounded-full border border-[#0072bc]/20 flex items-center gap-1.5">
+            <Network className="w-3 h-3 text-[#0072bc]" />
+            INSTITUTIONAL PARTNERS
           </span>
-          <div className="mt-3 flex items-baseline gap-0.5">
-            <span className="text-[50px] font-black tracking-[-0.05em] leading-none text-[#0a0e1a]">
-              <span ref={ref}>{display}</span>
-            </span>
-            <span className="text-xl font-black text-[#E11D48]">{m.suffix}</span>
-          </div>
-          <div className="text-[12px] font-bold text-slate-700 mt-1">{m.label}</div>
-          <p className="text-[11px] text-slate-400 leading-relaxed mt-2">{m.desc}</p>
+          <span className="text-[10px] font-extrabold text-[#0072bc]">Empannelled</span>
+        </div>
 
-          {/* Category pills */}
-          <div className="flex flex-wrap gap-1 mt-auto pt-3">
-            {['Banks', 'NBFCs', 'ARCs', 'HFCs'].map(tag => (
-              <span key={tag} className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#E11D48]/10 text-[#E11D48]">
-                {tag}
+        <div className="flex items-start justify-between gap-2">
+          <div>
+            <div className="flex items-baseline gap-0.5">
+              <span className="text-5xl font-black tracking-tight leading-none text-slate-900">
+                <span ref={ref}>{display}</span>
               </span>
-            ))}
+              <span className="text-2xl font-black text-[#0072bc]">{m.suffix}</span>
+            </div>
+            <div className="text-xs font-extrabold text-slate-700 mt-1">{m.label}</div>
+          </div>
+
+          {/* Multi-Color Network Node SVG */}
+          <div className="flex-shrink-0">
+            <svg viewBox="0 0 150 140" width="115" height="110">
+              {edges.map(([a, b], i) => (
+                <motion.line
+                  key={i}
+                  x1={nodes[a].x} y1={nodes[a].y} x2={nodes[b].x} y2={nodes[b].y}
+                  stroke="#0072bc" strokeWidth="1.5" strokeOpacity="0.25" strokeDasharray="3 3"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.5 + i * 0.07 }}
+                />
+              ))}
+              {nodes.map((n, i) => (
+                <g key={i}>
+                  <motion.circle
+                    cx={n.x} cy={n.y} r={n.r}
+                    fill={n.color}
+                    initial={{ scale: 0 }} whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: 'spring', stiffness: 400, delay: 0.4 + i * 0.08 }}
+                    style={{ transformOrigin: `${n.x}px ${n.y}px` }}
+                  />
+                  <text x={n.x} y={n.y + 3} textAnchor="middle" style={{ fontSize: 7, fontWeight: 900, fill: 'white' }}>
+                    {i === 0 ? 'SM' : ''}
+                  </text>
+                  <text x={n.x} y={n.y + n.r + 9} textAnchor="middle" style={{ fontSize: 7.5, fill: '#475569', fontWeight: 800 }}>
+                    {n.label}
+                  </text>
+                </g>
+              ))}
+            </svg>
           </div>
         </div>
+      </div>
 
-        {/* Right: node graph SVG */}
-        <div className="flex-shrink-0 self-center">
-          <svg viewBox="0 0 160 155" width="118" height="115">
-            {edges.map(([a, b], i) => (
-              <motion.line
-                key={i}
-                x1={nodes[a].x} y1={nodes[a].y} x2={nodes[b].x} y2={nodes[b].y}
-                stroke="#E11D48" strokeWidth="1.2" strokeOpacity="0.18"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 + i * 0.07 }}
-              />
-            ))}
-            {nodes.map((n, i) => (
-              <g key={i}>
-                <motion.circle
-                  cx={n.x} cy={n.y} r={n.r}
-                  fill={n.color} fillOpacity={i === 0 ? 1 : 0.7}
-                  initial={{ scale: 0 }} whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ type: 'spring', stiffness: 400, delay: 0.4 + i * 0.08 }}
-                  style={{ transformOrigin: `${n.x}px ${n.y}px` }}
-                />
-                {i === 0 && (
-                  <text x={n.x} y={n.y + 3} textAnchor="middle"
-                    style={{ fontSize: 7, fontWeight: 700, fill: 'white' }}>
-                    SM
-                  </text>
-                )}
-                <text x={n.x} y={n.y + n.r + 9} textAnchor="middle"
-                  style={{ fontSize: 7, fill: '#94a3b8', fontWeight: 600 }}>
-                  {n.label}
-                </text>
-              </g>
-            ))}
-          </svg>
+      <div className="mt-4 pt-3 border-t border-slate-100">
+        <div className="flex flex-wrap gap-1.5">
+          {['Banks', 'NBFCs', 'ARCs', 'HFCs', 'MFIs'].map(tag => (
+            <span key={tag} className="text-[9.5px] font-black px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+              {tag}
+            </span>
+          ))}
         </div>
+        <p className="text-xs text-slate-600 font-medium leading-relaxed mt-2.5">{m.desc}</p>
       </div>
     </motion.div>
   );
@@ -496,36 +472,36 @@ function CardPartners({ m }) {
    MAIN SECTION
 ═══════════════════════════════════════════════════════ */
 export default function MetricsSection() {
-  // metrics array: [25yrs, 19 branches, 1500 workforce, 5 states, 1M accounts, 100 partners]
   const [m0, m1, m2, m3, m4, m5] = metrics;
 
   return (
-    <section className="metrics6 relative bg-[#f4f6fb]" id="metrics" style={{ padding: '80px 0' }}>
-      <div className="fg-wrap">
-        {/* Section header */}
-        <div className="fg-section-header" style={{ marginBottom: 48 }}>
-          <span className="fg-eyebrow">Infrastructure at Scale</span>
-          <h2>
-            Operational depth,<br />
-            <em className="fg-hl">measured in the field.</em>
+    <section className="py-20 lg:py-28 bg-[#f8fafc] border-t border-b border-slate-200/90 relative overflow-hidden font-inter" id="metrics">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 border border-[#0072bc]/20 mb-4 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5" />
+            INFRASTRUCTURE AT SCALE
+          </span>
+          <h2 style={serifHeading} className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Operational Depth, Measured in the Field
           </h2>
+          <p className="mt-3 text-slate-600 text-base sm:text-lg leading-relaxed">
+            Quantifiable institutional standing built over 25+ years of continuous banking recovery and legal enforcement.
+          </p>
         </div>
 
-        {/* ── Unified 3×2 equal-height grid ── */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gridAutoRows: '1fr',
-          gap: 20,
-          alignItems: 'stretch',
-        }}>
-          <div className="flex flex-col"><CardLegacy m={m0} /></div>
-          <div className="flex flex-col"><CardNetwork m={m1} /></div>
-          <div className="flex flex-col"><CardWorkforce m={m2} /></div>
-          <div className="flex flex-col"><CardCoverage m={m3} /></div>
-          <div className="flex flex-col"><CardScale m={m4} /></div>
-          <div className="flex flex-col"><CardPartners m={m5} /></div>
+        {/* ── 3×2 Equal-Height Luxury Cards Matrix ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+          <div className="flex flex-col h-full"><CardLegacy m={m0} /></div>
+          <div className="flex flex-col h-full"><CardNetwork m={m1} /></div>
+          <div className="flex flex-col h-full"><CardWorkforce m={m2} /></div>
+          <div className="flex flex-col h-full"><CardCoverage m={m3} /></div>
+          <div className="flex flex-col h-full"><CardScale m={m4} /></div>
+          <div className="flex flex-col h-full"><CardPartners m={m5} /></div>
         </div>
+
       </div>
     </section>
   );

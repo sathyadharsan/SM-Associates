@@ -27,7 +27,7 @@ export default function NotFoundPage() {
     <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-white pt-28 pb-20">
       <div className="noise-overlay absolute inset-0 opacity-70" />
       <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <p className="text-xs font-bold uppercase tracking-[0.32em] text-blue-700">Error 404</p>
+        <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-500">Error 404</p>
         <h1 className="mt-5 text-balance text-4xl font-semibold tracking-[-0.055em] text-gray-950 sm:text-5xl">
           This page doesn't exist.
         </h1>
