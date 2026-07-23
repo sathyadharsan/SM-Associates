@@ -9,95 +9,145 @@
    prefixed fg- to avoid any future collision with the rest of the app.
    ============================================================ */
 :root{
-  --white:#ffffff; --ink:#0a0e1a; --ink-2:#3d4463; --ink-3:#7b849e;
-  --line:#e8ecf4; --line-2:#f0f3f9;
-  --blue:#0072bc; --blue-2:#3d93ce; --blue-3:#7fb8e0;
-  --blue-t:rgba(0, 114, 188,.08); --blue-g:rgba(0, 114, 188,.18);
+  --white:#ffffff; --ink:#0f172a; --ink-2:#334155; --ink-3:#64748b;
+  --line:#e2e8f0; --line-2:#f1f5f9;
+  --blue:#0072bc; --blue-2:#0284c7; --blue-3:#38bdf8;
+  --blue-t:rgba(0, 114, 188,.08); --blue-g:rgba(0, 114, 188,.16);
   --gold:var(--blue); --gold-2:var(--blue-2); --gold-t:var(--blue-t);
-  --green:var(--blue); --green-t:var(--blue-t);
-  --purple:var(--blue); --purple-t:rgba(0, 114, 188,.1);
+  --green:#059669; --green-t:rgba(5, 150, 105, .1);
+  --purple:#7c3aed; --purple-t:rgba(124, 58, 237, .1);
   --sans:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
-  --serif:"Lora",Georgia,"Times New Roman",serif;
+  --serif:"Plus Jakarta Sans",Georgia,sans-serif;
   --ease:cubic-bezier(0.22,1,0.36,1);
   --ease-io:cubic-bezier(0.16,1,0.3,1);
-  --max:1320px; --gut:48px;
-  --navy:#0f172a; --navy-2:#131c35; --navy-3:#1a2540;
+  --max:1400px; --gut:56px;
+  --navy:#0f172a; --navy-2:#1e293b; --navy-3:#334155;
   --stone:#f8fafc; --stone-2:#f1f5f9;
   --amber:var(--blue); --amber-t:var(--blue-t);
 }
-@media(max-width:1100px){:root{--gut:32px;}}
-@media(max-width:640px){:root{--gut:20px;}}
+@media(max-width:1100px){:root{--gut:36px;}}
+@media(max-width:640px){:root{--gut:24px;}}
 
 /* Lenis smooth scroll optimization */
+html {
+  scroll-behavior: smooth;
+}
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overflow: clip; }
 .lenis.lenis-stopped { overflow: hidden; }
 .lenis.lenis-smooth iframe { pointer-events: none; }
 
-/* overflow-x:clip (not hidden) — the ambient glows below hang past the
-   viewport edges by design (right:-250px etc.) and must be clipped, but
-   overflow:hidden would turn .fg-home into a scroll container and break
-   the position:sticky pin inside OperatingModelSection. clip only cuts
-   paint, never creates a scroll container. */
-.fg-home{font-family:var(--sans);position:relative;overflow-x:clip;}
+.fg-home {
+  font-family: var(--sans);
+  position: relative;
+  overflow-x: clip;
+  background-color: #ffffff;
+  color: #0f172a;
+}
 
-/* Ambient glow lights */
+/* ── Unified Homepage Typography Hierarchy ── */
+.fg-section-header {
+  text-align: center;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
+}
+
+.fg-section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.875rem;
+  border-radius: 9999px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #0072bc;
+  background-color: rgba(0, 114, 188, 0.08);
+  border: 1px solid rgba(0, 114, 188, 0.2);
+  margin-bottom: 0.875rem;
+}
+
+.fg-section-title {
+  font-family: var(--sans) !important;
+  font-size: clamp(2rem, 3.5vw, 2.75rem) !important; /* 32px - 44px uniform size */
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.15 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.fg-section-subtitle {
+  font-family: var(--sans) !important;
+  font-size: clamp(1rem, 1.2vw, 1.125rem) !important; /* 16px - 18px uniform size */
+  font-weight: 500 !important;
+  color: #475569 !important;
+  line-height: 1.625 !important;
+  margin-top: 0.75rem !important;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Section Container Layout ── */
+.fg-home section {
+  box-sizing: border-box;
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+  .fg-home section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+/* Ambient subtle background glows for white theme */
 .ambient-glow {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  filter: blur(140px);
-  opacity: 0.045;
-  will-change: transform;
-}
-.ambient-glow--1 {
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, var(--blue), transparent 70%);
-  top: 10%;
-  right: -250px;
-}
-.ambient-glow--2 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, var(--purple), transparent 70%);
-  top: 38%;
-  left: -200px;
-}
-.ambient-glow--3 {
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, var(--gold-2), transparent 70%);
-  top: 68%;
-  right: -300px;
+  display: none !important;
 }
 
-.fg-home h1,.fg-home h2,.fg-home h3,.fg-home h4,.fg-home h5{font-weight:700;letter-spacing:-.03em;line-height:1.04;text-wrap:balance;}
-.fg-home p{text-wrap:pretty;}
+.fg-home h1,.fg-home h2,.fg-home h3,.fg-home h4,.fg-home h5{font-weight:700;letter-spacing:-.03em;line-height:1.04;text-wrap:balance;color:#0f172a;}
+.fg-home p{text-wrap:pretty;color:#475569;}
 .fg-home a{color:inherit;text-decoration:none;}
 .fg-wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut);}
 
+/* ── Section Connecting Rail (Collekt.ai style visual flow) ── */
+.section-connector-rail {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(180deg, rgba(0, 114, 188, 0.4) 0%, rgba(0, 114, 188, 0) 100%);
+  z-index: 10;
+  pointer-events: none;
+}
+
 /* ── Atoms ─────────────────────────────────────────────── */
-.fg-eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:500;display:inline-flex;align-items:center;gap:9px;}
-.fg-eyebrow::before{content:"";width:6px;height:6px;background:var(--blue);border-radius:2px;box-shadow:0 0 0 4px var(--blue-t);}
+.fg-eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:600;display:inline-flex;align-items:center;gap:9px;}
+.fg-eyebrow::before{content:"";width:6px;height:6px;background:var(--blue);border-radius:2px;box-shadow:0 0 0 4px rgba(0, 114, 188, 0.15);}
 .fg-mono-tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);}
 
-/* Specificity note: these are qualified with .fg-home so they reliably
-   beat the `.fg-home a{color:inherit}` reset above (a bare `.fg-btn-p`
-   class has lower specificity than that class+element selector). */
-.fg-home .fg-btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:15px;padding:13px 22px;border-radius:12px;border:1.5px solid transparent;cursor:pointer;transition:transform .28s var(--ease),background .25s,box-shadow .25s,border-color .25s,color .25s;white-space:nowrap;will-change:transform;}
-.fg-home .fg-btn-p{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 2px 4px rgba(20,40,120,.2),0 12px 32px -10px rgba(0, 114, 188,.45);}
-.fg-home .fg-btn-p:hover{background:#2a53e8;transform:translateY(-2px);box-shadow:0 4px 8px rgba(20,40,120,.25),0 20px 44px -10px rgba(0, 114, 188,.55);}
-.fg-home .fg-btn-s{background:var(--white);color:var(--ink);border-color:var(--line);}
-.fg-home .fg-btn-s:hover{border-color:var(--ink-3);transform:translateY(-2px);}
+.fg-home .fg-btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:15px;padding:14px 26px;border-radius:14px;border:1.5px solid transparent;cursor:pointer;transition:transform .28s var(--ease),background .25s,box-shadow .25s,border-color .25s,color .25s;white-space:nowrap;will-change:transform;}
+.fg-home .fg-btn-p{background:#0072bc;color:#fff;border-color:#0072bc;box-shadow:0 4px 16px rgba(0, 114, 188, 0.3);}
+.fg-home .fg-btn-p:hover{background:#0284c7;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0, 114, 188, 0.4);}
+.fg-home .fg-btn-s{background:#ffffff;color:#0f172a;border-color:#e2e8f0;box-shadow:0 2px 8px rgba(15, 23, 42, 0.04);}
+.fg-home .fg-btn-s:hover{border-color:#94a3b8;transform:translateY(-2px);background:#f8fafc;}
 .fg-home .fg-btn .arr{transition:transform .3s var(--ease);}
 .fg-home .fg-btn:hover .arr{transform:translateX(4px);}
 
 /* ── Scroll progress ────────────────────────────────────── */
-.fg-scroll-prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--blue),var(--blue-3));z-index:300;}
+.fg-scroll-prog{position:fixed;top:0;left:0;height:2.5px;width:0;background:linear-gradient(90deg,#0072bc,#0284c7,#38bdf8);z-index:300;}
 
 /* ── Reveals ─────────────────────────────────────────────── */
 .fg-r{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
@@ -106,21 +156,21 @@ html.lenis, html.lenis body { height: auto; }
 .fg-r2.in{opacity:1;transform:none;}
 @media(prefers-reduced-motion:reduce){.fg-r,.fg-r2{opacity:1;transform:none;transition:none;}}
 
-/* ── Bento Box Card Layouts ──────────────────────── */
+/* ── Collekt.ai Pure White Connected Bento Cards ──────────────────────── */
 .fg-section-card {
   background: #ffffff;
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  padding: clamp(36px, 5vh, 48px) var(--gut);
+  border: 1px solid #e2e8f0;
+  border-radius: 32px;
+  padding: clamp(44px, 6vh, 60px) var(--gut);
   margin: 0 calc(-1 * var(--gut));
-  box-shadow: 0 10px 40px -16px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 10px 40px -16px rgba(15, 23, 42, 0.06);
   position: relative;
   z-index: 2;
 }
 @media(max-width:768px) {
   .fg-section-card {
-    padding: 32px var(--gut);
-    border-radius: 22px;
+    padding: 36px var(--gut);
+    border-radius: 24px;
   }
 }
 
@@ -129,18 +179,18 @@ html.lenis, html.lenis body { height: auto; }
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 36px;
+  margin-bottom: 44px;
 }
 .fg-section-header .fg-eyebrow {
   justify-content: center;
 }
 .fg-section-header h2,
 .tc7-title {
-  font-size: clamp(28px, 3.8vw, 44px);
-  margin-top: 14px;
-  line-height: 1.15;
-  letter-spacing: -0.025em;
-  color: var(--ink);
+  font-size: clamp(32px, 4.2vw, 50px);
+  margin-top: 16px;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #0f172a;
   position: relative;
   display: inline-block;
   padding-bottom: 22px;
@@ -193,12 +243,8 @@ html.lenis, html.lenis body { height: auto; }
 /* ═══════════════════════════════════════════════
    1 · HERO  (white, cinematic, premium 3D glass)
 ═══════════════════════════════════════════════ */
-.hero6{min-height:100vh;padding:156px 0 80px;background:#fff;position:relative;overflow-x:hidden;display:flex;align-items:center;}
-.hero6-bg{position:absolute;inset:0;pointer-events:none;z-index:0;
-  background:radial-gradient(65% 60% at 68% 40%,rgba(0, 114, 188,.09),transparent 65%),
-             radial-gradient(40% 40% at 30% 80%,rgba(0,114,188,.05),transparent 60%),
-             radial-gradient(50% 45% at 12% 15%,rgba(91,130,255,.05),transparent 62%),
-             linear-gradient(180deg,#fbfcff 0%,#fff 30%);}
+.hero6{min-height:100vh;padding:156px 0 80px;background:#ffffff;position:relative;overflow-x:hidden;display:flex;align-items:center;}
+.hero6-bg{position:absolute;inset:0;pointer-events:none;z-index:0;background:#ffffff;}
 .hero6-grid{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:48px;align-items:center;position:relative;z-index:2;width:100%;}
 @media(max-width:1100px){
   .hero6-grid{grid-template-columns:minmax(0, 1fr) minmax(0, 0.9fr);gap:24px;}
@@ -214,12 +260,16 @@ html.lenis, html.lenis body { height: auto; }
 .hero6-h1 .ln{display:block;overflow:hidden;white-space:nowrap;padding-bottom:.06em;margin-bottom:-.06em;}
 .hero6-h1 .ln>span{display:block;white-space:nowrap;}
 .hero6-h1 .accent{font-family:var(--serif);font-style:italic;font-weight:600;letter-spacing:-.02em;
-  background:linear-gradient(105deg,var(--blue) 5%,#5b82ff 50%,var(--gold-2) 115%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  color:var(--blue);
   padding-right:.12em;}
 .hero6-sub{margin-top:26px;max-width:50ch;font-size:clamp(16px,1.5vw,19px);color:var(--ink-2);line-height:1.62;}
 .hero6-actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
 .hero6-pillars{margin-top:28px;display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);}
 .hero6-pillars .sep{opacity:.35;}
+.hero6-trust{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px;}
+.hero6-trust span{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;font-weight:700;color:var(--ink-2);
+  padding:8px 14px;border-radius:100px;background:#fff;border:1px solid var(--line);}
+.hero6-trust span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--blue);flex:none;}
 .hero6-scroll{margin-top:40px;display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase;}
 .hero6-scroll .bar{width:36px;height:1px;background:var(--line);}
 
@@ -483,11 +533,11 @@ html.lenis, html.lenis body { height: auto; }
 .model6-rail .fg-wrap{display:flex;align-items:center;gap:12px;}
 .rail-wrap{flex:1;position:relative;height:3px;}
 .rail-bar{width:100%;height:3px;background:rgba(255,255,255,.1);border-radius:100px;overflow:hidden;}
-.rail-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#0072bc,#0072bc,#0072bc,#0072bc,#0072bc,#0072bc);border-radius:100px;}
+.rail-bar i{display:block;height:100%;width:0;background:#0072bc;border-radius:100px;}
 .rail-dots{position:absolute;top:50%;transform:translateY(-50%);left:0;right:0;
   display:flex;justify-content:space-between;pointer-events:none;}
 .rail-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.2);transition:background .3s,border-color .3s;}
-.rail-dot.filled{background:var(--blue-3);border-color:var(--blue-3);box-shadow:0 0 6px rgba(127,160,255,.6);}
+.rail-dot.filled{background:var(--blue-3);border-color:var(--blue-3);box-shadow:0 0 6px rgba(127,184,224,.6);}
 .rail-lbl{font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:.1em;}
 
 /* pv-* helpers removed — SVG vignettes replaced by photography (panel6-img) */
@@ -900,14 +950,21 @@ html.lenis, html.lenis body { height: auto; }
 /* ═══════════════════════════════════════════════
    12 · HERO DASHBOARD MOCKUP (hero visual)
 ═══════════════════════════════════════════════ */
-.dbv6{position:relative;max-width:480px;margin-left:auto;padding:20px 24px 24px;border-radius:24px;
-  background:rgba(255,255,255,0.72);
-  border:1px solid rgba(255,255,255,0.45);
-  box-shadow:0 0 0 1px rgba(0, 114, 188,0.06),0 32px 80px -16px rgba(15,23,42,0.18),inset 0 1px 0 rgba(255,255,255,0.85);
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  overflow:hidden;}
-@media(max-width:960px){.dbv6{margin:0 auto;}}
-.dbv6-glow{position:absolute;width:280px;height:280px;left:90%;top:-10%;transform:translateX(-50%);background:radial-gradient(circle,rgba(0, 114, 188,.18),transparent 70%);filter:blur(40px);pointer-events:none;}
+.dbv6 {
+  position: relative;
+  max-width: 480px;
+  margin-left: auto;
+  padding: 20px 24px 24px;
+  border-radius: 24px;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.12) !important;
+  overflow: hidden;
+}
+@media (max-width: 960px) {
+  .dbv6 { margin: 0 auto; }
+}
+.dbv6-glow { display: none !important; }
 .dbv6-topbar{position:relative;display:flex;align-items:center;gap:6px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid rgba(15,23,42,0.08);}
 .dbv6-dot{width:8px;height:8px;border-radius:50%;background:rgba(15,23,42,0.1);}
 .dbv6-dot:nth-child(1){background:#ff5f57;opacity:0.85;}
@@ -1042,6 +1099,6 @@ html.lenis, html.lenis body { height: auto; }
 .gband-fact:hover{transform:translateY(-2px);}
 
 
-/* Rainbow lifecycle progress rail — sweeps through all 6 stage colors */
-.rail-bar i{background:linear-gradient(90deg,#0072bc,#0072bc,#0072bc,#0072bc,#0072bc,#0072bc);}
+/* Lifecycle progress rail — single-accent brand rule, no per-stage hue */
+.rail-bar i{background:#0072bc;}
 

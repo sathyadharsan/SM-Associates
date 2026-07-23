@@ -6,7 +6,6 @@ import { useMagnetic } from '../hooks/useMagnetic';
 export default function FlagshipCtaSection() {
   const [cardRef, cardIn] = useReveal();
   const primaryRef = useMagnetic();
-  const secondaryRef = useMagnetic();
 
   return (
     <section className="cta6" id="cta">
@@ -22,9 +21,8 @@ export default function FlagshipCtaSection() {
             </p>
             <div className="cta6-actions">
               <Link ref={primaryRef} className="fg-btn fg-btn-p" to="/contact">
-                Request a Consultation <ArrowRight size={16} className="arr" />
+                Schedule a Consultation <ArrowRight size={16} className="arr" />
               </Link>
-              <a ref={secondaryRef} className="fg-btn fg-btn-s" href="#model">Review Operating Model</a>
             </div>
             <div className="cta6-assure">Confidential portfolio review · No obligation</div>
           </div>

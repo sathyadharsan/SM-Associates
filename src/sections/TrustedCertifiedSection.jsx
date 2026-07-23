@@ -16,20 +16,24 @@ const logoRows = Array.from({ length: ROW_COUNT }, (_, i) =>
 // Confirmed, management-approved trust facts with Storyset-style RichIcon vector artwork
 const FACTS = [
   { artType: 'compliance', v: 'ISO/IEC 27001', k: 'Certified Information Security', color: '#0072bc' },
-  { artType: 'mission', v: 'IIBF DRA', k: 'Certified Field Recovery Teams', color: '#059669' },
-  { artType: 'dialer', v: '100%', k: 'Call Recording & Audit Trail', color: '#7c3aed' },
-  { artType: 'trace', v: 'GPS-Enabled', k: 'Ground Operations', color: '#d97706' },
+  { artType: 'mission', v: 'IIBF DRA', k: 'Certified Field Recovery Teams', color: '#0072bc' },
+  { artType: 'dialer', v: '100%', k: 'Call Recording & Audit Trail', color: '#0072bc' },
+  { artType: 'trace', v: 'GPS-Enabled', k: 'Ground Operations', color: '#0072bc' },
 ];
 
 export default function TrustedCertifiedSection() {
   return (
-    <section className="tc7 bg-white py-16 border-b border-slate-200/80" id="trust">
-      <div className="fg-wrap tc7-head text-center max-w-3xl mx-auto mb-10">
-        <span className="fg-eyebrow text-xs font-mono font-bold uppercase tracking-widest text-[#0072bc]">Trusted &amp; Certified</span>
-        <h2 className="tc7-title text-3xl font-serif font-bold text-slate-900 mt-2">Banks, NBFCs and fintechs already backing our execution.</h2>
+    <section className="tc7 bg-white py-24 border-b border-slate-200/90 relative overflow-hidden" id="trust">
+      <div className="fg-wrap tc7-head text-center max-w-4xl mx-auto mb-14">
+        <span className="fg-eyebrow text-xs font-mono font-bold uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 px-4 py-2 rounded-full inline-block mb-3 border border-[#0072bc]/20">
+          TRUSTED &amp; CERTIFIED
+        </span>
+        <h2 className="tc7-title text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-3">
+          Banks, NBFCs and Fintechs backing our execution.
+        </h2>
       </div>
 
-      <div className="trust6-rows mb-12">
+      <div className="trust6-rows mb-16 opacity-90">
         {logoRows.map((row, r) => {
           const track = [...row, ...row];
           return (
@@ -39,7 +43,7 @@ export default function TrustedCertifiedSection() {
                 style={{ animationDuration: `${40 + r * 8}s` }}
               >
                 {track.map((client, i) => (
-                  <span className="tlogo" key={`${client.slug}-${i}`}>
+                  <span className="tlogo bg-white border border-slate-200 p-3 rounded-2xl shadow-xs" key={`${client.slug}-${i}`}>
                     <img
                       src={client.logo}
                       alt={`${client.name} logo`}
@@ -57,16 +61,16 @@ export default function TrustedCertifiedSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {FACTS.map((f) => (
-            <div 
-              key={f.v} 
-              className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md transition-all duration-300 group"
+            <div
+              key={f.v}
+              className="flex items-center gap-4 p-6 rounded-[24px] bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#0072bc]/40 transition-all duration-300 group"
             >
-              <div className="p-1 rounded-2xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
-                <RichIcon type={f.artType} size={44} />
+              <div className="p-2 rounded-2xl bg-[#0072bc]/10 border border-[#0072bc]/20 shrink-0">
+                <RichIcon type={f.artType} size={40} />
               </div>
               <div>
-                <span className="block text-base font-extrabold text-slate-900 tracking-tight leading-snug">{f.v}</span>
-                <span className="block text-xs font-medium text-slate-500 mt-0.5 leading-relaxed">{f.k}</span>
+                <span className="block text-lg font-extrabold text-slate-900 tracking-tight">{f.v}</span>
+                <span className="block text-xs font-mono font-medium text-slate-500 mt-1">{f.k}</span>
               </div>
             </div>
           ))}

@@ -292,7 +292,14 @@ export default function Header() {
           initial={false}
           animate={nav.cardAnimate}
           transition={nav.cardTransition}
-          style={{ margin: '0 auto', borderWidth: scrolled ? 1 : 0, borderBottomWidth: 1, borderStyle: 'solid' }}
+          style={{
+            margin: '0 auto',
+            borderTopWidth: scrolled ? 1 : 0,
+            borderLeftWidth: scrolled ? 1 : 0,
+            borderRightWidth: scrolled ? 1 : 0,
+            borderBottomWidth: 1,
+            borderStyle: 'solid',
+          }}
         >
           {/* Glass background + blur — clipped to the rounded rect, sits
               behind all content, never affects dropdown overflow above.

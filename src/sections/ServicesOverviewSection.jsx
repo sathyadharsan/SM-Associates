@@ -1,230 +1,180 @@
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, PhoneCall, RefreshCw, Gavel, Warehouse, FileSearch, ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Search, PhoneCall, RefreshCw, Gavel, Warehouse, FileSearch, ArrowRight, ChevronRight, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { servicesOverview } from '../data/flagshipHomeData';
-import RichIcon from '../components/sections/shared/RichIcon';
 
 const iconMap = { Search, PhoneCall, RefreshCw, Gavel, Warehouse, FileSearch };
 
-const nodeColors = [
-  { bg: 'bg-[#0072bc]', hex: '#0072bc', text: 'text-[#0072bc]', border: 'border-[#0072bc]', ring: 'ring-[#0072bc]/25', border30: 'border-[#0072bc]/40', lightBg: 'bg-[#0072bc]/10', hoverBg: 'hover:bg-[#005f9e]' },
-  { bg: 'bg-teal-600', hex: '#0d9488', text: 'text-teal-600', border: 'border-teal-600', ring: 'ring-teal-600/25', border30: 'border-teal-600/40', lightBg: 'bg-teal-600/10', hoverBg: 'hover:bg-teal-700' },
-  { bg: 'bg-indigo-600', hex: '#4f46e5', text: 'text-indigo-600', border: 'border-indigo-600', ring: 'ring-indigo-600/25', border30: 'border-indigo-600/40', lightBg: 'bg-indigo-600/10', hoverBg: 'hover:bg-indigo-700' },
-  { bg: 'bg-amber-600', hex: '#d97706', text: 'text-amber-600', border: 'border-amber-600', ring: 'ring-amber-600/25', border30: 'border-amber-600/40', lightBg: 'bg-amber-600/10', hoverBg: 'hover:bg-amber-700' },
-  { bg: 'bg-emerald-600', hex: '#059669', text: 'text-emerald-600', border: 'border-emerald-600', ring: 'ring-emerald-600/25', border30: 'border-emerald-600/40', lightBg: 'bg-emerald-600/10', hoverBg: 'hover:bg-emerald-700' },
-  { bg: 'bg-purple-600', hex: '#9333ea', text: 'text-purple-600', border: 'border-purple-600', ring: 'ring-purple-600/25', border30: 'border-purple-600/40', lightBg: 'bg-purple-600/10', hoverBg: 'hover:bg-purple-700' },
-];
+const DIVISION_CAPABILITIES = {
+  'Verification Services': [
+    'Contact Point Verification (CPV) for pre-disbursal',
+    'Residence & Commercial Premises Audit',
+    'Document Authenticity & KYC Validation',
+    'Merchant Site Visit & Business Verification'
+  ],
+  'Collections & Recovery': [
+    'Early-Stage Automated Tele-Calling Campaigns',
+    'Soft & Hard Delinquency Collections',
+    'PDC Collections & Payment Follow-ups',
+    'Doorstep Field Recovery & Direct Settlement'
+  ],
+  'Legal Recovery': [
+    'SARFAESI Act Sec 13(2) & 13(4) Enforcement',
+    'Cheque Bounce (Sec 138) Legal Notice Issuance',
+    'Physical Possession & Custodian Management',
+    'Court Litigation Tracking & Advocate Coordination'
+  ],
+  'Asset Recovery': [
+    'Vehicle & Asset Skip Tracing & Tracing',
+    'Automobile Repossession & Yard Custody',
+    'Property Valuation & Technical Inspection',
+    'Public E-Auction Coordination & Bid Management'
+  ],
+  'Investigation Services': [
+    'Skip Tracing for Untraceable Borrowers',
+    'Address & Contact Audit Trail Analysis',
+    'Corporate & Individual Fraud Investigation',
+    'Due Diligence & Asset Ownership Discovery'
+  ],
+  'Operational & Specialized': [
+    'DRA-Compliant Outbound Call Centre Operations',
+    'Field Workforce & Officer Deployment',
+    'Stressed Asset Portfolio Resolution Consulting',
+    'Specialized NPA Management & Recovery Analytics'
+  ]
+};
 
 export default function ServicesOverviewSection() {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const activeService = servicesOverview[activeIdx];
+  const [activeDiv, setActiveDiv] = useState(0);
+  const activeService = servicesOverview[activeDiv] || servicesOverview[0];
   const Icon = iconMap[activeService.icon] || Search;
-  const activeColor = nodeColors[activeIdx % nodeColors.length];
-
-  // Auto-rotate division nodes every 2 seconds (2000ms), pauses on hover
-  useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(() => {
-      setActiveIdx((prev) => (prev + 1) % servicesOverview.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, [isPaused]);
+  const capabilities = DIVISION_CAPABILITIES[activeService.name] || [
+    'Bank Audit Compliant Operations',
+    'Dedicated Regional Execution Staff',
+    'Real-time MIS & Escalation Matrix',
+    'RBI Fair Practices Code Compliant'
+  ];
 
   return (
-    <section className="svc6 bg-[#fafbfc] py-20 lg:py-28 border-t border-b border-gray-200/80 relative overflow-hidden" id="services">
-      <div className="fg-wrap mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
-        
+    <section className="svc6 bg-[#fafbfc] py-24 lg:py-32 border-t border-b border-slate-200/90 relative overflow-hidden" id="services">
+      <div className="fg-wrap mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+
         {/* Section Header */}
-        <div className="fg-section-header mb-12 max-w-3xl text-center mx-auto">
-          <span className="fg-eyebrow text-xs font-bold uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 px-3 py-1.5 rounded-full inline-block mb-3">
-            What We Do
+        <div className="fg-section-header">
+          <span className="fg-section-eyebrow">
+            BUSINESS DIVISIONS
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Six business divisions,<br />one accountable partner.
+          <h2 className="fg-section-title">
+            Six Specialized Business Divisions
           </h2>
+          <p className="fg-section-subtitle">
+            Integrated verification, field collection, and statutory legal enforcement.
+          </p>
         </div>
 
-        {/* ── Circular Dial Wheel Infographic Diagram (Auto-rotates 2s) ── */}
-        <div 
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          className="bg-white rounded-3xl border border-slate-200 shadow-2xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-        >
+        {/* ═══ UNIQUE SPLIT INTERACTIVE INSPECTOR LAYOUT (Collekt.ai Style) ═══ */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Column (5 Cols): Circular Dial Ring & Pointer Selector */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center relative py-6">
-            
-            {/* Outer Circular Graphic Dial Ring */}
-            <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full border-8 border-slate-100 shadow-inner relative flex items-center justify-center bg-[#fafbfc]">
-              
-              {/* Dashed Orbital Arc */}
-              <div className="absolute inset-2 rounded-full border-2 border-dashed border-slate-300 animate-[spin_120s_linear_infinite]" />
-
-              {/* Central Core Circle Badge */}
-              <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-white border-4 border-[#0072bc] shadow-2xl flex flex-col items-center justify-center p-4 text-center z-10">
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#0072bc]">
-                  INFOGRAPHIC ARCHITECTURE
-                </span>
-                <span className="text-sm font-black text-slate-900 leading-tight mt-1">
-                  6 DIVISIONS
-                </span>
-                <span className="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-wider">
-                  SM ASSOCIATES
-                </span>
-              </div>
-
-              {/* 6 Circular Node Buttons around the ring with Distinct Colors */}
-              {servicesOverview.map((s, i) => {
-                const ItemIcon = iconMap[s.icon] || Search;
-                const isActive = activeIdx === i;
-                const color = nodeColors[i % nodeColors.length];
-                
-                // Calculate position angles around 360 degrees
-                const angle = (i * 60 - 90) * (Math.PI / 180);
-                const radius = 120; // radius in px
-                const x = Math.cos(angle) * radius;
-                const y = Math.sin(angle) * radius;
-
-                return (
-                  <button
-                    key={s.name}
-                    type="button"
-                    onClick={() => setActiveIdx(i)}
-                    style={{
-                      transform: `translate(${x}px, ${y}px)`,
-                    }}
-                    className={`absolute w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 z-20 group cursor-pointer ${
-                      isActive
-                        ? `${color.bg} text-white shadow-xl scale-125 ring-4 ${color.ring}`
-                        : `bg-white text-slate-700 border-2 ${color.border} hover:scale-110 shadow-md`
-                    }`}
-                    title={s.name}
-                  >
-                    <ItemIcon size={18} style={{ color: isActive ? '#ffffff' : undefined }} />
-                    {isActive && (
-                      <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-white border-2 border-slate-900 text-[8px] font-bold text-slate-900 flex items-center justify-center shadow-xs">
-                        {i + 1}
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
-
+          {/* Left Column: Division Navigation Rail (5 Cols) */}
+          <div className="lg:col-span-5 bg-white p-3 sm:p-4 rounded-[32px] border border-slate-200/90 shadow-sm space-y-2">
+            <div className="text-[11px] font-mono font-bold uppercase tracking-widest text-slate-400 px-3 py-2">
+              Select Operational Division ({servicesOverview.length})
             </div>
 
-            {/* Horizontal Dial Selector Pills below for mobile / easy touch access */}
-            <div className="flex flex-wrap gap-2 justify-center mt-6">
-              {servicesOverview.map((s, i) => {
-                const color = nodeColors[i % nodeColors.length];
-                const isActive = activeIdx === i;
-                return (
-                  <button
-                    key={s.name}
-                    type="button"
-                    onClick={() => setActiveIdx(i)}
-                    style={{
-                      color: isActive ? '#ffffff' : undefined
-                    }}
-                    className={`text-[11px] font-bold px-3 py-1.5 rounded-full transition-all cursor-pointer ${
-                      isActive
-                        ? `${color.bg} shadow-md`
-                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                    }`}
-                  >
-                    0{i + 1} {s.name}
-                  </button>
-                );
-              })}
-            </div>
+            {servicesOverview.map((s, i) => {
+              const DivIcon = iconMap[s.icon] || Search;
+              const isActive = activeDiv === i;
+              const divNum = String(i + 1).padStart(2, '0');
 
+              return (
+                <button
+                  key={s.name}
+                  type="button"
+                  onClick={() => setActiveDiv(i)}
+                  onMouseEnter={() => setActiveDiv(i)}
+                  className={`w-full flex items-center justify-between p-4 rounded-2xl text-left transition-all duration-200 cursor-pointer ${
+                    isActive
+                      ? 'bg-[#0072bc] text-white shadow-lg shadow-[#0072bc]/25 border border-[#0072bc]'
+                      : 'bg-slate-50/70 text-slate-800 hover:bg-slate-100 border border-slate-200/60'
+                  }`}
+                >
+                  <div className="flex items-center gap-3.5 min-w-0">
+                    <span className={`flex h-10 w-10 items-center justify-center rounded-xl shrink-0 ${
+                      isActive ? 'bg-white/20 text-white' : 'bg-[#0072bc]/10 text-[#0072bc]'
+                    }`}>
+                      <DivIcon className="h-5 w-5" strokeWidth={2.2} />
+                    </span>
+                    <div className="min-w-0">
+                      <div className={`text-[10px] font-mono font-bold uppercase tracking-wider ${isActive ? 'text-blue-100' : 'text-slate-400'}`}>
+                        DIV-{divNum}
+                      </div>
+                      <div className="text-sm font-extrabold truncate tracking-tight">
+                        {s.name}
+                      </div>
+                    </div>
+                  </div>
+
+                  <ChevronRight className={`h-4 w-4 shrink-0 transition-transform ${isActive ? 'text-white translate-x-1' : 'text-slate-400'}`} />
+                </button>
+              );
+            })}
           </div>
 
-          {/* Right Column (7 Cols): Speech Bubble Infographic Specification Viewport */}
+          {/* Right Column: Division Showcase Stage (7 Cols) */}
           <div className="lg:col-span-7">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeService.name}
-                initial={{ opacity: 0, x: 18 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -18 }}
-                transition={{ duration: 0.28, ease: 'easeOut' }}
-                className={`relative bg-slate-50 border-2 ${activeColor.border30} rounded-3xl p-6 sm:p-8 space-y-6 shadow-md`}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-[32px] border border-slate-200/90 p-8 sm:p-10 shadow-xl flex flex-col justify-between"
               >
-                {/* Speech Bubble Pointer Tail (Left side facing the dial) */}
-                <div className={`hidden lg:block absolute -left-4 top-12 w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-r-[16px] border-r-slate-300`} />
-
-                {/* Infographic Header Tag */}
-                <div className="flex items-center justify-between border-b border-slate-200/80 pb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="p-1 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
-                      <RichIcon type={activeService.icon || activeService.name} size={48} />
-                    </div>
-                    <div>
-                      <span className={`text-[10px] font-black uppercase tracking-widest ${activeColor.text}`}>
-                        DATA 0{activeIdx + 1} • INFOGRAPHIC SPECIFICATION
+                <div>
+                  <div className="flex items-center justify-between gap-4 mb-6">
+                    <div className="flex items-center gap-3.5">
+                      <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0072bc]/10 text-[#0072bc] shadow-xs">
+                        <Icon className="h-7 w-7" strokeWidth={2.2} />
                       </span>
-                      <h3 className="text-2xl font-black text-slate-900 tracking-tight">
-                        {activeService.name}
-                      </h3>
+                      <div>
+                        <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 px-3 py-1 rounded-full border border-[#0072bc]/20">
+                          DIVISION {String(activeDiv + 1).padStart(2, '0')}
+                        </span>
+                        <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1.5">
+                          {activeService.name}
+                        </h3>
+                      </div>
                     </div>
                   </div>
-                  <span className={`text-[10px] font-extrabold uppercase tracking-wider ${activeColor.text} ${activeColor.lightBg} px-3 py-1.5 rounded-full border ${activeColor.border30} shadow-2xs`}>
-                    DIVISION 0{activeIdx + 1}
-                  </span>
-                </div>
 
-                {/* Main Copy Description (100% Preserved) */}
-                <p className="text-slate-700 text-sm leading-relaxed font-medium bg-white p-4 rounded-2xl border border-slate-200/80 shadow-2xs">
-                  {activeService.desc}
-                </p>
+                  <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal mb-8">
+                    {activeService.desc}
+                  </p>
 
-                {/* Standards Grid */}
-                <div className="space-y-3">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-900 block">
-                    Execution SLA & Governance
-                  </span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div className="flex items-center gap-2.5 text-xs text-slate-700 font-medium bg-white p-3 rounded-xl border border-slate-200/80">
-                      <CheckCircle2 size={16} className={`${activeColor.text} flex-shrink-0`} />
-                      <span>Audited field operations & SLA adherence</span>
+                  <div className="space-y-3 bg-slate-50 p-6 rounded-2xl border border-slate-100 mb-8">
+                    <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-2">
+                      <ShieldCheck className="h-4 w-4 text-[#0072bc]" />
+                      CORE DIVISION CAPABILITIES
                     </div>
-                    <div className="flex items-center gap-2.5 text-xs text-slate-700 font-medium bg-white p-3 rounded-xl border border-slate-200/80">
-                      <CheckCircle2 size={16} className={`${activeColor.text} flex-shrink-0`} />
-                      <span>Real-time data reconciliation & reporting</span>
-                    </div>
-                    <div className="flex items-center gap-2.5 text-xs text-slate-700 font-medium bg-white p-3 rounded-xl border border-slate-200/80">
-                      <CheckCircle2 size={16} className={`${activeColor.text} flex-shrink-0`} />
-                      <span>IIBF DRA-certified officer deployment</span>
-                    </div>
-                    <div className="flex items-center gap-2.5 text-xs text-slate-700 font-medium bg-white p-3 rounded-xl border border-slate-200/80">
-                      <CheckCircle2 size={16} className={`${activeColor.text} flex-shrink-0`} />
-                      <span>Immutable audit trails for regulator scrutiny</span>
-                    </div>
+                    {capabilities.map((cap) => (
+                      <div key={cap} className="flex items-center gap-3 text-sm font-bold text-slate-800">
+                        <CheckCircle2 className="h-5 w-5 text-[#0072bc] shrink-0" strokeWidth={2.25} />
+                        <span>{cap}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
-                {/* Route Actions */}
-                <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                <div className="pt-4 border-t border-slate-100">
                   <Link
                     to={activeService.href}
-                    style={{ backgroundColor: activeColor.hex, color: '#ffffff' }}
-                    className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-extrabold text-xs uppercase tracking-wider transition-colors shadow-md hover:opacity-95`}
+                    className="inline-flex items-center justify-center gap-2.5 w-full bg-[#0072bc] hover:bg-blue-700 text-white font-bold text-sm py-4 px-6 rounded-2xl transition-all duration-200 shadow-md font-mono"
                   >
-                    <span style={{ color: '#ffffff' }}>Learn more about {activeService.name}</span>
-                    <ArrowRight size={14} style={{ color: '#ffffff' }} />
+                    <span>Explore {activeService.name} Capabilities</span>
+                    <ArrowRight className="h-4 w-4" />
                   </Link>
-
-                  <div className="flex items-center justify-between sm:justify-end gap-2 text-xs">
-                    <span className="text-slate-500 font-semibold">
-                      <ShieldCheck size={14} className={`inline ${activeColor.text}`} /> RBI Compliant
-                    </span>
-                    <Link to="/services" className={`font-bold ${activeColor.text} hover:underline ml-3`}>
-                      View All &rarr;
-                    </Link>
-                  </div>
                 </div>
 
               </motion.div>

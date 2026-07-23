@@ -11,21 +11,26 @@ import img06 from '../assets/operating-model/om-06-reporting.png';
 
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
-// Stage accent colors — drive CSS color-mix for tag pills and badge
+// Single-accent brand rule: every stage uses the one brand blue — no
+// per-stage hue differentiation (see homepage-v6.css :root).
 const STAGE_COLORS = {
   alloc:   '#0072bc',
-  verify:  '#0284c7',
-  engage:  '#8b5cf6',
-  legal:   '#f43f5e',
-  resolve: '#10b981',
-  report:  '#f59e0b',
+  verify:  '#0072bc',
+  engage:  '#0072bc',
+  field:   '#0072bc',
+  legal:   '#0072bc',
+  resolve: '#0072bc',
+  report:  '#0072bc',
 };
 
-// Stage image map
+// Stage image map — 9 stages share 6 real photography assets (no photo
+// shoot exists yet for the newer stage split), reused across the closest
+// conceptual match rather than left blank.
 const STAGE_IMAGES = {
   alloc:   img01,
   verify:  img02,
   engage:  img03,
+  field:   img02,
   legal:   img04,
   resolve: img05,
   report:  img06,
@@ -36,6 +41,7 @@ const STAGE_POSITION = {
   alloc:   'center center',
   verify:  'center top',
   engage:  'center top',
+  field:   'center top',
   legal:   'center center',
   resolve: 'center top',
   report:  'center center',
@@ -112,7 +118,7 @@ export default function OperatingModelSection() {
 
   return (
     <section className="model6" id="model">
-      <div className="pin-wrap" ref={pinWrapRef} style={{ height: '520vh' }}>
+      <div className="pin-wrap" ref={pinWrapRef} style={{ height: '780vh' }}>
         <div className="pin-stage">
 
           {/* ── Header ── */}
@@ -122,7 +128,7 @@ export default function OperatingModelSection() {
                 <span className="fg-eyebrow">The Recovery Operating Model</span>
                 <h2>One accountable lifecycle.</h2>
               </div>
-              <div className="model6-ctr">STAGE <b ref={stageRef}>01</b> / 06</div>
+              <div className="model6-ctr">STAGE <b ref={stageRef}>01</b> / 09</div>
             </div>
           </div>
 
@@ -174,7 +180,7 @@ export default function OperatingModelSection() {
           {/* ── Progress rail ── */}
           <div className="model6-rail">
             <div className="fg-wrap">
-              <span className="rail-lbl">ALLOCATE</span>
+              <span className="rail-lbl">INTAKE</span>
               <div className="rail-wrap">
                 <div className="rail-bar"><i ref={railBarRef} /></div>
                 <div className="rail-dots">
@@ -187,7 +193,7 @@ export default function OperatingModelSection() {
                   ))}
                 </div>
               </div>
-              <span className="rail-lbl">AUDIT</span>
+              <span className="rail-lbl">CLOSURE</span>
             </div>
           </div>
 

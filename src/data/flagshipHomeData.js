@@ -26,12 +26,15 @@ export const metrics = [
 ];
 
 export const operatingModelStages = [
-  { no: '01', title: 'Portfolio Allocation', desc: 'Books ingested, segmented by risk and geography, routed to the right branch and officer.', tags: ['Risk segmentation', 'Geo-routing', 'SLA mapping'], visual: 'alloc', tag: 'ROUTING' },
-  { no: '02', title: 'Field Verification', desc: 'On-ground officers establish ground truth — address, asset condition, borrower status.', tags: ['Address check', 'Asset condition', 'Skip tracing'], visual: 'verify', tag: 'GROUND TRUTH' },
-  { no: '03', title: 'Borrower Engagement', desc: 'Code-of-conduct-compliant outreach — every contact logged, time-stamped and auditable.', tags: ['Compliant outreach', 'Settlement', 'Logged contact'], visual: 'engage', tag: 'CONTACT' },
-  { no: '04', title: 'Legal & SARFAESI', desc: "Where resolution stalls — notices, possession and SARFAESI execution, managed end to end.", tags: ['Sec.13(2)/13(4)', 'Possession', 'Auction support'], visual: 'legal', tag: 'ENFORCEMENT' },
-  { no: '05', title: 'Resolution & Recovery', desc: 'Payments, settlements and asset realisation processed, reconciled and credited back.', tags: ['Reconciliation', 'Settlement', 'Realisation'], visual: 'resolve', tag: 'REALISED' },
-  { no: '06', title: 'Reporting & Audit', desc: 'Real-time dashboards and immutable audit trails give the institution full regulatory visibility.', tags: ['Live dashboards', 'Audit trail', 'Compliance pack'], visual: 'report', tag: 'VISIBILITY' },
+  { no: '01', title: 'Portfolio Received', desc: 'Books ingested via secure transfer, in any format, from any lender.', tags: ['Secure intake', 'Any format', 'Any lender'], visual: 'alloc', tag: 'INTAKE' },
+  { no: '02', title: 'Portfolio Segmentation', desc: 'Every account scored and segmented by risk, geography and recovery propensity.', tags: ['Risk scoring', 'Geo-routing', 'Propensity model'], visual: 'alloc', tag: 'SEGMENTED' },
+  { no: '03', title: 'AI Calling', desc: 'AI-assisted calling opens contact at scale, before any officer or human calling is deployed.', tags: ['AI voice agents', 'Multilingual', '24x7 reach'], visual: 'engage', tag: 'AI CONTACT' },
+  { no: '04', title: 'Digital Engagement', desc: 'WhatsApp, SMS, email and UPI/PhonePe/QR payment links — every touch logged and time-stamped.', tags: ['Omnichannel', 'Payment links', 'Logged contact'], visual: 'engage', tag: 'DIGITAL' },
+  { no: '05', title: 'Field Recovery', desc: 'GPS-verified doorstep visits where digital and tele contact isn’t enough — cash or digital collection, on the spot.', tags: ['GPS-verified', 'Doorstep collection', 'Digital receipts'], visual: 'field', tag: 'ON-GROUND' },
+  { no: '06', title: 'Legal Escalation', desc: 'Where resolution stalls — notices, possession and SARFAESI execution, managed end to end.', tags: ['Sec.13(2)/13(4)', 'Possession', 'Section 138'], visual: 'legal', tag: 'ENFORCEMENT' },
+  { no: '07', title: 'Asset Recovery', desc: 'Repossession, secure custody, valuation and auction coordination through to realisation.', tags: ['Repossession', 'Custody', 'Auction'], visual: 'resolve', tag: 'REALISED' },
+  { no: '08', title: 'Reporting', desc: 'Real-time dashboards and immutable audit trails give the institution full regulatory visibility.', tags: ['Live dashboards', 'Audit trail', 'Compliance pack'], visual: 'report', tag: 'VISIBILITY' },
+  { no: '09', title: 'Closure', desc: 'Case reconciled, credited back and closed — with a complete, defensible record on file.', tags: ['Reconciliation', 'Credit-back', 'Case archive'], visual: 'report', tag: 'CLOSED' },
 ];
 
 export const capabilityNodes = [
@@ -154,12 +157,12 @@ export const flagshipFaqs = [
 // Card-based Services Overview — one representative, real route per
 // business division (matches src/data/navigation.js mega-menu categories).
 export const servicesOverview = [
+  { icon: 'PhoneCall', name: 'Collections & Recovery', desc: 'Early-stage through hard and field collections, across every bucket.', href: '/services/collections/field-collections', color: '#0072bc' },
+  { icon: 'Gavel', name: 'Legal Recovery', desc: 'End-to-end statutory enforcement — SARFAESI, Section 138, litigation.', href: '/services/legal-recovery/sarfaesi-support', color: '#0072bc' },
   { icon: 'Search', name: 'Verification', desc: 'Pre-disbursal CPV, residence, office and document verification.', href: '/services/verification/cpv-services', color: '#0072bc' },
-  { icon: 'PhoneCall', name: 'Collections', desc: 'Early-stage through hard and field collections, across every bucket.', href: '/services/collections/field-collections', color: '#0072bc' },
-  { icon: 'RefreshCw', name: 'Recovery Operations', desc: 'NPA recovery and portfolio-level resolution strategy.', href: '/services/specialized/npa-recovery', color: '#0072bc' },
-  { icon: 'Gavel', name: 'SARFAESI Support', desc: 'End-to-end statutory enforcement, from notice to auction.', href: '/services/legal-recovery/sarfaesi-support', color: '#0072bc' },
-  { icon: 'Warehouse', name: 'Asset Recovery', desc: 'Repossession, custody, valuation and auction coordination.', href: '/services/asset-recovery/asset-recovery', color: '#0072bc' },
-  { icon: 'FileSearch', name: 'Investigation', desc: 'Skip tracing, due diligence and fraud investigation.', href: '/services/investigation/due-diligence', color: '#0072bc' },
+  { icon: 'FileSearch', name: 'Investigation', desc: 'Skip tracing, due diligence and fraud investigation.', href: '/services/investigation/skip-tracing', color: '#0072bc' },
+  { icon: 'Warehouse', name: 'Asset Recovery', desc: 'Repossession, custody, valuation and auction coordination.', href: '/services/asset-recovery/auction-coordination', color: '#0072bc' },
+  { icon: 'RefreshCw', name: 'Operational Excellence', desc: 'Recovery analytics, portfolio strategy and field operations infrastructure.', href: '/services/specialized/recovery-analytics', color: '#0072bc' },
 ];
 
 // Card-based Industries We Serve — mirrors the top-level entries under the
