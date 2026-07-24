@@ -44,7 +44,7 @@ export default function HeroFlagshipSection() {
           <div>
             <div className="hero6-eyebrow">
               <span className="live-dot" />
-              SOUTH INDIA'S ENTERPRISE RECOVERY OPERATIONS PLATFORM
+              SOUTH INDIA'S ENTERPRISE RECOVERY OPERATIONS PARTNER
             </div>
             <h1 className="hero6-h1 text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
               <span className="ln"><span ref={(el) => (lineRefs.current[0] = el)}>We Don&apos;t Just</span></span>
@@ -56,21 +56,21 @@ export default function HeroFlagshipSection() {
               </span>
             </h1>
             <p ref={subRef} className={`hero6-sub fg-r text-lg sm:text-xl text-slate-600 leading-relaxed font-medium mt-6 ${subIn ? 'in' : ''}`}>
-              End-to-end debt recovery, field operations, and statutory legal enforcement — powered by AI voicebots, GPS officer dispatch, and 100% RBI compliance governance.
+              End-to-end recovery operations backed by technology, compliance and 25+ years of field excellence.
             </p>
             <div ref={actionsRef} className={`hero6-actions fg-r mt-8 flex flex-wrap gap-4 ${actionsIn ? 'in' : ''}`}>
               <a ref={ctaPrimaryRef} className="fg-btn fg-btn-p text-base px-7 py-4 rounded-2xl shadow-xl hover:shadow-2xl" href="#cta">
-                Partner With Us <ArrowRight size={18} className="arr" />
+                Schedule a Consultation <ArrowRight size={18} className="arr" />
               </a>
               <a ref={ctaSecondaryRef} className="fg-btn fg-btn-s text-base px-7 py-4 rounded-2xl border-slate-200" href="#capabilities">
-                Explore Capability Modules <ArrowRight size={18} className="arr" />
+                Explore Capabilities <ArrowRight size={18} className="arr" />
               </a>
             </div>
             <div ref={pillarsRef} className={`hero6-trust fg-r mt-8 ${pillarsIn ? 'in' : ''}`}>
-              <span>25+ Years Operations</span>
+              <span>25+ Years in Operation</span>
               <span>19 Branches · 5 States</span>
-              <span>ISO 27001 Certified</span>
-              <span>100+ Lenders</span>
+              <span>ISO/IEC 27001 Certified</span>
+              <span>100+ Institutional Partners</span>
             </div>
           </div>
 

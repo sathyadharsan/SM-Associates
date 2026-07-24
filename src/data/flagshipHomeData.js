@@ -157,12 +157,12 @@ export const flagshipFaqs = [
 // Card-based Services Overview — one representative, real route per
 // business division (matches src/data/navigation.js mega-menu categories).
 export const servicesOverview = [
-  { icon: 'PhoneCall', name: 'Collections & Recovery', desc: 'Early-stage through hard and field collections, across every bucket.', href: '/services/collections/field-collections', color: '#0072bc' },
-  { icon: 'Gavel', name: 'Legal Recovery', desc: 'End-to-end statutory enforcement — SARFAESI, Section 138, litigation.', href: '/services/legal-recovery/sarfaesi-support', color: '#0072bc' },
-  { icon: 'Search', name: 'Verification', desc: 'Pre-disbursal CPV, residence, office and document verification.', href: '/services/verification/cpv-services', color: '#0072bc' },
-  { icon: 'FileSearch', name: 'Investigation', desc: 'Skip tracing, due diligence and fraud investigation.', href: '/services/investigation/skip-tracing', color: '#0072bc' },
-  { icon: 'Warehouse', name: 'Asset Recovery', desc: 'Repossession, custody, valuation and auction coordination.', href: '/services/asset-recovery/auction-coordination', color: '#0072bc' },
-  { icon: 'RefreshCw', name: 'Operational Excellence', desc: 'Recovery analytics, portfolio strategy and field operations infrastructure.', href: '/services/specialized/recovery-analytics', color: '#0072bc' },
+  { icon: 'PhoneCall', name: 'Recovery Operations', desc: 'Early-stage through hard and field collections, across every bucket.', href: '/services/collections/field-collections', color: '#0072bc' },
+  { icon: 'Gavel', name: 'Legal Recovery & Enforcement', desc: 'End-to-end statutory enforcement — SARFAESI, Section 138, litigation.', href: '/services/legal-recovery/sarfaesi-support', color: '#0072bc' },
+  { icon: 'Search', name: 'Verification & Due Diligence', desc: 'Pre-disbursal CPV, residence, office and document verification.', href: '/services/verification/cpv-services', color: '#0072bc' },
+  { icon: 'FileSearch', name: 'Investigation & Fraud Control', desc: 'Skip tracing, due diligence and fraud investigation.', href: '/services/investigation/skip-tracing', color: '#0072bc' },
+  { icon: 'Warehouse', name: 'Asset Recovery & Realisation', desc: 'Repossession, custody, valuation and auction coordination.', href: '/services/asset-recovery/auction-coordination', color: '#0072bc' },
+  { icon: 'RefreshCw', name: 'Operational Excellence & Analytics', desc: 'Recovery analytics, portfolio strategy and field operations infrastructure.', href: '/services/specialized/recovery-analytics', color: '#0072bc' },
 ];
 
 // Card-based Industries We Serve — mirrors the top-level entries under the
@@ -190,3 +190,15 @@ export const whyUsPoints = [
   { icon: 'ShieldCheck', title: 'Governance-Driven Delivery', desc: 'Every engagement runs on documented conduct, recorded calls and an audit trail built for regulator scrutiny.', color: '#0072bc' },
   { icon: 'Landmark', title: 'Banking Domain Expertise', desc: 'Built specifically around how banks, NBFCs and HFCs actually manage stressed portfolios.', color: '#0072bc' },
 ];
+
+// "Diagnosis Insert" — homepage-level "Why This Capability Matters" for the
+// flagship Recovery Operations capability, feeding CapabilityDifferentiator
+// (src/components/capability/CapabilityDifferentiator.jsx) directly. Grounded
+// in SM's own real Asset Recovery lifecycle (notice → valuer → repossession →
+// custody → auction), not an invented industry pain point.
+export const diagnosisInsert = {
+  category: 'Recovery Operations',
+  traditional: 'A legal firm drafts the notice. A separate valuer prices the asset. A repossession agency executes it. A custodian stores it. An auctioneer sells it. Five vendors, five invoices, five versions of the case file.',
+  sm: 'One firm carries the case from notice to auction — one file, one point of accountability, one team that already knows the account.',
+  impact: 'Coordination delay between vendors is where recovery timelines are actually lost — not in any single step. Removing the handoffs removes the delay.',
+};

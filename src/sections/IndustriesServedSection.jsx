@@ -23,13 +23,13 @@ export default function IndustriesServedSection() {
         {/* Compact Section Header */}
         <div className="fg-section-header">
           <span className="fg-section-eyebrow">
-            REGULATED LENDERS
+            WHO WE SERVE
           </span>
           <h2 className="fg-section-title">
-            Built for Regulated Financial Institutions
+            Built for regulated lenders, at scale.
           </h2>
           <p className="fg-section-subtitle">
-            Tailored recovery models for Banks, NBFCs, Fintechs, and ARCs.
+            Deploying specialised recovery frameworks, certified field teams, and legal enforcement calibrated for 8 regulated lender segments.
           </p>
         </div>
 

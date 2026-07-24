@@ -5,12 +5,14 @@ import SectionReveal from '../components/SectionReveal';
 import HeroFlagshipSection from '../sections/HeroFlagshipSection';
 import TrustedCertifiedSection from '../sections/TrustedCertifiedSection';
 import MetricsSection from '../sections/MetricsSection';
-import ServicesOverviewSection from '../sections/ServicesOverviewSection';
-import EndToEndPlatformArchitectureSection from '../sections/EndToEndPlatformArchitectureSection';
-import IndustriesServedSection from '../sections/IndustriesServedSection';
 import OperatingModelSection from '../sections/OperatingModelSection';
-import CaseStudiesPreviewSection from '../sections/CaseStudiesPreviewSection';
+import EndToEndPlatformArchitectureSection from '../sections/EndToEndPlatformArchitectureSection';
+import DiagnosisSection from '../sections/DiagnosisSection';
+import ServicesOverviewSection from '../sections/ServicesOverviewSection';
+import IndustriesServedSection from '../sections/IndustriesServedSection';
 import CommandCenterSection from '../sections/CommandCenterSection';
+import CaseStudiesPreviewSection from '../sections/CaseStudiesPreviewSection';
+import WhySmAssociatesSection from '../sections/WhySmAssociatesSection';
 import FaqSection from '../sections/FaqSection';
 import FlagshipCtaSection from '../sections/FlagshipCtaSection';
 
@@ -27,14 +29,16 @@ export default function HomePage() {
       <div className="ambient-glow ambient-glow--2" />
       <div className="ambient-glow ambient-glow--3" />
       <HeroFlagshipSection />
-      <TrustedCertifiedSection />
       <SectionReveal><MetricsSection /></SectionReveal>
+      <OperatingModelSection />
       <SectionReveal><EndToEndPlatformArchitectureSection /></SectionReveal>
+      <SectionReveal><DiagnosisSection /></SectionReveal>
       <SectionReveal><ServicesOverviewSection /></SectionReveal>
       <SectionReveal><IndustriesServedSection /></SectionReveal>
-      <OperatingModelSection />
       <SectionReveal><CommandCenterSection /></SectionReveal>
+      <TrustedCertifiedSection />
       <SectionReveal><CaseStudiesPreviewSection /></SectionReveal>
+      <SectionReveal><WhySmAssociatesSection /></SectionReveal>
       <SectionReveal><FaqSection /></SectionReveal>
       <SectionReveal><FlagshipCtaSection /></SectionReveal>
     </div>

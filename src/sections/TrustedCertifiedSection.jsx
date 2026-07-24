@@ -29,7 +29,7 @@ export default function TrustedCertifiedSection() {
           TRUSTED &amp; CERTIFIED
         </span>
         <h2 className="tc7-title text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-3">
-          Banks, NBFCs and Fintechs backing our execution.
+          Banks, NBFCs and fintechs already backing our execution.
         </h2>
       </div>
 

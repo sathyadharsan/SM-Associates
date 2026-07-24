@@ -1,12 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { LayoutDashboard, FolderKanban, FileBarChart, MapPin, FileText } from 'lucide-react';
 
-// A product-screenshot-style mockup, not a claim about company-wide
-// figures — case IDs, statuses and chart values here are illustrative UI
-// sample data (the same convention any SaaS marketing screenshot uses),
-// kept deliberately separate from the real disclosed stats used elsewhere
-// (MetricsSection). Only "5 States / 19 Branches" in the coverage strip
-// reuses an actual disclosed figure.
+// Mock data definitions
 const CHART = [38, 52, 41, 67, 58, 74, 63];
 
 const OVERVIEW_KPIS = [
@@ -73,7 +68,10 @@ export default function HeroDashboardVisual() {
       { threshold: 0.4 }
     );
     io.observe(el);
-    return () => { io.disconnect(); clearInterval(intervalRef.current); };
+    return () => {
+      io.disconnect();
+      clearInterval(intervalRef.current);
+    };
   }, []);
 
   const handleTabClick = (i) => {
@@ -84,8 +82,6 @@ export default function HeroDashboardVisual() {
 
   return (
     <div className="dbv6" ref={ref}>
-      <div className="dbv6-glow" />
-
       <div className="dbv6-topbar">
         <span className="dbv6-dot" /> <span className="dbv6-dot" /> <span className="dbv6-dot" />
         <span className="dbv6-title">Recovery OS</span>
@@ -103,7 +99,10 @@ export default function HeroDashboardVisual() {
         <>
           <div className="dbv6-kpis">
             {OVERVIEW_KPIS.map((k) => (
-              <div className="dbv6-kpi" key={k.k}><div className="v">{k.v}</div><div className="k">{k.k}</div></div>
+              <div className="dbv6-kpi" key={k.k}>
+                <div className="v">{k.v}</div>
+                <div className="k">{k.k}</div>
+              </div>
             ))}
           </div>
           <div className="dbv6-chart">
@@ -127,7 +126,10 @@ export default function HeroDashboardVisual() {
         <>
           <div className="dbv6-kpis">
             {CASE_BREAKDOWN.map((k) => (
-              <div className="dbv6-kpi" key={k.k}><div className="v">{k.v}</div><div className="k">{k.k}</div></div>
+              <div className="dbv6-kpi" key={k.k}>
+                <div className="v">{k.v}</div>
+                <div className="k">{k.k}</div>
+              </div>
             ))}
           </div>
           <div className="dbv6-table" style={{ marginTop: 4 }}>

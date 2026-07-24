@@ -1,200 +1,95 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp, ShieldCheck, Sparkles, Zap } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Bot, Smartphone, Radar, Gavel, FileCheck2, BarChart3, ArrowUpRight } from 'lucide-react';
 
-const ASSET_CLASSES = [
+const MODULES = [
   {
-    num: '01',
-    title: 'Property Recovery',
-    tags: ['RESIDENTIAL', 'COMMERCIAL', 'LAND'],
-    items: [
-      'Residential Flats & Apartments',
-      'Independent Houses & Villas',
-      'Commercial Office Buildings',
-      'Residential & Industrial Land Plots'
-    ]
+    icon: Bot, span: 'lg:col-span-7', title: 'AI Assisted Recovery',
+    desc: 'Outreach opens at machine scale before a single human call is placed.',
+    items: ['AI Calling', 'Human Calling', 'WhatsApp', 'SMS', 'Email'],
   },
   {
-    num: '02',
-    title: 'Vehicle Recovery',
-    tags: ['CARS & SUVS', 'TRUCKS', 'TRACTORS'],
-    items: [
-      'Cars, Sedans & SUVs',
-      'Motorcycles & Scooters',
-      'Commercial Trucks & Buses',
-      'Agricultural Tractors & JCBs'
-    ]
+    icon: Smartphone, span: 'lg:col-span-5', title: 'Digital Collections',
+    desc: 'Every payment rail a borrower already uses, reconciled the same day.',
+    items: ['UPI', 'PhonePe', 'QR', 'POS', 'Digital Receipts'],
   },
   {
-    num: '03',
-    title: 'Financial & Credit Recovery',
-    tags: ['HOME LOANS', 'MSME', 'NPA'],
-    items: [
-      'Home Loans & Loan Against Property',
-      'Personal & Unsecured Credit',
-      'MSME & Business Working Capital',
-      'Credit Cards & Written-Off NPA Portfolios'
-    ]
+    icon: Radar, span: 'lg:col-span-4', title: 'Field Intelligence',
+    desc: 'Doorstep operations, verified — not self-reported.',
+    items: ['GPS Tracking', 'Geo-tagged Visits', 'Live Officer Tracking'],
   },
   {
-    num: '04',
-    title: 'Industrial Asset Recovery',
-    tags: ['MACHINERY', 'EQUIPMENT', 'PLANT'],
-    items: [
-      'Factory Machinery & Manufacturing Lines',
-      'Heavy Industrial Equipment',
-      'Construction Machinery & Tools',
-      'Processing & Tooling Assets'
-    ]
+    icon: Gavel, span: 'lg:col-span-4', title: 'Legal Recovery',
+    desc: 'Statutory enforcement, inside the timeline, every time.',
+    items: ['SARFAESI', 'Section 138', 'Litigation', 'Auction Coordination'],
   },
   {
-    num: '05',
-    title: 'Digital & Consumer Asset Recovery',
-    tags: ['IT HARDWARE', 'MOBILES', 'POS'],
-    items: [
-      'Laptops & Desktop Workstations',
-      'Mobile Phones & Tablets',
-      'Networking Routers & IT Hardware',
-      'POS Terminals & Smart TVs'
-    ]
+    icon: FileCheck2, span: 'lg:col-span-4', title: 'Verification Services',
+    desc: 'Ground-truth checks before disbursal, not after default.',
+    items: ['Residence', 'Office', 'Business', 'CPV', 'Document Verification'],
   },
   {
-    num: '06',
-    title: 'Commercial & Trade Recovery',
-    tags: ['INVENTORY', 'RECEIVABLES', 'ASSETS'],
-    items: [
-      'Warehouse Inventory & Stock',
-      'Retail Stock & Business Assets',
-      'Office Furniture & IT Equipment',
-      'Trade Receivables & Corporate Claims'
-    ]
-  }
+    icon: BarChart3, span: 'lg:col-span-12', wide: true, title: 'Analytics & Governance',
+    desc: 'Live visibility and a regulator-ready record, on every account.',
+    items: ['Recovery Dashboard', 'MIS', 'Audit Trail', 'Compliance Monitoring'],
+  },
 ];
 
-function AssetAccordionCard({ asset, isOpen, onToggle }) {
+function ModuleCard({ mod }) {
+  const Icon = mod.icon;
   return (
-    <div className={`rounded-xl border transition-all duration-200 overflow-hidden ${
-      isOpen 
-        ? 'bg-white border-[#0072bc]/40 shadow-md' 
-        : 'bg-white/95 border-slate-200/90 shadow-xs hover:border-slate-300'
-    }`}>
-      {/* Header Button Row (Compact) */}
-      <button
-        type="button"
-        onClick={onToggle}
-        className="w-full flex items-center justify-between px-4 py-3 sm:px-5 sm:py-3.5 text-left cursor-pointer transition-colors"
-      >
-        <div className="flex items-center gap-3 min-w-0">
-          <span className="font-mono text-sm sm:text-base font-bold text-[#059669] shrink-0">
-            {asset.num}
+    <motion.article
+      initial={{ opacity: 0, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={{ y: -5 }}
+      className={`group rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs hover:shadow-lg hover:border-[#0072bc]/30 transition-shadow duration-300 ${mod.span}`}
+    >
+      <div className={`flex ${mod.wide ? 'flex-col sm:flex-row sm:items-start' : 'flex-col'} gap-5 min-w-0`}>
+        <div className={`min-w-0 ${mod.wide ? 'sm:w-64 sm:shrink-0' : ''}`}>
+          <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#0072bc]/8 text-[#0072bc] transition-transform duration-300 group-hover:rotate-6">
+            <Icon size={22} strokeWidth={2.2} />
           </span>
-          <h3 className="font-sans text-base sm:text-lg font-extrabold text-slate-900 tracking-tight truncate">
-            {asset.title}
-          </h3>
+          <h3 className="mt-4 text-lg font-extrabold text-slate-900 tracking-tight break-words">{mod.title}</h3>
+          <p className="mt-1.5 text-[13px] text-slate-500 leading-relaxed max-w-sm break-words">{mod.desc}</p>
         </div>
 
-        <div className="flex items-center gap-2.5 shrink-0 font-sans">
-          {/* Tags (Desktop) */}
-          <div className="hidden sm:flex items-center gap-1.5 font-sans">
-            {asset.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-[9.5px] font-mono font-bold text-[#0072bc] bg-[#0072bc]/8 px-2.5 py-0.5 rounded-full border border-[#0072bc]/15 uppercase tracking-wider"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          {/* Toggle Icon */}
-          <div className={`p-1.5 rounded-full transition-colors ${isOpen ? 'bg-slate-100 text-[#0072bc]' : 'text-slate-400'}`}>
-            {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-          </div>
+        <div className={`min-w-0 flex flex-wrap gap-2 ${mod.wide ? 'sm:flex-1 sm:items-center' : 'mt-1'}`}>
+          {mod.items.map((item) => (
+            <span
+              key={item}
+              className="text-[11.5px] font-bold text-slate-700 bg-slate-50 border border-slate-200/90 px-3 py-1.5 rounded-full transition-colors duration-200 group-hover:border-[#0072bc]/25 group-hover:bg-[#0072bc]/5 group-hover:text-[#0072bc]"
+            >
+              {item}
+            </span>
+          ))}
         </div>
-      </button>
-
-      {/* Expanded Items Content Grid (Compact) */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="border-t border-slate-100 bg-slate-50/60 px-5 py-3.5 font-sans"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-2.5">
-              {asset.items.map((item) => (
-                <div key={item} className="flex items-center gap-2 font-sans">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#059669] shrink-0" />
-                  <span className="text-xs sm:text-sm font-bold text-slate-800 leading-tight font-sans">
-                    {item}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+      </div>
+    </motion.article>
   );
 }
 
 export default function EndToEndPlatformArchitectureSection() {
-  const [openIndex, setOpenIndex] = useState(0);
-
-  const handleToggle = (index) => {
-    setOpenIndex(openIndex === index ? -1 : index);
-  };
-
   return (
-    <section id="capabilities" className="bg-[#fafbfc] border-t border-b border-slate-200/90 relative overflow-hidden font-sans py-16 lg:py-20">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-
-        {/* Compact Section Header */}
+    <section id="capabilities" className="py-20 sm:py-24 bg-[#fafbfc] border-t border-b border-slate-200/90 relative overflow-hidden">
+      <div className="fg-wrap mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="fg-section-header">
-          <span className="fg-section-eyebrow">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#0072bc]" />
-            REAL BUSINESS RECOVERY COVERAGE
-          </span>
-          <h2 className="fg-section-title">
-            Recover Across Every Major Asset Class
-          </h2>
-          <p className="fg-section-subtitle">
-            What types of assets, loans, portfolios, and collateral can SM Associates recover?
-          </p>
+          <span className="fg-section-eyebrow">ENTERPRISE RECOVERY CAPABILITIES</span>
+          <h2 className="fg-section-title">Six Modules. One Accountable Platform.</h2>
+          <p className="fg-section-subtitle">Every execution capability SM Associates runs — grouped by function, not by feature count.</p>
         </div>
 
-        {/* Compact Accordion Stacked Cards (Fitted inside 1 Viewport) */}
-        <div className="space-y-2.5">
-          {ASSET_CLASSES.map((asset, index) => (
-            <AssetAccordionCard
-              key={asset.title}
-              asset={asset}
-              isOpen={openIndex === index}
-              onToggle={() => handleToggle(index)}
-            />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          {MODULES.map((mod) => (
+            <ModuleCard key={mod.title} mod={mod} />
           ))}
         </div>
 
-        {/* Compact Supporting Technology Banner */}
-        <div className="mt-5 p-3.5 rounded-xl bg-white border border-slate-200/90 flex items-center justify-between gap-3 text-left shadow-xs">
-          <div className="flex items-center gap-2.5">
-            <Zap className="h-4 w-4 text-[#0072bc] shrink-0" />
-            <span className="text-[11px] sm:text-xs font-bold text-slate-700 font-mono leading-tight">
-              Supporting Technology Rails: AI Voicebots · GPS Field Dispatch · Doorstep UPI QR · SARFAESI Legal Framework
-            </span>
-          </div>
-          <span className="text-[10px] font-mono font-bold text-[#059669] bg-[#059669]/10 px-2.5 py-0.5 rounded-full border border-[#059669]/20 shrink-0">
-            RBI COMPLIANT
-          </span>
+        <div className="mt-8 flex items-center justify-center gap-2 text-[11px] font-bold text-slate-400 uppercase tracking-wider font-mono">
+          <ArrowUpRight className="w-3.5 h-3.5 text-[#0072bc]" />
+          <span>Pan-South India · RBI Fair Practices Governed</span>
         </div>
-
-        <div className="mt-4 flex items-center justify-center gap-2 text-[11px] font-bold text-slate-500 uppercase tracking-wider font-mono">
-          <Sparkles className="w-3.5 h-3.5 text-[#0072bc]" />
-          <span>Pan-South India Operations · 25+ Years Track Record</span>
-        </div>
-
       </div>
     </section>
   );

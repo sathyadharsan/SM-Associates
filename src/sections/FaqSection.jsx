@@ -2,9 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { flagshipFaqs } from '../data/flagshipHomeData';
 
-function FaqItem({ faq, open, onToggle }) {
+function FaqItem({ faq, open, onToggle, index }) {
   const innerRef = useRef(null);
   const wrapRef = useRef(null);
+  const buttonId = `faq-q-${index}`;
+  const panelId = `faq-a-${index}`;
 
   useEffect(() => {
     const wrap = wrapRef.current;
@@ -15,11 +17,11 @@ function FaqItem({ faq, open, onToggle }) {
 
   return (
     <div className={`qa6 ${open ? 'open' : ''}`}>
-      <button type="button" onClick={onToggle}>
+      <button type="button" id={buttonId} aria-expanded={open} aria-controls={panelId} onClick={onToggle}>
         <span className="q">{faq.q}</span>
         <span className="pm"><ChevronDown size={14} /></span>
       </button>
-      <div className="a" ref={wrapRef}>
+      <div className="a" ref={wrapRef} id={panelId} role="region" aria-labelledby={buttonId} aria-hidden={!open}>
         <div className="a-inner" ref={innerRef}>{faq.a}</div>
       </div>
     </div>
@@ -43,6 +45,7 @@ export default function FaqSection() {
               <FaqItem
                 key={faq.q}
                 faq={faq}
+                index={i}
                 open={openIndex === i}
                 onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
               />
