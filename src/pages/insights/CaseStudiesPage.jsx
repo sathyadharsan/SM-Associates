@@ -82,7 +82,7 @@ export default function CaseStudiesPage() {
           <motion.div layout className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <AnimatePresence mode="popLayout">
               {filtered.map((study, i) => (
-                <CaseStudyCard key={study.id} study={study} index={i} onOpen={setOpenStudy} />
+                <CaseStudyCard key={study.id} study={study} index={i} onOpen={setOpenStudy} showMetrics={true} />
               ))}
             </AnimatePresence>
           </motion.div>

@@ -122,10 +122,23 @@ const getItemDescription = (label) => {
     case 'Puducherry': return 'UT regional verification and recovery operations';
     case 'Branch Network': return 'Detailed branch office & secure yard locations';
 
-    // Insights
-    case 'Case Studies': return 'Lender recovery success stories and metrics';
-    case 'Blog': return 'Articles on risk assessment, recovery & regulations';
-    case 'News & Updates': return 'Latest company news, press releases & audits';
+    // Services - Main Categories
+    case 'Recovery Operations':
+    case 'Collections & Recovery': return 'Early-stage, soft & field collections with PDC tracking';
+    case 'Legal Recovery & Enforcement':
+    case 'Legal Recovery': return 'SARFAESI Sec 13/14 support, cheque bounce notices & court liaising';
+    case 'Verification & Due Diligence':
+    case 'Verification Services': return 'CPV checks, residence & business audits, and pre-disbursal verifications';
+    case 'Asset Recovery & Realisation':
+    case 'Asset Recovery': return 'Vehicle repossession, asset tracing, yard custody & e-auctions';
+    case 'Investigation & Fraud Control':
+    case 'Investigation Services': return 'Skip tracing, debtor address mapping, forensic audits & fraud control';
+    case 'Operational Excellence & Analytics':
+    case 'Operational Excellence': return 'Call centre dialers, manpower sourcing, facilities & liaising';
+
+    // Insights & Resources
+    case 'Insights': return 'Industry research, whitepapers & recovery trends';
+    case 'Careers': return 'Explore career opportunities and join our team';
 
     default: return 'Learn more about our dedicated operations';
   }

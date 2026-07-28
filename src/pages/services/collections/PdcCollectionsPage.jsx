@@ -1,7 +1,7 @@
 import React from 'react';
-import CapabilityServiceTemplate from '../../../components/templates/CapabilityServiceTemplate';
-import { getCollectionsContent } from '../../../data/collectionsContent';
+import EnterpriseServiceTemplate from '../../../components/templates/EnterpriseServiceTemplate';
+import { getPageContent } from '../../../data/pagesContent';
 
 export default function PdcCollectionsPage() {
-  return <CapabilityServiceTemplate content={getCollectionsContent('pdc-collections')} />;
+  return <EnterpriseServiceTemplate content={getPageContent('pdc-collections')} />;
 }

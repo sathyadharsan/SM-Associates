@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import ContactOptionCards from '../components/contact/ContactOptionCards';
 import EnterpriseContactForm from '../components/contact/EnterpriseContactForm';
 import OfficeDirectory from '../components/contact/OfficeDirectory';
+import CommandCenterSection from '../sections/CommandCenterSection';
 
 /* ── Premium Closing CTA ─────────────────────────────────────────────────── */
 function ClosingCta() {
@@ -17,7 +18,7 @@ function ClosingCta() {
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: false, margin: '-60px' }}
           transition={{ duration: 0.55 }}
           className="relative overflow-hidden rounded-[28px] border border-slate-200 bg-white px-8 py-16 text-center shadow-enterprise sm:px-16"
         >
@@ -67,6 +68,7 @@ export default function ContactPage() {
     <div className="bg-white pt-24">
       <EnterpriseContactForm />
       <ContactOptionCards />
+      <CommandCenterSection />
       <OfficeDirectory />
       <ClosingCta />
     </div>

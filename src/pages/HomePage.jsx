@@ -4,19 +4,26 @@ import '../styles/homepage-v6.css';
 import SectionReveal from '../components/SectionReveal';
 import HeroFlagshipSection from '../sections/HeroFlagshipSection';
 import TrustedCertifiedSection from '../sections/TrustedCertifiedSection';
-import MetricsSection from '../sections/MetricsSection';
-import OperatingModelSection from '../sections/OperatingModelSection';
-import EndToEndPlatformArchitectureSection from '../sections/EndToEndPlatformArchitectureSection';
-import DiagnosisSection from '../sections/DiagnosisSection';
+import MetricsSection from '../sections/MetricsSection'; // kept for other pages
+import SayHelloShowcaseSection from '../sections/SayHelloShowcaseSection';
+import BentoWorkflowSection from '../sections/BentoWorkflowSection';
+import SolutionComparisonSection from '../sections/SolutionComparisonSection';
 import ServicesOverviewSection from '../sections/ServicesOverviewSection';
+import OperatingModelSection from '../sections/OperatingModelSection';
 import IndustriesServedSection from '../sections/IndustriesServedSection';
-import CommandCenterSection from '../sections/CommandCenterSection';
-import CaseStudiesPreviewSection from '../sections/CaseStudiesPreviewSection';
-import WhySmAssociatesSection from '../sections/WhySmAssociatesSection';
+import CaseStudiesSection from '../sections/CaseStudiesSection';
 import FaqSection from '../sections/FaqSection';
-import FlagshipCtaSection from '../sections/FlagshipCtaSection';
+// ── Premium Upgrades ──────────────────────────────────────────────
+import StatsCounterSection from '../sections/StatsCounterSection';
+import TestimonialsSection from '../sections/TestimonialsSection';
+import CtaSection from '../sections/CtaSection';
+import AwardsCertificationsSection from '../sections/AwardsCertificationsSection';
+import { ScrollProgressBar } from '../components/PremiumUIEffects';
 
 export default function HomePage() {
+  // Scroll cinematic: hero pins and recedes while Trusted & Certified slides
+  // up over it, then releases naturally. Desktop + motion-allowed only —
+  // returns its own cleanup, so React 18 double-mount is safe.
   useEffect(() => {
     const cleanup = initHomeCinematic();
     return cleanup;
@@ -24,23 +31,67 @@ export default function HomePage() {
 
   return (
     <div className="fg-home">
-      {/* Ambient background glows */}
-      <div className="ambient-glow ambient-glow--1" />
-      <div className="ambient-glow ambient-glow--2" />
-      <div className="ambient-glow ambient-glow--3" />
+      {/* ── Global Premium Effects ── */}
+      <ScrollProgressBar />
+
+      {/* 1. Institutional Hero Banner */}
       <HeroFlagshipSection />
-      <SectionReveal><MetricsSection /></SectionReveal>
-      <OperatingModelSection />
-      <SectionReveal><EndToEndPlatformArchitectureSection /></SectionReveal>
-      <SectionReveal><DiagnosisSection /></SectionReveal>
-      <SectionReveal><ServicesOverviewSection /></SectionReveal>
-      <SectionReveal><IndustriesServedSection /></SectionReveal>
-      <SectionReveal><CommandCenterSection /></SectionReveal>
+
+      {/* 2. Empanelments & Trusted Partners Marquee */}
       <TrustedCertifiedSection />
-      <SectionReveal><CaseStudiesPreviewSection /></SectionReveal>
-      <SectionReveal><WhySmAssociatesSection /></SectionReveal>
-      <SectionReveal><FaqSection /></SectionReveal>
-      <SectionReveal><FlagshipCtaSection /></SectionReveal>
+
+      {/* 3. Awards & Certifications Strip */}
+      <SectionReveal>
+        <AwardsCertificationsSection />
+      </SectionReveal>
+
+
+
+      {/* 6. Core Recovery Services Overview */}
+      <SectionReveal>
+        <ServicesOverviewSection />
+      </SectionReveal>
+
+      {/* 7. Sector Specialisation & Regulated Lender Segments */}
+      <SectionReveal>
+        <IndustriesServedSection />
+      </SectionReveal>
+
+      {/* 8. Recovery Operating Model: End-to-End Accountable Lifecycle */}
+      <OperatingModelSection />
+
+      {/* 9. Unified Command Center & Mobile Field Technology */}
+      <SectionReveal>
+        <SayHelloShowcaseSection />
+      </SectionReveal>
+
+      {/* 10. Client Testimonials Carousel */}
+      <SectionReveal>
+        <TestimonialsSection />
+      </SectionReveal>
+
+      {/* 11. Institutional Comparison Matrix */}
+      <SectionReveal>
+        <SolutionComparisonSection />
+      </SectionReveal>
+
+      {/* 12. Automated Workflows & RBI Compliance Bento Grid */}
+      <SectionReveal>
+        <BentoWorkflowSection />
+      </SectionReveal>
+
+      {/* 13. Proof of Work & Documented Case Studies Carousel */}
+      <SectionReveal>
+        <CaseStudiesSection />
+      </SectionReveal>
+
+      {/* 14. Frequently Asked Questions & Compliance Clarity */}
+      <SectionReveal>
+        <FaqSection />
+      </SectionReveal>
+
+      {/* 15. Book a Consultation — Premium CTA */}
+      <CtaSection />
     </div>
   );
 }

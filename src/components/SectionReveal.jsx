@@ -4,17 +4,17 @@ import { motion, useReducedMotion } from 'framer-motion';
 // scrolls into view, instead of appearing as a static stacked block. Skips
 // the motion entirely for prefers-reduced-motion, matching the rest of the
 // site's reveal conventions (see homepage-v6.css .fg-r).
-export default function SectionReveal({ children }) {
+export default function SectionReveal({ children, once = false }) {
   const reduceMotion = useReducedMotion();
 
   if (reduceMotion) return children;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50, scale: 0.992 }}
+      initial={{ opacity: 0, y: 40, scale: 0.992 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: '-8% 0px -8% 0px' }}
-      transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once, margin: '-5% 0px -5% 0px' }}
+      transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </motion.div>

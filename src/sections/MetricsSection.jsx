@@ -13,30 +13,34 @@ function MetricCard({ m, index }) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.3 }}
       transition={{ duration: 0.5, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -6 }}
-      className="rounded-2xl border border-slate-200/90 bg-white/70 backdrop-blur-xl p-6 sm:p-7 shadow-xs hover:shadow-lg hover:border-[#0072bc]/30 transition-shadow duration-300"
+      className="rounded-[28px] border border-slate-200 bg-white p-7 sm:p-8 shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300 flex flex-col justify-between"
     >
-      <div className="flex items-center justify-between mb-5">
-        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0072bc]/8 text-[#0072bc]">
-          {React.createElement(ICONS[m.idx] || History, { size: 20, strokeWidth: 2.2 })}
-        </span>
-        <span className="font-mono text-[10px] font-bold text-slate-300 tracking-widest">{m.idx}</span>
+      <div>
+        <div className="flex items-center justify-between mb-6">
+          <span className="text-[#0072bc]">
+            {React.createElement(ICONS[m.idx] || History, { size: 24, strokeWidth: 2 })}
+          </span>
+          <span className="font-mono text-xs font-semibold text-slate-300 tracking-wider">{m.idx}</span>
+        </div>
+
+        <div className="flex items-baseline gap-1 my-3">
+          <span ref={ref} className="text-4xl sm:text-[44px] font-extrabold text-[#0072bc] tracking-tight leading-none">{display}</span>
+          <span className="text-lg sm:text-xl font-black text-[#0072bc]">{m.suffix}</span>
+        </div>
+
+        <h3 className="mt-3 text-base sm:text-lg font-bold text-slate-900 tracking-tight">{m.label}</h3>
+        <p className="mt-1.5 text-sm text-slate-500 leading-relaxed font-normal">{m.desc}</p>
       </div>
-      <div className="flex items-baseline gap-1">
-        <span ref={ref} className="text-4xl sm:text-[42px] font-black text-[#0072bc] tracking-tight leading-none">{display}</span>
-        <span className="text-lg sm:text-xl font-black text-[#0072bc]">{m.suffix}</span>
-      </div>
-      <h3 className="mt-3 text-sm font-extrabold text-slate-900 tracking-tight">{m.label}</h3>
-      <p className="mt-1 text-[12.5px] text-slate-500 leading-snug">{m.desc}</p>
     </motion.div>
   );
 }
 
 export default function MetricsSection() {
   return (
-    <section className="py-20 sm:py-24 bg-white border-t border-b border-slate-200/90 relative overflow-hidden" id="metrics">
+    <section className="py-20 sm:py-24 bg-[#f0f7ff] border-t border-b border-blue-100/60 relative overflow-hidden" id="metrics">
       <div className="fg-wrap mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="fg-section-header">
           <span className="fg-section-eyebrow">INFRASTRUCTURE AT SCALE</span>

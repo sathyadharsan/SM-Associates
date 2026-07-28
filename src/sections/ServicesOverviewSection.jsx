@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Search, PhoneCall, RefreshCw, Gavel, Warehouse, FileSearch, ArrowRight } from 'lucide-react';
+import { PhoneCall, Gavel, Search, FileSearch, Warehouse, RefreshCw, ArrowRight } from 'lucide-react';
 import { servicesOverview } from '../data/flagshipHomeData';
 
-const iconMap = { Search, PhoneCall, RefreshCw, Gavel, Warehouse, FileSearch };
+const iconMap = { PhoneCall, Gavel, Search, FileSearch, Warehouse, RefreshCw };
 
 function ServiceCard({ s, index }) {
   const Icon = iconMap[s.icon] || Search;
@@ -19,17 +19,22 @@ function ServiceCard({ s, index }) {
     >
       <Link
         to={s.href}
-        className="flex h-full flex-col rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs hover:shadow-lg hover:border-[#0072bc]/30 transition-shadow duration-300"
+        className="flex h-full flex-col justify-between rounded-[28px] border border-slate-200 bg-white p-7 sm:p-8 shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300"
       >
-        <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#0072bc]/8 text-[#0072bc] transition-transform duration-300 group-hover:scale-110">
-          <Icon size={22} strokeWidth={2.2} />
-        </span>
-        <h3 className="mt-4 text-base font-extrabold text-slate-900 tracking-tight">{s.name}</h3>
-        <p className="mt-1.5 text-[13px] text-slate-500 leading-relaxed flex-1">{s.desc}</p>
-        <span className="mt-4 inline-flex items-center gap-1.5 text-[12.5px] font-bold text-[#0072bc]">
-          Explore
-          <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
-        </span>
+        <div>
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-[#0072bc] mb-6 transition-transform duration-300 group-hover:scale-105">
+            <Icon size={24} strokeWidth={2} />
+          </div>
+          <h3 className="text-xl font-bold text-slate-900 tracking-tight leading-snug">{s.name}</h3>
+          <p className="mt-2.5 text-sm text-slate-500 leading-relaxed font-normal">{s.desc}</p>
+        </div>
+
+        <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+          <span className="text-[12.5px] font-bold text-[#0072bc]">
+            Explore Service
+          </span>
+          <ArrowRight size={15} className="text-[#0072bc] transition-transform duration-300 group-hover:translate-x-1" />
+        </div>
       </Link>
     </motion.div>
   );
@@ -41,7 +46,7 @@ export default function ServicesOverviewSection() {
       <div className="fg-wrap mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="fg-section-header">
           <span className="fg-section-eyebrow">SERVICE CATEGORIES</span>
-          <h2 className="fg-section-title">Six business divisions, one accountable partner.</h2>
+          <h2 className="fg-section-title">Six Portfolio Management Capabilities. One Reliable Partner.</h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

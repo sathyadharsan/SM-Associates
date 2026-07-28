@@ -45,10 +45,10 @@ export default function CaseStudiesPreviewSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               whileHover={{ y: -4 }}
-              className="lg:col-span-7 bg-white rounded-[28px] border border-slate-200/90 p-7 sm:p-9 shadow-lg hover:shadow-2xl hover:border-[#0072bc]/30 transition-all duration-300 flex flex-col justify-between"
+              className="lg:col-span-7 bg-white rounded-[28px] border border-slate-200 p-7 sm:p-9 shadow-md hover:shadow-xl hover:border-slate-300 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 px-3.5 py-1.5 rounded-full border border-[#0072bc]/20">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 px-3.5 py-1.5 rounded-full border border-slate-200">
                   {mainStudy.serviceLabel}
                 </span>
                 <h3 className="mt-4 text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight leading-tight">
@@ -81,7 +81,7 @@ export default function CaseStudiesPreviewSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.08 }}
                 whileHover={{ y: -3 }}
-                className="bg-white rounded-[28px] border border-slate-200/90 p-6 shadow-xs hover:shadow-lg hover:border-[#0072bc]/25 transition-all duration-300 flex-1 flex flex-col justify-between"
+                className="bg-white rounded-[28px] border border-slate-200 p-6 shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300 flex-1 flex flex-col justify-between"
               >
                 <div>
                   <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">{study.serviceLabel}</span>

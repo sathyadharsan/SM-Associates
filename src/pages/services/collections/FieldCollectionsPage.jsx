@@ -1,7 +1,7 @@
 import React from 'react';
-import CapabilityServiceTemplate from '../../../components/templates/CapabilityServiceTemplate';
-import { getCollectionsContent } from '../../../data/collectionsContent';
+import EnterpriseServiceTemplate from '../../../components/templates/EnterpriseServiceTemplate';
+import { getPageContent } from '../../../data/pagesContent';
 
 export default function FieldCollectionsPage() {
-  return <CapabilityServiceTemplate content={getCollectionsContent('field-collections')} />;
+  return <EnterpriseServiceTemplate content={getPageContent('field-collections')} />;
 }

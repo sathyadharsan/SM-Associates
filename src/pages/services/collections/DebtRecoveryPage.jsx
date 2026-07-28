@@ -1,7 +1,7 @@
 import React from 'react';
-import CapabilityServiceTemplate from '../../../components/templates/CapabilityServiceTemplate';
-import { getCollectionsContent } from '../../../data/collectionsContent';
+import EnterpriseServiceTemplate from '../../../components/templates/EnterpriseServiceTemplate';
+import { getPageContent } from '../../../data/pagesContent';
 
 export default function DebtRecoveryPage() {
-  return <CapabilityServiceTemplate content={getCollectionsContent('debt-recovery')} />;
+  return <EnterpriseServiceTemplate content={getPageContent('debt-recovery')} />;
 }

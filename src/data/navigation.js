@@ -6,12 +6,12 @@ export const navigationData = {
       label: 'Services',
       href: '/services',
       children: [
-        { label: 'Recovery Operations', href: '/services/collections/early-stage' },
-        { label: 'Legal Recovery & Enforcement', href: '/services/legal-recovery/sarfaesi-support' },
-        { label: 'Verification & Due Diligence', href: '/services/verification/cpv-services' },
-        { label: 'Asset Recovery & Realisation', href: '/services/asset-recovery/asset-recovery' },
-        { label: 'Investigation & Fraud Control', href: '/services/investigation/skip-tracing' },
-        { label: 'Operational Excellence & Analytics', href: '/services/operational/call-centre' },
+        { label: 'Recovery Operations', href: '/services/collections' },
+        { label: 'Legal Recovery & Enforcement', href: '/services/legal-recovery' },
+        { label: 'Verification & Due Diligence', href: '/services/verification' },
+        { label: 'Asset Recovery & Realisation', href: '/services/asset-recovery' },
+        { label: 'Investigation & Fraud Control', href: '/services/investigation' },
+        { label: 'Operational Excellence & Analytics', href: '/services/operational' },
       ]
     },
     { label: 'Clients', href: '/clients' },

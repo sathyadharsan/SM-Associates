@@ -26,15 +26,12 @@ export const metrics = [
 ];
 
 export const operatingModelStages = [
-  { no: '01', title: 'Portfolio Received', desc: 'Books ingested via secure transfer, in any format, from any lender.', tags: ['Secure intake', 'Any format', 'Any lender'], visual: 'alloc', tag: 'INTAKE' },
-  { no: '02', title: 'Portfolio Segmentation', desc: 'Every account scored and segmented by risk, geography and recovery propensity.', tags: ['Risk scoring', 'Geo-routing', 'Propensity model'], visual: 'alloc', tag: 'SEGMENTED' },
-  { no: '03', title: 'AI Calling', desc: 'AI-assisted calling opens contact at scale, before any officer or human calling is deployed.', tags: ['AI voice agents', 'Multilingual', '24x7 reach'], visual: 'engage', tag: 'AI CONTACT' },
-  { no: '04', title: 'Digital Engagement', desc: 'WhatsApp, SMS, email and UPI/PhonePe/QR payment links — every touch logged and time-stamped.', tags: ['Omnichannel', 'Payment links', 'Logged contact'], visual: 'engage', tag: 'DIGITAL' },
-  { no: '05', title: 'Field Recovery', desc: 'GPS-verified doorstep visits where digital and tele contact isn’t enough — cash or digital collection, on the spot.', tags: ['GPS-verified', 'Doorstep collection', 'Digital receipts'], visual: 'field', tag: 'ON-GROUND' },
-  { no: '06', title: 'Legal Escalation', desc: 'Where resolution stalls — notices, possession and SARFAESI execution, managed end to end.', tags: ['Sec.13(2)/13(4)', 'Possession', 'Section 138'], visual: 'legal', tag: 'ENFORCEMENT' },
-  { no: '07', title: 'Asset Recovery', desc: 'Repossession, secure custody, valuation and auction coordination through to realisation.', tags: ['Repossession', 'Custody', 'Auction'], visual: 'resolve', tag: 'REALISED' },
-  { no: '08', title: 'Reporting', desc: 'Real-time dashboards and immutable audit trails give the institution full regulatory visibility.', tags: ['Live dashboards', 'Audit trail', 'Compliance pack'], visual: 'report', tag: 'VISIBILITY' },
-  { no: '09', title: 'Closure', desc: 'Case reconciled, credited back and closed — with a complete, defensible record on file.', tags: ['Reconciliation', 'Credit-back', 'Case archive'], visual: 'report', tag: 'CLOSED' },
+  { no: '01', title: 'Portfolio Intake & Segmentation', desc: 'Allocation via secure transfer and automatically segmented by risk, geography, and recovery propensity.', tags: ['Secure Intake', 'Risk Scoring', 'Geo-Routing'], visual: 'alloc', tag: 'INTAKE & RISK' },
+  { no: '02', title: 'Digital & AI Outreach', desc: 'Multilingual AI voice agents and omnichannel digital messaging engage borrowers at scale with instant payment links.', tags: ['AI Voice Agents', 'Omnichannel', 'Payment Links'], visual: 'engage', tag: 'DIGITAL & AI' },
+  { no: '03', title: 'Field Recovery Force', desc: 'GPS-verified doorstep visits by IIBF DRA-certified officers for on-ground resolution and digital collection.', tags: ['GPS-Verified', 'Doorstep Visit', 'IIBF Certified'], visual: 'field', tag: 'ON-GROUND OPS' },
+  { no: '04', title: 'Legal Escalation & SARFAESI', desc: 'Statutory demand notices, Section 13(2)/13(4) possession, and litigation coordination managed end-to-end.', tags: ['Sec. 13(2)/13(4)', 'Possession', 'Legal Notices'], visual: 'legal', tag: 'ENFORCEMENT' },
+  { no: '05', title: 'Asset Recovery & Realisation', desc: 'Secured asset repossession, custody, valuation, and physical/e-auction coordination through to full recovery.', tags: ['Repossession', 'Valuation', 'Auction Support'], visual: 'resolve', tag: 'ASSET RECOVERY' },
+  { no: '06', title: 'Reporting, Compliance & Closure', desc: 'Real-time lender visibility, immutable audit trails, and automated reconciliation for complete case archiving.', tags: ['Live Dashboards', 'Audit Trail', 'Case Closure'], visual: 'report', tag: 'CLOSURE & AUDIT' },
 ];
 
 export const capabilityNodes = [
@@ -147,20 +144,17 @@ export const complianceRows = [
 export const flagshipFaqs = [
   { q: 'How quickly can you onboard a new portfolio?', a: 'Onboarding timelines depend on data readiness and geography — portfolios move from handover to live field activity quickly, and pilot books move fastest. Our regional branch grid means field teams are already positioned near your borrowers.' },
   { q: 'How do you ensure regulatory and conduct compliance?', a: 'Every officer is background-verified and IIBF DRA-certified, 100% of collections calls are recorded and QA-audited, every field interaction is logged with time and GPS location, and all activity follows RBI Fair Practices — producing a complete, regulator-ready audit trail.' },
-  { q: 'What visibility do we get into ongoing recovery?', a: 'Daily status reporting covering allocation, field activity, resolution and recovery — down to the account — plus scheduled MIS packs aligned to your review cadence.' },
   { q: 'Do you handle both secured and unsecured portfolios?', a: 'Yes. Unsecured retail collections through to secured enforcement and SARFAESI execution, across the full delinquency curve, under one accountable operating model.' },
-  { q: 'What is your commercial and pricing model?', a: 'We operate on structured success-fee percentages tailored to portfolio age, security type, bucket status, and geographic density. For legal support and SARFAESI mandates, we work on standardized milestones/flat fee-per-stage agreements.' },
-  { q: 'How do you guarantee customer data protection and information security?', a: 'We adhere strictly to ISO/IEC 27001 standard practices. All customer data resides on secured servers with role-based access controls, encrypted at rest and in transit, with full audit trail logging and active firewalls/malware monitoring.' },
 ];
 
 // ─── Home Page Architecture Refinement (production pass) ──────────────────
 // Card-based Services Overview — one representative, real route per
 // business division (matches src/data/navigation.js mega-menu categories).
 export const servicesOverview = [
-  { icon: 'PhoneCall', name: 'Recovery Operations', desc: 'Early-stage through hard and field collections, across every bucket.', href: '/services/collections/field-collections', color: '#0072bc' },
+  { icon: 'PhoneCall', name: 'Recovery Operations', desc: 'Early-stage through soft tele calling and field collections, across every bucket.', href: '/services/collections/field-collections', color: '#0072bc' },
   { icon: 'Gavel', name: 'Legal Recovery & Enforcement', desc: 'End-to-end statutory enforcement — SARFAESI, Section 138, litigation.', href: '/services/legal-recovery/sarfaesi-support', color: '#0072bc' },
   { icon: 'Search', name: 'Verification & Due Diligence', desc: 'Pre-disbursal CPV, residence, office and document verification.', href: '/services/verification/cpv-services', color: '#0072bc' },
-  { icon: 'FileSearch', name: 'Investigation & Fraud Control', desc: 'Skip tracing, due diligence and fraud investigation.', href: '/services/investigation/skip-tracing', color: '#0072bc' },
+  { icon: 'FileSearch', name: 'Investigation & Fraud Control', desc: 'due diligence and fraud investigation.', href: '/services/investigation/skip-tracing', color: '#0072bc' },
   { icon: 'Warehouse', name: 'Asset Recovery & Realisation', desc: 'Repossession, custody, valuation and auction coordination.', href: '/services/asset-recovery/auction-coordination', color: '#0072bc' },
   { icon: 'RefreshCw', name: 'Operational Excellence & Analytics', desc: 'Recovery analytics, portfolio strategy and field operations infrastructure.', href: '/services/specialized/recovery-analytics', color: '#0072bc' },
 ];

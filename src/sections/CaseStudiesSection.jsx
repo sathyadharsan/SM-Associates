@@ -1,96 +1,124 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, TrendingUp, ShieldCheck } from 'lucide-react';
-import SectionHeader from '../components/SectionHeader';
-import { caseStudies } from '../data/homeData';
+import { useState, useRef } from 'react';
+import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import CaseStudyCard from '../components/case-studies/CaseStudyCard';
+import CaseStudyModal from '../components/case-studies/CaseStudyModal';
+import { caseStudies } from '../data/caseStudies';
 
 export default function CaseStudiesSection() {
-  const handleScrollTo = (href) => (e) => {
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      const offsetTop = target.offsetTop - 80;
-      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-    }
+  const [selectedStudy, setSelectedStudy] = useState(null);
+  const scrollRef = useRef(null);
+
+  const handleScroll = (direction) => {
+    if (!scrollRef.current) return;
+    const scrollAmount = scrollRef.current.clientWidth * 0.75;
+    scrollRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    });
   };
 
   return (
-    <section id="case-studies" className="relative py-20 sm:py-24 lg:py-28" style={{ background: '#ffffff' }}>
-      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, #0072bc, transparent)' }} />
+    <section id="case-studies" className="relative py-20 sm:py-24 lg:py-28 bg-white border-t border-b border-slate-200/60 overflow-hidden">
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header with Left/Right Control Buttons */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+          <div>
+            <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#0072bc]">
+              PROOF OF WORK
+            </span>
+            <h2 className="mt-2 text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Real engagements, documented outcomes.
+            </h2>
+            <p className="mt-3 text-base text-slate-600 max-w-2xl leading-relaxed">
+              Anonymized operating examples showing how SM Associates structures recovery programs across banking, SARFAESI, verification and fraud control mandates.
+            </p>
+          </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="Recovery Case Studies"
-          title="Execution stories from real recovery operations."
-          description="Anonymized operating examples showing how SM Associates structures recovery programs across banking, SARFAESI, verification and fraud control mandates."
-        />
-
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {caseStudies.map((study, index) => (
-            <motion.article
-              key={study.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: index * 0.08, duration: 0.55 }}
-              className="group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#0072bc]/40 hover:shadow-xl flex flex-col justify-between"
+          <div className="flex items-center gap-3 shrink-0">
+            <button
+              type="button"
+              onClick={() => handleScroll('left')}
+              aria-label="Previous case studies"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-md transition-all hover:border-[#0072bc] hover:bg-[#0072bc] hover:text-white hover:scale-105 active:scale-95 cursor-pointer"
             >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="rounded-full bg-[#0072bc]/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#0072bc]">
-                    {study.category}
-                  </span>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400">
-                    CASE 0{index + 1}
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-bold tracking-tight text-slate-900 leading-snug">{study.title}</h3>
-                
-                {/* ── Interactive Before vs. After Impact Meter ── */}
-                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 space-y-3">
-                  <div className="flex items-center justify-between text-xs font-bold text-slate-700">
-                    <span className="flex items-center gap-1.5"><TrendingUp size={14} className="text-[#0072bc]" /> Impact Recovery Meter</span>
-                    <span className="text-[#0072bc] font-extrabold">{study.outcome}</span>
-                  </div>
-
-                  <div className="space-y-2 text-xs">
-                    <div className="flex items-center justify-between text-slate-500 font-medium text-[11px]">
-                      <span>Before Execution</span>
-                      <span className="font-bold text-slate-600">Low / Delayed Resolution</span>
-                    </div>
-                    <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-                      <div className="bg-slate-400 h-full rounded-full w-[25%]" />
-                    </div>
-
-                    <div className="flex items-center justify-between text-slate-700 font-medium text-[11px] pt-1">
-                      <span>After SM Execution</span>
-                      <span className="font-bold text-[#0072bc]">Verified SLA Success</span>
-                    </div>
-                    <div className="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: '92%' }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, ease: 'easeOut' }}
-                        className="bg-[#0072bc] h-full rounded-full"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-                <a href="#contact" onClick={handleScrollTo('#contact')} className="inline-flex items-center gap-2 text-xs font-bold text-[#0072bc] transition group-hover:translate-x-1">
-                  Discuss similar mandate <ArrowRight className="h-4 w-4" />
-                </a>
-                <span className="text-[10px] font-semibold text-slate-400 flex items-center gap-1">
-                  <ShieldCheck size={12} className="text-[#0072bc]" /> Audited Case
-                </span>
-              </div>
-            </motion.article>
-          ))}
+              <ChevronLeft className="h-6 w-6 stroke-[2.5]" />
+            </button>
+            <button
+              type="button"
+              onClick={() => handleScroll('right')}
+              aria-label="Next case studies"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-md transition-all hover:border-[#0072bc] hover:bg-[#0072bc] hover:text-white hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <ChevronRight className="h-6 w-6 stroke-[2.5]" />
+            </button>
+          </div>
         </div>
+
+        {/* Carousel Container with Large Floating Side Arrows */}
+        <div className="relative group">
+          
+          {/* Side Floating Left Button (Aligned with image banner) */}
+          <button
+            type="button"
+            onClick={() => handleScroll('left')}
+            aria-label="Scroll left"
+            className="hidden sm:flex absolute -left-3 lg:-left-6 top-[104px] -translate-y-1/2 z-20 h-13 w-13 lg:h-14 lg:w-14 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-800 shadow-xl backdrop-blur-md transition-all hover:bg-[#0072bc] hover:text-white hover:border-[#0072bc] hover:scale-110 cursor-pointer"
+          >
+            <ChevronLeft className="h-6 w-6 lg:h-7 lg:w-7 stroke-[2.5]" />
+          </button>
+
+          {/* Carousel Track (Showing 4 cards on XL desktop) */}
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto scroll-smooth py-4 px-1 no-scrollbar"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {caseStudies.map((study, index) => (
+              <div
+                key={study.id}
+                className="flex-none w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] min-w-[310px]"
+              >
+                <CaseStudyCard
+                  study={study}
+                  index={index}
+                  onOpen={(s) => setSelectedStudy(s)}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Side Floating Right Button (Aligned with image banner) */}
+          <button
+            type="button"
+            onClick={() => handleScroll('right')}
+            aria-label="Scroll right"
+            className="hidden sm:flex absolute -right-3 lg:-right-6 top-[104px] -translate-y-1/2 z-20 h-13 w-13 lg:h-14 lg:w-14 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-800 shadow-xl backdrop-blur-md transition-all hover:bg-[#0072bc] hover:text-white hover:border-[#0072bc] hover:scale-110 cursor-pointer"
+          >
+            <ChevronRight className="h-6 w-6 lg:h-7 lg:w-7 stroke-[2.5]" />
+          </button>
+
+        </div>
+
+        {/* View All Case Studies Link */}
+        <div className="mt-10 text-center">
+          <Link
+            to="/insights/case-studies"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-7 py-3 text-sm font-bold text-slate-800 shadow-sm transition hover:border-[#0072bc] hover:text-[#0072bc] hover:shadow-md"
+          >
+            View All Case Studies & Detailed Metrics <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+
       </div>
+
+      {selectedStudy && (
+        <CaseStudyModal
+          study={selectedStudy}
+          onClose={() => setSelectedStudy(null)}
+        />
+      )}
     </section>
   );
 }

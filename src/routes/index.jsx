@@ -14,6 +14,12 @@ const CompanyOverviewPage = lazy(() => import('../pages/about/CompanyOverviewPag
 
 // Services
 const ServicesIndex = lazy(() => import('../pages/services/ServicesIndex'));
+const CollectionsCategoryPage = lazy(() => import('../pages/services/CollectionsCategoryPage'));
+const LegalCategoryPage = lazy(() => import('../pages/services/LegalCategoryPage'));
+const VerificationCategoryPage = lazy(() => import('../pages/services/VerificationCategoryPage'));
+const AssetCategoryPage = lazy(() => import('../pages/services/AssetCategoryPage'));
+const InvestigationCategoryPage = lazy(() => import('../pages/services/InvestigationCategoryPage'));
+const OperationalCategoryPage = lazy(() => import('../pages/services/OperationalCategoryPage'));
 const CpvServicesPage = lazy(() => import('../pages/services/verification/CpvServicesPage'));
 const ResidenceVerificationPage = lazy(() => import('../pages/services/verification/ResidenceVerificationPage'));
 const OfficeVerificationPage = lazy(() => import('../pages/services/verification/OfficeVerificationPage'));
@@ -110,6 +116,12 @@ export default function AppRoutes() {
 
         {/* Services */}
         <Route path="/services" element={<ServicesIndex />} />
+        <Route path="/services/collections" element={<CollectionsCategoryPage />} />
+        <Route path="/services/legal-recovery" element={<LegalCategoryPage />} />
+        <Route path="/services/verification" element={<VerificationCategoryPage />} />
+        <Route path="/services/asset-recovery" element={<AssetCategoryPage />} />
+        <Route path="/services/investigation" element={<InvestigationCategoryPage />} />
+        <Route path="/services/operational" element={<OperationalCategoryPage />} />
         {/* Verification */}
         <Route path="/services/verification/cpv-services" element={<CpvServicesPage />} />
         <Route path="/services/verification/residence-verification" element={<ResidenceVerificationPage />} />

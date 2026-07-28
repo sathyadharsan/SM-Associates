@@ -75,9 +75,8 @@ html.lenis, html.lenis body { height: auto; }
 
 .fg-section-title {
   font-family: var(--sans) !important;
-  font-size: clamp(2rem, 3.5vw, 2.75rem) !important; /* 32px - 44px uniform size */
+  font-size: clamp(2rem, 3.5vw, 2.75rem) !important;
   font-weight: 800 !important;
-  color: #0f172a !important;
   letter-spacing: -0.025em !important;
   line-height: 1.15 !important;
   margin-top: 0 !important;
@@ -86,9 +85,8 @@ html.lenis, html.lenis body { height: auto; }
 
 .fg-section-subtitle {
   font-family: var(--sans) !important;
-  font-size: clamp(1rem, 1.2vw, 1.125rem) !important; /* 16px - 18px uniform size */
+  font-size: clamp(1rem, 1.2vw, 1.125rem) !important;
   font-weight: 500 !important;
-  color: #475569 !important;
   line-height: 1.625 !important;
   margin-top: 0.75rem !important;
   max-width: 42rem;
@@ -116,8 +114,9 @@ html.lenis, html.lenis body { height: auto; }
   display: none !important;
 }
 
-.fg-home h1,.fg-home h2,.fg-home h3,.fg-home h4,.fg-home h5{font-weight:700;letter-spacing:-.03em;line-height:1.04;text-wrap:balance;color:#0f172a;}
-.fg-home p{text-wrap:pretty;color:#475569;}
+/* Headings default dark on light sections, components can override for dark sections */
+.fg-home h1,.fg-home h2,.fg-home h3,.fg-home h4,.fg-home h5{font-weight:700;letter-spacing:-.03em;line-height:1.04;text-wrap:balance;}
+.fg-home p{text-wrap:pretty;}
 .fg-home a{color:inherit;text-decoration:none;}
 .fg-wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut);}
 
@@ -245,6 +244,20 @@ html.lenis, html.lenis body { height: auto; }
 ═══════════════════════════════════════════════ */
 .hero6{min-height:100vh;padding:156px 0 80px;background:#ffffff;position:relative;overflow-x:hidden;display:flex;align-items:center;}
 .hero6-bg{position:absolute;inset:0;pointer-events:none;z-index:0;background:#ffffff;}
+/* WebGL weave canvas — sits above the flat white base, below all hero copy
+   (which is z-10). pointer-events:none so it never blocks the CTAs. */
+/* WebGL weave canvas — right-hand visual column. Constrained to the right 46%
+   so it can never sit under the hero copy (which is max-w-3xl on the left),
+   leaving a clear whitespace gutter between the two. pointer-events:none so it
+   never blocks the CTAs. */
+.hero6-woven-background{position:absolute;top:0;right:0;bottom:0;width:44%;z-index:1;pointer-events:none;}
+.hero6-woven-background canvas{width:100%;height:100%;display:block;}
+/* Below the two-column breakpoint the copy spans the full width, so the weave
+   drops behind it as a low-contrast backdrop rather than a side element —
+   readability of the headline always wins. */
+@media(max-width:1023px){
+  .hero6-woven-background{width:100%;opacity:.3;}
+}
 .hero6-grid{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:48px;align-items:center;position:relative;z-index:2;width:100%;}
 @media(max-width:1100px){
   .hero6-grid{grid-template-columns:minmax(0, 1fr) minmax(0, 0.9fr);gap:24px;}
@@ -1146,3 +1159,466 @@ html.lenis, html.lenis body { height: auto; }
 /* Lifecycle progress rail — single-accent brand rule, no per-stage hue */
 .rail-bar i{background:#0072bc;}
 
+/* ════════════════════════════════════════════════════════════
+   ALLSET UI/UX DESIGN SYSTEM (Matching Reference Video)
+   Light Off-White, Subtle Grid Pattern, Indigo/Blue Accents,
+   Pill Buttons, Dynamic ROI Calculator, Bento Cards & Matrix
+   ════════════════════════════════════════════════════════════ */
+
+:root {
+  --allset-bg: #f4f5f8;
+  --allset-surface: #ffffff;
+  --allset-primary: #0072bc;       /* SM Associates Brand Blue */
+  --allset-primary-hover: #005291; /* Darker SM Blue on hover  */
+  --allset-accent: #1a84c8;        /* Light SM Blue accent     */
+  --allset-ink: #0f172a;
+  --allset-ink-muted: #64748b;
+  --allset-border: #e2e8f0;
+  --allset-pill-bg: #eef6fb;       /* Light SM Blue background */
+  --allset-pill-ink: #005291;      /* Dark SM Blue text        */
+  --allset-grid-line: rgba(226, 232, 240, 0.7);
+  --allset-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06);
+}
+
+/* Background Grid Pattern (Hero & Key Sections) */
+.allset-grid-bg {
+  background-color: var(--allset-bg);
+  background-image: 
+    linear-gradient(var(--allset-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--allset-grid-line) 1px, transparent 1px);
+  background-size: 80px 80px;
+  background-position: center center;
+}
+
+.allset-grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.8) 0%, rgba(244, 245, 248, 0.95) 75%);
+}
+
+/* Allset Buttons & Pills */
+.allset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  text-decoration: none !important;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.allset-btn-primary {
+  background: var(--allset-primary);
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+}
+.allset-btn-primary:hover {
+  background: var(--allset-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.45);
+}
+
+.allset-btn-secondary {
+  background: #ffffff;
+  color: var(--allset-ink) !important;
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+.allset-btn-secondary:hover {
+  border-color: var(--allset-primary);
+  color: var(--allset-primary) !important;
+  transform: translateY(-2px);
+  background: #ffffff;
+}
+
+.allset-btn-icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  margin-left: 2px;
+}
+.allset-btn-secondary .allset-btn-icon-circle {
+  background: #f1f5f9;
+  color: var(--allset-ink);
+}
+
+.allset-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--allset-pill-bg);
+  color: var(--allset-pill-ink);
+}
+
+.allset-segment-toggle {
+  display: inline-flex;
+  padding: 4px;
+  background: #e2e8f0;
+  border-radius: 100px;
+  gap: 2px;
+}
+.allset-segment-btn {
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--allset-ink-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  background: transparent;
+}
+.allset-segment-btn.active {
+  background: #ffffff;
+  color: var(--allset-ink);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
+/* Floating Badges & Tags */
+.floating-chip {
+  position: absolute;
+  padding: 8px 14px;
+  background: #ffffff;
+  border: 1px solid var(--allset-border);
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--allset-ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  animation: floatBounce 4s infinite ease-in-out;
+}
+
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Interactive Calculator Section ("See your potential") */
+.calc-card-wrap {
+  background: #ffffff;
+  border-radius: 32px;
+  border: 1px solid var(--allset-border);
+  box-shadow: var(--allset-shadow);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 48px;
+  align-items: center;
+}
+@media (max-width: 992px) {
+  .calc-card-wrap {
+    grid-template-columns: 1fr;
+    padding: 28px;
+    gap: 32px;
+  }
+}
+
+.calc-slider-group {
+  margin-bottom: 28px;
+}
+.calc-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.calc-slider-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--allset-ink-muted);
+}
+.calc-slider-val {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--allset-ink);
+  font-family: var(--sans);
+}
+
+.calc-input-range {
+  width: 100%;
+  height: 6px;
+  border-radius: 6px;
+  background: #e2e8f0;
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.calc-input-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--allset-primary);
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.calc-input-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.calc-bar-graph {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 220px;
+  padding-top: 40px;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  gap: 8px;
+}
+.calc-bar-col {
+  flex: 1;
+  background: #eef2ff;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease;
+  position: relative;
+}
+.calc-bar-col.active, .calc-bar-col:hover {
+  background: linear-gradient(180deg, #6366f1 0%, #4f46e5 100%);
+}
+
+.calc-bar-tooltip {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+}
+
+/* Say Hello / Mobile Mockup Section */
+.phone-mockup-wrapper {
+  position: relative;
+  width: 280px;
+  margin: 0 auto;
+}
+.phone-mockup-frame {
+  background: #0f172a;
+  border-radius: 40px;
+  padding: 12px;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.25);
+  border: 4px solid #1e293b;
+}
+.phone-mockup-screen {
+  background: #ffffff;
+  border-radius: 30px;
+  overflow: hidden;
+  padding: 16px;
+}
+
+/* Bento Grid Cards ("Set up in minutes") */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.bento-card-full {
+  grid-column: span 2;
+}
+@media (max-width: 768px) {
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-card-full { grid-column: span 1; }
+}
+
+.bento-card {
+  background: #ffffff;
+  border: 1px solid var(--allset-border);
+  border-radius: 28px;
+  padding: 36px;
+  box-shadow: var(--allset-shadow);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bento-toast-float {
+  background: #0f172a;
+  color: #ffffff;
+  border-radius: 100px;
+  padding: 10px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.3);
+}
+
+/* Avatar Wheel for Field Officers */
+.avatar-wheel-wrap {
+  position: relative;
+  width: 240px;
+  height: 120px;
+  margin: 20px auto 0;
+}
+.avatar-node {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Flexible Solution Comparison Matrix */
+.comp-matrix-wrap {
+  background: #ffffff;
+  border-radius: 32px;
+  border: 1px solid var(--allset-border);
+  box-shadow: var(--allset-shadow);
+  overflow: hidden;
+}
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.comp-table th {
+  padding: 20px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--allset-ink);
+  text-align: left;
+  border-bottom: 1px solid var(--allset-border);
+  background: #f8fafc;
+}
+.comp-table th.highlight-col {
+  background: var(--allset-primary);
+  color: #ffffff;
+}
+.comp-table td {
+  padding: 20px 24px;
+  font-size: 14px;
+  color: var(--allset-ink);
+  border-bottom: 1px solid var(--allset-border);
+}
+.comp-table td.highlight-col {
+  background: #eef6fb;  /* Light SM Blue (was purple #f5f3ff) */
+  font-weight: 600;
+}
+
+/* Allset Modern Card Footer */
+.allset-footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.2fr;
+  gap: 24px;
+}
+@media (max-width: 992px) {
+  .allset-footer-grid { grid-template-columns: 1fr; }
+}
+
+.allset-footer-card {
+  background: #ffffff;
+  border: 1px solid var(--allset-border);
+  border-radius: 28px;
+  padding: 36px;
+}
+.allset-footer-card.dark {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+}
+
+/* ════════════════════════════════════════════════════════════
+   LAYOUT & OVERLAP BUG FIXES
+   ════════════════════════════════════════════════════════════ */
+
+/* Fix Headline Text Truncation */
+.hero6-h1 .ln, .hero6-h1 .ln>span {
+  white-space: normal !important;
+  overflow: visible !important;
+  word-break: break-word !important;
+}
+
+/* Fix Sticky Header Overlap on Scroll */
+.fg-home section {
+  scroll-margin-top: 100px;
+}
+
+/* Remove Viewport Vignette Halos */
+body, .fg-home {
+  background-color: #f4f5f8 !important;
+  box-shadow: none !important;
+}
+
+.ambient-glow, .ambient-glow--1, .ambient-glow--2, .ambient-glow--3 {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* Concentric Radar Rings (Matching Allset Video Mobile Mockup Background) */
+.radar-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 650px;
+  pointer-events: none;
+  z-index: 0;
+}
+.radar-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1.5px solid rgba(99, 102, 241, 0.14);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.04) 0%, transparent 70%);
+}
+.radar-ring-1 { width: 280px; height: 280px; }
+.radar-ring-2 { width: 440px; height: 440px; }
+.radar-ring-3 { width: 620px; height: 620px; }
+
+
+
+
+/* Hero copy sequence: each changing phrase keeps a stable line box. */
+.hero6-h1 .hero6-word-slot {
+  display: grid;
+  min-height: 1.06em;
+  white-space: nowrap !important;
+  word-break: normal !important;
+}
+.hero6-h1 .hero6-word-motion {
+  grid-area: 1 / 1;
+  will-change: transform, opacity;
+}

@@ -66,7 +66,10 @@ export default function OperatingModelSection() {
       const pad = Math.max(20, (window.innerWidth - pw) / 2);
       strip.style.paddingLeft = `${pad}px`;
       strip.style.paddingRight = `${pad}px`;
-      maxShiftRef.current = Math.max(0, strip.scrollWidth - window.innerWidth);
+      
+      const shift = Math.max(0, strip.scrollWidth - window.innerWidth);
+      maxShiftRef.current = shift;
+      pinWrap.style.height = `${window.innerHeight + shift}px`;
     };
 
     const update = () => {
@@ -108,9 +111,17 @@ export default function OperatingModelSection() {
 
     measure();
     update();
+
+    const ro = new ResizeObserver(() => {
+      measure();
+      update();
+    });
+    ro.observe(strip);
+
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onResize);
     return () => {
+      ro.disconnect();
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onResize);
     };
@@ -118,7 +129,7 @@ export default function OperatingModelSection() {
 
   return (
     <section className="model6" id="model">
-      <div className="pin-wrap" ref={pinWrapRef} style={{ height: '780vh' }}>
+      <div className="pin-wrap" ref={pinWrapRef} style={{ height: '520vh' }}>
         <div className="pin-stage">
 
           {/* ── Header ── */}
@@ -128,7 +139,7 @@ export default function OperatingModelSection() {
                 <span className="fg-eyebrow">The Recovery Operating Model</span>
                 <h2>One accountable lifecycle.</h2>
               </div>
-              <div className="model6-ctr">STAGE <b ref={stageRef}>01</b> / 09</div>
+              <div className="model6-ctr">STAGE <b ref={stageRef}>01</b> / 06</div>
             </div>
           </div>
 

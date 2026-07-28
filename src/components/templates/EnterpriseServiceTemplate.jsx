@@ -20,9 +20,6 @@ export default function EnterpriseServiceTemplate({ content }) {
       <HeroSection content={content} />
       <KpiSection content={content} />
       
-      {/* ── FLAGSHIP HERO GRAPHIC CENTERPIECE (Credgenics System Architecture) ── */}
-      <CentralizedSystemManagementSection content={content} />
-      
       <CapabilitiesSection content={content} />
       <VerticalTabsSection content={content} />
       <WhyItMattersSection content={content} />
