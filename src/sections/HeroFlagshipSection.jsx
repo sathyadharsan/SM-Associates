@@ -14,6 +14,10 @@ const wordTransition = {
   ease: [0.22, 1, 0.36, 1],
 };
 
+// How long each stage stays on screen before the words cross-fade to the next.
+// Comfortably longer than wordTransition so the line is readable at rest.
+const STAGE_HOLD_MS = 2400;
+
 function AnimatedWord({ value, accent = false }) {
   return (
     <span className={`ln hero6-word-slot${accent ? ' accent' : ''}`}>
@@ -39,22 +43,20 @@ export default function HeroFlagshipSection() {
   const [stage, setStage] = useState(reducedMotion ? 2 : 0);
   const copy = COPY_STAGES[stage];
 
+  // Continuous loop: Collect -> Recover -> Resolve -> back to Collect, holding
+  // each stage long enough to read before the words cross-fade. Reduced-motion
+  // visitors get the final stage as static text and no cycling at all.
   useEffect(() => {
     if (reducedMotion) {
-      setStage(2);
+      setStage(COPY_STAGES.length - 1);
       return undefined;
     }
 
-    let finalTransition;
-    const firstTransition = window.setTimeout(() => {
-      setStage(1);
-      finalTransition = window.setTimeout(() => setStage(2), 1840);
-    }, 1000);
+    const cycle = window.setInterval(() => {
+      setStage((current) => (current + 1) % COPY_STAGES.length);
+    }, STAGE_HOLD_MS);
 
-    return () => {
-      window.clearTimeout(firstTransition);
-      if (finalTransition) window.clearTimeout(finalTransition);
-    };
+    return () => window.clearInterval(cycle);
   }, [reducedMotion]);
 
   return (
