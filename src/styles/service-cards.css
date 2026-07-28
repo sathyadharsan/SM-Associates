@@ -1,0 +1,157 @@
+/* ============================================================
+   Services — premium card deck
+   Card-face texture and micro-animation only. Layout, stacking and
+   transitions live in Framer Motion inside ServicesOverviewSection /
+   ServiceCreditCard; anything here is either a static texture or a CSS
+   keyframe, both of which are cheaper than driving them from JS.
+   Every animation is disabled under prefers-reduced-motion at the bottom.
+   ============================================================ */
+
+.svc-deck {
+  perspective: 1600px;
+}
+
+/* ── Card body ─────────────────────────────────────────────── */
+.svc-card {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  aspect-ratio: 1.586 / 1;      /* ISO/IEC 7810 ID-1, i.e. a real card */
+  border-radius: 32px;
+  overflow: hidden;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  will-change: transform;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.svc-card:focus-visible {
+  outline: 3px solid #0072bc;
+  outline-offset: 4px;
+}
+
+/* Metallic micro-grain. Inline SVG so there is no extra network request. */
+.svc-card__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.32;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* Brushed-metal banding, angled across the plate. */
+.svc-card__brush {
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background: repeating-linear-gradient(
+    102deg,
+    rgba(255, 255, 255, 0.16) 0px,
+    rgba(255, 255, 255, 0) 2px,
+    rgba(0, 0, 0, 0.05) 4px,
+    rgba(255, 255, 255, 0) 6px
+  );
+}
+
+/* Curved topographic contours — the "engraved" pattern on premium plates. */
+.svc-card__contour {
+  position: absolute;
+  inset: -20%;
+  opacity: 0.22;
+  background:
+    radial-gradient(60% 80% at 78% 18%, transparent 38%, currentColor 38.4%, transparent 39.2%),
+    radial-gradient(58% 78% at 74% 26%, transparent 44%, currentColor 44.4%, transparent 45.2%),
+    radial-gradient(56% 76% at 70% 34%, transparent 50%, currentColor 50.4%, transparent 51.2%),
+    radial-gradient(54% 74% at 66% 42%, transparent 56%, currentColor 56.4%, transparent 57.2%);
+}
+
+/* ── Moving gloss reflection ───────────────────────────────── */
+.svc-card__gloss {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 32%,
+    var(--sheen, rgba(255, 255, 255, 0.18)) 46%,
+    transparent 60%
+  );
+  transform: translateX(-60%);
+  animation: svc-gloss 7s cubic-bezier(0.42, 0, 0.28, 1) infinite;
+}
+@keyframes svc-gloss {
+  0%, 62% { transform: translateX(-62%); }
+  100%    { transform: translateX(62%); }
+}
+
+/* ── EMV chip ──────────────────────────────────────────────── */
+.svc-chip {
+  position: relative;
+  width: 46px;
+  height: 35px;
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.16),
+    0 1px 2px rgba(0, 0, 0, 0.28);
+}
+/* Contact pads */
+.svc-chip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 30%, rgba(0, 0, 0, 0.42) 30%, rgba(0, 0, 0, 0.42) 32%, transparent 32%),
+    linear-gradient(90deg, transparent 66%, rgba(0, 0, 0, 0.42) 66%, rgba(0, 0, 0, 0.42) 68%, transparent 68%),
+    linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, 0.42) 30%, rgba(0, 0, 0, 0.42) 33%, transparent 33%),
+    linear-gradient(180deg, transparent 64%, rgba(0, 0, 0, 0.42) 64%, rgba(0, 0, 0, 0.42) 67%, transparent 67%);
+}
+/* Shimmer travelling across the chip */
+.svc-chip::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 34%, rgba(255, 255, 255, 0.85) 50%, transparent 66%);
+  transform: translateX(-110%);
+  animation: svc-chip-shimmer 4.6s ease-in-out infinite;
+}
+@keyframes svc-chip-shimmer {
+  0%, 55% { transform: translateX(-110%); }
+  100%    { transform: translateX(110%); }
+}
+
+/* ── Contactless glyph ─────────────────────────────────────── */
+.svc-wave span {
+  display: block;
+  border: 2px solid currentColor;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-top-color: transparent;
+  border-radius: 50%;
+  transform: rotate(45deg);
+  animation: svc-wave-pulse 2.4s ease-in-out infinite;
+}
+.svc-wave span:nth-child(1) { width: 8px;  height: 8px;  animation-delay: 0s; }
+.svc-wave span:nth-child(2) { width: 14px; height: 14px; animation-delay: 0.18s; margin-top: -11px; }
+.svc-wave span:nth-child(3) { width: 20px; height: 20px; animation-delay: 0.36s; margin-top: -17px; }
+@keyframes svc-wave-pulse {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 1; }
+}
+
+/* ── Ambient section backdrop ──────────────────────────────── */
+.svc-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-card__gloss,
+  .svc-chip::after,
+  .svc-wave span {
+    animation: none;
+  }
+  .svc-card__gloss { opacity: 0.5; transform: none; }
+  .svc-wave span { opacity: 0.8; }
+}

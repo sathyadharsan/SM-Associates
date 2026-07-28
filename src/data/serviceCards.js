@@ -1,0 +1,103 @@
+// Premium card deck content for the Services section. One entry per real
+// service category — names, descriptions and hrefs mirror `servicesOverview`
+// in flagshipHomeData.js so the two never drift.
+//
+// Finishes are deliberately material-led, not hue-led: navy metal, matte
+// black, white glass, graphite, sapphire and steel chrome all sit inside the
+// approved single-accent system (#0072bc plus neutrals). Variety comes from
+// texture, sheen and depth rather than from rotating the hue, which is what
+// the sitewide one-accent rule requires.
+
+export const serviceCards = [
+  {
+    id: 'recovery-operations',
+    name: 'Recovery Operations',
+    finish: 'Navy Metal',
+    desc: 'Early-stage through soft tele-calling and field collections, across every delinquency bucket.',
+    features: ['Tele-calling desks', 'GPS-verified field visits', 'Doorstep digital collection'],
+    timeline: 'Live from portfolio handover',
+    href: '/services/collections/field-collections',
+    icon: 'PhoneCall',
+    // surface: base plate, sheen: gloss sweep, ink: foreground text
+    surface: 'linear-gradient(135deg, #0a2540 0%, #123a5f 45%, #0a2540 100%)',
+    sheen: 'rgba(255,255,255,0.16)',
+    ink: '#f4f9ff',
+    inkSoft: 'rgba(244,249,255,0.62)',
+    chip: 'linear-gradient(135deg, #d8c78a 0%, #f2e6b8 50%, #c8b478 100%)',
+  },
+  {
+    id: 'legal-recovery',
+    name: 'Legal Recovery & Enforcement',
+    finish: 'Matte Black Titanium',
+    desc: 'End-to-end statutory enforcement — SARFAESI, Section 138 and litigation, run inside the timeline.',
+    features: ['SARFAESI 13(2) & 13(4)', 'Section 138 notices', 'Advocate coordination'],
+    timeline: 'Statutory milestones tracked per account',
+    href: '/services/legal-recovery/sarfaesi-support',
+    icon: 'Gavel',
+    surface: 'linear-gradient(135deg, #131518 0%, #24282e 50%, #0d0f12 100%)',
+    sheen: 'rgba(255,255,255,0.1)',
+    ink: '#f2f4f7',
+    inkSoft: 'rgba(242,244,247,0.55)',
+    chip: 'linear-gradient(135deg, #b9bec7 0%, #e7ebf1 50%, #9aa1ab 100%)',
+  },
+  {
+    id: 'verification',
+    name: 'Verification & Due Diligence',
+    finish: 'White Glass',
+    desc: 'Pre-disbursal CPV, residence, office and document verification — ground truth before disbursal.',
+    features: ['Contact point verification', 'Residence & office checks', 'Document authentication'],
+    timeline: 'Report per case, standard TAT',
+    href: '/services/verification/cpv-services',
+    icon: 'Search',
+    surface: 'linear-gradient(135deg, #ffffff 0%, #eef4fa 48%, #dfe9f3 100%)',
+    sheen: 'rgba(255,255,255,0.75)',
+    ink: '#0a2540',
+    inkSoft: 'rgba(10,37,64,0.55)',
+    chip: 'linear-gradient(135deg, #c6a95f 0%, #efdca6 50%, #b89a52 100%)',
+  },
+  {
+    id: 'investigation',
+    name: 'Investigation & Fraud Control',
+    finish: 'Dark Graphite',
+    desc: 'Skip tracing, due diligence and fraud investigation — finding what standard checks miss.',
+    features: ['Skip tracing', 'Address & contact audit', 'Fraud investigation reports'],
+    timeline: 'Evidence-backed verdict per account',
+    href: '/services/investigation/skip-tracing',
+    icon: 'FileSearch',
+    surface: 'linear-gradient(135deg, #2b3138 0%, #3d454e 48%, #23272d 100%)',
+    sheen: 'rgba(255,255,255,0.12)',
+    ink: '#f5f7fa',
+    inkSoft: 'rgba(245,247,250,0.58)',
+    chip: 'linear-gradient(135deg, #adb4bd 0%, #dfe4ea 50%, #8e959e 100%)',
+  },
+  {
+    id: 'asset-recovery',
+    name: 'Asset Recovery & Realisation',
+    finish: 'Deep Sapphire',
+    desc: 'Repossession, secure custody, valuation and auction coordination, through to realisation.',
+    features: ['Repossession', 'Secure custody', 'Auction coordination'],
+    timeline: 'Possession to realisation, one file',
+    href: '/services/asset-recovery/auction-coordination',
+    icon: 'Warehouse',
+    surface: 'linear-gradient(135deg, #062a45 0%, #0072bc 55%, #04406b 100%)',
+    sheen: 'rgba(255,255,255,0.2)',
+    ink: '#ffffff',
+    inkSoft: 'rgba(255,255,255,0.66)',
+    chip: 'linear-gradient(135deg, #d5c489 0%, #f4e9bd 50%, #c2ad73 100%)',
+  },
+  {
+    id: 'analytics',
+    name: 'Operational Excellence & Analytics',
+    finish: 'Steel Chrome',
+    desc: 'Recovery analytics, portfolio strategy and the field operations infrastructure behind them.',
+    features: ['Recovery dashboards', 'Portfolio strategy', 'Compliance monitoring'],
+    timeline: 'Reporting aligned to your review cadence',
+    href: '/services/specialized/recovery-analytics',
+    icon: 'RefreshCw',
+    surface: 'linear-gradient(135deg, #5b7896 0%, #92afc9 47%, #46617c 100%)',
+    sheen: 'rgba(255,255,255,0.3)',
+    ink: '#ffffff',
+    inkSoft: 'rgba(255,255,255,0.7)',
+    chip: 'linear-gradient(135deg, #c9d2dc 0%, #f0f4f8 50%, #a9b4c0 100%)',
+  },
+];
