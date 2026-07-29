@@ -11,9 +11,9 @@ const TOTAL = serviceCards.length;
 // Credit Card Wallet Rack geometry. Index 0 is the card in hand; each step back
 // shifts up and right into the wallet rack slot, leaving the top brand header showing.
 const poseFor = (depth) => ({
-  x: depth === 0 ? 0 : depth * 14,
-  y: depth === 0 ? 0 : depth * -36,
-  scale: Math.max(0.85, 1 - depth * 0.025),
+  x: depth === 0 ? 0 : depth * 12,
+  y: depth === 0 ? 36 : 36 - depth * 12,
+  scale: Math.max(0.88, 1 - depth * 0.02),
   rotate: depth === 0 ? 0 : (depth % 2 === 1 ? -2 : 2),
   zIndex: TOTAL - depth,
   opacity: depth > 5 ? 0 : 1,
@@ -172,7 +172,7 @@ export default function ServicesOverviewSection() {
           </div>
 
           {/* ── Deck ── */}
-          <div className="order-1 lg:order-2">
+          <div className="order-1 lg:order-2 pt-6 lg:pt-10">
             <motion.div
               className="svc-deck relative mx-auto w-full max-w-[440px]"
               // Tall enough to contain the fanned tail as well as the front

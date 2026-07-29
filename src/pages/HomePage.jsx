@@ -19,6 +19,7 @@ import StatsCounterSection from '../sections/StatsCounterSection';
 import TestimonialsSection from '../sections/TestimonialsSection';
 import CtaSection from '../sections/CtaSection';
 import AwardsCertificationsSection from '../sections/AwardsCertificationsSection';
+import BrandManifestoSection from '../sections/BrandManifestoSection';
 import { ScrollProgressBar } from '../components/PremiumUIEffects';
 
 export default function HomePage() {
@@ -46,7 +47,8 @@ export default function HomePage() {
         <AwardsCertificationsSection />
       </SectionReveal>
 
-
+      {/* 4. Operating Principles — centered scroll-sweep manifesto */}
+      <BrandManifestoSection />
 
       {/* 6. Core Recovery Services Overview */}
       <SectionReveal>

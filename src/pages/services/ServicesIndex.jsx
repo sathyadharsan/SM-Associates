@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import ServiceStorySection from '../../sections/ServiceStorySection';
+import DayInRecoverySection from '../../sections/DayInRecoverySection';
 import TechnologyStorySection from '../../sections/TechnologyStorySection';
 import ComplianceStorySection from '../../sections/ComplianceStorySection';
 import StickyScrollCardsSection from '../../sections/StickyScrollCardsSection';
@@ -297,6 +298,11 @@ export default function ServicesIndex() {
           categories — the client asked for the whole services page to read
           as a scroll-driven story, Ather-Rizta-connectivity-section style. */}
       <ServiceStorySection />
+
+      {/* ═══════════ 2 · A DAY IN RECOVERY (SCROLL-DRIVEN STORY) ═══════════
+          New section — humanizes the abstract capability list above with one
+          illustrative mandate's timeline, one sentence per scroll chapter. */}
+      <DayInRecoverySection />
 
       {/* ═══════════ 3 · TECHNOLOGY (SCROLL-DRIVEN STORY) ═══════════
           (An "Operational Strength" KPI block sat here originally. Removed:

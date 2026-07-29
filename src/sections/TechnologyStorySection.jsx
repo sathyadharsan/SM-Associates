@@ -13,7 +13,20 @@ import {
   Workflow, PieChart, BarChart3, LayoutDashboard, MapPin, FileText, Search, ShieldCheck,
 } from 'lucide-react';
 import { technologyCapabilities } from '../data/servicesLandingData';
-import { mountScrollStory } from '../utils/scrollStoryMath';
+import { mountScrollStory, attachPointerTilt, easeOutBack } from '../utils/scrollStoryMath';
+
+// Diagonal-clip visual recipe — a distinct "moment" from the flying-card
+// pattern used by ServiceStorySection: the panel's left edge is cut on a
+// slant (via clip-path) instead of being a plain rectangle, and it settles
+// into place with a slide + skew rather than a slide + 3D rotate.
+function diagonalCardStyle(el, { opacity, entrance, exit }) {
+  const settle = easeOutBack(1 - entrance);
+  const slideIn = (1 - settle) * 60;
+  const skew = (1 - settle) * 7;
+  const slideOut = exit * -44;
+  el.style.opacity = String(opacity);
+  el.style.transform = `translateX(${slideIn + slideOut}px) skewX(${skew}deg)`;
+}
 
 const TOTAL = technologyCapabilities.length;
 const SEGMENT_VH = 90;
@@ -36,8 +49,10 @@ const IMAGE_BY_TITLE = {
 const rise = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } } };
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } };
 
-function ChapterCopy({ cap, index }) {
+function ChapterCopy({ cap, index, wordRefs }) {
   const Icon = iconMap[cap.icon] || Workflow;
+  if (wordRefs) wordRefs.current[index] = [];
+  const words = cap.desc.split(' ');
   return (
     <>
       <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0072bc]/10 text-[#0072bc]">
@@ -49,7 +64,18 @@ function ChapterCopy({ cap, index }) {
       <h3 className="mt-3 text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[30px]">
         {cap.title}
       </h3>
-      <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-slate-600">{cap.desc}</p>
+      {/* Word-by-word scroll sweep, same mechanic as ServiceStorySection —
+          static/mobile fallback has no wordRefs and renders plain text. */}
+      <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-slate-600">
+        {wordRefs
+          ? words.map((word, wi) => (
+              <span key={wi} ref={(el) => { wordRefs.current[index][wi] = el; }} style={{ opacity: 0.32 }}>
+                {word}
+                {wi < words.length - 1 ? ' ' : ''}
+              </span>
+            ))
+          : cap.desc}
+      </p>
     </>
   );
 }
@@ -74,23 +100,35 @@ function StaticStoryList() {
 export default function TechnologyStorySection() {
   const reduceMotion = useReducedMotion();
   const wrapRef = useRef(null);
+  const stageRef = useRef(null);
   const cardRefs = useRef([]);
   const textRefs = useRef([]);
+  const wordRefs = useRef([]);
+  const tiltRefs = useRef([]);
+  const activeIndexRef = useRef(0);
   const progressRef = useRef(null);
   const numeralRef = useRef(null);
 
   useEffect(() => {
     if (reduceMotion) return undefined;
-    return mountScrollStory({
+    const cleanupScroll = mountScrollStory({
       wrapRef,
       cardRefs,
       textRefs,
+      wordRefs,
       total: TOTAL,
+      applyCardStyle: diagonalCardStyle,
       onProgress: ({ progress, activeIndex }) => {
+        activeIndexRef.current = activeIndex;
         if (numeralRef.current) numeralRef.current.textContent = String(activeIndex + 1).padStart(2, '0');
         if (progressRef.current) progressRef.current.style.width = `${progress * 100}%`;
       },
     });
+    const cleanupTilt = attachPointerTilt({ stageRef, tiltRefs, activeIndexRef });
+    return () => {
+      cleanupScroll();
+      cleanupTilt();
+    };
   }, [reduceMotion]);
 
   if (reduceMotion) {
@@ -110,7 +148,7 @@ export default function TechnologyStorySection() {
       </div>
 
       <div ref={wrapRef} className="relative z-10 hidden lg:block" style={{ height: `${TOTAL * SEGMENT_VH}vh` }}>
-        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+        <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
           <div className="mx-auto w-full max-w-7xl px-8">
             <div className="mb-14 flex items-end justify-between">
               <div>
@@ -127,9 +165,6 @@ export default function TechnologyStorySection() {
                 <span className="text-lg font-bold text-slate-400"> / {String(TOTAL).padStart(2, '0')}</span>
               </div>
             </div>
-            <div className="mb-14 h-[2px] w-full bg-slate-200">
-              <div ref={progressRef} className="h-full bg-[#0072bc]" style={{ width: '0%' }} />
-            </div>
 
             <div className="grid grid-cols-2 gap-16 items-center">
               <div className="relative h-[280px]">
@@ -140,26 +175,37 @@ export default function TechnologyStorySection() {
                     className="absolute inset-0"
                     style={{ opacity: index === 0 ? 1 : 0, zIndex: index }}
                   >
-                    <ChapterCopy cap={cap} index={index} />
+                    <ChapterCopy cap={cap} index={index} wordRefs={wordRefs} />
                   </div>
                 ))}
               </div>
 
-              <div className="relative h-[400px]">
+              <div className="relative h-[400px]" style={{ perspective: 1400 }}>
                 {technologyCapabilities.map((cap, index) => (
                   <div
                     key={cap.title}
                     ref={(el) => (cardRefs.current[index] = el)}
-                    className="absolute inset-0 overflow-hidden rounded-[32px] border border-slate-200 shadow-2xl shadow-slate-900/10"
-                    style={{ opacity: index === 0 ? 1 : 0, zIndex: index }}
+                    className="absolute inset-0 overflow-hidden shadow-2xl shadow-slate-900/10"
+                    style={{
+                      opacity: index === 0 ? 1 : 0,
+                      zIndex: index,
+                      transformStyle: 'preserve-3d',
+                      clipPath: 'polygon(13% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                    }}
                   >
-                    <img
-                      src={IMAGE_BY_TITLE[cap.title]}
-                      alt={cap.title}
-                      className="h-full w-full object-cover"
-                      loading={index === 0 ? 'eager' : 'lazy'}
-                    />
-                    <div className="absolute inset-0" style={{ background: 'linear-gradient(160deg, rgba(15,23,42,0.02) 0%, rgba(15,23,42,0.35) 100%)' }} />
+                    <div
+                      ref={(el) => (tiltRefs.current[index] = el)}
+                      className="absolute inset-0"
+                      style={{ transformStyle: 'preserve-3d' }}
+                    >
+                      <img
+                        src={IMAGE_BY_TITLE[cap.title]}
+                        alt={cap.title}
+                        className="h-full w-full object-cover"
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                      />
+                      <div className="absolute inset-0" style={{ background: 'linear-gradient(160deg, rgba(15,23,42,0.02) 0%, rgba(15,23,42,0.35) 100%)' }} />
+                    </div>
                   </div>
                 ))}
               </div>

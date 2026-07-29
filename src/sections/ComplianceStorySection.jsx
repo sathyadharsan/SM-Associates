@@ -11,10 +11,24 @@ import { useEffect, useRef } from 'react';
 import { useReducedMotion, motion } from 'framer-motion';
 import { Lock, ClipboardCheck, Scale, UserCheck, Check } from 'lucide-react';
 import { complianceAssurance } from '../data/servicesLandingData';
-import { mountScrollStory } from '../utils/scrollStoryMath';
+import { mountScrollStory, attachPointerTilt, easeOutBack } from '../utils/scrollStoryMath';
 
 const TOTAL = complianceAssurance.length;
 const SEGMENT_VH = 100;
+
+// "Materializes into place" visual recipe — a third distinct moment (after
+// the flying-card and diagonal-clip patterns): the panel assembles from a
+// small, rotated, blurred-out state rather than sliding in from a side.
+function materializeCardStyle(el, { opacity, entrance, exit }) {
+  const settle = easeOutBack(1 - entrance);
+  const growth = 1 - settle; // ~0 when settled; up to ~1 while still assembling
+  const scale = 0.7 + 0.3 * settle - exit * 0.08;
+  const rotate = growth * -10 + exit * 6;
+  const blurPx = Math.max(0, growth) * 6;
+  el.style.opacity = String(opacity);
+  el.style.transform = `scale(${scale}) rotate(${rotate}deg)`;
+  el.style.filter = blurPx > 0.05 ? `blur(${blurPx}px)` : 'none';
+}
 
 const iconMap = { Lock, ClipboardCheck, Scale, UserCheck };
 
@@ -31,7 +45,9 @@ const IMAGE_BY_TITLE = {
 const rise = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } } };
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } };
 
-function ChapterCopy({ pillar, index }) {
+function ChapterCopy({ pillar, index, wordRefs }) {
+  if (wordRefs) wordRefs.current[index] = [];
+  let wordCounter = 0;
   return (
     <>
       <span className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#0072bc]">
@@ -40,15 +56,37 @@ function ChapterCopy({ pillar, index }) {
       <h3 className="mt-4 text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[32px]">
         {pillar.title}
       </h3>
+      {/* Word-sweep spans the bullets in reading order (bullet 1 lights up
+          fully before bullet 2 starts) — static/mobile fallback has no
+          wordRefs and renders plain text. */}
       <ul className="mt-6 space-y-3">
-        {pillar.points.map((point) => (
-          <li key={point} className="flex items-start gap-2.5 text-[14px] leading-relaxed text-slate-600">
-            <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#0072bc]/10 text-[#0072bc]">
-              <Check size={9} strokeWidth={3} />
-            </span>
-            {point}
-          </li>
-        ))}
+        {pillar.points.map((point) => {
+          const words = point.split(' ');
+          return (
+            <li key={point} className="flex items-start gap-2.5 text-[14px] leading-relaxed text-slate-600">
+              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#0072bc]/10 text-[#0072bc]">
+                <Check size={9} strokeWidth={3} />
+              </span>
+              <span>
+                {wordRefs
+                  ? words.map((word, wi) => {
+                      const globalIndex = wordCounter++;
+                      return (
+                        <span
+                          key={wi}
+                          ref={(el) => { wordRefs.current[index][globalIndex] = el; }}
+                          style={{ opacity: 0.32 }}
+                        >
+                          {word}
+                          {wi < words.length - 1 ? ' ' : ''}
+                        </span>
+                      );
+                    })
+                  : point}
+              </span>
+            </li>
+          );
+        })}
       </ul>
     </>
   );
@@ -74,23 +112,35 @@ function StaticStoryList() {
 export default function ComplianceStorySection() {
   const reduceMotion = useReducedMotion();
   const wrapRef = useRef(null);
+  const stageRef = useRef(null);
   const cardRefs = useRef([]);
   const textRefs = useRef([]);
+  const wordRefs = useRef([]);
+  const tiltRefs = useRef([]);
+  const activeIndexRef = useRef(0);
   const progressRef = useRef(null);
   const numeralRef = useRef(null);
 
   useEffect(() => {
     if (reduceMotion) return undefined;
-    return mountScrollStory({
+    const cleanupScroll = mountScrollStory({
       wrapRef,
       cardRefs,
       textRefs,
+      wordRefs,
       total: TOTAL,
+      applyCardStyle: materializeCardStyle,
       onProgress: ({ progress, activeIndex }) => {
+        activeIndexRef.current = activeIndex;
         if (numeralRef.current) numeralRef.current.textContent = String(activeIndex + 1).padStart(2, '0');
         if (progressRef.current) progressRef.current.style.width = `${progress * 100}%`;
       },
     });
+    const cleanupTilt = attachPointerTilt({ stageRef, tiltRefs, activeIndexRef });
+    return () => {
+      cleanupScroll();
+      cleanupTilt();
+    };
   }, [reduceMotion]);
 
   if (reduceMotion) {
@@ -114,7 +164,7 @@ export default function ComplianceStorySection() {
       </div>
 
       <div ref={wrapRef} className="relative z-10 hidden lg:block" style={{ height: `${TOTAL * SEGMENT_VH}vh` }}>
-        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+        <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
           <div className="mx-auto w-full max-w-7xl px-8">
             <div className="mb-14 flex items-end justify-between">
               <div>
@@ -131,9 +181,6 @@ export default function ComplianceStorySection() {
                 <span className="text-lg font-bold text-slate-400"> / {String(TOTAL).padStart(2, '0')}</span>
               </div>
             </div>
-            <div className="mb-14 h-[2px] w-full bg-slate-200">
-              <div ref={progressRef} className="h-full bg-[#0072bc]" style={{ width: '0%' }} />
-            </div>
 
             <div className="grid grid-cols-2 gap-16 items-center">
               <div className="relative h-[320px]">
@@ -144,29 +191,35 @@ export default function ComplianceStorySection() {
                     className="absolute inset-0"
                     style={{ opacity: index === 0 ? 1 : 0, zIndex: index }}
                   >
-                    <ChapterCopy pillar={pillar} index={index} />
+                    <ChapterCopy pillar={pillar} index={index} wordRefs={wordRefs} />
                   </div>
                 ))}
               </div>
 
-              <div className="relative h-[420px]">
+              <div className="relative h-[420px]" style={{ perspective: 1400 }}>
                 {complianceAssurance.map((pillar, index) => (
                   <div
                     key={pillar.title}
                     ref={(el) => (cardRefs.current[index] = el)}
                     className="absolute inset-0 overflow-hidden rounded-[32px] border border-slate-200 shadow-xl shadow-slate-900/10"
-                    style={{ opacity: index === 0 ? 1 : 0, zIndex: index }}
+                    style={{ opacity: index === 0 ? 1 : 0, zIndex: index, transformStyle: 'preserve-3d' }}
                   >
-                    <img
-                      src={IMAGE_BY_TITLE[pillar.title]}
-                      alt={pillar.title}
-                      className="h-full w-full object-cover"
-                      loading={index === 0 ? 'eager' : 'lazy'}
-                    />
                     <div
+                      ref={(el) => (tiltRefs.current[index] = el)}
                       className="absolute inset-0"
-                      style={{ background: 'linear-gradient(160deg, rgba(15,23,42,0.02) 0%, rgba(15,23,42,0.4) 100%)' }}
-                    />
+                      style={{ transformStyle: 'preserve-3d' }}
+                    >
+                      <img
+                        src={IMAGE_BY_TITLE[pillar.title]}
+                        alt={pillar.title}
+                        className="h-full w-full object-cover"
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                      />
+                      <div
+                        className="absolute inset-0"
+                        style={{ background: 'linear-gradient(160deg, rgba(15,23,42,0.02) 0%, rgba(15,23,42,0.4) 100%)' }}
+                      />
+                    </div>
                   </div>
                 ))}
               </div>

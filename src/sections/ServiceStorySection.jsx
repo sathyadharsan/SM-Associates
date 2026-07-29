@@ -24,7 +24,7 @@ import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight, Check } from 'lucide-react';
 import { enterpriseServices } from '../data/enterpriseServicesData';
-import { mountScrollStory } from '../utils/scrollStoryMath';
+import { mountScrollStory, attachPointerTilt } from '../utils/scrollStoryMath';
 
 const TOTAL = enterpriseServices.length;
 const SEGMENT_VH = 100; // scroll distance given to each chapter
@@ -40,7 +40,9 @@ const rise = {
 };
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } };
 
-function ChapterCopy({ service, index }) {
+function ChapterCopy({ service, index, wordRefs }) {
+  if (wordRefs) wordRefs.current[index] = [];
+  const words = service.description.split(' ');
   return (
     <>
       <span className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#0072bc]">
@@ -49,8 +51,18 @@ function ChapterCopy({ service, index }) {
       <h3 className="mt-4 text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[32px]">
         {service.title}
       </h3>
+      {/* Each word is its own span — scroll progress "reads" the sentence
+          word by word instead of fading the whole paragraph in at once.
+          (Static/mobile fallback has no wordRefs and renders plain text.) */}
       <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-slate-600">
-        {service.description}
+        {wordRefs
+          ? words.map((word, wi) => (
+              <span key={wi} ref={(el) => { wordRefs.current[index][wi] = el; }} style={{ opacity: 0.32 }}>
+                {word}
+                {wi < words.length - 1 ? ' ' : ''}
+              </span>
+            ))
+          : service.description}
       </p>
 
       <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2">
@@ -118,23 +130,34 @@ function StaticStoryList() {
 export default function ServiceStorySection() {
   const reduceMotion = useReducedMotion();
   const wrapRef = useRef(null);
+  const stageRef = useRef(null);
   const cardRefs = useRef([]);
   const textRefs = useRef([]);
+  const wordRefs = useRef([]);
+  const tiltRefs = useRef([]);
+  const activeIndexRef = useRef(0);
   const progressRef = useRef(null);
   const numeralRef = useRef(null);
 
   useEffect(() => {
     if (reduceMotion) return undefined;
-    return mountScrollStory({
+    const cleanupScroll = mountScrollStory({
       wrapRef,
       cardRefs,
       textRefs,
+      wordRefs,
       total: TOTAL,
       onProgress: ({ progress, activeIndex }) => {
+        activeIndexRef.current = activeIndex;
         if (numeralRef.current) numeralRef.current.textContent = String(activeIndex + 1).padStart(2, '0');
         if (progressRef.current) progressRef.current.style.width = `${progress * 100}%`;
       },
     });
+    const cleanupTilt = attachPointerTilt({ stageRef, tiltRefs, activeIndexRef });
+    return () => {
+      cleanupScroll();
+      cleanupTilt();
+    };
   }, [reduceMotion]);
 
   if (reduceMotion) {
@@ -161,7 +184,7 @@ export default function ServiceStorySection() {
 
       {/* Desktop: pinned scroll story */}
       <div ref={wrapRef} className="relative z-10 hidden lg:block" style={{ height: `${TOTAL * SEGMENT_VH}vh` }}>
-        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+        <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
           <div className="mx-auto w-full max-w-7xl px-8">
             {/* Header: eyebrow + chapter numeral + progress rail */}
             <div className="mb-14 flex items-end justify-between">
@@ -179,9 +202,6 @@ export default function ServiceStorySection() {
                 <span className="text-lg font-bold text-slate-400"> / {String(TOTAL).padStart(2, '0')}</span>
               </div>
             </div>
-            <div className="mb-14 h-[2px] w-full bg-slate-200">
-              <div ref={progressRef} className="h-full bg-[#0072bc]" style={{ width: '0%' }} />
-            </div>
 
             {/* Story stage: text left, image right — both stacked absolutely per chapter */}
             <div className="grid grid-cols-2 gap-16 items-center">
@@ -193,32 +213,42 @@ export default function ServiceStorySection() {
                     className="absolute inset-0"
                     style={{ opacity: index === 0 ? 1 : 0, zIndex: index }}
                   >
-                    <ChapterCopy service={service} index={index} />
+                    <ChapterCopy service={service} index={index} wordRefs={wordRefs} />
                   </div>
                 ))}
               </div>
 
-              <div className="relative h-[420px]">
+              <div className="relative h-[420px]" style={{ perspective: 1400 }}>
                 {enterpriseServices.map((service, index) => (
                   <div
                     key={service.id}
                     ref={(el) => (cardRefs.current[index] = el)}
                     className="absolute inset-0 overflow-hidden rounded-[32px] border border-slate-200 shadow-xl shadow-slate-900/10"
-                    style={{ opacity: index === 0 ? 1 : 0, zIndex: index }}
+                    style={{ opacity: index === 0 ? 1 : 0, zIndex: index, transformStyle: 'preserve-3d' }}
                   >
-                    <img
-                      src={upsize(service.image)}
-                      alt={service.title}
-                      className="h-full w-full object-cover"
-                      loading={index === 0 ? 'eager' : 'lazy'}
-                    />
+                    {/* Nested tilt wrapper: the outer div carries the scroll-driven
+                        slide/scale/rotateY, this inner one carries the pointer-follow
+                        tilt — two separate elements so the transforms simply compose
+                        via normal CSS nesting instead of needing to be merged. */}
                     <div
+                      ref={(el) => (tiltRefs.current[index] = el)}
                       className="absolute inset-0"
-                      style={{ background: 'linear-gradient(160deg, rgba(15,23,42,0.02) 0%, rgba(15,23,42,0.4) 100%)' }}
-                    />
-                    <span className="absolute bottom-5 left-5 rounded-full border border-white/30 bg-black/40 px-3 py-1 font-mono text-[10.5px] font-bold uppercase tracking-widest text-white backdrop-blur-md">
-                      {service.number}
-                    </span>
+                      style={{ transformStyle: 'preserve-3d' }}
+                    >
+                      <img
+                        src={upsize(service.image)}
+                        alt={service.title}
+                        className="h-full w-full object-cover"
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                      />
+                      <div
+                        className="absolute inset-0"
+                        style={{ background: 'linear-gradient(160deg, rgba(15,23,42,0.02) 0%, rgba(15,23,42,0.4) 100%)' }}
+                      />
+                      <span className="absolute bottom-5 left-5 rounded-full border border-white/30 bg-black/40 px-3 py-1 font-mono text-[10.5px] font-bold uppercase tracking-widest text-white backdrop-blur-md">
+                        {service.number}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
