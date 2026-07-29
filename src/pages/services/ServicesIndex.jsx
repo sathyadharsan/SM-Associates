@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom';
-import { motion, useReducedMotion } from 'framer-motion';
-import {
-  Workflow, PieChart, BarChart3, LayoutDashboard, MapPin, FileText, Search, ShieldCheck,
-  Lock, ClipboardCheck, Scale, UserCheck, Check,
-  ArrowRight, Sparkles,
-} from 'lucide-react';
-import { technologyCapabilities, complianceAssurance } from '../../data/servicesLandingData';
-import EnterpriseServicesSection from '../../sections/EnterpriseServicesSection';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import ServiceStorySection from '../../sections/ServiceStorySection';
+import TechnologyStorySection from '../../sections/TechnologyStorySection';
+import ComplianceStorySection from '../../sections/ComplianceStorySection';
 import StickyScrollCardsSection from '../../sections/StickyScrollCardsSection';
 import HeroParallax from '../../components/ui/hero-parallax';
 
@@ -277,157 +274,46 @@ const recoveryProducts = [
   }
 ];
 
-const iconMap = {
-  Workflow, PieChart, BarChart3, LayoutDashboard, MapPin, FileText, Search, ShieldCheck,
-  Lock, ClipboardCheck, Scale, UserCheck,
-};
-
-const EASE = [0.16, 1, 0.3, 1];
-
 // One reveal vocabulary shared by every section, so the page reads as a single
 // composition rather than eight blocks with their own timing.
 const rise = {
   hidden: { opacity: 0, y: 22 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } },
 };
 const stagger = {
   hidden: {},
   show: { transition: { staggerChildren: 0.07 } },
 };
 
-function SectionHeading({ eyebrow, title, lead }) {
-  return (
-    <motion.div
-      variants={stagger}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.3 }}
-      className="max-w-3xl"
-    >
-      <motion.span
-        variants={rise}
-        className="inline-block font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[#0072bc]"
-      >
-        {eyebrow}
-      </motion.span>
-      <motion.h2
-        variants={rise}
-        className="mt-3 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[40px]"
-      >
-        {title}
-      </motion.h2>
-      {lead && (
-        <motion.p variants={rise} className="mt-4 text-[16.5px] leading-relaxed text-slate-600">
-          {lead}
-        </motion.p>
-      )}
-    </motion.div>
-  );
-}
-
 export default function ServicesIndex() {
-  const reduceMotion = useReducedMotion();
-
   return (
     <div className="bg-white">
       {/* ═══════════ 1 · HERO PARALLAX SECTION ═══════════ */}
       <HeroParallax products={recoveryProducts} />
 
-      {/* ═══════════ 1b · ENTERPRISE SERVICES SHOWCASE ═══════════ */}
-      <EnterpriseServicesSection />
+      {/* ═══════════ 1b · SCROLL-DRIVEN SERVICE STORY ═══════════
+          Replaces the auto-rotating EnterpriseServicesSection (still used
+          on the homepage) with a scroll-scrubbed version of the same 8
+          categories — the client asked for the whole services page to read
+          as a scroll-driven story, Ather-Rizta-connectivity-section style. */}
+      <ServiceStorySection />
 
-      {/* ═══════════ 3 · TECHNOLOGY ═══════════
+      {/* ═══════════ 3 · TECHNOLOGY (SCROLL-DRIVEN STORY) ═══════════
           (An "Operational Strength" KPI block sat here originally. Removed:
           the homepage Metrics section already carries those same figures —
           25+ years, branch network, field workforce, institutional partners —
           and this page is explicitly meant not to repeat the home page.) */}
-      <section className="relative overflow-hidden border-b border-slate-200/90 bg-[#f7f9fc] py-20 sm:py-28">
-        <span aria-hidden="true" className="pointer-events-none absolute -left-40 top-1/3 h-[420px] w-[420px] rounded-full bg-[#0072bc]/[0.08] blur-[110px]" />
-        <div className="fg-wrap relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Technology Driven Recovery Operations"
-            title="Recovery runs on a platform, not a call list."
-            lead="Every stage is instrumented — allocation, contact, field activity, enforcement and reporting. What the institution sees is the same record the operation runs on."
-          />
+      <TechnologyStorySection />
 
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.12 }}
-            className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
-          >
-            {technologyCapabilities.map((cap) => {
-              const Icon = iconMap[cap.icon] || Workflow;
-              return (
-                <motion.div
-                  key={cap.title}
-                  variants={rise}
-                  whileHover={reduceMotion ? undefined : { y: -5 }}
-                  transition={{ duration: 0.3, ease: EASE }}
-                  className="group rounded-[24px] border border-slate-200 bg-white p-6 shadow-xs transition-shadow duration-300 hover:border-[#0072bc]/30 hover:shadow-lg"
-                >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0072bc]/8 text-[#0072bc] transition-transform duration-300 group-hover:scale-105">
-                    <Icon size={19} strokeWidth={2} />
-                  </span>
-                  <h3 className="mt-4 text-[15px] font-bold leading-snug tracking-tight text-slate-900">{cap.title}</h3>
-                  <p className="mt-2 text-[13.5px] leading-relaxed text-slate-500">{cap.desc}</p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ═══════════ 4 · COMPLIANCE & DATA SECURITY ═══════════
+      {/* ═══════════ 4 · COMPLIANCE & DATA SECURITY (SCROLL-DRIVEN STORY) ═══════════
           Operating practice, not a certification badge grid — the ISO 27001 /
           RBI Compliant / SARFAESI Authorized / IIBF badges themselves already
           live on the homepage AwardsCertificationsSection. */}
-      <section className="border-b border-slate-200/90 bg-white py-20 sm:py-28">
-        <div className="fg-wrap mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Compliance & Data Security"
-            title="Every engagement runs under enterprise governance."
-            lead="Built for regulated lenders — borrower data, field conduct and reporting are all governed the same way an institution would govern them in-house."
-          />
+      <ComplianceStorySection />
 
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.1 }}
-            className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2"
-          >
-            {complianceAssurance.map((pillar) => {
-              const Icon = iconMap[pillar.icon] || ShieldCheck;
-              return (
-                <motion.div
-                  key={pillar.title}
-                  variants={rise}
-                  className="rounded-[24px] border border-slate-200 bg-[#f7f9fc] p-7"
-                >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0072bc]/8 text-[#0072bc]">
-                    <Icon size={19} strokeWidth={2} />
-                  </span>
-                  <h3 className="mt-4 text-[16px] font-bold leading-snug tracking-tight text-slate-900">{pillar.title}</h3>
-                  <ul className="mt-4 space-y-2.5">
-                    {pillar.points.map((point) => (
-                      <li key={point} className="flex items-start gap-2.5 text-[13.5px] leading-relaxed text-slate-600">
-                        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#0072bc]/10 text-[#0072bc]">
-                          <Check size={10} strokeWidth={3} />
-                        </span>
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ═══════════ 5 · APPLE-INSPIRED STICKY SCROLL GLASS CARDS ═══════════ */}
+      {/* ═══════════ 5 · APPLE-INSPIRED STICKY SCROLL GLASS CARDS (ROADMAP) ═══════════
+          Already scroll-driven (Framer Motion useScroll/useTransform pinned
+          cards) — left as-is, no conversion needed. */}
       <StickyScrollCardsSection />
 
       {/* ═══════════ 6 · CTA ═══════════
@@ -435,7 +321,7 @@ export default function ServicesIndex() {
           the homepage Operating Model section already carries the same
           accountable-lifecycle sequence, and this page must not repeat the
           home page.) */}
-      <section className="relative overflow-hidden bg-[#f7f9fc] py-20 sm:py-28">
+      <section className="relative overflow-hidden bg-white border-t border-slate-100 py-20 sm:py-28">
         <span aria-hidden="true" className="pointer-events-none absolute -bottom-40 right-0 h-[460px] w-[460px] rounded-full bg-[#0072bc]/10 blur-[110px]" />
 
         <div className="fg-wrap relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">

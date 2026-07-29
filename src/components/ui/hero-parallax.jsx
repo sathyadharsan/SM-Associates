@@ -54,7 +54,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="min-h-screen py-16 md:py-28 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-slate-950 text-white pb-32"
+      className="min-h-screen py-16 md:py-28 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-white text-slate-900 pb-32"
     >
       <Header totalServices={products.length} />
       <motion.div
@@ -109,23 +109,23 @@ export const Header = ({ totalServices }) => {
       <span className="inline-block font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#0072bc] bg-[#0072bc]/10 border border-[#0072bc]/20 px-3.5 py-1.5 rounded-full mb-4">
         Enterprise Recovery Operations · {totalServices || '37+'} Services Portfolio
       </span>
-      <h1 className="text-3xl md:text-7xl font-extrabold text-white tracking-tight leading-tight">
+      <h1 className="text-3xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-tight">
         Precision Operations <br /> Across South India
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-6 text-slate-300 leading-relaxed">
+      <p className="max-w-2xl text-base md:text-xl mt-6 text-slate-600 leading-relaxed">
         From digital engagement to field enforcement and SARFAESI asset resolution, explore our complete portfolio of {totalServices || '37+'} specialized recovery services built for banks, NBFCs, and financial institutions.
       </p>
       <div className="mt-8 flex flex-wrap gap-4">
         <Link
           to="/contact"
-          className="group inline-flex items-center gap-2 rounded-full bg-[#0072bc] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#0072bc]/30 transition-all hover:bg-[#005ea6] hover:shadow-xl"
+          className="group inline-flex items-center gap-2 rounded-full bg-[#0072bc] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#0072bc]/25 transition-all hover:bg-[#005ea6] hover:shadow-xl"
         >
           Talk to an Expert
           <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
         <a
           href="#enterprise-services"
-          className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/80 px-7 py-3.5 text-sm font-bold text-slate-200 backdrop-blur-md transition-colors hover:border-slate-500 hover:text-white"
+          className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3.5 text-sm font-bold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900"
         >
           Explore Our Capabilities
         </a>
@@ -145,7 +145,7 @@ export const ProductCard = ({ product, translate }) => {
         scale: 1.02,
       }}
       key={product.title}
-      className="group/product h-88 w-[22rem] md:h-[28rem] md:w-[32rem] relative flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 bg-slate-950 transition-all duration-300 hover:border-[#0072bc] hover:shadow-[#0072bc]/40"
+      className="group/product h-64 w-[18rem] md:h-[21rem] md:w-[26rem] relative flex-shrink-0 rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white transition-all duration-300 hover:border-[#0072bc] hover:shadow-2xl hover:shadow-[#0072bc]/20"
     >
       <Link
         to={product.link || "/services"}

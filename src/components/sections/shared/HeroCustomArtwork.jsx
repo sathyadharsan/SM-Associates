@@ -12,7 +12,7 @@ export default function HeroCustomArtwork({ category = 'services' }) {
   if (cat === 'asset') {
     return (
       <div className="w-full relative flex items-center justify-center pointer-events-none select-none">
-        <svg className="w-full h-auto max-w-[580px] drop-shadow-[0_20px_40px_rgba(234,88,12,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-full h-auto max-w-[440px] max-h-[350px] drop-shadow-[0_20px_40px_rgba(234,88,12,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient id="recoveryPlanetLight" cx="35%" cy="30%" r="70%">
               <stop offset="0%" stopColor="#ffedd5" />
@@ -68,7 +68,7 @@ export default function HeroCustomArtwork({ category = 'services' }) {
   if (cat === 'legal') {
     return (
       <div className="w-full relative flex items-center justify-center pointer-events-none select-none">
-        <svg className="w-full h-auto max-w-[580px] drop-shadow-[0_20px_40px_rgba(244,63,94,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-full h-auto max-w-[440px] max-h-[350px] drop-shadow-[0_20px_40px_rgba(244,63,94,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="roseRibbonGradLight" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#f43f5e" />
@@ -131,7 +131,7 @@ export default function HeroCustomArtwork({ category = 'services' }) {
   if (cat === 'tracing') {
     return (
       <div className="w-full relative flex items-center justify-center pointer-events-none select-none">
-        <svg className="w-full h-auto max-w-[580px] drop-shadow-[0_20px_40px_rgba(2,132,199,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-full h-auto max-w-[440px] max-h-[350px] drop-shadow-[0_20px_40px_rgba(2,132,199,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="cyberSweepLight" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#0284c7" stopOpacity="0.35" />
@@ -190,7 +190,7 @@ export default function HeroCustomArtwork({ category = 'services' }) {
   if (cat === 'digital') {
     return (
       <div className="w-full relative flex items-center justify-center pointer-events-none select-none">
-        <svg className="w-full h-auto max-w-[580px] drop-shadow-[0_20px_40px_rgba(59,130,246,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-full h-auto max-w-[440px] max-h-[350px] drop-shadow-[0_20px_40px_rgba(59,130,246,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="waveGradLight" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#0072bc" />
@@ -240,7 +240,7 @@ export default function HeroCustomArtwork({ category = 'services' }) {
   if (cat === 'field') {
     return (
       <div className="w-full relative flex items-center justify-center pointer-events-none select-none">
-        <svg className="w-full h-auto max-w-[580px] drop-shadow-[0_20px_40px_rgba(244,63,94,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-full h-auto max-w-[440px] max-h-[350px] drop-shadow-[0_20px_40px_rgba(244,63,94,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="glowFieldLight" x="-20%" y="-20%" width="140%" height="140%">
               <feDropShadow dx="0" dy="8" stdDeviation="12" floodColor="#f43f5e" floodOpacity="0.3" />
@@ -281,7 +281,7 @@ export default function HeroCustomArtwork({ category = 'services' }) {
   if (cat === 'odr') {
     return (
       <div className="w-full relative flex items-center justify-center pointer-events-none select-none">
-        <svg className="w-full h-auto max-w-[580px] drop-shadow-[0_20px_40px_rgba(245,158,11,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-full h-auto max-w-[440px] max-h-[350px] drop-shadow-[0_20px_40px_rgba(245,158,11,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="glowAmberLight" x="-20%" y="-20%" width="140%" height="140%">
               <feDropShadow dx="0" dy="8" stdDeviation="12" floodColor="#f59e0b" floodOpacity="0.3" />
@@ -316,7 +316,7 @@ export default function HeroCustomArtwork({ category = 'services' }) {
   if (cat === 'compliance') {
     return (
       <div className="w-full relative flex items-center justify-center pointer-events-none select-none">
-        <svg className="w-full h-auto max-w-[580px] drop-shadow-[0_20px_40px_rgba(217,119,6,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-full h-auto max-w-[440px] max-h-[350px] drop-shadow-[0_20px_40px_rgba(217,119,6,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="goldMonolithLight" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#fef3c7" />
@@ -372,7 +372,7 @@ export default function HeroCustomArtwork({ category = 'services' }) {
   if (cat === 'banking') {
     return (
       <div className="w-full relative flex items-center justify-center pointer-events-none select-none">
-        <svg className="w-full h-auto max-w-[580px] drop-shadow-[0_20px_40px_rgba(5,150,105,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-full h-auto max-w-[440px] max-h-[350px] drop-shadow-[0_20px_40px_rgba(5,150,105,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient id="emeraldPrismLight" cx="35%" cy="30%" r="70%">
               <stop offset="0%" stopColor="#a7f3d0" />
@@ -430,7 +430,7 @@ export default function HeroCustomArtwork({ category = 'services' }) {
   if (cat === 'technology') {
     return (
       <div className="w-full relative flex items-center justify-center pointer-events-none select-none">
-        <svg className="w-full h-auto max-w-[580px] drop-shadow-[0_20px_40px_rgba(124,58,237,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-full h-auto max-w-[440px] max-h-[350px] drop-shadow-[0_20px_40px_rgba(124,58,237,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient id="violetCoreLight" cx="35%" cy="30%" r="70%">
               <stop offset="0%" stopColor="#e9d5ff" />
@@ -471,7 +471,7 @@ export default function HeroCustomArtwork({ category = 'services' }) {
   // ════════════════════════════════════════════════════════════════════════
   return (
     <div className="w-full relative flex items-center justify-center pointer-events-none select-none">
-      <svg className="w-full h-auto max-w-[580px] drop-shadow-[0_20px_40px_rgba(0,114,188,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-full h-auto max-w-[440px] max-h-[350px] drop-shadow-[0_20px_40px_rgba(0,114,188,0.25)]" viewBox="0 0 580 460" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="sapphireCoreLight" cx="35%" cy="30%" r="70%">
             <stop offset="0%" stopColor="#bae6fd" />
