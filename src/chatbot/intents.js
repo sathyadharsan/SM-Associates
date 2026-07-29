@@ -50,7 +50,11 @@ const INTENTS = [
   },
   {
     id: 'industry',
-    test: /\b(industry|industrie|sector|bank(ing)?|nbfc|housing finance|hfc|microfinance|mfi|fintech|arc\b|asset reconstruction|insurance|gold loan|vehicle finance)\b/,
+    test: /\b(industry|industrie|indusrie|sector|lender|lending|bank(ing)?|nbfc|housing finance|hfc|microfinance|mfi|fintech|arc\b|asset reconstruction|insurance|gold loan|vehicle finance)\b/,
+  },
+  {
+    id: 'capability',
+    test: /\b(capability|capabiliti|cbabbiliti|strength|what can you do|what we do|our work)\b/,
   },
   {
     id: 'service',

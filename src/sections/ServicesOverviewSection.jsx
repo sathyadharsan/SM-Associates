@@ -8,16 +8,15 @@ import '../styles/service-cards.css';
 
 const TOTAL = serviceCards.length;
 
-// Fanned stack geometry. Index 0 is the card in hand; each step back drops,
-// shrinks and rotates a little more, leaving roughly a fifth of the next card
-// showing. Rotations follow the approved sequence and then repeat gently.
-const ROTATIONS = [0, -6, 6, -4, 3, -2];
+// Credit Card Wallet Rack geometry. Index 0 is the card in hand; each step back
+// shifts up and right into the wallet rack slot, leaving the top brand header showing.
 const poseFor = (depth) => ({
-  y: depth === 0 ? 0 : 44 + (depth - 1) * 38,
-  scale: Math.max(0.7, 1 - depth * 0.06),
-  rotate: ROTATIONS[depth] ?? 0,
+  x: depth === 0 ? 0 : depth * 14,
+  y: depth === 0 ? 0 : depth * -36,
+  scale: Math.max(0.85, 1 - depth * 0.025),
+  rotate: depth === 0 ? 0 : (depth % 2 === 1 ? -2 : 2),
   zIndex: TOTAL - depth,
-  opacity: depth > 4 ? 0 : 1,
+  opacity: depth > 5 ? 0 : 1,
 });
 
 // Detail copy reveals as a short stagger once a card reaches the front.
@@ -102,11 +101,8 @@ export default function ServicesOverviewSection() {
     <section
       ref={sectionRef}
       id="services"
-      className="relative overflow-hidden border-t border-b border-slate-200/90 bg-[#f7f9fc] py-20 sm:py-28"
+      className="relative overflow-hidden bg-white py-20 sm:py-28"
     >
-      {/* Luxury backdrop: two soft brand-tinted orbs, nothing else. */}
-      <span aria-hidden="true" className="svc-orb" style={{ width: 520, height: 520, top: -160, right: -120, background: 'rgba(0,114,188,0.13)' }} />
-      <span aria-hidden="true" className="svc-orb" style={{ width: 460, height: 460, bottom: -180, left: -140, background: 'rgba(10,37,64,0.10)' }} />
 
       <div className="fg-wrap relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="fg-section-header">
@@ -203,7 +199,7 @@ export default function ServicesOverviewSection() {
                     card={card}
                     pose={poseFor(depth)}
                     isActive={depth === 0}
-                    onSelect={() => sendToBack(index)}
+                    onSelect={() => bringToFront(index)}
                     position={index + 1}
                     total={TOTAL}
                   />

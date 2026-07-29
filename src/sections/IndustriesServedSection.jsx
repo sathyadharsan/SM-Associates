@@ -18,17 +18,9 @@ export default function IndustriesServedSection() {
   return (
     <section
       id="industries"
-      style={{ background: 'linear-gradient(160deg,#f8fafc 0%,#eef4fb 50%,#f8fafc 100%)' }}
-      className="relative py-20 lg:py-28 overflow-hidden border-t border-slate-200/70"
+      style={{ background: '#ffffff' }}
+      className="relative py-20 lg:py-28 overflow-hidden"
     >
-      {/* Background decoration */}
-      <div
-        aria-hidden
-        style={{
-          position: 'absolute', inset: 0, zIndex: 0,
-          backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(0,114,188,0.06) 0%, transparent 60%), radial-gradient(circle at 80% 50%, rgba(0,114,188,0.04) 0%, transparent 60%)',
-        }}
-      />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 

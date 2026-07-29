@@ -23,7 +23,7 @@ const FACTS = [
 
 export default function TrustedCertifiedSection() {
   return (
-    <section className="tc7 bg-white py-10 sm:py-12 border-b border-slate-200/90 relative overflow-hidden" id="trust">
+    <section className="tc7 bg-white py-10 sm:py-12 relative overflow-hidden" id="trust">
       <div className="fg-wrap tc7-head text-center max-w-5xl mx-auto mb-8 px-4">
         <span className="fg-eyebrow text-[11px] font-mono font-bold uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 px-3.5 py-1.5 rounded-full inline-block mb-2.5 border border-[#0072bc]/20">
           TRUSTED &amp; CERTIFIED

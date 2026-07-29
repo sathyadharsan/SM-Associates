@@ -31,6 +31,7 @@ import {
 } from '../data/flagshipHomeData';
 import { caseStudies } from '../data/caseStudies';
 import { COMPANY, PRIMARY_CONTACT, officeGroups } from '../data/contactOfficesData';
+import { pagesContent } from '../data/pagesContent';
 
 let cachedIndex = null;
 
@@ -194,12 +195,88 @@ function metricDocs() {
   }));
 }
 
+function pagesContentDocs() {
+  const docs = [];
+  if (!pagesContent) return docs;
+
+  Object.entries(pagesContent).forEach(([slug, content]) => {
+    if (!content) return;
+    const title = content.title || slug.replace(/-/g, ' ').toUpperCase();
+    const overviewText = content.overview?.summary || content.description || content.subtitle || content.eyebrow || '';
+
+    let capabilitiesText = '';
+    if (Array.isArray(content.capabilities) && content.capabilities.length > 0) {
+      const caps = content.capabilities
+        .slice(0, 4)
+        .map((c) => (typeof c === 'string' ? `• ${c}` : `• ${c.title}${c.desc ? `: ${c.desc}` : ''}`))
+        .join('\n');
+      capabilitiesText = `\n\n⚡ How SM Associates Executes This Service:\n${caps}`;
+    }
+
+    const richSummary = `${title}\n\n📌 What it is:\n${overviewText}${capabilitiesText}`;
+
+    const bodyParts = [title, overviewText];
+
+    if (Array.isArray(content.capabilities)) {
+      content.capabilities.forEach((cap) => {
+        if (cap.title) bodyParts.push(`${cap.title}: ${cap.desc || ''}`);
+        if (Array.isArray(cap.bullets)) bodyParts.push(cap.bullets.join('. '));
+      });
+    }
+
+    if (content.overview?.useCases && Array.isArray(content.overview.useCases)) {
+      content.overview.useCases.forEach((uc) => {
+        if (uc.title) bodyParts.push(`${uc.title}: ${uc.desc || ''}`);
+      });
+    }
+
+    docs.push({
+      id: `pages-svc:${slug}`,
+      type: 'service',
+      title,
+      summary: richSummary,
+      body: bodyParts.join('. '),
+      href: '/services',
+      keywords: `service ${slug.replace(/-/g, ' ')} ${content.eyebrow || ''} ${content.subtitle || ''} recovery legal enforcement verification asset repo skip tracing sarfaesi`,
+    });
+  });
+
+  return docs;
+}
+
+function pagesContentFaqDocs() {
+  const faqDocsList = [];
+  if (!pagesContent) return faqDocsList;
+
+  Object.entries(pagesContent).forEach(([slug, content]) => {
+    if (content && Array.isArray(content.faqs)) {
+      content.faqs.forEach((f, idx) => {
+        if (f.q && f.a) {
+          faqDocsList.push({
+            id: `pages-faq:${slug}:${idx}`,
+            type: 'faq',
+            title: f.q,
+            summary: f.a,
+            body: content.title || '',
+            href: '/services',
+            keywords: `faq ${slug.replace(/-/g, ' ')} question answer`,
+          });
+        }
+      });
+    }
+  });
+
+  return faqDocsList;
+}
+
 /** Build (once) and return the full in-memory content index. */
 export function getContentIndex() {
   if (cachedIndex) return cachedIndex;
   cachedIndex = [
     ...pageDocs(),
     ...faqDocs(),
+    ...pagesContentFaqDocs(),
+    ...pagesContentDocs(),
     ...serviceOverviewDocs(),
     ...industryDocs(),
     ...capabilityDocs(),

@@ -17,6 +17,7 @@ import {
   caseStudyAgent,
   clientsAgent,
   aboutAgent,
+  capabilityAgent,
 } from './agents/knowledgeAgents';
 import {
   leadAgent,
@@ -31,6 +32,7 @@ const AGENTS = {
   contact: contactAgent,
   search: searchAgent,
   service: serviceDiscoveryAgent,
+  capability: capabilityAgent,
   industry: industryAgent,
   coverage: coverageAgent,
   'case-study': caseStudyAgent,

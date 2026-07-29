@@ -16,9 +16,9 @@ function getFuse() {
   if (fuse) return fuse;
   fuse = new Fuse(getContentIndex(), {
     includeScore: true,
-    threshold: 0.38,
+    threshold: 0.48,
     ignoreLocation: true,
-    minMatchCharLength: 3,
+    minMatchCharLength: 2,
     keys: [
       { name: 'title', weight: 0.45 },
       { name: 'summary', weight: 0.3 },
@@ -75,6 +75,6 @@ export function bestMatch(query, opts = {}) {
   const results = searchContent(query, { ...opts, limit: 3 });
   if (!results.length) return null;
   const [first, second] = results;
-  const confident = first.score < 0.2 && (!second || second.score - first.score > 0.06);
+  const confident = first.score < 0.45 && (!second || second.score - first.score > 0.03);
   return { ...first, confident, alternatives: results.slice(1) };
 }

@@ -37,22 +37,7 @@ function BotMessage({ m, active, disabled, onSuggestion, onCardNav }) {
         ))}
       </div>
 
-      {m.cards?.length > 0 && (
-        <div className="smb-cards">
-          {m.cards.map((c) => (
-            <button key={c.href + c.title} type="button" className="smb-card" onClick={() => onCardNav(c.href)}>
-              <span className="smb-card-title">
-                {c.title}
-                {TYPE_BADGE[c.type] && <em className="smb-card-badge">{TYPE_BADGE[c.type]}</em>}
-              </span>
-              {c.summary && <span className="smb-card-sum">{c.summary}</span>}
-              <span className="smb-card-cta">
-                {c.cta || 'Read more'} <ArrowRight size={12} />
-              </span>
-            </button>
-          ))}
-        </div>
-      )}
+      {/* Cards rendering removed — Chatbot presents pure text answers only, keeping all sub-pages completely transparent to visitors */}
 
       {/* Chips are interactive only on the LATEST bot message — stale chips
           from earlier turns can no longer inject text into an active flow
@@ -143,17 +128,7 @@ export default function ChatWindow() {
 
   const handleChip = (chip) => send(chip.label, chip.intent);
 
-  // Agent responses may carry a navigate action — perform it once rendered.
-  const lastMessage = messages[messages.length - 1];
-  const lastAction = lastMessage?.action;
-  useEffect(() => {
-    if (lastAction?.type === 'navigate') {
-      const t = setTimeout(() => goTo(lastAction.href), 650);
-      return () => clearTimeout(t);
-    }
-    return undefined;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lastAction]);
+  // Page auto-navigation disabled — chatbot stays open and responds in text bubble only
 
   const showQuickActions = messages.length <= 1 && !flow;
   const lastBotText = [...messages].reverse().find((m) => m.role === 'bot')?.text || '';

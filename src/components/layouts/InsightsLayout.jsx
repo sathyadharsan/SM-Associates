@@ -1,382 +1,95 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import {
+  Activity,
   ArrowRight,
-  Search,
-  FileText,
-  ShieldCheck,
+  BarChart3,
   BookOpen,
-  Video,
-  TrendingUp,
+  BrainCircuit,
+  Check,
+  ChevronRight,
+  FileText,
+  Gauge,
+  LineChart,
   Mail,
-  UserCheck,
-  ChevronRight
+  Scale,
+  ShieldCheck,
+  Sparkles,
+  Target,
+  Users,
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import CaseStudiesSection from '../../sections/CaseStudiesSection';
 
-const fUp = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80, damping: 15 } }
-};
+const categories = [
+  { name: 'All', icon: Sparkles },
+  { name: 'Blog', icon: BookOpen },
+  { name: 'Case Studies', icon: Target },
+  { name: 'Whitepapers', icon: FileText },
+  { name: 'Industry Reports', icon: BarChart3 },
+  { name: 'Guides', icon: Check },
+];
 
-export function InsightsLayout({ content }) {
-  const [searchQuery, setSearchQuery] = useState('');
+const articles = [
+  { title: 'Recovery Analytics for Modern Enterprises', summary: 'A practical framework for turning portfolio signals into accountable recovery action.', category: 'Blog', date: '24 July 2026', time: '7 min read', icon: LineChart, accent: 'from-[#0072BC] to-[#0B1F3A]', span: 'md:col-span-2' },
+  { title: 'Future of Enterprise Recovery Operations', summary: 'The operating principles that help institutions scale with control and clarity.', category: 'Blog', date: '16 July 2026', time: '6 min read', icon: Activity, accent: 'from-[#123A63] to-[#0B1F3A]', span: '' },
+  { title: 'AI-Assisted Portfolio Prioritisation', summary: 'How human-supervised intelligence supports account allocation and next-best action.', category: 'Industry Reports', date: '28 June 2026', time: '8 min read', icon: BrainCircuit, accent: 'from-[#0B1F3A] to-[#1B628C]', span: '' },
+  { title: 'Compliance-Driven Recovery Operations', summary: 'A reference framework for audit readiness, policy control and escalation evidence.', category: 'Whitepapers', date: '10 June 2026', time: '9 min read', icon: ShieldCheck, accent: 'from-[#0E4B72] to-[#0B1F3A]', span: '' },
+  { title: 'Customer Communication During Recovery', summary: 'Respectful, transparent engagement that supports sustainable resolution outcomes.', category: 'Guides', date: '19 June 2026', time: '6 min read', icon: Users, accent: 'from-[#166A91] to-[#0B1F3A]', span: '' },
+  { title: 'Reducing Portfolio Risk Through Data Intelligence', summary: 'A decision model for identifying risk concentration before it affects performance.', category: 'Case Studies', date: '31 May 2026', time: '7 min read', icon: Gauge, accent: 'from-[#0072BC] to-[#16456A]', span: 'md:col-span-2' },
+];
+
+const reveal = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
+
+function HeroVisual() {
+  return (
+    <div aria-hidden="true" className="relative mx-auto w-full max-w-[560px] py-6 sm:py-10">
+      <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 560 410" fill="none">
+        <path d="M60 287C138 287 170 174 267 174S372 248 495 248" stroke="#0072BC" strokeOpacity=".2" strokeWidth="1.5" strokeDasharray="5 6" />
+        <path d="M72 84C170 84 210 174 285 174S398 98 488 98" stroke="#0072BC" strokeOpacity=".16" strokeWidth="1.5" strokeDasharray="5 6" />
+      </svg>
+      <motion.div animate={{ y: [0, -7, 0] }} transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }} className="relative overflow-hidden rounded-[28px] border border-white/80 bg-white/90 p-5 shadow-[0_24px_70px_rgba(11,31,58,.12)] backdrop-blur-xl sm:p-6">
+        <div className="flex items-center justify-between"><div><p className="text-[10px] font-bold uppercase tracking-[.17em] text-slate-400">Portfolio intelligence</p><p className="mt-1 text-sm font-semibold text-[#091E42]">Recovery command view</p></div><div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EAF5FC] text-[#0072BC]"><LineChart className="h-5 w-5" /></div></div>
+        <div className="mt-7 grid grid-cols-[1.25fr_.75fr] gap-4"><div className="rounded-2xl border border-slate-100 bg-slate-50 p-4"><div className="flex h-24 items-end gap-2">{[36, 52, 43, 69, 61, 84, 76].map((height, index) => <span key={index} style={{ height: `${height}%` }} className="flex-1 rounded-t bg-[#0072BC] opacity-[0.28] last:opacity-100" />)}</div><div className="mt-3 flex justify-between text-[10px] font-medium text-slate-400"><span>Risk analytics</span><span className="text-[#0072BC]">+18.2%</span></div></div><div className="space-y-3"><div className="rounded-2xl bg-[#091E42] p-3 text-white"><p className="text-[9px] uppercase tracking-wider text-white/55">Priority score</p><p className="mt-1 text-xl font-semibold">86.4</p></div><div className="rounded-2xl border border-slate-100 bg-white p-3"><p className="text-[9px] uppercase tracking-wider text-slate-400">Compliance</p><p className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-[#091E42]"><span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Within policy</p></div></div></div>
+      </motion.div>
+      <motion.div animate={{ y: [0, 9, 0] }} transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-0 left-0 rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-lg backdrop-blur-md sm:-left-5"><p className="text-[9px] font-bold uppercase tracking-wider text-slate-400">SARFAESI timeline</p><p className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-[#091E42]"><Check className="h-3.5 w-3.5 text-[#0072BC]" /> Governed workflow</p></motion.div>
+      <motion.div animate={{ y: [0, -7, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }} className="absolute right-0 top-0 rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-lg backdrop-blur-md sm:-right-5"><p className="text-[9px] font-bold uppercase tracking-wider text-slate-400">AI recommendation</p><p className="mt-1 text-sm font-semibold text-[#0072BC]">Route: Specialist</p></motion.div>
+    </div>
+  );
+}
+
+export function InsightsLayout() {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [subbed, setSubbed] = useState(false);
-  const [inquirySubmitted, setInquirySubmitted] = useState(false);
-
-  const categories = ['All', 'Case Studies', 'Legal Recovery', 'Compliance', 'Market Audits'];
-
-  const reports = [
-    { type: 'Case Studies', title: 'Retail Mortgage Delinquency Recovery Yield Report', desc: 'Detailed analysis of Section 14 magistrate petition executions across South India regional hubs, releasing ₹[DRAFT] in locked provisioning.', tag: 'PDF BRIEF', size: '2.4 MB' },
-    { type: 'Legal Recovery', title: 'SARFAESI Act Stage-3 Notice Servicing Benchmark', desc: 'Timeline compliance analysis of Section 13(2) and 13(4) serving. Statutory notice servings average timelines audits.', tag: 'LEGAL GUIDE', size: '1.8 MB' },
-    { type: 'Compliance', title: 'RBI Fair Practices Code Caller Compliance Audit', desc: 'Outbound predictive dialer settings limits, calling hours restriction log locks, and caller quality voice recordings auditing.', tag: 'COMPLIANCE SLA', size: '3.1 MB' }
-  ];
-
-  const briefings = [
-    { title: 'District Magistrate Warrant Possession Execution Procedures', date: 'June 2026', source: 'Corporate Legal Desk', excerpt: 'Calibrating branch coordination desks with local police authorities and advocate panels to accelerate symbolic possession sealing.' },
-    { title: 'Debt Recovery Agent Academy Training Certifications Matrix', date: 'May 2026', source: 'DRA Training Desk', excerpt: 'Mandatory DRA training syllabus highlights including fair communication, caller ethics guidelines, and data confidentiality certifications.' }
-  ];
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    setSubbed(true);
-    setTimeout(() => setSubbed(false), 3000);
-  };
-
-  const handleInquiry = (e) => {
-    e.preventDefault();
-    setInquirySubmitted(true);
-    setTimeout(() => setInquirySubmitted(false), 3000);
-  };
-
-  const filteredReports = activeCategory === 'All'
-    ? reports.filter(r => r.title.toLowerCase().includes(searchQuery.toLowerCase()))
-    : reports.filter(r => r.type === activeCategory && r.title.toLowerCase().includes(searchQuery.toLowerCase()));
+  const [subscribed, setSubscribed] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const filteredArticles = activeCategory === 'All' ? articles : articles.filter((article) => article.category === activeCategory);
+  const transition = reduceMotion ? { duration: 0 } : { duration: 0.5, ease: 'easeOut' };
+  const subscribe = (event) => { event.preventDefault(); setSubscribed(true); event.currentTarget.reset(); };
 
   return (
-    <div className="relative min-h-screen bg-white text-slate-800 overflow-x-hidden font-inter">
-      {/* Background gradients */}
-      <div className="absolute top-[-10%] right-[-10%] h-[600px] w-[600px] bg-brand-500/[0.03] rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[20%] left-[-10%] h-[700px] w-[700px] bg-brand-500/[0.03] rounded-full blur-[140px] pointer-events-none" />
-
-      {/* SECTION 1: INSIGHTS HERO */}
-      <section className="relative pt-48 pb-24 border-b border-slate-200 text-left overflow-hidden bg-white">
-        <div className="absolute inset-0 pointer-events-none z-0">
-          <div className="absolute left-[10%] top-[20%] h-[400px] w-[400px] rounded-full bg-brand-500/8 blur-[100px] animate-pulse" style={{ animationDuration: '8s' }} />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] opacity-60" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-10 space-y-6">
-          <div className="inline-flex items-center gap-2 rounded-full bg-brand-500 border border-brand-500 px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-widest text-brand-500">
-            <span className="h-2 w-2 rounded-full bg-brand-500 animate-ping" />
-            Thought Leadership
-          </div>
-          <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl font-sora leading-tight max-w-4xl">
-            Insights & Stressed Assets Briefings
-          </h1>
-          <p className="text-lg text-slate-500 leading-relaxed max-w-2xl font-inter">
-            Institutional research analysis, statutory legal procedures updates, and compliance governance briefs compiled by SM Associates advisory panel.
-          </p>
-
-          {/* Search and Filters */}
-          <div className="pt-4 flex flex-col md:flex-row gap-4 items-stretch max-w-3xl">
-            <div className="relative grow">
-              <Search className="absolute left-4 top-3.5 h-4.5 w-4.5 text-slate-400" />
-              <input
-                type="text"
-                placeholder="Search briefings, case studies, updates..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-12 py-3 text-xs text-slate-800 focus:outline-none focus:border-brand-500 transition-colors"
-              />
-            </div>
-            <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all border whitespace-nowrap ${
-                    activeCategory === cat ? 'bg-brand-500 border-brand-500 text-white shadow-md' : 'bg-white border-slate-200 text-slate-500'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          </div>
+    <main className="overflow-hidden bg-white text-[#091E42]">
+      <section className="relative isolate overflow-hidden border-b border-slate-100 bg-[#FAFBFC] py-28 sm:py-36 lg:min-h-[88svh] lg:py-20">
+        <div className="absolute inset-0 -z-10 opacity-70 [background-image:linear-gradient(rgba(0,114,188,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,114,188,.05)_1px,transparent_1px)] [background-size:52px_52px]" />
+        <div className="absolute -right-32 top-0 -z-10 h-[620px] w-[620px] rounded-full bg-[#DCEFFA] blur-3xl" />
+        <div className="mx-auto grid max-w-[1400px] gap-14 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:px-8">
+          <motion.div initial="hidden" animate="visible" variants={reveal} transition={transition}>
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#CFE8F6] bg-white/80 px-3.5 py-2 text-[10px] font-bold uppercase tracking-[.18em] text-[#0072BC]"><span className="h-1.5 w-1.5 rounded-full bg-[#0072BC]" /> Knowledge hub</span>
+            <h1 className="mt-7 text-5xl font-semibold leading-[.98] tracking-[-.07em] text-[#091E42] sm:text-6xl lg:text-7xl">Enterprise Recovery <span className="text-[#0B5FFF]">Insights</span></h1>
+            <p className="mt-7 max-w-[680px] text-lg leading-8 text-[#52606D] sm:text-xl sm:leading-9">Expert perspectives, operational best practices and recovery intelligence for enterprise financial institutions.</p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row"><a href="#latest-insights" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0072BC] px-7 py-4 text-base font-semibold text-white shadow-[0_12px_30px_rgba(0,114,188,.2)] transition hover:scale-[1.02] hover:bg-[#005D99]">Explore insights <ArrowRight className="h-4 w-4" /></a><Link to="/contact" className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/75 px-7 py-4 text-base font-semibold text-[#091E42] backdrop-blur transition hover:border-[#0072BC] hover:text-[#0072BC]">Talk to an expert <ChevronRight className="h-4 w-4" /></Link></div>
+            <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 border-t border-slate-200 pt-6 text-xs font-semibold text-[#52606D]"><span className="flex items-center gap-1.5"><Scale className="h-3.5 w-3.5 text-[#0072BC]" /> Banks</span><span className="flex items-center gap-1.5"><BarChart3 className="h-3.5 w-3.5 text-[#0072BC]" /> NBFCs</span><span className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5 text-[#0072BC]" /> Housing Finance</span><span className="flex items-center gap-1.5"><BrainCircuit className="h-3.5 w-3.5 text-[#0072BC]" /> Fintech</span></div>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ ...transition, delay: reduceMotion ? 0 : 0.12 }}><HeroVisual /></motion.div>
         </div>
       </section>
 
-      {/* SECTION 2: FEATURED CASE STUDY SPOTLIGHT */}
-      <section className="py-24 bg-white border-b border-slate-200 text-left">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-500 bg-brand-500 px-3 py-1 rounded-full">
-            Featured Case Spotlight
-          </span>
-          <div className="mt-8 bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 space-y-4">
-              <span className="text-[10px] font-mono font-bold text-brand-500 uppercase tracking-wider">RECOVERY YIELD STAGE-3</span>
-              <h3 className="text-2xl font-bold font-sora text-slate-900">Residential Mortgage Portfolio Foreclosure Case Study</h3>
-              <p className="text-slate-500 text-xs leading-relaxed max-w-2xl">
-                Analysis of a comprehensive secured recovery campaign covering multiple Southern states. Detailed report on filing Section 14 petitions, managing physical possession logistics, and storage in fenced CCTV yards, resulting in a release of ₹[DRAFT] in provision values.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-200 font-mono text-[10px] text-slate-400">
-                <div>VALUATION: <span className="text-slate-900 font-bold">₹[DRAFT] Crore</span></div>
-                <div>TIMELINE: <span className="text-slate-900 font-bold">[DRAFT] Days</span></div>
-                <div>YIELD RATE: <span className="text-brand-500 font-bold">[DRAFT]%</span></div>
-              </div>
-            </div>
-            <div className="lg:col-span-4 flex justify-end">
-              <a href="#inquiry" className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-8 py-4 text-sm font-bold text-white shadow-lg hover:bg-brand-500 transition-all hover:scale-[1.02]">
-                Read Audit Log <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="py-20 sm:py-24 lg:py-28"><div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8"><p className="text-[11px] font-bold uppercase tracking-[.2em] text-[#0072BC]">Featured insight</p><motion.article initial="hidden" whileInView="visible" viewport={{ once: true, amount: .18 }} variants={reveal} transition={transition} className="mt-7 grid overflow-hidden rounded-[30px] border border-slate-200 bg-[#FBFCFE] shadow-[0_18px_60px_rgba(11,31,58,.06)] lg:grid-cols-[1.2fr_.8fr]"><div className="group relative min-h-[340px] overflow-hidden bg-[#091E42] p-7 sm:p-10"><div className="absolute inset-0 opacity-35 [background-image:linear-gradient(rgba(255,255,255,.14)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.14)_1px,transparent_1px)] [background-size:42px_42px]" /><div className="relative flex h-full flex-col justify-between"><div className="flex flex-wrap gap-2"><span className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white">Editor's pick</span><span className="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white/80">2026 outlook</span></div><div className="rounded-2xl border border-white/10 bg-white/[.07] p-5 backdrop-blur-sm"><div className="flex h-28 items-end gap-3">{[38, 46, 35, 66, 59, 82, 72, 91].map((height, index) => <span key={index} style={{ height: `${height}%` }} className="flex-1 origin-bottom rounded-t bg-[#7CD1F6] transition-transform duration-500 group-hover:scale-y-110" />)}</div><div className="mt-4 flex items-center justify-between text-xs text-white/65"><span>Portfolio performance signal</span><span className="font-semibold text-white">Actionable intelligence</span></div></div></div></div><div className="flex flex-col p-7 sm:p-10 lg:p-12"><div className="flex flex-wrap gap-x-3 gap-y-2 text-[11px] font-semibold text-slate-500"><span className="text-[#0072BC]">RECOVERY ANALYTICS</span><span>18 July 2026</span><span>8 min read</span></div><h2 className="mt-6 text-3xl font-semibold leading-tight tracking-[-.045em] text-[#091E42] sm:text-4xl">How Analytics Improves Enterprise Recovery Outcomes</h2><p className="mt-5 leading-7 text-[#52606D]">Analytics gives recovery leaders a clearer view of account behaviour, opportunity and operating risk—so teams can direct action with greater precision, consistency and governance.</p><div className="mt-auto flex items-center justify-between border-t border-slate-200 pt-7"><div><p className="text-xs font-semibold text-[#091E42]">SM Associates Research</p><p className="mt-1 text-[11px] text-slate-500">Enterprise Intelligence Desk</p></div><a href="#latest-insights" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0072BC] transition hover:gap-3">Read article <ArrowRight className="h-4 w-4" /></a></div></div></motion.article></div></section>
 
-      {/* SECTION 3: RECOVERY PERFORMANCE REPORTS */}
-      <section className="py-24 bg-slate-50 border-b border-slate-200 text-left">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Performance Audits</span>
-            <h2 className="text-3xl font-bold font-sora text-slate-900">Active Recovery Briefs</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <AnimatePresence>
-              {filteredReports.map((rep, i) => (
-                <motion.div
-                  key={i}
-                  initial="hidden"
-                  animate="show"
-                  exit="hidden"
-                  variants={fUp}
-                  className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:shadow-md hover:border-slate-300 transition-all"
-                >
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-[9px] font-mono font-bold bg-slate-50 text-slate-500 border border-slate-200 px-2.5 py-1 rounded-md uppercase tracking-wider">
-                        {rep.tag}
-                      </span>
-                      <span className="text-[10px] font-mono text-slate-400">{rep.size}</span>
-                    </div>
-                    <h4 className="font-bold text-base font-sora text-slate-900 leading-tight">{rep.title}</h4>
-                    <p className="text-slate-500 text-xs leading-relaxed">{rep.desc}</p>
-                  </div>
-                  <div className="mt-6 pt-4 border-t border-slate-200 flex justify-between items-center text-xs font-mono">
-                    <span className="text-slate-400">{rep.type}</span>
-                    <button className="text-brand-500 hover:text-brand-500 font-bold flex items-center gap-1">
-                      Download Brief <ChevronRight className="h-3.5 w-3.5" />
-                    </button>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-        </div>
-      </section>
+      <section id="latest-insights" className="border-y border-slate-200 bg-[#FAFBFC] py-20 sm:py-24 lg:py-28"><div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8"><div className="max-w-2xl"><p className="text-[11px] font-bold uppercase tracking-[.2em] text-[#0072BC]">Explore the library</p><h2 className="mt-3 text-3xl font-semibold tracking-[-.045em] text-[#091E42] sm:text-4xl">Latest insights</h2><p className="mt-4 leading-7 text-[#52606D]">A focused library of research, perspectives and practical guidance for recovery leaders.</p></div><div role="tablist" aria-label="Insight categories" className="mt-9 flex max-w-full gap-1 overflow-x-auto rounded-full border border-white bg-white/75 p-1.5 shadow-[0_10px_26px_rgba(11,31,58,.07)] backdrop-blur-xl scrollbar-hide">{categories.map(({ name, icon: Icon }) => <button key={name} role="tab" aria-selected={activeCategory === name} onClick={() => setActiveCategory(name)} className={`inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2.5 text-xs font-semibold transition ${activeCategory === name ? 'bg-[#0072BC] text-white shadow-[0_8px_18px_rgba(0,114,188,.2)]' : 'text-slate-600 hover:text-[#0072BC]'}`}><Icon className="h-3.5 w-3.5" />{name}</button>)}</div><motion.div layout className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-3"><AnimatePresence mode="popLayout">{filteredArticles.map((article) => { const Icon = article.icon; return <motion.article layout initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={transition} key={article.title} className={`group flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:border-[#9ED7F0] hover:shadow-[0_18px_36px_rgba(11,31,58,.08)] ${article.span}`}><div className={`relative h-40 bg-gradient-to-br ${article.accent} p-5`}><div className="absolute inset-0 opacity-20 [background-image:radial-gradient(rgba(255,255,255,.75)_1px,transparent_1px)] [background-size:16px_16px]" /><div className="relative flex h-full items-end justify-between"><span className="rounded-full bg-white/15 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur">{article.category}</span><Icon className="h-10 w-10 text-white/90 transition duration-500 group-hover:scale-110" /></div></div><div className="flex flex-1 flex-col p-6"><p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400">{article.time} · {article.date}</p><h3 className="mt-4 text-xl font-semibold leading-tight tracking-[-.025em] text-[#091E42]">{article.title}</h3><p className="mt-3 text-sm leading-6 text-[#52606D]">{article.summary}</p><a href="#contact-insights" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-[#0072BC] transition group-hover:gap-2.5">Read more <ArrowRight className="h-4 w-4" /></a></div></motion.article>; })}</AnimatePresence></motion.div></div></section>
 
-      {/* SECTION 4: LATEST LEGAL BRIEFINGS */}
-      <section className="py-24 bg-white border-b border-slate-200 text-left">
-        <div className="mx-auto max-w-4xl px-4">
-          <div className="mb-12 space-y-2 text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Statutory Updates</span>
-            <h2 className="text-3xl font-bold font-sora text-slate-900">Recent Legal Briefings</h2>
-          </div>
-          <div className="space-y-6">
-            {briefings.map((brief, idx) => (
-              <div key={idx} className="bg-slate-50 border border-slate-200 p-6 rounded-2xl hover:border-slate-300 transition-all space-y-4">
-                <div className="flex justify-between items-center text-[10px] font-mono text-slate-400">
-                  <span>DATE: {brief.date}</span>
-                  <span>SOURCE: {brief.source}</span>
-                </div>
-                <h4 className="font-bold text-base font-sora text-slate-900">{brief.title}</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">{brief.excerpt}</p>
-                <div className="pt-2 border-t border-slate-200">
-                  <a href="#inquiry" className="text-xs font-bold text-brand-500 hover:text-brand-500 flex items-center gap-1">
-                    Request Full Legal Analysis <ChevronRight className="h-3.5 w-3.5" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CaseStudiesSection />
 
-      {/* SECTION 5: DRA ACADEMY KNOWLEDGE HUB */}
-      <section className="py-24 bg-slate-50 border-b border-slate-200 text-left">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Professional Training</span>
-              <h3 className="text-3xl font-bold font-sora text-slate-900">DRA Academy & Compliance Hub</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">
-                All collections callers undergo Debt Recovery Agent (DRA) training under direct corporate supervisor oversight. Field officers are certified in fair mediation practices, local district protocols, and borrower verification audits procedures.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
-                <div className="flex gap-2 items-center text-slate-600">
-                  <UserCheck className="h-4.5 w-4.5 text-brand-500" />
-                  100% DRA-Certified Calling Staff
-                </div>
-                <div className="flex gap-2 items-center text-slate-600">
-                  <ShieldCheck className="h-4.5 w-4.5 text-brand-500" />
-                  RBI Ethics Code Certified
-                </div>
-              </div>
-            </div>
-            <div className="lg:col-span-6 bg-white border border-slate-200 rounded-3xl p-6 shadow-sm font-mono text-xs text-left">
-              <h5 className="text-slate-500 font-bold mb-4 uppercase tracking-wider text-[10px]">Active Academy Training Syllabus</h5>
-              <ul className="space-y-3 text-slate-600">
-                <li className="flex justify-between border-b border-slate-200 pb-2"><span>Module 1: Fair Practice calling Hours Limits</span><span className="text-brand-500">Lock config</span></li>
-                <li className="flex justify-between border-b border-slate-200 pb-2"><span>Module 2: Customer Dispute Routing Desks</span><span className="text-brand-500">Escalation SLA</span></li>
-                <li className="flex justify-between border-b border-slate-200 pb-2"><span>Module 3: Address Absconders Forensics checks</span><span className="text-brand-500">Compliance Limit</span></li>
-                <li className="flex justify-between"><span>Module 4: Geotagged Site Check Verification</span><span className="text-brand-500">GPS Validation</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6: REGULATORY COMPLIANCE UPDATES */}
-      <section className="py-20 bg-white border-b border-slate-200 text-center">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-6">
-          <h3 className="text-lg font-bold font-sora text-brand-500 flex items-center justify-center gap-2">
-            <BookOpen className="h-5 w-5 text-brand-500" /> Regulatory Code updates & Compliance Logs
-          </h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            <span className="bg-slate-50 border border-slate-200 px-4 py-2.5 rounded-xl text-xs font-mono text-slate-600">RBI Fair Practices Guidelines: Active</span>
-            <span className="bg-slate-50 border border-slate-200 px-4 py-2.5 rounded-xl text-xs font-mono text-slate-600">ISO 27001 Data Isolation Audit: Passed</span>
-            <span className="bg-slate-50 border border-slate-200 px-4 py-2.5 rounded-xl text-xs font-mono text-slate-600">Calling Hour Boundaries System Audit: Certified</span>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7: BANK RISK MANAGEMENT WEBINARS */}
-      <section className="py-24 bg-slate-50 border-b border-slate-200 text-left">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Recorded briefings</span>
-            <h2 className="text-3xl font-bold font-sora text-slate-900">Bank Risk Advisory Webinars</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white border border-slate-200 p-6 rounded-2xl flex gap-4 items-start shadow-sm hover:border-slate-300 transition-all">
-              <div className="h-10 w-10 bg-brand-500 text-brand-500 rounded-xl flex items-center justify-center shrink-0">
-                <Video className="h-5 w-5" />
-              </div>
-              <div className="space-y-1.5">
-                <span className="text-[9px] font-mono text-slate-400 uppercase">WEBINAR ARCHIVE</span>
-                <h4 className="font-bold text-sm text-slate-900 font-sora">Secured Asset Evictions & Police Liaisons Protocols</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">Discussion on coordinating physical possessions with local authorities under Section 14 magistrate orders.</p>
-              </div>
-            </div>
-            <div className="bg-white border border-slate-200 p-6 rounded-2xl flex gap-4 items-start shadow-sm hover:border-slate-300 transition-all">
-              <div className="h-10 w-10 bg-brand-500 text-brand-500 rounded-xl flex items-center justify-center shrink-0">
-                <Video className="h-5 w-5" />
-              </div>
-              <div className="space-y-1.5">
-                <span className="text-[9px] font-mono text-slate-400 uppercase">WEBINAR ARCHIVE</span>
-                <h4 className="font-bold text-sm text-slate-900 font-sora">Pre-Disbursal Verification Forensics & Identity Fraud</h4>
-                <p className="text-slate-500 text-xs leading-relaxed">Analyzing synthetic identity trends and geolocated site checking best practices for credit boards.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 8: QUARTERLY DELINQUENCY AUDITS */}
-      <section className="py-24 bg-white border-b border-slate-200 text-left">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Market Stats</span>
-              <h3 className="text-3xl font-bold font-sora text-slate-900">Market Delinquency Audits</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">
-                Review historical default indexes across retail mortgages, agricultural tractor finance, and fintech books.
-              </p>
-            </div>
-            <div className="lg:col-span-6 grid grid-cols-2 gap-4">
-              <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
-                <div className="text-2xl font-bold font-sora text-brand-500 flex items-center gap-1">
-                  <TrendingUp className="h-5 w-5 text-brand-500" />
-                  +18.4%
-                </div>
-                <div className="text-[9px] font-bold text-slate-400 uppercase mt-2 font-mono tracking-wider">Retail default indices shift</div>
-              </div>
-              <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl">
-                <div className="text-2xl font-bold font-sora text-brand-500 flex items-center gap-1">
-                  <TrendingUp className="h-5 w-5 text-brand-500" />
-                  -24.8%
-                </div>
-                <div className="text-[9px] font-bold text-slate-400 uppercase mt-2 font-mono tracking-wider">SLA Timeline reduction results</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 9: INSIGHTS SUBSCRIPTION CTA */}
-      <section className="py-24 bg-slate-50 border-b border-slate-200 text-left">
-        <div className="mx-auto max-w-4xl px-4 bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Stay Informed</span>
-              <h3 className="text-2xl font-bold font-sora text-slate-900">Subscribe to Risk Alerts</h3>
-              <p className="text-slate-500 text-xs leading-relaxed">Get monthly legal recovery briefings and RBI caller compliance checklist templates directly.</p>
-            </div>
-            {subbed ? (
-              <div className="text-center py-6 space-y-2">
-                <span className="text-xs font-bold text-brand-500 font-mono">Subscription Confirmed</span>
-                <p className="text-[10px] text-slate-400 font-mono">Thank you for subscribing to our briefings list.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="space-y-3">
-                <div className="relative">
-                  <Mail className="absolute left-4 top-3.5 h-4.5 w-4.5 text-slate-400" />
-                  <input
-                    required
-                    type="email"
-                    placeholder="Enter corporate email address..."
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-12 py-3 text-xs text-slate-800 focus:outline-none focus:border-brand-500 transition-colors"
-                  />
-                </div>
-                <button type="submit" className="w-full rounded-xl bg-brand-500 hover:bg-brand-500 text-white font-bold text-xs py-3 text-center transition-all shadow-md">
-                  Join Briefings list
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 10: EXPERT INQUIRY FORM */}
-      <section className="py-24 bg-white text-left" id="inquiry">
-        <div className="mx-auto max-w-4xl px-4 bg-gradient-to-br from-slate-50 to-white border border-slate-200 rounded-3xl p-8 shadow-sm">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-            <div className="space-y-4">
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Advisory Panel</span>
-              <h3 className="text-2xl font-bold font-sora text-slate-900">Consult our Legal & Compliance Officers</h3>
-              <p className="text-slate-500 text-xs leading-relaxed">
-                Connect with our empanelled foreclosure advocates and DRA compliance trainers to address specific portfolio audit queries.
-              </p>
-            </div>
-            {inquirySubmitted ? (
-              <div className="text-center py-12 space-y-2">
-                <span className="text-xs font-bold text-brand-500 font-mono">Inquiry Logged</span>
-                <p className="text-[10px] text-slate-400 font-mono">Our legal coordinator will email you shortly.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleInquiry} className="space-y-3">
-                <input required type="text" placeholder="Institution Name..." className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-brand-500" />
-                <input required type="email" placeholder="Corporate Email..." className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-brand-500" />
-                <textarea required placeholder="Outline specific portfolio queries (TAT, security logs, yard coordinates)..." className="w-full h-24 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-brand-500 resize-none"></textarea>
-                <button type="submit" className="w-full rounded-xl bg-brand-500 hover:bg-brand-500 text-white font-bold text-xs py-3 text-center transition-all shadow-md">
-                  Submit Advisor Inquiry
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      </section>
-    </div>
+      <section id="contact-insights" className="bg-[#091E42] py-20 text-white sm:py-24"><div className="mx-auto grid max-w-[1200px] gap-10 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:px-8"><div><p className="text-[11px] font-bold uppercase tracking-[.2em] text-[#8DCBE9]">Enterprise intelligence, delivered</p><h2 className="mt-4 text-3xl font-semibold tracking-[-.045em] sm:text-4xl">Stay ahead of recovery trends.</h2><p className="mt-5 max-w-lg leading-7 text-slate-300">Receive focused recovery insights, industry intelligence and compliance updates. When you need tailored guidance, our specialists are ready to help.</p><Link to="/contact" className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#8DCBE9]">Talk to an expert <ArrowRight className="h-4 w-4" /></Link></div><form onSubmit={subscribe} className="rounded-3xl border border-white/15 bg-white/[.06] p-6 backdrop-blur-sm sm:p-8"><div className="grid gap-4 sm:grid-cols-2"><label className="text-xs font-semibold text-white">Name<input required name="name" className="mt-2 w-full rounded-xl border border-white/15 bg-white/10 px-3.5 py-3 text-sm text-white outline-none placeholder:text-slate-400 focus:border-[#8DCBE9]" /></label><label className="text-xs font-semibold text-white">Company<input required name="company" className="mt-2 w-full rounded-xl border border-white/15 bg-white/10 px-3.5 py-3 text-sm text-white outline-none focus:border-[#8DCBE9]" /></label></div><label className="mt-4 block text-xs font-semibold text-white">Business email<input required type="email" name="email" className="mt-2 w-full rounded-xl border border-white/15 bg-white/10 px-3.5 py-3 text-sm text-white outline-none focus:border-[#8DCBE9]" /></label><button type="submit" className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3.5 text-sm font-semibold text-[#091E42] transition hover:bg-[#DDF2FC]"><Mail className="h-4 w-4" /> {subscribed ? 'You are subscribed' : 'Subscribe to insights'}</button></form></div></section>
+    </main>
   );
 }

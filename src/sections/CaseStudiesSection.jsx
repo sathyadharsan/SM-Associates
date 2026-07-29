@@ -19,7 +19,7 @@ export default function CaseStudiesSection() {
   };
 
   return (
-    <section id="case-studies" className="relative py-20 sm:py-24 lg:py-28 bg-white border-t border-b border-slate-200/60 overflow-hidden">
+    <section id="case-studies" className="relative py-20 sm:py-24 lg:py-28 bg-white overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
         
         {/* Section Header with Left/Right Control Buttons */}

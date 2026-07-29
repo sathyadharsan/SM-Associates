@@ -9,6 +9,7 @@ import SayHelloShowcaseSection from '../sections/SayHelloShowcaseSection';
 import BentoWorkflowSection from '../sections/BentoWorkflowSection';
 import SolutionComparisonSection from '../sections/SolutionComparisonSection';
 import ServicesOverviewSection from '../sections/ServicesOverviewSection';
+import EnterpriseServicesSection from '../sections/EnterpriseServicesSection';
 import OperatingModelSection from '../sections/OperatingModelSection';
 import IndustriesServedSection from '../sections/IndustriesServedSection';
 import CaseStudiesSection from '../sections/CaseStudiesSection';

@@ -43,7 +43,7 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="py-24 bg-[#f0f7ff] border-t border-blue-100/60 relative" id="faq">
+    <section className="py-24 bg-white relative" id="faq">
       <div className="fg-wrap max-w-4xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-14">

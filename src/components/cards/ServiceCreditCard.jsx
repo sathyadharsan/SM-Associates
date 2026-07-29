@@ -73,6 +73,7 @@ export default function ServiceCreditCard({ card, pose, isActive, onSelect, posi
         zIndex: pose.zIndex,
       }}
       animate={{
+        x: pose.x || 0,
         y: pose.y,
         scale: pose.scale,
         rotate: pose.rotate,

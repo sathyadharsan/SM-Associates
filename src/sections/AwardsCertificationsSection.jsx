@@ -44,7 +44,7 @@ const certifications = [
 
 export default function AwardsCertificationsSection() {
   return (
-    <section className="py-20 bg-white border-y border-slate-100" id="awards-certifications">
+    <section className="py-20 bg-white" id="awards-certifications">
       <div className="max-w-6xl mx-auto px-6">
 
         <motion.div

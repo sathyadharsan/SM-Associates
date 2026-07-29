@@ -64,10 +64,8 @@ export default function TestimonialsSection() {
   const t = testimonials[active];
 
   return (
-    <section className="py-28 bg-[#f4f5f8] relative overflow-hidden" id="testimonials">
-      <div aria-hidden className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#0072bc]/5 blur-[120px]" />
-      </div>
+    <section className="py-28 bg-white relative overflow-hidden" id="testimonials">
+
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div

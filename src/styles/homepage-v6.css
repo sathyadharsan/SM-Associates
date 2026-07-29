@@ -23,7 +23,7 @@
   --ease-io:cubic-bezier(0.16,1,0.3,1);
   --max:1400px; --gut:56px;
   --navy:#0f172a; --navy-2:#1e293b; --navy-3:#334155;
-  --stone:#f8fafc; --stone-2:#f1f5f9;
+  --stone:#ffffff; --stone-2:#ffffff;
   --amber:var(--blue); --amber-t:var(--blue-t);
 }
 @media(max-width:1100px){:root{--gut:36px;}}
@@ -443,7 +443,7 @@ html.lenis, html.lenis body { height: auto; }
    4 · OPERATING MODEL  (white, scroll-filmstrip)
 ═══════════════════════════════════════════════ */
 /* ═══ OPERATING MODEL — stone warm neutral ═══════════════════════════ */
-.model6{background:var(--stone);position:relative;}
+.model6{background:#ffffff;position:relative;}
 .model6 .pin-wrap{position:relative;}
 .model6 .pin-stage{position:sticky;top:0;height:100vh;overflow:hidden;}
 
@@ -466,8 +466,8 @@ html.lenis, html.lenis body { height: auto; }
 .filmstrip6{position:absolute;top:0;left:0;height:100%;display:flex;align-items:center;padding-top:160px;padding-bottom:50px;will-change:transform;}
 .filmstrip6::before,.filmstrip6::after{
   content:"";position:fixed;top:0;bottom:0;width:120px;z-index:4;pointer-events:none;}
-.filmstrip6::before{left:0;background:linear-gradient(90deg,var(--stone) 0%,transparent 100%);}
-.filmstrip6::after{right:0;background:linear-gradient(270deg,var(--stone) 0%,transparent 100%);}
+.filmstrip6::before{left:0;background:linear-gradient(90deg,#ffffff 0%,transparent 100%);}
+.filmstrip6::after{right:0;background:linear-gradient(270deg,#ffffff 0%,transparent 100%);}
 
 /* Card panel — Prominent, large & ultra-premium */
 .panel6{flex:0 0 auto;width:82vw;max-width:1040px;min-height:60vh;max-height:72vh;margin:0 28px;

@@ -34,22 +34,9 @@ function Counter({ value, prefix = '₹', duration = 2 }) {
 
 export default function SayHelloShowcaseSection() {
   return (
-    <section className="py-24 lg:py-32 relative bg-[#f8f9fc] overflow-hidden" id="command-center-showcase">
+    <section className="py-24 lg:py-32 relative bg-white overflow-hidden" id="command-center-showcase">
       
-      {/* 🌫️ SOFT CONCENTRIC SMOKE / MIST AURA BACKGROUND (100% MATCHING USER REFERENCE PIC) */}
-      <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden">
-        
-        {/* Ambient Center Glow */}
-        <motion.div
-          animate={{
-            scale: [1, 1.15, 1],
-            opacity: [0.4, 0.75, 0.4],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[750px] rounded-full bg-gradient-to-tr from-indigo-200/40 via-blue-100/35 to-purple-100/25 blur-3xl"
-        />
 
-      </div>
 
       <div className="max-w-6xl mx-auto text-center relative z-10 px-4">
         

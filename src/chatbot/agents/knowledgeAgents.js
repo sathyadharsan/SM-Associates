@@ -34,17 +34,23 @@ export const searchAgent = {
   handle(text) {
     const top = bestMatch(text);
     if (top?.confident) {
+      // For service/capability items, return pure text answer without individual sub-service cards
+      const isServiceItem = top.doc.type === 'service' || top.doc.type === 'capability';
       return {
         text: top.doc.summary,
-        cards: [{ title: top.doc.title, summary: '', href: top.doc.href, type: top.doc.type, cta: 'Read more' }],
+        cards: isServiceItem ? [] : [{ title: top.doc.title, summary: '', href: top.doc.href, type: top.doc.type, cta: 'Read more' }],
         suggestions: top.alternatives.slice(0, 2).map((a) => ({ label: a.doc.title })),
       };
     }
     const results = searchContent(text, { limit: 4, dedupe: true });
     if (!results.length) return NO_RESULT();
+
+    // Filter out sub-service cards
+    const nonServiceResults = results.filter((r) => r.doc.type !== 'service' && r.doc.type !== 'capability');
+
     return {
-      text: 'Here is what I found on our site — pick the closest match:',
-      cards: toCards(results),
+      text: results[0]?.doc?.summary || 'Here is what I found in our knowledge base:',
+      cards: toCards(nonServiceResults),
       suggestions: [{ label: 'Contact the team', intent: 'contact' }],
     };
   },
@@ -54,17 +60,15 @@ export const serviceDiscoveryAgent = {
   id: 'service',
   handle(text) {
     const results = searchContent(text, { types: ['service', 'capability'], limit: 4, dedupe: true });
-    if (!results.length) {
+    if (!results.length || text.toLowerCase().includes('show me your services') || text.toLowerCase().includes('all services') || text.toLowerCase().includes('service')) {
       return {
-        text: 'We operate six business divisions — Verification, Collections, Recovery Operations, SARFAESI Support, Asset Recovery and Investigation.',
-        cards: [{ title: 'All Services', summary: 'Explore every service line in detail.', href: '/services', cta: 'Explore services' }],
+        text: 'SM Associates delivers end-to-end recovery operations across six core business divisions:\n\n• Verification & Due Diligence (CPV, Residence, Business, Merchant & Document audits)\n• Collections & Recovery (Pre-delinquency, Soft, Hard & Field Collections)\n• Legal Recovery & Enforcement (SARFAESI Sec 13/14 support, 138 notices, Litigation)\n• Asset Recovery & Realisation (Vehicle Repossession, Asset Tracing & E-Auctions)\n• Investigation & Fraud Control (Skip Tracing, Address Mapping & Audits)\n• Operational Excellence & Analytics (Call Center dialers, Manpower & Scoring)',
         suggestions: [{ label: 'SARFAESI support', intent: 'service' }, { label: 'Field collections', intent: 'service' }, { label: 'Verification services', intent: 'service' }],
       };
     }
-    const [top, ...rest] = results;
+    const [top] = results;
     return {
       text: top.doc.summary,
-      cards: toCards([top, ...rest.slice(0, 2)], 'View service'),
       suggestions: [
         { label: 'Request a proposal', intent: 'lead' },
         { label: 'Case studies', intent: 'case-study' },
@@ -77,20 +81,23 @@ export const serviceDiscoveryAgent = {
 export const industryAgent = {
   id: 'industry',
   handle(text) {
+    const lower = (text || '').toLowerCase();
+    const isGeneralQuery = lower.includes('work with') || lower.includes('what') || lower.includes('which') || lower.includes('all') || lower.includes('list');
     const results = searchContent(text, { types: ['industry'], limit: 3, dedupe: true });
-    if (!results.length) {
+
+    if (!results.length || isGeneralQuery) {
       return {
-        text: 'We serve regulated lenders across Banking, NBFC, Housing Finance, Microfinance, Fintech, ARCs, Insurance and Commercial Lending.',
-        cards: [{ title: 'Industries We Serve', summary: 'Sector-specific recovery capabilities.', href: '/industries', cta: 'Explore industries' }],
+        text: 'Industries We Serve\n\nSM Associates delivers specialized recovery, verification, and risk management operations tailored to 8 key financial sectors:\n\n• Commercial Banking (Public & Private Sector Banks)\n• Non-Banking Financial Companies (NBFCs)\n• Housing Finance Companies (HFCs & SARFAESI enforcement)\n• Microfinance Institutions (MFI & Rural Credit)\n• FinTech Lenders (Digital loans & instant verifications)\n• Asset Reconstruction Companies (ARCs & Stressed Corporate Assets)\n• Commercial & Corporate Lending\n• Vehicle & Gold Loan Finance',
         suggestions: [{ label: 'Banking', intent: 'industry' }, { label: 'NBFC', intent: 'industry' }, { label: 'Fintech', intent: 'industry' }],
       };
     }
+
+    const [top] = results;
     return {
-      text: results[0].doc.summary,
-      cards: toCards(results, 'View industry page'),
+      text: top.doc.summary,
       suggestions: [
-        { label: 'Relevant case studies', intent: 'case-study' },
         { label: 'Request a proposal', intent: 'lead' },
+        { label: 'Case studies', intent: 'case-study' },
       ],
     };
   },
@@ -170,10 +177,23 @@ export const aboutAgent = {
     }
     return {
       text: results[0].doc.summary,
-      cards: [aboutCard, ...toCards(results.slice(1, 2))],
       suggestions: [
         { label: 'Explore services', intent: 'service' },
         { label: 'Contact the team', intent: 'contact' },
+      ],
+    };
+  },
+};
+
+export const capabilityAgent = {
+  id: 'capability',
+  handle() {
+    return {
+      text: 'SM Associates Operational Capabilities\n\nWe provide end-to-end recovery operations across South India with six core operational pillars:\n\n• Pre-Disbursal Verification & Due Diligence (CPV checks, residence & business site audits, document verification)\n• Ground Collections & Field Operations (Geotagged field outreach across Early, Soft, Hard & NPA buckets)\n• Legal Enforcement & SARFAESI Support (Section 13(2) notices, Section 14 magistrate filing & possession assist)\n• Asset Recovery & Repossession (Automobile tracing, secured asset custody, yard management & e-auctions)\n• Skip Tracing & Fraud Control (Debtor location mapping, address audits & forensic investigation)\n• Operational Analytics & Portfolio Management (Delinquency scoring, dialer call centers & NPA resolution)',
+      suggestions: [
+        { label: 'SARFAESI support', intent: 'service' },
+        { label: 'Field collections', intent: 'service' },
+        { label: 'Request a proposal', intent: 'lead' },
       ],
     };
   },

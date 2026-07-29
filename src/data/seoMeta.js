@@ -27,8 +27,8 @@ export const seoMeta = {
 
   // Services — index
   '/services': {
-    title: 'Recovery & Verification Services | SM Associates',
-    description: 'End-to-end recovery services: verification, collections, legal recovery, asset recovery, investigation and specialized NPA management for banks and NBFCs.',
+    title: 'Enterprise Recovery Operations & Services | SM Associates',
+    description: 'End-to-end enterprise recovery operations across South India — financial, secured, movable and business asset recovery, legal enforcement and technology-driven field operations for banks, NBFCs, HFCs and ARCs.',
   },
   // Verification
   '/services/verification/cpv-services': {
@@ -288,8 +288,8 @@ export const seoMeta = {
 
   // Insights
   '/insights': {
-    title: 'Insights & Resources | SM Associates',
-    description: 'Case studies, articles and news on recovery operations, risk management and regulatory compliance.',
+    title: 'Enterprise Recovery Insights | SM Associates',
+    description: 'Expert perspectives, industry reports, practical guides and case studies on enterprise recovery operations, analytics and compliance.',
   },
   '/insights/case-studies': {
     title: 'Case Studies — Client Recovery Outcomes | SM Associates',

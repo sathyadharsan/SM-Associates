@@ -3,7 +3,7 @@ import { Layers, ShieldCheck, Users, Workflow, ArrowRight, CheckCircle2 } from '
 
 export default function BentoWorkflowSection() {
   return (
-    <section className="py-24 bg-[#f0f7ff] border-t border-b border-blue-100/60 relative" id="bento-workflow">
+    <section className="py-24 bg-white relative" id="bento-workflow">
       <div className="fg-wrap max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="max-w-2xl mb-14">
@@ -21,40 +21,40 @@ export default function BentoWorkflowSection() {
         {/* Bento Grid */}
         <div className="bento-grid">
           {/* Card 1: Top Wide Card */}
-          <div className="bento-card bento-card-full bg-gradient-to-br from-indigo-900 to-slate-900 text-white min-h-[320px]">
+          <div className="bento-card bento-card-full bg-white border border-slate-200 text-slate-900 shadow-md min-h-[320px]">
             {/* Background graphic elements */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#0072bc]/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 h-full">
               <div className="max-w-md">
-                <span className="text-xs font-bold uppercase tracking-widest text-indigo-300">You make the rules</span>
-                <h3 className="text-3xl font-extrabold mt-2 text-white leading-snug">
-                  Automated field assignment & real-time compliance audit
+                <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc]">You make the rules</span>
+                <h3 className="text-3xl font-extrabold mt-2 text-slate-900 leading-snug">
+                  Automated field assignment &amp; real-time compliance audit
                 </h3>
-                <p className="text-indigo-200 text-sm mt-3 leading-relaxed">
+                <p className="text-slate-600 text-sm mt-3 leading-relaxed font-medium">
                   Every field visit and legal notice is geotagged, timestamped, and logged under strict RBI and ISO/IEC 27001 data protection guidelines.
                 </p>
               </div>
 
               {/* Floating Toast Cards inside Card 1 */}
               <div className="space-y-3 w-full md:w-auto">
-                <div className="bento-toast-float">
-                  <div className="w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold">
+                <div className="bento-toast-float bg-slate-50 border border-slate-200">
+                  <div className="w-7 h-7 rounded-full bg-[#0072bc] text-white flex items-center justify-center font-bold">
                     <CheckCircle2 size={16} />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-white">Physical Verification Complete</div>
-                    <div className="text-[10px] text-slate-300">GPS Matched · 19 Branches</div>
+                    <div className="text-xs font-bold text-slate-900">Physical Verification Complete</div>
+                    <div className="text-[10px] text-slate-500 font-medium">GPS Matched · 19 Branches</div>
                   </div>
                 </div>
 
-                <div className="bento-toast-float bg-slate-800 border border-slate-700">
-                  <div className="w-7 h-7 rounded-full bg-indigo-500 text-white flex items-center justify-center font-bold">
+                <div className="bento-toast-float bg-slate-50 border border-slate-200">
+                  <div className="w-7 h-7 rounded-full bg-[#0072bc] text-white flex items-center justify-center font-bold">
                     <ShieldCheck size={16} />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-white">SARFAESI Notice Issued</div>
-                    <div className="text-[10px] text-indigo-300 font-semibold">Under Section 13(2)</div>
+                    <div className="text-xs font-bold text-slate-900">SARFAESI Notice Issued</div>
+                    <div className="text-[10px] text-[#0072bc] font-semibold">Under Section 13(2)</div>
                   </div>
                 </div>
               </div>

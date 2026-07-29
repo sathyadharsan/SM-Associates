@@ -7,13 +7,35 @@
 // (+ optional stopword removal, used by search only — intent patterns need
 // phrases like "go to" intact).
 
-// Common misspellings observed for this domain (exact-token replacements).
+// Common misspellings & phonetic variations observed in domain input.
 const TYPOS = {
+  // Services & Recovery Terms
   servce: 'service', servics: 'services', serivce: 'service', survice: 'service',
-  servise: 'service', cntact: 'contact', contct: 'contact', locaton: 'location',
-  reocvery: 'recovery', recovry: 'recovery', collction: 'collection',
-  bankng: 'banking', sarfeasi: 'sarfaesi', sarfasi: 'sarfaesi', nbcf: 'nbfc',
-  indutry: 'industry', indusrty: 'industry', adress: 'address',
+  servise: 'service', servie: 'service', srvice: 'service', srvc: 'service',
+  serivces: 'services', servic: 'service', srvices: 'services',
+  cntact: 'contact', contct: 'contact', locaton: 'location',
+  reocvery: 'recovery', recovry: 'recovery', recovri: 'recovery', recovree: 'recovery',
+  recoverie: 'recovery', recovry: 'recovery', recovry: 'recovery',
+  collction: 'collection', colletion: 'collection', colecton: 'collection',
+  bankng: 'banking', sarfeasi: 'sarfaesi', sarfasi: 'sarfaesi', sarfaci: 'sarfaesi',
+  sarfaes: 'sarfaesi', surfaesi: 'sarfaesi', sarfasi: 'sarfaesi', nbcf: 'nbfc',
+  indutry: 'industry', indusrty: 'industry', indusries: 'industry', industris: 'industry',
+  indusry: 'industry', indstry: 'industry', indusri: 'industry', indusrie: 'industry',
+  industrie: 'industry', adress: 'address',
+  cpv: 'cpv verification', verificaton: 'verification', verifcation: 'verification',
+  verifikasion: 'verification', verifi: 'verification', verfications: 'verification',
+  skiptracing: 'skip tracing', skiptrac: 'skip tracing', skiptracin: 'skip tracing',
+  skiptrace: 'skip tracing', reposession: 'repossession', repossess: 'repossession',
+  repo: 'repossession', chequebounce: 'cheque bounce', sec138: 'section 138',
+  sec13: 'section 13', sec14: 'section 14', npa: 'npa recovery',
+  cbabbilitiess: 'capability', cbabbilities: 'capability', capabilites: 'capability',
+  capabilty: 'capability', capabilties: 'capability', capablity: 'capability',
+  // Phonetic & Slang variations
+  wat: 'what', wts: 'what is', wt: 'what', wats: 'what is',
+  tellme: 'tell me', tel: 'tell', gimme: 'give me', shw: 'show',
+  plz: 'please', pls: 'please', wrk: 'work', wrking: 'working',
+  workin: 'working', detals: 'details', detls: 'details', detaile: 'details',
+  infa: 'info', infomation: 'information',
 };
 
 // Multi-word synonyms first (longest match wins), then single words.
@@ -24,6 +46,15 @@ const PHRASE_SYNONYMS = [
   ['loan recovery', 'debt recovery'],
   ['phone number', 'phone'],
   ['mobile number', 'phone'],
+  ['what is your', 'what is'],
+  ['tell about', 'what is'],
+  ['explain about', 'what is'],
+  ['work with', 'work with'],
+  ['who do you work', 'clients'],
+  ['which bank', 'clients'],
+  ['client list', 'clients'],
+  ['partner list', 'clients'],
+  ['how you recover', 'recovery process'],
 ];
 
 const WORD_SYNONYMS = {
