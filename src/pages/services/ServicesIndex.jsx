@@ -1,20 +1,17 @@
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import {
-  Landmark, Building2, Truck, Router, Layers,
   Workflow, PieChart, BarChart3, LayoutDashboard, MapPin, FileText, Search, ShieldCheck,
-  ArrowRight, Check, Sparkles,
+  Lock, ClipboardCheck, Scale, UserCheck, Check,
+  ArrowRight, Sparkles,
 } from 'lucide-react';
-import {
-  capabilityGroups,
-  technologyCapabilities,
-  futureCapabilities,
-  executionSteps,
-} from '../../data/servicesLandingData';
+import { technologyCapabilities, complianceAssurance } from '../../data/servicesLandingData';
 import EnterpriseServicesSection from '../../sections/EnterpriseServicesSection';
+import StickyScrollCardsSection from '../../sections/StickyScrollCardsSection';
 import HeroParallax from '../../components/ui/hero-parallax';
 
 const recoveryProducts = [
+  // ── ROW 1: Financial & Secured Asset Recovery (13 Services) ──
   {
     title: "Retail & Delinquency Recovery",
     category: "Financial Recovery",
@@ -106,6 +103,8 @@ const recoveryProducts = [
     thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
     description: "24/7 security custody, valuation, and auction management for manufacturing plants."
   },
+
+  // ── ROW 2: Legal, Investigation & Retail Portfolios (12 Services) ──
   {
     title: "Skip Tracing & Deep Verification",
     category: "Investigation",
@@ -119,12 +118,168 @@ const recoveryProducts = [
     link: "/services/operational/field-operations",
     thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
     description: "Banking-grade audit trails with continuous conduct monitoring across all field interactions."
+  },
+  {
+    title: "Agriculture & Tractor Recovery",
+    category: "Equipment Recovery",
+    link: "/services/asset-recovery/heavy-equipment",
+    thumbnail: "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?q=80&w=1200&auto=format&fit=crop",
+    description: "Rural field recovery and repossession for agricultural equipment and tractor loans."
+  },
+  {
+    title: "Credit Card & Unsecured Recovery",
+    category: "Retail Portfolios",
+    link: "/services/collections/commercial",
+    thumbnail: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=1200&auto=format&fit=crop",
+    description: "Structured bucket-wise resolution for credit cards and unsecured consumer loans."
+  },
+  {
+    title: "Two-Wheeler Repossession & Custody",
+    category: "Auto Recovery",
+    link: "/services/asset-recovery/heavy-equipment",
+    thumbnail: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=1200&auto=format&fit=crop",
+    description: "Rapid two-wheeler field repossession with secure yard storage and digital auctioning."
+  },
+  {
+    title: "Vehicle Valuation & E-Auction",
+    category: "Asset Realization",
+    link: "/services/asset-recovery/commercial",
+    thumbnail: "https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1200&auto=format&fit=crop",
+    description: "Certified vehicle valuation and transparent e-auction execution for max asset recovery."
+  },
+  {
+    title: "High-Ticket Corporate NPA Resolution",
+    category: "Stressed Debt",
+    link: "/services/collections/banking",
+    thumbnail: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop",
+    description: "Tailored resolution strategies for high-exposure corporate NPA portfolios."
+  },
+  {
+    title: "Debt Recovery Tribunal (DRT) Filing",
+    category: "Legal Proceedings",
+    link: "/services/legal-recovery/sarfaesi",
+    thumbnail: "https://images.unsplash.com/photo-1436450412740-6b988f486c6b?q=80&w=1200&auto=format&fit=crop",
+    description: "DRT original application filings, interim injunctions, and receiver appointment support."
+  },
+  {
+    title: "NCLT & Insolvency Resolution",
+    category: "Corporate Restructuring",
+    link: "/services/legal-recovery/sarfaesi",
+    thumbnail: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1200&auto=format&fit=crop",
+    description: "IBC Section 7 & 9 petitions support, operational creditor representation, and claim filing."
+  },
+  {
+    title: "Corporate Debt Mediation",
+    category: "Resolution Engine",
+    link: "/services/collections/banking",
+    thumbnail: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop",
+    description: "Out-of-court structured debt restructuring and One-Time Settlement (OTS) negotiation."
+  },
+  {
+    title: "Omnichannel Tele-Calling Outreach",
+    category: "Digital Contact",
+    link: "/services/operational/field-operations",
+    thumbnail: "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=1200&auto=format&fit=crop",
+    description: "Multi-language call center operations with automated dialers and speech analytics."
+  },
+  {
+    title: "Automated WhatsApp & SMS Campaign",
+    category: "Omnichannel AI",
+    link: "/services/operational/field-operations",
+    thumbnail: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=1200&auto=format&fit=crop",
+    description: "Interactive payment link delivery via verified WhatsApp Business API and SMS channels."
+  },
+
+  // ── ROW 3: Field Operations, Commercial & Specialized Recovery (12 Services) ──
+  {
+    title: "Doorstep Address Verification",
+    category: "Field Operations",
+    link: "/services/operational/field-operations",
+    thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+    description: "On-ground physical residence and business office verification with photographic evidence."
+  },
+  {
+    title: "Asset Tracing & Financial Audit",
+    category: "Investigation",
+    link: "/services/investigation/skip-tracing",
+    thumbnail: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop",
+    description: "Uncovering hidden borrower assets, property deeds, and undisclosed business holdings."
+  },
+  {
+    title: "Gold Loan Default Recovery",
+    category: "Secured Assets",
+    link: "/services/asset-recovery/commercial",
+    thumbnail: "https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=1200&auto=format&fit=crop",
+    description: "Compliance-backed notice delivery and public auction management for gold loan defaults."
+  },
+  {
+    title: "Microfinance (MFI) Group Recovery",
+    category: "Inclusive Finance",
+    link: "/services/collections/commercial",
+    thumbnail: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=1200&auto=format&fit=crop",
+    description: "Community-sensitive Joint Liability Group (JLG) center meeting recovery operations."
+  },
+  {
+    title: "SME & MSME Business Loan Recovery",
+    category: "Commercial Lending",
+    link: "/services/collections/commercial",
+    thumbnail: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop",
+    description: "Secured and unsecured MSME loan workout programs with cash-flow monitoring."
+  },
+  {
+    title: "Mining Machinery Repossession",
+    category: "Industrial Assets",
+    link: "/services/asset-recovery/heavy-equipment",
+    thumbnail: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?q=80&w=1200&auto=format&fit=crop",
+    description: "Off-road heavy machinery locate, secure extraction, and logistics transport to yards."
+  },
+  {
+    title: "Pre-Litigation Mediation & Counseling",
+    category: "Legal Recovery",
+    link: "/services/legal-recovery/sarfaesi",
+    thumbnail: "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=1200&auto=format&fit=crop",
+    description: "Lok Adalat & pre-litigation settlement forums organizing formal legal compromise."
+  },
+  {
+    title: "Statutory Execution Bailiff Action",
+    category: "Statutory Enforcement",
+    link: "/services/legal-recovery/sarfaesi",
+    thumbnail: "https://images.unsplash.com/photo-1479142506502-19b3a3b7ff33?q=80&w=1200&auto=format&fit=crop",
+    description: "Magistrate order execution, District Collector assistance, and police protection deployment."
+  },
+  {
+    title: "Stressed Asset Portfolio Acquisition",
+    category: "ARC Mandates",
+    link: "/services/collections/banking",
+    thumbnail: "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?q=80&w=1200&auto=format&fit=crop",
+    description: "Due diligence and resolution support for Asset Reconstruction Companies (ARCs)."
+  },
+  {
+    title: "Autonomous AI Settlement Negotiation",
+    category: "AI Technology",
+    link: "/services/operational/skip-tracing",
+    thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
+    description: "Self-service borrower portal negotiating policy-compliant payment schedules 24/7."
+  },
+  {
+    title: "Warehouse & Stock Verification",
+    category: "Audit & Inspection",
+    link: "/services/operational/field-operations",
+    thumbnail: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
+    description: "Pledged inventory physical audit, stock counting, and warehouse sealing operations."
+  },
+  {
+    title: "Cross-Border & NRI Asset Recovery",
+    category: "Specialized Enforcement",
+    link: "/services/investigation/skip-tracing",
+    thumbnail: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200&auto=format&fit=crop",
+    description: "Inter-state and overseas borrower contact, legal notice serving, and asset tracing."
   }
 ];
 
 const iconMap = {
-  Landmark, Building2, Truck, Router, Layers,
   Workflow, PieChart, BarChart3, LayoutDashboard, MapPin, FileText, Search, ShieldCheck,
+  Lock, ClipboardCheck, Scale, UserCheck,
 };
 
 const EASE = [0.16, 1, 0.3, 1];
@@ -175,7 +330,7 @@ export default function ServicesIndex() {
 
   return (
     <div className="bg-white">
-      {/* ═══════════ 1 · HERO PARALLAX SHOWCASE ═══════════ */}
+      {/* ═══════════ 1 · HERO PARALLAX SECTION ═══════════ */}
       <HeroParallax products={recoveryProducts} />
 
       {/* ═══════════ 1b · ENTERPRISE SERVICES SHOWCASE ═══════════ */}
@@ -224,109 +379,62 @@ export default function ServicesIndex() {
         </div>
       </section>
 
-      {/* ═══════════ 5 · FUTURE / ROADMAP ═══════════
-          Explicitly framed as not-yet-deployed. The banner, the section copy
-          and a per-card "Planned" tag all carry that, so no single element
-          being missed can let this read as a live capability. */}
-      <section className="relative overflow-hidden border-b border-slate-200/90 bg-[#0a2540] py-20 text-white sm:py-28">
-        <span aria-hidden="true" className="pointer-events-none absolute -right-32 top-0 h-[520px] w-[520px] rounded-full bg-[#0072bc]/25 blur-[120px]" />
-
-        <div className="fg-wrap relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
-            className="max-w-3xl"
-          >
-            <motion.span
-              variants={rise}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-white/90"
-            >
-              <Sparkles size={12} strokeWidth={2.5} />
-              Roadmap · In Development
-            </motion.span>
-
-            <motion.h2
-              variants={rise}
-              className="mt-6 text-3xl font-extrabold leading-tight tracking-tight sm:text-[40px]"
-            >
-              The Future of Recovery Operations
-            </motion.h2>
-
-            <motion.p variants={rise} className="mt-4 text-[16.5px] leading-relaxed text-white/70">
-              SM Associates is investing in a next generation of AI-driven recovery technology. The
-              capabilities below are strategic initiatives currently under development — they are not
-              yet deployed on client portfolios, and are published here so partners can plan against
-              our direction rather than discover it later.
-            </motion.p>
-          </motion.div>
+      {/* ═══════════ 4 · COMPLIANCE & DATA SECURITY ═══════════
+          Operating practice, not a certification badge grid — the ISO 27001 /
+          RBI Compliant / SARFAESI Authorized / IIBF badges themselves already
+          live on the homepage AwardsCertificationsSection. */}
+      <section className="border-b border-slate-200/90 bg-white py-20 sm:py-28">
+        <div className="fg-wrap mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            eyebrow="Compliance & Data Security"
+            title="Every engagement runs under enterprise governance."
+            lead="Built for regulated lenders — borrower data, field conduct and reporting are all governed the same way an institution would govern them in-house."
+          />
 
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.1 }}
-            className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
+            className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2"
           >
-            {futureCapabilities.map((item) => (
-              <motion.div
-                key={item.title}
-                variants={rise}
-                className="rounded-[24px] border border-white/[0.12] bg-white/[0.06] p-6 backdrop-blur-xl transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.09]"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-[15px] font-bold leading-snug tracking-tight text-white">{item.title}</h3>
-                  <span className="shrink-0 rounded-full border border-white/20 px-2 py-0.5 font-mono text-[8.5px] font-bold uppercase tracking-wider text-white/60">
-                    Planned
+            {complianceAssurance.map((pillar) => {
+              const Icon = iconMap[pillar.icon] || ShieldCheck;
+              return (
+                <motion.div
+                  key={pillar.title}
+                  variants={rise}
+                  className="rounded-[24px] border border-slate-200 bg-[#f7f9fc] p-7"
+                >
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0072bc]/8 text-[#0072bc]">
+                    <Icon size={19} strokeWidth={2} />
                   </span>
-                </div>
-                <p className="mt-2.5 text-[13.5px] leading-relaxed text-white/60">{item.desc}</p>
-              </motion.div>
-            ))}
+                  <h3 className="mt-4 text-[16px] font-bold leading-snug tracking-tight text-slate-900">{pillar.title}</h3>
+                  <ul className="mt-4 space-y-2.5">
+                    {pillar.points.map((point) => (
+                      <li key={point} className="flex items-start gap-2.5 text-[13.5px] leading-relaxed text-slate-600">
+                        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#0072bc]/10 text-[#0072bc]">
+                          <Check size={10} strokeWidth={3} />
+                        </span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
 
-      {/* ═══════════ 6 · HOW WE EXECUTE ═══════════ */}
-      <section className="border-b border-slate-200/90 py-20 sm:py-28">
-        <div className="fg-wrap mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="How We Execute"
-            title="One accountable sequence, start to close."
-            lead="Every mandate follows the same governed path. No stage is skipped, and each handoff stays inside the same case file."
-          />
+      {/* ═══════════ 5 · APPLE-INSPIRED STICKY SCROLL GLASS CARDS ═══════════ */}
+      <StickyScrollCardsSection />
 
-          <motion.ol
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.08 }}
-            className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4"
-          >
-            {executionSteps.map((step, index) => (
-              <motion.li
-                key={step.no}
-                variants={rise}
-                className="relative rounded-[24px] border border-slate-200 bg-white p-6 shadow-xs transition-shadow duration-300 hover:border-[#0072bc]/30 hover:shadow-lg"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#0072bc] font-mono text-[12px] font-bold text-white">
-                    {step.no}
-                  </span>
-                  {index < executionSteps.length - 1 && (
-                    <span aria-hidden="true" className="hidden h-px flex-1 bg-gradient-to-r from-[#0072bc]/30 to-transparent lg:block" />
-                  )}
-                </div>
-                <h3 className="mt-4 text-[15px] font-bold tracking-tight text-slate-900">{step.title}</h3>
-                <p className="mt-2 text-[13.5px] leading-relaxed text-slate-500">{step.desc}</p>
-              </motion.li>
-            ))}
-          </motion.ol>
-        </div>
-      </section>
-
-      {/* ═══════════ 7 · CTA ═══════════ */}
+      {/* ═══════════ 6 · CTA ═══════════
+          (An "How We Execute" step-by-step section sat here originally. Removed:
+          the homepage Operating Model section already carries the same
+          accountable-lifecycle sequence, and this page must not repeat the
+          home page.) */}
       <section className="relative overflow-hidden bg-[#f7f9fc] py-20 sm:py-28">
         <span aria-hidden="true" className="pointer-events-none absolute -bottom-40 right-0 h-[460px] w-[460px] rounded-full bg-[#0072bc]/10 blur-[110px]" />
 

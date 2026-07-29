@@ -12,9 +12,12 @@ import { ArrowRight } from "lucide-react";
 export const HeroParallax = ({
   products,
 }) => {
-  const firstRow = products.slice(0, 5);
-  const secondRow = products.slice(5, 10);
-  const thirdRow = products.slice(10, 15);
+  // Divide 37+ products into 3 parallax rows
+  const itemsPerRow = Math.ceil(products.length / 3);
+  const firstRow = products.slice(0, itemsPerRow);
+  const secondRow = products.slice(itemsPerRow, itemsPerRow * 2);
+  const thirdRow = products.slice(itemsPerRow * 2);
+
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -24,11 +27,11 @@ export const HeroParallax = ({
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
 
   const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 800]),
+    useTransform(scrollYProgress, [0, 1], [0, 1000]),
     springConfig
   );
   const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -800]),
+    useTransform(scrollYProgress, [0, 1], [0, -1000]),
     springConfig
   );
   const rotateX = useSpring(
@@ -47,12 +50,13 @@ export const HeroParallax = ({
     useTransform(scrollYProgress, [0, 0.25], [-350, 100]),
     springConfig
   );
+
   return (
     <div
       ref={ref}
       className="min-h-screen py-16 md:py-28 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-slate-950 text-white pb-32"
     >
-      <Header />
+      <Header totalServices={products.length} />
       <motion.div
         style={{
           rotateX,
@@ -62,30 +66,35 @@ export const HeroParallax = ({
         }}
         className="w-full relative z-10"
       >
+        {/* Row 1: Moves on scroll */}
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-8 md:space-x-16 mb-10 md:mb-16">
-          {firstRow.map((product) => (
+          {firstRow.map((product, idx) => (
             <ProductCard
               product={product}
               translate={translateX}
-              key={product.title}
+              key={`row1-${product.title}-${idx}`}
             />
           ))}
         </motion.div>
+
+        {/* Row 2: Moves in reverse on scroll */}
         <motion.div className="flex flex-row mb-10 md:mb-16 space-x-8 md:space-x-16">
-          {secondRow.map((product) => (
+          {secondRow.map((product, idx) => (
             <ProductCard
               product={product}
               translate={translateXReverse}
-              key={product.title}
+              key={`row2-${product.title}-${idx}`}
             />
           ))}
         </motion.div>
+
+        {/* Row 3: Moves on scroll */}
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-8 md:space-x-16">
-          {thirdRow.map((product) => (
+          {thirdRow.map((product, idx) => (
             <ProductCard
               product={product}
               translate={translateX}
-              key={product.title}
+              key={`row3-${product.title}-${idx}`}
             />
           ))}
         </motion.div>
@@ -94,17 +103,17 @@ export const HeroParallax = ({
   );
 };
 
-export const Header = () => {
+export const Header = ({ totalServices }) => {
   return (
     <div className="max-w-7xl relative mx-auto py-12 md:py-24 px-4 w-full left-0 top-0">
       <span className="inline-block font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#0072bc] bg-[#0072bc]/10 border border-[#0072bc]/20 px-3.5 py-1.5 rounded-full mb-4">
-        Enterprise Recovery Operations
+        Enterprise Recovery Operations · {totalServices || '37+'} Services Portfolio
       </span>
       <h1 className="text-3xl md:text-7xl font-extrabold text-white tracking-tight leading-tight">
         Precision Operations <br /> Across South India
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-6 text-slate-300 leading-relaxed">
-        From digital engagement to field enforcement and SARFAESI asset resolution, explore our enterprise recovery portfolio built for banks, NBFCs, and financial institutions.
+        From digital engagement to field enforcement and SARFAESI asset resolution, explore our complete portfolio of {totalServices || '37+'} specialized recovery services built for banks, NBFCs, and financial institutions.
       </p>
       <div className="mt-8 flex flex-wrap gap-4">
         <Link
@@ -125,10 +134,7 @@ export const Header = () => {
   );
 };
 
-export const ProductCard = ({
-  product,
-  translate,
-}) => {
+export const ProductCard = ({ product, translate }) => {
   return (
     <motion.div
       style={{
@@ -139,7 +145,7 @@ export const ProductCard = ({
         scale: 1.02,
       }}
       key={product.title}
-      className="group/product h-88 w-[22rem] md:h-[28rem] md:w-[32rem] relative flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 bg-slate-950 transition-all duration-300 hover:border-[#0072bc] hover:shadow-[#0072bc]/30"
+      className="group/product h-88 w-[22rem] md:h-[28rem] md:w-[32rem] relative flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 bg-slate-950 transition-all duration-300 hover:border-[#0072bc] hover:shadow-[#0072bc]/40"
     >
       <Link
         to={product.link || "/services"}

@@ -81,12 +81,11 @@ function ActiveServiceCard({ service, reduceMotion }) {
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, scale: 0.94, rotateY: -14 }}
-      animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-      exit={{ opacity: 0, scale: 0.94, rotateY: 14 }}
-      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-      className="relative overflow-hidden rounded-[32px] h-[580px] w-full flex flex-col justify-between p-8 border border-[#2563EB]/40 shadow-2xl shadow-slate-900/20"
-      style={{ transformStyle: 'preserve-3d' }}
+      initial={{ opacity: 0, scale: 0.96 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      className="absolute inset-0 overflow-hidden rounded-[32px] h-full w-full flex flex-col justify-between p-8 border border-[#2563EB]/40 shadow-2xl shadow-slate-900/20 bg-[#0c1e38]"
     >
       {/* Mouse spotlight glass reflection */}
       {!reduceMotion && (
@@ -606,7 +605,7 @@ export default function EnterpriseServicesSection() {
   const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef(null);
 
-  // Auto-rotate cards every 3 seconds (pauses on mouse hover)
+  // Auto-rotate cards every 3 seconds (pauses when mouse is hovering over the section)
   useEffect(() => {
     if (reduceMotion || isPaused) return undefined;
 
@@ -711,8 +710,8 @@ export default function EnterpriseServicesSection() {
           aria-label="Interactive 3D Service Showcase"
         >
           {/* Left Column (6/12): Active Expanded Service Card */}
-          <div className="col-span-6 flex flex-col h-full relative" style={{ transformStyle: 'preserve-3d' }}>
-            <AnimatePresence mode="popLayout">
+          <div className="col-span-6 relative h-[580px] w-full">
+            <AnimatePresence mode="wait">
               <ActiveServiceCard
                 key={enterpriseServices[activeIndex].id}
                 service={enterpriseServices[activeIndex]}
@@ -835,36 +834,6 @@ export default function EnterpriseServicesSection() {
           ))}
         </div>
 
-        {/* ── Bottom CTA strip ── */}
-        <motion.div
-          variants={sectionReveal}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
-          className="mt-14 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
-        >
-          <Link
-            to="/contact"
-            className="group inline-flex items-center gap-2.5 rounded-full px-8 py-3.5 text-[14px] font-bold text-white transition-all"
-            style={{
-              background: 'linear-gradient(135deg, #1d4ed8 0%, #2563EB 100%)',
-              boxShadow: '0 8px 32px rgba(37,99,235,0.28)',
-            }}
-          >
-            Talk to an Expert
-            <motion.span whileHover={{ x: 5 }} transition={SPRING}>
-              <ArrowUpRight size={15} />
-            </motion.span>
-          </Link>
-          <Link
-            to="/services"
-            className="inline-flex items-center gap-2 rounded-full border px-8 py-3.5 text-[14px] font-bold text-slate-900 transition-colors hover:border-slate-400"
-            style={{ borderColor: 'rgba(203,213,225,0.9)' }}
-          >
-            View All Services
-            <ArrowUpRight size={15} className="text-slate-400" />
-          </Link>
-        </motion.div>
       </div>
     </section>
   );
