@@ -12,6 +12,115 @@ import {
   executionSteps,
 } from '../../data/servicesLandingData';
 import EnterpriseServicesSection from '../../sections/EnterpriseServicesSection';
+import HeroParallax from '../../components/ui/hero-parallax';
+
+const recoveryProducts = [
+  {
+    title: "Retail & Delinquency Recovery",
+    category: "Financial Recovery",
+    link: "/services/collections/commercial",
+    thumbnail: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop",
+    description: "End-to-end delinquency curve recovery for early-stage retail banking & NBFC loan portfolios."
+  },
+  {
+    title: "Commercial Real Estate Recovery",
+    category: "Secured Assets",
+    link: "/services/asset-recovery/commercial",
+    thumbnail: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
+    description: "Statutory enforcement and physical recovery for commercial mortgages & corporate properties."
+  },
+  {
+    title: "SARFAESI Legal Enforcement",
+    category: "Legal Recovery",
+    link: "/services/legal-recovery/sarfaesi",
+    thumbnail: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1200&auto=format&fit=crop",
+    description: "End-to-end statutory Section 13 notices, physical possession, and court bailiff execution."
+  },
+  {
+    title: "Commercial Fleet Repossession",
+    category: "Movable Assets",
+    link: "/services/asset-recovery/heavy-equipment",
+    thumbnail: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1200&auto=format&fit=crop",
+    description: "Repossession, secured yard custody, and auction realization for commercial transport fleets."
+  },
+  {
+    title: "Merchant POS & Hardware Recovery",
+    category: "Business Equipment",
+    link: "/services/operational/field-operations",
+    thumbnail: "https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=1200&auto=format&fit=crop",
+    description: "Field retrieval of deployed merchant POS hardware, terminals, routers, and enterprise assets."
+  },
+  {
+    title: "Institutional Banking Mandates",
+    category: "Enterprise Mandates",
+    link: "/services/collections/banking",
+    thumbnail: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop",
+    description: "Whole-book recovery mandates for scheduled commercial banks and regulated financial institutions."
+  },
+  {
+    title: "Residential Mortgage Collateral",
+    category: "Secured Assets",
+    link: "/services/asset-recovery/real-estate",
+    thumbnail: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
+    description: "Resolution and statutory physical possession for defaulted residential housing loans."
+  },
+  {
+    title: "Heavy Industrial Equipment",
+    category: "Movable Assets",
+    link: "/services/asset-recovery/heavy-equipment",
+    thumbnail: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop",
+    description: "Secured recovery and custody management for construction equipment and plant machinery."
+  },
+  {
+    title: "AI Propensity Scoring Engine",
+    category: "Intelligence",
+    link: "/services/operational/skip-tracing",
+    thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+    description: "Machine learning algorithms ranking accounts by recoverability and optimal contact timing."
+  },
+  {
+    title: "GPS Geo-Tagged Field Operations",
+    category: "Field Operations",
+    link: "/services/operational/field-operations",
+    thumbnail: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1200&auto=format&fit=crop",
+    description: "Doorstep field recovery backed by real-time GPS verification and audit-ready logging."
+  },
+  {
+    title: "Section 138 Negotiated Resolution",
+    category: "Legal Recovery",
+    link: "/services/legal-recovery/sarfaesi",
+    thumbnail: "https://images.unsplash.com/photo-1521791136364-798a7bc0d262?q=80&w=1200&auto=format&fit=crop",
+    description: "Cheque bounce legal escalation, notice serving, and structured settlement negotiation."
+  },
+  {
+    title: "Corporate Stressed Asset Resolution",
+    category: "NPA Portfolios",
+    link: "/services/collections/banking",
+    thumbnail: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1200&auto=format&fit=crop",
+    description: "High-ticket written-off account recovery for ARC portfolios and corporate NPAs."
+  },
+  {
+    title: "Industrial Plant Custody & Sale",
+    category: "Secured Assets",
+    link: "/services/asset-recovery/commercial",
+    thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
+    description: "24/7 security custody, valuation, and auction management for manufacturing plants."
+  },
+  {
+    title: "Skip Tracing & Deep Verification",
+    category: "Investigation",
+    link: "/services/investigation/skip-tracing",
+    thumbnail: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
+    description: "Digital footprint investigation and physical field tracing for untraceable accounts."
+  },
+  {
+    title: "Real-Time Compliance & Governance",
+    category: "Governance",
+    link: "/services/operational/field-operations",
+    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+    description: "Banking-grade audit trails with continuous conduct monitoring across all field interactions."
+  }
+];
 
 const iconMap = {
   Landmark, Building2, Truck, Router, Layers,
@@ -66,52 +175,8 @@ export default function ServicesIndex() {
 
   return (
     <div className="bg-white">
-      {/* ═══════════ 1 · HERO ═══════════ */}
-      <section className="relative overflow-hidden bg-white py-24 sm:py-32">
-        <span aria-hidden="true" className="pointer-events-none absolute -right-32 -top-40 h-[520px] w-[520px] rounded-full bg-[#0072bc]/10 blur-[110px]" />
-        <span aria-hidden="true" className="pointer-events-none absolute -bottom-48 -left-40 h-[460px] w-[460px] rounded-full bg-[#0a2540]/[0.07] blur-[110px]" />
-
-        <div className="fg-wrap relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div variants={stagger} initial="hidden" animate="show" className="max-w-4xl">
-            <motion.span
-              variants={rise}
-              className="inline-flex items-center gap-2 rounded-full border border-[#0072bc]/20 bg-white px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[#0072bc]"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc]" />
-              Enterprise Recovery Operations
-            </motion.span>
-
-            <motion.h1
-              variants={rise}
-              className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-slate-900 sm:text-6xl"
-            >
-              Enterprise Recovery Operations Built for Scale
-            </motion.h1>
-
-            <motion.p variants={rise} className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-              From digital recovery and field operations to legal enforcement, asset recovery and
-              AI-powered recovery intelligence, SM Associates delivers end-to-end enterprise recovery
-              operations across South India.
-            </motion.p>
-
-            <motion.div variants={rise} className="mt-9 flex flex-wrap gap-3.5">
-              <Link
-                to="/contact"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-[#0072bc] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#0072bc]/25 transition-shadow hover:shadow-xl hover:shadow-[#0072bc]/30"
-              >
-                Talk to an Expert
-                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-              <a
-                href="#enterprise-services"
-                className="inline-flex items-center gap-2.5 rounded-full border border-slate-300 bg-white px-7 py-3.5 text-sm font-bold text-slate-900 transition-colors hover:border-slate-400"
-              >
-                Explore Our Capabilities
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+      {/* ═══════════ 1 · HERO PARALLAX SHOWCASE ═══════════ */}
+      <HeroParallax products={recoveryProducts} />
 
       {/* ═══════════ 1b · ENTERPRISE SERVICES SHOWCASE ═══════════ */}
       <EnterpriseServicesSection />

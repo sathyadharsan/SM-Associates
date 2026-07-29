@@ -134,6 +134,69 @@ function PremiumTiltCard({ children, className = '', color = '#0072bc', delay = 
   );
 }
 
+// ── Premium Full-Height Leadership Card with Transparent Photo Overlay ──
+function LeadershipCard({ name, role, image, quote, description }) {
+  const [showQuote, setShowQuote] = useState(false);
+
+  return (
+    <div
+      onClick={() => setShowQuote(!showQuote)}
+      onMouseEnter={() => setShowQuote(true)}
+      onMouseLeave={() => setShowQuote(false)}
+      className="relative h-[540px] sm:h-[560px] w-full rounded-3xl overflow-hidden shadow-xl shadow-slate-200/80 group cursor-pointer border border-slate-200/80 transition-all duration-500 hover:shadow-2xl hover:shadow-[#0072bc]/25 hover:-translate-y-1 bg-slate-900"
+    >
+      {/* Background Photo - Always Crisp & 100% Clear (Zero Blur!) */}
+      <img
+        src={image}
+        alt={name}
+        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src = '/images/jebaraj.M MD.png';
+        }}
+      />
+
+      {/* Pure semi-transparent dark gradient overlay over photo - ZERO blur so photo stays crystal clear */}
+      <div
+        className={`absolute inset-0 transition-all duration-500 ${
+          showQuote
+            ? 'bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-slate-950/20'
+            : 'bg-gradient-to-t from-slate-950/90 via-slate-950/40 via-50% to-transparent'
+        }`}
+      />
+
+      {/* Text Content Overlay directly over the crisp background photo */}
+      <div className="absolute inset-0 flex flex-col justify-end p-8 text-left z-10">
+        <h3 className="text-2xl sm:text-3xl font-bold text-white font-serif tracking-tight leading-tight">
+          {name}
+        </h3>
+        <p className="text-sm font-semibold text-[#0072bc] mt-1 tracking-wide">
+          {role}
+        </p>
+
+        {/* Quote / Description Text - Appears directly over the photo */}
+        <div
+          className={`overflow-hidden transition-all duration-500 ease-out ${
+            showQuote ? 'max-h-80 opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'
+          }`}
+        >
+          <p className="text-xs sm:text-sm text-slate-100 leading-relaxed font-sans font-normal drop-shadow-md">
+            "{quote}"
+          </p>
+          {description && (
+            <p className="text-[11px] sm:text-xs text-slate-300 mt-3 leading-relaxed font-normal border-t border-slate-700/60 pt-2.5 font-sans">
+              {description}
+            </p>
+          )}
+        </div>
+
+        {/* Wide Blue Underline Bar (Matching Reference Image) */}
+        <div className="w-full h-1 bg-[#0072bc] rounded-full mt-4 transition-all duration-300 shadow-sm" />
+      </div>
+    </div>
+  );
+}
+
 // ----------------------------------------------------
 // 1. COMPANY OVERVIEW LAYOUT (`/about`)
 // ----------------------------------------------------
@@ -533,7 +596,10 @@ export function CompanyOverviewLayout({ content }) {
         </div>
       </motion.section>
 
-      {/* ── SECTION 5: LEADERSHIP & MANAGEMENT (Reused exactly) ── */}
+
+
+
+      {/* ── SECTION 5: LEADERSHIP ── */}
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -541,129 +607,50 @@ export function CompanyOverviewLayout({ content }) {
         variants={sectionVar}
         className="py-[clamp(56px,8vh,88px)] bg-[#FFFFFF] border-b border-[#E2E8F0]"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-16">
-          <div className="max-w-3xl mx-auto space-y-3">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
+          <div className="max-w-2xl mx-auto space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">EXECUTIVE DIRECTION</span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Leadership</h2>
             <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Banking veterans with 250+ combined years directing recovery operations, legal enforcement, and institutional strategy.
+              Guided by decades of banking execution, strategic vision, and uncompromised compliance.
             </p>
           </div>
 
-          {/* MD Spotlight Spot */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
-            <div className="lg:col-span-5 relative">
-              <PremiumTiltCard color="#0072bc" className="p-5 space-y-4">
-                <div className="h-80 w-full rounded-2xl overflow-hidden border border-[#E2E8F0] bg-slate-100 relative">
-                  <img
-                    src={leadershipContent.mdSpotlight?.photo || "/images/jebaraj.M MD.png"}
-                    alt={leadershipContent.mdSpotlight?.name}
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold font-serif text-[#0F172A]">{leadershipContent.mdSpotlight?.name}</h3>
-                  <p className="text-sm text-[#0072bc] font-bold uppercase tracking-wider font-mono mt-0.5">{leadershipContent.mdSpotlight?.role}</p>
-                </div>
-                <div className="pt-2 border-t border-[#E2E8F0]">
-                  <a
-                    href={leadershipContent.mdSpotlight?.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-[#E2E8F0] px-4 py-2 text-xs font-bold text-[#0F172A] hover:bg-slate-50 transition-colors w-full justify-center"
-                  >
-                    <Linkedin className="h-3.5 w-3.5 text-[#0072bc] fill-[#0072bc]" /> Connect on LinkedIn
-                  </a>
-                </div>
-              </PremiumTiltCard>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 max-w-7xl mx-auto items-stretch">
+            {/* Card 1: Jebaraj.M */}
+            <LeadershipCard
+              name="Jebaraj.M"
+              role="Managing Director & Founder"
+              image="/images/jebaraj.M MD.png"
+              quote="Our purpose is simple — to protect the financial system's integrity by combining ground execution strength with compliance, technology and ethical operations."
+              description="Over 28+ years of expertise in SARFAESI enforcement, institutional recovery operations, and banking resolution strategy across India."
+            />
 
-            <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono block">Managing Director's Statement</span>
-              <blockquote className="text-[#0F172A] text-lg font-medium font-serif leading-relaxed italic border-l-4 border-[#0072bc] pl-6 py-1">
-                "{leadershipContent.mdSpotlight?.quote}"
-              </blockquote>
+            {/* Card 2: Anisley Jebaraj */}
+            <LeadershipCard
+              name="Anisley Jebaraj"
+              role="Director"
+              image="/images/anisley_jebaraj.png"
+              quote="Representing the next generation of recovery operations leadership, driving technology integration, operational excellence, and compliant growth across India."
+              description="Focusing on digital transformation, enterprise client relations, and modernizing recovery operations frameworks."
+            />
 
-              <div className="grid grid-cols-2 gap-4">
-                {leadershipContent.mdSpotlight?.stats?.map((stat, idx) => (
-                  <div key={idx} className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-xl px-4 py-3 text-left">
-                    <div className="text-lg font-bold text-[#0072bc] font-serif">{stat.value}</div>
-                    <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">{stat.label}</div>
-                  </div>
-                ))}
+            {/* Card 3: Empty Card */}
+            <div className="relative h-[540px] sm:h-[560px] rounded-3xl border-2 border-dashed border-slate-200 bg-slate-50/50 p-8 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-[#0072bc]/30 hover:bg-slate-50">
+              <div className="w-16 h-16 rounded-full bg-[#0072bc]/10 border border-[#0072bc]/20 flex items-center justify-center text-[#0072bc] mb-4 shadow-sm">
+                <Users size={28} />
               </div>
-
-              <div className="space-y-3 pt-4 border-t border-slate-100">
-                <h4 className="font-bold text-xs text-[#0F172A] uppercase tracking-wider font-mono">Executive Career Matrix</h4>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-2">
-                  {leadershipContent.mdSpotlight?.timeline.map((step, idx) => (
-                    <div key={idx} className="space-y-1">
-                      <div className="text-xs font-bold text-[#0072bc] bg-[#0072bc]/10 px-2 py-0.5 rounded font-mono inline-block mb-1">{step.inst}</div>
-                      <div className="text-xs font-bold text-slate-500 font-mono">{step.year}</div>
-                      <h5 className="font-bold text-xs text-[#0F172A] leading-snug">{step.role}</h5>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Board grid */}
-          <div className="space-y-8 pt-12 border-t border-slate-100">
-            <h3 className="text-2xl font-bold font-serif text-[#0F172A]">The Executive Board</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-              {leadershipContent.executiveDirectors?.map((member, i) => (
-                <PremiumTiltCard 
-                  key={i} 
-                  delay={i * 0.08} 
-                  color="#0072bc" 
-                  className="p-0 overflow-hidden flex flex-col justify-between h-full text-left"
-                >
-                  <div className="h-64 w-full overflow-hidden bg-slate-50 border-b border-[#E2E8F0] relative">
-                    <img
-                      src={member.photo}
-                      alt={member.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6 text-left flex flex-col justify-between flex-grow">
-                    <div className="space-y-1.5">
-                      <h3 className="font-bold text-base text-[#0F172A] font-serif leading-snug">{member.name}</h3>
-                      <p className="text-xs text-[#0072bc] font-bold uppercase tracking-wider font-mono leading-none">{member.role}</p>
-                      <p className="text-xs text-slate-500 font-mono pt-1">Tenure: {member.experience}</p>
-                    </div>
-
-                    <div className="mt-4 pt-3 border-t border-[#E2E8F0] text-xs text-slate-650 leading-relaxed font-mono">
-                      <span className="text-slate-400 font-semibold block uppercase tracking-wider text-[10px] mb-1">Former Position:</span>
-                      <span>{member.former}</span>
-                    </div>
-
-                    <div className="mt-6 flex items-center justify-between">
-                      <button
-                        onClick={() => setSelectedLeader(member)}
-                        className="inline-flex items-center gap-1 text-xs font-bold text-[#0072bc] hover:underline"
-                      >
-                        View Profile <ChevronRight className="h-3 w-3 animate-bounce-horizontal" />
-                      </button>
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="h-7 w-7 rounded-full border border-[#E2E8F0] flex items-center justify-center text-slate-400 hover:text-[#0072bc] hover:border-[#0072bc] transition-colors"
-                      >
-                        <Linkedin className="h-3.5 w-3.5 fill-current" />
-                      </a>
-                    </div>
-                  </div>
-                </PremiumTiltCard>
-              ))}
+              <h4 className="text-lg font-bold text-slate-700 font-serif mb-2">Leadership Expansion</h4>
+              <p className="text-xs text-slate-400 max-w-[200px] leading-relaxed font-mono">
+                Empaneling senior recovery veterans & strategic board advisors.
+              </p>
+              <span className="mt-6 text-[10px] font-bold uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 px-3 py-1 rounded-full border border-[#0072bc]/20 font-mono">
+                Position Open
+              </span>
             </div>
           </div>
         </div>
-      </motion.section>
-
-
-      {/* ── SECTION 7: WHY SM ASSOCIATES ──
+      </motion.section>      {/* ── SECTION 7: WHY SM ASSOCIATES ──
            Consolidates what used to be three separate sections making
            overlapping "why choose us" arguments (this card grid, a
            SM-vs-Traditional-Agencies comparison table, and "Enterprise
