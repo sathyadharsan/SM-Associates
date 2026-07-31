@@ -45,15 +45,15 @@ const IMAGE_BY_TITLE = {
 const rise = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } } };
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } };
 
-function ChapterCopy({ pillar, index, wordRefs }) {
+function ChapterCopy({ pillar, index, wordRefs, dark = false }) {
   if (wordRefs) wordRefs.current[index] = [];
   let wordCounter = 0;
   return (
     <>
-      <span className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#0072bc]">
+      <span className={`font-mono text-[11px] font-bold uppercase tracking-[0.2em] ${dark ? 'text-[#3d9ed6]' : 'text-[#0072bc]'}`}>
         {String(index + 1).padStart(2, '0')} / {String(TOTAL).padStart(2, '0')}
       </span>
-      <h3 className="mt-4 text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[32px]">
+      <h3 className={`mt-4 text-2xl font-extrabold leading-tight tracking-tight sm:text-[32px] ${dark ? 'text-white' : 'text-slate-900'}`}>
         {pillar.title}
       </h3>
       {/* Word-sweep spans the bullets in reading order (bullet 1 lights up
@@ -63,8 +63,8 @@ function ChapterCopy({ pillar, index, wordRefs }) {
         {pillar.points.map((point) => {
           const words = point.split(' ');
           return (
-            <li key={point} className="flex items-start gap-2.5 text-[14px] leading-relaxed text-slate-600">
-              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#0072bc]/10 text-[#0072bc]">
+            <li key={point} className={`flex items-start gap-2.5 text-[14px] leading-relaxed ${dark ? 'text-slate-300' : 'text-slate-600'}`}>
+              <span className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${dark ? 'bg-[#0072bc]/20 text-[#3d9ed6]' : 'bg-[#0072bc]/10 text-[#0072bc]'}`}>
                 <Check size={9} strokeWidth={3} />
               </span>
               <span>
@@ -152,33 +152,39 @@ export default function ComplianceStorySection() {
   }
 
   return (
-    <section className="relative bg-white" aria-label="Compliance & Data Security">
+    // Dark-themed — alternates with the light Technology Story above it (see
+    // file header comment). Mobile/reduced-motion fallbacks stay white by
+    // design, matching DayInRecoverySection's identical convention: the dark
+    // treatment is a desktop-pinned-stage flourish, not a section-wide theme.
+    <section className="relative bg-[#0a1628]" aria-label="Compliance & Data Security">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
-        style={{ background: 'radial-gradient(ellipse 80% 40% at 50% 0%, rgba(0,114,188,0.06) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse 80% 40% at 50% 0%, rgba(0,114,188,0.14) 0%, transparent 70%)' }}
       />
 
-      <div className="relative z-10 lg:hidden">
+      <div className="relative z-10 bg-white lg:hidden">
         <StaticStoryList />
       </div>
 
       <div ref={wrapRef} className="relative z-10 hidden lg:block" style={{ height: `${TOTAL * SEGMENT_VH}vh` }}>
-        <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+        {/* pt-24 clears the site's fixed header — same convention as
+            OperatingModelSection's .model6-head (top:96px). */}
+        <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden pt-24">
           <div className="mx-auto w-full max-w-7xl px-8">
             <div className="mb-14 flex items-end justify-between">
               <div>
-                <span className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#0072bc]">
+                <span className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#3d9ed6]">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc]" />
                   Compliance & Data Security
                 </span>
-                <h2 className="mt-3 text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px]">
+                <h2 className="mt-3 text-[28px] font-extrabold leading-tight tracking-tight text-white sm:text-[36px]">
                   Every engagement runs under enterprise governance.
                 </h2>
               </div>
               <div className="hidden shrink-0 text-right font-mono sm:block">
-                <span ref={numeralRef} className="text-3xl font-black text-slate-900">01</span>
-                <span className="text-lg font-bold text-slate-400"> / {String(TOTAL).padStart(2, '0')}</span>
+                <span ref={numeralRef} className="text-3xl font-black text-white">01</span>
+                <span className="text-lg font-bold text-slate-500"> / {String(TOTAL).padStart(2, '0')}</span>
               </div>
             </div>
 
@@ -191,7 +197,7 @@ export default function ComplianceStorySection() {
                     className="absolute inset-0"
                     style={{ opacity: index === 0 ? 1 : 0, zIndex: index }}
                   >
-                    <ChapterCopy pillar={pillar} index={index} wordRefs={wordRefs} />
+                    <ChapterCopy pillar={pillar} index={index} wordRefs={wordRefs} dark />
                   </div>
                 ))}
               </div>
@@ -201,7 +207,7 @@ export default function ComplianceStorySection() {
                   <div
                     key={pillar.title}
                     ref={(el) => (cardRefs.current[index] = el)}
-                    className="absolute inset-0 overflow-hidden rounded-[32px] border border-slate-200 shadow-xl shadow-slate-900/10"
+                    className="absolute inset-0 overflow-hidden rounded-[32px] border border-white/10 shadow-2xl shadow-black/40"
                     style={{ opacity: index === 0 ? 1 : 0, zIndex: index, transformStyle: 'preserve-3d' }}
                   >
                     <div

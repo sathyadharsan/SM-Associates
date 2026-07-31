@@ -4,6 +4,7 @@ import '../styles/homepage-v6.css';
 import SectionReveal from '../components/SectionReveal';
 import HeroFlagshipSection from '../sections/HeroFlagshipSection';
 import TrustedCertifiedSection from '../sections/TrustedCertifiedSection';
+import ClientLogoMarqueeSection from '../sections/ClientLogoMarqueeSection';
 import MetricsSection from '../sections/MetricsSection'; // kept for other pages
 import SayHelloShowcaseSection from '../sections/SayHelloShowcaseSection';
 import BentoWorkflowSection from '../sections/BentoWorkflowSection';
@@ -15,7 +16,7 @@ import IndustriesServedSection from '../sections/IndustriesServedSection';
 import CaseStudiesSection from '../sections/CaseStudiesSection';
 import FaqSection from '../sections/FaqSection';
 // ── Premium Upgrades ──────────────────────────────────────────────
-import StatsCounterSection from '../sections/StatsCounterSection';
+import PosTerminalShowcaseSection from '../sections/PosTerminalShowcaseSection';
 import TestimonialsSection from '../sections/TestimonialsSection';
 import CtaSection from '../sections/CtaSection';
 import AwardsCertificationsSection from '../sections/AwardsCertificationsSection';
@@ -39,21 +40,40 @@ export default function HomePage() {
       {/* 1. Institutional Hero Banner */}
       <HeroFlagshipSection />
 
-      {/* 2. Empanelments & Trusted Partners Marquee */}
+      {/* 2. Empanelments & Trusted Partners KPI Cards */}
       <TrustedCertifiedSection />
+
+      {/* 3. Empanelled Institutional Client Logos */}
+      <SectionReveal>
+        <ClientLogoMarqueeSection />
+      </SectionReveal>
 
       {/* 3. Awards & Certifications Strip */}
       <SectionReveal>
         <AwardsCertificationsSection />
       </SectionReveal>
 
+      {/* 3b. Track Record — POS terminal device mockup showing the same
+          figures as StatsCounterSection (reused, not duplicated); POS
+          terminals are literally one of the firm's own recovery categories,
+          so the device isn't a random illustration choice. */}
+      <SectionReveal>
+        <PosTerminalShowcaseSection />
+      </SectionReveal>
+
       {/* 4. Operating Principles — centered scroll-sweep manifesto */}
       <BrandManifestoSection />
 
-      {/* 6. Core Recovery Services Overview */}
-      <SectionReveal>
-        <ServicesOverviewSection />
-      </SectionReveal>
+      {/* 6. Core Recovery Services Overview — no SectionReveal wrapper: this
+          section pins the page for ~500vh, and SectionReveal's whileInView
+          measures visibility as a ratio of the wrapped element's OWN height,
+          which never crosses its reveal threshold for something this tall —
+          it was permanently stuck at its hidden initial state (opacity:0,
+          a residual transform), which also broke position:sticky for every
+          descendant (a transformed ancestor changes the sticky containing
+          block). The section handles its own reveal/animation internally,
+          same as every other pinned section on the site. */}
+      <ServicesOverviewSection />
 
       {/* 7. Sector Specialisation & Regulated Lender Segments */}
       <SectionReveal>

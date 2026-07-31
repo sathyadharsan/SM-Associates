@@ -114,10 +114,6 @@ export default function TestimonialsSection() {
           viewport={{ once: true }}
           className="flex flex-col items-center justify-center max-w-[620px] mx-auto text-center"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 border border-[#0072bc]/20 mb-4">
-            <Building2 size={13} /> Client Testimonials
-          </span>
-
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             Trusted by India's <span className="text-[#0072bc]">leading lenders</span>
           </h2>

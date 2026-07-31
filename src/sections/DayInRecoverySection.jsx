@@ -173,7 +173,9 @@ export default function DayInRecoverySection() {
           />
 
           {/* Header bar */}
-          <div className="absolute inset-x-0 top-0 z-30 mx-auto flex w-full max-w-7xl items-start justify-between px-8 pt-10">
+          {/* pt-24 clears the site's fixed header — same convention as
+              OperatingModelSection's .model6-head (top:96px). */}
+          <div className="absolute inset-x-0 top-0 z-30 mx-auto flex w-full max-w-7xl items-start justify-between px-8 pt-24">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-3.5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md">
               <Sparkles size={12} />
               Illustrative Scenario — A Day in Recovery

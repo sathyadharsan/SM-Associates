@@ -24,10 +24,91 @@ import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight, Check } from 'lucide-react';
 import { enterpriseServices } from '../data/enterpriseServicesData';
-import { mountScrollStory, attachPointerTilt } from '../utils/scrollStoryMath';
+import { mountScrollStory, attachPointerTilt, clamp, easeApple } from '../utils/scrollStoryMath';
 
 const TOTAL = enterpriseServices.length;
 const SEGMENT_VH = 100; // scroll distance given to each chapter
+
+// One unique off-screen origin per chapter (8 chapters, 8 origins, assigned
+// 1:1 by index) — every chapter flies in from a different point in space,
+// and since the mapping is 1:1 no two chapters can ever share a direction,
+// consecutive or otherwise. Each origin also carries its own starting
+// scale/rotation and which axis its mid-flight "bulge" curves along, so no
+// two entrances trace the same path either.
+const FLIGHT_ORIGINS = [
+  { x: -1000, y: 0, rotate: -8, scale: 0.8, arcAxis: 'y', arcSign: 1 }, // Far Left
+  { x: 1000, y: 0, rotate: 8, scale: 0.8, arcAxis: 'y', arcSign: -1 }, // Far Right
+  { x: -680, y: -540, rotate: -6, scale: 0.85, arcAxis: 'x', arcSign: 1 }, // Top Left
+  { x: 680, y: -540, rotate: 6, scale: 0.85, arcAxis: 'x', arcSign: -1 }, // Top Right
+  { x: -680, y: 540, rotate: 7, scale: 0.78, arcAxis: 'x', arcSign: -1 }, // Bottom Left
+  { x: 680, y: 540, rotate: -7, scale: 0.78, arcAxis: 'x', arcSign: 1 }, // Bottom Right
+  { x: 0, y: -700, rotate: -4, scale: 0.9, arcAxis: 'x', arcSign: 1 }, // Top Center
+  { x: 0, y: 700, rotate: 4, scale: 0.9, arcAxis: 'x', arcSign: -1 }, // Bottom Center
+];
+
+/**
+ * Apple/Linear-style "flies in from elsewhere in space" visual recipe —
+ * replaces the simple flying-card recipe with a per-chapter curved 3D
+ * trajectory. Reuses imageState's existing entrance/exit timing (see
+ * scrollStoryMath.js) unchanged: entrance already runs 1→0 over the
+ * incoming chapter's own t∈[-0.3,0], overlapping exactly with the outgoing
+ * chapter's exit over its t∈[0.7,1] — that overlap is what makes the old
+ * image visibly hold in place while the new one arrives, instead of an
+ * instant swap.
+ */
+function flyInCardStyle(el, { opacity, entrance, exit, index }) {
+  const origin = FLIGHT_ORIGINS[index % FLIGHT_ORIGINS.length];
+
+  // Entrance: ease position/scale/rotate AND opacity on the same curve, so
+  // the image doesn't visually "arrive" before it's finished fading in.
+  const arrivalProgress = clamp(1 - entrance, 0, 1);
+  const eased = easeApple(arrivalProgress);
+  const remaining = 1 - eased; // 1 = still at origin, 0 = arrived/snapped
+
+  // Curved path: straight-line approach plus a perpendicular bulge that
+  // peaks mid-flight (eased≈0.5) and resolves to zero at both ends, so the
+  // card arcs through space rather than cutting a straight line.
+  const bulge = Math.sin(eased * Math.PI) * 90;
+  let x = origin.x * remaining;
+  let y = origin.y * remaining;
+  if (origin.arcAxis === 'x') x += bulge * origin.arcSign;
+  else y += bulge * origin.arcSign;
+
+  // Exit: the outgoing chapter drifts gently backward/down and shrinks a
+  // touch as it fades — "moves slightly backward in Z", not an instant cut.
+  y += exit * 26;
+  const scale = 1 - remaining * (1 - origin.scale) - exit * 0.05;
+  const rotate = origin.rotate * remaining;
+
+  // 3D tumble: a light rotateX/rotateY riding along with the 2D rotate,
+  // derived from the origin's own direction (left/right origins roll
+  // around Y, top/bottom origins pitch around X) — resolves to 0,0 at
+  // arrival, so the settled card always sits perfectly flat in the frame.
+  const tiltY = origin.x === 0 ? 0 : Math.sign(origin.x) * 12 * remaining;
+  const tiltX = origin.y === 0 ? 0 : Math.sign(origin.y) * -10 * remaining;
+
+  // Motion-blur feeling on the way in, soft-focus on the way out — peaks at
+  // the midpoint of each respective phase, never both at once (a chapter's
+  // entrance and exit phases never overlap in time), so summing is safe.
+  const entranceBlur = Math.sin(eased * Math.PI) * 2.2;
+  const exitBlur = exit * 3;
+  const blur = entranceBlur + exitBlur;
+
+  // Elevation shadow: soft and wide while "lifted" (far from settled, in
+  // either direction), tight and grounded once it's actually resting in the
+  // frame — the classic material-lift cue, so the card reads as physically
+  // dropping into place rather than just fading into position.
+  const lift = Math.max(remaining, exit);
+  const shadowBlur = 30 + lift * 70;
+  const shadowSpread = -8 - lift * 6;
+  const shadowY = 24 + lift * 50;
+  const shadowAlpha = 0.45 - lift * 0.2;
+
+  el.style.opacity = String(entrance > 0 ? eased : opacity);
+  el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) scale(${scale.toFixed(3)}) rotate(${rotate.toFixed(2)}deg) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg)`;
+  el.style.filter = blur > 0.05 ? `blur(${blur.toFixed(2)}px)` : 'none';
+  el.style.boxShadow = `0 ${shadowY.toFixed(0)}px ${shadowBlur.toFixed(0)}px ${shadowSpread.toFixed(0)}px rgba(15,23,42,${shadowAlpha.toFixed(2)})`;
+}
 
 // Sharper crop for the large story column — the same data feeds a much
 // smaller card elsewhere (EnterpriseServicesSection), so the source images
@@ -147,6 +228,7 @@ export default function ServiceStorySection() {
       textRefs,
       wordRefs,
       total: TOTAL,
+      applyCardStyle: flyInCardStyle,
       onProgress: ({ progress, activeIndex }) => {
         activeIndexRef.current = activeIndex;
         if (numeralRef.current) numeralRef.current.textContent = String(activeIndex + 1).padStart(2, '0');
@@ -169,7 +251,20 @@ export default function ServiceStorySection() {
   }
 
   return (
-    <section id="enterprise-services" className="relative bg-white" aria-label="Enterprise Recovery Story">
+    // overflow-x:clip (not overflow-hidden) here, and specifically NOT on the
+    // sticky stage below: an ancestor with overflow-hidden on both axes would
+    // make IT the "nearest scrolling ancestor" for position:sticky, breaking
+    // the pin entirely (the exact bug already hit and fixed elsewhere this
+    // session). overflow-x:clip with overflow-y left alone doesn't have that
+    // problem (same pattern already proven safe in homepage-v6.css's
+    // .fg-home) while still stopping cards flying in from ±1000px off-screen
+    // from creating a horizontal scrollbar on the page.
+    <section
+      id="enterprise-services"
+      className="relative bg-white"
+      style={{ overflowX: 'clip' }}
+      aria-label="Enterprise Recovery Story"
+    >
       {/* ambient glow */}
       <div
         aria-hidden="true"
@@ -184,7 +279,9 @@ export default function ServiceStorySection() {
 
       {/* Desktop: pinned scroll story */}
       <div ref={wrapRef} className="relative z-10 hidden lg:block" style={{ height: `${TOTAL * SEGMENT_VH}vh` }}>
-        <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+        {/* pt-24 clears the site's fixed header — same convention as
+            OperatingModelSection's .model6-head (top:96px). */}
+        <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center pt-24">
           <div className="mx-auto w-full max-w-7xl px-8">
             {/* Header: eyebrow + chapter numeral + progress rail */}
             <div className="mb-14 flex items-end justify-between">
@@ -223,7 +320,7 @@ export default function ServiceStorySection() {
                   <div
                     key={service.id}
                     ref={(el) => (cardRefs.current[index] = el)}
-                    className="absolute inset-0 overflow-hidden rounded-[32px] border border-slate-200 shadow-xl shadow-slate-900/10"
+                    className="absolute inset-0 overflow-hidden rounded-[32px] border border-slate-200"
                     style={{ opacity: index === 0 ? 1 : 0, zIndex: index, transformStyle: 'preserve-3d' }}
                   >
                     {/* Nested tilt wrapper: the outer div carries the scroll-driven

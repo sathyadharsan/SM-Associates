@@ -47,10 +47,7 @@ export default function FaqSection() {
       <div className="fg-wrap max-w-4xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-14">
-          <span className="allset-pill-tag mb-4">
-            <HelpCircle size={13} /> Institutional Questions
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          <h2 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             Frequently Asked Questions
           </h2>
           <p className="text-slate-600 text-lg mt-3">

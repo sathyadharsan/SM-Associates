@@ -148,7 +148,9 @@ export default function TechnologyStorySection() {
       </div>
 
       <div ref={wrapRef} className="relative z-10 hidden lg:block" style={{ height: `${TOTAL * SEGMENT_VH}vh` }}>
-        <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
+        {/* pt-24 clears the site's fixed header — same convention as
+            OperatingModelSection's .model6-head (top:96px). */}
+        <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden pt-24">
           <div className="mx-auto w-full max-w-7xl px-8">
             <div className="mb-14 flex items-end justify-between">
               <div>

@@ -16,10 +16,6 @@ export default function CtaSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 border border-[#0072bc]/20 mb-6">
-                <CalendarDays size={12} /> Free Consultation
-              </span>
-
               <h2 className="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-tight mb-6">
                 Ready to recover<br />
                 <span className="text-[#0072bc]">

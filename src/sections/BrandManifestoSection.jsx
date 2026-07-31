@@ -94,7 +94,9 @@ function ManifestoStage({ wrapRef, wordRefs }) {
   let wordCounter = 0;
   return (
     <div ref={wrapRef} className="relative z-10 hidden lg:block" style={{ height: `${SEGMENT_VH}vh` }}>
-      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
+      {/* pt-24 clears the site's fixed header (~56-76px) — same 96px
+          clearance convention as OperatingModelSection's .model6-head. */}
+      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden pt-24">
         <div className="mx-auto max-w-4xl px-8 text-center">
           {LINES.map((line) => {
             const words = line.split(' ');

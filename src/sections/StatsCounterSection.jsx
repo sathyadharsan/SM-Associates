@@ -30,7 +30,9 @@ function AnimatedCounter({ end, suffix = '', prefix = '', duration = 2.5 }) {
   );
 }
 
-const stats = [
+// Exported so PosTerminalShowcaseSection can reuse the exact same figures —
+// one source of truth instead of two copies of the same numbers drifting.
+export const stats = [
   {
     icon: TrendingUp,
     value: 485,

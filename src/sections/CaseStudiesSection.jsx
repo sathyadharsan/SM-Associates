@@ -25,10 +25,7 @@ export default function CaseStudiesSection() {
         {/* Section Header with Left/Right Control Buttons */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
-            <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#0072bc]">
-              PROOF OF WORK
-            </span>
-            <h2 className="mt-2 text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
               Real engagements, documented outcomes.
             </h2>
             <p className="mt-3 text-base text-slate-600 max-w-2xl leading-relaxed">

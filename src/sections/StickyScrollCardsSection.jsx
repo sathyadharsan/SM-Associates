@@ -123,6 +123,58 @@ const cardPairs = [
   },
 ];
 
+// Flattened for the static/mobile list — same 10 initiatives, original order.
+const allInitiatives = cardPairs.flatMap((pair) => [pair.left, pair.right]);
+
+const rise = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } } };
+const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } };
+
+// Shared card visual — used by both the desktop pinned pairs and the static
+// mobile/tablet list, so the two never drift apart.
+function RoadmapCard({ item }) {
+  const IconComponent = item.icon;
+  return (
+    <div className="flex flex-col justify-between rounded-[32px] border-2 border-slate-200 bg-white p-7 sm:p-8 shadow-[0_25px_60px_-15px_rgba(0,114,188,0.18),0_8px_30px_rgba(0,0,0,0.08)] ring-1 ring-[#0072BC]/15 h-[350px] sm:h-[380px] transition-all duration-300 hover:border-[#0072BC]/40 hover:shadow-2xl">
+      {/* Card Header */}
+      <div>
+        <div className="flex items-center justify-between gap-3">
+          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#0072BC] text-white shadow-md shadow-[#0072BC]/25">
+            <IconComponent size={22} strokeWidth={2.2} />
+          </span>
+
+          <span className="rounded-full bg-[#0072BC] px-3 py-1 font-mono text-[9.5px] font-extrabold uppercase tracking-wider text-white shadow-sm shadow-[#0072BC]/20">
+            {item.badge}
+          </span>
+        </div>
+
+        <span className="mt-5 block font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#0072BC]">
+          {item.eyebrow}
+        </span>
+
+        <h3 className="mt-2 text-xl sm:text-[22px] font-extrabold tracking-tight text-slate-900 leading-snug">
+          {item.title}
+        </h3>
+
+        <p className="mt-3 text-sm sm:text-[15px] font-medium leading-relaxed text-slate-700">
+          {item.description}
+        </p>
+      </div>
+
+      {/* Card Footer */}
+      <div className="flex items-center justify-between gap-2 border-t-2 border-slate-100 pt-4">
+        <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-slate-400">
+          {item.category}
+        </span>
+
+        <div className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#0072BC] transition-transform duration-200 hover:translate-x-1">
+          <span>Learn More</span>
+          <ArrowUpRight size={15} strokeWidth={2.5} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function SingleScrollPair({ pair, index, totalPairs, scrollYProgress }) {
   const step = 1 / (totalPairs - 1); // 0.25 for 5 pairs
 
@@ -160,50 +212,6 @@ function SingleScrollPair({ pair, index, totalPairs, scrollYProgress }) {
   const opacity = useTransform(scrollYProgress, inputRanges, opacityOutputs);
   const scale = useTransform(scrollYProgress, inputRanges, scaleOutputs);
 
-  const renderCard = (cardItem) => {
-    const IconComponent = cardItem.icon;
-    return (
-      <div className="flex flex-col justify-between rounded-[32px] border-2 border-slate-200 bg-white p-7 sm:p-8 shadow-[0_25px_60px_-15px_rgba(0,114,188,0.18),0_8px_30px_rgba(0,0,0,0.08)] ring-1 ring-[#0072BC]/15 h-[350px] sm:h-[380px] transition-all duration-300 hover:border-[#0072BC]/40 hover:shadow-2xl">
-        {/* Card Header */}
-        <div>
-          <div className="flex items-center justify-between gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#0072BC] text-white shadow-md shadow-[#0072BC]/25">
-              <IconComponent size={22} strokeWidth={2.2} />
-            </span>
-
-            <span className="rounded-full bg-[#0072BC] px-3 py-1 font-mono text-[9.5px] font-extrabold uppercase tracking-wider text-white shadow-sm shadow-[#0072BC]/20">
-              {cardItem.badge}
-            </span>
-          </div>
-
-          <span className="mt-5 block font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#0072BC]">
-            {cardItem.eyebrow}
-          </span>
-
-          <h3 className="mt-2 text-xl sm:text-[22px] font-extrabold tracking-tight text-slate-900 leading-snug">
-            {cardItem.title}
-          </h3>
-
-          <p className="mt-3 text-sm sm:text-[15px] font-medium leading-relaxed text-slate-700">
-            {cardItem.description}
-          </p>
-        </div>
-
-        {/* Card Footer */}
-        <div className="flex items-center justify-between gap-2 border-t-2 border-slate-100 pt-4">
-          <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-slate-400">
-            {cardItem.category}
-          </span>
-
-          <div className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#0072BC] transition-transform duration-200 hover:translate-x-1">
-            <span>Learn More</span>
-            <ArrowUpRight size={15} strokeWidth={2.5} />
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <motion.div
       style={{
@@ -215,10 +223,54 @@ function SingleScrollPair({ pair, index, totalPairs, scrollYProgress }) {
       className="absolute inset-0 flex h-full w-full items-center justify-center pointer-events-auto"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 w-full max-w-6xl">
-        {renderCard(pair.left)}
-        {renderCard(pair.right)}
+        <RoadmapCard item={pair.left} />
+        <RoadmapCard item={pair.right} />
       </div>
     </motion.div>
+  );
+}
+
+function RoadmapIntro() {
+  return (
+    <div className="mx-auto max-w-3xl text-center">
+      <span className="inline-flex items-center gap-2 rounded-full border border-[#0072BC]/20 bg-[#0072BC]/8 px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[#0072BC]">
+        <Sparkles size={13} className="text-[#0072BC]" />
+        Roadmap · In Development
+      </span>
+
+      <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
+        Next-Gen Recovery Architecture
+      </h2>
+
+      <p className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm md:text-base">
+        Explore our 10 strategic AI-driven recovery initiatives currently under development.
+      </p>
+    </div>
+  );
+}
+
+// ── Static fallback (mobile + tablet, <1024px): plain stacked list ─────
+// Scroll-jacked pinned stages only make sense on desktop, same rule already
+// applied to every other story section on this page — a two-column,
+// side-by-side card pair has nowhere to go on a phone or portrait tablet.
+function StaticRoadmapList() {
+  return (
+    <div className="mx-auto max-w-2xl px-4 pb-20 pt-10 sm:px-6">
+      <RoadmapIntro />
+      <div className="mt-12 space-y-6">
+        {allInitiatives.map((item) => (
+          <motion.div
+            key={item.id}
+            variants={rise}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <RoadmapCard item={item} />
+          </motion.div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -231,57 +283,54 @@ export default function StickyScrollCardsSection() {
   });
 
   return (
-    <div
-      ref={containerRef}
-      className="relative w-full border-b border-slate-200/90 bg-white text-slate-900 selection:bg-[#0072BC]/20 selection:text-slate-900"
-      style={{ height: `${cardPairs.length * 85}vh` }}
-    >
-      {/* Subtle ambient background glow */}
+    <div className="relative w-full border-b border-slate-200/90 bg-white text-slate-900 selection:bg-[#0072BC]/20 selection:text-slate-900">
+      {/* Mobile / tablet: static stacked list, no scroll-jack */}
+      <div className="lg:hidden">
+        <StaticRoadmapList />
+      </div>
+
+      {/* Desktop: pinned, scroll-scrubbed side-by-side pairs */}
       <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/4 h-[550px] w-[550px] -translate-x-1/2 rounded-full bg-[#0072BC]/5 blur-[140px]"
-      />
+        ref={containerRef}
+        className="relative hidden w-full lg:block"
+        style={{ height: `${cardPairs.length * 85}vh` }}
+      >
+        {/* Subtle ambient background glow */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-1/4 h-[550px] w-[550px] -translate-x-1/2 rounded-full bg-[#0072BC]/5 blur-[140px]"
+        />
 
-      {/* Sticky Viewport Container (100vh) */}
-      <div className="sticky top-0 flex h-screen w-full flex-col justify-between overflow-hidden px-4 py-8 sm:px-6 sm:py-10 md:py-12 lg:px-8">
-        <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between">
-          {/* Header section */}
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#0072BC]/20 bg-[#0072BC]/8 px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[#0072BC]">
-              <Sparkles size={13} className="text-[#0072BC]" />
-              Roadmap · In Development
-            </span>
+        {/* Sticky Viewport Container (100vh) — pt-24 clears the site's fixed
+            header (same convention as every other pinned section on this
+            page); only the top inset changes so the bottom stays balanced. */}
+        <div className="sticky top-0 flex h-screen w-full flex-col justify-between overflow-hidden px-4 pb-8 pt-24 sm:px-6 sm:pb-10 lg:px-8">
+          <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between">
+            {/* Header section */}
+            <RoadmapIntro />
 
-            <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
-              Next-Gen Recovery Architecture
-            </h2>
-
-            <p className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm md:text-base">
-              Explore our 10 strategic AI-driven recovery initiatives currently under development, presented in side-by-side interactive layers.
-            </p>
-          </div>
-
-          {/* Side-by-Side Cards Stack Container */}
-          <div className="relative my-auto flex h-[440px] w-full items-center justify-center sm:h-[460px] md:h-[480px]">
-            <div className="relative h-full w-full max-w-6xl">
-              {cardPairs.map((pair, index) => (
-                <SingleScrollPair
-                  key={pair.pairId}
-                  pair={pair}
-                  index={index}
-                  totalPairs={cardPairs.length}
-                  scrollYProgress={scrollYProgress}
-                />
-              ))}
+            {/* Side-by-Side Cards Stack Container */}
+            <div className="relative my-auto flex h-[380px] w-full items-center justify-center md:h-[400px]">
+              <div className="relative h-full w-full max-w-6xl">
+                {cardPairs.map((pair, index) => (
+                  <SingleScrollPair
+                    key={pair.pairId}
+                    pair={pair}
+                    index={index}
+                    totalPairs={cardPairs.length}
+                    scrollYProgress={scrollYProgress}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Bottom indicator */}
-          <div className="mx-auto flex items-center gap-3 py-1">
-            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-400">
-              Scroll down to navigate all 10 roadmap initiatives
-            </span>
-            <div className="h-1.5 w-1.5 rounded-full bg-[#0072BC] animate-ping" />
+            {/* Bottom indicator */}
+            <div className="mx-auto flex items-center gap-3 py-1">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                Scroll down to navigate all 10 roadmap initiatives
+              </span>
+              <div className="h-1.5 w-1.5 rounded-full bg-[#0072BC] animate-ping" />
+            </div>
           </div>
         </div>
       </div>

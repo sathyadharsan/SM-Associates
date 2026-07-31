@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
 import { serviceCards } from '../data/serviceCards';
 import ServiceCreditCard, { CARD_SPRING } from '../components/cards/ServiceCreditCard';
+import { mountScrollStory, useDesktopPin } from '../utils/scrollStoryMath';
 import '../styles/service-cards.css';
 
 const TOTAL = serviceCards.length;
+const SEGMENT_VH = 90;
 
 // Credit Card Wallet Rack geometry. Index 0 is the card in hand; each step back
 // shifts up and right into the wallet rack slot, leaving the top brand header showing.
@@ -19,46 +21,31 @@ const poseFor = (depth) => ({
   opacity: depth > 5 ? 0 : 1,
 });
 
-// Detail copy reveals as a short stagger once a card reaches the front.
-const detailStagger = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.06, delayChildren: 0.08 } },
-};
-const detailItem = {
-  hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
-};
-
 export default function ServicesOverviewSection() {
   const reduceMotion = useReducedMotion();
+  const isPinned = useDesktopPin({ minWidth: 1024, minHeight: 600 });
   const [active, setActive] = useState(0);
-  const sectionRef = useRef(null);
-  // Once the visitor drives the deck themselves, scroll stops reassigning the
-  // active card — otherwise their choice would be silently overridden.
+
+  const wrapRef = useRef(null);
+  const mobileSectionRef = useRef(null);
+  const numeralRef = useRef(null);
+  const progressRef = useRef(null);
+  const textRefs = useRef([]);
+  const wordRefs = useRef([]);
+  const activeIndexRef = useRef(0);
   const userControlled = useRef(false);
 
-  // Brings a card to the front of the deck. Used by the position indicator and
-  // by swipe, where "show me this one" is the expected meaning.
   const bringToFront = useCallback((index) => {
     userControlled.current = true;
-    setActive(((index % TOTAL) + TOTAL) % TOTAL);
+    const next = ((index % TOTAL) + TOTAL) % TOTAL;
+    activeIndexRef.current = next;
+    setActive(next);
   }, []);
 
-  // Clicking a card slides it to the BACK of the deck, the way you would push
-  // the top card of a physical stack behind the rest. Placing card `index` at
-  // the deepest position means the next card becomes the front one, which is
-  // exactly `index + 1` under the circular depth model used in poseFor().
-  const sendToBack = useCallback((index) => {
-    userControlled.current = true;
-    setActive((index + 1) % TOTAL);
-  }, []);
-
-  // Scroll-linked progression. Deliberately NOT a pin/scroll-jack: the page
-  // scrolls normally and the deck simply advances as the section travels
-  // through the viewport, so touch scrolling is never hijacked.
+  // Non-pinned / mobile scroll link
   useEffect(() => {
-    if (reduceMotion) return undefined;
-    const el = sectionRef.current;
+    if (reduceMotion || isPinned) return undefined;
+    const el = mobileSectionRef.current;
     if (!el) return undefined;
 
     let ticking = false;
@@ -72,19 +59,42 @@ export default function ServicesOverviewSection() {
         if (travel <= 0) return;
         const progress = (window.innerHeight - rect.top) / travel;
         if (progress < 0 || progress > 1) return;
-        // Middle 70% of the pass maps onto the deck, so the first and last
-        // cards each get a moment to sit still.
         const eased = Math.min(1, Math.max(0, (progress - 0.15) / 0.7));
         setActive(Math.min(TOTAL - 1, Math.floor(eased * TOTAL)));
       });
     };
-
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
-  }, [reduceMotion]);
+  }, [reduceMotion, isPinned]);
 
-  // Keyboard: arrow keys walk the deck when focus is inside it.
+  // Desktop pinned scroll-driven storytelling engine
+  useEffect(() => {
+    if (reduceMotion || !isPinned) return undefined;
+
+    const cleanup = mountScrollStory({
+      wrapRef,
+      cardRefs: { current: [] },
+      textRefs,
+      wordRefs,
+      total: TOTAL,
+      onProgress: ({ progress, activeIndex }) => {
+        if (activeIndex !== activeIndexRef.current) {
+          activeIndexRef.current = activeIndex;
+          setActive(activeIndex);
+        }
+        if (numeralRef.current) {
+          numeralRef.current.textContent = String(activeIndex + 1).padStart(2, '0');
+        }
+        if (progressRef.current) {
+          progressRef.current.style.width = `${progress * 100}%`;
+        }
+      },
+    });
+
+    return cleanup;
+  }, [reduceMotion, isPinned]);
+
   const onDeckKeyDown = (event) => {
     if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
       event.preventDefault();
@@ -97,145 +107,252 @@ export default function ServicesOverviewSection() {
 
   const current = serviceCards[active];
 
-  return (
-    <section
-      ref={sectionRef}
-      id="services"
-      className="relative overflow-hidden bg-white py-20 sm:py-28"
-    >
-
-      <div className="fg-wrap relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="fg-section-header">
-          <span className="fg-section-eyebrow">SERVICE CATEGORIES</span>
-          <h2 className="fg-section-title">Six Portfolio Management Capabilities. One Reliable Partner.</h2>
-        </div>
-
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* ── Details ── */}
-          <div className="order-2 lg:order-1">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current.id}
-                variants={detailStagger}
-                initial="hidden"
-                animate="show"
-                exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}
-              >
-                <motion.span
-                  variants={detailItem}
-                  className="inline-flex items-center gap-2 rounded-full border border-[#0072bc]/20 bg-[#0072bc]/10 px-3.5 py-1.5 font-mono text-[10.5px] font-bold uppercase tracking-widest text-[#0072bc]"
-                >
-                  {String(active + 1).padStart(2, '0')} / {String(TOTAL).padStart(2, '0')} · {current.finish}
-                </motion.span>
-
-                <motion.h3
-                  variants={detailItem}
-                  className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl"
-                >
-                  {current.name}
-                </motion.h3>
-
-                <motion.p variants={detailItem} className="mt-4 max-w-xl text-base leading-relaxed text-slate-600">
-                  {current.desc}
-                </motion.p>
-
-                <motion.ul variants={detailItem} className="mt-6 space-y-2.5">
-                  {current.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-3 text-[14.5px] font-semibold text-slate-800">
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0072bc]/10 text-[#0072bc]">
-                        <Check size={12} strokeWidth={3} />
-                      </span>
-                      {feature}
-                    </li>
-                  ))}
-                </motion.ul>
-
-                <motion.div
-                  variants={detailItem}
-                  className="mt-6 flex items-center gap-2.5 border-t border-slate-200 pt-5 font-mono text-[11.5px] uppercase tracking-wider text-slate-500"
-                >
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc]" />
-                  {current.timeline}
-                </motion.div>
-
-                <motion.div variants={detailItem} className="mt-7">
-                  <Link
-                    to={current.href}
-                    className="group inline-flex items-center gap-2.5 rounded-full bg-[#0072bc] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#0072bc]/25 transition-shadow hover:shadow-xl hover:shadow-[#0072bc]/30"
-                  >
-                    Explore {current.name.split(' & ')[0]}
-                    <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
-                </motion.div>
-              </motion.div>
-            </AnimatePresence>
+  // Mobile / non-pinned layout fallback
+  if (!isPinned) {
+    return (
+      <section id="services" className="relative bg-white py-20 sm:py-28">
+        <div ref={mobileSectionRef}>
+          <div className="fg-wrap mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="fg-section-header">
+              <span className="fg-section-eyebrow">SERVICE CATEGORIES</span>
+              <h2 className="fg-section-title">Six Portfolio Management Capabilities. One Reliable Partner.</h2>
+            </div>
           </div>
 
-          {/* ── Deck ── */}
-          <div className="order-1 lg:order-2 pt-6 lg:pt-10">
-            <motion.div
-              className="svc-deck relative mx-auto w-full max-w-[440px]"
-              // Tall enough to contain the fanned tail as well as the front
-              // card — sized short, the deepest cards ran past the container
-              // and collided with the position indicator below.
-              style={{ height: 'clamp(370px, 36vw, 450px)' }}
-              onKeyDown={onDeckKeyDown}
-              drag={reduceMotion ? false : 'y'}
-              dragConstraints={{ top: 0, bottom: 0 }}
-              dragElastic={0.14}
-              onDragEnd={(_, info) => {
-                if (info.offset.y < -50) bringToFront(active + 1);
-                else if (info.offset.y > 50) bringToFront(active - 1);
-              }}
-              role="group"
-              aria-roledescription="card deck"
-              aria-label="Service categories — click a card to send it to the back, or use arrow keys and swipe to change card"
-            >
-              {serviceCards.map((card, index) => {
-                const depth = (index - active + TOTAL) % TOTAL;
-                return (
-                  <ServiceCreditCard
-                    key={card.id}
-                    card={card}
-                    pose={poseFor(depth)}
-                    isActive={depth === 0}
-                    onSelect={() => bringToFront(index)}
-                    position={index + 1}
-                    total={TOTAL}
-                  />
-                );
-              })}
-            </motion.div>
+          <div className="fg-wrap relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+              {/* Details */}
+              <div className="order-2 lg:order-1">
+                <div>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[#0072bc]/20 bg-[#0072bc]/10 px-3.5 py-1.5 font-mono text-[10.5px] font-bold uppercase tracking-widest text-[#0072bc]">
+                    {String(active + 1).padStart(2, '0')} / {String(TOTAL).padStart(2, '0')} · {current.finish}
+                  </span>
 
-            {/* Deck position indicator */}
-            <div className="mt-7 flex items-center justify-center gap-2">
-              {serviceCards.map((card, index) => (
-                <button
-                  key={card.id}
-                  type="button"
-                  onClick={() => bringToFront(index)}
-                  aria-label={`Show ${card.name}`}
-                  aria-current={index === active}
-                  className="group p-1.5"
+                  <h3 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
+                    {current.name}
+                  </h3>
+
+                  <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-600">
+                    {current.desc}
+                  </p>
+
+                  <ul className="mt-6 space-y-2.5">
+                    {current.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-3 text-[14.5px] font-semibold text-slate-800">
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0072bc]/10 text-[#0072bc]">
+                          <Check size={12} strokeWidth={3} />
+                        </span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-6 flex items-center gap-2.5 border-t border-slate-200 pt-5 font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc]" />
+                    {current.timeline}
+                  </div>
+
+                  <div className="mt-7">
+                    <Link
+                      to={current.href}
+                      className="group inline-flex items-center gap-2.5 rounded-full bg-[#0072bc] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#0072bc]/25 transition-shadow hover:shadow-xl hover:shadow-[#0072bc]/30"
+                    >
+                      Explore {current.name.split(' & ')[0]}
+                      <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Deck */}
+              <div className="order-1 lg:order-2 pt-6 lg:pt-10">
+                <div
+                  className="svc-deck relative mx-auto w-full max-w-[440px]"
+                  style={{ height: 'clamp(370px, 36vw, 450px)' }}
+                  onKeyDown={onDeckKeyDown}
+                  tabIndex={0}
+                  role="group"
+                  aria-label="Service categories deck"
                 >
-                  <motion.span
-                    className="block h-1.5 rounded-full"
-                    animate={{
-                      width: index === active ? 26 : 8,
-                      backgroundColor: index === active ? '#0072bc' : '#cbd5e1',
-                    }}
-                    transition={reduceMotion ? { duration: 0 } : CARD_SPRING}
-                  />
-                </button>
-              ))}
+                  {serviceCards.map((card, index) => {
+                    const depth = (index - active + TOTAL) % TOTAL;
+                    return (
+                      <ServiceCreditCard
+                        key={card.id}
+                        card={card}
+                        pose={poseFor(depth)}
+                        isActive={depth === 0}
+                        onSelect={() => bringToFront(index)}
+                        position={index + 1}
+                        total={TOTAL}
+                      />
+                    );
+                  })}
+                </div>
+
+                <div className="mt-7 flex items-center justify-center gap-2">
+                  {serviceCards.map((card, index) => (
+                    <button
+                      key={card.id}
+                      type="button"
+                      onClick={() => bringToFront(index)}
+                      aria-label={`Show ${card.name}`}
+                      aria-current={index === active}
+                      className="group p-1.5"
+                    >
+                      <motion.span
+                        className="block h-1.5 rounded-full"
+                        animate={{
+                          width: index === active ? 26 : 8,
+                          backgroundColor: index === active ? '#0072bc' : '#cbd5e1',
+                        }}
+                        transition={reduceMotion ? { duration: 0 } : CARD_SPRING}
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-14 text-center">
+              <Link to="/services" className="text-[13px] font-bold text-[#0072bc] hover:underline">
+                View all services →
+              </Link>
             </div>
           </div>
         </div>
+      </section>
+    );
+  }
 
-        <div className="mt-14 text-center">
-          <Link to="/services" className="text-[13px] font-bold text-[#0072bc] hover:underline">
-            View all services →
-          </Link>
+  // Desktop Pinned Storytelling Section
+  return (
+    <section id="services" className="relative bg-white" aria-label="Core Recovery Services Overview">
+      <div ref={wrapRef} className="relative z-10" style={{ height: `${TOTAL * SEGMENT_VH}vh` }}>
+        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden pt-20 pb-6">
+          <div className="fg-wrap mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-6 flex items-end justify-between">
+              <div className="fg-section-header" style={{ marginBottom: 0 }}>
+                <span className="fg-section-eyebrow">SERVICE CATEGORIES</span>
+                <h2 className="fg-section-title">Six Portfolio Management Capabilities. One Reliable Partner.</h2>
+              </div>
+              <div className="hidden shrink-0 text-right font-mono sm:block">
+                <span ref={numeralRef} className="text-3xl font-black text-slate-900">01</span>
+                <span className="text-lg font-bold text-slate-400"> / {String(TOTAL).padStart(2, '0')}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="fg-wrap relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+              {/* Details Stack (pre-rendered for story scroll scrubbing) */}
+              <div className="relative h-[340px] order-2 lg:order-1">
+                {serviceCards.map((card, index) => {
+                  const words = card.desc.split(' ');
+                  if (!wordRefs.current[index]) wordRefs.current[index] = [];
+                  return (
+                    <div
+                      key={card.id}
+                      ref={(el) => (textRefs.current[index] = el)}
+                      className="absolute inset-0 transition-opacity duration-300"
+                      style={{ opacity: index === 0 ? 1 : 0, zIndex: index }}
+                    >
+                      <span className="inline-flex items-center gap-2 rounded-full border border-[#0072bc]/20 bg-[#0072bc]/10 px-3.5 py-1.5 font-mono text-[10.5px] font-bold uppercase tracking-widest text-[#0072bc]">
+                        {String(index + 1).padStart(2, '0')} / {String(TOTAL).padStart(2, '0')} · {card.finish}
+                      </span>
+
+                      <h3 className="mt-4 text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
+                        {card.name}
+                      </h3>
+
+                      <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-600">
+                        {words.map((word, wi) => (
+                          <span
+                            key={wi}
+                            ref={(el) => { wordRefs.current[index][wi] = el; }}
+                            style={{ opacity: 0.32 }}
+                          >
+                            {word}{wi < words.length - 1 ? ' ' : ''}
+                          </span>
+                        ))}
+                      </p>
+
+                      <ul className="mt-5 space-y-2">
+                        {card.features.map((feature) => (
+                          <li key={feature} className="flex items-center gap-3 text-[14.5px] font-semibold text-slate-800">
+                            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0072bc]/10 text-[#0072bc]">
+                              <Check size={12} strokeWidth={3} />
+                            </span>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="mt-5 flex items-center gap-2.5 border-t border-slate-200 pt-4 font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc]" />
+                        {card.timeline}
+                      </div>
+
+                      <div className="mt-6">
+                        <Link
+                          to={card.href}
+                          className="group inline-flex items-center gap-2.5 rounded-full bg-[#0072bc] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#0072bc]/25 transition-shadow hover:shadow-xl hover:shadow-[#0072bc]/30"
+                        >
+                          Explore {card.name.split(' & ')[0]}
+                          <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                        </Link>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Card Deck (driven by active index) */}
+              <div className="order-1 lg:order-2">
+                <div
+                  className="svc-deck relative mx-auto w-full max-w-[440px]"
+                  style={{ height: 'clamp(260px, 26vw, 320px)' }}
+                  role="group"
+                  aria-label="Service categories card deck — scroll to move through the deck"
+                >
+                  {serviceCards.map((card, index) => {
+                    const depth = (index - active + TOTAL) % TOTAL;
+                    return (
+                      <ServiceCreditCard
+                        key={card.id}
+                        card={card}
+                        pose={poseFor(depth)}
+                        isActive={depth === 0}
+                        position={index + 1}
+                        total={TOTAL}
+                      />
+                    );
+                  })}
+                </div>
+
+                <div className="mt-4 flex items-center justify-center gap-2">
+                  {serviceCards.map((card, index) => (
+                    <span key={card.id} className="group p-1.5">
+                      <motion.span
+                        className="block h-1.5 rounded-full"
+                        animate={{
+                          width: index === active ? 26 : 8,
+                          backgroundColor: index === active ? '#0072bc' : '#cbd5e1',
+                        }}
+                        transition={reduceMotion ? { duration: 0 } : CARD_SPRING}
+                      />
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 text-center">
+              <Link to="/services" className="text-[13px] font-bold text-[#0072bc] hover:underline">
+                View all services →
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>

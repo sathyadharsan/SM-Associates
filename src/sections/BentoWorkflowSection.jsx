@@ -7,9 +7,6 @@ export default function BentoWorkflowSection() {
       <div className="fg-wrap max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="max-w-2xl mb-14">
-          <span className="allset-pill-tag mb-4">
-            <Workflow size={13} /> Custom Rules & Workflows
-          </span>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
             Set up a recovery workflow in minutes
           </h2>

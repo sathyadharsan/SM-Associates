@@ -18,7 +18,36 @@
  * exits (nothing to hand off to), so it holds at full opacity to the end.
  */
 
+import { useEffect, useState } from 'react';
+
 export const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+
+/**
+ * Whether the viewport is both wide AND tall enough to safely pin a section
+ * full-screen. Width alone (a plain Tailwind `lg:` breakpoint) isn't
+ * sufficient — a common 1366×768-class laptop is "desktop width" but its
+ * actual browser viewport (~650-700px after chrome) can be too short for a
+ * pinned section's content, which overflows a fixed h-screen box and clips
+ * behind the site's fixed header. Same min-height convention already used
+ * for the homepage cinematic (see animation/homeCinematic.js's matchMedia
+ * gates) — short-but-wide viewports fall back to normal (non-pinned) flow.
+ */
+export function useDesktopPin({ minWidth = 1024, minHeight = 820 } = {}) {
+  const query = `(min-width: ${minWidth}px) and (min-height: ${minHeight}px)`;
+  const [isPinned, setIsPinned] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia(query).matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia(query);
+    const update = () => setIsPinned(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, [query]);
+
+  return isPinned;
+}
 
 // Robert Penner's ease-out-back — overshoots past 1 then settles, giving the
 // "flies in and snaps into place" feel instead of a flat linear/eased slide.
@@ -27,6 +56,77 @@ export function easeOutBack(x) {
   const c3 = c1 + 1;
   return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
 }
+
+// Real cubic-bezier evaluator (implicit P0=(0,0), P3=(1,1)) — the standard
+// Newton-Raphson + bisection algorithm used by browsers' own CSS easing and
+// the bezier-easing npm package. Lets JS-driven scroll animations use the
+// exact same easing curve as this site's CSS/Framer Motion transitions
+// (ease: [0.16, 1, 0.3, 1] appears throughout) instead of an approximation.
+export function cubicBezier(x1, y1, x2, y2) {
+  const NEWTON_ITERATIONS = 4;
+  const NEWTON_MIN_SLOPE = 0.001;
+  const SUBDIVISION_PRECISION = 0.0000001;
+  const SUBDIVISION_MAX_ITERATIONS = 10;
+  const SPLINE_TABLE_SIZE = 11;
+  const SAMPLE_STEP = 1.0 / (SPLINE_TABLE_SIZE - 1);
+
+  const A = (a1, a2) => 1.0 - 3.0 * a2 + 3.0 * a1;
+  const B = (a1, a2) => 3.0 * a2 - 6.0 * a1;
+  const C = (a1) => 3.0 * a1;
+  const calcBezier = (t, a1, a2) => ((A(a1, a2) * t + B(a1, a2)) * t + C(a1)) * t;
+  const getSlope = (t, a1, a2) => 3.0 * A(a1, a2) * t * t + 2.0 * B(a1, a2) * t + C(a1);
+
+  const sampleValues = new Float32Array(SPLINE_TABLE_SIZE);
+  for (let i = 0; i < SPLINE_TABLE_SIZE; ++i) sampleValues[i] = calcBezier(i * SAMPLE_STEP, x1, x2);
+
+  function binarySubdivide(x, a, b) {
+    let currentX;
+    let currentT;
+    let i = 0;
+    do {
+      currentT = a + (b - a) / 2.0;
+      currentX = calcBezier(currentT, x1, x2) - x;
+      if (currentX > 0.0) b = currentT; else a = currentT;
+    } while (Math.abs(currentX) > SUBDIVISION_PRECISION && ++i < SUBDIVISION_MAX_ITERATIONS);
+    return currentT;
+  }
+
+  function newtonRaphsonIterate(x, guessT) {
+    let t = guessT;
+    for (let i = 0; i < NEWTON_ITERATIONS; ++i) {
+      const currentSlope = getSlope(t, x1, x2);
+      if (currentSlope === 0.0) return t;
+      t -= (calcBezier(t, x1, x2) - x) / currentSlope;
+    }
+    return t;
+  }
+
+  function getTForX(x) {
+    let intervalStart = 0.0;
+    let currentSample = 1;
+    const lastSample = SPLINE_TABLE_SIZE - 1;
+    for (; currentSample !== lastSample && sampleValues[currentSample] <= x; ++currentSample) {
+      intervalStart += SAMPLE_STEP;
+    }
+    --currentSample;
+    const dist = (x - sampleValues[currentSample]) / (sampleValues[currentSample + 1] - sampleValues[currentSample]);
+    const guessForT = intervalStart + dist * SAMPLE_STEP;
+    const initialSlope = getSlope(guessForT, x1, x2);
+    if (initialSlope >= NEWTON_MIN_SLOPE) return newtonRaphsonIterate(x, guessForT);
+    if (initialSlope === 0.0) return guessForT;
+    return binarySubdivide(x, intervalStart, intervalStart + SAMPLE_STEP);
+  }
+
+  return function easing(x) {
+    if (x <= 0) return 0;
+    if (x >= 1) return 1;
+    return calcBezier(getTForX(x), y1, y2);
+  };
+}
+
+// The site's signature "premium" ease, as a JS function instead of a CSS
+// string — same curve used across all the Framer Motion variants.
+export const easeApple = cubicBezier(0.16, 1, 0.3, 1);
 
 export const PRE = 0.3;
 export const HOLD_END = 0.7;

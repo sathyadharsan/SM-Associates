@@ -136,7 +136,6 @@ export default function OperatingModelSection() {
           <div className="model6-head">
             <div className="fg-wrap">
               <div className="fg-section-header" style={{ marginBottom: 0 }}>
-                <span className="fg-eyebrow">The Recovery Operating Model</span>
                 <h2>One accountable lifecycle.</h2>
               </div>
               <div className="model6-ctr">STAGE <b ref={stageRef}>01</b> / 06</div>

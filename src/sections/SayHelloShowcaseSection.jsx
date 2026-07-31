@@ -48,9 +48,6 @@ export default function SayHelloShowcaseSection() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 border border-indigo-200 shadow-sm mb-4">
-            <Sparkles size={13} /> Unified Command Center
-          </span>
           <h2 className="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-[1.1]">
             Say hello to <span className="text-indigo-600">SM Associates</span>
           </h2>
@@ -244,44 +241,82 @@ export default function SayHelloShowcaseSection() {
           </motion.div>
 
           {/* ══════════════════════════════════════════════════════════ */}
-          {/* CENTER MOBILE PHONE MOCKUP — EXACT 360° ROTATION FLIP ENTRANCE THEN NORMAL STATIC */}
+          {/* CENTER POS MACHINE TERMINAL MOCKUP — REAL 3D HARDWARE SIDE VIEW */}
           {/* ══════════════════════════════════════════════════════════ */}
           <motion.div
-            initial={{ opacity: 0, y: 80, rotateY: 0 }}
+            initial={{ opacity: 0, y: 80, rotateY: 0, rotateX: 0, rotateZ: 0 }}
             whileInView={{ 
               opacity: 1, 
               y: 0,
-              rotateY: 360, // SLOW SINGLE 360 DEGREE SPIN ONCE
+              rotateY: -38, // PRONOUNCED 3D ISOMETRIC SIDE VIEW TILT
+              rotateX: 22,
+              rotateZ: 8,
             }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ 
-              duration: 3.5, 
+              duration: 2.2, 
               ease: [0.16, 1, 0.3, 1],
             }}
-            style={{ perspective: 1200 }}
-            className="relative z-10 mt-16 sm:mt-12 w-[260px] sm:w-[300px]"
+            style={{ transformStyle: 'preserve-3d', perspective: 1200 }}
+            className="relative z-10 mt-8 sm:mt-4 w-[290px] sm:w-[330px]"
           >
-            {/* Normal Static Upright Phone Container */}
-            <div className="bg-slate-950 p-2.5 rounded-[46px] shadow-[0_30px_70px_rgba(15,23,42,0.3)] border-4 border-slate-800 relative overflow-hidden">
-              
-              {/* Phone Inner Screen */}
-              <div className="bg-white rounded-[38px] overflow-hidden text-left p-4 pt-3 pb-8 relative min-h-[460px]">
+            {/* TOP BULGING PRINTER HEAD HOOD (A REAL POS TERMINAL COMPARTMENT) */}
+            <div 
+              className="bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 rounded-t-[44px] p-4 pb-3 border-t-4 border-x-4 border-slate-700 shadow-[0_-10px_25px_rgba(0,0,0,0.5)] relative z-20 flex flex-col items-center justify-center -mb-3"
+              style={{ transform: 'translateZ(12px)' }}
+            >
+              {/* Contactless / NFC Symbol on Top Printer Cylinder Hood */}
+              <div className="flex items-center justify-center gap-1.5 text-slate-300 mb-2">
+                <svg viewBox="0 0 24 24" className="w-5 h-5 fill-none stroke-current stroke-[2.5]">
+                  <path d="M12 2a10 10 0 0 1 0 20" strokeLinecap="round" />
+                  <path d="M12 6a6 6 0 0 1 0 12" strokeLinecap="round" />
+                  <path d="M12 10a2 2 0 0 1 0 4" strokeLinecap="round" />
+                </svg>
+                <span className="text-[8.5px] font-mono font-bold tracking-widest text-slate-200">NFC CONTACTLESS</span>
+              </div>
+
+              {/* Thermal Receipt Paper Tear Slot */}
+              <div className="w-full bg-slate-950 rounded-xl p-1.5 border border-slate-700 flex items-center justify-between px-3 shadow-inner">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-sm shadow-emerald-500" />
+                  <div className="h-1.5 w-20 bg-slate-800 rounded-full overflow-hidden">
+                    <div className="h-full w-10 bg-emerald-400 rounded-full animate-pulse" />
+                  </div>
+                </div>
+                <span className="text-[9px] font-mono font-bold text-slate-400">THERMAL PRINTER</span>
+              </div>
+            </div>
+
+            {/* POS Machine Main Body & Touchscreen Frame */}
+            <div 
+              className="bg-slate-950 rounded-b-[44px] rounded-t-[20px] border-x-4 border-b-4 border-slate-800 relative z-10 overflow-visible p-3.5 pt-4 pb-5"
+              style={{
+                boxShadow: '18px 24px 0px #0b0f19, -28px 42px 90px rgba(15,23,42,0.65)',
+              }}
+            >
+              {/* Right Side Card Swiping Track (Protruding Hardware Slot) */}
+              <div className="absolute -right-4 top-24 w-4 h-40 bg-gradient-to-r from-slate-900 to-slate-800 border-y-2 border-r-2 border-slate-700 rounded-r-xl shadow-lg flex flex-col items-center justify-center text-[7px] font-mono text-slate-300 gap-2 z-30">
+                <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                <span className="writing-mode-vertical tracking-widest font-bold text-[7px]">MAGSTRIPE SWIPE</span>
+              </div>
+
+              {/* POS Machine Touchscreen Display */}
+              <div className="bg-white rounded-[24px] overflow-hidden text-left p-3.5 pt-3 pb-4 relative min-h-[460px] border-2 border-slate-300 shadow-inner">
                 
-                {/* Dynamic Island / Notch */}
-                <div className="w-20 h-4 bg-slate-950 rounded-full mx-auto mb-3 flex items-center justify-between px-2">
-                  <div className="w-2 h-2 rounded-full bg-slate-800" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-indigo-900/60" />
+                {/* POS Screen Top Status Bar */}
+                <div className="flex justify-between items-center text-[10px] font-bold text-slate-500 px-1 mb-3 pb-2 border-b border-slate-100">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#0072bc]" />
+                    9:41
+                  </span>
+                  <span className="text-[#0072bc] font-extrabold bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">
+                    SM POS TERMINAL
+                  </span>
                 </div>
 
-                {/* Status Bar */}
-                <div className="flex justify-between items-center text-[10px] font-bold text-slate-400 px-1 mb-4">
-                  <span>9:41</span>
-                  <span className="text-indigo-600 font-extrabold bg-indigo-50 px-2 py-0.5 rounded-full">SM OS</span>
-                </div>
-
-                {/* User Profile Info */}
-                <div className="flex items-center gap-2.5 mb-4">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-600 to-indigo-400 text-white font-bold text-xs flex items-center justify-center shadow-md">
+                {/* User Profile / Company Header */}
+                <div className="flex items-center gap-2.5 mb-3.5">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#0072bc] to-blue-500 text-white font-bold text-xs flex items-center justify-center shadow-md">
                     SM
                   </div>
                   <div>
@@ -291,9 +326,9 @@ export default function SayHelloShowcaseSection() {
                 </div>
 
                 {/* Section Label */}
-                <div className="text-[10px] font-bold uppercase tracking-wider text-blue-600 mb-3">Key Highlights</div>
+                <div className="text-[10px] font-bold uppercase tracking-wider text-[#0072bc] mb-2.5">KEY HIGHLIGHTS</div>
 
-                {/* 2x3 Stats Grid — matching the image */}
+                {/* 2x3 Stats Grid — preserving exact screen data */}
                 <div className="grid grid-cols-2 gap-2">
 
                   {/* 1. 25+ YRS */}
@@ -302,10 +337,10 @@ export default function SayHelloShowcaseSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.35, delay: 0.2 }}
-                    className="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm"
+                    className="bg-white rounded-2xl p-2.5 border border-slate-100 shadow-sm"
                   >
                     <div className="text-[9px] text-slate-400 mb-1">🕐 #1</div>
-                    <div className="text-lg font-black text-blue-700 leading-none">
+                    <div className="text-lg font-black text-[#0072bc] leading-none">
                       <Counter value={25} prefix="" /><span className="text-sm font-extrabold text-blue-400"> + YRS</span>
                     </div>
                     <div className="text-[10px] font-bold text-slate-800 mt-1">Continuous Operations</div>
@@ -318,10 +353,10 @@ export default function SayHelloShowcaseSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.35, delay: 0.3 }}
-                    className="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm"
+                    className="bg-white rounded-2xl p-2.5 border border-slate-100 shadow-sm"
                   >
                     <div className="text-[9px] text-slate-400 mb-1">📍 #2</div>
-                    <div className="text-lg font-black text-blue-700 leading-none">
+                    <div className="text-lg font-black text-[#0072bc] leading-none">
                       <Counter value={19} prefix="" />
                     </div>
                     <div className="text-[10px] font-bold text-slate-800 mt-1">Branch Network</div>
@@ -334,14 +369,14 @@ export default function SayHelloShowcaseSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.35, delay: 0.4 }}
-                    className="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm"
+                    className="bg-white rounded-2xl p-2.5 border border-slate-100 shadow-sm"
                   >
                     <div className="text-[9px] text-slate-400 mb-1">👥 #3</div>
-                    <div className="text-lg font-black text-blue-700 leading-none">
+                    <div className="text-lg font-black text-[#0072bc] leading-none">
                       <Counter value={1500} prefix="" /><span className="text-sm font-extrabold text-blue-400"> +</span>
                     </div>
                     <div className="text-[10px] font-bold text-slate-800 mt-1">Field Workforce</div>
-                    <div className="text-[8px] text-slate-400 mt-0.5">IIBF DRA-certified & continuously audited.</div>
+                    <div className="text-[8px] text-slate-400 mt-0.5">IIBF DRA-certified &amp; continuously audited.</div>
                   </motion.div>
 
                   {/* 4. 5 States Covered */}
@@ -350,14 +385,14 @@ export default function SayHelloShowcaseSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.35, delay: 0.5 }}
-                    className="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm"
+                    className="bg-white rounded-2xl p-2.5 border border-slate-100 shadow-sm"
                   >
                     <div className="text-[9px] text-slate-400 mb-1">🗺️ #4</div>
-                    <div className="text-lg font-black text-blue-700 leading-none">
+                    <div className="text-lg font-black text-[#0072bc] leading-none">
                       <Counter value={5} prefix="" />
                     </div>
                     <div className="text-[10px] font-bold text-slate-800 mt-1">States Covered</div>
-                    <div className="text-[8px] text-slate-400 mt-0.5">TN, Karnataka, Kerala, AP & Telangana.</div>
+                    <div className="text-[8px] text-slate-400 mt-0.5">TN, Karnataka, Kerala, AP &amp; Telangana.</div>
                   </motion.div>
 
                   {/* 5. 1M+ Accounts Managed */}
@@ -366,11 +401,11 @@ export default function SayHelloShowcaseSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.35, delay: 0.6 }}
-                    className="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm"
+                    className="bg-white rounded-2xl p-2.5 border border-slate-100 shadow-sm"
                   >
-                    <div className="text-[9px] text-slate-400 mb-1">🗄️ #5</div>
-                    <div className="text-lg font-black text-blue-700 leading-none">
-                      1<span className="text-sm font-extrabold text-blue-400">M+</span>
+                    <div className="text-[9px] text-slate-400 mb-1">📱 #5</div>
+                    <div className="text-lg font-black text-[#0072bc] leading-none">
+                      <Counter value={1} prefix="" /><span className="text-sm font-extrabold text-blue-400">M+</span>
                     </div>
                     <div className="text-[10px] font-bold text-slate-800 mt-1">Accounts Managed</div>
                     <div className="text-[8px] text-slate-400 mt-0.5">Resolved across retail loan classes.</div>
@@ -382,10 +417,10 @@ export default function SayHelloShowcaseSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.35, delay: 0.7 }}
-                    className="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm"
+                    className="bg-white rounded-2xl p-2.5 border border-slate-100 shadow-sm"
                   >
                     <div className="text-[9px] text-slate-400 mb-1">🤝 #6</div>
-                    <div className="text-lg font-black text-blue-700 leading-none">
+                    <div className="text-lg font-black text-[#0072bc] leading-none">
                       <Counter value={100} prefix="" /><span className="text-sm font-extrabold text-blue-400"> +</span>
                     </div>
                     <div className="text-[10px] font-bold text-slate-800 mt-1">Institutional Partners</div>
@@ -393,14 +428,14 @@ export default function SayHelloShowcaseSection() {
                   </motion.div>
 
                 </div>
-
               </div>
 
-              {/* FADE BOTTOM OF PHONE INTO BACKGROUND */}
-              <div 
-                aria-hidden 
-                className="absolute bottom-0 inset-x-0 h-36 bg-gradient-to-t from-[#f8f9fc] via-[#f8f9fc]/90 to-transparent pointer-events-none z-20" 
-              />
+              {/* POS Android Hardware Navigation Buttons (Back, Home, Recent) */}
+              <div className="mt-3 flex items-center justify-center gap-6 text-slate-400 text-xs">
+                <span className="w-2.5 h-2.5 rounded-full border-2 border-slate-400 hover:bg-slate-300 transition-colors" />
+                <span className="w-3 h-3 rounded-full bg-slate-400 hover:bg-slate-200 transition-colors" />
+                <span className="w-2.5 h-2.5 rounded-xs border-2 border-slate-400 hover:bg-slate-300 transition-colors" />
+              </div>
             </div>
           </motion.div>
 

@@ -38,7 +38,7 @@ export default function ClientsPage() {
             transition={{ duration: 0.7, delay: 0.12 }}
             className="mx-auto mt-6 max-w-xl text-base leading-7 text-slate-500 sm:text-lg"
           >
-            Serving Banks, NBFCs, Housing Finance Companies and Fintech Lenders Across India
+            Serving Banks, NBFCs and Housing Finance Companies Across India
           </motion.p>
         </div>
       </section>

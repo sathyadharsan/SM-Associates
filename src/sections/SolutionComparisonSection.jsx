@@ -53,9 +53,6 @@ export default function SolutionComparisonSection() {
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="allset-pill-tag mb-4">
-            <ShieldCheck size={13} /> Institutional Comparison
-          </span>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
             The most flexible solution
           </h2>

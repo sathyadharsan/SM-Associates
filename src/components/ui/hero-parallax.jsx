@@ -4,7 +4,6 @@ import {
   motion,
   useScroll,
   useTransform,
-  useSpring,
 } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -24,32 +23,17 @@ export const HeroParallax = ({
     offset: ["start start", "end start"],
   });
 
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
-
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
-    springConfig
-  );
-  const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -1000]),
-    springConfig
-  );
-  const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [10, 0]),
-    springConfig
-  );
-  const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0.3, 1]),
-    springConfig
-  );
-  const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [12, 0]),
-    springConfig
-  );
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.25], [-350, 100]),
-    springConfig
-  );
+  // Raw scroll-linked values, no useSpring: a spring keeps easing toward its
+  // target after the source value stops changing, so cards would visibly
+  // keep drifting for a few hundred ms after the user stops scrolling. These
+  // track scrollYProgress 1:1 instead — movement is fully controlled by
+  // scroll position, with no independent momentum of its own.
+  const translateX = useTransform(scrollYProgress, [0, 1], [0, 1000]);
+  const translateXReverse = useTransform(scrollYProgress, [0, 1], [0, -1000]);
+  const rotateX = useTransform(scrollYProgress, [0, 0.2], [10, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [0.3, 1]);
+  const rotateZ = useTransform(scrollYProgress, [0, 0.2], [12, 0]);
+  const translateY = useTransform(scrollYProgress, [0, 0.25], [-350, 100]);
 
   return (
     <div

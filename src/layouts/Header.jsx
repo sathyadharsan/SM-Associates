@@ -388,7 +388,8 @@ export default function Header() {
                         to={navItem.href}
                         onMouseEnter={() => handleMouseEnter(key)}
                         onClick={() => {
-                          setActiveMenu(activeMenu === key ? null : key);
+                          setActiveMenu(null);
+                          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
                         }}
                         className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[14px] font-semibold tracking-[-0.01em] whitespace-nowrap transition-colors duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                         style={{ color: isItemActive(navItem) || activeMenu === key || hoverKey === key ? BRAND : '#0a0e1a' }}
@@ -408,6 +409,10 @@ export default function Header() {
                       <Link
                         to={navItem.href}
                         onMouseEnter={() => handleMouseEnter(key)}
+                        onClick={() => {
+                          setActiveMenu(null);
+                          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                        }}
                         className="relative inline-flex items-center gap-1.5 px-3 py-2 text-[14px] font-semibold tracking-[-0.01em] whitespace-nowrap transition-colors duration-200 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                         style={{ color: isItemActive(navItem) || hoverKey === key ? BRAND : '#0a0e1a' }}
                       >
@@ -634,7 +639,10 @@ export default function Header() {
                                     {/* View All category link */}
                                     <Link
                                       to={navItem.href}
-                                      onClick={() => setMobileOpen(false)}
+                                      onClick={() => {
+                                        setMobileOpen(false);
+                                        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                                      }}
                                       className="block rounded-lg px-2 py-1.5 text-[13px] font-semibold text-brand-500 hover:text-brand-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
                                     >
                                       View All {navItem.label}
@@ -676,7 +684,10 @@ export default function Header() {
                         ) : (
                           <Link
                             to={navItem.href}
-                            onClick={() => setMobileOpen(false)}
+                            onClick={() => {
+                              setMobileOpen(false);
+                              window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                            }}
                             className="block rounded-xl px-3 py-2.5 text-[15px] font-bold text-[#0a0e1a] hover:bg-gray-50"
                           >
                             {navItem.label}

@@ -51,19 +51,33 @@ export function initHomeCinematic() {
     const rows = trust.querySelectorAll('.trust6-marquee');
     const facts = trust.querySelectorAll('.tc7-fact');
 
-    gsap.set([eyebrow, title], { autoAlpha: 0, y: 28 });
-    gsap.set(rows, { autoAlpha: 0, y: 44 });
-    gsap.set(facts, { autoAlpha: 0, y: 24 });
+    const headerTargets = [eyebrow, title].filter(Boolean);
+
+    if (headerTargets.length > 0) {
+      gsap.set(headerTargets, { autoAlpha: 0, y: 28 });
+    }
+    if (rows.length > 0) {
+      gsap.set(rows, { autoAlpha: 0, y: 44 });
+    }
+    if (facts.length > 0) {
+      gsap.set(facts, { autoAlpha: 0, y: 24 });
+    }
 
     const tl = gsap.timeline({
       scrollTrigger: scrollTriggerConfig,
-      defaults: { ease: 'none', force3D: true },
+      defaults: { ease: 'none' },
     });
-    tl.to(eyebrow, { autoAlpha: 1, y: 0, duration: 0.10 }, 0.02)
-      .to(title, { autoAlpha: 1, y: 0, duration: 0.14 }, 0.10)
-      .to(rows, { autoAlpha: 1, y: 0, duration: 0.16, stagger: 0.06 }, 0.26)
-      .to(facts, { autoAlpha: 1, y: 0, duration: 0.10, stagger: 0.045 }, 0.58)
-      .to({}, { duration: 0.22 }); // settle-hold so the release never feels abrupt
+
+    if (headerTargets.length > 0) {
+      tl.to(headerTargets, { autoAlpha: 1, y: 0, duration: 0.14 }, 0.08);
+    }
+    if (rows.length > 0) {
+      tl.to(rows, { autoAlpha: 1, y: 0, duration: 0.16, stagger: 0.06 }, 0.26);
+    }
+    if (facts.length > 0) {
+      tl.to(facts, { autoAlpha: 1, y: 0, duration: 0.10, stagger: 0.045 }, 0.58);
+    }
+    tl.to({}, { duration: 0.22 }); // settle-hold so the release never feels abrupt
     return tl;
   };
 
@@ -85,7 +99,6 @@ export function initHomeCinematic() {
       filter: 'blur(6px)',
       transformOrigin: '50% 30%',
       ease: 'none',
-      force3D: true,
       scrollTrigger: { trigger: hero, start: 'top top', end: '+=90%', scrub: 0.6 },
     });
   };
