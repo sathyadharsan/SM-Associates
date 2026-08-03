@@ -228,7 +228,7 @@ export default function ServicesOverviewSection() {
   return (
     <section id="services" className="relative bg-white" aria-label="Core Recovery Services Overview">
       <div ref={wrapRef} className="relative z-10" style={{ height: `${TOTAL * SEGMENT_VH}vh` }}>
-        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden pt-24 pb-6">
+        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden pt-36 sm:pt-40 pb-6">
           <div className="fg-wrap mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-6 flex flex-col items-center justify-center text-center w-full relative">
               <div className="fg-section-header text-center flex flex-col items-center justify-center" style={{ marginBottom: 0, textAlign: 'center' }}>
