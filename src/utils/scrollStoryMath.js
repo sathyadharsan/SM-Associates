@@ -138,45 +138,65 @@ export const HOLD_END = 0.7;
 // add both into one transform without them fighting each other.
 export function imageState(raw, index, isLast) {
   const t = raw - index;
-  if (t <= -PRE) return { opacity: 0, entrance: 1, exit: 0 };
-  if (t < 0) {
-    const p = (t + PRE) / PRE;
-    return { opacity: p, entrance: 1 - p, exit: 0 };
+
+  // Physical Evidence Module Choreography:
+  // Text leads (t < 0.18): user reads and understands the idea first.
+  // Image follows (t = 0.18 -> 0.42): approaches, aligns with display frame, softly docks.
+  // Hold & Verify (t = 0.42 -> 0.78): locked as solid physical evidence.
+  // Detach & Exit (t = 0.78 -> 1.05): previous image detaches and travels away.
+  const IN_START = 0.18;
+  const DOCK_TIME = 0.42;
+  const EXIT_START = 0.78;
+  const EXIT_END = 1.05;
+
+  if (t < IN_START) {
+    return { opacity: 0, entrance: 1, exit: 0, docked: false };
   }
-  if (t <= HOLD_END || isLast) return { opacity: 1, entrance: 0, exit: 0 };
-  if (t <= 1) {
-    const p = (t - HOLD_END) / (1 - HOLD_END);
-    return { opacity: 1 - p, entrance: 0, exit: p };
+  if (t < DOCK_TIME) {
+    const p = (t - IN_START) / (DOCK_TIME - IN_START);
+    const eased = easeApple(p);
+    return { opacity: eased, entrance: 1 - eased, exit: 0, docked: false };
   }
-  return { opacity: 0, entrance: 0, exit: 1 };
+  if (t <= EXIT_START || isLast) {
+    return { opacity: 1, entrance: 0, exit: 0, docked: true };
+  }
+  if (t <= EXIT_END) {
+    const p = (t - EXIT_START) / (EXIT_END - EXIT_START);
+    return { opacity: 1 - p, entrance: 0, exit: p, docked: false };
+  }
+  return { opacity: 0, entrance: 0, exit: 1, docked: false };
 }
 
 export function textState(raw, index, isLast) {
   const t = raw - index;
-  const TEXT_IN = 0.3;
-  if (t <= 0) return { opacity: 0, reveal: 0 };
-  if (t <= TEXT_IN) return { opacity: t / TEXT_IN, reveal: t / TEXT_IN };
-  if (t <= HOLD_END || isLast) return { opacity: 1, reveal: 1 };
-  if (t <= 1) return { opacity: 1 - (t - HOLD_END) / (1 - HOLD_END), reveal: 1 };
-  return { opacity: 0, reveal: 1 };
+  const IN_START = -0.08;
+  const IN_END = 0.02;
+  const OUT_START = 0.98;
+  const OUT_END = 1.08;
+
+  if (t < IN_START) {
+    return { opacity: 0, reveal: 0 };
+  }
+  if (t < IN_END) {
+    const p = (t - IN_START) / (IN_END - IN_START);
+    return { opacity: p, reveal: p };
+  }
+  if (t <= OUT_START || isLast) {
+    return { opacity: 1, reveal: 1 };
+  }
+  if (t <= OUT_END) {
+    const p = (t - OUT_START) / (OUT_END - OUT_START);
+    return { opacity: 1 - p, reveal: 1 + p * 0.5 };
+  }
+  return { opacity: 0, reveal: 1.5 };
 }
 
-// Word-by-word "read as you scroll" sweep — a continuous cursor position
-// (in word units) advances across the whole scroll window; a word already
-// behind the cursor sits at full opacity, one at the cursor is mid-fade,
-// everything ahead stays dim but legible (never invisible, so the full
-// sentence's shape is always readable — only its emphasis moves).
-const READ_START = 0.05;
-const READ_END = 0.62;
-const DIM_OPACITY = 0.32;
-
+// Word-by-word sweep — ensures words remain 100% crisp solid text.
 export function wordOpacity(raw, index, wordIndex, wordCount) {
-  const t = raw - index;
-  const litFrac = clamp((t - READ_START) / (READ_END - READ_START), 0, 1);
-  const cursor = litFrac * wordCount;
-  const local = clamp(cursor - wordIndex, 0, 1);
-  return DIM_OPACITY + (1 - DIM_OPACITY) * local;
+  return 1;
 }
+
+const DIM_OPACITY = 0.75;
 
 // Simpler variant for a single continuous passage (e.g. several manifesto
 // lines sitting on screen together, no per-chapter cross-fade): one cursor
@@ -205,11 +225,36 @@ export function mountWordSweep({ wrapRef, wordRefs, minWidthPx = 1024, onProgres
     const travel = wrap.offsetHeight - window.innerHeight;
     const progress = clamp(-rect.top / (travel || 1), 0, 1);
     const words = wordRefs.current;
-    const cursor = progress * words.length;
+    const cursor = progress * words.length * 1.25;
 
     words.forEach((el, i) => {
       if (!el) return;
-      el.style.opacity = String(sweepOpacity(cursor, i));
+      const local = clamp(cursor - i, 0, 1);
+      const p = easeApple(local);
+
+      if (p >= 0.92) {
+        // READ (BOLD STATE): Solid dark typography
+        el.style.WebkitTextFillColor = '#0f172a';
+        el.style.WebkitTextStroke = '0px transparent';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0px) scale(1)';
+      } else if (p <= 0.05) {
+        // PRE-READ STATE: Outlined text
+        el.style.WebkitTextFillColor = 'transparent';
+        el.style.WebkitTextStroke = '1.5px #475569';
+        el.style.opacity = '0.5';
+        el.style.transform = 'translateY(6px) scale(0.98)';
+      } else {
+        // MORPHING STATE: Outline fills into solid bold text
+        const strokeW = (1.5 * (1 - p)).toFixed(2);
+        const opacity = (0.5 + 0.5 * p).toFixed(2);
+        const fillAlpha = Math.pow(p, 1.2).toFixed(2);
+
+        el.style.WebkitTextFillColor = `rgba(15, 23, 42, ${fillAlpha})`;
+        el.style.WebkitTextStroke = `${strokeW}px rgba(71, 85, 105, ${(1 - p).toFixed(2)})`;
+        el.style.opacity = String(opacity);
+        el.style.transform = `translateY(${((1 - p) * 6).toFixed(1)}px) scale(${(0.98 + 0.02 * p).toFixed(3)})`;
+      }
     });
 
     if (onProgress) onProgress({ progress });
@@ -271,9 +316,7 @@ export function mountScrollStory({ wrapRef, cardRefs, textRefs, wordRefs, total,
     const progress = clamp(-rect.top / (travel || 1), 0, 1);
     const raw = progress * total;
 
-    const imageOpacities = Array.from({ length: total }, (_, i) => imageState(raw, i, i === total - 1).opacity);
-    let activeIndex = 0;
-    imageOpacities.forEach((o, i) => { if (o > imageOpacities[activeIndex]) activeIndex = i; });
+    const activeIndex = clamp(Math.floor(raw), 0, total - 1);
 
     cardRefs.current.forEach((el, i) => {
       if (!el) return;
@@ -285,18 +328,22 @@ export function mountScrollStory({ wrapRef, cardRefs, textRefs, wordRefs, total,
     textRefs.current.forEach((el, i) => {
       if (!el) return;
       const { opacity, reveal } = textState(raw, i, i === total - 1);
-      el.style.opacity = String(opacity);
-      el.style.transform = `translateY(${(1 - reveal) * 22}px)`;
+      const ty = Math.round((1 - reveal) * 16);
+      el.style.opacity = opacity <= 0.01 ? '0' : String(opacity.toFixed(3));
+      el.style.transform = `translateY(${ty}px) translateZ(0)`;
+      el.style.filter = 'none';
+      el.style.webkitFilter = 'none';
+      el.style.pointerEvents = opacity > 0.05 ? 'auto' : 'none';
       el.setAttribute('aria-hidden', i === activeIndex ? 'false' : 'true');
     });
 
     if (wordRefs) {
-      wordRefs.current.forEach((words, i) => {
+      wordRefs.current.forEach((words) => {
         if (!words) return;
-        const count = words.length;
-        words.forEach((wordEl, wi) => {
+        words.forEach((wordEl) => {
           if (!wordEl) return;
-          wordEl.style.opacity = String(wordOpacity(raw, i, wi, count));
+          wordEl.style.opacity = '1';
+          wordEl.style.filter = 'none';
         });
       });
     }

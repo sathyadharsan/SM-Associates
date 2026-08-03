@@ -931,7 +931,7 @@ export const pagesContent = {
   'services-investigation': {
     eyebrow: "FORENSIC RISK & DEBTOR TRACING",
     title: "Investigation & Fraud Control Operations",
-    subtitle: "Skip Tracing, Address Mapping, Forensic Audits & Asset Discovery",
+    subtitle: "Borrower Tracing, Address Mapping, Forensic Audits & Asset Discovery",
     description: "Uncovering untraceable debtors, identifying hidden collateral assets, mapping undisclosed locations, and conducting forensic investigations for high-exposure default portfolios.",
     primaryCtaText: "Request Investigation Consultation",
     secondaryCtaText: "Explore Investigation Framework",
@@ -941,20 +941,20 @@ export const pagesContent = {
       logos: ["STATE BANK OF INDIA", "HDFC BANK", "AXIS BANK", "CANARA BANK", "HDB FINANCIAL", "ASSET RECONSTRUCTION CORP"]
     },
     snapshot: {
-      summary: "When borrowers abscond or conceal assets, conventional recovery methods stall. SM Associates operates a specialized skip tracing and fraud investigation division. Combining local informant networks, public registry audits, address re-mapping, and forensic asset tracing, we restore location and asset visibility so lenders can resume recovery actions.",
+      summary: "When borrowers abscond or conceal assets, conventional recovery methods stall. SM Associates operates a specialized borrower tracing and fraud investigation division. Combining local informant networks, public registry audits, address re-mapping, and forensic asset tracing, we restore location and asset visibility so lenders can resume recovery actions.",
       outcomes: [
         { title: "Debtor Location Restoration", desc: "Re-establishes contactability for untraceable and absconded borrowers." },
         { title: "Hidden Asset Identification", desc: "Uncovers unencumbered real estate and vehicle assets for legal attachment." },
         { title: "Fraud Risk Mitigation", desc: "Detailed forensic dossiers documenting deliberate default and fraud patterns." }
       ],
       useCases: [
-        { title: "Absconded Debtor Skip Tracing", desc: "Tracing untraceable borrowers across regional branch grids." },
+        { title: "Absconded Debtor Tracing", desc: "Tracing untraceable borrowers across regional branch grids." },
         { title: "Collateral & Property Asset Discovery", desc: "Identifying hidden property titles for legal attachment." },
         { title: "Forensic Credit Fraud Audits", desc: "Investigating multi-lender defaults and fraudulent documentation." }
       ]
     },
     stats: [
-      { value: "85%+", label: "Skip Tracing Success Rate" },
+      { value: "85%+", label: "Borrower Tracing Success Rate" },
       { value: "10,000+", label: "Cases Traced" },
       { value: "19", label: "Branch Grids" },
       { value: "25+", label: "Years Experience" }
@@ -971,17 +971,17 @@ export const pagesContent = {
       { dimension: "Fraud Investigation Dossiers", traditional: "Basic summary notes lacking evidentiary detail.", sm: "Forensic investigation briefs compiling coordinate logs, witness notes, and public record proof." }
     ],
     framework: {
-      title: "Forensic Investigation & Skip Tracing Model",
+      title: "Forensic Investigation & Borrower Tracing Model",
       desc: "Combining field intelligence, digital trace audits, and public registry searches.",
       solutions: [
-        { title: "Debtor Skip Tracing Desk", desc: "Locating absconded borrowers via local field grids and registry audits." },
+        { title: "Debtor Tracing Desk", desc: "Locating absconded borrowers via local field grids and registry audits." },
         { title: "Address Mapping Desk", desc: "Re-establishing active residential and commercial coordinates." },
         { title: "Asset Discovery Desk", desc: "Tracing unencumbered real estate, vehicles, and commercial holdings." },
         { title: "Fraud Audit Desk", desc: "Investigating synthetic identities, double financing, and document forgery." }
       ]
     },
     capabilities: [
-      { title: "Debtor Skip Tracing", desc: "Tracing untraceable borrowers who have relocated without forwarding contact info.", businessOutcome: "Restores contactability and enables legal notice serving." },
+      { title: "Debtor Location Tracing", desc: "Tracing untraceable borrowers who have relocated without forwarding contact info.", businessOutcome: "Restores contactability and enables legal notice serving." },
       { title: "Address & Coordinate Mapping", desc: "Re-mapping active residential, commercial, and native village addresses.", businessOutcome: "Re-activates stalled doorstep collections and legal summons." },
       { title: "Forensic Asset Discovery", desc: "Identifying undisclosed real estate titles, vehicles, and business investments.", businessOutcome: "Provides legal teams with target assets for court attachment orders." },
       { title: "Credit Fraud Investigation", desc: "Investigating deliberate defaults, document forgery, and corporate shell networks.", businessOutcome: "Compiles evidentiary dossiers for criminal fraud proceedings." }
@@ -1010,8 +1010,8 @@ export const pagesContent = {
       "Bank Empanelment Security & Privacy Standards"
     ],
     faqs: [
-      { q: "What information is required to initiate a skip tracing investigation?", a: "We require basic applicant details: last known address, PAN/Aadhaar reference, phone numbers, and loan agreement files." },
-      { q: "What is your success rate for locating absconded debtors?", a: "Our skip tracing desk achieves an 85%+ success rate across South India, drawing on our 19 regional branch grids." },
+      { q: "What information is required to initiate a borrower tracing investigation?", a: "We require basic applicant details: last known address, PAN/Aadhaar reference, phone numbers, and loan agreement files." },
+      { q: "What is your success rate for locating absconded debtors?", a: "Our borrower tracing desk achieves an 85%+ success rate across South India, drawing on our 19 regional branch grids." },
       { q: "How do you handle asset discovery for court attachment?", a: "We audit local sub-registrar offices, municipal property registers, and corporate filings to document unencumbered real estate and commercial assets." }
     ],
     cta: {

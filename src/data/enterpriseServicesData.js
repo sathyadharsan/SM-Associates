@@ -116,7 +116,7 @@ export const enterpriseServices = [
       'Business Verification',
       'Asset Verification',
       'Fraud Investigation',
-      'Skip Tracing',
+      'Borrower Tracing',
     ],
     approach: ['Field Intelligence', 'Digital Verification', 'Reporting', 'Compliance'],
     cta: 'Know More',

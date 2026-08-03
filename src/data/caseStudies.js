@@ -138,7 +138,7 @@ export const caseStudies = [
     approach: [
       'Account allocation by bucket and geography — field executives assigned by density and travel efficiency',
       'Daily field visits with same-day disposition logging',
-      'Skip tracing activated for untraceable borrowers',
+      'Borrower tracing activated for untraceable borrowers',
       'Combined tele-calling + field visit approach for SMA-1 accounts',
       'Payment tracking updated into client system daily',
       'Weekly priority-reallocation calls with the client’s Collections Manager',
@@ -201,7 +201,7 @@ export const caseStudies = [
     approach: [
       'Bucket-wise portfolio allocation across 30+, 60+ and 90+ DPD segments, with risk-based prioritization of high-value accounts',
       'Coordinated tele-calling for early-bucket customer contact, escalating to scheduled field visits where digital and voice contact failed',
-      'Skip tracing activated for unreachable customers',
+      'Borrower tracing activated for unreachable customers',
       'Payment commitment tracking through to full resolution',
       'Daily disposition reporting per account, with regular client MIS updates across all active buckets',
       'Escalation management for high-risk and disputed accounts',

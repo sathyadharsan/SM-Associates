@@ -11,33 +11,37 @@ const row2 = sortedLogos.slice(half);
 
 export default function ClientLogoMarqueeSection() {
   return (
-    <section className="bg-slate-50/70 py-10 sm:py-12 border-y border-slate-200/80 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-6 text-center">
-        <h3 className="text-lg sm:text-xl font-bold text-slate-800">
-          Trusted by India's Top Scheduled Commercial Banks &amp; NBFCs
+    <section className="relative bg-slate-50/80 py-12 sm:py-16 border-y border-slate-200/60 overflow-hidden">
+      {/* Edge gradient overlays for smooth seamless infinite scroll effect */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent z-10" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-slate-50 via-slate-50/80 to-transparent z-10" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 text-center">
+        <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+          Trusted by India&apos;s Top Scheduled Commercial Banks &amp; NBFCs
         </h3>
       </div>
 
-      {/* Marquee Rows */}
-      <div className="trust6-rows opacity-95">
+      {/* Marquee Rows without background card boxes */}
+      <div className="trust6-rows opacity-95 space-y-4">
         {/* Row 1 */}
-        <div className="trust6-marquee mb-3">
+        <div className="trust6-marquee">
           <div className="trust6-track" style={{ animationDuration: '45s' }}>
             {[...row1, ...row1].map((client, i) => (
-              <span
+              <div
                 key={`r1-${client.slug}-${i}`}
-                className="tlogo bg-white border border-slate-200/90 p-2.5 sm:p-3 rounded-xl shadow-xs flex items-center justify-center h-14 w-36 sm:w-44 shrink-0 hover:border-[#0072bc] hover:shadow-md transition-all duration-300"
+                className="flex items-center justify-center h-16 w-40 sm:w-52 px-4 shrink-0 transition-all duration-300 group/logo"
               >
                 <img
                   src={client.logo}
                   alt={`${client.name} logo`}
-                  className="max-h-9 max-w-[130px] object-contain hover:scale-105 transition-all duration-300"
+                  className="max-h-10 sm:max-h-12 max-w-[140px] sm:max-w-[165px] object-contain opacity-85 group-hover/logo:opacity-100 group-hover/logo:scale-110 transition-all duration-300 filter drop-shadow-xs"
                   loading="lazy"
                   onError={(e) => {
                     e.currentTarget.parentElement.style.display = 'none';
                   }}
                 />
-              </span>
+              </div>
             ))}
           </div>
         </div>
@@ -46,20 +50,20 @@ export default function ClientLogoMarqueeSection() {
         <div className="trust6-marquee">
           <div className="trust6-track trust6-track--rev" style={{ animationDuration: '50s' }}>
             {[...row2, ...row2].map((client, i) => (
-              <span
+              <div
                 key={`r2-${client.slug}-${i}`}
-                className="tlogo bg-white border border-slate-200/90 p-2.5 sm:p-3 rounded-xl shadow-xs flex items-center justify-center h-14 w-36 sm:w-44 shrink-0 hover:border-[#0072bc] hover:shadow-md transition-all duration-300"
+                className="flex items-center justify-center h-16 w-40 sm:w-52 px-4 shrink-0 transition-all duration-300 group/logo"
               >
                 <img
                   src={client.logo}
                   alt={`${client.name} logo`}
-                  className="max-h-9 max-w-[130px] object-contain hover:scale-105 transition-all duration-300"
+                  className="max-h-10 sm:max-h-12 max-w-[140px] sm:max-w-[165px] object-contain opacity-85 group-hover/logo:opacity-100 group-hover/logo:scale-110 transition-all duration-300 filter drop-shadow-xs"
                   loading="lazy"
                   onError={(e) => {
                     e.currentTarget.parentElement.style.display = 'none';
                   }}
                 />
-              </span>
+              </div>
             ))}
           </div>
         </div>

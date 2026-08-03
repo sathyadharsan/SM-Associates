@@ -24,13 +24,12 @@
   'use strict';
 
   /* ------------------------------ CONFIG -------------------------------- */
-  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzEbK93Tt3EMJ77TF9Dqn_v4n-8rHzJqU0wrLvagUSDLiJJ3YEnGWew_evMsIEVGlAA/exec';
+  var ENDPOINT = window.SM_ANALYTICS_ENDPOINT || '';
   var GEO_LOOKUP = true;              // ipapi.co (free) for IP/country/city/ISP
   var SESSION_TIMEOUT_MIN = 30;       // inactivity window that ends a session
   var IDLE_THRESHOLD_S = 5;           // seconds without input = idle
 
   if (!ENDPOINT) {
-    if (window.console) console.warn('[sm-analytics] ENDPOINT not set — tracker idle.');
     return;
   }
 

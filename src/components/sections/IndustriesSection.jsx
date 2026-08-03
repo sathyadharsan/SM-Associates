@@ -51,9 +51,9 @@ const BANKING_SECTORS = [
     lightBg: 'bg-blue-50/80',
     border: 'border-blue-200',
     text: 'text-blue-600',
-    desc: 'High-velocity field collections and skip tracing for leading private lenders, ensuring rapid TAT and strict SLA adherence.',
+    desc: 'High-velocity field collections and borrower tracing for leading private lenders, ensuring rapid TAT and strict SLA adherence.',
     assetClasses: ['LAP (Loan Against Property)', 'Auto & Vehicle Credit', 'Personal Loans', 'Credit Card Write-offs'],
-    protocols: ['Skip Tracing & Field Intelligence', 'DRA-Certified Field Collections', 'Early Bucket Tele-calling', 'Legal Notice Serving'],
+    protocols: ['Borrower Tracing & Field Intelligence', 'DRA-Certified Field Collections', 'Early Bucket Tele-calling', 'Legal Notice Serving'],
     metrics: [
       { k: 'Field Dispatch', v: '15-Min SLA' },
       { k: 'SLA Compliance', v: '99.4%' },

@@ -44,46 +44,46 @@ const certifications = [
 
 export default function AwardsCertificationsSection() {
   return (
-    <section className="py-20 bg-white" id="awards-certifications">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-16 sm:py-24 bg-white" id="awards-certifications">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-12 sm:mb-16 max-w-3xl mx-auto"
         >
-
-          <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             Regulated. Certified. <span className="text-[#0072bc]">Trusted.</span>
           </h2>
-          <p className="text-slate-500 text-base mt-3 max-w-md mx-auto">
+          <p className="text-slate-600 text-base mt-3 max-w-lg mx-auto leading-relaxed">
             Every operation runs under strict regulatory compliance — so your portfolio is always protected.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {/* 5 Cards evenly balanced across 5 columns */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 max-w-6xl mx-auto items-stretch justify-center">
           {certifications.map((cert, idx) => {
             const Icon = cert.icon;
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.08 }}
-                whileHover={{ y: -5, scale: 1.04 }}
-                className="group flex flex-col items-center text-center p-6 rounded-2xl border border-slate-100 bg-white hover:border-[#0072bc]/30 hover:shadow-xl hover:shadow-[#0072bc]/10 transition-all duration-300 cursor-default"
+                whileHover={{ y: -5, scale: 1.03 }}
+                className="group flex flex-col items-center text-center p-6 sm:p-7 rounded-2xl border border-slate-200/60 bg-white shadow-xs hover:border-slate-200 hover:shadow-lg hover:shadow-slate-200/60 transition-all duration-300 cursor-default"
               >
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110"
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 shadow-xs"
                   style={{ backgroundColor: cert.bg }}
                 >
-                  <Icon size={22} style={{ color: cert.color }} />
+                  <Icon size={24} style={{ color: cert.color }} />
                 </div>
-                <div className="font-black text-slate-900 text-sm leading-tight">{cert.title}</div>
-                <div className="text-slate-400 text-[10px] mt-1 leading-tight">{cert.subtitle}</div>
+                <div className="font-extrabold text-slate-900 text-sm sm:text-base leading-snug">{cert.title}</div>
+                <div className="text-slate-500 text-xs mt-1.5 leading-relaxed font-normal">{cert.subtitle}</div>
               </motion.div>
             );
           })}

@@ -45,7 +45,7 @@ export const locations = [
   // Chennai  80.27°E 13.08°N → x=60.9, y=52.7
   { id: 'chennai', name: 'Chennai', x: 60.9, y: 52.7, tier: 'hq',
     region: 'Head Office', coverage: 'Tamil Nadu, Puducherry, Andhra Pradesh',
-    services: ['CPV', 'Collections', 'Recovery', 'Legal Support', 'Skip Tracing'],
+    services: ['CPV', 'Collections', 'Recovery', 'Legal Support', 'Borrower Tracing'],
     modes: ['coverage', 'collections', 'recovery', 'legal', 'asset'],
     team: '350+', partners: '120+', since: '2012',
     coverageRadius: '180 km', casesManaged: '14,280', successRate: 96, status: 'Active' },
@@ -69,7 +69,7 @@ export const locations = [
   // Coimbatore  76.96°E 11.00°N → x=37.2, y=67.5
   { id: 'coimbatore', name: 'Coimbatore', x: 37.2, y: 67.5, tier: 'branch',
     region: 'Branch Location', coverage: 'Coimbatore, Erode, Nilgiris, Tirupur',
-    services: ['CPV', 'Collections', 'Recovery', 'Skip Tracing'],
+    services: ['CPV', 'Collections', 'Recovery', 'Borrower Tracing'],
     modes: ['coverage', 'collections', 'recovery', 'asset'],
     team: '140+', partners: '48+', since: '2014',
     coverageRadius: '90 km', casesManaged: '5,210', successRate: 90, status: 'Active' },
@@ -109,7 +109,7 @@ export const locations = [
   // Kochi  76.26°E 9.93°N → x=28.7, y=76.4
   { id: 'kochi', name: 'Kochi', x: 28.7, y: 76.4, tier: 'branch',
     region: 'Branch Location', coverage: 'Kochi, Ernakulam, Thrissur',
-    services: ['CPV', 'Collections', 'Legal Support', 'Skip Tracing'],
+    services: ['CPV', 'Collections', 'Legal Support', 'Borrower Tracing'],
     modes: ['coverage', 'collections', 'legal', 'asset'],
     team: '60+', partners: '24+', since: '2019',
     coverageRadius: '75 km', casesManaged: '2,190', successRate: 88, status: 'Active' },

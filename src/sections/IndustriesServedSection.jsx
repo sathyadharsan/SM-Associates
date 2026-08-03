@@ -184,10 +184,10 @@ export default function IndustriesServedSection() {
           {SECTORS.map(({ label, Logo, sub }, i) => (
             <motion.div
               key={label}
-              initial={{ opacity: 0, y: 24, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.4, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, y: 44, scale: 0.94, filter: 'blur(6px)' }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+              viewport={{ once: false, margin: '-40px' }}
+              transition={{ duration: 0.65, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -6, scale: 1.05 }}
               className="group flex flex-col items-center gap-2.5 cursor-pointer"
             >

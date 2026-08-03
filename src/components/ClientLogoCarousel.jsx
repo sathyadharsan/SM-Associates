@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { clientLogos } from '../data/clientLogos';
 
@@ -38,13 +38,13 @@ export default function ClientLogoCarousel() {
             {duplicatedLogos.map((client, index) => (
               <motion.div
                 key={`${client.id}-${index}`}
-                className="flex-shrink-0 flex h-20 min-w-[200px] items-center justify-center rounded-[16px] border border-slate-200 bg-white px-6 transition duration-300"
-                whileHover={{ scale: 1.05 }}
+                className="flex-shrink-0 flex h-16 min-w-[180px] items-center justify-center px-4 transition duration-300 group/logo"
+                whileHover={{ scale: 1.08 }}
               >
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="h-8 w-auto max-w-[140px] object-contain"
+                  className="h-10 w-auto max-w-[150px] object-contain opacity-85 group-hover/logo:opacity-100 transition-opacity"
                 />
               </motion.div>
             ))}

@@ -104,7 +104,7 @@ export const seoMeta = {
   },
   '/services/asset-recovery/asset-tracing': {
     title: 'Asset Tracing Services | SM Associates',
-    description: 'Skip tracing, real-estate and asset identification services supporting secured loan recovery.',
+    description: 'Borrower tracing, real-estate and asset identification services supporting secured loan recovery.',
   },
   '/services/asset-recovery/asset-recovery': {
     title: 'Asset Recovery Services | SM Associates',
@@ -128,7 +128,7 @@ export const seoMeta = {
     description: 'Pre-disbursal and corporate due diligence investigation services for lending risk mitigation.',
   },
   '/services/investigation/skip-tracing': {
-    title: 'Skip Tracing Services | SM Associates',
+    title: 'Borrower Tracing Services | SM Associates',
     description: 'Locating untraceable debtors through field investigation and contact-information tracing.',
   },
   '/services/investigation/address-tracing': {

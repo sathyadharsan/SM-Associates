@@ -114,7 +114,6 @@ export default function ServicesOverviewSection() {
         <div ref={mobileSectionRef}>
           <div className="fg-wrap mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="fg-section-header">
-              <span className="fg-section-eyebrow">SERVICE CATEGORIES</span>
               <h2 className="fg-section-title">Six Portfolio Management Capabilities. One Reliable Partner.</h2>
             </div>
           </div>
@@ -233,7 +232,6 @@ export default function ServicesOverviewSection() {
           <div className="fg-wrap mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-6 flex items-end justify-between">
               <div className="fg-section-header" style={{ marginBottom: 0 }}>
-                <span className="fg-section-eyebrow">SERVICE CATEGORIES</span>
                 <h2 className="fg-section-title">Six Portfolio Management Capabilities. One Reliable Partner.</h2>
               </div>
               <div className="hidden shrink-0 text-right font-mono sm:block">

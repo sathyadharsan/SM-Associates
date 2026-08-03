@@ -6,7 +6,6 @@ import HeroFlagshipSection from '../sections/HeroFlagshipSection';
 import TrustedCertifiedSection from '../sections/TrustedCertifiedSection';
 import ClientLogoMarqueeSection from '../sections/ClientLogoMarqueeSection';
 import MetricsSection from '../sections/MetricsSection'; // kept for other pages
-import SayHelloShowcaseSection from '../sections/SayHelloShowcaseSection';
 import BentoWorkflowSection from '../sections/BentoWorkflowSection';
 import SolutionComparisonSection from '../sections/SolutionComparisonSection';
 import ServicesOverviewSection from '../sections/ServicesOverviewSection';
@@ -15,8 +14,6 @@ import OperatingModelSection from '../sections/OperatingModelSection';
 import IndustriesServedSection from '../sections/IndustriesServedSection';
 import CaseStudiesSection from '../sections/CaseStudiesSection';
 import FaqSection from '../sections/FaqSection';
-// ── Premium Upgrades ──────────────────────────────────────────────
-import PosTerminalShowcaseSection from '../sections/PosTerminalShowcaseSection';
 import TestimonialsSection from '../sections/TestimonialsSection';
 import CtaSection from '../sections/CtaSection';
 import AwardsCertificationsSection from '../sections/AwardsCertificationsSection';
@@ -53,14 +50,6 @@ export default function HomePage() {
         <AwardsCertificationsSection />
       </SectionReveal>
 
-      {/* 3b. Track Record — POS terminal device mockup showing the same
-          figures as StatsCounterSection (reused, not duplicated); POS
-          terminals are literally one of the firm's own recovery categories,
-          so the device isn't a random illustration choice. */}
-      <SectionReveal>
-        <PosTerminalShowcaseSection />
-      </SectionReveal>
-
       {/* 4. Operating Principles — centered scroll-sweep manifesto */}
       <BrandManifestoSection />
 
@@ -82,11 +71,6 @@ export default function HomePage() {
 
       {/* 8. Recovery Operating Model: End-to-End Accountable Lifecycle */}
       <OperatingModelSection />
-
-      {/* 9. Unified Command Center & Mobile Field Technology */}
-      <SectionReveal>
-        <SayHelloShowcaseSection />
-      </SectionReveal>
 
       {/* 10. Client Testimonials Carousel */}
       <SectionReveal>

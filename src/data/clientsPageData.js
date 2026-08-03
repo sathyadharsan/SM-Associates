@@ -132,7 +132,7 @@ export const clientSections = [
         services: 'Flexi, Hybrid, Ref & Pickup Collections – Entire South Region', since: '2018', states: '5 states' },
       { slug: 'tata-capital', name: 'Tata Capital Limited', logo: '/logos/tata-capital.jpg',
         products: ['Business Loans', 'Personal Loans'],
-        services: 'BL / PL Collections, Skip Tracing', since: '2016', states: '4 states' },
+        services: 'BL / PL Collections, Borrower Tracing', since: '2016', states: '4 states' },
       { slug: 'vivriti-capital', name: 'Vivriti Capital Limited', logo: '/logos/vivriti-capital.png',
         products: ['All Products'],
         services: 'Collections – All Products', since: '2022', states: '2 states' },

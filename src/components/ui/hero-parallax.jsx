@@ -1,169 +1,365 @@
 "use client";
-import React from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import React, { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X, ShieldCheck, CheckCircle2, FileText, ChevronRight } from "lucide-react";
 
-export const HeroParallax = ({
-  products,
-}) => {
-  // Divide 37+ products into 3 parallax rows
-  const itemsPerRow = Math.ceil(products.length / 3);
-  const firstRow = products.slice(0, itemsPerRow);
-  const secondRow = products.slice(itemsPerRow, itemsPerRow * 2);
-  const thirdRow = products.slice(itemsPerRow * 2);
+import WovenLightBackground from "../WovenLightBackground";
 
-  const ref = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
+const SECOND_LINE_PHRASES = [
+  "Across South India.",
+  "Powered by Technology.",
+  "Driven by Compliance.",
+  "Executed with Precision.",
+  "Trusted by Institutions.",
+];
 
-  // Raw scroll-linked values, no useSpring: a spring keeps easing toward its
-  // target after the source value stops changing, so cards would visibly
-  // keep drifting for a few hundred ms after the user stops scrolling. These
-  // track scrollYProgress 1:1 instead — movement is fully controlled by
-  // scroll position, with no independent momentum of its own.
-  const translateX = useTransform(scrollYProgress, [0, 1], [0, 1000]);
-  const translateXReverse = useTransform(scrollYProgress, [0, 1], [0, -1000]);
-  const rotateX = useTransform(scrollYProgress, [0, 0.2], [10, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [0.3, 1]);
-  const rotateZ = useTransform(scrollYProgress, [0, 0.2], [12, 0]);
-  const translateY = useTransform(scrollYProgress, [0, 0.25], [-350, 100]);
+function AnimatedHeadlineSecondLine() {
+  const [index, setIndex] = useState(0);
+  const reducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (reducedMotion) return undefined;
+
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % SECOND_LINE_PHRASES.length);
+    }, 3200);
+
+    return () => clearInterval(timer);
+  }, [reducedMotion]);
 
   return (
-    <div
-      ref={ref}
-      className="min-h-screen py-16 md:py-28 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-white text-slate-900 pb-32"
-    >
-      <Header totalServices={products.length} />
-      <motion.div
-        style={{
-          rotateX,
-          rotateZ,
-          translateY,
-          opacity,
-        }}
-        className="w-full relative z-10"
-      >
-        {/* Row 1: Moves on scroll */}
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-8 md:space-x-16 mb-10 md:mb-16">
-          {firstRow.map((product, idx) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={`row1-${product.title}-${idx}`}
-            />
-          ))}
-        </motion.div>
+    <span className="relative flex justify-center items-center w-full text-center overflow-hidden py-2 px-4 min-h-[1.4em] sm:min-h-[1.6em] mt-1">
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={SECOND_LINE_PHRASES[index]}
+          initial={{ opacity: 0, y: 20, scale: 0.98, filter: "blur(6px)" }}
+          animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+          exit={{ opacity: 0, y: -20, scale: 1.02, filter: "blur(6px)" }}
+          transition={{
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="inline-block text-[#0072bc] italic font-serif font-semibold text-center whitespace-nowrap text-3xl sm:text-5xl lg:text-6xl tracking-normal px-4"
+        >
+          {SECOND_LINE_PHRASES[index]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
+}
 
-        {/* Row 2: Moves in reverse on scroll */}
-        <motion.div className="flex flex-row mb-10 md:mb-16 space-x-8 md:space-x-16">
-          {secondRow.map((product, idx) => (
-            <ProductCard
-              product={product}
-              translate={translateXReverse}
-              key={`row2-${product.title}-${idx}`}
-            />
-          ))}
-        </motion.div>
+export const HeroParallax = ({ products }) => {
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-        {/* Row 3: Moves on scroll */}
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-8 md:space-x-16">
-          {thirdRow.map((product, idx) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
-              key={`row3-${product.title}-${idx}`}
-            />
+  // Group products into rows of 4
+  const rows = [];
+  for (let i = 0; i < products.length; i += 4) {
+    rows.push(products.slice(i, i + 4));
+  }
+
+  return (
+    <div className="w-full bg-white text-slate-900">
+      {/* ── SECTION 1: FULL SCREEN HERO HEADER (Apple Keynote Premium Level) ── */}
+      <section className="hero6 relative w-full min-h-[calc(100vh-80px)] flex items-center justify-center text-center py-16 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
+        {/* Ambient Premium Soft Radial Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[700px] h-[350px] bg-[#0072bc]/8 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="fg-wrap w-full max-w-5xl mx-auto relative z-10 text-center flex flex-col items-center justify-center">
+          {/* Main Title matching Apple Keynote Typography Morph */}
+          <h1 className="hero6-h1 text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.05] text-center flex flex-col items-center justify-center">
+            <span className="block text-slate-900 tracking-tight">Recovery Operations</span>
+            <AnimatedHeadlineSecondLine />
+          </h1>
+
+          {/* Subtitle */}
+          <p className="hero6-sub text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed font-medium mt-6 text-center mx-auto max-w-2xl">
+            Delivering technology-enabled recovery, legal coordination, field execution and asset resolution through one accountable operating partner.
+          </p>
+        </div>
+      </section>
+
+      {/* ── SECTION 2: THE 12 KEY MANDATE CARDS GRID (Next Section Below) ── */}
+      <section id="enterprise-services" className="py-16 md:py-24 bg-slate-50/50 border-t border-slate-100">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
+          <div className="mb-12 text-center flex flex-col items-center">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight text-center">
+              Specialized Recovery Mandates
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-xl text-center mx-auto">
+              Click on any mandate card below to view detailed operational scope, legal frameworks, and compliance standards.
+            </p>
+          </div>
+
+          {rows.map((row, rIdx) => (
+            <div key={`row-${rIdx}`} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {row.map((product, idx) => {
+                const globalIndex = rIdx * 4 + idx;
+                return (
+                  <ProductCard
+                    product={product}
+                    index={globalIndex}
+                    key={`card-${product.title}-${rIdx}-${idx}`}
+                    onSelect={() => setSelectedProduct(product)}
+                  />
+                );
+              })}
+            </div>
           ))}
-        </motion.div>
-      </motion.div>
+        </div>
+      </section>
+
+      {/* Service Modal Detail Popup */}
+      <AnimatePresence>
+        {selectedProduct && (
+          <ServiceModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
-export const Header = ({ totalServices }) => {
-  return (
-    <div className="max-w-7xl relative mx-auto py-12 md:py-24 px-4 w-full left-0 top-0">
-      <span className="inline-block font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#0072bc] bg-[#0072bc]/10 border border-[#0072bc]/20 px-3.5 py-1.5 rounded-full mb-4">
-        Enterprise Recovery Operations · {totalServices || '37+'} Services Portfolio
-      </span>
-      <h1 className="text-3xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-tight">
-        Precision Operations <br /> Across South India
-      </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-6 text-slate-600 leading-relaxed">
-        From digital engagement to field enforcement and SARFAESI asset resolution, explore our complete portfolio of {totalServices || '37+'} specialized recovery services built for banks, NBFCs, and financial institutions.
-      </p>
-      <div className="mt-8 flex flex-wrap gap-4">
-        <Link
-          to="/contact"
-          className="group inline-flex items-center gap-2 rounded-full bg-[#0072bc] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#0072bc]/25 transition-all hover:bg-[#005ea6] hover:shadow-xl"
-        >
-          Talk to an Expert
-          <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-        </Link>
-        <a
-          href="#enterprise-services"
-          className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3.5 text-sm font-bold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900"
-        >
-          Explore Our Capabilities
-        </a>
-      </div>
-    </div>
-  );
-};
+export const ProductCard = ({ product, index = 0, onSelect }) => {
+  const [showQuote, setShowQuote] = useState(false);
 
-export const ProductCard = ({ product, translate }) => {
+  const handleClick = (e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
+    if (onSelect) onSelect();
+  };
+
   return (
     <motion.div
-      style={{
-        x: translate,
+      initial={{ opacity: 0, y: 50, scale: 0.94, filter: "blur(6px)" }}
+      whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+      viewport={{ once: false, margin: "-50px" }}
+      transition={{
+        duration: 0.65,
+        delay: (index % 4) * 0.11 + Math.floor(index / 4) * 0.14,
+        ease: [0.16, 1, 0.3, 1],
       }}
-      whileHover={{
-        y: -12,
-        scale: 1.02,
-      }}
-      key={product.title}
-      className="group/product h-64 w-[18rem] md:h-[21rem] md:w-[26rem] relative flex-shrink-0 rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white transition-all duration-300 hover:border-[#0072bc] hover:shadow-2xl hover:shadow-[#0072bc]/20"
+      whileHover={{ y: -8, scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      onTap={handleClick}
+      onClick={handleClick}
+      onMouseEnter={() => setShowQuote(true)}
+      onMouseLeave={() => setShowQuote(false)}
+      className="group/product h-80 sm:h-84 w-full relative rounded-2xl overflow-hidden shadow-lg shadow-slate-200/80 cursor-pointer border border-slate-200/80 transition-shadow duration-500 hover:shadow-2xl hover:shadow-[#0072bc]/25 bg-slate-900 select-none z-10"
     >
-      <Link
-        to={product.link || "/services"}
-        className="block group-hover/product:shadow-2xl h-full w-full relative"
-      >
-        <img
-          src={product.thumbnail}
-          className="object-cover object-center absolute h-full w-full inset-0 transition-transform duration-700 ease-out group-hover/product:scale-105"
-          alt={product.title}
-          loading="lazy"
-        />
-        {/* Full card gradient background for strong text contrast */}
-        <div className="absolute inset-0 h-full w-full bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/20 opacity-95 transition-opacity duration-300 pointer-events-none" />
+      {/* Background Photo */}
+      <img
+        src={product.thumbnail}
+        className="object-cover object-center absolute h-full w-full inset-0 transition-transform duration-700 ease-out group-hover/product:scale-105 pointer-events-none"
+        alt={product.title}
+        loading="lazy"
+      />
 
-        {/* Text overlay content container */}
-        <div className="absolute inset-x-0 bottom-0 p-6 md:p-7 z-20 pointer-events-none flex flex-col justify-end">
-          {product.category && (
-            <div>
-              <span className="inline-block text-[10px] font-extrabold text-[#0072bc] bg-white px-3 py-1 rounded-full uppercase tracking-wider mb-2.5 shadow-md border border-[#0072bc]/30">
-                {product.category}
-              </span>
-            </div>
-          )}
-          <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight leading-snug drop-shadow-md">
-            {product.title}
-          </h3>
-          {product.description && (
-            <p className="text-xs md:text-sm text-slate-300 mt-2 line-clamp-2 leading-relaxed font-normal text-slate-200/90 drop-shadow">
-              {product.description}
+      {/* Leadership-Card Style Pure Dark Gradient Overlay */}
+      <div
+        className={`absolute inset-0 transition-all duration-500 pointer-events-none ${showQuote
+            ? 'bg-gradient-to-t from-slate-950/95 via-slate-950/75 via-50% to-slate-950/20'
+            : 'bg-gradient-to-t from-slate-950/90 via-slate-950/40 via-50% to-transparent'
+          }`}
+      />
+
+      {/* Text Overlay Content directly over crisp background photo */}
+      <div className="absolute inset-0 flex flex-col justify-end p-6 text-left z-10 cursor-pointer">
+        {product.category && (
+          <div>
+            <span className="inline-block text-[10px] font-extrabold text-[#0072bc] bg-white px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2 shadow-md border border-[#0072bc]/30">
+              {product.category}
+            </span>
+          </div>
+        )}
+
+        {/* Service Name / Title */}
+        <h3 className="text-xl font-bold text-white tracking-tight leading-snug drop-shadow-md">
+          {product.title}
+        </h3>
+
+        {/* Leadership Card Style Quote/Description Expansion */}
+        <div
+          className={`overflow-hidden transition-all duration-500 ease-out ${showQuote ? 'max-h-48 opacity-100 mt-2.5' : 'max-h-0 opacity-0 mt-0'
+            }`}
+        >
+          <p className="text-xs text-slate-100 leading-relaxed font-normal drop-shadow-md">
+            {product.description}
+          </p>
+          {product.details && (
+            <p className="text-[11px] text-slate-300 mt-2 leading-relaxed font-normal border-t border-slate-700/60 pt-2 font-sans">
+              {product.details}
             </p>
           )}
         </div>
-      </Link>
+
+        {/* Leadership Card Signature Wide Blue Accent Underline Bar */}
+        <div className="w-full h-1 bg-[#0072bc] rounded-full mt-3.5 transition-all duration-300 shadow-sm" />
+
+        {/* Click Indicator */}
+        <div className={`mt-2 flex items-center justify-between text-[11px] font-bold text-[#0072bc] transition-opacity duration-300 ${showQuote ? 'opacity-100' : 'opacity-70'}`}>
+          <span className="text-slate-200 text-[10px]">Click to view full mandate details</span>
+          <ChevronRight size={14} className="text-[#0072bc]" />
+        </div>
+      </div>
     </motion.div>
+  );
+};
+
+export const ServiceModal = ({ product, onClose }) => {
+  const modalBodyRef = useRef(null);
+
+  useEffect(() => {
+    if (!product) return undefined;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKeyDown);
+
+    const bodyEl = modalBodyRef.current;
+    const handleWheel = (e) => {
+      if (!bodyEl) return;
+      e.preventDefault();
+      e.stopPropagation();
+      bodyEl.scrollTop += e.deltaY;
+    };
+
+    if (bodyEl) {
+      bodyEl.addEventListener('wheel', handleWheel, { passive: false });
+    }
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKeyDown);
+      if (bodyEl) bodyEl.removeEventListener('wheel', handleWheel);
+    };
+  }, [product, onClose]);
+
+  if (!product) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10">
+      {/* Dark Backdrop */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+        onWheel={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }}
+        className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm"
+      />
+
+      {/* Modal Dialog */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        transition={{ type: "spring", duration: 0.5, bounce: 0.2 }}
+        className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-2xl z-10 border border-slate-100 flex flex-col max-h-[90vh]"
+      >
+        {/* Modal Header with Photo */}
+        <div className="relative h-56 sm:h-64 w-full bg-slate-900 shrink-0">
+          <img
+            src={product.thumbnail}
+            alt={product.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
+
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 h-10 w-10 rounded-full bg-slate-900/60 hover:bg-slate-900 text-white flex items-center justify-center transition-colors border border-white/20 z-20 backdrop-blur-md cursor-pointer"
+            aria-label="Close modal"
+          >
+            <X size={20} />
+          </button>
+
+          {/* Service Title & Category */}
+          <div className="absolute bottom-6 left-6 right-6 text-left">
+            <span className="inline-block text-xs font-bold text-white bg-[#0072bc] px-3.5 py-1 rounded-full uppercase tracking-wider mb-2 shadow-md">
+              {product.category || 'Recovery Operations'}
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
+              {product.title}
+            </h2>
+          </div>
+        </div>
+
+        {/* Modal Body */}
+        <div ref={modalBodyRef} className="p-6 sm:p-8 overflow-y-auto no-scrollbar space-y-6 text-left flex-1">
+          {/* Core Description */}
+          <div>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#0072bc] font-mono mb-2">
+              Mandate Overview
+            </h4>
+            <p className="text-base text-slate-800 font-medium leading-relaxed">
+              {product.description}
+            </p>
+          </div>
+
+          {/* Operational Details */}
+          {product.details && (
+            <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200/80">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 font-mono mb-2">
+                Operational Framework
+              </h4>
+              <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                {product.details}
+              </p>
+            </div>
+          )}
+
+          {/* Key Standards */}
+          <div className="space-y-3 pt-2">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 font-mono">
+              Key Standards & Compliance
+            </h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs font-semibold text-slate-700">
+                <CheckCircle2 size={16} className="text-[#0072bc] shrink-0" />
+                <span>RBI Conduct Compliant</span>
+              </div>
+              <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs font-semibold text-slate-700">
+                <ShieldCheck size={16} className="text-[#0072bc] shrink-0" />
+                <span>Audited Ground Operations</span>
+              </div>
+              <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs font-semibold text-slate-700">
+                <FileText size={16} className="text-[#0072bc] shrink-0" />
+                <span>Real-Time Status Logging</span>
+              </div>
+              <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs font-semibold text-slate-700">
+                <CheckCircle2 size={16} className="text-[#0072bc] shrink-0" />
+                <span>Institutional Realization</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Modal CTAs */}
+          <div className="pt-4 border-t border-slate-100 flex flex-wrap sm:flex-nowrap gap-3">
+            <Link
+              to={product.link || "/services"}
+              onClick={onClose}
+              className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-[#0072bc] px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#0072bc]/25 transition-all hover:bg-[#005ea6]"
+            >
+              <span>Explore Dedicated Capability</span>
+              <ArrowRight size={16} />
+            </Link>
+            <Link
+              to="/contact"
+              onClick={onClose}
+              className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors"
+            >
+              Request Proposal
+            </Link>
+          </div>
+        </div>
+      </motion.div>
+    </div>
   );
 };
 

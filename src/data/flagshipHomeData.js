@@ -8,8 +8,8 @@ export const heroServiceCards = [
   { icon: 'TrendingUp', name: 'Collections', name2: 'Management', style: { right: '4%', top: '4%' }, float: 'f1', dur: 4.4, depth: 1.4 },
   // Left — CPV & Field Verifications
   { icon: 'Search', name: 'CPV & Field', name2: 'Verifications', style: { left: '4%', top: '20%' }, float: 'f2', dur: 5.1, depth: 2 },
-  // Bottom-left — Skip Tracing
-  { icon: 'UserSearch', name: 'Skip Tracing &', name2: 'Investigations', style: { left: '4%', bottom: '18%' }, float: 'f3', dur: 4.7, depth: 1.7 },
+  // Bottom-left — Borrower Tracing
+  { icon: 'UserSearch', name: 'Borrower Tracing &', name2: 'Investigations', style: { left: '4%', bottom: '18%' }, float: 'f3', dur: 4.7, depth: 1.7 },
   // Right-center — Legal & SARFAESI
   { icon: 'Shield', name: 'Legal &', name2: 'SARFAESI', style: { right: '8%', top: '36%' }, float: 'f4', dur: 4.9, depth: 1.5 },
   // Bottom-right — Asset Recovery

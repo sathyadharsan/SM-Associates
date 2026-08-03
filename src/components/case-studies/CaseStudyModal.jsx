@@ -5,9 +5,10 @@ import { isPlaceholder } from '../../data/caseStudies';
 
 export default function CaseStudyModal({ study, onClose }) {
   const closeBtnRef = useRef(null);
+  const cardRef = useRef(null);
 
   useEffect(() => {
-    if (!study) return;
+    if (!study) return undefined;
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -18,9 +19,25 @@ export default function CaseStudyModal({ study, onClose }) {
     };
     window.addEventListener('keydown', onKeyDown);
 
+    // Isolate mouse wheel & trackpad scroll ONLY to the modal card
+    const cardEl = cardRef.current;
+    const handleWheel = (e) => {
+      if (!cardEl) return;
+      e.preventDefault();
+      e.stopPropagation();
+      cardEl.scrollTop += e.deltaY;
+    };
+
+    if (cardEl) {
+      cardEl.addEventListener('wheel', handleWheel, { passive: false });
+    }
+
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener('keydown', onKeyDown);
+      if (cardEl) {
+        cardEl.removeEventListener('wheel', handleWheel);
+      }
     };
   }, [study, onClose]);
 
@@ -31,10 +48,15 @@ export default function CaseStudyModal({ study, onClose }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4 sm:p-6 backdrop-blur-sm"
           onClick={onClose}
+          onWheel={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          }}
         >
           <motion.div
+            ref={cardRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby="case-study-modal-title"
@@ -43,7 +65,7 @@ export default function CaseStudyModal({ study, onClose }) {
             exit={{ opacity: 0, y: 12, scale: 0.97 }}
             transition={{ duration: 0.25 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-8 shadow-2xl sm:p-10"
+            className="relative max-h-[82vh] w-full max-w-2xl overflow-y-auto overscroll-contain clean-wheel-scroll rounded-3xl bg-white p-8 shadow-2xl sm:p-10 text-left"
           >
             <button
               ref={closeBtnRef}

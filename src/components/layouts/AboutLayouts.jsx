@@ -919,7 +919,7 @@ export function CompanyOverviewLayout({ content }) {
               </div>
 
               {/* Right Column */}
-              <div className="w-full md:w-3/5 p-8 overflow-y-auto space-y-6 text-left">
+              <div className="w-full md:w-3/5 p-8 overflow-y-auto no-scrollbar space-y-6 text-left">
                 <div>
                   <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-mono mb-3">Professional Overview</h4>
                   <div className="grid grid-cols-2 gap-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-4 text-xs">

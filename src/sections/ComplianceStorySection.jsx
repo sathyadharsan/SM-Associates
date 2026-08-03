@@ -24,10 +24,9 @@ function materializeCardStyle(el, { opacity, entrance, exit }) {
   const growth = 1 - settle; // ~0 when settled; up to ~1 while still assembling
   const scale = 0.7 + 0.3 * settle - exit * 0.08;
   const rotate = growth * -10 + exit * 6;
-  const blurPx = Math.max(0, growth) * 6;
   el.style.opacity = String(opacity);
   el.style.transform = `scale(${scale}) rotate(${rotate}deg)`;
-  el.style.filter = blurPx > 0.05 ? `blur(${blurPx}px)` : 'none';
+  el.style.filter = 'none';
 }
 
 const iconMap = { Lock, ClipboardCheck, Scale, UserCheck };

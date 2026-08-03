@@ -56,57 +56,44 @@ const FLIGHT_ORIGINS = [
  * image visibly hold in place while the new one arrives, instead of an
  * instant swap.
  */
-function flyInCardStyle(el, { opacity, entrance, exit, index }) {
+function flyInCardStyle(el, { opacity, entrance, exit, index, docked }) {
   const origin = FLIGHT_ORIGINS[index % FLIGHT_ORIGINS.length];
 
-  // Entrance: ease position/scale/rotate AND opacity on the same curve, so
-  // the image doesn't visually "arrive" before it's finished fading in.
+  // 1. Text Leads, Image Follows:
+  // arrivalProgress moves 0 -> 1 as image approaches the display frame AFTER user reads the text.
   const arrivalProgress = clamp(1 - entrance, 0, 1);
   const eased = easeApple(arrivalProgress);
-  const remaining = 1 - eased; // 1 = still at origin, 0 = arrived/snapped
+  const remaining = 1 - eased; // 1 = approaching from origin, 0 = softly docked in display frame
 
-  // Curved path: straight-line approach plus a perpendicular bulge that
-  // peaks mid-flight (eased≈0.5) and resolves to zero at both ends, so the
-  // card arcs through space rather than cutting a straight line.
-  const bulge = Math.sin(eased * Math.PI) * 90;
-  let x = origin.x * remaining;
-  let y = origin.y * remaining;
+  // 2. Curved Approach: Image travels through space towards the display frame
+  const bulge = Math.sin(eased * Math.PI) * 75;
+  let x = origin.x * remaining * 0.8;
+  let y = origin.y * remaining * 0.8;
   if (origin.arcAxis === 'x') x += bulge * origin.arcSign;
   else y += bulge * origin.arcSign;
 
-  // Exit: the outgoing chapter drifts gently backward/down and shrinks a
-  // touch as it fades — "moves slightly backward in Z", not an instant cut.
-  y += exit * 26;
-  const scale = 1 - remaining * (1 - origin.scale) - exit * 0.05;
-  const rotate = origin.rotate * remaining;
+  // 3. Detach & Exit: Previous image detaches from display frame, lifts off, and travels away
+  y -= exit * 38;
+  x += exit * 50 * (index % 2 === 0 ? 1 : -1);
 
-  // 3D tumble: a light rotateX/rotateY riding along with the 2D rotate,
-  // derived from the origin's own direction (left/right origins roll
-  // around Y, top/bottom origins pitch around X) — resolves to 0,0 at
-  // arrival, so the settled card always sits perfectly flat in the frame.
-  const tiltY = origin.x === 0 ? 0 : Math.sign(origin.x) * 12 * remaining;
-  const tiltX = origin.y === 0 ? 0 : Math.sign(origin.y) * -10 * remaining;
+  // 4. Soft Docking Scale & 3D Alignment
+  const scale = 1 - remaining * (1 - origin.scale) + (docked ? 0 : exit * 0.04);
+  const rotate = origin.rotate * remaining + exit * (index % 2 === 0 ? 6 : -6);
 
-  // Motion-blur feeling on the way in, soft-focus on the way out — peaks at
-  // the midpoint of each respective phase, never both at once (a chapter's
-  // entrance and exit phases never overlap in time), so summing is safe.
-  const entranceBlur = Math.sin(eased * Math.PI) * 2.2;
-  const exitBlur = exit * 3;
-  const blur = entranceBlur + exitBlur;
+  // 3D Alignment: Tumbles in 3D space during approach, aligns 100% flush with display frame when docked
+  const tiltY = origin.x === 0 ? 0 : Math.sign(origin.x) * 10 * remaining;
+  const tiltX = origin.y === 0 ? 0 : Math.sign(origin.y) * -8 * remaining;
 
-  // Elevation shadow: soft and wide while "lifted" (far from settled, in
-  // either direction), tight and grounded once it's actually resting in the
-  // frame — the classic material-lift cue, so the card reads as physically
-  // dropping into place rather than just fading into position.
+  // Elevation Vault Shadow: Wide floating shadow while travelling, grounded vault shadow when docked
   const lift = Math.max(remaining, exit);
-  const shadowBlur = 30 + lift * 70;
-  const shadowSpread = -8 - lift * 6;
-  const shadowY = 24 + lift * 50;
+  const shadowBlur = 24 + lift * 65;
+  const shadowSpread = -6 - lift * 5;
+  const shadowY = 16 + lift * 42;
   const shadowAlpha = 0.45 - lift * 0.2;
 
   el.style.opacity = String(entrance > 0 ? eased : opacity);
   el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) scale(${scale.toFixed(3)}) rotate(${rotate.toFixed(2)}deg) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg)`;
-  el.style.filter = blur > 0.05 ? `blur(${blur.toFixed(2)}px)` : 'none';
+  el.style.filter = 'none';
   el.style.boxShadow = `0 ${shadowY.toFixed(0)}px ${shadowBlur.toFixed(0)}px ${shadowSpread.toFixed(0)}px rgba(15,23,42,${shadowAlpha.toFixed(2)})`;
 }
 
@@ -135,10 +122,10 @@ function ChapterCopy({ service, index, wordRefs }) {
       {/* Each word is its own span — scroll progress "reads" the sentence
           word by word instead of fading the whole paragraph in at once.
           (Static/mobile fallback has no wordRefs and renders plain text.) */}
-      <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-slate-600">
+      <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-slate-700 font-medium">
         {wordRefs
           ? words.map((word, wi) => (
-              <span key={wi} ref={(el) => { wordRefs.current[index][wi] = el; }} style={{ opacity: 0.32 }}>
+              <span key={wi} ref={(el) => { wordRefs.current[index][wi] = el; }} style={{ opacity: 1 }}>
                 {word}
                 {wi < words.length - 1 ? ' ' : ''}
               </span>
@@ -284,25 +271,15 @@ export default function ServiceStorySection() {
         <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center pt-24">
           <div className="mx-auto w-full max-w-7xl px-8">
             {/* Header: eyebrow + chapter numeral + progress rail */}
-            <div className="mb-14 flex items-end justify-between">
-              <div>
-                <span className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#0072bc]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc]" />
-                  Our Services
-                </span>
-                <h2 className="mt-3 text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px]">
-                  The complete recovery story.
-                </h2>
-              </div>
-              <div className="hidden shrink-0 text-right font-mono sm:block">
-                <span ref={numeralRef} className="text-3xl font-black text-slate-900">01</span>
-                <span className="text-lg font-bold text-slate-400"> / {String(TOTAL).padStart(2, '0')}</span>
-              </div>
+            <div className="mb-14 text-center flex flex-col items-center justify-center">
+              <h2 className="text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px] text-center">
+                The complete recovery story.
+              </h2>
             </div>
 
             {/* Story stage: text left, image right — both stacked absolutely per chapter */}
-            <div className="grid grid-cols-2 gap-16 items-center">
-              <div className="relative h-[300px]">
+            <div className="grid grid-cols-2 gap-16 items-start">
+              <div className="relative h-[420px]">
                 {enterpriseServices.map((service, index) => (
                   <div
                     key={service.id}
@@ -320,13 +297,10 @@ export default function ServiceStorySection() {
                   <div
                     key={service.id}
                     ref={(el) => (cardRefs.current[index] = el)}
-                    className="absolute inset-0 overflow-hidden rounded-[32px] border border-slate-200"
+                    className="group absolute inset-0 overflow-hidden rounded-[32px] border border-slate-200/90 shadow-2xl bg-slate-950"
                     style={{ opacity: index === 0 ? 1 : 0, zIndex: index, transformStyle: 'preserve-3d' }}
                   >
-                    {/* Nested tilt wrapper: the outer div carries the scroll-driven
-                        slide/scale/rotateY, this inner one carries the pointer-follow
-                        tilt — two separate elements so the transforms simply compose
-                        via normal CSS nesting instead of needing to be merged. */}
+                    {/* Nested tilt wrapper */}
                     <div
                       ref={(el) => (tiltRefs.current[index] = el)}
                       className="absolute inset-0"
@@ -340,10 +314,24 @@ export default function ServiceStorySection() {
                       />
                       <div
                         className="absolute inset-0"
-                        style={{ background: 'linear-gradient(160deg, rgba(15,23,42,0.02) 0%, rgba(15,23,42,0.4) 100%)' }}
+                        style={{ background: 'linear-gradient(160deg, rgba(15,23,42,0.02) 0%, rgba(15,23,42,0.45) 100%)' }}
                       />
-                      <span className="absolute bottom-5 left-5 rounded-full border border-white/30 bg-black/40 px-3 py-1 font-mono text-[10.5px] font-bold uppercase tracking-widest text-white backdrop-blur-md">
-                        {service.number}
+
+                      {/* Physical Evidence Module Badge (Top-Left) */}
+                      <div className="absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-white/25 bg-slate-950/80 px-3.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-md shadow-md">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc] animate-pulse" />
+                        <span>EVIDENCE MODULE {service.number} · VERIFIED</span>
+                      </div>
+
+                      {/* Readiness Highlight Sweep Glare */}
+                      <div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-tr from-transparent via-white/15 to-transparent transition-opacity duration-700 opacity-60"
+                      />
+
+                      {/* Chapter Numeral Badge (Bottom-Right) */}
+                      <span className="absolute bottom-5 right-5 rounded-full border border-white/30 bg-black/50 px-3.5 py-1 font-mono text-[10.5px] font-bold uppercase tracking-widest text-white backdrop-blur-md shadow-md">
+                        {service.number} / {String(TOTAL).padStart(2, '0')}
                       </span>
                     </div>
                   </div>

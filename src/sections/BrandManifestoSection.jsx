@@ -94,20 +94,32 @@ function ManifestoStage({ wrapRef, wordRefs }) {
   let wordCounter = 0;
   return (
     <div ref={wrapRef} className="relative z-10 hidden lg:block" style={{ height: `${SEGMENT_VH}vh` }}>
-      {/* pt-24 clears the site's fixed header (~56-76px) — same 96px
-          clearance convention as OperatingModelSection's .model6-head. */}
-      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden pt-24">
-        <div className="mx-auto max-w-4xl px-8 text-center">
-          {LINES.map((line) => {
+      {/* Sticky viewport stage positioned higher up */}
+      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden pt-12 sm:pt-16 -mt-12 sm:-mt-20">
+        <div className="mx-auto w-full max-w-5xl px-8 text-center space-y-6 sm:space-y-8">
+          {LINES.map((line, li) => {
             const words = line.split(' ');
             return (
-              <p key={line} className="text-3xl font-bold leading-snug tracking-tight text-slate-900 sm:text-5xl">
+              <p
+                key={`line-${li}`}
+                className="text-3xl font-extrabold leading-snug tracking-tight text-slate-900 sm:text-5xl lg:text-[54px]"
+              >
                 {words.map((word, wi) => {
                   const gi = wordCounter++;
                   return (
-                    <span key={wi} ref={(el) => { wordRefs.current[gi] = el; }} style={{ opacity: 0.28 }}>
+                    <span
+                      key={`w-${gi}`}
+                      ref={(el) => { wordRefs.current[gi] = el; }}
+                      className="inline-block transition-all duration-300 ease-out cursor-default select-none py-1"
+                      style={{
+                        WebkitTextStroke: '1.5px #475569',
+                        WebkitTextFillColor: 'transparent',
+                        opacity: 0.5,
+                        transform: 'translateY(6px) scale(0.98)',
+                      }}
+                    >
                       {word}
-                      {wi < words.length - 1 ? ' ' : ''}
+                      {wi < words.length - 1 ? '\u00A0' : ''}
                     </span>
                   );
                 })}

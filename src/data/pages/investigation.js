@@ -1,4 +1,4 @@
-﻿export const investigationContent = {
+export const investigationContent = {
   "due-diligence": {
     "eyebrow": "Pre-Transaction Risk Investigation",
     "title": "Due Diligence",
@@ -390,10 +390,10 @@
   },
   "skip-tracing": {
     "eyebrow": "Borrower Location Intelligence",
-    "title": "Skip Tracing",
+    "title": "Borrower Tracing",
     "subtitle": "Defaulted Borrower Location Tracing",
     "description": "Locating untraceable, skipped borrowers and co-obligants through structured data intelligence and local field tracing.",
-    "primaryCtaText": "Request a Skip Tracing Walkthrough",
+    "primaryCtaText": "Request a Borrower Tracing Walkthrough",
     "secondaryCtaText": "Download Investigation Standards",
     "problemStatement": [
       {
@@ -418,9 +418,9 @@
       }
     ],
     "overview": {
-      "heading": "Skip Tracing: Re-establishing Contact with Absent Borrowers",
+      "heading": "Borrower Tracing: Re-establishing Contact with Absent Borrowers",
       "subheading": "Mitigating Portfolio Write-offs by Sourcing Relocated Borrowers",
-      "summary": "A significant portion of chronic NPAs is locked in \"skipped\" accounts where the borrower has relocated without updating contact details. Skip Tracing re-establishes contact through systematic field investigations and database analysis. Our tracing teams combine local inquiries, voter registry searches, and utility provider checks to locate the borrower's active residential or commercial coordinate. This field tracing respects borrower privacy while restoring communication channels, allowing the collections desk to resume recovery negotiations.",
+      "summary": "A significant portion of chronic NPAs is locked in absconded accounts where the borrower has relocated without updating contact details. Borrower Tracing re-establishes contact through systematic field investigations and database analysis. Our tracing teams combine local inquiries, voter registry searches, and utility provider checks to locate the borrower's active residential or commercial coordinate. This field tracing respects borrower privacy while restoring communication channels, allowing the collections desk to resume recovery negotiations.",
       "outcomes": [
         {
           "title": "Structured Search Method",

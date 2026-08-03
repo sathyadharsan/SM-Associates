@@ -58,12 +58,12 @@ const getItemDescription = (label) => {
     
     // Services - Asset Recovery
     case 'Vehicle Repossession': return 'Automobile tracing, yard checkin & repossession';
-    case 'Asset Tracing': return 'Skip tracing, real-estate & asset identification';
+    case 'Asset Tracing': return 'Borrower tracing, real-estate & asset identification';
     case 'Asset Recovery': return 'Physical recovery & secure yard custody tracking';
     case 'Auction Coordination': return 'Asset valuation & e-auction process support';
     
     // Services - Investigation
-    case 'Skip Tracing': return 'Locating untraceable debtors & contact information';
+    case 'Borrower Tracing': return 'Locating untraceable debtors & contact information';
     case 'Address Tracing': return 'Audit trail analysis for location identification';
     case 'Contact Verification': return 'Phone number checks & digital trace verification';
     case 'Fraud Investigation': return 'Forensic accounting & corporate fraud audits';
@@ -132,7 +132,7 @@ const getItemDescription = (label) => {
     case 'Asset Recovery & Realisation':
     case 'Asset Recovery': return 'Vehicle repossession, asset tracing, yard custody & e-auctions';
     case 'Investigation & Fraud Control':
-    case 'Investigation Services': return 'Skip tracing, debtor address mapping, forensic audits & fraud control';
+    case 'Investigation Services': return 'Borrower tracing, debtor address mapping, forensic audits & fraud control';
     case 'Operational Excellence & Analytics':
     case 'Operational Excellence': return 'Call centre dialers, manpower sourcing, facilities & liaising';
 

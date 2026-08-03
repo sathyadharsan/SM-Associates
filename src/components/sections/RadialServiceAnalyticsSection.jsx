@@ -152,7 +152,7 @@ export default function RadialServiceAnalyticsSection({ content }) {
     { label: 'Yield Optimizer', desc: 'Portfolio recovery scoring engine.' },
     { label: 'Field Allocation', desc: 'Dynamic agent dispatch & SLA tracking.' },
     { label: 'SARFAESI Strategy', desc: 'Sec 13(2)/13(4) statutory legal execution.' },
-    { label: 'Field Intelligence', desc: 'Skip tracing & asset audit forensics.' }
+    { label: 'Field Intelligence', desc: 'Borrower tracing & asset audit forensics.' }
   ];
 
   while (dynamicPetals.length < 7) {

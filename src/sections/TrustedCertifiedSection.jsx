@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ShieldCheck, Award, Headset, MapPin, TrendingUp, Users, Building2, Activity } from 'lucide-react';
 
 // Enterprise KPI Metrics Cards
@@ -65,13 +66,22 @@ export default function TrustedCertifiedSection() {
         </h2>
       </div>
 
-      {/* KPI Cards Grid (Replaced Logo Marquee) */}
+      {/* KPI Cards Grid (Apple-Style 3D Cascade Assembly) */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-10">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4 lg:gap-5">
-          {KPI_CARDS.map(({ Icon, value, label, sublabel, tag }) => (
-            <div
+          {KPI_CARDS.map(({ Icon, value, label, sublabel, tag }, index) => (
+            <motion.div
               key={label}
-              className="group relative flex flex-col justify-between rounded-2xl bg-white p-4 sm:p-5 border border-slate-200 shadow-xs hover:border-[#0072bc]/40 hover:shadow-xl hover:shadow-[#0072bc]/10 hover:-translate-y-1 transition-all duration-300"
+              initial={{ opacity: 0, y: 44, scale: 0.94, filter: 'blur(6px)' }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+              viewport={{ once: false, margin: '-40px' }}
+              transition={{
+                duration: 0.65,
+                delay: index * 0.08,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="group relative flex flex-col justify-between rounded-2xl bg-white p-4 sm:p-5 border border-slate-200 shadow-xs hover:border-[#0072bc]/40 hover:shadow-xl hover:shadow-[#0072bc]/10 transition-shadow duration-300 cursor-pointer select-none"
             >
               <div>
                 {/* Header Row */}
@@ -99,7 +109,7 @@ export default function TrustedCertifiedSection() {
                   {sublabel}
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -107,10 +117,19 @@ export default function TrustedCertifiedSection() {
       {/* Trust & Compliance Facts */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {FACTS.map(({ Icon, v, k }) => (
-            <div
+          {FACTS.map(({ Icon, v, k }, index) => (
+            <motion.div
               key={v}
-              className="tc7-fact flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300 group"
+              initial={{ opacity: 0, y: 36, scale: 0.95, filter: 'blur(6px)' }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+              viewport={{ once: false, margin: '-30px' }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              whileHover={{ scale: 1.02 }}
+              className="tc7-fact flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300 group cursor-pointer"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-[#0072bc] shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <Icon size={20} strokeWidth={2} />
@@ -119,7 +138,7 @@ export default function TrustedCertifiedSection() {
                 <span className="block text-sm sm:text-base font-bold text-slate-900 tracking-tight leading-snug truncate">{v}</span>
                 <span className="block text-[11px] sm:text-xs font-medium text-slate-500 mt-0.5 leading-tight truncate">{k}</span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

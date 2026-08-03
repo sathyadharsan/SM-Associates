@@ -20,7 +20,7 @@ export const megaMenu = {
     { title: 'Vision & Mission', href: '#about', description: 'Building trusted recovery infrastructure for financial institutions.' }
   ],
   services: [
-    { title: 'Pre Disbursal Services', href: '#services-detailed', description: 'CPV, CPA, Telephone Verification, Seeding, skip tracing.' },
+    { title: 'Pre Disbursal Services', href: '#services-detailed', description: 'CPV, CPA, Telephone Verification, Seeding, borrower tracing.' },
     { title: 'Post Disbursal Services', href: '#services-detailed', description: 'Field collections, payment pickup, recovery follow-up.' },
     { title: 'Fraud Control Services', href: '#services-detailed', description: 'Investigation-led fraud prevention and risk intelligence.' },
     { title: 'SARFAESI Services', href: '#services-detailed', description: 'Enforcement, possession and legal recovery coordination.' },
@@ -63,7 +63,7 @@ export const servicesMenu = [
   { title: 'Asset Repossession', icon: 'Car', description: 'Secured asset recovery with documented workflows.', benefits: ['Cars, tractors, excavators', 'Notarized inventory reports', 'Legal compliance'] },
   { title: 'Auction Services', icon: 'Gavel', description: 'Auction coordination and bidder engagement.', benefits: ['Fair valuation', 'Transparent process', 'Bidders network'] },
   { title: 'Legal Services', icon: 'Scale', description: 'Court, advocate and documentation coordination.', benefits: ['DRT case follow-up', 'Warrant execution', 'Police coordination'] },
-  { title: 'Verification Services', icon: 'SearchCheck', description: 'Pre and post-disbursal risk validation.', benefits: ['CPV & CPA checks', 'Telephone verification', 'Skip tracing'] },
+  { title: 'Verification Services', icon: 'SearchCheck', description: 'Pre and post-disbursal risk validation.', benefits: ['CPV & CPA checks', 'Telephone verification', 'Borrower tracing'] },
   { title: 'Fraud Control', icon: 'ShieldAlert', description: 'Investigation-led fraud prevention and risk intelligence.', benefits: ['ITR verification', 'Title deed checks', 'Warrant execution'] },
   { title: 'Call Centre Services', icon: 'Smartphone', description: 'Structured communication workflows for recovery operations.', benefits: ['30-90 day accounts', 'Professional follow-up', 'Documented calls'] },
   { title: 'Yard Management Services', icon: 'Building2', description: 'Secure asset custody and management.', benefits: ['Authorized yards', 'Insurance coverage', 'Regular audits'] },

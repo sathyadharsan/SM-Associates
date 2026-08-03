@@ -184,7 +184,7 @@ export const servicesContent = {
           "Ambiguous borrower records and outdated registers",
           "Fabricated property deeds and hidden ownerships"
         ],
-        deliverable: "Skip Tracing and Fraud Dossier",
+        deliverable: "Borrower Tracing and Fraud Dossier",
         benefit: "Restores address and asset visibility, enabling lenders to resume stalled recovery actions."
       },
       {
@@ -231,7 +231,7 @@ export const servicesContent = {
       {
         icon: "map-pin",
         title: "Borrower Traceability",
-        desc: "Delinquent debtors changing phone numbers and addresses stalls collections campaigns. Services: Address Tracing, Skip Tracing."
+        desc: "Delinquent debtors changing phone numbers and addresses stalls collections campaigns. Services: Address Tracing, Borrower Tracing."
       },
       {
         icon: "gavel",
@@ -388,7 +388,7 @@ export const servicesContent = {
       },
       {
         name: "NBFC",
-        desc: "Managing agricultural tractor and commercial vehicle defaults with certified field dispatching. Services: Asset Recovery, Skip Tracing."
+        desc: "Managing agricultural tractor and commercial vehicle defaults with certified field dispatching. Services: Asset Recovery, Borrower Tracing."
       },
       {
         name: "Housing Finance",
@@ -408,7 +408,7 @@ export const servicesContent = {
       },
       {
         name: "Commercial Lending",
-        desc: "Executing corporate credit due diligence and skip tracing unreachable promoters. Services: Due Diligence, Skip Tracing."
+        desc: "Executing corporate credit due diligence and borrower tracing unreachable promoters. Services: Due Diligence, Borrower Tracing."
       },
       {
         name: "Insurance",
@@ -444,7 +444,7 @@ export const servicesContent = {
       },
       {
         q: "How do multiple services work together during the recovery lifecycle?",
-        a: "Unresolved tele-calling files trigger doorstep check-ins. If doorstep verifications show contactability issues, our skip tracing investigators trace addresses. Unresolved delinquent accounts escalate to notice serving and CJM possessions."
+        a: "Unresolved tele-calling files trigger doorstep check-ins. If doorstep verifications show contactability issues, our borrower tracing investigators trace addresses. Unresolved delinquent accounts escalate to notice serving and CJM possessions."
       }
     ],
 

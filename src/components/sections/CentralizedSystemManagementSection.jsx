@@ -152,13 +152,13 @@ export default function CentralizedSystemManagementSection({ content }) {
 
     investigation: {
       eyebrow: 'RISK INVESTIGATION & FORENSICS',
-      heading: 'Centralized Intelligence & Skip-Tracing System',
+      heading: 'Centralized Intelligence & Borrower Tracing System',
       bullets: [
-        'Locate untraceable borrowers through multi-source skip tracing and digital footprint forensics.',
+        'Locate untraceable borrowers through multi-source field tracing and digital footprint forensics.',
         'Execute pre-litigation asset discovery, workplace verification, and hidden liability detection.',
         'Geotagged field intelligence reports with photo evidence and verifiable audit trails.'
       ],
-      diagramHeader: 'Comprehensive Risk Intelligence & Skip-Tracing Architecture',
+      diagramHeader: 'Comprehensive Risk Intelligence & Borrower Tracing Architecture',
       hierarchyTitle: 'Intelligence Hierarchy',
       leftNodes: [
         { line1: 'Chief Intelligence', line2: 'Desk', artType: 'trace', badge: 'HQ', color: '#0072bc' },
