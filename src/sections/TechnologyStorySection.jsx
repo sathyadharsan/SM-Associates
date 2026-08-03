@@ -164,7 +164,7 @@ export default function TechnologyStorySection() {
               </div>
               <div className="hidden shrink-0 text-right font-mono sm:block">
                 <span ref={numeralRef} className="text-3xl font-black text-slate-900">01</span>
-                <span className="text-lg font-bold text-slate-400"> / {String(TOTAL).padStart(2, '0')}</span>
+                <span className="text-lg font-bold text-slate-500"> / {String(TOTAL).padStart(2, '0')}</span>
               </div>
             </div>
 

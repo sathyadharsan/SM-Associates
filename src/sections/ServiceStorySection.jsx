@@ -270,11 +270,21 @@ export default function ServiceStorySection() {
             OperatingModelSection's .model6-head (top:96px). */}
         <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center pt-24">
           <div className="mx-auto w-full max-w-7xl px-8">
-            {/* Header: eyebrow + chapter numeral + progress rail */}
-            <div className="mb-14 text-center flex flex-col items-center justify-center">
-              <h2 className="text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px] text-center">
-                The complete recovery story.
-              </h2>
+            {/* Header: title left + chapter numeral right (matches Technology & Compliance stories) */}
+            <div className="mb-14 flex items-end justify-between">
+              <div>
+                <span className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#0072bc]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc]" />
+                  Enterprise Services
+                </span>
+                <h2 className="mt-3 text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px]">
+                  The complete recovery story.
+                </h2>
+              </div>
+              <div className="hidden shrink-0 text-right font-mono sm:block">
+                <span ref={numeralRef} className="text-3xl font-black text-slate-900">01</span>
+                <span className="text-lg font-bold text-slate-400"> / {String(TOTAL).padStart(2, '0')}</span>
+              </div>
             </div>
 
             {/* Story stage: text left, image right — both stacked absolutely per chapter */}
@@ -317,10 +327,10 @@ export default function ServiceStorySection() {
                         style={{ background: 'linear-gradient(160deg, rgba(15,23,42,0.02) 0%, rgba(15,23,42,0.45) 100%)' }}
                       />
 
-                      {/* Physical Evidence Module Badge (Top-Left) */}
+                      {/* Operational Scope Badge (Top-Left) */}
                       <div className="absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-white/25 bg-slate-950/80 px-3.5 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-white backdrop-blur-md shadow-md">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc] animate-pulse" />
-                        <span>EVIDENCE MODULE {service.number} · VERIFIED</span>
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc]" />
+                        <span>OPERATIONAL MANDATE {service.number} · SCOPE VERIFIED</span>
                       </div>
 
                       {/* Readiness Highlight Sweep Glare */}

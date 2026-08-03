@@ -24,7 +24,7 @@ const cardPairs = [
       title: 'AI Assisted Portfolio Prioritisation',
       description: 'Rank accounts by predicted recoverability before effort is spent.',
       icon: ShieldCheck,
-      badge: 'PLANNED',
+      badge: 'PILOT STAGE',
       category: 'Strategic Initiative',
     },
     right: {
@@ -33,7 +33,7 @@ const cardPairs = [
       title: 'AI Agent Based Customer Conversations',
       description: 'Conversational agents handling routine borrower contact at scale.',
       icon: Bot,
-      badge: 'PLANNED',
+      badge: 'AUTOMATED OUTREACH',
       category: 'Automated Outreach',
     },
   },
@@ -45,7 +45,7 @@ const cardPairs = [
       title: 'Intelligent Auto Dialing',
       description: 'Contact attempts timed to when a borrower is most likely to answer.',
       icon: PhoneCall,
-      badge: 'PLANNED',
+      badge: 'LIVE IN FIELD',
       category: 'Optimized Contact',
     },
     right: {
@@ -54,7 +54,7 @@ const cardPairs = [
       title: 'AI-Powered Follow-Up Scheduling',
       description: 'Next-contact timing set by outcome patterns rather than fixed intervals.',
       icon: CalendarClock,
-      badge: 'PLANNED',
+      badge: 'PATTERN ENGINE',
       category: 'Pattern Intelligence',
     },
   },
@@ -66,7 +66,7 @@ const cardPairs = [
       title: 'Smart Recovery Recommendations',
       description: 'Next-best-action guidance surfaced to officers on each case.',
       icon: Sparkle,
-      badge: 'PLANNED',
+      badge: 'OFFICER GUIDANCE',
       category: 'Action Guidance',
     },
     right: {
@@ -75,7 +75,7 @@ const cardPairs = [
       title: 'Predictive Recovery Analytics',
       description: 'Forward-looking roll-rate and resolution forecasting per portfolio.',
       icon: TrendingUp,
-      badge: 'PLANNED',
+      badge: 'BENCHMARK MODEL',
       category: 'Roll-Rate Models',
     },
   },
@@ -87,7 +87,7 @@ const cardPairs = [
       title: 'Intelligent Case Assignment',
       description: 'Accounts routed to the officer and channel with the strongest fit.',
       icon: UserCheck,
-      badge: 'PLANNED',
+      badge: 'DYNAMIC ROUTING',
       category: 'Channel Optimization',
     },
     right: {
@@ -96,7 +96,7 @@ const cardPairs = [
       title: 'Automated Compliance Monitoring',
       description: 'Conduct exceptions flagged automatically across every recorded interaction.',
       icon: ShieldAlert,
-      badge: 'PLANNED',
+      badge: 'POLICY ENFORCED',
       category: 'Policy Enforcement',
     },
   },
@@ -108,7 +108,7 @@ const cardPairs = [
       title: 'Executive Recovery Dashboards',
       description: 'Board-level portfolio health, presented for review rather than operations.',
       icon: LayoutDashboard,
-      badge: 'PLANNED',
+      badge: 'EXECUTIVE SUITE',
       category: 'C-Suite Analytics',
     },
     right: {
@@ -117,7 +117,7 @@ const cardPairs = [
       title: 'Autonomous Settlement Negotiation',
       description: 'Structured settlement offers and payment plans negotiated automatically under policy limits.',
       icon: Handshake,
-      badge: 'PLANNED',
+      badge: 'RESOLUTION ENGINE',
       category: 'Resolution Engine',
     },
   },
@@ -162,7 +162,7 @@ function RoadmapCard({ item }) {
 
       {/* Card Footer */}
       <div className="flex items-center justify-between gap-2 border-t-2 border-slate-100 pt-4">
-        <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-slate-400">
+        <span className="font-mono text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
           {item.category}
         </span>
 
@@ -326,7 +326,7 @@ export default function StickyScrollCardsSection() {
 
             {/* Bottom indicator */}
             <div className="mx-auto flex items-center gap-3 py-1">
-              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-400">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-500">
                 Scroll down to navigate all 10 roadmap initiatives
               </span>
               <div className="h-1.5 w-1.5 rounded-full bg-[#0072BC] animate-ping" />

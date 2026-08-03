@@ -199,7 +199,7 @@ export default function DayInRecoverySection() {
             </div>
           </div>
 
-          <p className="absolute inset-x-0 bottom-8 z-30 text-center font-mono text-[10.5px] uppercase tracking-widest text-white/50">
+          <p className="absolute inset-x-0 bottom-8 z-30 text-center font-mono text-[10.5px] uppercase tracking-widest text-white/70">
             A representative mandate — figures and sequence are illustrative, not a specific client record.
           </p>
         </div>

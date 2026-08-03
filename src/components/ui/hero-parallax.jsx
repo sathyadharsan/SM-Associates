@@ -15,36 +15,11 @@ const SECOND_LINE_PHRASES = [
 ];
 
 function AnimatedHeadlineSecondLine() {
-  const [index, setIndex] = useState(0);
-  const reducedMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (reducedMotion) return undefined;
-
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % SECOND_LINE_PHRASES.length);
-    }, 3200);
-
-    return () => clearInterval(timer);
-  }, [reducedMotion]);
-
   return (
     <span className="relative flex justify-center items-center w-full text-center overflow-hidden py-2 px-4 min-h-[1.4em] sm:min-h-[1.6em] mt-1">
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={SECOND_LINE_PHRASES[index]}
-          initial={{ opacity: 0, y: 20, scale: 0.98, filter: "blur(6px)" }}
-          animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-          exit={{ opacity: 0, y: -20, scale: 1.02, filter: "blur(6px)" }}
-          transition={{
-            duration: 0.6,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-          className="inline-block text-[#0072bc] italic font-serif font-semibold text-center whitespace-nowrap text-3xl sm:text-5xl lg:text-6xl tracking-normal px-4"
-        >
-          {SECOND_LINE_PHRASES[index]}
-        </motion.span>
-      </AnimatePresence>
+      <span className="inline-block text-[#0072bc] italic font-serif font-semibold text-center whitespace-nowrap text-3xl sm:text-5xl lg:text-6xl tracking-normal px-4">
+        {SECOND_LINE_PHRASES[0]}
+      </span>
     </span>
   );
 }
@@ -66,7 +41,7 @@ export const HeroParallax = ({ products }) => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[700px] h-[350px] bg-[#0072bc]/8 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="fg-wrap w-full max-w-5xl mx-auto relative z-10 text-center flex flex-col items-center justify-center">
-          {/* Main Title matching Apple Keynote Typography Morph */}
+          {/* Main Title matching Apple Keynote Editorial Standard */}
           <h1 className="hero6-h1 text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.05] text-center flex flex-col items-center justify-center">
             <span className="block text-slate-900 tracking-tight">Recovery Operations</span>
             <AnimatedHeadlineSecondLine />
@@ -155,10 +130,11 @@ export const ProductCard = ({ product, index = 0, onSelect }) => {
 
       {/* Leadership-Card Style Pure Dark Gradient Overlay */}
       <div
-        className={`absolute inset-0 transition-all duration-500 pointer-events-none ${showQuote
+        className={`absolute inset-0 transition-all duration-500 pointer-events-none ${
+          showQuote
             ? 'bg-gradient-to-t from-slate-950/95 via-slate-950/75 via-50% to-slate-950/20'
-            : 'bg-gradient-to-t from-slate-950/90 via-slate-950/40 via-50% to-transparent'
-          }`}
+            : 'bg-gradient-to-t from-slate-950/90 via-slate-950/40 via-50% to-transparent lg:from-slate-950/85'
+        }`}
       />
 
       {/* Text Overlay Content directly over crisp background photo */}
@@ -176,20 +152,17 @@ export const ProductCard = ({ product, index = 0, onSelect }) => {
           {product.title}
         </h3>
 
-        {/* Leadership Card Style Quote/Description Expansion */}
+        {/* Teaser Description — Mobile preview by default, expandable on desktop hover */}
         <div
-          className={`overflow-hidden transition-all duration-500 ease-out ${showQuote ? 'max-h-48 opacity-100 mt-2.5' : 'max-h-0 opacity-0 mt-0'
-            }`}
+          className={`overflow-hidden transition-all duration-500 ease-out ${
+            showQuote
+              ? 'max-h-48 opacity-100 mt-2.5'
+              : 'max-h-24 opacity-95 mt-2 lg:max-h-0 lg:opacity-0 lg:mt-0 lg:group-hover/product:max-h-48 lg:group-hover/product:opacity-100'
+          }`}
         >
-          <p className="text-xs text-slate-100 leading-relaxed font-normal drop-shadow-md">
+          <p className="text-xs text-slate-200 leading-relaxed font-medium">
             {product.description}
           </p>
-          {product.details && (
-            <p className="text-[11px] text-slate-300 mt-2 leading-relaxed font-normal border-t border-slate-700/60 pt-2 font-sans">
-              {product.details}
-            </p>
-          )}
-        </div>
 
         {/* Leadership Card Signature Wide Blue Accent Underline Bar */}
         <div className="w-full h-1 bg-[#0072bc] rounded-full mt-3.5 transition-all duration-300 shadow-sm" />
