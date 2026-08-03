@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
 import { serviceCards } from '../data/serviceCards';
 import ServiceCreditCard, { CARD_SPRING } from '../components/cards/ServiceCreditCard';
@@ -228,13 +228,19 @@ export default function ServicesOverviewSection() {
   return (
     <section id="services" className="relative bg-white" aria-label="Core Recovery Services Overview">
       <div ref={wrapRef} className="relative z-10" style={{ height: `${TOTAL * SEGMENT_VH}vh` }}>
-        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden pt-20 pb-6">
+        <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden pt-24 pb-6">
           <div className="fg-wrap mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-6 flex items-end justify-between">
-              <div className="fg-section-header" style={{ marginBottom: 0 }}>
-                <h2 className="fg-section-title">Six Portfolio Management Capabilities. One Reliable Partner.</h2>
+            <div className="mb-6 flex flex-col items-center justify-center text-center w-full relative">
+              <div className="fg-section-header text-center flex flex-col items-center justify-center" style={{ marginBottom: 0, textAlign: 'center' }}>
+                <h2 className="fg-section-title text-center">Six Portfolio Management Capabilities. One Reliable Partner.</h2>
+                {/* Premium Level Accent Line */}
+                <div className="mt-2.5 flex items-center justify-center gap-2">
+                  <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+                  <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+                  <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
+                </div>
               </div>
-              <div className="hidden shrink-0 text-right font-mono sm:block">
+              <div className="hidden absolute right-0 top-1/2 -translate-y-1/2 shrink-0 text-right font-mono sm:block">
                 <span ref={numeralRef} className="text-3xl font-black text-slate-900">01</span>
                 <span className="text-lg font-bold text-slate-400"> / {String(TOTAL).padStart(2, '0')}</span>
               </div>
@@ -243,66 +249,52 @@ export default function ServicesOverviewSection() {
 
           <div className="fg-wrap relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-              {/* Details Stack (pre-rendered for story scroll scrubbing) */}
-              <div className="relative h-[340px] order-2 lg:order-1">
-                {serviceCards.map((card, index) => {
-                  const words = card.desc.split(' ');
-                  if (!wordRefs.current[index]) wordRefs.current[index] = [];
-                  return (
-                    <div
-                      key={card.id}
-                      ref={(el) => (textRefs.current[index] = el)}
-                      className="absolute inset-0 transition-opacity duration-300"
-                      style={{ opacity: index === 0 ? 1 : 0, zIndex: index }}
-                    >
-                      <span className="inline-flex items-center gap-2 rounded-full border border-[#0072bc]/20 bg-[#0072bc]/10 px-3.5 py-1.5 font-mono text-[10.5px] font-bold uppercase tracking-widest text-[#0072bc]">
-                        {String(index + 1).padStart(2, '0')} / {String(TOTAL).padStart(2, '0')} · {card.finish}
-                      </span>
+              {/* Details Stack (single active chapter with AnimatePresence mode="wait" hand-off) */}
+              <div className="relative h-[440px] min-h-[440px] overflow-hidden order-2 lg:order-1">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={serviceCards[active].id}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -16 }}
+                    transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute inset-0 z-20 flex flex-col justify-start"
+                  >
+                    <h3 className="text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
+                      {serviceCards[active].name}
+                    </h3>
 
-                      <h3 className="mt-4 text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
-                        {card.name}
-                      </h3>
+                    <p className="mt-3 max-w-xl text-base leading-relaxed text-slate-600 font-medium">
+                      {serviceCards[active].desc}
+                    </p>
 
-                      <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-600">
-                        {words.map((word, wi) => (
-                          <span
-                            key={wi}
-                            ref={(el) => { wordRefs.current[index][wi] = el; }}
-                            style={{ opacity: 0.32 }}
-                          >
-                            {word}{wi < words.length - 1 ? ' ' : ''}
+                    <ul className="mt-4 space-y-2">
+                      {serviceCards[active].features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-3 text-[14.5px] font-semibold text-slate-800">
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0072bc]/10 text-[#0072bc]">
+                            <Check size={12} strokeWidth={3} />
                           </span>
-                        ))}
-                      </p>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
 
-                      <ul className="mt-5 space-y-2">
-                        {card.features.map((feature) => (
-                          <li key={feature} className="flex items-center gap-3 text-[14.5px] font-semibold text-slate-800">
-                            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#0072bc]/10 text-[#0072bc]">
-                              <Check size={12} strokeWidth={3} />
-                            </span>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="mt-5 flex items-center gap-2.5 border-t border-slate-200 pt-4 font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc]" />
-                        {card.timeline}
-                      </div>
-
-                      <div className="mt-6">
-                        <Link
-                          to={card.href}
-                          className="group inline-flex items-center gap-2.5 rounded-full bg-[#0072bc] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#0072bc]/25 transition-shadow hover:shadow-xl hover:shadow-[#0072bc]/30"
-                        >
-                          Explore {card.name.split(' & ')[0]}
-                          <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-                        </Link>
-                      </div>
+                    <div className="mt-5 flex items-center gap-2.5 border-t border-slate-200/90 pt-3.5 font-mono text-[11.5px] uppercase tracking-wider text-slate-500">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc]" />
+                      {serviceCards[active].timeline}
                     </div>
-                  );
-                })}
+
+                    <div className="mt-5">
+                      <Link
+                        to={serviceCards[active].href}
+                        className="group inline-flex items-center gap-2.5 rounded-full bg-[#0072bc] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#0072bc]/25 transition-all hover:bg-[#005a96] hover:shadow-xl hover:shadow-[#0072bc]/30"
+                      >
+                        Explore {serviceCards[active].name.split(' & ')[0]}
+                        <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                      </Link>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
               </div>
 
               {/* Card Deck (driven by active index) */}

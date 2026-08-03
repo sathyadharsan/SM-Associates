@@ -117,6 +117,12 @@ export default function TestimonialsSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             Trusted by India's <span className="text-[#0072bc]">leading lenders</span>
           </h2>
+          {/* Premium Level Accent Line */}
+          <div className="mt-4 mb-2 flex items-center justify-center gap-2">
+            <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+            <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+            <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
+          </div>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed font-normal">
             From PSU banks to modern NBFCs — hear what our institutional partners say about SM Associates.
           </p>

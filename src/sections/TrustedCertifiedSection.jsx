@@ -5,6 +5,27 @@ import { ShieldCheck, Award, Headset, MapPin, TrendingUp, Users, Building2, Acti
 // Enterprise KPI Metrics Cards
 const KPI_CARDS = [
   {
+    Icon: Award,
+    value: '25+ Yrs',
+    label: 'Industry Legacy',
+    sublabel: 'Unbroken trust since 2000',
+    tag: 'ESTABLISHED',
+  },
+  {
+    Icon: Building2,
+    value: '100+',
+    label: 'Institutional Partners',
+    sublabel: 'Banks, NBFCs, HFCs & ARCs',
+    tag: 'EMPANELLED',
+  },
+  {
+    Icon: MapPin,
+    value: '19 Branches',
+    label: '5 States Network',
+    sublabel: 'Pan-South India footprint',
+    tag: 'FOOTPRINT',
+  },
+  {
     Icon: TrendingUp,
     value: '₹485 Cr+',
     label: 'Portfolio Managed',
@@ -19,32 +40,11 @@ const KPI_CARDS = [
     tag: 'DRA CERTIFIED',
   },
   {
-    Icon: Building2,
-    value: '100+',
-    label: 'Institutional Partners',
-    sublabel: 'Banks, NBFCs, HFCs & ARCs',
-    tag: 'EMPANELLED',
-  },
-  {
     Icon: ShieldCheck,
     value: '98.4%',
     label: 'Resolution Rate',
     sublabel: 'Statutory & amicable success',
     tag: 'BENCHMARK',
-  },
-  {
-    Icon: Award,
-    value: '25+ Yrs',
-    label: 'Industry Legacy',
-    sublabel: 'Unbroken trust since 2000',
-    tag: 'ESTABLISHED',
-  },
-  {
-    Icon: Activity,
-    value: '100%',
-    label: 'GPS & Telemetry',
-    sublabel: 'Live voice & field audit trail',
-    tag: 'AUDIT-READY',
   },
 ];
 
@@ -60,10 +60,16 @@ export default function TrustedCertifiedSection() {
   return (
     <section className="tc7 bg-white py-12 sm:py-16 relative overflow-hidden" id="trust">
       {/* Header */}
-      <div className="fg-wrap tc7-head text-center max-w-5xl mx-auto mb-10 px-4">
-        <h2 className="tc7-title text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-slate-900 tracking-tight leading-tight">
+      <div className="fg-wrap tc7-head text-center max-w-5xl mx-auto mb-10 px-4 flex flex-col items-center justify-center">
+        <h2 className="tc7-title text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-slate-900 tracking-tight leading-tight text-center">
           Proven Performance Built for Institutional Scale
         </h2>
+        {/* Premium Level Accent Line */}
+        <div className="mt-4 flex items-center justify-center gap-2">
+          <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+          <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+          <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
+        </div>
       </div>
 
       {/* KPI Cards Grid (Apple-Style 3D Cascade Assembly) */}
@@ -108,35 +114,6 @@ export default function TrustedCertifiedSection() {
                 <span className="block text-[10.5px] font-medium text-slate-500 mt-0.5 leading-snug">
                   {sublabel}
                 </span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Trust & Compliance Facts */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {FACTS.map(({ Icon, v, k }, index) => (
-            <motion.div
-              key={v}
-              initial={{ opacity: 0, y: 36, scale: 0.95, filter: 'blur(6px)' }}
-              whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-              viewport={{ once: false, margin: '-30px' }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              whileHover={{ scale: 1.02 }}
-              className="tc7-fact flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300 group cursor-pointer"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-[#0072bc] shrink-0 transition-transform duration-300 group-hover:scale-105">
-                <Icon size={20} strokeWidth={2} />
-              </div>
-              <div className="min-w-0 flex-1">
-                <span className="block text-sm sm:text-base font-bold text-slate-900 tracking-tight leading-snug truncate">{v}</span>
-                <span className="block text-[11px] sm:text-xs font-medium text-slate-500 mt-0.5 leading-tight truncate">{k}</span>
               </div>
             </motion.div>
           ))}

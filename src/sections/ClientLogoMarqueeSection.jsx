@@ -16,10 +16,16 @@ export default function ClientLogoMarqueeSection() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent z-10" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-slate-50 via-slate-50/80 to-transparent z-10" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 text-center">
-        <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 text-center flex flex-col items-center justify-center">
+        <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight text-center">
           Trusted by India&apos;s Top Scheduled Commercial Banks &amp; NBFCs
         </h3>
+        {/* Premium Level Accent Line */}
+        <div className="mt-3 flex items-center justify-center gap-2">
+          <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+          <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+          <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
+        </div>
       </div>
 
       {/* Marquee Rows without background card boxes */}

@@ -198,45 +198,11 @@ html.lenis, html.lenis body { height: auto; }
 
 /* Thin horizontal track line under heading */
 .fg-section-header h2::before,
-.tc7-title::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140px;
-  height: 1px;
-  background: rgba(15, 23, 42, 0.08);
-  transition: width 0.4s var(--ease);
-}
-
-/* Thick active underline bar under heading */
 .fg-section-header h2::after,
+.tc7-title::before,
 .tc7-title::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--blue) 0%, var(--blue-2) 100%);
-  border-radius: 3px;
-  transition: all 0.4s var(--ease);
-  box-shadow: 0 2px 8px rgba(0, 114, 188, 0.15);
-}
-
-/* Interactive hover behaviors */
-.fg-section-header:hover h2::before,
-.tc7-head:hover .tc7-title::before {
-  width: 220px;
-}
-
-.fg-section-header:hover h2::after,
-.tc7-head:hover .tc7-title::after {
-  width: 100px;
-  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-2) 100%);
-  box-shadow: 0 4px 12px rgba(0, 114, 188, 0.35);
+  display: none !important;
+  content: none !important;
 }
 
 /* ═══════════════════════════════════════════════

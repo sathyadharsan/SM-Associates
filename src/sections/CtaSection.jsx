@@ -16,12 +16,18 @@ export default function CtaSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <h2 className="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-tight mb-6">
+              <h2 className="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-tight mb-4">
                 Ready to recover<br />
                 <span className="text-[#0072bc]">
                   what&apos;s yours?
                 </span>
               </h2>
+              {/* Premium Level Accent Line */}
+              <div className="mt-3 mb-6 flex items-center justify-center gap-2">
+                <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+                <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+                <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
+              </div>
 
               <p className="text-slate-600 text-lg leading-relaxed max-w-lg mb-10 mx-auto lg:mx-0 font-medium">
                 Book a free consultation with our recovery specialists. We&apos;ll audit your NPA portfolio and propose a performance-based recovery plan — no commitment required.

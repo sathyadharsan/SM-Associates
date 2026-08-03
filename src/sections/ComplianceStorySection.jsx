@@ -7,8 +7,8 @@
  * alternate with the light Technology Story above it.
  */
 
-import { useEffect, useRef } from 'react';
-import { useReducedMotion, motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { useReducedMotion, motion, AnimatePresence } from 'framer-motion';
 import { Lock, ClipboardCheck, Scale, UserCheck, Check } from 'lucide-react';
 import { complianceAssurance } from '../data/servicesLandingData';
 import { mountScrollStory, attachPointerTilt, easeOutBack } from '../utils/scrollStoryMath';
@@ -119,6 +119,7 @@ export default function ComplianceStorySection() {
   const activeIndexRef = useRef(0);
   const progressRef = useRef(null);
   const numeralRef = useRef(null);
+  const [activeChapterIndex, setActiveChapterIndex] = useState(0);
 
   useEffect(() => {
     if (reduceMotion) return undefined;
@@ -130,7 +131,10 @@ export default function ComplianceStorySection() {
       total: TOTAL,
       applyCardStyle: materializeCardStyle,
       onProgress: ({ progress, activeIndex }) => {
-        activeIndexRef.current = activeIndex;
+        if (activeIndexRef.current !== activeIndex) {
+          activeIndexRef.current = activeIndex;
+          setActiveChapterIndex(activeIndex);
+        }
         if (numeralRef.current) numeralRef.current.textContent = String(activeIndex + 1).padStart(2, '0');
         if (progressRef.current) progressRef.current.style.width = `${progress * 100}%`;
       },
@@ -171,34 +175,32 @@ export default function ComplianceStorySection() {
             OperatingModelSection's .model6-head (top:96px). */}
         <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden pt-24">
           <div className="mx-auto w-full max-w-7xl px-8">
-            <div className="mb-14 flex items-end justify-between">
-              <div>
-                <span className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#3d9ed6]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc]" />
-                  Compliance & Data Security
-                </span>
-                <h2 className="mt-3 text-[28px] font-extrabold leading-tight tracking-tight text-white sm:text-[36px]">
-                  Every engagement runs under enterprise governance.
-                </h2>
-              </div>
-              <div className="hidden shrink-0 text-right font-mono sm:block">
-                <span ref={numeralRef} className="text-3xl font-black text-white">01</span>
-                <span className="text-lg font-bold text-slate-400"> / {String(TOTAL).padStart(2, '0')}</span>
+            <div className="mb-14 text-center flex flex-col items-center justify-center">
+              <h2 className="text-[28px] font-extrabold leading-tight tracking-tight text-white sm:text-[36px] text-center">
+                Every engagement runs under enterprise governance.
+              </h2>
+              {/* Premium Level Accent Line (Dark Mode) */}
+              <div className="mt-4 flex items-center justify-center gap-2">
+                <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#3d9ed6]/60 rounded-full" />
+                <div className="h-1.5 w-1.5 rounded-full bg-[#3d9ed6] shadow-sm shadow-[#3d9ed6]/60" />
+                <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#3d9ed6]/60 rounded-full" />
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-16 items-center">
-              <div className="relative h-[320px]">
-                {complianceAssurance.map((pillar, index) => (
-                  <div
-                    key={pillar.title}
-                    ref={(el) => (textRefs.current[index] = el)}
-                    className="absolute inset-0"
-                    style={{ opacity: index === 0 ? 1 : 0, zIndex: index }}
+              <div className="relative h-[320px] overflow-hidden">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={complianceAssurance[activeChapterIndex].title}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -16 }}
+                    transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute inset-0 z-20 flex flex-col justify-start"
                   >
-                    <ChapterCopy pillar={pillar} index={index} wordRefs={wordRefs} dark />
-                  </div>
-                ))}
+                    <ChapterCopy pillar={complianceAssurance[activeChapterIndex]} index={activeChapterIndex} dark />
+                  </motion.div>
+                </AnimatePresence>
               </div>
 
               <div className="relative h-[420px]" style={{ perspective: 1400 }}>

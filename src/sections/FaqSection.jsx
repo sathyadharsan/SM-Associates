@@ -46,10 +46,16 @@ export default function FaqSection() {
     <section className="py-24 bg-white relative" id="faq">
       <div className="fg-wrap max-w-4xl mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-14">
-          <h2 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+        <div className="text-center mb-14 flex flex-col items-center justify-center">
+          <h2 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight text-center">
             Frequently Asked Questions
           </h2>
+          {/* Premium Level Accent Line */}
+          <div className="mt-4 mb-2 flex items-center justify-center gap-2">
+            <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+            <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+            <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
+          </div>
           <p className="text-slate-600 text-lg mt-3">
             Clear answers regarding compliance, data security, field operations, and resolution timelines.
           </p>

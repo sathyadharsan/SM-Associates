@@ -24,7 +24,7 @@ const cardPairs = [
       title: 'AI Assisted Portfolio Prioritisation',
       description: 'Rank accounts by predicted recoverability before effort is spent.',
       icon: ShieldCheck,
-      badge: 'PILOT STAGE',
+      badge: 'PILOT',
       category: 'Strategic Initiative',
     },
     right: {
@@ -33,7 +33,7 @@ const cardPairs = [
       title: 'AI Agent Based Customer Conversations',
       description: 'Conversational agents handling routine borrower contact at scale.',
       icon: Bot,
-      badge: 'AUTOMATED OUTREACH',
+      badge: 'PROTOTYPE',
       category: 'Automated Outreach',
     },
   },
@@ -45,7 +45,7 @@ const cardPairs = [
       title: 'Intelligent Auto Dialing',
       description: 'Contact attempts timed to when a borrower is most likely to answer.',
       icon: PhoneCall,
-      badge: 'LIVE IN FIELD',
+      badge: 'PILOT',
       category: 'Optimized Contact',
     },
     right: {
@@ -54,7 +54,7 @@ const cardPairs = [
       title: 'AI-Powered Follow-Up Scheduling',
       description: 'Next-contact timing set by outcome patterns rather than fixed intervals.',
       icon: CalendarClock,
-      badge: 'PATTERN ENGINE',
+      badge: 'RESEARCH',
       category: 'Pattern Intelligence',
     },
   },
@@ -66,7 +66,7 @@ const cardPairs = [
       title: 'Smart Recovery Recommendations',
       description: 'Next-best-action guidance surfaced to officers on each case.',
       icon: Sparkle,
-      badge: 'OFFICER GUIDANCE',
+      badge: 'ARCHITECTURE',
       category: 'Action Guidance',
     },
     right: {
@@ -75,7 +75,7 @@ const cardPairs = [
       title: 'Predictive Recovery Analytics',
       description: 'Forward-looking roll-rate and resolution forecasting per portfolio.',
       icon: TrendingUp,
-      badge: 'BENCHMARK MODEL',
+      badge: 'RESEARCH',
       category: 'Roll-Rate Models',
     },
   },
@@ -87,7 +87,7 @@ const cardPairs = [
       title: 'Intelligent Case Assignment',
       description: 'Accounts routed to the officer and channel with the strongest fit.',
       icon: UserCheck,
-      badge: 'DYNAMIC ROUTING',
+      badge: 'ARCHITECTURE',
       category: 'Channel Optimization',
     },
     right: {
@@ -96,7 +96,7 @@ const cardPairs = [
       title: 'Automated Compliance Monitoring',
       description: 'Conduct exceptions flagged automatically across every recorded interaction.',
       icon: ShieldAlert,
-      badge: 'POLICY ENFORCED',
+      badge: 'PROTOTYPE',
       category: 'Policy Enforcement',
     },
   },
@@ -108,7 +108,7 @@ const cardPairs = [
       title: 'Executive Recovery Dashboards',
       description: 'Board-level portfolio health, presented for review rather than operations.',
       icon: LayoutDashboard,
-      badge: 'EXECUTIVE SUITE',
+      badge: 'PLANNED',
       category: 'C-Suite Analytics',
     },
     right: {
@@ -117,7 +117,7 @@ const cardPairs = [
       title: 'Autonomous Settlement Negotiation',
       description: 'Structured settlement offers and payment plans negotiated automatically under policy limits.',
       icon: Handshake,
-      badge: 'RESOLUTION ENGINE',
+      badge: 'FUTURE RELEASE',
       category: 'Resolution Engine',
     },
   },
@@ -232,15 +232,22 @@ function SingleScrollPair({ pair, index, totalPairs, scrollYProgress }) {
 
 function RoadmapIntro() {
   return (
-    <div className="mx-auto max-w-3xl text-center">
-      <span className="inline-flex items-center gap-2 rounded-full border border-[#0072BC]/20 bg-[#0072BC]/8 px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[#0072BC]">
-        <Sparkles size={13} className="text-[#0072BC]" />
-        Roadmap · In Development
+    <div className="text-center">
+      <span className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#0072BC]">
+        <span className="h-1.5 w-1.5 rounded-full bg-[#0072BC]" />
+        Strategic Initiatives
       </span>
 
       <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl md:text-4xl">
         Next-Gen Recovery Architecture
       </h2>
+
+      {/* Premium Level Accent Line */}
+      <div className="mt-4 mb-3 flex items-center justify-center gap-2">
+        <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+        <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+        <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
+      </div>
 
       <p className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm md:text-base">
         Explore our 10 strategic AI-driven recovery initiatives currently under development.

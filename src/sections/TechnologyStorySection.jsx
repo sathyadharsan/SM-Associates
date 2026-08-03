@@ -7,8 +7,8 @@
  * light-themed here to alternate with the dark Enterprise Story above it.
  */
 
-import { useEffect, useRef } from 'react';
-import { useReducedMotion, motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { useReducedMotion, motion, AnimatePresence } from 'framer-motion';
 import {
   Workflow, PieChart, BarChart3, LayoutDashboard, MapPin, FileText, Search, ShieldCheck,
 } from 'lucide-react';
@@ -108,6 +108,7 @@ export default function TechnologyStorySection() {
   const activeIndexRef = useRef(0);
   const progressRef = useRef(null);
   const numeralRef = useRef(null);
+  const [activeChapterIndex, setActiveChapterIndex] = useState(0);
 
   useEffect(() => {
     if (reduceMotion) return undefined;
@@ -119,7 +120,10 @@ export default function TechnologyStorySection() {
       total: TOTAL,
       applyCardStyle: diagonalCardStyle,
       onProgress: ({ progress, activeIndex }) => {
-        activeIndexRef.current = activeIndex;
+        if (activeIndexRef.current !== activeIndex) {
+          activeIndexRef.current = activeIndex;
+          setActiveChapterIndex(activeIndex);
+        }
         if (numeralRef.current) numeralRef.current.textContent = String(activeIndex + 1).padStart(2, '0');
         if (progressRef.current) progressRef.current.style.width = `${progress * 100}%`;
       },
@@ -152,34 +156,32 @@ export default function TechnologyStorySection() {
             OperatingModelSection's .model6-head (top:96px). */}
         <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden pt-24">
           <div className="mx-auto w-full max-w-7xl px-8">
-            <div className="mb-14 flex items-end justify-between">
-              <div>
-                <span className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#0072bc]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc]" />
-                  Technology Driven Recovery Operations
-                </span>
-                <h2 className="mt-3 text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px]">
-                  Recovery runs on a platform, not a call list.
-                </h2>
-              </div>
-              <div className="hidden shrink-0 text-right font-mono sm:block">
-                <span ref={numeralRef} className="text-3xl font-black text-slate-900">01</span>
-                <span className="text-lg font-bold text-slate-500"> / {String(TOTAL).padStart(2, '0')}</span>
+            <div className="mb-14 text-center flex flex-col items-center justify-center">
+              <h2 className="text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px] text-center">
+                Technology Driven Recovery Operations
+              </h2>
+              {/* Premium Level Accent Line */}
+              <div className="mt-4 flex items-center justify-center gap-2">
+                <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+                <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+                <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-16 items-center">
-              <div className="relative h-[280px]">
-                {technologyCapabilities.map((cap, index) => (
-                  <div
-                    key={cap.title}
-                    ref={(el) => (textRefs.current[index] = el)}
-                    className="absolute inset-0"
-                    style={{ opacity: index === 0 ? 1 : 0, zIndex: index }}
+              <div className="relative h-[280px] overflow-hidden">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={technologyCapabilities[activeChapterIndex].title}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -16 }}
+                    transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute inset-0 z-20 flex flex-col justify-start"
                   >
-                    <ChapterCopy cap={cap} index={index} wordRefs={wordRefs} />
-                  </div>
-                ))}
+                    <ChapterCopy cap={technologyCapabilities[activeChapterIndex]} index={activeChapterIndex} />
+                  </motion.div>
+                </AnimatePresence>
               </div>
 
               <div className="relative h-[400px]" style={{ perspective: 1400 }}>

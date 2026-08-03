@@ -135,8 +135,16 @@ export default function OperatingModelSection() {
           {/* ── Header ── */}
           <div className="model6-head">
             <div className="fg-wrap">
-              <div className="fg-section-header" style={{ marginBottom: 0 }}>
-                <h2>One accountable lifecycle.</h2>
+              <div className="flex flex-col items-center justify-center text-center mx-auto" style={{ marginBottom: 0 }}>
+                <h2 className="text-center font-extrabold text-slate-900 leading-tight m-0 p-0" style={{ marginBottom: 0 }}>
+                  One accountable lifecycle.
+                </h2>
+                {/* Premium Level Accent Line */}
+                <div className="mt-2 flex items-center justify-center gap-2">
+                  <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+                  <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+                  <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
+                </div>
               </div>
               <div className="model6-ctr">STAGE <b ref={stageRef}>01</b> / 06</div>
             </div>

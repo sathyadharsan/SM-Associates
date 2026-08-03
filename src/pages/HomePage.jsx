@@ -5,8 +5,6 @@ import SectionReveal from '../components/SectionReveal';
 import HeroFlagshipSection from '../sections/HeroFlagshipSection';
 import TrustedCertifiedSection from '../sections/TrustedCertifiedSection';
 import ClientLogoMarqueeSection from '../sections/ClientLogoMarqueeSection';
-import MetricsSection from '../sections/MetricsSection'; // kept for other pages
-import BentoWorkflowSection from '../sections/BentoWorkflowSection';
 import SolutionComparisonSection from '../sections/SolutionComparisonSection';
 import ServicesOverviewSection from '../sections/ServicesOverviewSection';
 import EnterpriseServicesSection from '../sections/EnterpriseServicesSection';
@@ -80,11 +78,6 @@ export default function HomePage() {
       {/* 11. Institutional Comparison Matrix */}
       <SectionReveal>
         <SolutionComparisonSection />
-      </SectionReveal>
-
-      {/* 12. Automated Workflows & RBI Compliance Bento Grid */}
-      <SectionReveal>
-        <BentoWorkflowSection />
       </SectionReveal>
 
       {/* 13. Proof of Work & Documented Case Studies Carousel */}

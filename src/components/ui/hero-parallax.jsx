@@ -61,6 +61,12 @@ export const HeroParallax = ({ products }) => {
             <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight text-center">
               Specialized Recovery Mandates
             </h2>
+            {/* Premium Level Accent Line */}
+            <div className="mt-4 mb-2 flex items-center justify-center gap-2">
+              <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+              <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+              <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
+            </div>
             <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-xl text-center mx-auto">
               Click on any mandate card below to view detailed operational scope, legal frameworks, and compliance standards.
             </p>
@@ -102,6 +108,17 @@ export const ProductCard = ({ product, index = 0, onSelect }) => {
     if (onSelect) onSelect();
   };
 
+  const handleTouch = (e) => {
+    if (window.innerWidth < 1024) {
+      if (!showQuote) {
+        if (e && e.stopPropagation) e.stopPropagation();
+        setShowQuote(true);
+        return;
+      }
+    }
+    handleClick(e);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50, scale: 0.94, filter: "blur(6px)" }}
@@ -114,7 +131,7 @@ export const ProductCard = ({ product, index = 0, onSelect }) => {
       }}
       whileHover={{ y: -8, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      onTap={handleClick}
+      onTap={handleTouch}
       onClick={handleClick}
       onMouseEnter={() => setShowQuote(true)}
       onMouseLeave={() => setShowQuote(false)}
@@ -128,7 +145,7 @@ export const ProductCard = ({ product, index = 0, onSelect }) => {
         loading="lazy"
       />
 
-      {/* Leadership-Card Style Pure Dark Gradient Overlay */}
+      {/* Dark Gradient Overlay */}
       <div
         className={`absolute inset-0 transition-all duration-500 pointer-events-none ${
           showQuote
@@ -137,7 +154,7 @@ export const ProductCard = ({ product, index = 0, onSelect }) => {
         }`}
       />
 
-      {/* Text Overlay Content directly over crisp background photo */}
+      {/* Text Overlay Content */}
       <div className="absolute inset-0 flex flex-col justify-end p-6 text-left z-10 cursor-pointer">
         {product.category && (
           <div>
@@ -152,7 +169,7 @@ export const ProductCard = ({ product, index = 0, onSelect }) => {
           {product.title}
         </h3>
 
-        {/* Teaser Description — Mobile preview by default, expandable on desktop hover */}
+        {/* Teaser Description — Mobile preview by default, expandable on desktop hover / mobile tap */}
         <div
           className={`overflow-hidden transition-all duration-500 ease-out ${
             showQuote
@@ -163,13 +180,14 @@ export const ProductCard = ({ product, index = 0, onSelect }) => {
           <p className="text-xs text-slate-200 leading-relaxed font-medium">
             {product.description}
           </p>
+        </div>
 
         {/* Leadership Card Signature Wide Blue Accent Underline Bar */}
         <div className="w-full h-1 bg-[#0072bc] rounded-full mt-3.5 transition-all duration-300 shadow-sm" />
 
-        {/* Click Indicator */}
-        <div className={`mt-2 flex items-center justify-between text-[11px] font-bold text-[#0072bc] transition-opacity duration-300 ${showQuote ? 'opacity-100' : 'opacity-70'}`}>
-          <span className="text-slate-200 text-[10px]">Click to view full mandate details</span>
+        {/* Click / Tap Indicator */}
+        <div className="mt-2 flex items-center justify-between text-[11px] font-bold text-[#0072bc] transition-opacity duration-300 opacity-90">
+          <span className="text-slate-200 text-[10px]">Tap to view full mandate details</span>
           <ChevronRight size={14} className="text-[#0072bc]" />
         </div>
       </div>

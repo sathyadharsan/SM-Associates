@@ -22,18 +22,22 @@ export default function CaseStudiesSection() {
     <section id="case-studies" className="relative py-20 sm:py-24 lg:py-28 bg-white overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header with Left/Right Control Buttons */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-          <div>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Real engagements, documented outcomes.
-            </h2>
-            <p className="mt-3 text-base text-slate-600 max-w-2xl leading-relaxed">
-              Anonymized operating examples showing how SM Associates structures recovery programs across banking, SARFAESI, verification and fraud control mandates.
-            </p>
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center justify-center max-w-3xl mx-auto mb-10">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight text-center">
+            Real engagements, documented outcomes.
+          </h2>
+          {/* Premium Level Accent Line */}
+          <div className="mt-3 mb-2 flex items-center justify-center gap-2">
+            <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+            <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+            <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
           </div>
+          <p className="mt-3 text-base text-slate-600 max-w-2xl leading-relaxed text-center">
+            Anonymized operating examples showing how SM Associates structures recovery programs across banking, SARFAESI, verification and fraud control mandates.
+          </p>
 
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-3 shrink-0 mt-6">
             <button
               type="button"
               onClick={() => handleScroll('left')}

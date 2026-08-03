@@ -56,6 +56,12 @@ export default function SolutionComparisonSection() {
           <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
             The most flexible solution
           </h2>
+          {/* Premium Level Accent Line */}
+          <div className="mt-4 mb-2 flex items-center justify-center gap-2">
+            <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+            <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+            <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
+          </div>
           <p className="text-slate-600 text-lg mt-3">
             Compare how SM Associates delivers institutional scale, compliance, and resolution efficiency over traditional channels.
           </p>

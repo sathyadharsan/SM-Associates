@@ -174,6 +174,12 @@ export default function IndustriesServedSection() {
           >
             Purpose-Built for Scale
           </h2>
+          {/* Premium Level Accent Line */}
+          <div className="mt-4 mb-2 flex items-center justify-center gap-2">
+            <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+            <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+            <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
+          </div>
           <p className="mt-3 text-base text-slate-500 font-medium max-w-lg mx-auto">
             Calibrated recovery frameworks across 8 regulated lender segments
           </p>

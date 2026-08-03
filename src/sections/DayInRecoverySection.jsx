@@ -87,8 +87,14 @@ function IntroHeader() {
         Illustrative Scenario
       </span>
       <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">A Day in Recovery</h2>
+      {/* Premium Level Accent Line */}
+      <div className="mt-4 mb-2 flex items-center justify-center gap-2">
+        <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+        <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+        <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
+      </div>
       <p className="mt-2 text-sm text-slate-500">
-        One representative mandate's timeline — not a specific client case.
+        Follow a single portfolio account through 24 hours of intelligence-driven recovery operations.
       </p>
     </div>
   );

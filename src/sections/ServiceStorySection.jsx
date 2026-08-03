@@ -19,9 +19,9 @@
  * two-column pinned layout has nowhere to go on a phone-width screen.
  */
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Check } from 'lucide-react';
 import { enterpriseServices } from '../data/enterpriseServicesData';
 import { mountScrollStory, attachPointerTilt, clamp, easeApple } from '../utils/scrollStoryMath';
@@ -125,11 +125,11 @@ function ChapterCopy({ service, index, wordRefs }) {
       <p className="mt-4 max-w-md text-[14.5px] leading-relaxed text-slate-700 font-medium">
         {wordRefs
           ? words.map((word, wi) => (
-              <span key={wi} ref={(el) => { wordRefs.current[index][wi] = el; }} style={{ opacity: 1 }}>
-                {word}
-                {wi < words.length - 1 ? ' ' : ''}
-              </span>
-            ))
+            <span key={wi} ref={(el) => { wordRefs.current[index][wi] = el; }} style={{ opacity: 1 }}>
+              {word}
+              {wi < words.length - 1 ? ' ' : ''}
+            </span>
+          ))
           : service.description}
       </p>
 
@@ -206,6 +206,7 @@ export default function ServiceStorySection() {
   const activeIndexRef = useRef(0);
   const progressRef = useRef(null);
   const numeralRef = useRef(null);
+  const [activeChapterIndex, setActiveChapterIndex] = useState(0);
 
   useEffect(() => {
     if (reduceMotion) return undefined;
@@ -217,7 +218,10 @@ export default function ServiceStorySection() {
       total: TOTAL,
       applyCardStyle: flyInCardStyle,
       onProgress: ({ progress, activeIndex }) => {
-        activeIndexRef.current = activeIndex;
+        if (activeIndexRef.current !== activeIndex) {
+          activeIndexRef.current = activeIndex;
+          setActiveChapterIndex(activeIndex);
+        }
         if (numeralRef.current) numeralRef.current.textContent = String(activeIndex + 1).padStart(2, '0');
         if (progressRef.current) progressRef.current.style.width = `${progress * 100}%`;
       },
@@ -270,36 +274,33 @@ export default function ServiceStorySection() {
             OperatingModelSection's .model6-head (top:96px). */}
         <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center pt-24">
           <div className="mx-auto w-full max-w-7xl px-8">
-            {/* Header: title left + chapter numeral right (matches Technology & Compliance stories) */}
-            <div className="mb-14 flex items-end justify-between">
-              <div>
-                <span className="inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#0072bc]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#0072bc]" />
-                  Enterprise Services
-                </span>
-                <h2 className="mt-3 text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px]">
-                  The complete recovery story.
-                </h2>
-              </div>
-              <div className="hidden shrink-0 text-right font-mono sm:block">
-                <span ref={numeralRef} className="text-3xl font-black text-slate-900">01</span>
-                <span className="text-lg font-bold text-slate-400"> / {String(TOTAL).padStart(2, '0')}</span>
+            <div className="mb-14 text-center flex flex-col items-center justify-center">
+              <h2 className="text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px] text-center">
+                The complete recovery story
+              </h2>
+              {/* Premium Level Accent Line */}
+              <div className="mt-4 flex items-center justify-center gap-2">
+                <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
+                <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+                <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
               </div>
             </div>
 
-            {/* Story stage: text left, image right — both stacked absolutely per chapter */}
+            {/* Story stage: text left (strict single chapter hand-off), image right */}
             <div className="grid grid-cols-2 gap-16 items-start">
-              <div className="relative h-[420px]">
-                {enterpriseServices.map((service, index) => (
-                  <div
-                    key={service.id}
-                    ref={(el) => (textRefs.current[index] = el)}
-                    className="absolute inset-0"
-                    style={{ opacity: index === 0 ? 1 : 0, zIndex: index }}
+              <div className="relative h-[420px] overflow-hidden">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={enterpriseServices[activeChapterIndex].id}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -16 }}
+                    transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute inset-0 z-20 flex flex-col justify-start"
                   >
-                    <ChapterCopy service={service} index={index} wordRefs={wordRefs} />
-                  </div>
-                ))}
+                    <ChapterCopy service={enterpriseServices[activeChapterIndex]} index={activeChapterIndex} />
+                  </motion.div>
+                </AnimatePresence>
               </div>
 
               <div className="relative h-[420px]" style={{ perspective: 1400 }}>
