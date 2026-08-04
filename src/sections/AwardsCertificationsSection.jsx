@@ -62,6 +62,8 @@ const certifications = [
 ];
 
 export default function AwardsCertificationsSection() {
+  const [activeCert, setActiveCert] = React.useState(null);
+
   return (
     <section className="py-16 sm:py-24 bg-white" id="awards-certifications">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,28 +89,42 @@ export default function AwardsCertificationsSection() {
           </p>
         </motion.div>
 
-        {/* 8 Cards across 4 columns grid */}
+        {/* 8 Cards across 4 columns grid with Logo Dark Mode Theme on Click & Hover */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto items-stretch justify-center">
           {certifications.map((cert, idx) => {
             const Icon = cert.icon;
+            const isActive = activeCert === idx;
             return (
               <motion.div
                 key={idx}
+                onClick={() => setActiveCert(isActive ? null : idx)}
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: idx * 0.06 }}
-                whileHover={{ y: -5, scale: 1.03 }}
-                className="group flex flex-col items-center text-center p-6 sm:p-7 rounded-2xl border border-slate-200/60 bg-white shadow-xs hover:border-slate-200 hover:shadow-lg hover:shadow-slate-200/60 transition-all duration-300 cursor-default"
+                whileHover={{ y: -6, scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className={`group flex flex-col items-center text-center p-6 sm:p-7 rounded-2xl border transition-all duration-300 cursor-pointer select-none ${
+                  isActive
+                    ? 'bg-gradient-to-br from-[#005291] via-[#0072bc] to-[#021a38] border-[#0072bc] shadow-2xl shadow-[#0072bc]/35 text-white scale-[1.02] ring-2 ring-[#0072bc]/60'
+                    : 'bg-white border-transparent shadow-md shadow-slate-200/60 text-slate-900 hover:bg-gradient-to-br hover:from-[#005291] hover:via-[#0072bc] hover:to-[#021a38] hover:border-[#0072bc] hover:shadow-2xl hover:shadow-[#0072bc]/35 hover:text-white'
+                }`}
               >
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 shadow-xs"
-                  style={{ backgroundColor: cert.bg }}
+                  className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 shadow-xs ${
+                    isActive
+                      ? 'bg-white text-[#0072bc] shadow-lg scale-110'
+                      : 'bg-blue-50 text-[#0072bc] group-hover:bg-white group-hover:text-[#0072bc] group-hover:shadow-lg group-hover:scale-110'
+                  }`}
                 >
-                  <Icon size={24} style={{ color: cert.color }} />
+                  <Icon size={24} />
                 </div>
-                <div className="font-extrabold text-slate-900 text-sm sm:text-base leading-snug">{cert.title}</div>
-                <div className="text-slate-500 text-xs mt-1.5 leading-relaxed font-normal">{cert.subtitle}</div>
+                <div className={`font-extrabold text-sm sm:text-base leading-snug transition-colors duration-200 ${isActive ? 'text-white' : 'text-slate-900 group-hover:text-white'}`}>
+                  {cert.title}
+                </div>
+                <div className={`text-xs mt-1.5 leading-relaxed font-medium transition-colors duration-200 ${isActive ? 'text-slate-200' : 'text-slate-500 group-hover:text-slate-200'}`}>
+                  {cert.subtitle}
+                </div>
               </motion.div>
             );
           })}

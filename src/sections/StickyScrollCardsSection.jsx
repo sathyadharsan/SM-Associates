@@ -290,7 +290,7 @@ export default function StickyScrollCardsSection() {
   });
 
   return (
-    <div className="relative w-full border-b border-slate-200/90 bg-white text-slate-900 selection:bg-[#0072BC]/20 selection:text-slate-900">
+    <div className="relative w-full bg-white text-slate-900 selection:bg-[#0072BC]/20 selection:text-slate-900">
       {/* Mobile / tablet: static stacked list, no scroll-jack */}
       <div className="lg:hidden">
         <StaticRoadmapList />

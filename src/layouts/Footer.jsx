@@ -1,38 +1,81 @@
 import { Link } from 'react-router-dom';
-import { Globe, Link2, Mail, MapPin, Phone, Share2 } from 'lucide-react';
-import { servicesMenu, industries } from '../data/homeData';
+import { MapPin, Phone, Mail, Clock, ShieldCheck, ArrowUp, Globe, Link2, Share2 } from 'lucide-react';
 
 const quickLinks = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about' },
   { label: 'Services', to: '/services' },
-  { label: 'Industries', to: '/industries' },
-  { label: 'Capabilities', to: '/platform' },
-  { label: 'Resources', to: '/insights' },
+  { label: 'Clients', to: '/clients' },
+  { label: 'Case Studies', to: '/insights/case-studies' },
+  { label: 'Insights & News', to: '/insights' },
   { label: 'Careers', to: '/careers' },
   { label: 'Contact', to: '/contact' }
 ];
 
-const services = servicesMenu.map(s => ({ label: s.title, to: '/services' }));
-const industriesLinks = industries.map(i => ({ label: i.title, to: '/industries' }));
-
-const socialLinks = [
-  { label: 'LinkedIn', href: '#', icon: Link2 },
-  { label: 'Facebook', href: '#', icon: Share2 },
-  { label: 'Website', href: '#', icon: Globe }
+const serviceLinks = [
+  { label: 'Recovery Operations', to: '/services' },
+  { label: 'SARFAESI Execution', to: '/services' },
+  { label: 'Field Collections & Audits', to: '/services' },
+  { label: 'Asset Repossession', to: '/services' },
+  { label: 'Legal & Statutory Notice', to: '/services' },
+  { label: 'Verification & Fraud Control', to: '/services' },
+  { label: 'Skip Tracing & Intelligence', to: '/services' }
 ];
 
-// Light "Google-style" footer: white surface, quiet grey links, plain-weight
-// column headings, hairline dividers. All links/content identical to the
-// previous blue footer — only the visual treatment changed.
+const industryLinks = [
+  { label: 'Commercial Banks', to: '/clients' },
+  { label: 'NBFCs & HFCs', to: '/clients' },
+  { label: 'Asset Reconstruction (ARCs)', to: '/clients' },
+  { label: 'Fintech & Digital Lenders', to: '/clients' },
+  { label: 'Microfinance Institutions', to: '/clients' },
+  { label: 'Corporate Lending Books', to: '/clients' }
+];
+
+const socialLinks = [
+  {
+    label: 'LinkedIn',
+    href: 'https://linkedin.com',
+    icon: (props) => (
+      <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" {...props}>
+        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.49 1.49 0 1 0 0 2.98 1.49 1.49 0 0 0 0-2.98Z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Facebook',
+    href: 'https://facebook.com',
+    icon: (props) => (
+      <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" {...props}>
+        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.65 13.75 5.65c1.08 0 2.21.19 2.21.19v2.43h-1.25c-1.23 0-1.61.77-1.61 1.56V12h2.74l-.44 3h-2.3v6.8c4.56-.93 8-4.96 8-9.8Z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Official Portal',
+    href: '/',
+    icon: (props) => <Globe className="h-4 w-4" {...props} />,
+  },
+];
+
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="border-t border-gray-200 bg-white text-gray-600">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1.25fr_0.85fr_0.95fr_0.95fr_1.2fr]">
-          <div>
-            <div className="flex items-center gap-3">
-              <div className="flex h-14 w-12 items-center justify-center rounded-xl border border-gray-100 bg-white p-1.5 shadow-sm">
+    <footer className="relative bg-white text-slate-600 font-sans overflow-hidden">
+
+      {/* Background Decorative Glow */}
+      <div className="pointer-events-none absolute -left-40 top-0 h-96 w-96 rounded-full bg-[#0072bc]/5 blur-3xl" />
+      <div className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-[#0072bc]/5 blur-3xl" />
+
+      <div className="mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid gap-10 sm:gap-12 lg:grid-cols-[1.3fr_0.8fr_1fr_1fr_1.2fr]">
+          
+          {/* Column 1: Brand & Overview */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-3.5">
+              <div className="flex h-14 w-12 items-center justify-center rounded-xl border border-slate-200/80 bg-white p-1.5 shadow-md shadow-slate-200/50 transition-transform duration-300 hover:scale-105">
                 <img
                   src="/sm-logo.png"
                   alt="SM Associates Risk Management logo"
@@ -40,92 +83,175 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <p className="text-base font-bold text-gray-900">SM Associates</p>
-                <p className="text-xs uppercase tracking-[0.18em] text-gray-400">Recovery Management</p>
+                <p className="text-lg font-black text-slate-900 tracking-tight leading-none">SM Associates</p>
+                <p className="mt-1 text-[11px] font-bold uppercase tracking-widest text-[#0072bc]">
+                  Enterprise Recovery Management
+                </p>
               </div>
             </div>
-            <p className="mt-6 max-w-sm text-sm leading-7 text-gray-500">
-              Established in 2000, SM Associates helps banks, NBFCs and lenders recover debt through
-              structured collections, verification, SARFAESI enforcement and asset recovery.
+
+            <p className="text-sm leading-relaxed text-slate-600 max-w-sm">
+              Established in 2000, SM Associates delivers institutional-grade recovery operations, SARFAESI execution, verification, and legal enforcement for India&apos;s leading scheduled commercial banks and financial institutions.
             </p>
-            <div className="mt-7 flex gap-3">
+
+            {/* Compliance Badges */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50/80 px-3.5 py-1.5 text-xs font-semibold text-slate-700">
+              <ShieldCheck className="h-4 w-4 text-[#0072bc]" />
+              <span>ISO/IEC 27001 & RBI Compliant</span>
+            </div>
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-3 pt-1">
               {socialLinks.map(link => (
-                <a key={link.label} href={link.href} className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 transition hover:border-[#0072bc] hover:text-[#0072bc]" aria-label={link.label}>
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-all duration-300 hover:border-[#0072bc] hover:bg-[#0072bc] hover:text-white hover:shadow-md hover:scale-105 active:scale-95 cursor-pointer"
+                  aria-label={link.label}
+                >
                   <link.icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
           </div>
 
+          {/* Column 2: Quick Links (Synced with Header Navbar) */}
           <div>
-            <h3 className="text-base font-medium text-gray-900">Quick Links</h3>
-            <div className="mt-5 grid gap-3">
+            <h3 className="text-sm font-extrabold uppercase tracking-wider text-slate-900 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-[#0072bc]" />
+              Quick Links
+            </h3>
+            <ul className="mt-5 space-y-2.5">
               {quickLinks.map(link => (
-                <Link key={link.label} to={link.to} className="text-sm text-gray-500 transition hover:text-gray-900">
-                  {link.label}
-                </Link>
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
+                    className="inline-flex items-center text-sm font-medium text-slate-600 transition-all duration-200 hover:text-[#0072bc] hover:translate-x-1"
+                  >
+                    <span className="text-slate-300 mr-2 text-xs">›</span>
+                    {link.label}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
+          {/* Column 3: Services */}
           <div>
-            <h3 className="text-base font-medium text-gray-900">Services</h3>
-            <div className="mt-5 grid gap-3">
-              {services.map(service => (
-                <Link key={service.label} to={service.to} className="text-sm text-gray-500 transition hover:text-gray-900">
-                  {service.label}
-                </Link>
+            <h3 className="text-sm font-extrabold uppercase tracking-wider text-slate-900 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-[#0072bc]" />
+              Services
+            </h3>
+            <ul className="mt-5 space-y-2.5">
+              {serviceLinks.map(service => (
+                <li key={service.label}>
+                  <Link
+                    to={service.to}
+                    className="inline-flex items-center text-sm font-medium text-slate-600 transition-all duration-200 hover:text-[#0072bc] hover:translate-x-1"
+                  >
+                    <span className="text-slate-300 mr-2 text-xs">›</span>
+                    {service.label}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
+          {/* Column 4: Industries */}
           <div>
-            <h3 className="text-base font-medium text-gray-900">Industries</h3>
-            <div className="mt-5 grid gap-3">
-              {industriesLinks.map(industry => (
-                <Link key={industry.label} to={industry.to} className="text-sm text-gray-500 transition hover:text-gray-900">
-                  {industry.label}
-                </Link>
+            <h3 className="text-sm font-extrabold uppercase tracking-wider text-slate-900 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-[#0072bc]" />
+              Industries
+            </h3>
+            <ul className="mt-5 space-y-2.5">
+              {industryLinks.map(industry => (
+                <li key={industry.label}>
+                  <Link
+                    to={industry.to}
+                    className="inline-flex items-center text-sm font-medium text-slate-600 transition-all duration-200 hover:text-[#0072bc] hover:translate-x-1"
+                  >
+                    <span className="text-slate-300 mr-2 text-xs">›</span>
+                    {industry.label}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
+          {/* Column 5: Contact Info */}
           <div>
-            <h3 className="text-base font-medium text-gray-900">Contact</h3>
-            <div className="mt-5 space-y-4">
-              <div className="flex gap-3">
-                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-gray-400" />
-                <p className="text-sm leading-6 text-gray-500">
+            <h3 className="text-sm font-extrabold uppercase tracking-wider text-slate-900 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-[#0072bc]" />
+              Head Office
+            </h3>
+            <div className="mt-5 space-y-3.5">
+              <div className="flex gap-3 items-start">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-[#0072bc] shrink-0 mt-0.5">
+                  <MapPin className="h-4 w-4" />
+                </div>
+                <p className="text-sm leading-snug text-slate-600 font-medium">
                   No.10/17, 2nd Floor, East Ellaiamman Koil Street, Kotturpuram, Chennai – 600085
                 </p>
               </div>
-              <div className="flex gap-3">
-                <Phone className="mt-0.5 h-5 w-5 shrink-0 text-gray-400" />
-                <div className="grid gap-1 text-sm text-gray-500">
-                  <a href="tel:04443060206" className="hover:text-gray-900">044-43060206</a>
-                  <a href="tel:04448530577" className="hover:text-gray-900">044-48530577</a>
+
+              <div className="flex gap-3 items-start">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-[#0072bc] shrink-0 mt-0.5">
+                  <Phone className="h-4 w-4" />
+                </div>
+                <div className="flex flex-col gap-0.5 text-sm font-medium text-slate-600">
+                  <a href="tel:04443060206" className="hover:text-[#0072bc] transition-colors">044-43060206</a>
+                  <a href="tel:04448530577" className="hover:text-[#0072bc] transition-colors">044-48530577</a>
                 </div>
               </div>
-              <div className="flex gap-3">
-                <Mail className="mt-0.5 h-5 w-5 shrink-0 text-gray-400" />
-                <a href="mailto:smarmpl.ho@gmail.com" className="text-sm text-gray-500 hover:text-gray-900">
+
+              <div className="flex gap-3 items-center">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-[#0072bc] shrink-0">
+                  <Mail className="h-4 w-4" />
+                </div>
+                <a href="mailto:smarmpl.ho@gmail.com" className="text-sm font-medium text-slate-600 hover:text-[#0072bc] transition-colors truncate">
                   smarmpl.ho@gmail.com
                 </a>
               </div>
+
+              <div className="flex gap-3 items-center pt-1">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-[#0072bc] shrink-0">
+                  <Clock className="h-4 w-4" />
+                </div>
+                <span className="text-xs font-semibold text-slate-500">
+                  Mon – Sat: 9:00 AM – 6:30 PM IST
+                </span>
+              </div>
             </div>
+          </div>
+
+        </div>
+
+        {/* Bottom Divider & Copyright Bar */}
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200/80 pt-8">
+          <p className="text-xs font-medium text-slate-500 text-center sm:text-left">
+            © {new Date().getFullYear()} SM Associates Risk Management Pvt Ltd. All rights reserved.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-3.5 sm:gap-5 text-xs font-medium text-slate-500 justify-center sm:justify-end">
+            <Link to="/privacy-policy" className="transition hover:text-[#0072bc]">Privacy Policy</Link>
+            <span className="text-slate-300">•</span>
+            <Link to="/cookie-policy" className="transition hover:text-[#0072bc]">Cookie Policy</Link>
+            <span className="text-slate-300">•</span>
+            <Link to="/terms-of-use" className="transition hover:text-[#0072bc]">Terms of Use</Link>
+            <span className="text-slate-300">•</span>
+            <button
+              type="button"
+              onClick={scrollToTop}
+              className="inline-flex items-center gap-1 font-semibold text-[#0072bc] hover:underline cursor-pointer ml-1"
+            >
+              <span>Back to Top</span>
+              <ArrowUp className="h-3.5 w-3.5" />
+            </button>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-gray-200 pt-6">
-          <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} SM Associates Risk Management Pvt Ltd. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6 text-sm text-gray-500">
-            <Link to="/about" className="transition hover:text-gray-900">About</Link>
-            <Link to="/contact" className="transition hover:text-gray-900">Contact</Link>
-            <Link to="/careers" className="transition hover:text-gray-900">Careers</Link>
-          </div>
-        </div>
       </div>
     </footer>
   );

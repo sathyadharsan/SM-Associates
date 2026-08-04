@@ -1541,7 +1541,7 @@ html.lenis, html.lenis body { height: auto; }
 
 /* Remove Viewport Vignette Halos */
 body, .fg-home {
-  background-color: #f4f5f8 !important;
+  background-color: #ffffff !important;
   box-shadow: none !important;
 }
 
@@ -1577,7 +1577,6 @@ body, .fg-home {
 
 
 
-/* Hero copy sequence: each changing phrase keeps a stable line box. */
 .hero6-h1 .hero6-word-slot {
   display: grid;
   min-height: 1.06em;
@@ -1587,4 +1586,21 @@ body, .fg-home {
 .hero6-h1 .hero6-word-motion {
   grid-area: 1 / 1;
   will-change: transform, opacity;
+}
+
+/* Force 'We' + AnimatedWord to stay on the exact same line */
+.hero6-h1 .hero6-inline-row {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 0.32em !important;
+  white-space: nowrap !important;
+  flex-wrap: nowrap !important;
+}
+.hero6-h1 .hero6-inline-row .hero6-we-text {
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+.hero6-h1 .hero6-inline-row .hero6-word-slot {
+  display: inline-grid !important;
+  white-space: nowrap !important;
 }

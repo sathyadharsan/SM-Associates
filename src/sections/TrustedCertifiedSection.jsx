@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Award, Headset, MapPin, TrendingUp, Users, Building2, Activity } from 'lucide-react';
+import { ShieldCheck, Award, MapPin, TrendingUp, Users, Building2, Database, Map } from 'lucide-react';
 
-// Enterprise KPI Metrics Cards
+// Enterprise KPI Metrics Cards (2 Rows x 4 Cards)
 const KPI_CARDS = [
   {
     Icon: Award,
@@ -27,17 +27,31 @@ const KPI_CARDS = [
   },
   {
     Icon: TrendingUp,
-    value: '₹485 Cr+',
+    value: '₹10,000 Cr+',
     label: 'Portfolio Managed',
     sublabel: 'Active NPA & recovery book',
     tag: 'PORTFOLIO',
   },
   {
+    Icon: Database,
+    value: '1M+',
+    label: 'Records Managed',
+    sublabel: 'Active accounts & portfolio history',
+    tag: 'DATA SCALE',
+  },
+  {
     Icon: Users,
     value: '1,500+',
-    label: 'Field Workforce',
-    sublabel: 'IIBF DRA certified agents',
+    label: 'Field Officers & Local Team',
+    sublabel: 'Local field officers across all South India districts',
     tag: 'DRA CERTIFIED',
+  },
+  {
+    Icon: Map,
+    value: 'All Districts',
+    label: 'Pan-South India Coverage',
+    sublabel: 'Local operational presence in every district',
+    tag: 'LOCAL FOOTPRINT',
   },
   {
     Icon: ShieldCheck,
@@ -52,11 +66,12 @@ const KPI_CARDS = [
 const FACTS = [
   { Icon: ShieldCheck, v: 'ISO/IEC 27001', k: 'Certified Information Security' },
   { Icon: Award, v: 'IIBF DRA', k: 'Certified Field Recovery Teams' },
-  { Icon: Headset, v: '100%', k: 'Call Recording & Audit Trail' },
   { Icon: MapPin, v: 'GPS-Enabled', k: 'Ground Operations' },
 ];
 
 export default function TrustedCertifiedSection() {
+  const [activeCard, setActiveCard] = React.useState(null);
+
   return (
     <section className="tc7 bg-white py-12 sm:py-16 relative overflow-hidden" id="trust">
       {/* Header */}
@@ -64,59 +79,77 @@ export default function TrustedCertifiedSection() {
         <h2 className="tc7-title text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-slate-900 tracking-tight leading-tight text-center">
           Proven Performance Built for Institutional Scale
         </h2>
-        {/* Premium Level Accent Line */}
-        <div className="mt-4 flex items-center justify-center gap-2">
-          <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
-          <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
-          <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
-        </div>
       </div>
 
-      {/* KPI Cards Grid (Apple-Style 3D Cascade Assembly) */}
+      {/* KPI Cards Grid (2 Rows x 4 Cards Layout with Dark Mode Toggle on Click & Hover) */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-10">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4 lg:gap-5">
-          {KPI_CARDS.map(({ Icon, value, label, sublabel, tag }, index) => (
-            <motion.div
-              key={label}
-              initial={{ opacity: 0, y: 44, scale: 0.94, filter: 'blur(6px)' }}
-              whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
-              viewport={{ once: false, margin: '-40px' }}
-              transition={{
-                duration: 0.65,
-                delay: index * 0.08,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              whileHover={{ y: -6, scale: 1.02 }}
-              className="group relative flex flex-col justify-between rounded-2xl bg-white p-4 sm:p-5 border border-slate-200 shadow-xs hover:border-[#0072bc]/40 hover:shadow-xl hover:shadow-[#0072bc]/10 transition-shadow duration-300 cursor-pointer select-none"
-            >
-              <div>
-                {/* Header Row */}
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-[#0072bc] transition-transform duration-300 group-hover:scale-110">
-                    <Icon size={18} strokeWidth={2.2} />
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+          {KPI_CARDS.map(({ Icon, value, label, sublabel, tag }, index) => {
+            const isActive = activeCard === index;
+            return (
+              <motion.div
+                key={label}
+                onClick={() => setActiveCard(isActive ? null : index)}
+                initial={{ opacity: 0, y: 44, scale: 0.94, filter: 'blur(6px)' }}
+                whileInView={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+                viewport={{ once: false, margin: '-40px' }}
+                transition={{
+                  duration: 0.65,
+                  delay: index * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                whileHover={{ y: -6, scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className={`group relative flex flex-col justify-between rounded-2xl p-4 sm:p-5 border transition-all duration-300 cursor-pointer select-none ${
+                  isActive
+                    ? 'bg-gradient-to-br from-[#005291] via-[#0072bc] to-[#021a38] border-[#0072bc] shadow-2xl shadow-[#0072bc]/35 text-white scale-[1.02] ring-2 ring-[#0072bc]/60'
+                    : 'bg-white border-transparent shadow-md shadow-slate-200/60 text-slate-900 hover:bg-gradient-to-br hover:from-[#005291] hover:via-[#0072bc] hover:to-[#021a38] hover:border-[#0072bc] hover:shadow-2xl hover:shadow-[#0072bc]/35 hover:text-white'
+                }`}
+              >
+                <div>
+                  {/* Header Row */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div
+                      className={`flex h-9 w-9 items-center justify-center rounded-xl transition-all duration-300 ${
+                        isActive
+                          ? 'bg-white text-[#0072bc] shadow-md scale-105'
+                          : 'bg-blue-50 text-[#0072bc] group-hover:bg-white group-hover:text-[#0072bc] group-hover:shadow-md group-hover:scale-110'
+                      }`}
+                    >
+                      <Icon size={18} strokeWidth={2.2} />
+                    </div>
                   </div>
-                  <span className="rounded-full bg-slate-100 px-2 py-0.5 font-mono text-[9.5px] font-bold tracking-wider text-[#0072bc] group-hover:bg-[#0072bc]/10">
-                    {tag}
+
+                  {/* Metric Value */}
+                  <div
+                    className={`text-xl sm:text-2xl lg:text-[26px] font-black tracking-tight leading-none transition-colors duration-200 ${
+                      isActive ? 'text-white' : 'text-slate-900 group-hover:text-white'
+                    }`}
+                  >
+                    {value}
+                  </div>
+                </div>
+
+                {/* Label & Sublabel */}
+                <div className="mt-3">
+                  <span
+                    className={`block text-xs font-bold leading-tight transition-colors duration-200 ${
+                      isActive ? 'text-white' : 'text-slate-800 group-hover:text-white'
+                    }`}
+                  >
+                    {label}
+                  </span>
+                  <span
+                    className={`block text-[10.5px] font-medium mt-0.5 leading-snug transition-colors duration-200 ${
+                      isActive ? 'text-slate-300' : 'text-slate-500 group-hover:text-slate-300'
+                    }`}
+                  >
+                    {sublabel}
                   </span>
                 </div>
-
-                {/* Metric Value */}
-                <div className="text-xl sm:text-2xl lg:text-[26px] font-black text-slate-900 tracking-tight leading-none group-hover:text-[#0072bc] transition-colors duration-200">
-                  {value}
-                </div>
-              </div>
-
-              {/* Label & Sublabel */}
-              <div className="mt-3 pt-3 border-t border-slate-100">
-                <span className="block text-xs font-bold text-slate-800 leading-tight">
-                  {label}
-                </span>
-                <span className="block text-[10.5px] font-medium text-slate-500 mt-0.5 leading-snug">
-                  {sublabel}
-                </span>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

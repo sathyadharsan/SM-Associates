@@ -137,14 +137,14 @@ export default function TechnologyStorySection() {
 
   if (reduceMotion) {
     return (
-      <section className="border-b border-slate-200/90 bg-white" aria-label="Technology Driven Recovery Operations">
+      <section className="bg-white" aria-label="Technology Driven Recovery Operations">
         <StaticStoryList />
       </section>
     );
   }
 
   return (
-    <section className="relative border-b border-slate-200/90 bg-white" aria-label="Technology Driven Recovery Operations">
+    <section className="relative bg-white" aria-label="Technology Driven Recovery Operations">
       <span aria-hidden="true" className="pointer-events-none absolute -left-40 top-1/3 h-[420px] w-[420px] rounded-full bg-[#0072bc]/[0.08] blur-[110px]" />
 
       <div className="relative z-10 lg:hidden">

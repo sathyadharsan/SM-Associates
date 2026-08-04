@@ -6,7 +6,7 @@ const iconMap = { History, ShieldCheck, Landmark };
 
 export default function WhySmAssociatesSection() {
   return (
-    <section className="bg-white py-20 sm:py-24 border-t border-b border-slate-200/90 relative overflow-hidden" id="why-us">
+    <section className="bg-white py-20 sm:py-24 relative overflow-hidden" id="why-us">
       <div className="fg-wrap mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
 
         <div className="fg-section-header">

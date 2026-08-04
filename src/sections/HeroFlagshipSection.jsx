@@ -6,7 +6,7 @@ import WovenLightBackground from '../components/WovenLightBackground';
 const COPY_STAGES = [
   { first: 'Collect.', second: 'Recover.' },
   { first: 'Recover.', second: 'Resolve.' },
-  { first: 'Resolve.', second: 'Do Compliance.' },
+  { first: 'Resolve.', second: 'Regulate.' },
 ];
 
 const wordTransition = {
@@ -14,23 +14,78 @@ const wordTransition = {
   ease: [0.22, 1, 0.36, 1],
 };
 
-// How long each stage stays on screen before the words cross-fade to the next.
-// Comfortably longer than wordTransition so the line is readable at rest.
-const STAGE_HOLD_MS = 2400;
+// Hold each stage for 4.2 seconds so visitors can read comfortably
+const STAGE_HOLD_MS = 4200;
 
 function AnimatedWord({ value, accent = false }) {
+  const letters = Array.from(value);
+
+  const containerVariants = {
+    initial: {},
+    animate: {
+      transition: {
+        staggerChildren: 0.035,
+        delayChildren: 0.02,
+      },
+    },
+    exit: {
+      transition: {
+        staggerChildren: 0.02,
+        staggerDirection: -1,
+      },
+    },
+  };
+
+  const letterVariants = {
+    initial: {
+      opacity: 0,
+      y: 16,
+      rotateX: -45,
+      filter: 'blur(4px)',
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      filter: 'blur(0px)',
+      transition: {
+        duration: 0.38,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -16,
+      rotateX: 45,
+      filter: 'blur(4px)',
+      transition: {
+        duration: 0.28,
+        ease: [0.7, 0, 0.84, 0],
+      },
+    },
+  };
+
   return (
-    <span className={`ln hero6-word-slot${accent ? ' accent' : ''}`}>
-      <AnimatePresence initial={false} mode="wait">
+    <span className={`hero6-word-slot${accent ? ' accent' : ''}`}>
+      <AnimatePresence mode="wait" initial={false}>
         <motion.span
           key={value}
-          className="hero6-word-motion"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -12 }}
-          transition={wordTransition}
+          variants={containerVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          className="hero6-word-motion inline-flex items-baseline"
         >
-          {value}
+          {letters.map((char, index) => (
+            <motion.span
+              key={`${char}-${index}`}
+              variants={letterVariants}
+              className="inline-block"
+              style={{ display: char === ' ' ? 'inline' : 'inline-block' }}
+            >
+              {char}
+            </motion.span>
+          ))}
         </motion.span>
       </AnimatePresence>
     </span>
@@ -71,10 +126,12 @@ export default function HeroFlagshipSection() {
               SOUTH INDIA&apos;S ENTERPRISE RECOVERY OPERATIONS PARTNER
             </div>
             <h1 className="hero6-h1 text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
-              <span className="ln">We Don&apos;t Just</span>
-              <AnimatedWord value={copy.first} />
-              <span className="ln">We</span>
-              <AnimatedWord value={copy.second} accent />
+              <span className="ln"><span>We Don&apos;t Just</span></span>
+              <span className="ln"><AnimatedWord value={copy.first} accent /></span>
+              <span className="ln hero6-inline-row">
+                <span className="hero6-we-text">We</span>
+                <AnimatedWord value={copy.second} accent />
+              </span>
             </h1>
             <p ref={subRef} className={`hero6-sub fg-r text-lg sm:text-xl text-slate-600 leading-relaxed font-medium mt-6 text-left ${subIn ? 'in' : ''}`}>
               End-to-end recovery operations backed by technology, compliance and 25+ years of field excellence.

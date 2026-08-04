@@ -38,6 +38,7 @@ const ClientsPage = lazy(() => import('../pages/ClientsPage'));
 const CareersPage = lazy(() => import('../pages/CareersPage'));
 const ContactPage = lazy(() => import('../pages/ContactPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
+const LegalPolicyPage = lazy(() => import('../pages/LegalPolicyPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 export default function AppRoutes() {
@@ -78,11 +79,17 @@ export default function AppRoutes() {
         <Route path="/insights/blog" element={<BlogPage />} />
         <Route path="/insights/news" element={<NewsUpdatesPage />} />
 
-        {/* Others */}
+        {/* Others & Legal Policies */}
         <Route path="/clients" element={<ClientsPage />} />
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<LoginPage />} />
+
+        {/* Legal Policies */}
+        <Route path="/privacy-policy" element={<LegalPolicyPage />} />
+        <Route path="/cookie-policy" element={<LegalPolicyPage />} />
+        <Route path="/terms-of-use" element={<LegalPolicyPage />} />
+        <Route path="/terms" element={<Navigate to="/terms-of-use" replace />} />
 
         {/* Catch-all — must stay last */}
         <Route path="*" element={<NotFoundPage />} />
