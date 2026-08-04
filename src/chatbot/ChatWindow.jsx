@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { X, Send, ArrowRight, ShieldCheck } from 'lucide-react';
@@ -63,6 +63,19 @@ export default function ChatWindow() {
   const inputRef = useRef(null);
   const scrollRef = useRef(null);
   const windowRef = useRef(null);
+
+  // The window is a fixed-position panel that sits over whatever page
+  // content happens to be underneath it (e.g. the services hero's mandate
+  // cards) — while it's mounted but hasn't actually finished animating in
+  // (a backgrounded tab, a slow device, or any animation that doesn't run
+  // to completion), it must not still be clickable, or it silently eats
+  // clicks meant for the content behind it with zero visual explanation.
+  // `entered` only flips once the enter transition genuinely completes, so
+  // pointer-events tracks real visibility instead of assuming the animation ran.
+  const [entered, setEntered] = useState(false);
+  useEffect(() => {
+    if (!open) setEntered(false);
+  }, [open]);
 
   // Auto-scroll on new content.
   useEffect(() => {
@@ -146,6 +159,8 @@ export default function ChatWindow() {
           animate={reduced ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
           exit={reduced ? { opacity: 0 } : { opacity: 0, y: 16, scale: 0.97 }}
           transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+          onAnimationComplete={() => setEntered(true)}
+          style={{ pointerEvents: entered ? 'auto' : 'none' }}
         >
           {/* Screen-reader announcement of the latest bot reply (visually hidden) */}
           <div className="smb-sr-only" aria-live="polite" role="status">

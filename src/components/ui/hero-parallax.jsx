@@ -4,7 +4,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, X, ShieldCheck, CheckCircle2, FileText, ChevronRight } from "lucide-react";
 
-import WovenLightBackground from "../WovenLightBackground";
+import FloatingPathsBackground from "./floating-paths";
 
 const SECOND_LINE_PHRASES = [
   "Across South India.",
@@ -15,11 +15,87 @@ const SECOND_LINE_PHRASES = [
 ];
 
 function AnimatedHeadlineSecondLine() {
+  const [index, setIndex] = useState(0);
+  const reducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (reducedMotion) return;
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % SECOND_LINE_PHRASES.length);
+    }, 3800);
+    return () => clearInterval(timer);
+  }, [reducedMotion]);
+
+  const currentText = SECOND_LINE_PHRASES[index];
+  const letters = Array.from(currentText);
+
+  const containerVariants = {
+    initial: {},
+    animate: {
+      transition: {
+        staggerChildren: 0.03,
+        delayChildren: 0.02,
+      },
+    },
+    exit: {
+      transition: {
+        staggerChildren: 0.015,
+        staggerDirection: -1,
+      },
+    },
+  };
+
+  const letterVariants = {
+    initial: {
+      opacity: 0,
+      y: 16,
+      rotateX: -45,
+      filter: 'blur(4px)',
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      filter: 'blur(0px)',
+      transition: {
+        duration: 0.36,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -16,
+      rotateX: 45,
+      filter: 'blur(4px)',
+      transition: {
+        duration: 0.25,
+        ease: [0.7, 0, 0.84, 0],
+      },
+    },
+  };
+
   return (
     <span className="relative flex justify-center items-center w-full text-center overflow-hidden py-2 px-4 min-h-[1.4em] sm:min-h-[1.6em] mt-1">
-      <span className="inline-block text-[#0072bc] italic font-serif font-semibold text-center whitespace-nowrap text-3xl sm:text-5xl lg:text-6xl tracking-normal px-4">
-        {SECOND_LINE_PHRASES[0]}
-      </span>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.span
+          key={currentText}
+          variants={containerVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          className="inline-flex items-baseline justify-center text-[#0072bc] italic font-serif font-semibold text-center whitespace-nowrap text-3xl sm:text-5xl lg:text-6xl tracking-normal px-4"
+        >
+          {letters.map((char, idx) => (
+            <motion.span
+              key={`${char}-${idx}`}
+              variants={letterVariants}
+              className="inline-block"
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </motion.span>
+          ))}
+        </motion.span>
+      </AnimatePresence>
     </span>
   );
 }
@@ -36,14 +112,19 @@ export const HeroParallax = ({ products }) => {
   return (
     <div className="w-full bg-white text-slate-900">
       {/* ── SECTION 1: FULL SCREEN HERO HEADER (Apple Keynote Premium Level) ── */}
-      <section className="hero6 relative w-full min-h-[calc(100vh-80px)] flex items-center justify-center text-center py-16 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
+      <section className="hero6 relative w-full flex items-center justify-center text-center pt-16 pb-8 md:pt-24 md:pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white">
         {/* Ambient Premium Soft Radial Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[700px] h-[350px] bg-[#0072bc]/8 rounded-full blur-[120px] pointer-events-none" />
 
+        {/* Ambient flowing-line background — sits behind the radial glow's
+            visual weight, gives the hero quiet motion without competing with
+            the headline. */}
+        <FloatingPathsBackground />
+
         <div className="fg-wrap w-full max-w-5xl mx-auto relative z-10 text-center flex flex-col items-center justify-center">
           {/* Main Title matching Apple Keynote Editorial Standard */}
-          <h1 className="hero6-h1 text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.05] text-center flex flex-col items-center justify-center">
-            <span className="block text-slate-900 tracking-tight">Recovery Operations</span>
+          <h1 className="hero6-h1 text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.05] text-center flex flex-col items-center justify-center font-['Geist',sans-serif]">
+            <span className="block text-slate-900 tracking-tight font-['Geist',sans-serif] font-extrabold">Recovery Operations</span>
             <AnimatedHeadlineSecondLine />
           </h1>
 
@@ -55,7 +136,7 @@ export const HeroParallax = ({ products }) => {
       </section>
 
       {/* ── SECTION 2: THE 12 KEY MANDATE CARDS GRID (Next Section Below) ── */}
-      <section id="enterprise-services" className="py-16 md:py-24 bg-slate-50/50 border-t border-slate-100">
+      <section id="enterprise-services" className="pt-12 pb-16 md:pt-16 md:pb-24 bg-slate-50/50 border-t border-slate-100">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
           <div className="mb-12 text-center flex flex-col items-center">
             <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight text-center">
@@ -103,20 +184,8 @@ export const HeroParallax = ({ products }) => {
 export const ProductCard = ({ product, index = 0, onSelect }) => {
   const [showQuote, setShowQuote] = useState(false);
 
-  const handleClick = (e) => {
-    if (e && e.stopPropagation) e.stopPropagation();
+  const openModal = () => {
     if (onSelect) onSelect();
-  };
-
-  const handleTouch = (e) => {
-    if (window.innerWidth < 1024) {
-      if (!showQuote) {
-        if (e && e.stopPropagation) e.stopPropagation();
-        setShowQuote(true);
-        return;
-      }
-    }
-    handleClick(e);
   };
 
   return (
@@ -131,8 +200,7 @@ export const ProductCard = ({ product, index = 0, onSelect }) => {
       }}
       whileHover={{ y: -8, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      onTap={handleTouch}
-      onClick={handleClick}
+      onClick={openModal}
       onMouseEnter={() => setShowQuote(true)}
       onMouseLeave={() => setShowQuote(false)}
       className="group/product h-80 sm:h-84 w-full relative rounded-2xl overflow-hidden shadow-lg shadow-slate-200/80 cursor-pointer border border-slate-200/80 transition-shadow duration-500 hover:shadow-2xl hover:shadow-[#0072bc]/25 bg-slate-900 select-none z-10"
@@ -155,7 +223,7 @@ export const ProductCard = ({ product, index = 0, onSelect }) => {
       />
 
       {/* Text Overlay Content */}
-      <div className="absolute inset-0 flex flex-col justify-end p-6 text-left z-10 cursor-pointer">
+      <div className="absolute inset-0 flex flex-col justify-end p-6 text-left z-10 pointer-events-none">
         {product.category && (
           <div>
             <span className="inline-block text-[10px] font-extrabold text-[#0072bc] bg-white px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2 shadow-md border border-[#0072bc]/30">
@@ -169,7 +237,7 @@ export const ProductCard = ({ product, index = 0, onSelect }) => {
           {product.title}
         </h3>
 
-        {/* Teaser Description — Mobile preview by default, expandable on desktop hover / mobile tap */}
+        {/* Teaser Description */}
         <div
           className={`overflow-hidden transition-all duration-500 ease-out ${
             showQuote
@@ -182,13 +250,17 @@ export const ProductCard = ({ product, index = 0, onSelect }) => {
           </p>
         </div>
 
-        {/* Leadership Card Signature Wide Blue Accent Underline Bar */}
+        {/* Blue Accent Underline Bar */}
         <div className="w-full h-1 bg-[#0072bc] rounded-full mt-3.5 transition-all duration-300 shadow-sm" />
 
-        {/* Click / Tap Indicator */}
-        <div className="mt-2 flex items-center justify-between text-[11px] font-bold text-[#0072bc] transition-opacity duration-300 opacity-90">
-          <span className="text-slate-200 text-[10px]">Tap to view full mandate details</span>
-          <ChevronRight size={14} className="text-[#0072bc]" />
+        {/* Tap Indicator Row */}
+        <div className="mt-2.5 w-full flex items-center justify-between">
+          <span className="text-slate-200 group-hover/product:text-white text-[11px] font-semibold tracking-wide transition-colors">
+            Tap to view full mandate details
+          </span>
+          <div className="h-7 w-7 rounded-full bg-[#0072bc] group-hover/product:scale-110 flex items-center justify-center transition-all duration-300 shrink-0 shadow-md shadow-[#0072bc]/40">
+            <ChevronRight size={16} className="text-white" />
+          </div>
         </div>
       </div>
     </motion.div>
