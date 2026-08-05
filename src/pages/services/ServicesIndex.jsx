@@ -6,6 +6,7 @@ import DayInRecoverySection from '../../sections/DayInRecoverySection';
 import TechnologyStorySection from '../../sections/TechnologyStorySection';
 import ComplianceStorySection from '../../sections/ComplianceStorySection';
 import StickyScrollCardsSection from '../../sections/StickyScrollCardsSection';
+import BrandManifestoSection from '../../sections/BrandManifestoSection';
 import HeroParallax from '../../components/ui/hero-parallax';
 
 const recoveryProducts = [
@@ -14,7 +15,7 @@ const recoveryProducts = [
     title: "Retail & Delinquency Recovery",
     category: "Financial Recovery",
     link: "/services/collections/commercial",
-    thumbnail: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop",
+    thumbnail: "/services/images/retail-delinquency.png",
     description: "End-to-end delinquency curve recovery for early-stage retail banking & NBFC loan portfolios.",
     details: "Specialized tele-recovery and field engagement workflows designed for early to late-stage delinquency management across personal loans, credit cards, auto loans, and retail banking products with 100% RBI Fair Practices compliance."
   },
@@ -22,7 +23,7 @@ const recoveryProducts = [
     title: "Commercial Real Estate Recovery",
     category: "Secured Assets",
     link: "/services/asset-recovery/commercial",
-    thumbnail: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
+    thumbnail: "/services/images/commercial-real-estate.png",
     description: "Statutory enforcement and physical recovery for commercial mortgages & corporate properties.",
     details: "End-to-end collateral takeover, physical property security management, valuation coordination, and statutory auction execution under SARFAESI & legal frameworks for commercial real estate."
   },
@@ -30,7 +31,7 @@ const recoveryProducts = [
     title: "SARFAESI Legal Enforcement",
     category: "Legal Recovery",
     link: "/services/legal-recovery/sarfaesi",
-    thumbnail: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1200&auto=format&fit=crop",
+    thumbnail: "/services/images/sarfaesi-legal.png",
     description: "End-to-end statutory Section 13 notices, physical possession, and court bailiff execution.",
     details: "Full statutory compliance under SARFAESI Act 2002: drafting and serving Section 13(2) & 13(4) notices, District Magistrate (DM/CMM) order coordination, and peaceful physical possession execution."
   },
@@ -38,7 +39,7 @@ const recoveryProducts = [
     title: "Commercial Fleet Repossession",
     category: "Movable Assets",
     link: "/services/asset-recovery/heavy-equipment",
-    thumbnail: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1200&auto=format&fit=crop",
+    thumbnail: "/services/images/commercial-fleet.png",
     description: "Repossession, secured yard custody, and auction realization for commercial transport fleets.",
     details: "On-field tracking, legal repossession notices, secure yard warehousing with 24/7 CCTV surveillance, and institutional auctioning for trucks, commercial fleets, and heavy equipment."
   },
@@ -48,7 +49,7 @@ const recoveryProducts = [
     title: "Merchant POS & Hardware Recovery",
     category: "Business Equipment",
     link: "/services/operational/field-operations",
-    thumbnail: "https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=1200&auto=format&fit=crop",
+    thumbnail: "/services/images/merchant-pos.png",
     description: "Field retrieval of deployed merchant POS hardware, terminals, routers, and enterprise assets.",
     details: "Field asset tracking and physical retrieval of EDC machines, POS terminals, QR kits, and enterprise hardware from defaulted merchants across urban and semi-urban retail corridors."
   },
@@ -56,7 +57,7 @@ const recoveryProducts = [
     title: "Borrower Tracing & Deep Verification",
     category: "Investigation",
     link: "/services/investigation/skip-tracing",
-    thumbnail: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
+    thumbnail: "/services/images/borrower-tracing.png",
     description: "Digital footprint investigation and physical field tracing for untraceable accounts.",
     details: "Advanced borrower tracing leveraging digital intelligence, field discreet inquiries, cross-reference mapping, and physical verification to locate untraceable borrowers and hidden collateral."
   },
@@ -64,7 +65,7 @@ const recoveryProducts = [
     title: "Real-Time Compliance & Governance",
     category: "Governance",
     link: "/services/operational/field-operations",
-    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
+    thumbnail: "/services/images/compliance-governance.png",
     description: "Banking-grade audit trails with continuous conduct monitoring across all field interactions.",
     details: "Comprehensive governance suite ensuring strict adherence to RBI Fair Practices Code, automated agent conduct monitoring, audio/GPS audit logs, and zero-breach operational standards."
   },
@@ -72,7 +73,7 @@ const recoveryProducts = [
     title: "Two-Wheeler Repossession & Custody",
     category: "Auto Recovery",
     link: "/services/asset-recovery/heavy-equipment",
-    thumbnail: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=1200&auto=format&fit=crop",
+    thumbnail: "/services/images/two-wheeler.png",
     description: "Rapid two-wheeler field repossession with secure yard storage and digital auctioning.",
     details: "High-volume two-wheeler recovery operations with automated inventory tagging, secure regional yard custody, and accelerated digital auction liquidation."
   },
@@ -82,7 +83,7 @@ const recoveryProducts = [
     title: "Gold Loan Default Recovery",
     category: "Secured Assets",
     link: "/services/asset-recovery/commercial",
-    thumbnail: "https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&w=1200&auto=format&fit=crop",
+    thumbnail: "/services/images/gold-loan.png",
     description: "Compliance-backed notice delivery and public auction management for gold loan defaults.",
     details: "Legal notice serving, borrower resolution meetings, and public auction publication & management for overdue gold loan portfolios in accordance with statutory guidelines."
   },
@@ -90,7 +91,7 @@ const recoveryProducts = [
     title: "Doorstep Address Verification",
     category: "Field Operations",
     link: "/services/operational/field-operations",
-    thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
+    thumbnail: "/services/images/doorstep-verification.png",
     description: "On-ground physical residence and business office verification with photographic evidence.",
     details: "Real-time field verification visits for retail credit origination and delinquent accounts, capturing geo-tagged photos, landmark verification, and neighborhood checks."
   },
@@ -98,7 +99,7 @@ const recoveryProducts = [
     title: "SME & MSME Business Loan Recovery",
     category: "Commercial Lending",
     link: "/services/collections/commercial",
-    thumbnail: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop",
+    thumbnail: "/services/images/msme-recovery.png",
     description: "Secured and unsecured MSME loan workout programs with cash-flow monitoring.",
     details: "Strategic recovery management for MSME business loans, offering structured repayment plans, cash-flow assessments, and legal workout mechanisms."
   },
@@ -106,7 +107,7 @@ const recoveryProducts = [
     title: "Corporate Stressed Asset Resolution",
     category: "NPA Portfolios",
     link: "/services/collections/banking",
-    thumbnail: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1200&auto=format&fit=crop",
+    thumbnail: "/services/images/corporate-npa.png",
     description: "High-ticket written-off account recovery for ARC portfolios and corporate NPAs.",
     details: "Turnkey resolution for high-ticket corporate non-performing assets, written-off portfolios, and Asset Reconstruction Company (ARC) debt assignments across South India."
   }
@@ -128,6 +129,17 @@ export default function ServicesIndex() {
     <div className="bg-white">
       {/* ═══════════ 1 · HERO PARALLAX SECTION ═══════════ */}
       <HeroParallax products={recoveryProducts} />
+
+      {/* ═══════════ 1a · OPERATING PRINCIPLES ═══════════
+          Same manifesto section already built for the homepage — reused
+          as-is (not a new copy) rather than inventing services-specific
+          statements. Also gives the pinned mandate cards above a proper
+          landing beat instead of running straight into the next story. */}
+      <BrandManifestoSection lines={[
+        'Every portfolio is managed with institutional discipline.',
+        'Every field operation is documented, audited, and reported.',
+        'Every service we offer is backed by 25 years of proven recovery expertise.',
+      ]} />
 
       {/* ═══════════ 1b · SCROLL-DRIVEN SERVICE STORY ═══════════
           Replaces the auto-rotating EnterpriseServicesSection (still used

@@ -100,14 +100,107 @@ function AnimatedHeadlineSecondLine() {
   );
 }
 
+// Compact sticky-stacking primitives, scoped to the featured-mandates teaser
+// only — a small, separate moment ahead of the full grid below, not a
+// replacement for it. Same cascading-stack technique as before, just local
+// to this one small use rather than a shared file, since nothing else on
+// the site needs it.
+function TeaserScroll({ children, className = "", style }) {
+  return (
+    <div className={`relative w-full ${className}`} style={{ perspective: 900, ...style }}>
+      {children}
+    </div>
+  );
+}
+
+// 96px base clearance — same convention used everywhere else on this site
+// for a sticky element that needs to clear the fixed ~77px header (see
+// OperatingModelSection's .model6-head). Without it, the first several
+// cards' own `top` offsets (12px, 24px, 36px…) land inside the header's own
+// height and render underneath it.
+const HEADER_CLEARANCE = 96;
+
+function TeaserCardSticky({ index, incrementY = 12, children, className = "" }) {
+  return (
+    <motion.div
+      layout="position"
+      style={{ top: HEADER_CLEARANCE + index * incrementY, zIndex: index }}
+      className={`sticky ${className}`}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// One featured mandate in the teaser strip — deliberately simpler than the
+// full grid card below (no hover choreography needed here, it's a quick
+// glance, not the primary interactive moment on the page).
+function FeaturedMandateCard({ product, index, onSelect }) {
+  return (
+    <TeaserCardSticky index={index + 1} incrementY={12} className="mx-auto w-full max-w-2xl">
+      <div
+        onClick={onSelect}
+        className="group/teaser flex cursor-pointer select-none items-center gap-5 overflow-hidden rounded-[24px] border border-[#005a96]/40 bg-[#0072bc] p-3 shadow-xl shadow-[#0072bc]/25 transition-shadow duration-300 hover:shadow-2xl hover:shadow-[#0072bc]/40 sm:gap-6 sm:p-4"
+      >
+        <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl sm:h-28 sm:w-28">
+          <img
+            src={product.thumbnail}
+            alt={product.title}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover/teaser:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
+        </div>
+
+        <div className="min-w-0 flex-1 py-2 pr-4 text-left">
+          {product.category && (
+            <span className="mb-1.5 inline-block rounded-full bg-white px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#0072bc] shadow-sm">
+              {product.category}
+            </span>
+          )}
+          <h3 className="truncate text-base font-bold tracking-tight text-white sm:text-lg">{product.title}</h3>
+          <p className="mt-1 line-clamp-1 text-xs text-blue-50">{product.description}</p>
+        </div>
+
+        <ChevronRight size={18} className="mr-4 shrink-0 text-white transition-transform duration-300 group-hover/teaser:translate-x-1" />
+      </div>
+    </TeaserCardSticky>
+  );
+}
+
+// All mandates, in a compact stacking-card sequence — this is now the one
+// and only presentation of the 12 mandates (the separate 4-column grid was
+// removed rather than kept alongside this, since showing the same 12 cards
+// twice in a row would just be duplication).
+function FeaturedMandatesPreview({ products, onSelect }) {
+  return (
+    <section id="enterprise-services" className="relative bg-white px-4 pb-16 pt-16 sm:px-6 sm:pt-20 lg:px-8">
+      <div className="mx-auto max-w-3xl">
+        <div className="mb-8 text-center">
+          <span className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#0072bc]">
+            Our Capabilities
+          </span>
+          <h2 className="mt-2 text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Specialized Recovery Mandates
+          </h2>
+          <p className="mt-2 text-sm sm:text-base text-slate-500">
+            Twelve specialized mandates, one accountable operating partner.
+          </p>
+        </div>
+        <TeaserScroll style={{ minHeight: `${products.length * 20}vh` }}>
+          <div className="space-y-4">
+            {products.map((product, index) => (
+              <FeaturedMandateCard product={product} index={index} key={product.title} onSelect={() => onSelect(product)} />
+            ))}
+          </div>
+        </TeaserScroll>
+      </div>
+    </section>
+  );
+}
+
 export const HeroParallax = ({ products }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
-
-  // Group products into rows of 4
-  const rows = [];
-  for (let i = 0; i < products.length; i += 4) {
-    rows.push(products.slice(i, i + 4));
-  }
 
   return (
     <div className="w-full bg-white text-slate-900">
@@ -135,41 +228,11 @@ export const HeroParallax = ({ products }) => {
         </div>
       </section>
 
-      {/* ── SECTION 2: THE 12 KEY MANDATE CARDS GRID (Next Section Below) ── */}
-      <section id="enterprise-services" className="pt-12 pb-16 md:pt-16 md:pb-24 bg-slate-50/50 border-t border-slate-100">
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
-          <div className="mb-12 text-center flex flex-col items-center">
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight text-center">
-              Specialized Recovery Mandates
-            </h2>
-            {/* Premium Level Accent Line */}
-            <div className="mt-4 mb-2 flex items-center justify-center gap-2">
-              <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
-              <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
-              <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
-            </div>
-            <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-xl text-center mx-auto">
-              Click on any mandate card below to view detailed operational scope, legal frameworks, and compliance standards.
-            </p>
-          </div>
-
-          {rows.map((row, rIdx) => (
-            <div key={`row-${rIdx}`} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {row.map((product, idx) => {
-                const globalIndex = rIdx * 4 + idx;
-                return (
-                  <ProductCard
-                    product={product}
-                    index={globalIndex}
-                    key={`card-${product.title}-${rIdx}-${idx}`}
-                    onSelect={() => setSelectedProduct(product)}
-                  />
-                );
-              })}
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* ── SECTION 2: ALL MANDATES — STICKY STACKING SEQUENCE ──
+          Replaces the old 4-column grid entirely: all 12 mandates now live
+          here, in the compact stacking format, so they're not duplicated
+          across two sections. */}
+      <FeaturedMandatesPreview products={products} onSelect={setSelectedProduct} />
 
       {/* Service Modal Detail Popup */}
       <AnimatePresence>
@@ -178,92 +241,6 @@ export const HeroParallax = ({ products }) => {
         )}
       </AnimatePresence>
     </div>
-  );
-};
-
-export const ProductCard = ({ product, index = 0, onSelect }) => {
-  const [showQuote, setShowQuote] = useState(false);
-
-  const openModal = () => {
-    if (onSelect) onSelect();
-  };
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50, scale: 0.94, filter: "blur(6px)" }}
-      whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-      viewport={{ once: false, margin: "-50px" }}
-      transition={{
-        duration: 0.65,
-        delay: (index % 4) * 0.11 + Math.floor(index / 4) * 0.14,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      whileHover={{ y: -8, scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      onClick={openModal}
-      onMouseEnter={() => setShowQuote(true)}
-      onMouseLeave={() => setShowQuote(false)}
-      className="group/product h-80 sm:h-84 w-full relative rounded-2xl overflow-hidden shadow-lg shadow-slate-200/80 cursor-pointer border border-slate-200/80 transition-shadow duration-500 hover:shadow-2xl hover:shadow-[#0072bc]/25 bg-slate-900 select-none z-10"
-    >
-      {/* Background Photo */}
-      <img
-        src={product.thumbnail}
-        className="object-cover object-center absolute h-full w-full inset-0 transition-transform duration-700 ease-out group-hover/product:scale-105 pointer-events-none"
-        alt={product.title}
-        loading="lazy"
-      />
-
-      {/* Dark Gradient Overlay */}
-      <div
-        className={`absolute inset-0 transition-all duration-500 pointer-events-none ${
-          showQuote
-            ? 'bg-gradient-to-t from-slate-950/95 via-slate-950/75 via-50% to-slate-950/20'
-            : 'bg-gradient-to-t from-slate-950/90 via-slate-950/40 via-50% to-transparent lg:from-slate-950/85'
-        }`}
-      />
-
-      {/* Text Overlay Content */}
-      <div className="absolute inset-0 flex flex-col justify-end p-6 text-left z-10 pointer-events-none">
-        {product.category && (
-          <div>
-            <span className="inline-block text-[10px] font-extrabold text-[#0072bc] bg-white px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2 shadow-md border border-[#0072bc]/30">
-              {product.category}
-            </span>
-          </div>
-        )}
-
-        {/* Service Name / Title */}
-        <h3 className="text-xl font-bold text-white tracking-tight leading-snug drop-shadow-md">
-          {product.title}
-        </h3>
-
-        {/* Teaser Description */}
-        <div
-          className={`overflow-hidden transition-all duration-500 ease-out ${
-            showQuote
-              ? 'max-h-48 opacity-100 mt-2.5'
-              : 'max-h-24 opacity-95 mt-2 lg:max-h-0 lg:opacity-0 lg:mt-0 lg:group-hover/product:max-h-48 lg:group-hover/product:opacity-100'
-          }`}
-        >
-          <p className="text-xs text-slate-200 leading-relaxed font-medium">
-            {product.description}
-          </p>
-        </div>
-
-        {/* Blue Accent Underline Bar */}
-        <div className="w-full h-1 bg-[#0072bc] rounded-full mt-3.5 transition-all duration-300 shadow-sm" />
-
-        {/* Tap Indicator Row */}
-        <div className="mt-2.5 w-full flex items-center justify-between">
-          <span className="text-slate-200 group-hover/product:text-white text-[11px] font-semibold tracking-wide transition-colors">
-            Tap to view full mandate details
-          </span>
-          <div className="h-7 w-7 rounded-full bg-[#0072bc] group-hover/product:scale-110 flex items-center justify-center transition-all duration-300 shrink-0 shadow-md shadow-[#0072bc]/40">
-            <ChevronRight size={16} className="text-white" />
-          </div>
-        </div>
-      </div>
-    </motion.div>
   );
 };
 

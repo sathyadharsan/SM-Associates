@@ -35,10 +35,18 @@ const iconMap = { Lock, ClipboardCheck, Scale, UserCheck };
 // (data/servicesIndex recoveryProducts) — thematic fit, not literal photos
 // of SM Associates' own systems.
 const IMAGE_BY_TITLE = {
-  'Data Handling & Confidentiality': 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&q=85&auto=format&fit=crop',
-  'Audit-Trail Discipline': 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=85&auto=format&fit=crop',
-  'Regulatory Alignment': 'https://images.unsplash.com/photo-1479142506502-19b3a3b7ff33?w=1600&q=85&auto=format&fit=crop',
-  'Engagement & Reporting Structure': 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=85&auto=format&fit=crop',
+  // Data Handling & Confidentiality → encrypted data / secure server room
+  'Data Handling & Confidentiality':
+    'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1600&q=85&auto=format&fit=crop',
+  // Audit-Trail Discipline → auditor reviewing logs / document records
+  'Audit-Trail Discipline':
+    'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1600&q=85&auto=format&fit=crop',
+  // Regulatory Alignment → legal / RBI regulatory compliance documents
+  'Regulatory Alignment':
+    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=85&auto=format&fit=crop',
+  // Engagement & Reporting Structure → institutional reporting / structured meeting
+  'Engagement & Reporting Structure':
+    'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=85&auto=format&fit=crop',
 };
 
 const rise = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } } };

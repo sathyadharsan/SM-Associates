@@ -235,7 +235,7 @@ export default function ServiceStorySection() {
 
   if (reduceMotion) {
     return (
-      <section id="enterprise-services" className="bg-white py-4" aria-label="Enterprise Recovery Story">
+      <section id="recovery-story" className="bg-white py-4" aria-label="Enterprise Recovery Story">
         <StaticStoryList />
       </section>
     );
@@ -251,7 +251,7 @@ export default function ServiceStorySection() {
     // .fg-home) while still stopping cards flying in from ±1000px off-screen
     // from creating a horizontal scrollbar on the page.
     <section
-      id="enterprise-services"
+      id="recovery-story"
       className="relative bg-white"
       style={{ overflowX: 'clip' }}
       aria-label="Enterprise Recovery Story"

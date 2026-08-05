@@ -11,8 +11,7 @@ export const enterpriseServices = [
     title: 'Enterprise Loan Recovery',
     description:
       'Recovering retail and business loan portfolios through a structured combination of digital engagement, field operations, legal coordination and compliance-driven recovery strategies.',
-    image:
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=85&auto=format&fit=crop',
+    image: '/services/story-images/enterprise-loan-recovery.png',
     capabilities: [
       'Personal Loans',
       'Auto Loans',
@@ -32,7 +31,7 @@ export const enterpriseServices = [
     description:
       'Managing large-scale recovery portfolios across regulated financial institutions with measurable performance and transparent reporting.',
     image:
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=85&auto=format&fit=crop',
     capabilities: [
       'Banking Portfolios',
       'NBFC Portfolios',
@@ -52,7 +51,7 @@ export const enterpriseServices = [
     description:
       'Recovering secured assets under statutory frameworks through compliant execution and specialized asset management.',
     image:
-      'https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=900&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=900&q=85&auto=format&fit=crop',
     capabilities: [
       'Residential Property',
       'Commercial Property',
@@ -71,7 +70,7 @@ export const enterpriseServices = [
     description:
       'Professional repossession and recovery services for vehicles and industrial equipment with nationwide operational coverage.',
     image:
-      'https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=900&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=85&auto=format&fit=crop',
     capabilities: [
       'Cars',
       'Commercial Vehicles',
@@ -90,7 +89,7 @@ export const enterpriseServices = [
     description:
       'Recovering enterprise hardware assets across retail, banking and corporate locations with full inventory and compliance reporting.',
     image:
-      'https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1556740758-90de374c12ad?w=900&q=85&auto=format&fit=crop',
     capabilities: [
       'POS Machines',
       'Routers',
@@ -109,7 +108,7 @@ export const enterpriseServices = [
     description:
       'Verification and intelligence services supporting compliant lending and recovery operations through field and digital channels.',
     image:
-      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=85&auto=format&fit=crop',
     capabilities: [
       'CPV',
       'Residence Verification',
