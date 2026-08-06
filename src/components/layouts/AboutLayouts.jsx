@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import { getPageContent } from '../../data/pagesContent';
 import '../../styles/homepage-v6.css';
 import RichIcon from '../sections/shared/RichIcon';
+import SolutionComparisonSection from '../../sections/SolutionComparisonSection';
+import ComplianceStorySection from '../../sections/ComplianceStorySection';
+import AxionAboutSection from '../../sections/AxionAboutSection';
+import CompanyJourneySection from '../../sections/CompanyJourneySection';
 import {
   ArrowRight,
   CheckCircle2,
@@ -134,64 +138,45 @@ function PremiumTiltCard({ children, className = '', color = '#0072bc', delay = 
   );
 }
 
-// ── Premium Full-Height Leadership Card with Transparent Photo Overlay ──
+// ── Leadership Card — pure-white studio photo, no dark scrim ──
+// The previous version laid a slate-950 gradient directly over the photo
+// (darker still on hover) to keep name/quote text legible, which tinted
+// every studio-white background navy instead of showing it clean. Text now
+// sits below the photo on the same white card surface instead of on top
+// of it, so nothing darkens the image and the studio backdrop reads as
+// actual white.
 function LeadershipCard({ name, role, image, quote, description }) {
-  const [showQuote, setShowQuote] = useState(false);
-
   return (
-    <div
-      onClick={() => setShowQuote(!showQuote)}
-      onMouseEnter={() => setShowQuote(true)}
-      onMouseLeave={() => setShowQuote(false)}
-      className="relative h-[540px] sm:h-[560px] w-full rounded-3xl overflow-hidden shadow-xl shadow-slate-200/80 group cursor-pointer border border-slate-200/80 transition-all duration-500 hover:shadow-2xl hover:shadow-[#0072bc]/25 hover:-translate-y-1 bg-slate-900"
-    >
-      {/* Background Photo - Always Crisp & 100% Clear (Zero Blur!) */}
-      <img
-        src={image}
-        alt={name}
-        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-        onError={(e) => {
-          e.target.onerror = null;
-          e.target.src = '/images/jebaraj.M MD.png';
-        }}
-      />
+    <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-md shadow-slate-200/60 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#0072bc]/15">
+      <div className="relative h-[300px] w-full shrink-0 overflow-hidden bg-white sm:h-[320px]">
+        <img
+          src={image}
+          alt={name}
+          className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = '/images/jebaraj.M MD.png';
+          }}
+        />
+      </div>
 
-      {/* Pure semi-transparent dark gradient overlay over photo - ZERO blur so photo stays crystal clear */}
-      <div
-        className={`absolute inset-0 transition-all duration-500 ${
-          showQuote
-            ? 'bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-slate-950/20'
-            : 'bg-gradient-to-t from-slate-950/90 via-slate-950/40 via-50% to-transparent'
-        }`}
-      />
-
-      {/* Text Content Overlay directly over the crisp background photo */}
-      <div className="absolute inset-0 flex flex-col justify-end p-8 text-left z-10">
-        <h3 className="text-2xl sm:text-3xl font-bold text-white font-serif tracking-tight leading-tight">
+      <div className="flex flex-1 flex-col p-7 text-left sm:p-8">
+        <h3 className="text-xl font-bold leading-tight tracking-tight text-slate-900 font-serif sm:text-2xl">
           {name}
         </h3>
-        <p className="text-sm font-semibold text-[#0072bc] mt-1 tracking-wide">
+        <p className="mt-1 text-sm font-semibold tracking-wide text-[#0072bc]">
           {role}
         </p>
+        <div className="mt-4 h-1 w-12 rounded-full bg-[#0072bc]" />
 
-        {/* Quote / Description Text - Appears directly over the photo */}
-        <div
-          className={`overflow-hidden transition-all duration-500 ease-out ${
-            showQuote ? 'max-h-80 opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'
-          }`}
-        >
-          <p className="text-xs sm:text-sm text-slate-100 leading-relaxed font-sans font-normal drop-shadow-md">
-            "{quote}"
+        <p className="mt-4 text-sm leading-relaxed text-slate-600">
+          &ldquo;{quote}&rdquo;
+        </p>
+        {description && (
+          <p className="mt-3 border-t border-slate-100 pt-3 text-xs leading-relaxed text-slate-500">
+            {description}
           </p>
-          {description && (
-            <p className="text-[11px] sm:text-xs text-slate-300 mt-3 leading-relaxed font-normal border-t border-slate-700/60 pt-2.5 font-sans">
-              {description}
-            </p>
-          )}
-        </div>
-
-        {/* Wide Blue Underline Bar (Matching Reference Image) */}
-        <div className="w-full h-1 bg-[#0072bc] rounded-full mt-4 transition-all duration-300 shadow-sm" />
+        )}
       </div>
     </div>
   );
@@ -205,41 +190,9 @@ export function CompanyOverviewLayout({ content }) {
 
   // Load other pages' content to act as single-source-of-truth
   const leadershipContent = getPageContent('leadership') || {};
-  const historyContent = getPageContent('history') || {};
+  // historyContent was the source for the old vertical timeline; the
+  // journey content now lives in CompanyJourneySection.
   const complianceContent = getPageContent('compliance') || {};
-
-  const filteredMilestones = (historyContent.timelineMilestones || [])
-    .filter(m => ['2000', '2010', '2020', '2026'].includes(String(m.year)));
-  const leftMilestones = filteredMilestones.filter((_, idx) => idx % 2 === 0);
-  const rightMilestones = filteredMilestones.filter((_, idx) => idx % 2 === 1);
-
-  const renderMilestoneCard = (m, accent) => (
-    <PremiumTiltCard color={accent} className="p-6 text-left w-full">
-      <div className="font-mono text-2xl font-black tracking-tight mb-2" style={{ color: accent }}>{m.year}</div>
-      <h3 className="text-lg font-bold text-[#0F172A] font-serif leading-snug">{m.title}</h3>
-      <p className="mt-2 text-sm text-slate-600 leading-relaxed">{m.summary}</p>
-      {m.highlights?.length > 0 && (
-        <ul className="mt-4 space-y-1.5">
-          {m.highlights.slice(0, 3).map((hl, idx) => (
-            <li key={idx} className="flex items-start gap-2 text-sm text-slate-600">
-              <CheckCircle2 className="h-3.5 w-3.5 shrink-0 mt-0.5" style={{ color: accent }} />
-              <span>{hl}</span>
-            </li>
-          ))}
-        </ul>
-      )}
-      {m.impact?.length > 0 && (
-        <div className="mt-4 grid grid-cols-2 gap-3 border-t border-slate-100 pt-4">
-          {m.impact.slice(0, 2).map((imp, idx) => (
-            <div key={idx}>
-              <div className="text-base font-bold font-serif" style={{ color: accent }}>{imp.value}</div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-wide mt-0.5">{imp.label}</div>
-            </div>
-          ))}
-        </div>
-      )}
-    </PremiumTiltCard>
-  );
 
   // Framer Motion Animation Presets
   const sectionVar = {
@@ -258,205 +211,43 @@ export function CompanyOverviewLayout({ content }) {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#FFFFFF] text-[#0F172A] font-inter antialiased overflow-x-hidden company-page-snap-container">
+    // overflow-x-clip, NOT overflow-x-hidden: `hidden` forces the other axis
+    // to compute as `auto`, which makes this div a scroll container and
+    // therefore the scrollport for any position:sticky descendant — the
+    // page itself scrolls on <html>, so CompanyJourneySection's pin would
+    // silently never engage. `clip` clips identically without creating a
+    // scroll container, leaving sticky bound to the viewport.
+    //
+    // No scroll-snap on this page (the `company-page-snap-container` class
+    // and its index.css rules were removed): CSS scroll-snap and a
+    // scroll-scrubbed pinned section fight each other — each discrete wheel
+    // tick can get pulled back toward a neighbouring section's snap point
+    // right at the boundary of the pinned area, which reads as the pin
+    // being stuck. Whole-page snap was also inconsistent with the one
+    // section that's genuinely scroll-jacked, so this drops it everywhere
+    // rather than special-casing around CompanyJourneySection.
+    <div className="relative min-h-screen bg-[#FFFFFF] text-[#0F172A] font-inter antialiased overflow-x-clip">
       {/* Ambient background glows */}
       <div className="ambient-glow ambient-glow--1" />
       <div className="ambient-glow ambient-glow--2" />
       <div className="ambient-glow ambient-glow--3" />
-      <div className="h-24 bg-[#FFFFFF]" style={{ scrollSnapAlign: 'start' }} />
 
 
-      {/* ── SECTION 2: COMPANY OVERVIEW ── */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVar}
-        className="py-[clamp(56px,8vh,88px)] bg-white border-b border-[#E2E8F0]"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8 text-left">
-              <div className="space-y-3">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono block">ORGANIZATIONAL PROFILE</span>
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">
-                  Who We Are
-                </h2>
-                <div className="w-16 h-1 bg-[#0072bc] rounded-full" />
-              </div>
+      {/* ── SECTION 2: AXION ABOUT SECTION ── */}
+      <AxionAboutSection />
 
-              {/* Editorial Highlight Statement */}
-              <div className="border-l-4 border-[#0072bc] pl-5 py-2">
-                <p className="text-base md:text-lg font-medium text-slate-750 font-serif italic leading-relaxed">
-                  "Pioneering compliant debt resolution, asset tracing, and physical custody operations across South India since 2000."
-                </p>
-              </div>
+      {/* ── SECTION 3: OUR JOURNEY (Scroll-Linked Horizontal Story) ──
+           The alternating vertical timeline that sat here was replaced by
+           CompanyJourneySection: vertical scroll now drives horizontal
+           travel through the milestone years, scrubbed frame-for-frame off
+           scroll progress.
 
-              {/* Refined Description */}
-              <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-                South India's institutional recovery and risk management partner — built for nationalized banks, NBFCs, HFCs, and ARCs.
-              </p>
+           It is deliberately NOT wrapped in one of this file's
+           motion.section blocks — those animate `y: 30 → 0`, and a
+           transformed ancestor becomes the containing block for
+           position:sticky, which silently breaks the pin. */}
+      <CompanyJourneySection />
 
-              {/* Core Competencies Bento Grid */}
-              <div className="space-y-4 pt-2">
-                <h4 className="text-xs font-bold text-[#0F172A] uppercase tracking-wider font-mono">Core Competency Areas</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {[
-                    {
-                      title: 'End-to-End NPA Lifecycle',
-                      desc: 'Stage-1 early resolution through to Stage-3 legal enforcement.',
-                      color: '#0072bc'
-                    },
-                    {
-                      title: 'Zero-Tolerance Compliance',
-                      desc: '100% adherence to RBI fair practice collection codes.',
-                      color: '#059669'
-                    },
-                    {
-                      title: 'IIBF DRA Certified Staff',
-                      desc: 'Examination-verified field representatives protect brand trust.',
-                      color: '#7c3aed'
-                    },
-                    {
-                      title: 'Geotagged Visit Telemetry',
-                      desc: 'Real-time GPS check-ins and immutable audit logging.',
-                      color: '#d97706'
-                    }
-                  ].map((comp, idx) => (
-                    <motion.div
-                      key={idx}
-                      whileHover={{ y: -3 }}
-                      className="border border-[#E2E8F0] bg-[#F8FAFC] rounded-2xl p-4 flex gap-4 items-start transition-all duration-305 hover:border-slate-300 hover:shadow-sm group"
-                    >
-                      <div className="p-1 rounded-xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
-                        <RichIcon type={comp.title} size={40} />
-                      </div>
-                      <div className="space-y-0.5 text-left leading-tight">
-                        <h5 className="font-bold text-sm text-[#0F172A] font-serif">{comp.title}</h5>
-                        <p className="text-xs text-slate-600 leading-relaxed">{comp.desc}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Content-Based generated image representing corporate governance & operations */}
-            <div className="relative w-full h-[380px] bg-slate-50 border border-[#E2E8F0] rounded-[32px] overflow-hidden shadow-md">
-              <img
-                src="/images/company_overview.png"
-                alt="Corporate Governance and Recovery Operations"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent pointer-events-none" />
-            </div>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* ── SECTION 3: OUR JOURNEY (Vertical Timeline) ──
-           Replaced the rainbow serpentine map with a restrained, alternating
-           vertical timeline — the standard enterprise "our history" pattern
-           (McKinsey/BCG-style). Naturally responsive at any width, no
-           scale/scroll tricks needed, and reads as more restrained/premium
-           than a snake-shaped multi-hue path. Single accent colour (brand
-           blue) throughout, with gold reserved for the final "road ahead"
-           milestone to signal the future distinctly. */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVar}
-        className="py-[clamp(56px,8vh,88px)] bg-[#F8FAFC] border-b border-[#E2E8F0] relative overflow-hidden"
-      >
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto space-y-3 text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">HISTORICAL TIMELINE</span>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Our Journey</h2>
-            <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              From a single Chennai desk in 2000 to a five-state risk operations network — built milestone by milestone.
-            </p>
-          </div>
-
-          <div className="relative mt-16">
-            {/* Central line — left-aligned on mobile, centred from lg up */}
-            <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-px bg-slate-200 lg:-translate-x-1/2" />
-
-            {/* Mobile Layout (stacked sequentially) */}
-            <div className="space-y-8 lg:hidden">
-              {filteredMilestones.map((m, i) => {
-                const isFuture = m.year === '2026';
-                const accent = isFuture ? '#0072bc' : '#0072bc';
-                return (
-                  <motion.div
-                    key={m.year}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    className="relative pl-12 text-left"
-                  >
-                    <span
-                      className="absolute left-4 top-8 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-[3px] border-white shadow-md z-10"
-                      style={{ background: accent }}
-                    />
-                    {renderMilestoneCard(m, accent)}
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* Desktop Layout (staggered columns with overlap) */}
-            <div className="hidden lg:grid lg:grid-cols-2 lg:gap-24 relative">
-              {/* Left Column (even items: 2000, 2020) */}
-              <div className="space-y-24 text-right flex flex-col items-end pr-12">
-                {leftMilestones.map((m) => {
-                  const accent = '#0072bc';
-                  return (
-                    <motion.div
-                      key={m.year}
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: '-100px' }}
-                      className="max-w-md w-full relative"
-                    >
-                      {/* Timeline dot positioned on the center line */}
-                      <span
-                        className="absolute -right-[48px] top-8 h-3.5 w-3.5 rounded-full border-[3px] border-white shadow-md z-10 translate-x-1/2"
-                        style={{ background: accent }}
-                      />
-                      {renderMilestoneCard(m, accent)}
-                    </motion.div>
-                  );
-                })}
-              </div>
-
-              {/* Right Column (odd items: 2010, 2026) - Offset down by mt-32 to center align with the gaps */}
-              <div className="space-y-24 text-left flex flex-col items-start pl-12 mt-32">
-                {rightMilestones.map((m) => {
-                  const isFuture = m.year === '2026';
-                  const accent = isFuture ? '#0072bc' : '#0072bc';
-                  return (
-                    <motion.div
-                      key={m.year}
-                      initial={{ opacity: 0, x: 30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: '-100px' }}
-                      className="max-w-md w-full relative"
-                    >
-                      {/* Timeline dot positioned on the center line */}
-                      <span
-                        className="absolute -left-[48px] top-8 h-3.5 w-3.5 rounded-full border-[3px] border-white shadow-md z-10 -translate-x-1/2"
-                        style={{ background: accent }}
-                      />
-                      {renderMilestoneCard(m, accent)}
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.section>
 
       {/* ── SECTION 4: VISION & MISSION ── */}
       <motion.section
@@ -517,7 +308,7 @@ export function CompanyOverviewLayout({ content }) {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={sectionVar}
-        className="py-[clamp(56px,8vh,88px)] bg-[#F8FAFC] border-b border-[#E2E8F0]"
+        className="py-[clamp(56px,8vh,88px)] bg-[#FFFFFF] border-b border-[#E2E8F0]"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="max-w-2xl mx-auto text-center space-y-3">
@@ -623,211 +414,35 @@ export function CompanyOverviewLayout({ content }) {
               role="Managing Director & Founder"
               image="/images/jebaraj.M MD.png"
               quote="Our purpose is simple — to protect the financial system's integrity by combining ground execution strength with compliance, technology and ethical operations."
-              description="Over 28+ years of expertise in SARFAESI enforcement, institutional recovery operations, and banking resolution strategy across India."
+              description="Founded SM Associates in 2004, establishing specialized recovery and verification operations for premier institutions like SBI Cards, LIC Housing Finance, ICICI Bank, SCB, and Citibank. He has since built a robust enterprise infrastructure for SARFAESI enforcement, resolution, and recovery operations spanning Tamil Nadu, Kerala, Karnataka, Telangana, and Puducherry."
             />
 
-            {/* Card 2: Anisley Jebaraj */}
+            {/* Card 2: P. David Raja */}
+            <LeadershipCard
+              name="P. David Raja"
+              role="Director"
+              image="/images/p_david_raja.png"
+              quote="Every recovery mandate we take on carries the same discipline — structured execution, complete documentation, and unwavering compliance with the frameworks that govern it."
+              description="Manages SM Associates' recovery and verification operations for premier institutions including SBI Cards, LIC Housing Finance, ICICI Bank, SCB, Citibank, and Axis Bank. He oversees the field execution of SARFAESI enforcement, resolution, and recovery operations spanning Tamil Nadu, Kerala, Karnataka, Telangana, and Puducherry."
+            />
+
+            {/* Card 3: Anisley Jebaraj */}
             <LeadershipCard
               name="Anisley Jebaraj"
               role="Director"
-              image="/images/anisley_jebaraj.png"
+              image="/images/anisley_jebaraj.jpg"
               quote="Representing the next generation of recovery operations leadership, driving technology integration, operational excellence, and compliant growth across India."
-              description="Focusing on digital transformation, enterprise client relations, and modernizing recovery operations frameworks."
+              description="Directs operational strategy, client relations, and modernizing recovery operations frameworks for enterprise portfolios."
             />
-
-            {/* Card 3: Empty Card */}
-            <div className="relative h-[540px] sm:h-[560px] rounded-3xl border-2 border-dashed border-slate-200 bg-slate-50/50 p-8 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-[#0072bc]/30 hover:bg-slate-50">
-              <div className="w-16 h-16 rounded-full bg-[#0072bc]/10 border border-[#0072bc]/20 flex items-center justify-center text-[#0072bc] mb-4 shadow-sm">
-                <Users size={28} />
-              </div>
-              <h4 className="text-lg font-bold text-slate-700 font-serif mb-2">Leadership Expansion</h4>
-              <p className="text-xs text-slate-400 max-w-[200px] leading-relaxed font-mono">
-                Empaneling senior recovery veterans & strategic board advisors.
-              </p>
-              <span className="mt-6 text-[10px] font-bold uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 px-3 py-1 rounded-full border border-[#0072bc]/20 font-mono">
-                Position Open
-              </span>
-            </div>
-          </div>
-        </div>
-      </motion.section>      {/* ── SECTION 7: WHY SM ASSOCIATES ──
-           Consolidates what used to be three separate sections making
-           overlapping "why choose us" arguments (this card grid, a
-           SM-vs-Traditional-Agencies comparison table, and "Enterprise
-           Operating Philosophy") into one concise differentiation section. */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVar}
-        className="py-[clamp(56px,8vh,88px)] bg-[#FFFFFF] border-b border-[#E2E8F0]"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
-          <div className="max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">DIFFERENTIATION MATRIX</span>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Why SM</h2>
-            <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Five structural advantages that make us the low-risk, high-accountability partner for stressed portfolio management.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch text-left">
-            {/* Featured trust image card */}
-            <div className="lg:col-span-4 relative min-h-[380px] bg-slate-50 border border-[#E2E8F0] rounded-[32px] overflow-hidden shadow-md flex flex-col justify-end">
-              <img
-                src="/images/enterprise_trust.png"
-                alt="Enterprise Trust & Partnerships"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/30 to-transparent pointer-events-none" />
-              <div className="relative p-8 text-white z-10">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-brand-500 font-mono block mb-1">Corporate Trust</span>
-                <h4 className="text-xl font-bold font-serif leading-snug">Partnerships Built on Performance &amp; Compliance</h4>
-              </div>
-            </div>
-
-            {/* Grid of 5 edge cards */}
-            <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                {
-                  title: 'Enterprise Experience',
-                  value: 'Two and a half decades operating through multiple credit cycles, not a vendor new to the discipline of recovery.',
-                  advantage: 'A track record institutions can diligence, not a pitch deck promise.'
-                },
-                {
-                  title: 'Operational Excellence',
-                  value: 'A direct, managed field network executing structured recovery workflows end to end — not subcontracted local agents.',
-                  advantage: 'Predictable execution quality across every branch, every case.'
-                },
-                {
-                  title: 'Governance',
-                  value: 'Every engagement runs on documented conduct, recorded calls and an audit trail built for regulator scrutiny.',
-                  advantage: 'De-risks the institution’s own compliance exposure, not just ours.'
-                },
-                {
-                  title: 'Banking Domain Expertise',
-                  value: 'Built specifically around how banks, NBFCs and HFCs actually manage stressed portfolios — not generic collections.',
-                  advantage: 'Fewer translation gaps between what the lender needs and what the field executes.'
-                },
-                {
-                  title: 'Regional Execution Capability',
-                  value: '19 branch offices across South India, with local language fluency and local authority liaising under one accountable model.',
-                  advantage: 'Reach without the coordination overhead of managing multiple regional vendors.'
-                }
-              ].map((card, i) => {
-                const cardColors = ['#0072bc', '#059669', '#7c3aed', '#d97706', '#0284c7'];
-                const cardColor = cardColors[i % cardColors.length];
-                return (
-                  <PremiumTiltCard key={i} delay={i * 0.08} color={cardColor} className="space-y-3 text-left group">
-                    <div className="flex items-center justify-between">
-                      <h4 className="font-bold text-base text-[#0F172A] font-serif">{card.title}</h4>
-                      <div className="p-1 rounded-xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
-                        <RichIcon type={card.title} size={38} />
-                      </div>
-                    </div>
-                    <p className="text-sm text-slate-600 leading-relaxed">{card.value}</p>
-                    <div className="pt-2 border-t border-slate-200/60 text-xs text-slate-500 font-mono">
-                      <span className="font-bold uppercase tracking-wider block text-[10px]" style={{ color: cardColor }}>Advantage:</span>
-                      {card.advantage}
-                    </div>
-                  </PremiumTiltCard>
-                );
-              })}
-            </div>
           </div>
         </div>
       </motion.section>
 
-      {/* ── SECTION 8: CERTIFICATIONS & COMPLIANCE ── */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVar}
-        className="py-[clamp(56px,8vh,88px)] bg-[#F8FAFC] border-b border-[#E2E8F0]"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
-          <div className="max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">INSTITUTIONAL GOVERNANCE</span>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Governance</h2>
-            <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              ISO 27001 certified, 100% DRA-certified staff, and RBI Fair Practice compliant — built for institutional-grade scrutiny.
-            </p>
-          </div>
+      {/* ── SECTION 7: INSTITUTIONAL COMPARISON MATRIX ── */}
+      <SolutionComparisonSection />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch text-left">
-            {/* Featured security image card */}
-            <div className="lg:col-span-4 relative min-h-[380px] bg-slate-50 border border-[#E2E8F0] rounded-[32px] overflow-hidden shadow-md flex flex-col justify-end">
-              <img
-                src="/images/secure_custody.png"
-                alt="ISO/IEC 27001 Secure Data Custody"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/30 to-transparent pointer-events-none" />
-              <div className="relative p-8 text-white z-10">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-[#0072bc] bg-[#FFFFFF]/10 backdrop-blur-sm px-2.5 py-1 rounded font-mono inline-block mb-2 border border-[#FFFFFF]/20">Information Security</span>
-                <h4 className="text-xl font-bold font-serif leading-snug">ISO 27001 Certified Audited Infrastructure</h4>
-              </div>
-            </div>
-
-            {/* Grid of 6 certification cards */}
-            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {[
-                { title: 'ISO/IEC 27001 Certified', desc: 'Secure data pipelines utilizing role-based access gates and encrypted SFTP vaults.' },
-                { title: '100% DRA Certified Staff', desc: 'Mandatory IIBF DRA curriculum certification before any field assignment.' },
-                { title: 'Structured Audit Trails', desc: 'Voice logs and geotagged field activity logs preserved securely for 180 days.' },
-                { title: 'GPS Geotagged Visits', desc: 'Agent check-ins require device geolocation matches and timestamped photos.' },
-                { title: 'Dialer Hours Lockouts', desc: 'Outbound dialers restricted to 08:00 AM – 07:00 PM via server rules.' },
-                { title: 'Documentation Governance', desc: 'Standardized foreclosure file processing and title deed verification forensic checklists.' }
-              ].map((cert, i) => {
-                const certColors = ['#0072bc', '#059669', '#7c3aed', '#d97706', '#f43f5e', '#0284c7'];
-                const cardColor = certColors[i % certColors.length];
-                return (
-                  <PremiumTiltCard key={i} delay={i * 0.06} color={cardColor} className="p-5 flex flex-col justify-between h-full text-left group">
-                    <div className="space-y-3">
-                      <div className="p-1 rounded-xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 w-fit">
-                        <RichIcon type={cert.title} size={38} />
-                      </div>
-                      <h4 className="font-bold text-sm text-[#0F172A] font-serif">{cert.title}</h4>
-                      <p className="text-xs text-slate-600 leading-relaxed">{cert.desc}</p>
-                    </div>
-                  </PremiumTiltCard>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="pt-8 mt-4 border-t border-slate-200 space-y-8">
-            <div className="max-w-2xl mx-auto space-y-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">RBI COMPLIANCE MATRIX</span>
-              <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-                Four Fair Practice guidelines enforced through server-side controls, certified agent protocols, and real-time dispute tracking.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto text-left">
-              {complianceContent.rbiMatrix?.map((row, idx) => {
-                const matrixColors = ['#0072bc', '#059669', '#f43f5e', '#d97706'];
-                const cardColor = matrixColors[idx % matrixColors.length];
-                return (
-                  <PremiumTiltCard key={idx} delay={idx * 0.08} color={cardColor} className="p-6 space-y-3 text-left group">
-                    <div className="flex items-center justify-between">
-                      <span className="inline-block text-[8px] font-bold text-slate-400 font-mono uppercase tracking-wider">Guideline</span>
-                      <div className="p-1 rounded-xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
-                        <RichIcon type={row.guideline} size={38} />
-                      </div>
-                    </div>
-                    <h4 className="font-bold text-base text-[#0F172A] font-serif leading-none">{row.guideline}</h4>
-                    <div className="space-y-2 pt-2 border-t border-slate-200/60">
-                      <p className="text-sm text-slate-600"><strong className="text-slate-700 font-serif">Code:</strong> {row.code}</p>
-                      <p className="text-sm font-semibold" style={{ color: cardColor }}><strong style={{ color: cardColor }}>SM Enforcement:</strong> {row.smAction}</p>
-                    </div>
-                  </PremiumTiltCard>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </motion.section>
+      {/* ── SECTION 7b: ENTERPRISE GOVERNANCE & COMPLIANCE (3D FLIP CARDS) ── */}
+      <ComplianceStorySection />
 
       {/* ── SECTION 13: CALL TO ACTION ── */}
       <motion.section
