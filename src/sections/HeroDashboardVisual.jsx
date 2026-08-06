@@ -190,7 +190,7 @@ export default function HeroDashboardVisual() {
 
         <div className="dbv6-coverage bg-slate-50 border-t border-slate-200 p-3.5 text-xs text-slate-500 flex items-center justify-between">
           <span className="flex items-center gap-1.5 font-semibold text-slate-700">
-            <MapPin size={13} className="text-indigo-600" /> 5 States · 19 Branches Active
+            <MapPin size={13} className="text-[#0072bc]" /> 6 States · 19 Branches Active
           </span>
           <span className="text-[11px] text-emerald-600 font-bold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
             ● Geotagged Field Network

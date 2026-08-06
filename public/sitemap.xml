@@ -1,88 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Core Landing Routes -->
   <url><loc>https://www.smassociate.in/</loc><priority>1.0</priority></url>
-
-  <!-- About -->
-  <url><loc>https://www.smassociate.in/about</loc><priority>0.8</priority></url>
-
-  <!-- Services -->
+  <url><loc>https://www.smassociate.in/about</loc><priority>0.9</priority></url>
   <url><loc>https://www.smassociate.in/services</loc><priority>0.9</priority></url>
-  <url><loc>https://www.smassociate.in/services/verification/cpv-services</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/verification/residence-verification</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/verification/office-verification</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/verification/business-verification</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/verification/document-verification</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/collections/pdc-collections</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/collections/early-stage</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/collections/soft-collections</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/collections/hard-collections</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/collections/field-collections</loc><priority>0.7</priority></url>
-  <url><loc>https://www.smassociate.in/services/collections/debt-recovery</loc><priority>0.7</priority></url>
-  <url><loc>https://www.smassociate.in/services/legal-recovery/cheque-bounce-notices</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/legal-recovery/sarfaesi-support</loc><priority>0.8</priority></url>
-  <url><loc>https://www.smassociate.in/services/legal-recovery/possession-support</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/legal-recovery/legal-coordination</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/legal-recovery/litigation-support</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/asset-recovery/vehicle-repossession</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/asset-recovery/asset-tracing</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/asset-recovery/asset-recovery</loc><priority>0.7</priority></url>
-  <url><loc>https://www.smassociate.in/services/asset-recovery/auction-coordination</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/asset-recovery/valuation-services</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/asset-recovery/custodian-services</loc><priority>0.7</priority></url>
-  <url><loc>https://www.smassociate.in/services/investigation/due-diligence</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/investigation/skip-tracing</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/investigation/address-tracing</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/investigation/contact-verification</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/investigation/fraud-investigation</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/specialized/portfolio-management</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/specialized/npa-management</loc><priority>0.8</priority></url>
-  <url><loc>https://www.smassociate.in/services/specialized/resolution-strategy</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/specialized/npa-recovery</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/specialized/recovery-analytics</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/specialized/recovery-consulting</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/operational/call-centre</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/operational/manpower</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/operational/facility-management</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/services/operational/liaising</loc><priority>0.6</priority></url>
-
-  <!-- Industries -->
   <url><loc>https://www.smassociate.in/industries</loc><priority>0.8</priority></url>
-  <url><loc>https://www.smassociate.in/industries/banking</loc><priority>0.7</priority></url>
-  <url><loc>https://www.smassociate.in/industries/nbfc</loc><priority>0.7</priority></url>
-  <url><loc>https://www.smassociate.in/industries/housing-finance</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/industries/microfinance</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/industries/fintech</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/industries/arc</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/industries/commercial-lending</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/industries/insurance</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/industries/vehicle-finance</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/industries/gold-loan</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/industries/products/retail</loc><priority>0.5</priority></url>
-  <url><loc>https://www.smassociate.in/industries/products/auto</loc><priority>0.5</priority></url>
-  <url><loc>https://www.smassociate.in/industries/products/sme</loc><priority>0.5</priority></url>
-  <url><loc>https://www.smassociate.in/industries/products/agri</loc><priority>0.5</priority></url>
-  <url><loc>https://www.smassociate.in/industries/products/jewel</loc><priority>0.5</priority></url>
-  <url><loc>https://www.smassociate.in/industries/products/education</loc><priority>0.5</priority></url>
 
-  <!-- Platform -->
-  <url><loc>https://www.smassociate.in/platform</loc><priority>0.7</priority></url>
-  <url><loc>https://www.smassociate.in/platform/recovery-os</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/platform/workflow-automation</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/platform/field-operations</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/platform/compliance-monitoring</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/platform/recovery-analytics</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/platform/ai-recovery</loc><priority>0.5</priority></url>
+  <!-- Platform Capabilities -->
+  <url><loc>https://www.smassociate.in/platform</loc><priority>0.8</priority></url>
+  <url><loc>https://www.smassociate.in/platform/recovery-os</loc><priority>0.7</priority></url>
+  <url><loc>https://www.smassociate.in/platform/workflow-automation</loc><priority>0.7</priority></url>
+  <url><loc>https://www.smassociate.in/platform/field-operations</loc><priority>0.7</priority></url>
+  <url><loc>https://www.smassociate.in/platform/compliance-monitoring</loc><priority>0.7</priority></url>
+  <url><loc>https://www.smassociate.in/platform/recovery-analytics</loc><priority>0.7</priority></url>
+  <url><loc>https://www.smassociate.in/platform/ai-recovery</loc><priority>0.6</priority></url>
 
-  <!-- Insights -->
-  <url><loc>https://www.smassociate.in/insights</loc><priority>0.7</priority></url>
+  <!-- Knowledge & Case Studies -->
+  <url><loc>https://www.smassociate.in/insights</loc><priority>0.8</priority></url>
   <url><loc>https://www.smassociate.in/insights/case-studies</loc><priority>0.8</priority></url>
-  <url><loc>https://www.smassociate.in/insights/blog</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/insights/news</loc><priority>0.5</priority></url>
 
-  <!-- Others -->
+  <!-- Corporate & Mandate Contact -->
   <url><loc>https://www.smassociate.in/clients</loc><priority>0.8</priority></url>
-  <url><loc>https://www.smassociate.in/careers</loc><priority>0.6</priority></url>
-  <url><loc>https://www.smassociate.in/contact</loc><priority>0.8</priority></url>
+  <url><loc>https://www.smassociate.in/careers</loc><priority>0.7</priority></url>
+  <url><loc>https://www.smassociate.in/contact</loc><priority>0.9</priority></url>
 
 </urlset>

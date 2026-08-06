@@ -69,12 +69,7 @@ export default function BrandManifestoSection({ lines: linesProp }) {
   }
 
   return (
-    <section className="relative bg-white" aria-label="Our operating principles">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,114,188,0.06) 0%, transparent 70%)' }}
-      />
+    <section className="relative z-30 bg-white" aria-label="Our operating principles">
 
       {/* Mobile/tablet: static reveal, no scroll-jack */}
       <div className="relative z-10 lg:hidden">

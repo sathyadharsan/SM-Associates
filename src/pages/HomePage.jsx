@@ -5,13 +5,13 @@ import SectionReveal from '../components/SectionReveal';
 import HeroFlagshipSection from '../sections/HeroFlagshipSection';
 import TrustedCertifiedSection from '../sections/TrustedCertifiedSection';
 import ClientLogoMarqueeSection from '../sections/ClientLogoMarqueeSection';
-import SolutionComparisonSection from '../sections/SolutionComparisonSection';
 import ServicesOverviewSection from '../sections/ServicesOverviewSection';
 import EnterpriseServicesSection from '../sections/EnterpriseServicesSection';
 import OperatingModelSection from '../sections/OperatingModelSection';
 import IndustriesServedSection from '../sections/IndustriesServedSection';
 import CaseStudiesSection from '../sections/CaseStudiesSection';
 import FaqSection from '../sections/FaqSection';
+import CommandCenterSection from '../sections/CommandCenterSection';
 import TestimonialsSection from '../sections/TestimonialsSection';
 import CtaSection from '../sections/CtaSection';
 import AwardsCertificationsSection from '../sections/AwardsCertificationsSection';
@@ -29,68 +29,60 @@ export default function HomePage() {
 
   return (
     <div className="fg-home">
-      {/* ── Global Premium Effects ── */}
+      {/* ── Global Premium UI Scroll Progress Indicator ── */}
       <ScrollProgressBar />
 
-      {/* 1. Institutional Hero Banner */}
+      {/* 1. Institutional Flagship Hero */}
       <HeroFlagshipSection />
 
-      {/* 2. Empanelments & Trusted Partners KPI Cards */}
+      {/* 2. Key Performance Indicators & Trust Metrics */}
       <TrustedCertifiedSection />
 
-      {/* 3. Empanelled Institutional Client Logos */}
+      {/* 3. Empanelled Institutional Lenders & Client Logos */}
       <SectionReveal>
         <ClientLogoMarqueeSection />
       </SectionReveal>
 
-      {/* 3. Awards & Certifications Strip */}
+      {/* 4. Governance, ISO & IIBF Certification Badges */}
       <SectionReveal>
         <AwardsCertificationsSection />
       </SectionReveal>
 
-      {/* 4. Operating Principles — centered scroll-sweep manifesto */}
+      {/* 5. Operating Principles & Brand Vision */}
       <BrandManifestoSection />
 
-      {/* 6. Core Recovery Services Overview — no SectionReveal wrapper: this
-          section pins the page for ~500vh, and SectionReveal's whileInView
-          measures visibility as a ratio of the wrapped element's OWN height,
-          which never crosses its reveal threshold for something this tall —
-          it was permanently stuck at its hidden initial state (opacity:0,
-          a residual transform), which also broke position:sticky for every
-          descendant (a transformed ancestor changes the sticky containing
-          block). The section handles its own reveal/animation internally,
-          same as every other pinned section on the site. */}
+      {/* 6. Comprehensive Recovery Services & Solutions Showcase */}
       <ServicesOverviewSection />
 
-      {/* 7. Sector Specialisation & Regulated Lender Segments */}
+      {/* 7. Industry Verticals & Regulated Lender Segments */}
       <SectionReveal>
         <IndustriesServedSection />
       </SectionReveal>
 
-      {/* 8. Recovery Operating Model: End-to-End Accountable Lifecycle */}
+      {/* 8. End-to-End Accountable Recovery Operating Model */}
       <OperatingModelSection />
 
-      {/* 10. Client Testimonials Carousel */}
+      {/* 9. Regional Branch Network & Command Center Telemetry Map */}
       <SectionReveal>
-        <TestimonialsSection />
+        <CommandCenterSection />
       </SectionReveal>
 
-      {/* 11. Institutional Comparison Matrix */}
-      <SectionReveal>
-        <SolutionComparisonSection />
-      </SectionReveal>
-
-      {/* 13. Proof of Work & Documented Case Studies Carousel */}
+      {/* 10. Documented Institutional Case Studies & Resolution Proof */}
       <SectionReveal>
         <CaseStudiesSection />
       </SectionReveal>
 
-      {/* 14. Frequently Asked Questions & Compliance Clarity */}
+      {/* 11. Empanelled Client Testimonials & Institutional Feedback */}
+      <SectionReveal>
+        <TestimonialsSection />
+      </SectionReveal>
+
+      {/* 12. Frequently Asked Questions & Compliance Clarity */}
       <SectionReveal>
         <FaqSection />
       </SectionReveal>
 
-      {/* 15. Book a Consultation — Premium CTA */}
+      {/* 13. High-Conversion Institutional Mandate CTA */}
       <CtaSection />
     </div>
   );

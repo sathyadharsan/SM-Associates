@@ -21,7 +21,7 @@ const KPI_CARDS = [
   {
     Icon: MapPin,
     value: '19 Branches',
-    label: '5 States Network',
+    label: '6 States Network',
     sublabel: 'Pan-South India footprint',
     tag: 'FOOTPRINT',
   },

@@ -76,8 +76,8 @@ export default function AppRoutes() {
         {/* Insights */}
         <Route path="/insights" element={<InsightsIndex />} />
         <Route path="/insights/case-studies" element={<CaseStudiesPage />} />
-        <Route path="/insights/blog" element={<BlogPage />} />
-        <Route path="/insights/news" element={<NewsUpdatesPage />} />
+        <Route path="/insights/blog" element={<Navigate to="/insights" replace />} />
+        <Route path="/insights/news" element={<Navigate to="/insights" replace />} />
 
         {/* Others & Legal Policies */}
         <Route path="/clients" element={<ClientsPage />} />

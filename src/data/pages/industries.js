@@ -1,4 +1,4 @@
-﻿// Refined content data for all Industries and Products pages
+// Refined content data for all Industries and Products pages
 // Conforms to the 12-section dynamic layout scheme
 
 export const industriesContent = {
@@ -1473,7 +1473,7 @@ export const industriesContent = {
     kpiCards: [
       { icon: 'building', title: 'Regional Office Network', value: '19 Offices' },
       { icon: 'users', title: 'Trained Professionals', value: '1,500+' },
-      { icon: 'shield', title: 'Claims Audit Compliance', value: 'IRDAI Aligned' },
+      { icon: 'shield', title: 'Claims Audit Compliance', value: 'Audit Aligned' },
       { icon: 'trendingUp', title: 'Fraudulent Claims Flagged', value: '[DRAFT]' }
     ],
 
@@ -1621,7 +1621,7 @@ export const industriesContent = {
     outcomes: [
       { title: 'Fraudulent Claims Identified', desc: 'On-site investigations expose staged accidents, shell hospitals, and synthetic life claims before payout.', value: 'Claims Leakage Stopped' },
       { title: 'Claims Leakage Controlled', desc: 'SIU audit reports give claims adjusters verifiable grounds to reject or reduce fraudulent claim amounts.', value: 'Loss Ratio Improved' },
-      { title: 'IRDAI-Ready Documentation', desc: 'Structured SIU reports with geotagged evidence meet IRDAI audit and compliance documentation standards.', value: 'Regulator Ready' }
+      { title: 'Standardized Audit-Ready Documentation', desc: 'Structured SIU reports with geotagged evidence meet strict institutional audit and compliance documentation standards.', value: 'Regulator Ready' }
     ],
 
     targetIndustries: [

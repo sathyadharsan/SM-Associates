@@ -1,214 +1,167 @@
 /**
- * DayInRecoverySection
+ * DayInRecoverySection — Horizontal Timeline
  * ─────────────────────────────────────────────────────────────────────
- * "A Day in Recovery" — a single illustrative mandate's timeline, told as
- * one sentence per scroll chapter. Deliberately a different "moment" from
- * the other three story sections: full-bleed photography fills the whole
- * screen with a slow continuous Ken-Burns zoom, and the sentence sits
- * centered directly over the image (word-swept as you scroll) instead of
- * living in its own text column next to a card.
- *
- * CONTENT-INTEGRITY: this is a composite, illustrative day built from the
- * real stages of the operating model — not a specific real case file. The
- * "Illustrative Scenario" badge is load-bearing; don't remove it.
+ * Redesigned from scroll-driven story to a premium horizontal timeline
+ * showing 6 stages of a recovery day with animated connecting line.
+ * Desktop: horizontal flow. Mobile: vertical stacked.
  */
 
-import { useEffect, useRef } from 'react';
-import { useReducedMotion, motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { Clock, MapPin, FileText, Package, ClipboardList, Send, Sparkles } from 'lucide-react';
 import { dayInRecoveryStages } from '../data/dayInRecoveryData';
-import { mountScrollStory, attachPointerTilt, clamp, PRE } from '../utils/scrollStoryMath';
 
-const TOTAL = dayInRecoveryStages.length;
-const SEGMENT_VH = 85;
+const stageIcons = [Clock, MapPin, FileText, Package, ClipboardList, Send];
 
-const rise = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } } };
-const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } };
+const stageColors = [
+  { dot: '#0072bc', bg: 'rgba(0,114,188,0.10)', border: 'rgba(0,114,188,0.25)' },
+  { dot: '#0284c7', bg: 'rgba(2,132,199,0.10)', border: 'rgba(2,132,199,0.25)' },
+  { dot: '#0369a1', bg: 'rgba(3,105,161,0.10)', border: 'rgba(3,105,161,0.25)' },
+  { dot: '#075985', bg: 'rgba(7,89,133,0.10)', border: 'rgba(7,89,133,0.25)' },
+  { dot: '#0c4a6e', bg: 'rgba(12,74,110,0.10)', border: 'rgba(12,74,110,0.25)' },
+  { dot: '#0ea5e9', bg: 'rgba(14,165,233,0.10)', border: 'rgba(14,165,233,0.25)' },
+];
 
-// Continuous slow zoom for as long as a chapter is relevant on screen — from
-// its first appearance (t = -PRE) through to full exit (t = 1) — rather than
-// only animating during the slide-in, so the photo keeps drifting the whole
-// time it's being read, the classic Ken-Burns feel.
-function zoomCardStyle(el, { opacity, index, raw }) {
-  const t = clamp((raw - index + PRE) / (1 + PRE), 0, 1);
-  const scale = 1 + t * 0.22;
-  el.style.opacity = String(opacity);
-  el.style.transform = `scale(${scale})`;
-}
+const rise = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+};
+const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.10 } } };
 
-function ChapterCopy({ stage, index, wordRefs }) {
-  if (wordRefs) wordRefs.current[index] = [];
-  const words = stage.sentence.split(' ');
+function TimelineCard({ stage, index, total }) {
+  const Icon = stageIcons[index] || Clock;
+  const color = stageColors[index] || stageColors[0];
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-60px' });
+
   return (
-    <>
-      <span className="font-mono text-[13px] font-bold uppercase tracking-[0.22em] text-[#8fc4ea]">
-        {stage.time} · {stage.title}
-      </span>
-      <p className="mt-5 text-[26px] font-bold leading-snug tracking-tight text-white sm:text-[36px]">
-        {wordRefs
-          ? words.map((word, wi) => (
-              <span key={wi} ref={(el) => { wordRefs.current[index][wi] = el; }} style={{ opacity: 0.3 }}>
-                {word}
-                {wi < words.length - 1 ? ' ' : ''}
-              </span>
-            ))
-          : stage.sentence}
-      </p>
-    </>
-  );
-}
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? 'show' : 'hidden'}
+      variants={rise}
+      className="relative flex flex-col items-center"
+      style={{ transitionDelay: `${index * 80}ms` }}
+    >
+      {/* Connector line (except last) — desktop only */}
+      {index < total - 1 && (
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+          transition={{ duration: 0.7, delay: index * 0.12 + 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute top-[28px] left-[calc(50%+28px)] hidden lg:block"
+          style={{
+            width: 'calc(100% - 56px)',
+            height: '2px',
+            background: `linear-gradient(90deg, ${color.dot}, rgba(0,114,188,0.2))`,
+            transformOrigin: 'left center',
+          }}
+        />
+      )}
 
-function StaticStoryList() {
-  return (
-    <div className="mx-auto max-w-3xl space-y-14 px-4 py-20 sm:px-6">
-      {dayInRecoveryStages.map((stage, index) => (
-        <motion.div key={stage.time} variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }}>
-          <motion.div variants={rise} className="relative overflow-hidden rounded-[24px]">
-            <img src={stage.image} alt={stage.title} className="h-64 w-full object-cover sm:h-72" loading="lazy" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-6">
-              <span className="font-mono text-[12px] font-bold uppercase tracking-[0.22em] text-[#8fc4ea]">
-                {stage.time} · {stage.title}
-              </span>
-              <p className="mt-2 text-xl font-bold leading-snug text-white">{stage.sentence}</p>
-            </div>
-          </motion.div>
-        </motion.div>
-      ))}
-    </div>
-  );
-}
-
-function IntroHeader() {
-  return (
-    <div className="mx-auto max-w-3xl px-4 pt-16 text-center sm:px-6">
-      <span className="inline-flex items-center gap-2 rounded-full border border-[#0072bc]/20 bg-[#0072bc]/8 px-4 py-1.5 font-mono text-[11px] font-bold uppercase tracking-widest text-[#0072bc]">
-        <Sparkles size={13} />
-        Illustrative Scenario
-      </span>
-      <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">A Day in Recovery</h2>
-      {/* Premium Level Accent Line */}
-      <div className="mt-4 mb-2 flex items-center justify-center gap-2">
-        <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#0072bc]/60 rounded-full" />
-        <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
-        <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
+      {/* Icon circle */}
+      <div
+        className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border-2 shadow-lg"
+        style={{ background: color.bg, borderColor: color.border }}
+      >
+        <Icon size={20} strokeWidth={2} style={{ color: color.dot }} />
       </div>
-      <p className="mt-2 text-sm text-slate-500">
-        Follow a single portfolio account through 24 hours of intelligence-driven recovery operations.
+
+      {/* Time badge */}
+      <span
+        className="mt-3 rounded-full px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest"
+        style={{ background: color.bg, color: color.dot, border: `1px solid ${color.border}` }}
+      >
+        {stage.time}
+      </span>
+
+      {/* Title */}
+      <h4 className="mt-3 text-center text-[15px] font-extrabold leading-snug tracking-tight text-slate-900">
+        {stage.title}
+      </h4>
+
+      {/* Sentence */}
+      <p className="mt-2 max-w-[160px] text-center text-[12.5px] leading-relaxed text-slate-500">
+        {stage.sentence}
       </p>
-    </div>
+    </motion.div>
   );
 }
 
 export default function DayInRecoverySection() {
-  const reduceMotion = useReducedMotion();
-  const wrapRef = useRef(null);
-  const stageElRef = useRef(null);
-  const cardRefs = useRef([]);
-  const textRefs = useRef([]);
-  const wordRefs = useRef([]);
-  const tiltRefs = useRef([]);
-  const activeIndexRef = useRef(0);
-  const timeRef = useRef(null);
-
-  useEffect(() => {
-    if (reduceMotion) return undefined;
-    const cleanupScroll = mountScrollStory({
-      wrapRef,
-      cardRefs,
-      textRefs,
-      wordRefs,
-      total: TOTAL,
-      applyCardStyle: zoomCardStyle,
-      onProgress: ({ activeIndex }) => {
-        activeIndexRef.current = activeIndex;
-        if (timeRef.current) timeRef.current.textContent = dayInRecoveryStages[activeIndex].time;
-      },
-    });
-    const cleanupTilt = attachPointerTilt({ stageRef: stageElRef, tiltRefs, activeIndexRef, maxTilt: 3 });
-    return () => {
-      cleanupScroll();
-      cleanupTilt();
-    };
-  }, [reduceMotion]);
-
-  if (reduceMotion) {
-    return (
-      <section className="border-b border-slate-200/90 bg-white" aria-label="A Day in Recovery — illustrative scenario">
-        <IntroHeader />
-        <StaticStoryList />
-      </section>
-    );
-  }
+  const headerRef = useRef(null);
+  const inView = useInView(headerRef, { once: true, margin: '-80px' });
 
   return (
-    <section className="relative border-b border-slate-200/90 bg-[#050b16]" aria-label="A Day in Recovery — illustrative scenario">
-      {/* Mobile / tablet: static list, no scroll-jack */}
-      <div className="relative z-10 bg-white lg:hidden">
-        <IntroHeader />
-        <StaticStoryList />
-      </div>
+    <section
+      className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white py-20 sm:py-28"
+      aria-label="A Day in Recovery"
+    >
+      {/* Subtle background glow */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[700px] -translate-x-1/2 rounded-full"
+        style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,114,188,0.07) 0%, transparent 70%)' }}
+      />
 
-      {/* Desktop: full-bleed pinned zoom timeline */}
-      <div ref={wrapRef} className="relative z-10 hidden lg:block" style={{ height: `${TOTAL * SEGMENT_VH}vh` }}>
-        <div ref={stageElRef} className="sticky top-0 h-screen overflow-hidden">
-          {/* Full-bleed photo layers, one per chapter */}
-          {dayInRecoveryStages.map((stage, index) => (
-            <div
-              key={stage.time}
-              ref={(el) => (cardRefs.current[index] = el)}
-              className="absolute inset-0"
-              style={{ opacity: index === 0 ? 1 : 0, zIndex: index }}
-            >
-              <div ref={(el) => (tiltRefs.current[index] = el)} className="absolute inset-0" style={{ transformStyle: 'preserve-3d' }}>
-                <img
-                  src={stage.image}
-                  alt={stage.title}
-                  className="h-full w-full object-cover"
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                />
-              </div>
-            </div>
-          ))}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-          {/* Vignette — darker toward the center-bottom where the sentence sits */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 z-20"
-            style={{ background: 'linear-gradient(180deg, rgba(5,11,22,0.55) 0%, rgba(5,11,22,0.25) 35%, rgba(5,11,22,0.72) 100%)' }}
-          />
-
-          {/* Header bar */}
-          {/* pt-24 clears the site's fixed header — same convention as
-              OperatingModelSection's .model6-head (top:96px). */}
-          <div className="absolute inset-x-0 top-0 z-30 mx-auto flex w-full max-w-7xl items-start justify-between px-8 pt-24">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-3.5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md">
-              <Sparkles size={12} />
-              Illustrative Scenario — A Day in Recovery
+        {/* Header */}
+        <motion.div
+          ref={headerRef}
+          variants={stagger}
+          initial="hidden"
+          animate={inView ? 'show' : 'hidden'}
+          className="mb-16 text-center"
+        >
+          {/* Illustrative badge — content-integrity: do not remove */}
+          <motion.div variants={rise} className="mb-5 flex items-center justify-center gap-2">
+            <Sparkles size={13} className="text-[#0072bc]" />
+            <span className="font-mono text-[10.5px] font-bold uppercase tracking-[0.22em] text-[#0072bc]">
+              Illustrative Scenario
             </span>
-            <span ref={timeRef} className="font-mono text-2xl font-black text-white">6:00 AM</span>
-          </div>
+          </motion.div>
 
-          {/* Centered sentence, one chapter visible at a time */}
-          <div className="absolute inset-0 z-30 flex items-center justify-center px-8">
-            <div className="relative w-full max-w-3xl">
-              {dayInRecoveryStages.map((stage, index) => (
-                <div
-                  key={stage.time}
-                  ref={(el) => (textRefs.current[index] = el)}
-                  className="absolute inset-x-0 text-center"
-                  style={{ opacity: index === 0 ? 1 : 0, zIndex: index }}
-                >
-                  <ChapterCopy stage={stage} index={index} wordRefs={wordRefs} />
-                </div>
-              ))}
-            </div>
-          </div>
+          <motion.h2
+            variants={rise}
+            className="text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[38px]"
+          >
+            A Day in Recovery
+          </motion.h2>
+          <motion.p variants={rise} className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-slate-500">
+            From morning allocation to same-day institutional reporting — every stage logged, verified, and transparent.
+          </motion.p>
 
-          <p className="absolute inset-x-0 bottom-8 z-30 text-center font-mono text-[10.5px] uppercase tracking-widest text-white/70">
-            A representative mandate — figures and sequence are illustrative, not a specific client record.
-          </p>
+          {/* Accent line */}
+          <motion.div variants={rise} className="mt-6 flex items-center justify-center gap-2">
+            <div className="h-0.5 w-10 rounded-full bg-gradient-to-r from-transparent to-[#0072bc]/60" />
+            <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
+            <div className="h-0.5 w-10 rounded-full bg-gradient-to-l from-transparent to-[#0072bc]/60" />
+          </motion.div>
+        </motion.div>
+
+        {/* Timeline — horizontal on desktop, vertical on mobile */}
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-6 lg:gap-4">
+          {dayInRecoveryStages.map((stage, index) => (
+            <TimelineCard
+              key={stage.title}
+              stage={stage}
+              index={index}
+              total={dayInRecoveryStages.length}
+            />
+          ))}
         </div>
+
+        {/* Bottom note */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="mt-14 text-center text-[12px] text-slate-400"
+        >
+          Composite illustration of SM Associates' standard operating sequence. Actual timelines vary by mandate type and portfolio.
+        </motion.p>
       </div>
     </section>
   );

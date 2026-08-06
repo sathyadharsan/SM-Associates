@@ -379,7 +379,7 @@ export default function SayHelloShowcaseSection() {
                     <div className="text-[8px] text-slate-400 mt-0.5">IIBF DRA-certified &amp; continuously audited.</div>
                   </motion.div>
 
-                  {/* 4. 5 States Covered */}
+                  {/* 4. 6 States Covered */}
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}

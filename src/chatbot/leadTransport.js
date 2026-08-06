@@ -91,12 +91,13 @@ export function replayPending() {
 }
 
 /**
- * Record a completed flow submission.
- * @param {'lead'|'feedback'} kind
+ * Record a completed flow or form submission.
+ * @param {'lead'|'feedback'|'contact'|'careers'|'newsletter'} kind
  * @param {Record<string, string>} answers
  */
 export function saveSubmission(kind, answers) {
   const entry = {
+    id: `sub_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`,
     kind,
     answers,
     page: typeof window !== 'undefined' ? window.location.pathname : '',
@@ -104,6 +105,27 @@ export function saveSubmission(kind, answers) {
   };
   persistLocally(entry);
   deliver(entry);
+  return entry;
+}
+
+/**
+ * Generate a mailto: fallback URL for any form submission
+ * @param {'contact'|'careers'|'newsletter'} type
+ * @param {Record<string, string>} data
+ */
+export function createMailtoUrl(type, data) {
+  const recipient = type === 'careers' ? 'smarmpl.ho@gmail.com' : 'smarmpl.ho@gmail.com';
+  let subject = `[SM Associates Web Enquiry] - ${type.toUpperCase()}`;
+  let body = `Submission Details:\n-------------------\nDate: ${new Date().toLocaleString()}\nPage: ${typeof window !== 'undefined' ? window.location.href : ''}\n\n`;
+
+  Object.entries(data).forEach(([key, val]) => {
+    if (val) {
+      const formattedKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase());
+      body += `${formattedKey}: ${val}\n`;
+    }
+  });
+
+  return `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 /** Read locally stored submissions (admin/debug helper). */

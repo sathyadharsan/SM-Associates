@@ -83,23 +83,23 @@ export const enterpriseServices = [
     cta: 'View Recovery Services',
   },
   {
-    id: 'enterprise-asset-recovery',
+    id: 'consumer-microfinance-recovery',
     number: '05',
-    title: 'Enterprise Asset Recovery',
+    title: 'Consumer & Micro-Finance Recovery',
     description:
-      'Recovering enterprise hardware assets across retail, banking and corporate locations with full inventory and compliance reporting.',
+      'Recovering consumer durable, micro-finance and professional loan portfolios across retail lending and self-help group channels.',
     image:
-      'https://images.unsplash.com/photo-1556740758-90de374c12ad?w=900&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=900&q=85&auto=format&fit=crop',
     capabilities: [
-      'POS Machines',
-      'Routers',
-      'Networking Devices',
-      'Servers',
-      'Office Equipment',
-      'Enterprise Hardware',
+      'Consumer Durable Loans',
+      'Micro Finance',
+      'Self-Help Group (SHG) Loans',
+      'Medical Equipment Loans',
+      'Professional Loans',
+      'Inventory Loans',
     ],
-    approach: ['Inventory', 'Recovery', 'Verification', 'Reporting'],
-    cta: 'Explore Assets',
+    approach: ['Field Recovery', 'Digital Recovery', 'Verification', 'Reporting'],
+    cta: 'Explore Recovery',
   },
   {
     id: 'investigation-verification',
@@ -139,24 +139,12 @@ export const enterpriseServices = [
     approach: ['Legal Workflow', 'Documentation', 'Court Coordination', 'Risk Control'],
     cta: 'Legal Support',
   },
-  {
-    id: 'ai-recovery-operations',
-    number: '08',
-    title: 'AI Recovery Operations',
-    description:
-      'AI-powered recovery ecosystem combining automation, predictive intelligence and enterprise analytics to maximize recovery efficiency.',
-    image:
-      'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=85&auto=format&fit=crop',
-    capabilities: [
-      'AI Voice Agents',
-      'Auto Dialing',
-      'Smart Follow-ups',
-      'Recovery Analytics',
-      'Predictive Recovery',
-      'Portfolio Intelligence',
-      'Executive Dashboards',
-    ],
-    approach: ['Automation', 'AI Intelligence', 'Analytics', 'Executive Insights'],
-    cta: 'Experience AI Recovery',
-  },
 ];
+
+// A ninth "AI Recovery Operations" chapter used to sit here, describing AI
+// voice agents, auto dialing and predictive recovery as an already-live
+// service ("Experience AI Recovery"). Removed: those exact capabilities are
+// the same ones data/servicesLandingData.js's `futureCapabilities` labels as
+// an explicit, not-yet-deployed roadmap — the two directly contradicted each
+// other on the same page. If AI capability content belongs here again, it
+// needs to describe what's actually live today, not restate the roadmap.

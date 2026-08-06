@@ -118,9 +118,9 @@ function TeaserScroll({ children, className = "", style }) {
 // OperatingModelSection's .model6-head). Without it, the first several
 // cards' own `top` offsets (12px, 24px, 36px…) land inside the header's own
 // height and render underneath it.
-const HEADER_CLEARANCE = 96;
+const HEADER_CLEARANCE = 90;
 
-function TeaserCardSticky({ index, incrementY = 12, children, className = "" }) {
+function TeaserCardSticky({ index, incrementY = 8, children, className = "" }) {
   return (
     <motion.div
       layout="position"
@@ -132,17 +132,15 @@ function TeaserCardSticky({ index, incrementY = 12, children, className = "" }) 
   );
 }
 
-// One featured mandate in the teaser strip — deliberately simpler than the
-// full grid card below (no hover choreography needed here, it's a quick
-// glance, not the primary interactive moment on the page).
-function FeaturedMandateCard({ product, index, onSelect }) {
+// One featured mandate card — formatted for 2-column side-by-side layout
+function FeaturedMandateCard({ product, columnIndex, onSelect }) {
   return (
-    <TeaserCardSticky index={index + 1} incrementY={12} className="mx-auto w-full max-w-2xl">
+    <TeaserCardSticky index={columnIndex + 1} incrementY={8} className="w-full">
       <div
         onClick={onSelect}
-        className="group/teaser flex cursor-pointer select-none items-center gap-5 overflow-hidden rounded-[24px] border border-[#005a96]/40 bg-[#0072bc] p-3 shadow-xl shadow-[#0072bc]/25 transition-shadow duration-300 hover:shadow-2xl hover:shadow-[#0072bc]/40 sm:gap-6 sm:p-4"
+        className="group/teaser flex cursor-pointer select-none items-center gap-4 overflow-hidden rounded-[20px] border border-[#005a96]/30 bg-[#0072bc] p-3 shadow-md shadow-slate-900/10 transition-all duration-300 hover:shadow-xl hover:shadow-slate-900/20 sm:gap-5 sm:p-3.5"
       >
-        <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl sm:h-28 sm:w-28">
+        <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl sm:h-24 sm:w-24">
           <img
             src={product.thumbnail}
             alt={product.title}
@@ -152,31 +150,32 @@ function FeaturedMandateCard({ product, index, onSelect }) {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
         </div>
 
-        <div className="min-w-0 flex-1 py-2 pr-4 text-left">
+        <div className="min-w-0 flex-1 py-1 text-left">
           {product.category && (
-            <span className="mb-1.5 inline-block rounded-full bg-white px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#0072bc] shadow-sm">
+            <span className="mb-1 inline-block rounded-full bg-white px-2.5 py-0.5 text-[9.5px] font-extrabold uppercase tracking-wider text-[#0072bc] shadow-sm">
               {product.category}
             </span>
           )}
-          <h3 className="truncate text-base font-bold tracking-tight text-white sm:text-lg">{product.title}</h3>
-          <p className="mt-1 line-clamp-1 text-xs text-blue-50">{product.description}</p>
+          <h3 className="truncate text-sm sm:text-base font-bold tracking-tight text-white">{product.title}</h3>
+          <p className="mt-0.5 line-clamp-1 text-[11.5px] text-blue-50/90">{product.description}</p>
         </div>
 
-        <ChevronRight size={18} className="mr-4 shrink-0 text-white transition-transform duration-300 group-hover/teaser:translate-x-1" />
+        <ChevronRight size={16} className="mr-2 shrink-0 text-white/80 transition-transform duration-300 group-hover/teaser:translate-x-1 group-hover/teaser:text-white" />
       </div>
     </TeaserCardSticky>
   );
 }
 
-// All mandates, in a compact stacking-card sequence — this is now the one
-// and only presentation of the 12 mandates (the separate 4-column grid was
-// removed rather than kept alongside this, since showing the same 12 cards
-// twice in a row would just be duplication).
+// Dual-Column Parallel Stacking: 24 mandates split into Left Column (12 cards) & Right Column (12 cards)
 function FeaturedMandatesPreview({ products, onSelect }) {
+  // Split products into left column (even index) & right column (odd index)
+  const leftProducts = products.filter((_, idx) => idx % 2 === 0);
+  const rightProducts = products.filter((_, idx) => idx % 2 === 1);
+
   return (
-    <section id="enterprise-services" className="relative bg-white px-4 pb-16 pt-16 sm:px-6 sm:pt-20 lg:px-8">
-      <div className="mx-auto max-w-3xl">
-        <div className="mb-8 text-center">
+    <section id="enterprise-services" className="relative bg-white px-4 pb-12 pt-16 sm:px-6 sm:pt-20 lg:px-8">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-10 text-center">
           <span className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-[#0072bc]">
             Our Capabilities
           </span>
@@ -184,14 +183,37 @@ function FeaturedMandatesPreview({ products, onSelect }) {
             Specialized Recovery Mandates
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-500">
-            Twelve specialized mandates, one accountable operating partner.
+            24 specialized recovery mandates in parallel execution, one accountable operating partner.
           </p>
         </div>
-        <TeaserScroll style={{ minHeight: `${products.length * 20}vh` }}>
-          <div className="space-y-4">
-            {products.map((product, index) => (
-              <FeaturedMandateCard product={product} index={index} key={product.title} onSelect={() => onSelect(product)} />
-            ))}
+
+        <TeaserScroll style={{ minHeight: `${leftProducts.length * 6 + 25}vh` }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start pb-8">
+            
+            {/* ── LEFT COLUMN (12 Cards) ── */}
+            <div className="space-y-4">
+              {leftProducts.map((product, idx) => (
+                <FeaturedMandateCard
+                  key={product.title}
+                  product={product}
+                  columnIndex={idx}
+                  onSelect={() => onSelect(product)}
+                />
+              ))}
+            </div>
+
+            {/* ── RIGHT COLUMN (6 Cards) ── */}
+            <div className="space-y-4">
+              {rightProducts.map((product, idx) => (
+                <FeaturedMandateCard
+                  key={product.title}
+                  product={product}
+                  columnIndex={idx}
+                  onSelect={() => onSelect(product)}
+                />
+              ))}
+            </div>
+
           </div>
         </TeaserScroll>
       </div>
@@ -229,7 +251,7 @@ export const HeroParallax = ({ products }) => {
       </section>
 
       {/* ── SECTION 2: ALL MANDATES — STICKY STACKING SEQUENCE ──
-          Replaces the old 4-column grid entirely: all 12 mandates now live
+          Replaces the old 4-column grid entirely: all 24 mandates now live
           here, in the compact stacking format, so they're not duplicated
           across two sections. */}
       <FeaturedMandatesPreview products={products} onSelect={setSelectedProduct} />
@@ -351,6 +373,25 @@ export const ServiceModal = ({ product, onClose }) => {
               <p className="text-sm text-slate-600 leading-relaxed font-normal">
                 {product.details}
               </p>
+            </div>
+          )}
+
+          {/* Recovery Approach */}
+          {product.approach && product.approach.length > 0 && (
+            <div>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#0072bc] font-mono mb-2">
+                Recovery Approach
+              </h4>
+              <div className="flex flex-wrap gap-1.5">
+                {product.approach.map((step) => (
+                  <span
+                    key={step}
+                    className="rounded-full border border-[#0072bc]/20 bg-[#0072bc]/8 px-3 py-1 text-[11px] font-semibold text-[#0072bc]"
+                  >
+                    {step}
+                  </span>
+                ))}
+              </div>
             </div>
           )}
 

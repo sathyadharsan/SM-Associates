@@ -4,69 +4,66 @@ import { Star, X, MapPin, ChevronRight, Navigation, LocateFixed, List } from 'lu
 
 /* ── All 20 offices with real lat/lon ──────────────────────────────────── */
 const OFFICES = [
-  { id: 'ho',   code: 'HO',    name: 'Head Office',          city: 'Chennai',      state: 'Tamil Nadu',
+  { id: 'ho',   code: 'Head Office',          name: 'Corporate Head Office', city: 'Kotturpuram, Chennai', state: 'Tamil Nadu',
     lat: 13.0101, lon: 80.2620, tier: 'hq',
     address: 'No. 10/17, East Ellaiamman Koil Street, Kotturpuram, Chennai – 600 085',
     landmark: 'Near Kotturpuram Railway Station' },
-  { id: 'br1',  code: 'BR-1',  name: 'Chennai Branch 1',     city: 'Chennai',      state: 'Tamil Nadu',
+  { id: 'br1',  code: 'Branch Office',        name: 'Arumbakkam Branch',     city: 'Arumbakkam, Chennai',  state: 'Tamil Nadu',
     lat: 13.0857, lon: 80.2099, tier: 'branch',
     address: 'No. 21, 1st Floor, 1st Main Road, Jai Nagar, Arumbakkam, Chennai – 600 106' },
-  { id: 'br2',  code: 'BR-2',  name: 'Chennai Branch 2',     city: 'Chennai',      state: 'Tamil Nadu',
-    lat: 13.0105, lon: 80.2590, tier: 'branch',
-    address: 'No. 1, Karunanidhi 2nd Street, Kotturpuram, Chennai – 600 085' },
-  { id: 'br3',  code: 'BR-3',  name: 'Chennai Branch 3',     city: 'Chennai',      state: 'Tamil Nadu',
+  { id: 'br3',  code: 'Branch Office',        name: 'Porur Branch',          city: 'Porur, Chennai',       state: 'Tamil Nadu',
     lat: 13.0477, lon: 80.1553, tier: 'branch',
     address: 'No. F2, Vin Virtusa Homes, 84, 5th Street, Rajas Garden, Vanagaram, Chennai – 600 095',
     landmark: 'Near Porur Toll Plaza' },
-  { id: 'br4',  code: 'BR-4',  name: 'Coimbatore Branch 4',  city: 'Coimbatore',   state: 'Tamil Nadu',
+  { id: 'br4',  code: 'Peelamedu',            name: 'Coimbatore Branch 1',  city: 'Coimbatore',           state: 'Tamil Nadu',
     lat: 11.0200, lon: 77.0060, tier: 'branch',
     address: 'No. 437, "Premm Towers", 2nd Floor, Avinashi Road, Peelamedu, Coimbatore – 641 004',
     landmark: 'Opp. SMS Hotel' },
-  { id: 'br5',  code: 'BR-5',  name: 'Coimbatore Branch 5',  city: 'Coimbatore',   state: 'Tamil Nadu',
+  { id: 'br5',  code: 'Singanallur',          name: 'Coimbatore Branch 2',  city: 'Coimbatore',           state: 'Tamil Nadu',
     lat: 10.9825, lon: 77.0110, tier: 'branch',
     address: 'No. 450/1, Trichy Road, Opp. Vasantha Mill, Singanallur, Coimbatore – 641 005' },
-  { id: 'br6',  code: 'BR-6',  name: 'Salem Branch',         city: 'Salem',        state: 'Tamil Nadu',
+  { id: 'br6',  code: 'Vellakkalpatti',       name: 'Salem Branch',         city: 'Salem',                state: 'Tamil Nadu',
     lat: 11.6488, lon: 78.1465, tier: 'branch',
     address: 'PR Residency, No. 6/111-7, 3rd Floor, Bharathi Nagar 4th Cross, Vellakkalpatti, Salem – 636 012',
     landmark: 'Near Salem ELCO-SEZ IT Park' },
-  { id: 'br7',  code: 'BR-7',  name: 'Madurai Branch',       city: 'Madurai',      state: 'Tamil Nadu',
+  { id: 'br7',  code: 'KK Nagar',             name: 'Madurai Branch',       city: 'Madurai',              state: 'Tamil Nadu',
     lat: 9.9252,  lon: 78.1198, tier: 'branch',
     address: 'No. 330 & 331, New LIG Colony, K K Nagar, Madurai – 625 020' },
-  { id: 'br8',  code: 'BR-8',  name: 'Tirunelveli Branch',   city: 'Tirunelveli',  state: 'Tamil Nadu',
+  { id: 'br8',  code: 'Vannarpettai',         name: 'Tirunelveli Branch',   city: 'Tirunelveli',          state: 'Tamil Nadu',
     lat: 8.7300,  lon: 77.7000, tier: 'branch',
     address: 'Sri Krishna Complex, No. 98/2, Salai Street, Vannarpettai, Tirunelveli – 627 005' },
-  { id: 'br9',  code: 'BR-9',  name: 'Tindivanam Branch',    city: 'Tindivanam',   state: 'Tamil Nadu',
+  { id: 'br9',  code: 'MGR Nagar',            name: 'Tindivanam Branch',    city: 'Tindivanam',           state: 'Tamil Nadu',
     lat: 12.2388, lon: 79.6511, tier: 'branch',
     address: 'No. 150, Gingee Road, MGR Nagar, Tindivanam – 604 001' },
-  { id: 'br10', code: 'BR-10', name: 'Trichy Branch',        city: 'Trichy',       state: 'Tamil Nadu',
+  { id: 'br10', code: 'Thillai Nagar',        name: 'Trichy Branch',        city: 'Trichy',               state: 'Tamil Nadu',
     lat: 10.7905, lon: 78.7047, tier: 'branch',
     address: 'No. C-145, NVV Castle, 2nd Floor, 6th Cross, Thillai Nagar, Trichy – 620 018' },
-  { id: 'br11', code: 'BR-11', name: 'Vellore Branch',       city: 'Vellore',      state: 'Tamil Nadu',
+  { id: 'br11', code: 'Katpadi',              name: 'Vellore Branch',       city: 'Vellore',              state: 'Tamil Nadu',
     lat: 12.9165, lon: 79.1325, tier: 'branch',
     address: 'No. 19, 1st Floor, 4th Street, Gopalapuram, Katpadi, Vellore – 632 006',
     landmark: 'Near Akshya Hospital & ESI Dispensary' },
-  { id: 'br12', code: 'BR-12', name: 'Dharmapuri Branch',    city: 'Dharmapuri',   state: 'Tamil Nadu',
+  { id: 'br12', code: 'Ottapatti',            name: 'Dharmapuri Branch',    city: 'Dharmapuri',           state: 'Tamil Nadu',
     lat: 12.1211, lon: 78.1582, tier: 'branch',
     address: 'Door #2/60, N.G.G.O. Colony, Ottapatti, Dharmapuri – 636 705' },
-  { id: 'br13', code: 'BR-13', name: 'Cochin Branch',        city: 'Cochin',       state: 'Kerala',
+  { id: 'br13', code: 'Vennala',              name: 'Cochin Branch',        city: 'Cochin',               state: 'Kerala',
     lat: 9.9312,  lon: 76.2673, tier: 'branch',
     address: 'SRA-63, Sreekala Byline Road, Near EMC, Vennala P.O., Cochin – 682 028' },
-  { id: 'br14', code: 'BR-14', name: 'Kollam Branch',        city: 'Kollam',       state: 'Kerala',
+  { id: 'br14', code: 'Ayathil',              name: 'Kollam Branch',        city: 'Kollam',               state: 'Kerala',
     lat: 8.8932,  lon: 76.6141, tier: 'branch',
     address: 'KMC 29/1857, Opposite Indialayappan Temple, Ayathil P.O., Kollam – 691 021' },
-  { id: 'br15', code: 'BR-15', name: 'Bengaluru Branch',     city: 'Bengaluru',    state: 'Karnataka',
+  { id: 'br15', code: 'Malleshwaram',         name: 'Bengaluru Branch',     city: 'Bengaluru',            state: 'Karnataka',
     lat: 13.0022, lon: 77.5598, tier: 'branch',
     address: 'Makam Plaza, 2nd Floor, 3rd Main Road, 18th Cross Road, Malleshwaram, Bengaluru – 560 055' },
-  { id: 'br16', code: 'BR-16', name: 'Shivamogga Branch',    city: 'Shivamogga',   state: 'Karnataka',
+  { id: 'br16', code: 'Basaveshwar Nagar',    name: 'Shivamogga Branch',    city: 'Shivamogga',           state: 'Karnataka',
     lat: 13.9299, lon: 75.5681, tier: 'branch',
     address: 'Renuka Complex, 1st Floor, Near Bharat Petroleum, Basavveshwar Nagar, Shivamogga – 577 204' },
-  { id: 'br17', code: 'BR-17', name: 'Hyderabad Branch',     city: 'Hyderabad',    state: 'Telangana',
+  { id: 'br17', code: 'Erragadda',            name: 'Hyderabad Branch',     city: 'Hyderabad',            state: 'Telangana',
     lat: 17.4400, lon: 78.3897, tier: 'branch',
     address: 'Flat No. F1, Srivijaya Laxmi Classic, Erragadda, Hyderabad – 500 038' },
-  { id: 'br18', code: 'BR-18', name: 'Vijayawada Branch',    city: 'Vijayawada',   state: 'Andhra Pradesh',
+  { id: 'br18', code: 'Benz Circle',          name: 'Vijayawada Branch',    city: 'Vijayawada',           state: 'Andhra Pradesh',
     lat: 16.5062, lon: 80.6480, tier: 'branch',
     address: '"Jasmine Residency", Flat No. 302, Nearby Benz Circle, Vijayawada – 520 008' },
-  { id: 'br19', code: 'BR-19', name: 'Puducherry Branch',    city: 'Puducherry',   state: 'Puducherry',
+  { id: 'br19', code: 'Lawspet',              name: 'Puducherry Branch',    city: 'Puducherry',           state: 'Puducherry',
     lat: 11.9416, lon: 79.8083, tier: 'branch',
     address: 'Old Door No. 446, New Door No. 152, 1st Floor, Bharathiyar Salai, Lawspet – 605 008' },
 ];
@@ -106,22 +103,36 @@ const LEAFLET_STYLES = `
     box-shadow: 0 4px 14px rgba(0,0,0,0.4), 0 0 0 4px rgba(255,255,255,0.85);
     transition: transform .22s cubic-bezier(0.22,1,0.36,1); }
   .sm-cluster:hover { transform: scale(1.12); }
-  /* Zoom controls */
-  .leaflet-bottom.leaflet-right { z-index: 500 !important; margin-bottom: 18px !important; }
+  /* Zoom controls — Left Side Center */
+  .leaflet-top.leaflet-left {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 16px !important;
+    z-index: 500 !important;
+    margin: 0 !important;
+  }
   .leaflet-control-zoom {
-    border: none !important; border-radius: 12px !important;
-    overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.25) !important;
+    border: none !important;
+    border-radius: 14px !important;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.22) !important;
+    margin: 0 !important;
   }
   .leaflet-control-zoom a {
-    background: #fff !important; color: #0f172a !important; border: none !important;
-    border-bottom: 1px solid #e2e8f0 !important;
-    font-size: 20px !important; font-weight: 300 !important;
-    width: 36px !important; height: 36px !important; line-height: 36px !important;
-    transition: background .15s, color .15s;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: none !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    font-size: 19px !important;
+    font-weight: 400 !important;
+    width: 38px !important;
+    height: 38px !important;
+    line-height: 38px !important;
+    transition: background 0.15s, color 0.15s;
   }
-  .leaflet-control-zoom a:hover { background: #0072bc !important; color: #fff !important; }
-  .leaflet-control-zoom-in  { border-radius: 12px 12px 0 0 !important; }
-  .leaflet-control-zoom-out { border-radius: 0 0 12px 12px !important; border-bottom: none !important; }
+  .leaflet-control-zoom a:hover { background: #0072bc !important; color: #ffffff !important; }
+  .leaflet-control-zoom-in  { border-radius: 14px 14px 0 0 !important; }
+  .leaflet-control-zoom-out { border-radius: 0 0 14px 14px !important; border-bottom: none !important; }
   .leaflet-control-attribution {
     background: rgba(255,255,255,0.88) !important; border-radius: 8px 0 0 0 !important;
     font-size: 9px !important; color: #94a3b8 !important;
@@ -131,40 +142,46 @@ const LEAFLET_STYLES = `
   .leaflet-container { touch-action: pan-y !important; }
   .leaflet-grab { cursor: default !important; }
   .leaflet-dragging .leaflet-grab { cursor: default !important; }
-  /* Location name labels */
+  /* Location name labels — clean text without white background cards */
   .sm-label {
-    background: rgba(255,255,255,0.94) !important;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif !important;
+    background: transparent !important;
     border: none !important;
-    border-radius: 6px !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.18) !important;
-    padding: 2px 7px !important;
-    font-size: 11px !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    font-size: 10.5px !important;
     font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
     white-space: nowrap !important;
     pointer-events: none !important;
+    text-shadow: 
+      -1.5px -1.5px 0 #ffffff,  
+       1.5px -1.5px 0 #ffffff,
+      -1.5px  1.5px 0 #ffffff,
+       1.5px  1.5px 0 #ffffff,
+       0 1px 4px rgba(255,255,255,0.9) !important;
   }
   .sm-label::before { display: none !important; }
   .sm-label-hq {
-    color: #92651a !important;
-    background: rgba(255,248,220,0.97) !important;
-    border: 1px solid rgba(0, 114, 188, 0.1) !important;
+    color: #0072bc !important;
+    font-weight: 800 !important;
   }
-  .sm-label-branch { color: #0072bc !important; }
+  .sm-label-branch { color: #1e293b !important; }
 `;
 
 /* ── Pin HTML ────────────────────────────────────────────────────────────── */
 function buildPinHTML(tier) {
   const c = pinColor(tier);
   const isHQ = tier === 'hq';
-  const w = isHQ ? 42 : 34;
-  const h = isHQ ? 50 : 42;
+  const w = isHQ ? 36 : 28;
+  const h = isHQ ? 44 : 34;
   return `<div class="sm-pin" style="width:${w}px;height:${h}px">
     ${isHQ ? `<div class="sm-pin-pulse" style="width:${w}px;height:${w}px;border:2px solid ${c};top:${w/2}px;left:50%;"></div>` : ''}
     <svg viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="g${tier}" x1="14" y1="0" x2="14" y2="36" gradientUnits="userSpaceOnUse">
           <stop stop-color="${c}"/>
-          <stop offset="1" stop-color="${c}" stop-opacity="0.78"/>
+          <stop offset="1" stop-color="${c}" stop-opacity="0.85"/>
         </linearGradient>
       </defs>
       <path d="M14 0C8.48 0 4 4.48 4 10c0 8 10 26 10 26S24 18 24 10C24 4.48 19.52 0 14 0z"
@@ -278,7 +295,15 @@ function InfoCard({ selected, onClose, onReset }) {
 /* ── Location list — shared by desktop sidebar and mobile bottom sheet ──── */
 function LocationList({ selected, onSelect }) {
   return (
-    <div className="overflow-y-auto scrollbar-hide" style={{ maxHeight: 410 }}>
+    <div
+      onWheel={(e) => e.stopPropagation()}
+      onTouchMove={(e) => e.stopPropagation()}
+      className="max-h-[340px] overflow-y-auto divide-y divide-slate-100/70 text-left cursor-default"
+      style={{
+        scrollbarWidth: 'thin',
+        scrollbarColor: '#0072bc #f1f5f9',
+      }}
+    >
       {OFFICES.map((o) => {
         const c = pinColor(o.tier);
         const isActive = selected?.id === o.id;
@@ -286,16 +311,18 @@ function LocationList({ selected, onSelect }) {
           <button
             key={o.id}
             onClick={() => onSelect(o)}
-            className={`group flex w-full items-center gap-2.5 px-4 py-2.5 text-left transition ${isActive ? 'bg-slate-50' : 'hover:bg-slate-50'}`}
+            className={`group flex w-full items-center gap-3 px-4 py-2.5 text-left transition-all duration-200 ${
+              isActive ? 'bg-[#0072bc]/8 font-bold' : 'hover:bg-slate-50/90'
+            }`}
           >
             <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: c }} />
             <div className="min-w-0 flex-1">
-              <p className={`truncate text-[11.5px] font-semibold ${isActive ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'}`}>
+              <p className={`truncate font-sora text-[12px] font-bold tracking-tight transition-colors ${isActive ? 'text-[#0072bc]' : 'text-slate-800 group-hover:text-[#0072bc]'}`}>
                 {o.city}
               </p>
-              <p className="text-[10px] font-mono text-slate-400">{o.code}</p>
+              <p className="text-[10.5px] font-semibold text-slate-400 tracking-wide font-sans">{o.code}</p>
             </div>
-            {isActive && <ChevronRight className="h-3 w-3 shrink-0 text-brand-500" />}
+            {isActive && <ChevronRight className="h-3.5 w-3.5 shrink-0 text-[#0072bc]" />}
           </button>
         );
       })}
@@ -327,75 +354,42 @@ export default function CommandCenterSection() {
 
     // Renders individual pins or a single cluster badge per city, depending
     // on the current zoom level — keeps Chennai's 4 offices and
-    // Coimbatore's 2 from overlapping into an unreadable pile at low zoom.
     function renderMarkers() {
       const layer = markerLayerRef.current;
       if (!layer) return;
       layer.clearLayers();
-      const zoom = map.getZoom();
 
-      CITY_GROUPS.forEach((group) => {
-        if (group.length === 1 || zoom >= CLUSTER_ZOOM_THRESHOLD) {
-          group.forEach((office) => {
-            const isHQ = office.tier === 'hq';
-            const icon = L.divIcon({
-              html: buildPinHTML(office.tier),
-              className: 'sm-pin-wrap',
-              iconSize: [isHQ ? 42 : 34, isHQ ? 50 : 42],
-              iconAnchor: [isHQ ? 21 : 17, isHQ ? 50 : 42],
-            });
-            const marker = L.marker([office.lat, office.lon], {
-              icon,
-              keyboard: true,
-              alt: `${office.name}, ${office.city}`,
-              title: `${office.name}, ${office.city}`,
-            })
-              .addTo(layer)
-              .on('click', (e) => { L.DomEvent.stopPropagation(e); setSelected(office); });
+      const labeledCities = new Set();
 
-            marker.bindTooltip(
-              `<span>${isHQ ? '★ ' : ''}${office.city}</span>`,
-              {
-                permanent: true,
-                direction: 'right',
-                offset: [isHQ ? 14 : 10, isHQ ? -28 : -24],
-                className: `sm-label ${isHQ ? 'sm-label-hq' : 'sm-label-branch'}`,
-              }
-            );
-          });
-        } else {
-          const hasHQ = group.some((o) => o.tier === 'hq');
-          const centroid = [
-            group.reduce((s, o) => s + o.lat, 0) / group.length,
-            group.reduce((s, o) => s + o.lon, 0) / group.length,
-          ];
-          const size = 40 + Math.min(group.length, 6) * 2;
-          const icon = L.divIcon({
-            html: buildClusterHTML(group.length, hasHQ),
-            className: 'sm-pin-wrap',
-            iconSize: [size, size],
-            iconAnchor: [size / 2, size / 2],
-          });
-          const marker = L.marker(centroid, {
-            icon,
-            keyboard: true,
-            alt: `${group[0].city} — ${group.length} offices`,
-            title: `${group[0].city} — ${group.length} offices, click to zoom in`,
-          })
-            .addTo(layer)
-            .on('click', (e) => {
-              L.DomEvent.stopPropagation(e);
-              const groupBounds = L.latLngBounds(group.map((o) => [o.lat, o.lon]));
-              map.flyToBounds(groupBounds, { padding: [60, 60], maxZoom: CLUSTER_ZOOM_THRESHOLD + 1, duration: 0.6 });
-            });
+      OFFICES.forEach((office) => {
+        const isHQ = office.tier === 'hq';
+        const icon = L.divIcon({
+          html: buildPinHTML(office.tier),
+          className: 'sm-pin-wrap',
+          iconSize: [isHQ ? 36 : 28, isHQ ? 44 : 34],
+          iconAnchor: [isHQ ? 18 : 14, isHQ ? 44 : 34],
+        });
+        const marker = L.marker([office.lat, office.lon], {
+          icon,
+          keyboard: true,
+          alt: `${office.name}, ${office.city}`,
+          title: `${office.name}, ${office.city}`,
+        })
+          .addTo(layer)
+          .on('click', (e) => { L.DomEvent.stopPropagation(e); setSelected(office); });
 
+        const baseCity = office.city.includes('Chennai') ? 'Chennai' : office.city.includes('Coimbatore') ? 'Coimbatore' : office.city;
+
+        // Show permanent text label for HQ or first branch of each city to prevent overlapping text
+        if (isHQ || !labeledCities.has(baseCity)) {
+          labeledCities.add(baseCity);
           marker.bindTooltip(
-            `<span>${hasHQ ? '★ ' : ''}${group[0].city} (${group.length})</span>`,
+            `<span>${isHQ ? '★ ' : ''}${baseCity}</span>`,
             {
               permanent: true,
               direction: 'right',
-              offset: [size / 2 - 6, -size / 2 + 8],
-              className: `sm-label ${hasHQ ? 'sm-label-hq' : 'sm-label-branch'}`,
+              offset: [isHQ ? 14 : 10, isHQ ? -24 : -20],
+              className: `sm-label ${isHQ ? 'sm-label-hq' : 'sm-label-branch'}`,
             }
           );
         }
@@ -428,22 +422,17 @@ export default function CommandCenterSection() {
       mapRef.current.style.touchAction = 'pan-y';
       leafletMapRef.current = map;
 
-      // ESRI Ocean Basemap — deep sea depth shading & ocean feel
+      // CartoDB Voyager — Modern Corporate Theme
       const baseLayer = L.tileLayer(
-        'https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}',
+        'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
         {
-          attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
-          maxZoom: 13,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+          subdomains: 'abcd',
+          maxZoom: 18,
         }
       ).addTo(map);
 
-      // Ocean reference overlay (place names, borders on top of ocean tiles)
-      L.tileLayer(
-        'https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Reference/MapServer/tile/{z}/{y}/{x}',
-        { opacity: 0.7, maxZoom: 13 }
-      ).addTo(map);
-
-      map.zoomControl.setPosition('bottomright');
+      map.zoomControl.setPosition('topleft');
 
       markerLayerRef.current = L.layerGroup().addTo(map);
       renderMarkers();
@@ -477,11 +466,13 @@ export default function CommandCenterSection() {
       <div className="fg-wrap" style={{ marginBottom: 40 }}>
         <div className="fg-section-header" style={{ marginBottom: 0 }}>
           <span className="fg-eyebrow">Geographic Depth</span>
-          <h2>20 offices, 1,500+ field recovery professionals.</h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight font-sora">
+            19 offices, 1,500+ field recovery professionals.
+          </h2>
         </div>
       </div>
 
-      <div className="relative w-full" style={{ height: '70vh', minHeight: 520 }}>
+      <div className="relative w-full" style={{ height: '84vh', minHeight: 660 }}>
         {/* Loading */}
         {!mapReady && (
           <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100">
@@ -601,28 +592,6 @@ export default function CommandCenterSection() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Stats strip — bottom (pointer-events-none on the wrapper so the
-          invisible full-width flex row never blocks the Leaflet zoom
-          control sitting bottom-right underneath it) */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[400] flex justify-center pb-4">
-        <div className="pointer-events-auto flex items-center gap-1 overflow-hidden rounded-2xl border border-slate-200 bg-white/90 shadow-soft backdrop-blur-sm">
-          {[
-            { value: '20', label: 'Offices' },
-            { value: '916+', label: 'Staff' },
-            { value: '6', label: 'States' },
-            { value: '25+', label: 'Years' },
-          ].map(({ value, label }, i) => (
-            <div
-              key={label}
-              className={`px-5 py-2.5 text-center ${i < 3 ? 'border-r border-slate-200' : ''}`}
-            >
-              <p className="font-sora text-[17px] font-bold text-slate-900">{value}</p>
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-400">{label}</p>
-            </div>
-          ))}
-        </div>
-      </div>
 
       </div> {/* End map container */}
     </section>

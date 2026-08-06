@@ -1,246 +1,256 @@
 /**
- * ComplianceStorySection
+ * ComplianceStorySection — Split Accent Layout
  * ─────────────────────────────────────────────────────────────────────
- * Scroll-driven story version of "Compliance & Data Security" for the
- * Services page — same pinned sticky-wrapper mechanic as
- * ServiceStorySection (see utils/scrollStoryMath.js), dark-themed to
- * alternate with the light Technology Story above it.
+ * Redesigned from scroll-driven story to a dark 2-column split layout:
+ * Left: bold headline + descriptor + 2 stat pills
+ * Right: 4 compliance pillars as stacked icon cards
+ * Dark theme (#0a1628) maintained for visual contrast on the page.
  */
 
-import { useEffect, useRef, useState } from 'react';
-import { useReducedMotion, motion, AnimatePresence } from 'framer-motion';
-import { Lock, ClipboardCheck, Scale, UserCheck, Check } from 'lucide-react';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Lock, ClipboardCheck, Scale, UserCheck, Check, ShieldCheck, RotateCw, ArrowRight } from 'lucide-react';
 import { complianceAssurance } from '../data/servicesLandingData';
-import { mountScrollStory, attachPointerTilt, easeOutBack } from '../utils/scrollStoryMath';
-
-const TOTAL = complianceAssurance.length;
-const SEGMENT_VH = 100;
-
-// "Materializes into place" visual recipe — a third distinct moment (after
-// the flying-card and diagonal-clip patterns): the panel assembles from a
-// small, rotated, blurred-out state rather than sliding in from a side.
-function materializeCardStyle(el, { opacity, entrance, exit }) {
-  const settle = easeOutBack(1 - entrance);
-  const growth = 1 - settle; // ~0 when settled; up to ~1 while still assembling
-  const scale = 0.7 + 0.3 * settle - exit * 0.08;
-  const rotate = growth * -10 + exit * 6;
-  el.style.opacity = String(opacity);
-  el.style.transform = `scale(${scale}) rotate(${rotate}deg)`;
-  el.style.filter = 'none';
-}
 
 const iconMap = { Lock, ClipboardCheck, Scale, UserCheck };
 
-// Illustrative photography reused from the site's own verified image pool
-// (data/servicesIndex recoveryProducts) — thematic fit, not literal photos
-// of SM Associates' own systems.
-const IMAGE_BY_TITLE = {
-  // Data Handling & Confidentiality → encrypted data / secure server room
-  'Data Handling & Confidentiality':
-    'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1600&q=85&auto=format&fit=crop',
-  // Audit-Trail Discipline → auditor reviewing logs / document records
-  'Audit-Trail Discipline':
-    'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1600&q=85&auto=format&fit=crop',
-  // Regulatory Alignment → legal / RBI regulatory compliance documents
-  'Regulatory Alignment':
-    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1600&q=85&auto=format&fit=crop',
-  // Engagement & Reporting Structure → institutional reporting / structured meeting
-  'Engagement & Reporting Structure':
-    'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=85&auto=format&fit=crop',
+const FLIP_DETAILS = {
+  'Data Handling & Confidentiality': {
+    subtitle: 'Institutional Security Protocol',
+    highlights: [
+      'ISO 27001 Certified AES-256 encrypted database architecture',
+      'Mandate-specific NDA & strict Role-Based Access Control (RBAC)',
+      'Zero local device storage — 100% centralized cloud audit trail',
+      'Instant post-engagement data retention & purge protocols'
+    ]
+  },
+  'Audit-Trail Discipline': {
+    subtitle: 'Field Execution Verification',
+    highlights: [
+      'Real-time GPS geotagging & timestamp on every field visit',
+      '100% recorded call logs for tele-collections compliance',
+      'Automated daily MIS exportable in Bank-ready XML/Excel format',
+      'Independent internal quality audit before portfolio sign-off'
+    ]
+  },
+  'Regulatory Alignment': {
+    subtitle: 'Statutory Conduct Framework',
+    highlights: [
+      'Full adherence to RBI Fair Practices Code & SARFAESI Act',
+      '100% IIBF DRA Certified & Police Verified field recovery team',
+      'Strict adherence to RBI permitted contacting hours (08 AM – 07 PM)',
+      'Dedicated institutional borrower grievance redressal channel'
+    ]
+  },
+  'Engagement & Reporting Structure': {
+    subtitle: 'Operational Hierarchy & SLA',
+    highlights: [
+      'Dedicated Nodal Officer assigned for every financial institution',
+      'Weekly executive review & monthly portfolio health check',
+      'Structured 3-tier escalation matrix for complex legal workouts',
+      'Transparent success fee model with zero hidden overheads'
+    ]
+  }
 };
 
-const rise = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } } };
-const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } };
+const pillarVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, delay: i * 0.10, ease: [0.16, 1, 0.3, 1] },
+  }),
+};
 
-function ChapterCopy({ pillar, index, wordRefs, dark = false }) {
-  if (wordRefs) wordRefs.current[index] = [];
-  let wordCounter = 0;
-  return (
-    <>
-      <span className={`font-mono text-[11px] font-bold uppercase tracking-[0.2em] ${dark ? 'text-[#3d9ed6]' : 'text-[#0072bc]'}`}>
-        {String(index + 1).padStart(2, '0')} / {String(TOTAL).padStart(2, '0')}
-      </span>
-      <h3 className={`mt-4 text-2xl font-extrabold leading-tight tracking-tight sm:text-[32px] ${dark ? 'text-white' : 'text-slate-900'}`}>
-        {pillar.title}
-      </h3>
-      {/* Word-sweep spans the bullets in reading order (bullet 1 lights up
-          fully before bullet 2 starts) — static/mobile fallback has no
-          wordRefs and renders plain text. */}
-      <ul className="mt-6 space-y-3">
-        {pillar.points.map((point) => {
-          const words = point.split(' ');
-          return (
-            <li key={point} className={`flex items-start gap-2.5 text-[14px] leading-relaxed ${dark ? 'text-slate-300' : 'text-slate-600'}`}>
-              <span className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${dark ? 'bg-[#0072bc]/20 text-[#3d9ed6]' : 'bg-[#0072bc]/10 text-[#0072bc]'}`}>
-                <Check size={9} strokeWidth={3} />
-              </span>
-              <span>
-                {wordRefs
-                  ? words.map((word, wi) => {
-                      const globalIndex = wordCounter++;
-                      return (
-                        <span
-                          key={wi}
-                          ref={(el) => { wordRefs.current[index][globalIndex] = el; }}
-                          style={{ opacity: 0.32 }}
-                        >
-                          {word}
-                          {wi < words.length - 1 ? ' ' : ''}
-                        </span>
-                      );
-                    })
-                  : point}
-              </span>
-            </li>
-          );
-        })}
-      </ul>
-    </>
-  );
-}
+const leftVariants = {
+  hidden: { opacity: 0, x: -30 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+};
 
-function StaticStoryList() {
+const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
+
+const STAT_PILLS = [
+  { value: 'RBI', label: 'Fair Practices Code' },
+  { value: 'IIBF', label: 'Certified Agents' },
+  { value: 'SARFAESI', label: 'Authorized' },
+  { value: 'ISO 27001', label: 'Data Standards' },
+];
+
+function PillarCard({ pillar, index }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const Icon = iconMap[pillar.icon] || Lock;
+  const backContent = FLIP_DETAILS[pillar.title];
+
   return (
-    <div className="mx-auto max-w-3xl space-y-14 px-4 py-20 sm:px-6">
-      {complianceAssurance.map((pillar, index) => (
-        <motion.div key={pillar.title} variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }}>
-          <motion.div variants={rise} className="overflow-hidden rounded-[24px]">
-            <img src={IMAGE_BY_TITLE[pillar.title]} alt={pillar.title} className="h-56 w-full object-cover sm:h-64" loading="lazy" />
-          </motion.div>
-          <motion.div variants={rise} className="mt-6">
-            <ChapterCopy pillar={pillar} index={index} />
-          </motion.div>
-        </motion.div>
-      ))}
-    </div>
+    <motion.div
+      custom={index}
+      variants={pillarVariants}
+      onMouseEnter={() => setIsFlipped(true)}
+      onMouseLeave={() => setIsFlipped(false)}
+      onClick={() => setIsFlipped((prev) => !prev)}
+      className="group relative cursor-pointer min-h-[275px]"
+      style={{ perspective: 1000 }}
+    >
+      <motion.div
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        style={{ transformStyle: 'preserve-3d' }}
+        className="relative h-full w-full rounded-3xl"
+      >
+        {/* FRONT SIDE (White First) */}
+        <div
+          className={`flex h-full flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-[0_4px_24px_rgba(0,0,0,0.04)] backdrop-blur-md transition-all duration-300 group-hover:border-[#0072bc]/50 group-hover:shadow-[0_12px_40px_rgba(0,114,188,0.12)] ${
+            isFlipped ? 'pointer-events-none opacity-0' : 'opacity-100'
+          }`}
+          style={{ backfaceVisibility: 'hidden' }}
+        >
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3.5">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#0072bc]/10 text-[#0072bc] border border-[#0072bc]/20">
+                  <Icon size={20} strokeWidth={2} />
+                </div>
+                <h4 className="text-base font-extrabold tracking-tight text-slate-900 font-sora">
+                  {pillar.title}
+                </h4>
+              </div>
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-400 border border-slate-200 group-hover:bg-[#0072bc] group-hover:text-white transition-colors">
+                <RotateCw size={12} />
+              </span>
+            </div>
+
+            <ul className="space-y-2.5 pt-1">
+              {pillar.points.map((point) => (
+                <li key={point} className="flex items-start gap-2.5 text-[13px] leading-relaxed text-slate-600">
+                  <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#0072bc]/10 text-[#0072bc]">
+                    <Check size={9} strokeWidth={3} />
+                  </span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text.5 font-semibold text-[#0072bc]">
+            <span className="text-[11.5px] font-bold">Hover / Tap to view detailed framework</span>
+            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+          </div>
+        </div>
+
+        {/* BACK SIDE (Corporate Deep Blue Accent) */}
+        <div
+          className={`absolute inset-0 flex h-full flex-col justify-between rounded-3xl border border-[#0072bc] bg-gradient-to-br from-[#0072bc] to-[#005a96] p-6 sm:p-7 text-white shadow-2xl shadow-[#0072bc]/30 ${
+            isFlipped ? 'opacity-100' : 'pointer-events-none opacity-0'
+          }`}
+          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+        >
+          <div>
+            <div className="flex items-center justify-between mb-3">
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-blue-200 font-mono">
+                  {backContent.subtitle}
+                </span>
+                <h4 className="text-base font-extrabold tracking-tight text-white font-sora">
+                  {pillar.title}
+                </h4>
+              </div>
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/20 text-white border border-white/30">
+                <RotateCw size={12} className="rotate-180" />
+              </span>
+            </div>
+
+            <ul className="space-y-2 pt-1">
+              {backContent.highlights.map((h, i) => (
+                <li key={i} className="flex items-start gap-2.5 text-[12.5px] leading-relaxed text-blue-50/90">
+                  <span className="mt-1 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-white/20 text-white">
+                    <ShieldCheck size={10} />
+                  </span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-4 flex items-center justify-between border-t border-white/20 pt-3 text-[11px] font-semibold text-blue-100">
+            <span>Hover away / Tap to flip back</span>
+            <span className="text-white font-mono text-[10px] bg-white/15 px-2 py-0.5 rounded-full">VERIFIED SLA</span>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
 export default function ComplianceStorySection() {
-  const reduceMotion = useReducedMotion();
-  const wrapRef = useRef(null);
-  const stageRef = useRef(null);
-  const cardRefs = useRef([]);
-  const textRefs = useRef([]);
-  const wordRefs = useRef([]);
-  const tiltRefs = useRef([]);
-  const activeIndexRef = useRef(0);
-  const progressRef = useRef(null);
-  const numeralRef = useRef(null);
-  const [activeChapterIndex, setActiveChapterIndex] = useState(0);
-
-  useEffect(() => {
-    if (reduceMotion) return undefined;
-    const cleanupScroll = mountScrollStory({
-      wrapRef,
-      cardRefs,
-      textRefs,
-      wordRefs,
-      total: TOTAL,
-      applyCardStyle: materializeCardStyle,
-      onProgress: ({ progress, activeIndex }) => {
-        if (activeIndexRef.current !== activeIndex) {
-          activeIndexRef.current = activeIndex;
-          setActiveChapterIndex(activeIndex);
-        }
-        if (numeralRef.current) numeralRef.current.textContent = String(activeIndex + 1).padStart(2, '0');
-        if (progressRef.current) progressRef.current.style.width = `${progress * 100}%`;
-      },
-    });
-    const cleanupTilt = attachPointerTilt({ stageRef, tiltRefs, activeIndexRef });
-    return () => {
-      cleanupScroll();
-      cleanupTilt();
-    };
-  }, [reduceMotion]);
-
-  if (reduceMotion) {
-    return (
-      <section className="bg-white" aria-label="Compliance & Data Security">
-        <StaticStoryList />
-      </section>
-    );
-  }
-
   return (
-    // Dark-themed — alternates with the light Technology Story above it (see
-    // file header comment). Mobile/reduced-motion fallbacks stay white by
-    // design, matching DayInRecoverySection's identical convention: the dark
-    // treatment is a desktop-pinned-stage flourish, not a section-wide theme.
-    <section className="relative bg-[#0a1628]" aria-label="Compliance & Data Security">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{ background: 'radial-gradient(ellipse 80% 40% at 50% 0%, rgba(0,114,188,0.14) 0%, transparent 70%)' }}
-      />
+    <section
+      className="relative z-30 overflow-hidden bg-white py-20 sm:py-28 border-t border-slate-200/60"
+      aria-label="Compliance & Data Security"
+    >
 
-      <div className="relative z-10 bg-white lg:hidden">
-        <StaticStoryList />
-      </div>
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        {/* ── HEADER: Centered Headline + Descriptor + Stat Pills ── */}
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-80px' }}
+          className="mx-auto max-w-3xl text-center mb-14 sm:mb-16"
+        >
+          <motion.span
+            variants={leftVariants}
+            className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-[#0072bc] bg-[#0072bc]/10 px-3 py-1 rounded-full border border-[#0072bc]/20"
+          >
+            <ShieldCheck size={14} />
+            Enterprise Governance
+          </motion.span>
 
-      <div ref={wrapRef} className="relative z-10 hidden lg:block" style={{ height: `${TOTAL * SEGMENT_VH}vh` }}>
-        {/* pt-24 clears the site's fixed header — same convention as
-            OperatingModelSection's .model6-head (top:96px). */}
-        <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden pt-24">
-          <div className="mx-auto w-full max-w-7xl px-8">
-            <div className="mb-14 text-center flex flex-col items-center justify-center">
-              <h2 className="text-[28px] font-extrabold leading-tight tracking-tight text-white sm:text-[36px] text-center">
-                Every engagement runs under enterprise governance.
-              </h2>
-              {/* Premium Level Accent Line (Dark Mode) */}
-              <div className="mt-4 flex items-center justify-center gap-2">
-                <div className="h-0.5 w-10 bg-gradient-to-r from-transparent to-[#3d9ed6]/60 rounded-full" />
-                <div className="h-1.5 w-1.5 rounded-full bg-[#3d9ed6] shadow-sm shadow-[#3d9ed6]/60" />
-                <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#3d9ed6]/60 rounded-full" />
+          <motion.h2
+            variants={leftVariants}
+            className="text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl lg:text-[42px] font-sora"
+          >
+            Every engagement runs under enterprise governance.
+          </motion.h2>
+
+          <motion.p
+            variants={leftVariants}
+            className="mt-4 text-sm sm:text-base leading-relaxed text-slate-600"
+          >
+            Data, conduct and statutory compliance are not review-cycle items — they are continuous, embedded operating standards across every mandate we run.
+          </motion.p>
+
+          {/* Certification / framework pills row */}
+          <motion.div variants={leftVariants} className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            {STAT_PILLS.map((pill) => (
+              <div
+                key={pill.label}
+                className="flex items-center gap-2 rounded-full border border-slate-200/80 bg-white px-4 py-2 shadow-xs"
+              >
+                <span className="font-mono text-xs font-extrabold text-[#0072bc]">
+                  {pill.value}
+                </span>
+                <span className="text-[10.5px] font-semibold text-slate-500">
+                  {pill.label}
+                </span>
               </div>
-            </div>
+            ))}
+          </motion.div>
+        </motion.div>
 
-            <div className="grid grid-cols-2 gap-16 items-center">
-              <div className="relative h-[320px] overflow-hidden">
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.div
-                    key={complianceAssurance[activeChapterIndex].title}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -16 }}
-                    transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute inset-0 z-20 flex flex-col justify-start"
-                  >
-                    <ChapterCopy pillar={complianceAssurance[activeChapterIndex]} index={activeChapterIndex} dark />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
+        {/* ── 4 COMPLIANCE CARDS GRID (2x2) ── */}
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
+        >
+          {complianceAssurance.map((pillar, index) => (
+            <PillarCard key={pillar.title} pillar={pillar} index={index} />
+          ))}
+        </motion.div>
 
-              <div className="relative h-[420px]" style={{ perspective: 1400 }}>
-                {complianceAssurance.map((pillar, index) => (
-                  <div
-                    key={pillar.title}
-                    ref={(el) => (cardRefs.current[index] = el)}
-                    className="absolute inset-0 overflow-hidden rounded-[32px] border border-white/10 shadow-2xl shadow-black/40"
-                    style={{ opacity: index === 0 ? 1 : 0, zIndex: index, transformStyle: 'preserve-3d' }}
-                  >
-                    <div
-                      ref={(el) => (tiltRefs.current[index] = el)}
-                      className="absolute inset-0"
-                      style={{ transformStyle: 'preserve-3d' }}
-                    >
-                      <img
-                        src={IMAGE_BY_TITLE[pillar.title]}
-                        alt={pillar.title}
-                        className="h-full w-full object-cover"
-                        loading={index === 0 ? 'eager' : 'lazy'}
-                      />
-                      <div
-                        className="absolute inset-0"
-                        style={{ background: 'linear-gradient(160deg, rgba(15,23,42,0.02) 0%, rgba(15,23,42,0.4) 100%)' }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

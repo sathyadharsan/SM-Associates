@@ -143,7 +143,7 @@ const SECTORS = [
   {
     label: 'Insurance',
     Logo: InsuranceLogo,
-    sub: 'IRDAI Approved',
+    sub: 'Empaneled Operations',
   },
   {
     label: 'Commercial Lending',

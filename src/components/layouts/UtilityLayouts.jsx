@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { saveSubmission } from '../../chatbot/leadTransport';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
@@ -186,7 +187,7 @@ export function CareersLayout({ content }) {
           <span className="text-xs font-bold uppercase tracking-widest text-brand-500 font-mono">Geographic Footprint</span>
           <h3 className="text-2xl font-bold font-sora">Operational Branch Locations</h3>
           <p className="text-slate-500 text-xs leading-relaxed">
-            Our teams operate directly out of Chennai HQ and [BRANCH COUNT] branches across Tamil Nadu, Karnataka, Kerala, Telangana, Andhra Pradesh, and Puducherry.
+            Our teams operate directly out of Chennai HQ and 19 branches across Tamil Nadu, Karnataka, Kerala, Telangana, Andhra Pradesh, and Puducherry.
           </p>
         </div>
       </section>
@@ -244,12 +245,59 @@ export function CareersLayout({ content }) {
         {selectedJob && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-sm">
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative text-left">
-              <h3 className="text-lg font-bold font-sora text-[#0a1128]">Apply: {selectedJob.title}</h3>
-              <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-                <input required type="text" placeholder="Name..." className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-[#0a1128]" />
-                <input required type="email" placeholder="Email..." className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-[#0a1128]" />
-                <button type="submit" className="w-full rounded-xl bg-brand-500 hover:bg-brand-500 text-white font-bold text-xs py-3 text-center transition-all">Submit application</button>
-              </form>
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-lg font-bold font-sora text-[#0a1128]">Apply: {selectedJob.title}</h3>
+                <button onClick={() => setSelectedJob(null)} className="text-slate-400 hover:text-slate-600 text-xs font-bold">Close</button>
+              </div>
+
+              {submitted ? (
+                <div className="text-center py-6 space-y-3">
+                  <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                    <CheckCircle2 size={24} />
+                  </div>
+                  <h4 className="text-base font-bold text-slate-900 font-sora">Application Recorded!</h4>
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    Your details have been queued for HR review. You can also send your CV directly to our recruitment desk.
+                  </p>
+                  <div className="pt-2 flex flex-col gap-2">
+                    <a
+                      href={`mailto:smarmpl.ho@gmail.com?subject=Application for ${encodeURIComponent(selectedJob.title)}`}
+                      className="w-full rounded-xl bg-[#0072bc] hover:bg-[#005a96] text-white font-bold text-xs py-2.5 text-center transition-all inline-block"
+                    >
+                      Email CV to HR Desk (smarmpl.ho@gmail.com)
+                    </a>
+                    <button onClick={() => setSelectedJob(null)} className="w-full text-xs text-slate-500 hover:underline py-1">
+                      Done
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  const target = e.target;
+                  const name = target.elements['career-name']?.value || '';
+                  const email = target.elements['career-email']?.value || '';
+                  const phone = target.elements['career-phone']?.value || '';
+                  saveSubmission('careers', { role: selectedJob.title, name, email, phone });
+                  setSubmitted(true);
+                }} className="space-y-4">
+                  <div>
+                    <label htmlFor="career-name" className="block text-[11px] font-bold text-slate-600 mb-1">Full Name *</label>
+                    <input id="career-name" required type="text" placeholder="Your name..." className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-[#0a1128]" />
+                  </div>
+                  <div>
+                    <label htmlFor="career-email" className="block text-[11px] font-bold text-slate-600 mb-1">Email Address *</label>
+                    <input id="career-email" required type="email" placeholder="Your email address..." className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-[#0a1128]" />
+                  </div>
+                  <div>
+                    <label htmlFor="career-phone" className="block text-[11px] font-bold text-slate-600 mb-1">Phone Number *</label>
+                    <input id="career-phone" required type="tel" placeholder="+91 XXXXX XXXXX" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-[#0a1128]" />
+                  </div>
+                  <button type="submit" className="w-full rounded-xl bg-[#0072bc] hover:bg-[#005a96] text-white font-bold text-xs py-3 text-center transition-all shadow-md">
+                    Submit Application
+                  </button>
+                </form>
+              )}
             </motion.div>
           </div>
         )}

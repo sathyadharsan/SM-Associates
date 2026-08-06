@@ -69,7 +69,7 @@ export const stats = [
     suffix: '',
     prefix: '',
     label: 'Branch Offices',
-    sublabel: 'Under direct management across 5 states',
+    sublabel: 'Under direct management across 6 states',
     color: 'from-[#0072bc] to-[#005291]',
     glow: 'rgba(0,114,188,0.25)',
   },

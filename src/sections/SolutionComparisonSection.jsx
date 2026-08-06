@@ -12,7 +12,7 @@ export default function SolutionComparisonSection() {
     },
     {
       feature: 'Geographic Operations',
-      sm: '5 States · 19 Branches Live',
+      sm: '6 States · 19 Branches Live',
       dra: 'Single District / City',
       legal: 'Stationed Offices Only',
     },

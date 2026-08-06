@@ -3,7 +3,6 @@ import { ArrowRight } from 'lucide-react';
 import ContactOptionCards from '../components/contact/ContactOptionCards';
 import EnterpriseContactForm from '../components/contact/EnterpriseContactForm';
 import OfficeDirectory from '../components/contact/OfficeDirectory';
-import CommandCenterSection from '../sections/CommandCenterSection';
 
 /* ── Premium Closing CTA ─────────────────────────────────────────────────── */
 function ClosingCta() {
@@ -68,7 +67,6 @@ export default function ContactPage() {
     <div className="bg-white pt-24">
       <EnterpriseContactForm />
       <ContactOptionCards />
-      <CommandCenterSection />
       <OfficeDirectory />
       <ClosingCta />
     </div>

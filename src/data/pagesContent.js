@@ -24,6 +24,18 @@ export const pagesContent = {
   ...platformContent,
   ...servicesContent,
 
+  // ================= UTILITY & CAREER PAGES =================
+  'careers': {
+    eyebrow: 'Career Opportunities',
+    title: 'Join South India’s Premier Recovery Operations Network',
+    description: 'Build your career with an institution committed to professional excellence, IIBF DRA training, and compliance-first field recovery operations.',
+    stats: [
+      { value: '1500+', label: 'Total Staff' },
+      { value: '19', label: 'Branch Offices' },
+      { value: '100%', label: 'DRA Certified' }
+    ],
+  },
+
   // ================= ABOUT PAGES =================
   'company-overview': {
     eyebrow: 'About SM Associates',

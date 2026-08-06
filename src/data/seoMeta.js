@@ -22,7 +22,7 @@ export const seoMeta = {
   // About
   '/about': {
     title: 'About SM Associates | 25+ Years in Debt Recovery',
-    description: 'SM Associates Risk Management Pvt. Ltd. — established 2000, 916+ staff, 19 branches across South India. Learn our history, leadership and operating philosophy.',
+    description: 'SM Associates Risk Management Pvt. Ltd. — established 2000, 1,500+ staff, 19 branches across South India. Learn our history, leadership and operating philosophy.',
   },
 
   // Services — index
@@ -319,7 +319,7 @@ export const seoMeta = {
   },
   '/careers': {
     title: 'Careers at SM Associates | Join Our Team',
-    description: 'Explore career opportunities at SM Associates — a 916+ member team across 19 branches in South India.',
+    description: 'Explore career opportunities at SM Associates — a 1,500+ member team across 19 branches in South India.',
   },
   '/contact': {
     title: 'Contact SM Associates | Head Office & Branch Network',

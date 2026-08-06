@@ -121,7 +121,7 @@ export default function OfficeDirectory() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-brand-500">Our Offices</span>
-          <h2 className="mt-3 font-sora text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">20 offices, six states, one operating standard</h2>
+          <h2 className="mt-3 font-sora text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">19 offices, six states, one operating standard</h2>
           <p className="mt-4 text-[15px] leading-relaxed text-slate-500">
             Our Chennai headquarters anchors a network of 19 branch offices across South India, Telangana, Andhra Pradesh and Puducherry.
           </p>

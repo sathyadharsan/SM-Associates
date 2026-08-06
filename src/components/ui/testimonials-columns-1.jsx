@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, Building2 } from "lucide-react";
 
 export const TestimonialsColumn = (props) => {
   const { className = "", testimonials = [], duration = 20 } = props;
@@ -66,27 +66,10 @@ export const TestimonialsColumn = (props) => {
 
                       {/* Author Info */}
                       <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
-                        {image ? (
-                          <img
-                            width={40}
-                            height={40}
-                            src={image}
-                            alt={name}
-                            className="h-10 w-10 rounded-full object-cover border border-[#0072bc]/30 group-hover:border-[#0072bc] transition-colors shrink-0"
-                            onError={(e) => {
-                              e.target.onerror = null;
-                              e.target.style.display = 'none';
-                              if (e.target.nextSibling) {
-                                e.target.nextSibling.style.display = 'flex';
-                              }
-                            }}
-                          />
-                        ) : null}
                         <div
-                          className="h-10 w-10 rounded-full bg-gradient-to-br from-[#0072bc] to-[#003a66] text-white font-bold text-xs flex items-center justify-center border border-[#0072bc]/20 shrink-0"
-                          style={{ display: image ? 'none' : 'flex' }}
+                          className="h-10 w-10 rounded-2xl bg-[#0072bc]/10 border border-[#0072bc]/20 text-[#0072bc] font-bold text-xs flex items-center justify-center shrink-0"
                         >
-                          {name ? name.charAt(0) : 'S'}
+                          <Building2 size={18} />
                         </div>
                         <div className="flex flex-col min-w-0">
                           <div className="font-bold text-slate-900 text-xs truncate tracking-tight leading-snug">

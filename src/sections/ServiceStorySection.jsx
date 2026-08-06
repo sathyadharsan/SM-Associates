@@ -252,16 +252,10 @@ export default function ServiceStorySection() {
     // from creating a horizontal scrollbar on the page.
     <section
       id="recovery-story"
-      className="relative bg-white"
+      className="relative z-30 bg-white"
       style={{ overflowX: 'clip' }}
       aria-label="Enterprise Recovery Story"
     >
-      {/* ambient glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{ background: 'radial-gradient(ellipse 80% 40% at 50% 0%, rgba(0,114,188,0.06) 0%, transparent 70%)' }}
-      />
 
       {/* Mobile / tablet: static list, no scroll-jack */}
       <div className="relative z-10 lg:hidden">

@@ -38,7 +38,7 @@ export default function CtaSection() {
                 {[
                   { icon: ShieldCheck, text: 'ISO 27001 Certified' },
                   { icon: Clock, text: '48hr Response Guarantee' },
-                  { icon: MapPin, text: '5 States · 19 Branches' },
+                  { icon: MapPin, text: '6 States · 19 Branches' },
                 ].map(({ icon: Icon, text }, i) => (
                   <div key={i} className="flex items-center gap-2 text-slate-700 font-semibold text-sm">
                     <Icon size={15} className="text-[#0072bc]" />
