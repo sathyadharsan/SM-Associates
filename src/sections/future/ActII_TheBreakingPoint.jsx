@@ -86,7 +86,6 @@ function GrowthLine({ text, index, progress }) {
     <motion.p
       style={{ opacity, y }}
       className={`absolute inset-x-0 top-1/2 -translate-y-1/2 text-left ${midSize} ${displayType}`}
-      aria-hidden={index !== 0}
     >
       {text}
     </motion.p>
@@ -168,7 +167,6 @@ export default function ActII_TheBreakingPoint() {
                 <motion.p
                   style={{ opacity: finalOpacity, top: '50%' }}
                   className={`absolute inset-x-0 -translate-y-1/2 ${midSize} ${displayType} text-slate-400`}
-                  aria-hidden="true"
                 >
                   But recovery did not.
                 </motion.p>

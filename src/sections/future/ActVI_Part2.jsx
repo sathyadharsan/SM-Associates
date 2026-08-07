@@ -57,7 +57,7 @@ function Scene16() {
       <ActHeading
         eyebrow="ENTERPRISE INTELLIGENCE NETWORK"
         title="The enterprise starts thinking"
-        support="Every node connects back to one core — each decision quietly updates the rest, like a nervous system."
+        support="No connecting arrows — every decision quietly updates another, like a nervous system."
       />
       <div className="relative mx-auto mt-16 max-w-4xl rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-12 shadow-[0_16px_48px_-12px_rgba(0,114,188,0.1)] overflow-hidden">
         {/* Tech Blueprint Grid Background */}

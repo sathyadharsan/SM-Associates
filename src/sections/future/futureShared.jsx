@@ -72,46 +72,13 @@ export const midSize = 'text-[clamp(24px,3.2vw,44px)]';
  * act, which is what makes the emptiness read as composition rather
  * than a failed render.
  */
-export function ActFrame({ act, scene, children }) {
-  return (
-    <div className="relative h-full w-full">
-      {/* pt-24: the persistent site nav is a fixed ~76px header sitting
-          on top of this sticky stage. At the previous pt-6/pt-8 the
-          chrome rendered with opacity:1 in the DOM but was physically
-          positioned underneath the nav bar — invisible despite being
-          "correct" by every check except actually looking at it.
-          96px clearance is this site's own established convention for
-          sticky content that needs to clear that header (see
-          OperatingModelSection's .model6-head). */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-30 flex items-center justify-between px-6 pt-24 sm:px-10 sm:pt-28">
-        <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
-          {act}
-        </span>
-        <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-300">
-          {scene}
-        </span>
-      </div>
-      {children}
-    </div>
-  );
+export function ActFrame({ children }) {
+  return <>{children}</>;
 }
 
 /* ── The recurring blue-line signature ───────────────────────────── */
-export function TransitionLine({ dark = false, className = 'mx-auto w-full max-w-xs' }) {
-  return (
-    <motion.span
-      initial={{ scaleX: 0, opacity: 0 }}
-      whileInView={{ scaleX: 1, opacity: 0.9 }}
-      viewport={{ once: true, amount: 0.8 }}
-      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-      className={`block h-px origin-center ${className}`}
-      style={{
-        background: dark
-          ? 'linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent)'
-          : `linear-gradient(90deg, transparent, ${BRAND}66, transparent)`,
-      }}
-    />
-  );
+export function TransitionLine() {
+  return null;
 }
 
 /* ── Peak statement — the five dark moments ──────────────────────── */

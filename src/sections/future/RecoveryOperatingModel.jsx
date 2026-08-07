@@ -26,31 +26,53 @@
  * live today.
  */
 
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ActHeading, BRAND } from './futureShared';
 
-// Plain typographic rows, not cards — the rest of /future never uses
-// shadowed boxes or cursor-tracking hover glow to carry a beat, so a
-// dashboard-style card grid here (borrowed from EnterpriseServicesSection,
-// a different part of the site with its own denser language) read as a
-// visual dialect switch mid-act. A numbered list with a hairline divider
-// says the same thing in the page's own vocabulary.
-function PillarRow({ p, index }) {
+// Same cursor-spotlight technique already proven in EnterpriseServicesSection —
+// adapted from a white-glow-on-dark-card version to a faint brand-blue glow,
+// since these pillar cards sit on white, not dark, backgrounds.
+function useMouseSpotlight(ref) {
+  const [pos, setPos] = useState({ x: 50, y: 50 });
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return undefined;
+    const onMove = (e) => {
+      const rect = el.getBoundingClientRect();
+      setPos({
+        x: ((e.clientX - rect.left) / rect.width) * 100,
+        y: ((e.clientY - rect.top) / rect.height) * 100,
+      });
+    };
+    el.addEventListener('mousemove', onMove);
+    return () => el.removeEventListener('mousemove', onMove);
+  }, [ref]);
+  return pos;
+}
+
+function PillarCard({ p }) {
+  const ref = useRef(null);
+  const spotlight = useMouseSpotlight(ref);
   return (
     <motion.div
+      ref={ref}
       variants={fadeUp}
-      className="flex flex-col gap-2 border-b border-slate-100 py-5 first:pt-0 last:border-0 last:pb-0 sm:flex-row sm:items-baseline sm:gap-6"
+      whileHover={{ y: -3 }}
+      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+      className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-colors duration-300 hover:border-[#0072bc]/40 hover:shadow-md sm:p-5"
     >
-      <div className="flex items-baseline gap-3 sm:w-[40%] sm:shrink-0">
-        <span className="font-mono text-[11px] font-semibold text-slate-300">
-          {String(index + 1).padStart(2, '0')}
-        </span>
+      <div
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        style={{
+          background: `radial-gradient(360px circle at ${spotlight.x}% ${spotlight.y}%, ${BRAND}0d 0%, transparent 70%)`,
+        }}
+      />
+      <div className="relative flex flex-wrap items-center justify-between gap-2">
         <h3 className="text-[15px] font-bold text-slate-900">{p.title}</h3>
-      </div>
-      <div className="flex flex-1 flex-wrap items-center gap-x-3 gap-y-2 sm:justify-between">
-        <p className="max-w-md text-[13px] leading-relaxed text-slate-500">{p.base}</p>
         {p.ai && <AiTag>{p.ai}</AiTag>}
       </div>
+      <p className="relative mt-2 text-[13px] leading-relaxed text-slate-600">{p.base}</p>
     </motion.div>
   );
 }
@@ -153,13 +175,16 @@ export default function RecoveryOperatingModel() {
 
         {/* Intelligence layer + pillars */}
         <div className="lg:col-span-7">
-          <motion.div variants={fadeUp} className="mb-8 border-b border-slate-100 pb-8">
-            <p className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: BRAND }}>
+          <motion.div variants={fadeUp} className="mb-6 rounded-2xl border border-slate-200 bg-slate-50/70 p-5">
+            <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: BRAND }}>
               Intelligence Layer — Roadmap
             </p>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
               {INTELLIGENCE_LAYER.map((item) => (
-                <div key={item.label}>
+                <div
+                  key={item.label}
+                  className="rounded-xl border border-slate-200 bg-white p-3 transition-colors duration-300 hover:border-[#0072bc]/40"
+                >
                   <p className="text-[12.5px] font-bold leading-snug text-slate-900">{item.label}</p>
                   <p className="mt-1 text-[11px] leading-snug text-slate-500">{item.note}</p>
                 </div>
@@ -167,9 +192,9 @@ export default function RecoveryOperatingModel() {
             </div>
           </motion.div>
 
-          <div className="flex flex-col">
-            {PILLARS.map((p, i) => (
-              <PillarRow key={p.title} p={p} index={i} />
+          <div className="flex flex-col gap-3">
+            {PILLARS.map((p) => (
+              <PillarCard key={p.title} p={p} />
             ))}
           </div>
         </div>

@@ -40,7 +40,6 @@ function CrossfadeLine({ text, index, total, progress, holdLast }) {
     <motion.p
       style={{ opacity, y }}
       className={`absolute inset-x-0 top-1/2 -translate-y-1/2 text-center ${midSize} ${displayType}`}
-      aria-hidden={index !== 0}
     >
       {text}
     </motion.p>

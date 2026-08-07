@@ -1,10 +1,6 @@
 /**
- * Act VI, Part 1 — The Intelligent Enterprise: Chapters 6–7
- * (Scenes 12, 13, 14-peak)
- *
- * A former standalone Scene 15 ("Prepared before she ever arrives") was
- * folded into Scene 13 as a closing line — it repeated Scene 13's own
- * stagger-reveal list device one beat later with no new idea of its own.
+ * Act VI, Part 1 — The Intelligent Enterprise: Chapters 6–8
+ * (Scenes 12, 13, 14-peak, 15)
  *
  * All whileInView-based — no scroll-pinning in this act. Acts II–IV
  * already carry the film's scroll-scrubbing craft; this act instead
@@ -122,23 +118,58 @@ function Scene13() {
           </motion.div>
         ))}
       </motion.div>
+    </section>
+  );
+}
 
-      {/* Folded in from a former standalone Scene 15 ("Prepared before
-          she ever arrives"), which repeated this scene's own
-          stagger-reveal list device one beat later with no new idea —
-          two consecutive scenes doing the same visual move. The content
-          (a field visit arrives pre-prepared) is real and worth keeping,
-          it just belongs as this journey's own field-visit step paying
-          off, not a second full checklist card. */}
-      <motion.p
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ delay: 0.5, duration: 0.5 }}
-        className="mx-auto mt-10 max-w-md text-center text-[13.5px] leading-relaxed text-slate-500"
-      >
-        By the time a field visit happens, the officer already has the context, the route, and what's needed — the visit itself is just the conversation.
-      </motion.p>
+// ── Scene 15 — Prepared before she arrives ──────────────────────────
+const TABLET_ITEMS = ['Customer context', 'Route', 'Documentation', 'Risk summary', 'Compliance checklist', 'Visit objectives'];
+
+function Scene15() {
+  return (
+    <section className="scroll-mt-28 border-t border-slate-100 bg-white px-6 pt-32 pb-24 sm:pt-40 sm:pb-32">
+      <ActHeading eyebrow="FIELD READINESS" title="Prepared before she ever arrives" />
+
+      <div className="mx-auto mt-14 flex max-w-md flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.94 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="flex h-14 w-14 items-center justify-center rounded-full"
+          style={{ background: `${BRAND}12` }}
+        >
+          <span className="h-6 w-6 rounded-full" style={{ background: BRAND }} />
+        </motion.div>
+        <span className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-slate-400">
+          Field Officer
+        </span>
+
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.11, delayChildren: 0.35 } } }}
+          className="mt-8 w-full divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-white shadow-sm"
+        >
+          {TABLET_ITEMS.map((item) => (
+            <motion.div
+              key={item}
+              variants={{
+                hidden: { opacity: 0, x: -8 },
+                show: { opacity: 1, x: 0, transition: { duration: 0.4 } },
+              }}
+              className="flex items-center gap-3 px-5 py-3"
+            >
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: BRAND }} />
+              <span className="font-mono text-[12.5px] text-slate-700">{item}</span>
+            </motion.div>
+          ))}
+        </motion.div>
+        <p className="mt-6 max-w-xs text-center text-[13.5px] leading-relaxed text-slate-500">
+          Everything else was prepared before the visit began — she only focuses on the conversation.
+        </p>
+      </div>
     </section>
   );
 }
@@ -148,6 +179,7 @@ export default function ActVI_Part1() {
     <div id="future-act-6a" className="bg-white">
       <Scene12 />
       <Scene13 />
+      <Scene15 />
       <PeakStatement
         sceneLabel="HUMAN EMPOWERMENT"
         lines={['The future is not AI replacing recovery officers.', 'It is AI removing everything that never needed a human.']}

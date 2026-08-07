@@ -115,9 +115,10 @@ export default function ActV_ConnectedEcosystem() {
                 key={n.label}
                 initial={{ opacity: 0, scale: 0.6, x: 0, y: 0 }}
                 whileInView={{ opacity: 1, scale: 1, x, y }}
+                whileHover={{ scale: 1.15 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.7, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute z-20 flex items-center gap-2 rounded-full border border-[#0072bc]/30 bg-white px-4 py-2 shadow-md"
+                className="absolute z-20 flex items-center gap-2 rounded-full border border-[#0072bc]/30 bg-white px-4 py-2 shadow-md transition-all hover:border-[#0072bc] hover:shadow-xl hover:shadow-[#0072bc]/20"
               >
                 <span className="h-2 w-2 rounded-full bg-[#0072bc]" />
                 <span className="font-mono text-[11.5px] font-bold text-slate-800">{n.label}</span>

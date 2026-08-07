@@ -25,12 +25,6 @@ import ActVI_Part2 from '../sections/future/ActVI_Part2';
 export default function FuturePage() {
   return (
     <div className="bg-white relative">
-      {/* Every act's own heading is an h2 — deliberately, since none of
-          them is "the" page title, each is one beat in a continuous
-          story. Screen readers and search engines still need exactly
-          one h1 identifying the page itself, so this one is visually
-          hidden rather than inserted into the visual design. */}
-      <h1 className="sr-only">The Future of Recovery — SM Associates</h1>
       <ScrollProgressBar />
       <ActI_TheWorldWeKnow />
       <ActII_TheBreakingPoint />
