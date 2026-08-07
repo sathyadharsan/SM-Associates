@@ -15,6 +15,9 @@ const CompanyOverviewPage = lazy(() => import('../pages/about/CompanyOverviewPag
 // Services
 const ServicesIndex = lazy(() => import('../pages/services/ServicesIndex'));
 
+// Future
+const FuturePage = lazy(() => import('../pages/FuturePage'));
+
 // Industries
 const IndustriesIndex = lazy(() => import('../pages/industries/IndustriesIndex'));
 
@@ -59,6 +62,9 @@ export default function AppRoutes() {
         {/* Services — Only Service Landing Page */}
         <Route path="/services" element={<ServicesIndex />} />
         <Route path="/services/*" element={<Navigate to="/services" replace />} />
+
+        {/* Future — single cinematic scroll page, no sub-routes */}
+        <Route path="/future" element={<FuturePage />} />
 
         {/* Industries — Only Industries Landing Page */}
         <Route path="/industries" element={<IndustriesIndex />} />

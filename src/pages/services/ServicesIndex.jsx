@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import ServiceStorySection from '../../sections/ServiceStorySection';
 import BentoWorkflowSection from '../../sections/BentoWorkflowSection';
-import RecoveryCalculatorSection from '../../sections/RecoveryCalculatorSection';
+
 import BrandManifestoSection from '../../sections/BrandManifestoSection';
 import HeroParallax from '../../components/ui/hero-parallax';
 
@@ -254,8 +254,6 @@ export default function ServicesIndex() {
       {/* ═══════════ 1 · HERO PARALLAX SHOWCASE ═══════════ */}
       <HeroParallax products={recoveryProducts} />
 
-      {/* ═══════════ 2 · INTERACTIVE RECOVERY CALCULATOR ═══════════ */}
-      <RecoveryCalculatorSection />
 
       {/* ═══════════ 3 · SCROLL-DRIVEN SERVICE STORY ═══════════ */}
       <ServiceStorySection />

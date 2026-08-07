@@ -34,8 +34,8 @@ export default function AxionAboutSection() {
           <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#0072BC] text-white flex items-center justify-center text-[11px] sm:text-[12px] font-semibold">
             01
           </div>
-          <span className="text-[12px] sm:text-[13px] font-semibold tracking-wider uppercase text-[#0072BC] font-mono">
-            Company Overview
+          <span className="text-[12px] sm:text-[13px] font-semibold tracking-wider uppercase text-gray-500 font-mono">
+            Our Story
           </span>
         </div>
 
@@ -49,8 +49,11 @@ export default function AxionAboutSection() {
 
         {/* Content area - MOBILE / TABLET layout */}
         <div className="lg:hidden px-5 sm:px-8 text-left">
-          <p className="text-[15px] sm:text-[17px] leading-[1.6] font-medium text-gray-900 mb-6">
-            Since 2000, we have built trusted recovery infrastructure for leading banks, NBFCs, and financial institutions across South India.
+          <p className="text-[15px] sm:text-[17px] leading-[1.6] font-medium text-gray-900 mb-4">
+            What began in 2000 as a focused collections practice for India's leading banks has grown into full-spectrum enterprise recovery — tele-calling, field operations, SARFAESI enforcement, legal recovery and due diligence, delivered end to end.
+          </p>
+          <p className="text-[13.5px] sm:text-[14.5px] leading-[1.6] text-gray-600 mb-6 pt-4 border-t border-gray-200">
+            From our first mandates with SBI Cards, LIC Housing Finance and ICICI Bank in 2004, we've scaled to 19 branch offices across six states and 1,500+ trained staff — now serving 100+ banks, NBFCs and ARCs including Axis Bank, HDFC Bank and Bajaj Finance.
           </p>
           <div className="mb-8">
             {renderCtaButton()}
@@ -86,10 +89,11 @@ export default function AxionAboutSection() {
 
           {/* Center Column */}
           <div className="self-start flex flex-col justify-end h-full">
-            <p className="text-[16px] xl:text-[18px] leading-[1.65] font-medium text-gray-900 whitespace-nowrap mb-6">
-              Since 2000, we have built trusted recovery<br />
-              infrastructure for leading banks, NBFCs,<br />
-              and financial institutions across South India.
+            <p className="text-[16px] xl:text-[18px] leading-[1.6] font-medium text-gray-900 mb-4">
+              What began in 2000 as a focused collections practice for India's leading banks has grown into full-spectrum enterprise recovery — tele-calling, field operations, SARFAESI enforcement, legal recovery and due diligence, delivered end to end.
+            </p>
+            <p className="text-[13px] xl:text-[14px] leading-[1.6] text-gray-600 mb-6 pt-4 border-t border-gray-200">
+              From our first mandates with SBI Cards, LIC Housing Finance and ICICI Bank in 2004, we've scaled to 19 branch offices across six states and 1,500+ trained staff — now serving 100+ banks, NBFCs and ARCs including Axis Bank, HDFC Bank and Bajaj Finance.
             </p>
             <div className="flex">
               {renderCtaButton()}

@@ -312,6 +312,11 @@ export const seoMeta = {
     noindex: true,
   },
 
+  '/future': {
+    title: 'The Future of Recovery | SM Associates',
+    description: 'A vision of how technology, automation and human expertise could evolve together across the next decade of recovery operations — not a product page, a forward-looking outlook.',
+  },
+
   // Others
   '/clients': {
     title: 'Our Clients — Banks, NBFCs & Fintechs | SM Associates',

@@ -138,7 +138,7 @@ function FeaturedMandateCard({ product, columnIndex, onSelect }) {
     <TeaserCardSticky index={columnIndex + 1} incrementY={8} className="w-full">
       <div
         onClick={onSelect}
-        className="group/teaser flex cursor-pointer select-none items-center gap-4 overflow-hidden rounded-[20px] border border-[#005a96]/30 bg-[#0072bc] p-3 shadow-md shadow-slate-900/10 transition-all duration-300 hover:shadow-xl hover:shadow-slate-900/20 sm:gap-5 sm:p-3.5"
+        className="group/teaser flex cursor-pointer select-none items-center gap-4 overflow-hidden rounded-[20px] border border-slate-200 bg-white p-3 shadow-md shadow-slate-200/60 transition-all duration-300 hover:shadow-xl hover:shadow-slate-300/40 sm:gap-5 sm:p-3.5"
       >
         <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl sm:h-24 sm:w-24">
           <img
@@ -147,20 +147,20 @@ function FeaturedMandateCard({ product, columnIndex, onSelect }) {
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover/teaser:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 to-transparent" />
         </div>
 
         <div className="min-w-0 flex-1 py-1 text-left">
           {product.category && (
-            <span className="mb-1 inline-block rounded-full bg-white px-2.5 py-0.5 text-[9.5px] font-extrabold uppercase tracking-wider text-[#0072bc] shadow-sm">
+            <span className="mb-1 inline-block rounded-full bg-[#0072bc]/10 px-2.5 py-0.5 text-[9.5px] font-extrabold uppercase tracking-wider text-[#0072bc] shadow-sm">
               {product.category}
             </span>
           )}
-          <h3 className="truncate text-sm sm:text-base font-bold tracking-tight text-white">{product.title}</h3>
-          <p className="mt-0.5 line-clamp-1 text-[11.5px] text-blue-50/90">{product.description}</p>
+          <h3 className="truncate text-sm sm:text-base font-bold tracking-tight text-slate-900">{product.title}</h3>
+          <p className="mt-0.5 line-clamp-1 text-[11.5px] text-slate-500">{product.description}</p>
         </div>
 
-        <ChevronRight size={16} className="mr-2 shrink-0 text-white/80 transition-transform duration-300 group-hover/teaser:translate-x-1 group-hover/teaser:text-white" />
+        <ChevronRight size={16} className="mr-2 shrink-0 text-slate-400 transition-transform duration-300 group-hover/teaser:translate-x-1 group-hover/teaser:text-[#0072bc]" />
       </div>
     </TeaserCardSticky>
   );

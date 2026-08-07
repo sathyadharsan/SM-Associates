@@ -8,6 +8,8 @@ import SolutionComparisonSection from '../../sections/SolutionComparisonSection'
 import ComplianceStorySection from '../../sections/ComplianceStorySection';
 import AxionAboutSection from '../../sections/AxionAboutSection';
 import CompanyJourneySection from '../../sections/CompanyJourneySection';
+import AboutHeroSection from '../../sections/AboutHeroSection';
+import AboutStorySection from '../../sections/AboutStorySection';
 import {
   ArrowRight,
   CheckCircle2,
@@ -232,9 +234,11 @@ export function CompanyOverviewLayout({ content }) {
       <div className="ambient-glow ambient-glow--2" />
       <div className="ambient-glow ambient-glow--3" />
 
+      {/* ── SECTION 1: ABOUT HERO SECTION (Reference Image 1 Style) ── */}
+      <AboutHeroSection />
 
-      {/* ── SECTION 2: AXION ABOUT SECTION ── */}
-      <AxionAboutSection />
+      {/* ── SECTION 2: OUR STORY SECTION (Reference Image 2 Style) ── */}
+      <AboutStorySection />
 
       {/* ── SECTION 3: OUR JOURNEY (Scroll-Linked Horizontal Story) ──
            The alternating vertical timeline that sat here was replaced by
@@ -249,143 +253,167 @@ export function CompanyOverviewLayout({ content }) {
       <CompanyJourneySection />
 
 
-      {/* ── SECTION 4: VISION & MISSION ── */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVar}
-        className="py-[clamp(56px,8vh,88px)] bg-[#FFFFFF] border-b border-[#E2E8F0]"
-      >
+      {/* ── SECTION 4: VISION, MISSION & VALUES STACKING SCROLL CARDS ── */}
+      <section className="py-[clamp(56px,8vh,88px)] bg-slate-50 overflow-visible">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center space-y-3 mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">DIRECTION</span>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Vision &amp; Mission</h2>
-            <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">Where we are going, and how we operate to get there.</p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <PremiumTiltCard color="#8b5cf6" delay={0} className="p-8 space-y-5 text-left group">
-              <div className="flex items-center gap-3">
-                <div className="p-1 rounded-2xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
-                  <RichIcon type="vision" size={48} />
-                </div>
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#8b5cf6] font-mono block">Strategic Future</span>
-                  <h3 className="text-xl font-bold font-serif text-[#0F172A]">Vision</h3>
-                </div>
-              </div>
-              <p className="text-base text-slate-700 font-serif italic leading-relaxed border-l-4 border-[#8b5cf6]/40 pl-4">
-                &ldquo;To become India&rsquo;s most trusted Recovery and Risk Management organization by combining operational excellence, technology, and AI-driven capabilities.&rdquo;
-              </p>
-              <p className="text-sm text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
-                Expanding from South India to national scale through disciplined execution, long-term bank partnerships, and continuous investment in field intelligence.
-              </p>
-            </PremiumTiltCard>
-            <PremiumTiltCard color="#f43f5e" delay={0.08} className="p-8 space-y-5 text-left group">
-              <div className="flex items-center gap-3">
-                <div className="p-1 rounded-2xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
-                  <RichIcon type="mission" size={48} />
-                </div>
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#f43f5e] font-mono block">Core Purpose</span>
-                  <h3 className="text-xl font-bold font-serif text-[#0F172A]">Mission</h3>
-                </div>
-              </div>
-              <p className="text-base text-slate-700 font-serif italic leading-relaxed border-l-4 border-[#f43f5e]/40 pl-4">
-                &ldquo;Deliver enterprise-grade recovery and risk management through structured processes, professional execution, and continuous innovation.&rdquo;
-              </p>
-              <p className="text-sm text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
-                Every engagement runs on documented conduct, recorded calls, and a regulator-ready audit trail — protecting the lender&rsquo;s reputation at every step.
-              </p>
-            </PremiumTiltCard>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* ── NEW SECTION: AI-DRIVEN RISK OPERATIONS ── */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVar}
-        className="py-[clamp(56px,8vh,88px)] bg-[#FFFFFF] border-b border-[#E2E8F0]"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="max-w-2xl mx-auto text-center space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">TECHNOLOGY</span>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Technology</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Vision, Mission &amp; Values</h2>
             <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              AI-augmented field operations, ML-based portfolio routing, and real-time compliance engines — active across every mandate.
+              Where we are going, how we operate, and the core principles driving our enterprise recovery operations.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch text-left">
-            {/* Left Column (Cards): ~60% */}
-            <div className="lg:col-span-7 flex flex-col justify-between gap-6">
-              {[
-                {
-                  title: 'Smart Outreach',
-                  desc: 'Multilingual AI voice agents handle pre-delinquency borrower contact in 5 languages, routing complex accounts to certified field officers.',
-                  color: '#0072bc'
-                },
-                {
-                  title: 'Portfolio Routing',
-                  desc: 'ML algorithms prioritize accounts by recovery probability — maximizing field effort where resolution outcomes are highest.',
-                  color: '#8b5cf6'
-                },
-                {
-                  title: 'Compliance Automation',
-                  desc: 'Server-side engines validate GPS location, timestamps, and outreach logs in real time — guaranteeing RBI Fair Practice adherence.',
-                  color: '#059669'
-                }
-              ].map((item, idx) => {
-                return (
-                  <PremiumTiltCard
-                    key={idx}
-                    delay={idx * 0.08}
-                    color={item.color}
-                    className="flex-1 flex gap-5 items-start p-6 group"
-                  >
-                    <div className="flex gap-5 items-start">
-                      <div className="p-1 rounded-xl bg-white border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform duration-300 shrink-0">
-                        <RichIcon type={item.title} size={42} />
+          {/* Stacking Cards Container */}
+          <div className="relative space-y-12 sm:space-y-16 max-w-5xl mx-auto pb-16">
+            
+            {/* ── CARD 1: VISION (Warm Cream Yellow #FEF6E4) ── */}
+            <div className="sticky top-28 sm:top-32 z-10 rounded-[32px] bg-[#FEF6E4] p-8 sm:p-12 shadow-[0_20px_50px_-15px_rgba(217,119,6,0.12)] border border-[#FDE68A] transition-all">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                {/* Left Column: Text */}
+                <div className="lg:col-span-7 space-y-5 text-left">
+                  <span className="inline-block px-3 py-1 rounded-full bg-[#FDE68A] text-[#B45309] text-xs font-bold font-mono uppercase tracking-widest">
+                    Strategic Future
+                  </span>
+                  <h3 className="text-3xl sm:text-4xl font-bold text-[#B45309] font-serif">Vision</h3>
+                  <p className="text-base sm:text-lg text-amber-950 font-medium leading-relaxed">
+                    Our vision is to bring financial inclusion and empower the credit ecosystem across India by providing structured recovery operations, AI-augmented field intelligence, and regulator-ready audit standards.
+                  </p>
+                  <p className="text-sm text-amber-800/90 leading-relaxed pt-2 border-t border-amber-200/60">
+                    Expanding from South India to national scale through disciplined execution, long-term bank partnerships, and continuous investment in field workforce excellence.
+                  </p>
+                </div>
+
+                {/* Right Column: Visual Card */}
+                <div className="lg:col-span-5 relative flex items-center justify-center">
+                  <div className="relative w-full aspect-4/3 rounded-2xl bg-gradient-to-br from-[#FDE68A] to-[#F59E0B]/20 p-5 overflow-hidden border border-amber-300/40 shadow-md flex items-center justify-between">
+                    {/* Floating Pills */}
+                    <div className="space-y-2 z-10">
+                      <div className="bg-[#B45309] text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-xs">
+                        What do you need recovery for?
                       </div>
-                      <div className="text-left leading-snug">
-                        <h4 className="font-bold text-base text-[#0F172A] font-serif mb-1">{item.title}</h4>
-                        <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                      <div className="bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-semibold shadow-2xs border border-amber-100">
+                        Asset Resolution
+                      </div>
+                      <div className="bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-semibold shadow-2xs border border-amber-100">
+                        Field Operations
+                      </div>
+                      <div className="bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-semibold shadow-2xs border border-amber-100">
+                        Legal Desk &amp; Notice
+                      </div>
+                      <div className="bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-semibold shadow-2xs border border-amber-100">
+                        NPA Portfolio
                       </div>
                     </div>
-                  </PremiumTiltCard>
-                );
-              })}
-            </div>
-
-            {/* Right Column (AI Illustration): ~40% */}
-            <div className="lg:col-span-5 relative min-h-[320px] lg:min-h-0 bg-slate-50 border border-[#E2E8F0] rounded-[32px] overflow-hidden shadow-md flex flex-col justify-end">
-              <img
-                src="/images/ai_operations.png"
-                alt="AI Agent Command Center dashboard"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-900/30 to-transparent pointer-events-none" />
-              <div className="relative p-8 text-white z-10">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-brand-500 font-mono block mb-1">AI Integration</span>
-                <h4 className="text-lg font-bold font-serif leading-snug">Smart Portfolio Routing &amp; Outreach</h4>
+                    <img
+                      src="/assets/cards/portfolio_photo.png"
+                      alt="Vision Visual"
+                      className="absolute right-0 bottom-0 h-full w-1/2 object-cover rounded-r-2xl opacity-90"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="text-center pt-2">
-            <Link
-              to="/platform"
-              className="inline-flex items-center gap-2 text-sm font-bold text-[#0072bc] hover:text-[#0072bc] transition-colors group"
-            >
-              Explore Our Platform
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            {/* ── CARD 2: MISSION (Pastel Sky Blue #EBF5FF) ── */}
+            <div className="sticky top-32 sm:top-36 z-20 rounded-[32px] bg-[#EBF5FF] p-8 sm:p-12 shadow-[0_24px_60px_-15px_rgba(0,114,188,0.18)] border border-[#BFDBFE] transition-all">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                {/* Left Column: Text */}
+                <div className="lg:col-span-7 space-y-5 text-left">
+                  <span className="inline-block px-3 py-1 rounded-full bg-[#BFDBFE] text-[#0072bc] text-xs font-bold font-mono uppercase tracking-widest">
+                    Core Purpose
+                  </span>
+                  <h3 className="text-3xl sm:text-4xl font-bold text-[#0072bc] font-serif">Mission</h3>
+                  <p className="text-base sm:text-lg text-slate-800 font-medium leading-relaxed">
+                    SM Associates’ mission is to become the go-to enterprise recovery partner for financial institutions nationwide. We deliver structured recovery operations with mandates from ₹1,000 to ₹2,00,000+ through professional execution and transparent reporting.
+                  </p>
+                  <p className="text-sm text-slate-600 leading-relaxed pt-2 border-t border-blue-200/60">
+                    Every engagement runs on documented conduct, recorded outreach, and a regulator-ready audit trail — protecting the lender’s reputation at every step.
+                  </p>
+                </div>
+
+                {/* Right Column: Visual Card */}
+                <div className="lg:col-span-5 relative flex items-center justify-center">
+                  <div className="relative w-full aspect-4/3 rounded-2xl bg-gradient-to-br from-[#BFDBFE] to-sky-300/30 p-5 overflow-hidden border border-blue-200/50 shadow-md flex items-center justify-center">
+                    <img
+                      src="/assets/cards/legal_photo.png"
+                      alt="Mission Visual"
+                      className="absolute inset-0 h-full w-full object-cover opacity-80"
+                    />
+                    <div className="relative z-10 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-white shadow-xl max-w-[200px] text-center space-y-1">
+                      <div className="bg-[#0072bc] text-white px-2.5 py-1 rounded-lg text-[10.5px] font-bold flex items-center justify-center gap-1">
+                        <span>✓</span> Money Recovered
+                      </div>
+                      <div className="text-2xl font-black text-slate-900 tracking-tight">₹ 5,00,000+</div>
+                      <p className="text-[10px] text-slate-500 font-semibold">Sent &amp; Deposited to Account</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ── CARD 3: VALUES (Clean White #FFFFFF) ── */}
+            <div className="sticky top-36 sm:top-40 z-30 rounded-[32px] bg-white p-8 sm:p-12 shadow-[0_28px_70px_-15px_rgba(15,23,42,0.12)] border border-slate-200 transition-all">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                {/* Left Column: Text */}
+                <div className="lg:col-span-7 space-y-5 text-left">
+                  <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold font-mono uppercase tracking-widest">
+                    Operating Principles
+                  </span>
+                  <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif">Core Values</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+                      <div className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                        <span className="h-2 w-2 rounded-full bg-[#0072bc]" />
+                        Integrity &amp; Ethics
+                      </div>
+                      <p className="text-xs text-slate-500">Zero tolerance for misconduct or unverified field visits.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+                      <div className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                        <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                        RBI Compliance
+                      </div>
+                      <p className="text-xs text-slate-500">100% adherence to Fair Practice codes &amp; time window rules.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+                      <div className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                        <span className="h-2 w-2 rounded-full bg-indigo-500" />
+                        Data Security
+                      </div>
+                      <p className="text-xs text-slate-500">256-bit encrypted borrower records and audit logs.</p>
+                    </div>
+                    <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
+                      <div className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                        <span className="h-2 w-2 rounded-full bg-amber-500" />
+                        Performance First
+                      </div>
+                      <p className="text-xs text-slate-500">High resolution yield backed by 25+ years of experience.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Column: Visual Card */}
+                <div className="lg:col-span-5 relative flex items-center justify-center">
+                  <div className="relative w-full aspect-4/3 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200/60 p-5 overflow-hidden border border-slate-200 shadow-md flex items-center justify-center">
+                    <img
+                      src="/assets/cards/branches_photo.png"
+                      alt="Values Visual"
+                      className="absolute inset-0 h-full w-full object-cover opacity-85"
+                    />
+                    <div className="relative z-10 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl border border-white shadow-xl text-center space-y-1">
+                      <span className="font-mono text-[10px] font-bold text-emerald-600 uppercase tracking-widest">100% AUDIT READY</span>
+                      <div className="text-sm font-extrabold text-slate-900">Banking Grade Standards</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
-      </motion.section>
+      </section>
+
+
 
 
 
@@ -400,7 +428,6 @@ export function CompanyOverviewLayout({ content }) {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-12">
           <div className="max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#0072bc] font-mono">EXECUTIVE DIRECTION</span>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] font-serif leading-tight">Leadership</h2>
             <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Guided by decades of banking execution, strategic vision, and uncompromised compliance.
@@ -444,39 +471,39 @@ export function CompanyOverviewLayout({ content }) {
       {/* ── SECTION 7b: ENTERPRISE GOVERNANCE & COMPLIANCE (3D FLIP CARDS) ── */}
       <ComplianceStorySection />
 
-      {/* ── SECTION 13: CALL TO ACTION ── */}
+      {/* ── SECTION 13: CALL TO ACTION (White Mode) ── */}
       <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={sectionVar}
-        className="py-[clamp(56px,8vh,88px)] bg-[#0F172A] relative overflow-hidden"
+        className="py-[clamp(56px,8vh,88px)] bg-white border-t border-slate-100 relative overflow-hidden"
       >
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-white font-serif leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-serif leading-tight">
             Ready to Partner?
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+          <p className="text-slate-600 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
             Initiate vendor due diligence and empanelment for your portfolio — banks, NBFCs, HFCs, and ARCs welcome.
           </p>
           <div className="flex flex-wrap gap-4 justify-center pt-4">
-            <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl bg-[#0072bc] px-8 py-4 text-sm font-bold text-white hover:bg-[#0072bc] transition-all hover:scale-[1.02] hover:shadow-xl shadow-[#0072bc]/35">
+            <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl bg-[#0072bc] px-8 py-4 text-sm font-bold text-white hover:bg-[#005f9e] transition-all hover:scale-[1.02] hover:shadow-xl shadow-lg shadow-[#0072bc]/25">
               Request Empanelment Proposal <ArrowRight className="h-4 w-4" />
             </Link>
-            <a href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-slate-600 bg-transparent px-8 py-4 text-sm font-bold text-white hover:bg-slate-800 transition-all hover:scale-[1.02]">
+            <a href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-8 py-4 text-sm font-bold text-slate-900 hover:bg-slate-50 transition-all hover:scale-[1.02] hover:border-slate-400">
               Schedule Leadership Meeting
             </a>
           </div>
           <div className="flex flex-wrap gap-6 justify-center pt-2">
             <Link
               to="/industries"
-              className="text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors inline-flex items-center gap-1"
+              className="text-xs font-semibold text-slate-500 hover:text-[#0072bc] transition-colors inline-flex items-center gap-1"
             >
               Industries We Serve <ArrowRight className="h-3 w-3" />
             </Link>
             <Link
               to="/clients"
-              className="text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors inline-flex items-center gap-1"
+              className="text-xs font-semibold text-slate-500 hover:text-[#0072bc] transition-colors inline-flex items-center gap-1"
             >
               Clients &amp; Partnerships <ArrowRight className="h-3 w-3" />
             </Link>

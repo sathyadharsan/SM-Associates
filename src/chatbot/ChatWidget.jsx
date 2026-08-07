@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import { useChatStore } from './store';
@@ -25,7 +26,15 @@ const flagSet = () => {
 
 export default function ChatWidget() {
   const reduced = useReducedMotion();
+  const { pathname } = useLocation();
   const { open, openChat, closeChat } = useChatStore();
+
+  // /future is a continuous cinematic scroll story with no CTAs by
+  // design; a panel auto-opening over it mid-scroll covers a third of
+  // the frame and breaks the one thing that page is trying to do. The
+  // launcher still renders there — visitors can open it themselves —
+  // only the timed auto-open is suppressed.
+  const suppressAutoOpen = pathname === '/future';
 
   // Any open (manual or automatic) consumes the one auto-open credit.
   useEffect(() => {
@@ -33,7 +42,7 @@ export default function ChatWidget() {
   }, [open]);
 
   useEffect(() => {
-    if (flagRead()) return undefined;
+    if (suppressAutoOpen || flagRead()) return undefined;
     const t = setTimeout(() => {
       if (!flagRead() && !useChatStore.getState().open) {
         flagSet();
@@ -43,7 +52,7 @@ export default function ChatWidget() {
       }
     }, AUTO_OPEN_MS);
     return () => clearTimeout(t);
-  }, [openChat]);
+  }, [openChat, suppressAutoOpen]);
 
   return (
     <>

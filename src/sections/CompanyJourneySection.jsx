@@ -236,7 +236,7 @@ function JourneyPanel({ item, index, progressIndex, isActive }) {
     <motion.div
       aria-hidden={!isActive}
       style={{ opacity, pointerEvents: isActive ? 'auto' : 'none' }}
-      className="absolute inset-0 flex items-center will-change-[opacity]"
+      className="absolute inset-0 flex items-center justify-center pt-32 sm:pt-40 lg:pt-44 will-change-[opacity]"
     >
       <div className="mx-auto grid w-full max-w-7xl grid-cols-12 items-center gap-6 px-6 lg:px-10">
         {/* ── Layer 1 · giant year, the slow anchor ── */}
@@ -251,12 +251,6 @@ function JourneyPanel({ item, index, progressIndex, isActive }) {
               color: BRAND,
               opacity: 0.13,
             }}
-          >
-            {item.year}
-          </span>
-          <span
-            className="mt-2 block font-mono text-[11px] font-bold uppercase tracking-[0.3em]"
-            style={{ color: BRAND }}
           >
             {item.year}
           </span>
@@ -434,14 +428,8 @@ export default function CompanyJourneySection() {
   });
 
   const header = (
-    <div className="mx-auto max-w-7xl px-6 lg:px-10">
-      <span
-        className="font-mono text-[11px] font-bold uppercase tracking-[0.22em]"
-        style={{ color: BRAND }}
-      >
-        Historical Timeline
-      </span>
-      <h2 className="mt-2 text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 lg:text-[34px]">
+    <div className="mx-auto max-w-7xl px-6 text-center lg:px-10">
+      <h2 className="text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[34px] lg:text-[40px]">
         Our Journey
       </h2>
     </div>
@@ -458,7 +446,7 @@ export default function CompanyJourneySection() {
       style={useHorizontal ? { height: `${MILESTONES.length * 100}vh` } : undefined}
     >
       {useHorizontal ? (
-        <div className="sticky top-0 h-screen w-full overflow-hidden border-b border-slate-200">
+        <div className="sticky top-0 h-screen w-full overflow-hidden">
           {/* Background: flat pure white — no gradient, no glow, no grid. */}
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-white" />
 
@@ -478,46 +466,10 @@ export default function CompanyJourneySection() {
             ))}
           </div>
 
-          {/* ── Timeline rail ── */}
-          <div className="absolute inset-x-0 bottom-0 z-20 pb-10">
-            <div className="mx-auto max-w-7xl px-6 lg:px-10">
-              <div className="relative h-px w-full bg-slate-200">
-                <motion.div
-                  className="absolute inset-y-0 left-0 origin-left"
-                  style={{ scaleX: scrollYProgress, background: BRAND, width: '100%' }}
-                />
-              </div>
-              <div className="mt-4 flex items-center justify-between">
-                {MILESTONES.map((item, i) => {
-                  const isPast = i < active;
-                  const isNow = i === active;
-                  return (
-                    <div key={item.year} className="flex items-center gap-2.5">
-                      <span
-                        className="h-2 w-2 rounded-full transition-all duration-500"
-                        style={{
-                          background: isNow || isPast ? BRAND : '#cbd5e1',
-                          transform: isNow ? 'scale(1.5)' : 'scale(1)',
-                          boxShadow: isNow ? `0 0 0 5px ${BRAND}1f` : 'none',
-                        }}
-                      />
-                      <span
-                        className="font-mono text-[12px] font-bold tabular-nums tracking-wider transition-colors duration-500"
-                        style={{
-                          color: isNow ? BRAND : isPast ? '#94a3b8' : '#cbd5e1',
-                        }}
-                      >
-                        {item.year}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
+
         </div>
       ) : (
-        <div className="border-b border-slate-200 bg-white py-16 sm:py-20">
+        <div className="bg-white py-16 sm:py-20">
           <div className="mb-12">{header}</div>
           <VerticalJourney />
         </div>

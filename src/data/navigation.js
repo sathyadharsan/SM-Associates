@@ -3,6 +3,7 @@ export const navigationData = {
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
     { label: 'Services', href: '/services' },
+    { label: 'Future', href: '/future' },
     { label: 'Clients', href: '/clients' },
     {
       label: 'Resources',

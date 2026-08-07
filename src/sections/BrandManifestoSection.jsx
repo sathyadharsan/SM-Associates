@@ -107,7 +107,7 @@ function ManifestoStage({ wrapRef, wordRefs, lines }) {
                     <span
                       key={`w-${gi}`}
                       ref={(el) => { wordRefs.current[gi] = el; }}
-                      className="inline-block transition-all duration-300 ease-out cursor-default select-none py-1"
+                      className="inline-block whitespace-nowrap transition-all duration-300 ease-out cursor-default select-none py-1"
                       style={{
                         WebkitTextStroke: '1.5px #475569',
                         WebkitTextFillColor: 'transparent',

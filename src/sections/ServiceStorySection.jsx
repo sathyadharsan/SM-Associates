@@ -266,9 +266,9 @@ export default function ServiceStorySection() {
       <div ref={wrapRef} className="relative z-10 hidden lg:block" style={{ height: `${TOTAL * SEGMENT_VH}vh` }}>
         {/* pt-24 clears the site's fixed header — same convention as
             OperatingModelSection's .model6-head (top:96px). */}
-        <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-center pt-24">
+        <div ref={stageRef} className="sticky top-0 flex h-screen flex-col justify-start pt-24">
           <div className="mx-auto w-full max-w-7xl px-8">
-            <div className="mb-14 text-center flex flex-col items-center justify-center">
+            <div className="mb-8 text-center flex flex-col items-center justify-center">
               <h2 className="text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px] text-center">
                 The complete recovery story
               </h2>
@@ -280,23 +280,8 @@ export default function ServiceStorySection() {
               </div>
             </div>
 
-            {/* Story stage: text left (strict single chapter hand-off), image right */}
+            {/* Story stage: image left, text right */}
             <div className="grid grid-cols-2 gap-16 items-start">
-              <div className="relative h-[420px] overflow-hidden">
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.div
-                    key={enterpriseServices[activeChapterIndex].id}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -16 }}
-                    transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute inset-0 z-20 flex flex-col justify-start"
-                  >
-                    <ChapterCopy service={enterpriseServices[activeChapterIndex]} index={activeChapterIndex} />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
               <div className="relative h-[420px]" style={{ perspective: 1400 }}>
                 {enterpriseServices.map((service, index) => (
                   <div
@@ -341,6 +326,21 @@ export default function ServiceStorySection() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              <div className="relative h-[420px] overflow-hidden">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={enterpriseServices[activeChapterIndex].id}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -16 }}
+                    transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute inset-0 z-20 flex flex-col justify-start"
+                  >
+                    <ChapterCopy service={enterpriseServices[activeChapterIndex]} index={activeChapterIndex} />
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
           </div>

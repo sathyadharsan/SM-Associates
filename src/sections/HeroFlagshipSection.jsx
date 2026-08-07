@@ -66,7 +66,7 @@ function AnimatedWord({ value, accent = false }) {
   };
 
   return (
-    <span className={`hero6-word-slot${accent ? ' accent' : ''}`}>
+    <span className={`hero6-word-slot${accent ? ' accent' : ''} inline-block whitespace-nowrap`}>
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
           key={value}
@@ -74,13 +74,13 @@ function AnimatedWord({ value, accent = false }) {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="hero6-word-motion inline-flex items-baseline"
+          className="hero6-word-motion inline-flex flex-nowrap items-baseline whitespace-nowrap"
         >
           {letters.map((char, index) => (
             <motion.span
               key={`${char}-${index}`}
               variants={letterVariants}
-              className="inline-block"
+              className="inline-block shrink-0 whitespace-nowrap"
               style={{ display: char === ' ' ? 'inline' : 'inline-block' }}
             >
               {char}
