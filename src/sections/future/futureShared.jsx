@@ -62,9 +62,9 @@ export function useIsDesktop(query = '(min-width: 1024px)') {
  * rather than the old 56px, and tracking tightens as size grows.
  */
 export const displayType =
-  'font-extrabold tracking-[-0.035em] leading-[1.05] text-slate-900';
-export const displaySize = 'text-[clamp(28px,4vw,62px)]';
-export const midSize = 'text-[clamp(24px,3.2vw,44px)]';
+  'font-extrabold tracking-[-0.035em] leading-[1.1] text-slate-900';
+export const displaySize = 'text-[clamp(28px,4vw,58px)]';
+export const midSize = 'text-[clamp(24px,3.2vw,42px)]';
 
 /* ── Act frame ───────────────────────────────────────────────────────
  * A quiet, persistent chrome so no scene is ever a bare white void:
@@ -96,7 +96,7 @@ export function PeakStatement({ lines, support, exitToWhite = false, sceneLabel 
 
   return (
     <section
-      className="relative flex min-h-screen flex-col items-center justify-center px-6 py-28 text-center sm:px-10"
+      className="relative flex min-h-screen flex-col items-center justify-center px-6 py-20 sm:py-24 text-center sm:px-10 overflow-hidden"
       style={{
         background: exitToWhite
           ? `linear-gradient(180deg, ${PEAK_BG} 0%, ${PEAK_BG} 65%, #ffffff 100%)`
@@ -104,30 +104,30 @@ export function PeakStatement({ lines, support, exitToWhite = false, sceneLabel 
       }}
     >
       {sceneLabel && (
-        <motion.span
+        <motion.div
           initial={{ opacity: 0, y: -8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.6 }}
-          className="mb-10 font-mono text-[10.5px] font-bold uppercase tracking-[0.24em]"
+          className="mb-8 sm:mb-10 inline-block font-mono text-[10.5px] sm:text-[11.5px] font-bold uppercase tracking-[0.24em] leading-normal"
           style={{ color: PEAK_BRAND }}
         >
           {sceneLabel}
-        </motion.span>
+        </motion.div>
       )}
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.5 }}
-        className="mx-auto max-w-4xl"
+        className="mx-auto max-w-5xl w-full px-4"
       >
         {lines.map((text, i) => (
           <motion.p
             key={text}
             variants={line}
-            className="text-[clamp(30px,5vw,68px)] font-extrabold leading-[1.06] tracking-[-0.03em] text-white"
-            style={{ marginTop: i === 0 ? 0 : '0.7em' }}
+            className="text-[clamp(28px,4.5vw,60px)] font-extrabold leading-[1.12] tracking-[-0.03em] text-white"
+            style={{ marginTop: i === 0 ? 0 : '0.35em' }}
           >
             {text}
           </motion.p>
@@ -135,7 +135,7 @@ export function PeakStatement({ lines, support, exitToWhite = false, sceneLabel 
         {support && (
           <motion.p
             variants={line}
-            className="mt-10 max-w-md text-[14.5px] leading-relaxed text-slate-400"
+            className="mt-8 max-w-md mx-auto text-[14.5px] leading-relaxed text-slate-400"
           >
             {support}
           </motion.p>

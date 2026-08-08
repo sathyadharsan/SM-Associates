@@ -699,13 +699,6 @@ export default function Header() {
 
                   <div className="mt-4 space-y-2 border-t pt-4" style={{ borderColor: 'rgba(15,23,42,0.08)' }}>
                     <Link
-                      to="/careers"
-                      onClick={() => setMobileOpen(false)}
-                      className="block rounded-xl px-3 py-2.5 text-[15px] font-bold text-[#0a0e1a] hover:bg-gray-50"
-                    >
-                      Careers
-                    </Link>
-                    <Link
                       to="/contact"
                       onClick={() => setMobileOpen(false)}
                       className="flex items-center justify-center gap-2 rounded-xl py-3 text-[14px] font-bold text-white"

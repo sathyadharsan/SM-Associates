@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, TrendingUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { isPlaceholder } from '../../data/caseStudies';
 
 function MetricBox({ label, value, example }) {
@@ -22,17 +23,9 @@ function MetricBox({ label, value, example }) {
   );
 }
 
-export default function CaseStudyCard({ study, index, onOpen, showMetrics = false }) {
-  return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 10 }}
-      transition={{ duration: 0.35, delay: index * 0.05 }}
-      whileHover={{ y: -4 }}
-      className="group flex flex-col h-full rounded-[22px] bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-slate-300 transition-all duration-300"
-    >
+export default function CaseStudyCard({ study, index, onOpen, to, showMetrics = false }) {
+  const cardInner = (
+    <>
       {/* ── Hero image with full head visibility ── */}
       <div className="relative h-48 w-full overflow-hidden rounded-t-[20px]">
         {study.image ? (
@@ -92,15 +85,53 @@ export default function CaseStudyCard({ study, index, onOpen, showMetrics = fals
         </div>
 
         <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between">
-          <button
-            type="button"
-            onClick={() => onOpen(study)}
-            className="inline-flex items-center gap-1.5 text-[12.5px] font-bold text-[#0072bc] hover:underline transition-all cursor-pointer"
-          >
-            View Full Case Study <ArrowRight className="h-3.5 w-3.5" />
-          </button>
+          {to ? (
+            <span className="inline-flex items-center gap-1.5 text-[12.5px] font-bold text-[#0072bc] group-hover:underline transition-all cursor-pointer">
+              View Full Case Study <ArrowRight className="h-3.5 w-3.5" />
+            </span>
+          ) : (
+            <button
+              type="button"
+              onClick={() => onOpen?.(study)}
+              className="inline-flex items-center gap-1.5 text-[12.5px] font-bold text-[#0072bc] hover:underline transition-all cursor-pointer"
+            >
+              View Full Case Study <ArrowRight className="h-3.5 w-3.5" />
+            </button>
+          )}
         </div>
       </div>
+    </>
+  );
+
+  if (to) {
+    return (
+      <motion.div
+        layout
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 10 }}
+        transition={{ duration: 0.35, delay: index * 0.05 }}
+        whileHover={{ y: -4 }}
+        className="group flex flex-col h-full rounded-[22px] bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-slate-300 transition-all duration-300"
+      >
+        <Link to={to} className="flex flex-col h-full">
+          {cardInner}
+        </Link>
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 10 }}
+      transition={{ duration: 0.35, delay: index * 0.05 }}
+      whileHover={{ y: -4 }}
+      className="group flex flex-col h-full rounded-[22px] bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-slate-300 transition-all duration-300"
+    >
+      {cardInner}
     </motion.div>
   );
 }
