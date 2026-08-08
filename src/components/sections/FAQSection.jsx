@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 import { fUp } from './shared/motion';
 import { SECTION_DEFAULTS } from './shared/sectionDefaults';
 import { serifHeading } from './shared/typography';
@@ -35,7 +35,9 @@ export default function FAQSection({ content }) {
                 className="w-full flex justify-between items-center text-sm font-bold text-slate-900 text-left py-1"
               >
                 <span className="pr-4">{faq.q}</span>
-                <ChevronDown className={`h-4.5 w-4.5 text-slate-500 shrink-0 transition-transform duration-200 ${activeFaq === i ? 'rotate-180' : ''}`} />
+                <span className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-all duration-200 ${activeFaq === i ? 'bg-[#0072bc] text-white' : 'bg-slate-200/70 text-slate-600'}`}>
+                  {activeFaq === i ? <Minus size={16} /> : <Plus size={16} />}
+                </span>
               </button>
               <AnimatePresence initial={false}>
                 {activeFaq === i && (

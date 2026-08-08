@@ -207,27 +207,45 @@ export const resourceCards = [
 
 export const careerPositions = [
   {
-    title: 'Recovery Officer',
+    title: 'Auditor',
+    department: 'Audit & Compliance',
+    location: 'Chennai HQ & Branches',
+    type: 'Full-time'
+  },
+  {
+    title: 'Telecaller',
+    department: 'Telecalling',
+    location: 'Chennai HQ',
+    type: 'Full-time'
+  },
+  {
+    title: 'Field Officer',
     department: 'Field Operations',
-    location: 'Chennai',
+    location: 'Pan Tamil Nadu & Regional Hubs',
     type: 'Full-time'
   },
   {
-    title: 'Legal Coordinator',
-    department: 'Legal',
-    location: 'Chennai',
+    title: 'Assistant Manager',
+    department: 'Management',
+    location: 'Chennai HQ & Regional Offices',
     type: 'Full-time'
   },
   {
-    title: 'Verification Executive',
-    department: 'Verification',
-    location: 'Tamil Nadu',
+    title: 'Data Analyst',
+    department: 'Data & Analytics',
+    location: 'Chennai HQ',
     type: 'Full-time'
   },
   {
-    title: 'Call Centre Agent',
-    department: 'Collections',
-    location: 'Chennai',
+    title: 'IT Assistant',
+    department: 'IT & Infrastructure',
+    location: 'Chennai HQ',
+    type: 'Full-time'
+  },
+  {
+    title: 'HR',
+    department: 'Human Resources',
+    location: 'Chennai HQ',
     type: 'Full-time'
   }
 ];

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { Plus, Minus, HelpCircle } from 'lucide-react';
 import { flagshipFaqs } from '../data/flagshipHomeData';
 
 function FaqItem({ faq, open, onToggle, index }) {
@@ -22,8 +22,8 @@ function FaqItem({ faq, open, onToggle, index }) {
         onClick={onToggle}
       >
         <span>{faq.q}</span>
-        <span className={`w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 transition-transform duration-300 ${open ? 'rotate-180 bg-indigo-600 text-white' : ''}`}>
-          <ChevronDown size={18} />
+        <span className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${open ? 'bg-[#0072bc] text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}>
+          {open ? <Minus size={18} /> : <Plus size={18} />}
         </span>
       </button>
 
