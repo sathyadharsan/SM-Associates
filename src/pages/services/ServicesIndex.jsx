@@ -6,6 +6,7 @@ import BentoWorkflowSection from '../../sections/BentoWorkflowSection';
 
 import BrandManifestoSection from '../../sections/BrandManifestoSection';
 import HeroParallax from '../../components/ui/hero-parallax';
+import { CtaButton } from '../../components/ui/cta-button';
 
 const recoveryProducts = [
   // ── ROW 1: Financial & Secured Asset Recovery (4 Cards) ──
@@ -284,19 +285,12 @@ export default function ServicesIndex() {
               enterprise recovery transformation, our specialists are ready to help.
             </motion.p>
             <motion.div variants={rise} className="mt-9 flex flex-wrap justify-center gap-3.5">
-              <Link
-                to="/contact"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-[#0072bc] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#0072bc]/25 transition-shadow hover:shadow-xl hover:shadow-[#0072bc]/30"
-              >
+              <CtaButton to="/contact">
                 Schedule Consultation
-                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2.5 rounded-full border border-slate-300 bg-white px-7 py-3.5 text-sm font-bold text-slate-900 transition-colors hover:border-slate-400"
-              >
+              </CtaButton>
+              <CtaButton to="/contact" variant="secondary">
                 Contact SM Associates
-              </Link>
+              </CtaButton>
             </motion.div>
           </motion.div>
         </div>

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Trophy, ShieldCheck, BadgeCheck } from 'lucide-react';
+import { FlowButton } from '../components/ui/flow-button';
 
 const B = '#0072bc';
 const C = {
@@ -299,15 +300,11 @@ export default function HeroSection() {
 
             <Fade y={10}>
               <div className="mt-8">
-                <a
+                <FlowButton
                   href="#contact"
                   onClick={go('#contact')}
-                  className="inline-flex items-center gap-2 rounded-md border px-6 py-3 text-[13.5px] font-semibold transition hover:bg-brand-500"
-                  style={{ borderColor: B, color: C.ink }}
-                >
-                  Schedule a Consultation
-                  <ArrowRight className="h-4 w-4" style={{ color: B }} />
-                </a>
+                  text="Schedule a Consultation"
+                />
               </div>
             </Fade>
           </Seq>

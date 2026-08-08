@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CalendarDays, Phone, ArrowRight, ShieldCheck, Clock, MapPin } from 'lucide-react';
+import { ShieldCheck, Clock, MapPin } from 'lucide-react';
+import { FlowButton } from '../components/ui/flow-button';
 
 export default function CtaSection() {
   return (
@@ -49,25 +50,8 @@ export default function CtaSection() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <motion.a
-                  href="/contact"
-                  whileHover={{ scale: 1.04, y: -2 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-3 bg-[#0072bc] hover:bg-[#005291] text-white font-bold text-base px-8 py-4 rounded-2xl shadow-xl shadow-[#0072bc]/25 transition-all duration-200"
-                >
-                  <CalendarDays size={18} />
-                  Book Free Consultation
-                  <ArrowRight size={16} />
-                </motion.a>
-                <motion.a
-                  href="tel:+919876543210"
-                  whileHover={{ scale: 1.04, y: -2 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="inline-flex items-center gap-3 bg-white hover:bg-slate-50 text-slate-900 font-bold text-base px-8 py-4 rounded-2xl border border-slate-200 shadow-sm transition-all duration-200"
-                >
-                  <Phone size={18} className="text-[#0072bc]" />
-                  Call Us Directly
-                </motion.a>
+                <FlowButton to="/contact" text="Book Free Consultation" />
+                <FlowButton href="tel:+919876543210" text="Call Us Directly" variant="dark" />
               </div>
             </motion.div>
           </div>

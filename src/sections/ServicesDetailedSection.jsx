@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
 import RichIcon from '../components/sections/shared/RichIcon';
+import { CtaButton } from '../components/ui/cta-button';
 
 export default function ServicesDetailedSection() {
   const handleScrollTo = (href) => (e) => {
@@ -24,12 +25,9 @@ export default function ServicesDetailedSection() {
             description="From pre-disbursal verification to post-disbursal collections, SARFAESI enforcement to legal coordination, we cover the full recovery lifecycle."
             className="lg:max-w-3xl"
           />
-          <button
-            onClick={handleScrollTo('#contact')}
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-navy-900 bg-white px-6 py-3 text-sm font-semibold text-gray-950 transition hover:border-[#0072bc] hover:bg-slate-50"
-          >
+          <CtaButton onClick={handleScrollTo('#contact')} variant="secondary" showIcon={false}>
             Discuss Your Portfolio
-          </button>
+          </CtaButton>
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

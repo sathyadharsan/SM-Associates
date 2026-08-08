@@ -4,6 +4,7 @@ import {
   Phone, Mail, MapPin, CheckCircle2, ArrowRight,
   Clock, MessageSquare, ChevronRight, ExternalLink
 } from 'lucide-react';
+import { FlowButton } from '../ui/flow-button';
 import { PRIMARY_CONTACT, COMPANY } from '../../data/contactOfficesData';
 import { saveSubmission, createMailtoUrl } from '../../chatbot/leadTransport';
 
@@ -302,14 +303,13 @@ export default function ContactSection() {
                       />
                     </div>
 
-                    <button
-                      type="submit"
-                      className="group flex w-full items-center justify-center gap-2 rounded-xl bg-[#0072bc] py-3.5 text-sm font-bold text-white shadow-md shadow-[#0072bc]/30 transition hover:bg-[#005a96]"
-                    >
-                      <MessageSquare className="h-4 w-4" />
-                      Send Enquiry
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </button>
+                    <div className="pt-2">
+                      <FlowButton
+                        type="submit"
+                        text="Send Enquiry"
+                        className="w-full justify-center"
+                      />
+                    </div>
 
                     <p className="text-center text-[11px] text-slate-400">
                       By submitting you agree to our Privacy Policy · Confidential &amp; Encrypted.

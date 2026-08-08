@@ -15,6 +15,7 @@ import {
   FileCheck
 } from 'lucide-react';
 import { locations } from '../../data/LocationData';
+import { CtaButton } from '../ui/cta-button';
 
 const fUp = {
   hidden: { opacity: 0, y: 35 },
@@ -267,9 +268,9 @@ export function CoverageLayout({ content }) {
           <p className="text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
             Connect with a local branch coordinator or schedule an onboarding meeting today.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg hover:bg-brand-500 transition-all hover:scale-[1.02]">
-            Connect with Branch Head <ArrowRight className="h-4 w-4" />
-          </Link>
+          <CtaButton to="/contact" variant="dark">
+            Connect with Branch Head
+          </CtaButton>
         </div>
       </section>
     </div>

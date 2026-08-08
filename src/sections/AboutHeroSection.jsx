@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { FlowButton } from '../components/ui/flow-button';
 
 const PARTNER_LOGOS = [
   { name: 'SBI Cards', logo: '/logos/sbi-cards.svg', code: 'SBI CARDS' },
@@ -67,15 +68,12 @@ export default function AboutHeroSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent" />
             </div>
 
-            {/* CTA Pill Button (Updated to Primary Brand Color #0072BC) */}
+            {/* CTA Pill Button (FlowButton with smooth circle expansion and sliding arrows) */}
             <div className="w-full flex justify-start">
-              <Link
+              <FlowButton
                 to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0072BC] hover:bg-[#005f9e] text-white text-xs sm:text-sm font-semibold shadow-md shadow-[#0072BC]/25 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
-              >
-                <span>Schedule Consultation</span>
-                <ArrowRight size={14} />
-              </Link>
+                text="Schedule Consultation"
+              />
             </div>
           </motion.div>
         </div>

@@ -36,6 +36,8 @@ import {
   Minus
 } from 'lucide-react';
 import { careerDepartments, careerPositionsData, careerCultureHighlights } from '../../data/careersData';
+import { CtaButton } from '../ui/cta-button';
+import { FlowButton } from '../ui/flow-button';
 
 const fUp = {
   hidden: { opacity: 0, y: 30 },
@@ -336,18 +338,17 @@ export function CareersLayout({ content }) {
             </div>
           </div>
 
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 text-center text-white space-y-4 shadow-xl">
-            <h3 className="text-xl font-bold font-sora">Can't find a role matching your experience?</h3>
-            <p className="text-xs text-slate-400 max-w-md mx-auto leading-relaxed">
+          <div className="bg-white border border-slate-200 rounded-3xl p-8 text-center text-[#0a1128] space-y-4 shadow-sm">
+            <h3 className="text-xl font-bold font-sora text-[#0a1128]">Can't find a role matching your experience?</h3>
+            <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed font-normal">
               Send your CV directly to our central HR recruitment desk and we will contact you when a matching position opens.
             </p>
-            <a
-              href="mailto:smarmpl.ho@gmail.com?subject=General%20Career%20Application%20-%20SM%20Associates"
-              className="inline-flex items-center gap-2 rounded-full bg-[#0072bc] hover:bg-[#005a96] px-6 py-3 text-xs font-bold text-white shadow-md transition-all"
-            >
-              <Mail className="h-4 w-4" />
-              <span>Send CV to HR Desk (smarmpl.ho@gmail.com)</span>
-            </a>
+            <div className="pt-2">
+              <FlowButton
+                href="mailto:smarmpl.ho@gmail.com?subject=General%20Career%20Application%20-%20SM%20Associates"
+                text="Send CV to HR Desk (smarmpl.ho@gmail.com)"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -562,12 +563,9 @@ export function CareersLayout({ content }) {
                       <Mail className="h-4 w-4" />
                       <span>Email Resume directly to HR Desk</span>
                     </a>
-                    <button 
-                      onClick={closeModals}
-                      className="rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs px-5 py-3 text-center transition-all"
-                    >
+                    <CtaButton onClick={closeModals} variant="secondary" showIcon={false} className="px-5 py-3 text-xs">
                       Close Window
-                    </button>
+                    </CtaButton>
                   </div>
                 </div>
               ) : (
@@ -697,20 +695,12 @@ export function CareersLayout({ content }) {
 
                   {/* Submit / Cancel buttons */}
                   <div className="pt-3 border-t border-slate-100 flex items-center justify-end gap-3">
-                    <button
-                      type="button"
-                      onClick={closeModals}
-                      className="rounded-xl px-5 py-2.5 text-xs font-bold text-slate-600 hover:bg-slate-100 transition-colors"
-                    >
+                    <CtaButton onClick={closeModals} variant="secondary" showIcon={false} className="px-5 py-2.5 text-xs">
                       Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      className="rounded-xl bg-[#0072bc] hover:bg-[#005a96] text-white font-bold text-xs px-6 py-2.5 text-center transition-all shadow-md flex items-center gap-2"
-                    >
-                      <span>Submit Application</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </button>
+                    </CtaButton>
+                    <CtaButton type="submit" className="px-6 py-2.5 text-xs">
+                      Submit Application
+                    </CtaButton>
                   </div>
                 </form>
               )}
@@ -838,9 +828,9 @@ export function ContactLayout({ content }) {
               <input required type="text" placeholder="Banking Institution Name..." className="w-full rounded-xl border border-slate-250 bg-white px-4 py-3 text-xs" />
               <input required type="email" placeholder="Corporate Contact Email..." className="w-full rounded-xl border border-slate-250 bg-white px-4 py-3 text-xs" />
               <textarea required rows="4" placeholder="Detail empanelment coordinates or ground verification checking needed..." className="w-full rounded-xl border border-slate-250 bg-white px-4 py-3 text-xs"></textarea>
-              <button type="submit" className="w-full rounded-xl bg-brand-500 hover:bg-brand-500 text-white font-bold text-xs py-3.5 text-center transition-all shadow-md">
+              <CtaButton type="submit" className="w-full py-3.5 text-xs">
                 Submit Proposal Inquiry
-              </button>
+              </CtaButton>
             </form>
           )}
         </div>

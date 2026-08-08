@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  ArrowRight, 
+import { CtaButton } from '../ui/cta-button';
+import {
+  ArrowRight,
   CheckCircle2, 
   Terminal,
   Code,
@@ -98,9 +99,9 @@ export function PlatformLayout({ content }) {
                 {content.description}
               </p>
               <div className="pt-2 flex gap-4">
-                <a href="#playground" className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/20 hover:bg-brand-500 transition-all hover:scale-[1.02]">
-                  Launch Developer Sandbox <ArrowRight className="h-4 w-4" />
-                </a>
+                <CtaButton href="#playground">
+                  Launch Developer Sandbox
+                </CtaButton>
               </div>
             </motion.div>
 
@@ -333,9 +334,9 @@ export function PlatformLayout({ content }) {
           <p className="text-brand-500 max-w-xl mx-auto text-sm leading-relaxed">
             Request credentials packages or sandbox API access tokens to preview distressed asset management dashboards.
           </p>
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-bold text-brand-500 shadow-md hover:bg-brand-500 transition-all hover:scale-[1.02]">
-            Request Sandbox Access <ArrowRight className="h-4 w-4" />
-          </Link>
+          <CtaButton to="/contact" variant="dark">
+            Request Sandbox Access
+          </CtaButton>
         </div>
       </section>
     </div>

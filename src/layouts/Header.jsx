@@ -3,12 +3,14 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import {
-  ChevronDown, Menu, X, CalendarDays, Shield, ArrowRight,
+  ChevronDown, Menu, X, Shield, ArrowRight, CalendarDays,
   FileCheck, Users, Scale, Car, Search, LineChart,
   Briefcase, Zap, Layout, ChevronRight, CheckCircle2,
   Building2, Landmark, ShieldAlert, BadgeCheck, FileSearch
 } from 'lucide-react';
 import { navigationData } from '../data/navigation';
+import { CtaButton } from '../components/ui/cta-button';
+import { FlowButton } from '../components/ui/flow-button';
 
 const BRAND  = '#0072bc';
 const VIOLET = '#0072bc';
@@ -520,14 +522,14 @@ export default function Header() {
                                           <span className="text-[13px] text-slate-500">
                                             Need help choosing the right {navItem.label.toLowerCase()}?
                                           </span>
-                                          <Link
+                                          <CtaButton
                                             to="/contact"
                                             onClick={() => setActiveMenu(null)}
-                                            className="shrink-0 rounded-lg px-3.5 py-2 text-[13px] font-semibold text-white transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-                                            style={{ background: `linear-gradient(135deg, ${BRAND}, ${VIOLET})` }}
+                                            showIcon={false}
+                                            className="shrink-0 px-3.5 py-2 text-[13px]"
                                           >
                                             Contact Us
-                                          </Link>
+                                          </CtaButton>
                                         </div>
                                       </div>
                                     );
@@ -573,19 +575,13 @@ export default function Header() {
               })}
             </nav>
 
-            {/* Right: CTA */}
+            {/* Right: CTA — the site's reference "Contact Us" treatment.
+                CtaButton (components/ui/cta-button) is this exact design
+                extracted for reuse elsewhere; kept as literal markup here
+                rather than routed through it, so the one button this was
+                modeled on can never drift from what it was modeled on. */}
             <div className="hidden shrink-0 items-center xl:flex">
-              <Link
-                to="/contact"
-                className="group inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[15px] font-bold text-white transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-                style={{
-                  background: `linear-gradient(135deg, ${BRAND}, ${VIOLET})`,
-                  boxShadow: `0 8px 24px -4px ${BRAND}66, 0 0 0 1px rgba(255,255,255,0.15) inset`,
-                }}
-              >
-                Contact Us
-                <CalendarDays className="h-4 w-4 transition-transform duration-300 group-hover:rotate-6" />
-              </Link>
+              <FlowButton to="/contact" text="Contact Us" />
             </div>
 
             {/* Mobile toggle */}
@@ -698,14 +694,13 @@ export default function Header() {
                   })}
 
                   <div className="mt-4 space-y-2 border-t pt-4" style={{ borderColor: 'rgba(15,23,42,0.08)' }}>
-                    <Link
+                    <CtaButton
                       to="/contact"
                       onClick={() => setMobileOpen(false)}
-                      className="flex items-center justify-center gap-2 rounded-xl py-3 text-[14px] font-bold text-white"
-                      style={{ background: `linear-gradient(135deg, ${BRAND}, ${VIOLET})` }}
+                      className="w-full py-3 text-[14px]"
                     >
-                      Contact Us <ArrowRight className="h-4 w-4" />
-                    </Link>
+                      Contact Us
+                    </CtaButton>
                   </div>
                 </div>
             </div>

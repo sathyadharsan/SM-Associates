@@ -45,6 +45,7 @@ import {
 } from 'lucide-react';
 
 import { INDIA_OUTLINE_PATH, INDIA_PATH_TRANSFORM } from '../../data/LocationData';
+import { CtaButton } from '../ui/cta-button';
 
 const Linkedin = ({ className, ...props }) => (
   <svg
@@ -487,12 +488,12 @@ export function CompanyOverviewLayout({ content }) {
             Initiate vendor due diligence and empanelment for your portfolio — banks, NBFCs, HFCs, and ARCs welcome.
           </p>
           <div className="flex flex-wrap gap-4 justify-center pt-4">
-            <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl bg-[#0072bc] px-8 py-4 text-sm font-bold text-white hover:bg-[#005f9e] transition-all hover:scale-[1.02] hover:shadow-xl shadow-lg shadow-[#0072bc]/25">
-              Request Empanelment Proposal <ArrowRight className="h-4 w-4" />
-            </Link>
-            <a href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-8 py-4 text-sm font-bold text-slate-900 hover:bg-slate-50 transition-all hover:scale-[1.02] hover:border-slate-400">
+            <CtaButton to="/contact" className="px-8 py-4">
+              Request Empanelment Proposal
+            </CtaButton>
+            <CtaButton href="/contact" variant="secondary" className="px-8 py-4">
               Schedule Leadership Meeting
-            </a>
+            </CtaButton>
           </div>
           <div className="flex flex-wrap gap-6 justify-center pt-2">
             <Link

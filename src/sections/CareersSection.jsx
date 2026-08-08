@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Briefcase, MapPin, Users } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
+import { CtaButton } from '../components/ui/cta-button';
 import { careerPositions } from '../data/homeData';
 
 export default function CareersSection() {
@@ -71,18 +72,12 @@ export default function CareersSection() {
             Explore active openings or send your resume directly to our HR recruitment desk.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="/careers"
-              className="inline-flex items-center justify-center rounded-full bg-[#0072bc] px-6 py-3 text-sm font-bold text-white shadow-soft transition hover:bg-[#005a96]"
-            >
+            <CtaButton href="/careers">
               Explore All Open Positions
-            </a>
-            <a
-              href="mailto:smarmpl.ho@gmail.com"
-              className="inline-flex items-center justify-center rounded-full bg-slate-200 px-6 py-3 text-sm font-bold text-slate-800 transition hover:bg-slate-300"
-            >
+            </CtaButton>
+            <CtaButton href="mailto:smarmpl.ho@gmail.com" variant="secondary">
               Send Resume to HR Desk
-            </a>
+            </CtaButton>
           </div>
         </motion.div>
       </div>

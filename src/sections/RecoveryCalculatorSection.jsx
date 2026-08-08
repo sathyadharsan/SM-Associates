@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, TrendingUp, ShieldCheck, Sparkles, CheckCircle2, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { CtaButton } from '../components/ui/cta-button';
 
 export default function RecoveryCalculatorSection() {
   const [portfolio, setPortfolio] = useState(500); // Cr
@@ -204,12 +205,9 @@ export default function RecoveryCalculatorSection() {
                 </div>
 
                 <div className="mt-6 flex gap-3">
-                  <a
-                    href="/contact"
-                    className="flex-1 text-center bg-[#0072bc] text-white py-3 rounded-xl font-bold text-xs hover:bg-[#005a96] transition-colors"
-                  >
+                  <CtaButton href="/contact" showIcon={false} className="flex-1 px-4 py-3 text-xs">
                     Submit Mandate Inquiry
-                  </a>
+                  </CtaButton>
                   <button
                     onClick={() => setShowAuditModal(false)}
                     className="px-4 py-3 border border-slate-200 text-slate-700 rounded-xl font-bold text-xs hover:bg-slate-50"

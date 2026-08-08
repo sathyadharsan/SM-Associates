@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import ContactOptionCards from '../components/contact/ContactOptionCards';
 import EnterpriseContactForm from '../components/contact/EnterpriseContactForm';
 import OfficeDirectory from '../components/contact/OfficeDirectory';
+import { CtaButton } from '../components/ui/cta-button';
 
 /* ── Premium Closing CTA ─────────────────────────────────────────────────── */
 function ClosingCta() {
@@ -42,18 +43,12 @@ function ClosingCta() {
             Whether you&apos;re evaluating a new empanelment or scaling an existing portfolio, our leadership team is ready to structure the right operating model for you.
           </p>
           <div className="relative mt-9 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="#enquiry"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-500 px-8 py-3.5 text-sm font-bold text-white shadow-[0_0_32px_rgba(0, 114, 188,0.4)] transition hover:bg-brand-600 hover:shadow-[0_0_48px_rgba(0, 114, 188,0.55)]"
-            >
+            <CtaButton href="#enquiry">
               Contact Enterprise Team
-            </a>
-            <a
-              href="/services"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-8 py-3.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900"
-            >
-              Explore Services <ArrowRight className="h-4 w-4" />
-            </a>
+            </CtaButton>
+            <CtaButton href="/services" variant="secondary">
+              Explore Services
+            </CtaButton>
           </div>
         </motion.div>
       </div>

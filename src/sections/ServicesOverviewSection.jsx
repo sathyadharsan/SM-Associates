@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
+import { FlowButton } from '../components/ui/flow-button';
 import { serviceCards } from '../data/serviceCards';
 import ServiceCreditCard, { CARD_SPRING } from '../components/cards/ServiceCreditCard';
 import { mountScrollStory, useDesktopPin } from '../utils/scrollStoryMath';
@@ -285,13 +286,10 @@ export default function ServicesOverviewSection() {
                     </div>
 
                     <div className="mt-5">
-                      <Link
+                      <FlowButton
                         to={serviceCards[active].href}
-                        className="group inline-flex items-center gap-2.5 rounded-full bg-[#0072bc] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#0072bc]/25 transition-all hover:bg-[#005a96] hover:shadow-xl hover:shadow-[#0072bc]/30"
-                      >
-                        Explore {serviceCards[active].name.split(' & ')[0]}
-                        <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-                      </Link>
+                        text={`Explore ${serviceCards[active].name.split(' & ')[0]}`}
+                      />
                     </div>
                   </motion.div>
                 </AnimatePresence>

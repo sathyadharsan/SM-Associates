@@ -1,58 +1,29 @@
-﻿import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+/**
+ * Shared CTA button.
+ *
+ * Renders CtaButton (src/components/ui/cta-button) — the exact
+ * "Contact Us" treatment from the site header — so every call site
+ * shares one design instead of each hand-rolling its own pill.
+ *
+ * The old API is kept verbatim: `to`, `href`, `variant`, `className`
+ * and any passthrough props all behave as before. `variant='secondary'`
+ * maps to CtaButton's own secondary (outline) look; anything else maps
+ * to the solid brand-gradient primary.
+ */
+
+import { CtaButton } from './ui/cta-button';
 
 export default function Button({ children, variant = 'primary', icon = true, className = '', to, href, ...props }) {
-  const base =
-    'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-300 focus:outline-none focus:ring-4 focus:ring-gold-400/30';
-  const variants = {
-    primary: 'bg-[#0072bc] text-gray-950 shadow-soft hover:bg-slate-200 hover:shadow-enterpriseHover',
-    secondary: 'border border-navy-900 bg-white text-gray-950 hover:border-[#0072bc] hover:bg-slate-50'
-  };
-
-  const content = (
-    <>
-      {children}
-      {icon && <ArrowRight className="h-4 w-4" />}
-    </>
-  );
-
-  if (to) {
-    return (
-      <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
-        <Link
-          to={to}
-          className={`${base} ${variants[variant]} ${className}`}
-          {...props}
-        >
-          {content}
-        </Link>
-      </motion.div>
-    );
-  }
-
-  if (href) {
-    return (
-      <motion.a
-        href={href}
-        whileHover={{ y: -2 }}
-        whileTap={{ y: 0 }}
-        className={`${base} ${variants[variant]} ${className}`}
-        {...props}
-      >
-        {content}
-      </motion.a>
-    );
-  }
-
   return (
-    <motion.button
-      whileHover={{ y: -2 }}
-      whileTap={{ y: 0 }}
-      className={`${base} ${variants[variant]} ${className}`}
+    <CtaButton
+      to={to}
+      href={href}
+      variant={variant === 'secondary' ? 'secondary' : 'primary'}
+      showIcon={icon}
+      className={className}
       {...props}
     >
-      {content}
-    </motion.button>
+      {children}
+    </CtaButton>
   );
 }
