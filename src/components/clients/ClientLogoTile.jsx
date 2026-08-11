@@ -14,16 +14,26 @@ export default function ClientLogoTile({ client, category, index = 0 }) {
   const [failed, setFailed] = useState(false);
   const [open, setOpen] = useState(false);
   const [align, setAlign] = useState('center');
+  const [vAlign, setVAlign] = useState('top'); // 'top' (above tile) or 'bottom' (below tile)
   const tileRef = useRef(null);
 
   const openCard = () => {
     const rect = tileRef.current?.getBoundingClientRect();
     if (rect) {
+      // Horizontal placement check
       const centerX = rect.left + rect.width / 2;
       const half = CARD_WIDTH / 2;
-      if (centerX - half < 12) setAlign('left');
-      else if (centerX + half > window.innerWidth - 12) setAlign('right');
+      if (centerX - half < 16) setAlign('left');
+      else if (centerX + half > window.innerWidth - 16) setAlign('right');
       else setAlign('center');
+
+      // Vertical placement check: header takes ~110px, card height ~260px.
+      // If tile is near top (< 280px from top viewport edge), open card BELOW tile.
+      if (rect.top < 280) {
+        setVAlign('bottom');
+      } else {
+        setVAlign('top');
+      }
     }
     setOpen(true);
   };
@@ -47,7 +57,7 @@ export default function ClientLogoTile({ client, category, index = 0 }) {
       transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.5), ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ scale: 1.05, y: -4 }}
       className="relative flex w-36 flex-col items-center gap-2 sm:w-44"
-      style={{ zIndex: open ? 40 : 'auto' }}
+      style={{ zIndex: open ? 50 : 'auto' }}
       onMouseEnter={openCard}
       onMouseLeave={() => setOpen(false)}
       onFocus={openCard}
@@ -58,13 +68,19 @@ export default function ClientLogoTile({ client, category, index = 0 }) {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 12, scale: 0.94 }}
+            initial={{ opacity: 0, y: vAlign === 'top' ? 12 : -12, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.96 }}
+            exit={{ opacity: 0, y: vAlign === 'top' ? 8 : -8, scale: 0.96 }}
             transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-            className="pointer-events-none absolute bottom-full z-50 mb-3 w-80"
+            className={`pointer-events-none absolute z-50 w-80 ${
+              vAlign === 'top' ? 'bottom-full mb-3' : 'top-full mt-3'
+            }`}
             style={cardStyle}
           >
+            {vAlign === 'bottom' && (
+              <div className={`-mb-1.5 h-3 w-3 rotate-45 border-l border-t border-slate-200 bg-white ${arrowPos}`} />
+            )}
+
             <div className="relative rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-[0_20px_50px_rgba(15,23,42,0.18)]">
               <button
                 type="button"
@@ -113,19 +129,23 @@ export default function ClientLogoTile({ client, category, index = 0 }) {
                 </p>
               )}
             </div>
-            <div className={`-mt-1.5 h-3 w-3 rotate-45 border-b border-r border-slate-200 bg-white ${arrowPos}`} />
+
+            {vAlign === 'top' && (
+              <div className={`-mt-1.5 h-3 w-3 rotate-45 border-b border-r border-slate-200 bg-white ${arrowPos}`} />
+            )}
           </motion.div>
         )}
       </AnimatePresence>
 
-      <div className="flex h-24 w-36 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-4 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-shadow duration-300 hover:border-brand-200 hover:shadow-[0_10px_28px_rgba(0, 114, 188,0.18)] sm:h-28 sm:w-44">
+      <div className="flex h-24 w-36 items-center justify-center rounded-xl overflow-hidden bg-white px-4 py-4 shadow-[0_2px_8px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_12px_28px_rgba(0,114,188,0.16)] sm:h-28 sm:w-44">
         {!failed ? (
           <img
             src={logo}
             alt={name}
             loading="lazy"
             onError={() => setFailed(true)}
-            className="max-h-16 w-auto max-w-full object-contain sm:max-h-20"
+            className="max-h-16 w-auto max-w-full object-contain sm:max-h-20 transition-transform duration-300"
+            style={client.scale ? { transform: `scale(${client.scale})` } : undefined}
           />
         ) : (
           <span className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-50 font-sora text-lg font-semibold text-slate-300">
