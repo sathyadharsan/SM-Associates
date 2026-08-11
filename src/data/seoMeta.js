@@ -217,7 +217,7 @@ export const seoMeta = {
   },
   '/industries/commercial-lending': {
     title: 'Recovery Services for Commercial Lending | SM Associates',
-    description: 'Corporate debt collections and collateral recovery services for commercial lending institutions.',
+    description: 'Corporate enterprise recovery and collateral resolution services for commercial lending institutions.',
   },
   '/industries/insurance': {
     title: 'Verification Services for Insurance | SM Associates',

@@ -95,11 +95,11 @@ const getItemDescription = (label) => {
     case 'Microfinance': return 'Rural credit & SHG recovery operations';
     case 'Fintech': return 'Digital loans, API checks & billing loops';
     case 'Asset Reconstruction Companies': return 'Stressed corporate asset resolution services';
-    case 'Commercial Lending': return 'Corporate debt collections & collateral recovery';
+    case 'Commercial Lending': return 'Corporate recovery solutions & collateral recovery';
     case 'Insurance': return 'Premium renewals & claims verification audits';
     case 'Vehicle Finance': return 'Auto loans repossession & auction management';
     case 'Gold Loan Institutions': return 'Gold loan validation, storage & recovery audits';
-    case 'Retail & Personal Loans': return 'Credit cards & unsecured loans collection';
+    case 'Retail & Personal Loans': return 'Credit cards & unsecured loans recovery operations';
     case 'Auto & Vehicle Loans': return 'Vehicle repossession & recovery operations';
     case 'SME & Business Loans': return 'Working capital & business collateral recovery';
     case 'Agricultural & Rural': return 'KCC & rural micro-credit recovery actions';
