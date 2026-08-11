@@ -18,18 +18,6 @@ const ServicesIndex = lazy(() => import('../pages/services/ServicesIndex'));
 // Future
 const FuturePage = lazy(() => import('../pages/FuturePage'));
 
-// Industries
-const IndustriesIndex = lazy(() => import('../pages/industries/IndustriesIndex'));
-
-// Platform
-const RecoveryOperationsIndex = lazy(() => import('../pages/recovery-operations/RecoveryOperationsIndex'));
-const RecoveryOsPage = lazy(() => import('../pages/recovery-operations/RecoveryOsPage'));
-const WorkflowAutomationPage = lazy(() => import('../pages/recovery-operations/WorkflowAutomationPage'));
-const FieldOperationsPage = lazy(() => import('../pages/recovery-operations/FieldOperationsPage'));
-const ComplianceMonitoringPage = lazy(() => import('../pages/recovery-operations/ComplianceMonitoringPage'));
-const OperationsRecoveryAnalyticsPage = lazy(() => import('../pages/recovery-operations/RecoveryAnalyticsPage'));
-const AiRecoveryPage = lazy(() => import('../pages/recovery-operations/AiRecoveryPage'));
-
 // Insights
 const InsightsIndex = lazy(() => import('../pages/insights/InsightsIndex'));
 const CaseStudiesPage = lazy(() => import('../pages/insights/CaseStudiesPage'));
@@ -65,19 +53,6 @@ export default function AppRoutes() {
 
         {/* Future — single cinematic scroll page, no sub-routes */}
         <Route path="/future" element={<FuturePage />} />
-
-        {/* Industries — Only Industries Landing Page */}
-        <Route path="/industries" element={<IndustriesIndex />} />
-        <Route path="/industries/*" element={<Navigate to="/industries" replace />} />
-
-        {/* Platform */}
-        <Route path="/platform" element={<RecoveryOperationsIndex />} />
-        <Route path="/platform/recovery-os" element={<RecoveryOsPage />} />
-        <Route path="/platform/workflow-automation" element={<WorkflowAutomationPage />} />
-        <Route path="/platform/field-operations" element={<FieldOperationsPage />} />
-        <Route path="/platform/compliance-monitoring" element={<ComplianceMonitoringPage />} />
-        <Route path="/platform/recovery-analytics" element={<OperationsRecoveryAnalyticsPage />} />
-        <Route path="/platform/ai-recovery" element={<AiRecoveryPage />} />
 
         {/* Insights */}
         <Route path="/insights" element={<InsightsIndex />} />
