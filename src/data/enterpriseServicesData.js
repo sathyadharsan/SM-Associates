@@ -83,23 +83,23 @@ export const enterpriseServices = [
     cta: 'View Recovery Services',
   },
   {
-    id: 'consumer-microfinance-recovery',
+    id: 'enterprise-asset-recovery',
     number: '05',
-    title: 'Consumer & Micro-Finance Recovery',
+    title: 'Enterprise Asset Recovery',
     description:
-      'Recovering consumer durable, micro-finance and professional loan portfolios across retail lending and self-help group channels.',
+      'Recovering enterprise hardware assets across retail, banking and corporate locations with full inventory and compliance reporting.',
     image:
-      'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=900&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=85&auto=format&fit=crop',
     capabilities: [
-      'Consumer Durable Loans',
-      'Micro Finance',
-      'Self-Help Group (SHG) Loans',
-      'Medical Equipment Loans',
-      'Professional Loans',
-      'Inventory Loans',
+      'POS Machines',
+      'Routers',
+      'Networking Devices',
+      'Servers',
+      'Office Equipment',
+      'Enterprise Hardware',
     ],
-    approach: ['Field Recovery', 'Digital Recovery', 'Verification', 'Reporting'],
-    cta: 'Explore Recovery',
+    approach: ['Inventory', 'Recovery', 'Verification', 'Reporting'],
+    cta: 'Explore Assets',
   },
   {
     id: 'investigation-verification',
@@ -108,7 +108,7 @@ export const enterpriseServices = [
     description:
       'Verification and intelligence services supporting compliant lending and recovery operations through field and digital channels.',
     image:
-      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=85&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=85&auto=format&fit=crop',
     capabilities: [
       'CPV',
       'Residence Verification',
