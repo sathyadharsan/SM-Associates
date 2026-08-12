@@ -138,7 +138,7 @@ function FeaturedMandateCard({ product, columnIndex, onSelect }) {
     <TeaserCardSticky index={columnIndex + 1} incrementY={8} className="w-full">
       <div
         onClick={onSelect}
-        className="group/teaser flex cursor-pointer select-none items-center gap-4 overflow-hidden rounded-[20px] border border-slate-200 bg-white p-3 shadow-md shadow-slate-200/60 transition-all duration-300 hover:shadow-xl hover:shadow-slate-300/40 sm:gap-5 sm:p-3.5"
+        className="group/teaser flex cursor-pointer select-none items-center gap-4 overflow-hidden rounded-[20px] bg-white p-3 shadow-md shadow-slate-200/60 transition-all duration-300 hover:shadow-xl hover:shadow-slate-300/40 sm:gap-5 sm:p-3.5"
       >
         <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl sm:h-24 sm:w-24">
           <img

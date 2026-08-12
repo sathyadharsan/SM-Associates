@@ -1,5 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 import { useChatStore } from './store';
@@ -10,49 +9,9 @@ import './chatbot.css';
 // downloads on first open — zero cost to page load and Core Web Vitals.
 const ChatWindow = lazy(() => import('./ChatWindow'));
 
-// Auto-open the assistant once per browser session, 10s after the visitor
-// lands. The sessionStorage flag guarantees it never re-opens after the
-// visitor has seen it once (including if they opened it themselves first,
-// or closed it) — a single welcome, never a nag.
-const AUTO_OPEN_MS = 10000;
-const AUTO_OPEN_KEY = 'smb-auto-opened';
-
-const flagRead = () => {
-  try { return sessionStorage.getItem(AUTO_OPEN_KEY) === '1'; } catch { return true; }
-};
-const flagSet = () => {
-  try { sessionStorage.setItem(AUTO_OPEN_KEY, '1'); } catch { /* private mode */ }
-};
-
 export default function ChatWidget() {
   const reduced = useReducedMotion();
-  const { pathname } = useLocation();
   const { open, openChat, closeChat } = useChatStore();
-
-  // /future is a continuous cinematic scroll story with no CTAs by
-  // design; a panel auto-opening over it mid-scroll covers a third of
-  // the frame and breaks the one thing that page is trying to do. The
-  // launcher still renders there — visitors can open it themselves —
-  // only the timed auto-open is suppressed.
-  const suppressAutoOpen = pathname === '/future';
-
-  // Any open (manual or automatic) consumes the one auto-open credit.
-  useEffect(() => {
-    if (open) flagSet();
-  }, [open]);
-
-  useEffect(() => {
-    if (suppressAutoOpen || flagRead()) return undefined;
-    const t = setTimeout(() => {
-      if (!flagRead() && !useChatStore.getState().open) {
-        flagSet();
-        // auto:true — the window opens without stealing keyboard focus
-        // from whatever the visitor is doing (QA BUG-05).
-        openChat({ auto: true });
-      }
-    }, AUTO_OPEN_MS);
-    return () => clearTimeout(t);
-  }, [openChat, suppressAutoOpen]);
 
   return (
     <>

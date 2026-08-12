@@ -150,12 +150,12 @@ function PremiumTiltCard({ children, className = '', color = '#0072bc', delay = 
 // actual white.
 function LeadershipCard({ name, role, image, quote, description }) {
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-md shadow-slate-200/60 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#0072bc]/15">
+    <div className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-md shadow-slate-200/60 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#0072bc]/15">
       <div className="relative h-[300px] w-full shrink-0 overflow-hidden bg-white sm:h-[320px]">
         <img
           src={image}
           alt={name}
-          className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+          className="h-full w-full object-cover object-top scale-[1.04] transition-transform duration-700 group-hover:scale-[1.08]"
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = '/images/jebaraj.M MD.png';
@@ -267,41 +267,41 @@ export function CompanyOverviewLayout({ content }) {
           {/* Stacking Cards Container */}
           <div className="relative space-y-12 sm:space-y-16 max-w-5xl mx-auto pb-16">
             
-            {/* ── CARD 1: VISION (Warm Cream Yellow #FEF6E4) ── */}
-            <div className="sticky top-28 sm:top-32 z-10 rounded-[32px] bg-[#FEF6E4] p-8 sm:p-12 shadow-[0_20px_50px_-15px_rgba(217,119,6,0.12)] border border-[#FDE68A] transition-all">
+            {/* ── CARD 1: VISION (Clean White #FFFFFF) ── */}
+            <div className="sticky top-28 sm:top-32 z-10 rounded-[32px] bg-white p-8 sm:p-12 shadow-[0_28px_70px_-15px_rgba(15,23,42,0.12)] transition-all">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 {/* Left Column: Text */}
                 <div className="lg:col-span-7 space-y-5 text-left">
-                  <span className="inline-block px-3 py-1 rounded-full bg-[#FDE68A] text-[#B45309] text-xs font-bold font-mono uppercase tracking-widest">
+                  <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold font-mono uppercase tracking-widest">
                     Strategic Future
                   </span>
-                  <h3 className="text-3xl sm:text-4xl font-bold text-[#B45309] font-serif">Vision</h3>
-                  <p className="text-base sm:text-lg text-amber-950 font-medium leading-relaxed">
+                  <h3 className="text-3xl sm:text-4xl font-bold text-[#0072bc] font-serif">Vision</h3>
+                  <p className="text-base sm:text-lg text-slate-800 font-medium leading-relaxed">
                     Our vision is to bring financial inclusion and empower the credit ecosystem across India by providing structured recovery operations, AI-augmented field intelligence, and regulator-ready audit standards.
                   </p>
-                  <p className="text-sm text-amber-800/90 leading-relaxed pt-2 border-t border-amber-200/60">
+                  <p className="text-sm text-slate-500 leading-relaxed pt-2 border-t border-slate-200/60">
                     Expanding from South India to national scale through disciplined execution, long-term bank partnerships, and continuous investment in field workforce excellence.
                   </p>
                 </div>
 
                 {/* Right Column: Visual Card */}
                 <div className="lg:col-span-5 relative flex items-center justify-center">
-                  <div className="relative w-full aspect-4/3 rounded-2xl bg-gradient-to-br from-[#FDE68A] to-[#F59E0B]/20 p-5 overflow-hidden border border-amber-300/40 shadow-md flex items-center justify-between">
+                  <div className="relative w-full aspect-4/3 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200/60 p-5 overflow-hidden border border-slate-200 shadow-md flex items-center justify-between">
                     {/* Floating Pills */}
                     <div className="space-y-2 z-10">
-                      <div className="bg-[#B45309] text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-xs">
+                      <div className="bg-[#0072bc] text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-xs">
                         What do you need recovery for?
                       </div>
-                      <div className="bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-semibold shadow-2xs border border-amber-100">
+                      <div className="bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-semibold shadow-2xs border border-slate-200">
                         Asset Resolution
                       </div>
-                      <div className="bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-semibold shadow-2xs border border-amber-100">
+                      <div className="bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-semibold shadow-2xs border border-slate-200">
                         Field Operations
                       </div>
-                      <div className="bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-semibold shadow-2xs border border-amber-100">
+                      <div className="bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-semibold shadow-2xs border border-slate-200">
                         Legal Desk &amp; Notice
                       </div>
-                      <div className="bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-semibold shadow-2xs border border-amber-100">
+                      <div className="bg-white text-slate-800 px-3 py-1 rounded-lg text-xs font-semibold shadow-2xs border border-slate-200">
                         NPA Portfolio
                       </div>
                     </div>
@@ -315,32 +315,32 @@ export function CompanyOverviewLayout({ content }) {
               </div>
             </div>
 
-            {/* ── CARD 2: MISSION (Pastel Sky Blue #EBF5FF) ── */}
-            <div className="sticky top-32 sm:top-36 z-20 rounded-[32px] bg-[#EBF5FF] p-8 sm:p-12 shadow-[0_24px_60px_-15px_rgba(0,114,188,0.18)] border border-[#BFDBFE] transition-all">
+            {/* ── CARD 2: MISSION (Clean White #FFFFFF) ── */}
+            <div className="sticky top-32 sm:top-36 z-20 rounded-[32px] bg-white p-8 sm:p-12 shadow-[0_28px_70px_-15px_rgba(15,23,42,0.12)] transition-all">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 {/* Left Column: Text */}
                 <div className="lg:col-span-7 space-y-5 text-left">
-                  <span className="inline-block px-3 py-1 rounded-full bg-[#BFDBFE] text-[#0072bc] text-xs font-bold font-mono uppercase tracking-widest">
+                  <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold font-mono uppercase tracking-widest">
                     Core Purpose
                   </span>
                   <h3 className="text-3xl sm:text-4xl font-bold text-[#0072bc] font-serif">Mission</h3>
                   <p className="text-base sm:text-lg text-slate-800 font-medium leading-relaxed">
                     SM Associates’ mission is to become the go-to enterprise recovery partner for financial institutions nationwide. We deliver structured recovery operations with mandates from ₹1,000 to ₹2,00,000+ through professional execution and transparent reporting.
                   </p>
-                  <p className="text-sm text-slate-600 leading-relaxed pt-2 border-t border-blue-200/60">
+                  <p className="text-sm text-slate-500 leading-relaxed pt-2 border-t border-slate-200/60">
                     Every engagement runs on documented conduct, recorded outreach, and a regulator-ready audit trail — protecting the lender’s reputation at every step.
                   </p>
                 </div>
 
                 {/* Right Column: Visual Card */}
                 <div className="lg:col-span-5 relative flex items-center justify-center">
-                  <div className="relative w-full aspect-4/3 rounded-2xl bg-gradient-to-br from-[#BFDBFE] to-sky-300/30 p-5 overflow-hidden border border-blue-200/50 shadow-md flex items-center justify-center">
+                  <div className="relative w-full aspect-4/3 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200/60 p-5 overflow-hidden border border-slate-200 shadow-md flex items-center justify-center">
                     <img
                       src="/assets/cards/legal_photo.png"
                       alt="Mission Visual"
                       className="absolute inset-0 h-full w-full object-cover opacity-80"
                     />
-                    <div className="relative z-10 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-white shadow-xl max-w-[200px] text-center space-y-1">
+                    <div className="relative z-10 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-xl max-w-[200px] text-center space-y-1">
                       <div className="bg-[#0072bc] text-white px-2.5 py-1 rounded-lg text-[10.5px] font-bold flex items-center justify-center gap-1">
                         <span>✓</span> Money Recovered
                       </div>
@@ -353,14 +353,14 @@ export function CompanyOverviewLayout({ content }) {
             </div>
 
             {/* ── CARD 3: VALUES (Clean White #FFFFFF) ── */}
-            <div className="sticky top-36 sm:top-40 z-30 rounded-[32px] bg-white p-8 sm:p-12 shadow-[0_28px_70px_-15px_rgba(15,23,42,0.12)] border border-slate-200 transition-all">
+            <div className="sticky top-36 sm:top-40 z-30 rounded-[32px] bg-white p-8 sm:p-12 shadow-[0_28px_70px_-15px_rgba(15,23,42,0.12)] transition-all">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 {/* Left Column: Text */}
                 <div className="lg:col-span-7 space-y-5 text-left">
                   <span className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold font-mono uppercase tracking-widest">
                     Operating Principles
                   </span>
-                  <h3 className="text-3xl sm:text-4xl font-bold text-slate-900 font-serif">Core Values</h3>
+                  <h3 className="text-3xl sm:text-4xl font-bold text-[#0072bc] font-serif">Core Values</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                     <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
                       <div className="font-bold text-slate-900 text-sm flex items-center gap-2">
@@ -401,8 +401,8 @@ export function CompanyOverviewLayout({ content }) {
                       alt="Values Visual"
                       className="absolute inset-0 h-full w-full object-cover opacity-85"
                     />
-                    <div className="relative z-10 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl border border-white shadow-xl text-center space-y-1">
-                      <span className="font-mono text-[10px] font-bold text-emerald-600 uppercase tracking-widest">100% AUDIT READY</span>
+                    <div className="relative z-10 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl border border-slate-200 shadow-xl text-center space-y-1">
+                      <span className="font-mono text-[10px] font-bold text-[#0072bc] uppercase tracking-widest">100% AUDIT READY</span>
                       <div className="text-sm font-extrabold text-slate-900">Banking Grade Standards</div>
                     </div>
                   </div>

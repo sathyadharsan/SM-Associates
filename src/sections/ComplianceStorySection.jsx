@@ -123,7 +123,7 @@ function PillarCard({ pillar, index }) {
       >
         {/* FRONT SIDE (White First Enterprise Card) */}
         <div
-          className={`flex h-full flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-[0_4px_24px_rgba(0,0,0,0.03)] backdrop-blur-md transition-all duration-300 group-hover:border-[#0072bc]/50 group-hover:shadow-[0_12px_40px_rgba(0,114,188,0.12)] ${
+          className={`flex h-full flex-col justify-between rounded-3xl bg-white p-6 sm:p-7 shadow-[0_4px_24px_rgba(0,0,0,0.03)] backdrop-blur-md transition-all duration-300 group-hover:shadow-[0_12px_40px_rgba(0,114,188,0.12)] ${
             isFlipped ? 'pointer-events-none opacity-0' : 'opacity-100'
           }`}
           style={{ backfaceVisibility: 'hidden' }}
@@ -138,7 +138,7 @@ function PillarCard({ pillar, index }) {
                   {pillar.title}
                 </h4>
               </div>
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-400 border border-slate-200 group-hover:bg-[#0072bc] group-hover:text-white transition-colors">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-400 group-hover:bg-[#0072bc] group-hover:text-white transition-colors">
                 <RotateCw size={12} />
               </span>
             </div>
@@ -224,7 +224,7 @@ export default function ComplianceStorySection() {
         >
           <motion.span
             variants={leftVariants}
-            className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-[#0072bc] bg-[#0072bc]/10 px-3 py-1 rounded-full border border-[#0072bc]/20"
+            className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-[#0072bc] bg-[#0072bc]/10 px-3 py-1 rounded-full"
           >
             <ShieldCheck size={14} />
             Enterprise Governance
@@ -249,7 +249,7 @@ export default function ComplianceStorySection() {
             {STAT_PILLS.map((pill) => (
               <div
                 key={pill.label}
-                className="flex items-center gap-2 rounded-full border border-slate-200/80 bg-white px-4 py-2 shadow-xs"
+                className="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-xs"
               >
                 <span className="font-mono text-xs font-extrabold text-[#0072bc]">
                   {pill.value}

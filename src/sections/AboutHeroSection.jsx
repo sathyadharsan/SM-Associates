@@ -98,12 +98,12 @@ export default function AboutHeroSection() {
             {PARTNER_LOGOS.map((partner, index) => (
               <div
                 key={index}
-                className="flex items-center h-8 transition-all duration-300 opacity-75 hover:opacity-100 hover:scale-105"
+                className="flex items-center h-10 transition-all duration-300 opacity-100 hover:scale-108"
               >
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="h-6 sm:h-7 w-auto object-contain max-w-[110px]"
+                  className="h-8 sm:h-9 w-auto object-contain max-w-[130px]"
                   onError={(e) => {
                     e.target.style.display = 'none';
                     if (e.target.nextSibling) {
