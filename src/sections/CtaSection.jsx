@@ -64,7 +64,7 @@ export default function CtaSection() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="flex-shrink-0 w-full max-w-sm"
           >
-            <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-xl">
+            <div className="bg-white border border-slate-200/90 rounded-3xl p-8 shadow-xs">
               <div className="text-slate-900 font-bold text-xl mb-6">What happens next?</div>
               <div className="space-y-5">
                 {[

@@ -135,7 +135,7 @@ function ActiveServiceCard({ service, reduceMotion }) {
 
         {/* Middle Info */}
         <div className="my-auto py-2">
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight tracking-tight drop-shadow-md">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight tracking-tight">
             {service.title}
           </h3>
           <p className="mt-3 text-[14px] leading-relaxed text-slate-300 font-medium">
@@ -270,7 +270,7 @@ function RackCard({ service, isActive, onClick, reduceMotion }) {
           <div className="flex h-7 w-7 items-center justify-center rounded-lg font-mono text-[11px] font-bold bg-white/20 border border-white/30 text-white backdrop-blur-md shrink-0">
             {service.number}
           </div>
-          <span className="font-bold text-[14px] text-white tracking-tight truncate drop-shadow-sm group-hover:text-blue-300 transition-colors">
+          <span className="font-bold text-[14px] text-white tracking-tight truncate group-hover:text-blue-300 transition-colors">
             {service.title}
           </span>
         </div>

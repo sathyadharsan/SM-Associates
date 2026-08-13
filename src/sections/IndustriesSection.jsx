@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import SectionHeader from '../components/SectionHeader';
@@ -77,16 +77,16 @@ export default function IndustriesSection() {
                 <h3 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-gray-950">{active.title}</h3>
                 <p className="mt-5 text-lg leading-8 text-gray-500">{active.description}</p>
 
-                <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                <div className="mt-8 divide-y divide-slate-200/80 border-t border-b border-slate-200/80">
                   {['Recovery', 'Collections', 'Verification'].map(item => (
-                    <div key={item} className="rounded-2xl border border-gray-200 bg-white p-5">
-                      <p className="text-sm font-bold text-gray-950">{item}</p>
-                      <p className="mt-2 text-xs leading-5 text-gray-400">Operating layer for lender-specific mandates.</p>
+                    <div key={item} className="flex items-center justify-between py-3.5">
+                      <p className="text-sm font-semibold text-slate-800">{item}</p>
+                      <p className="text-xs text-slate-500">Operating layer for lender-specific mandates</p>
                     </div>
                   ))}
                 </div>
 
-                <a href="#contact" onClick={handleScrollTo('#contact')} className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#0072bc] transition hover:text-gray-950">
+                <a href="#contact" onClick={handleScrollTo('#contact')} className="mt-8 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0072bc] transition hover:text-slate-900">
                   Discuss {active.title} <ArrowRight className="h-4 w-4" />
                 </a>
               </div>

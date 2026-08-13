@@ -37,7 +37,7 @@ export default function RecoveryCalculatorSection() {
         </div>
 
         {/* Calculator Card */}
-        <div className="calc-card-wrap border border-slate-200 rounded-3xl p-6 sm:p-8 bg-white shadow-xl shadow-slate-200/50">
+        <div className="calc-card-wrap border border-slate-200/90 rounded-3xl p-6 sm:p-8 bg-white shadow-xs">
           {/* Controls Column */}
           <div>
             <div className="calc-slider-group">

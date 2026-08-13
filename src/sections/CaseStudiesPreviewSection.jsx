@@ -45,7 +45,7 @@ export default function CaseStudiesPreviewSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               whileHover={{ y: -4 }}
-              className="lg:col-span-7 bg-white rounded-[28px] border border-slate-200 p-7 sm:p-9 shadow-md hover:shadow-xl hover:border-slate-300 transition-all duration-300 flex flex-col justify-between"
+              className="lg:col-span-7 bg-white rounded-[28px] border border-slate-200 p-7 sm:p-9 shadow-xs hover:border-slate-300 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#0072bc] bg-[#0072bc]/10 px-3.5 py-1.5 rounded-full border border-slate-200">
@@ -84,9 +84,9 @@ export default function CaseStudiesPreviewSection() {
                 className="bg-white rounded-[28px] border border-slate-200 p-6 shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-300 flex-1 flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">{study.serviceLabel}</span>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-700">{study.serviceLabel}</span>
                   <h4 className="mt-1.5 text-base font-extrabold text-slate-900 tracking-tight leading-snug">{study.title}</h4>
-                  <p className="mt-2 text-[12.5px] text-slate-500 leading-relaxed line-clamp-2">{study.challenge}</p>
+                  <p className="mt-2 text-[12.5px] text-slate-700 leading-relaxed line-clamp-2">{study.challenge}</p>
                 </div>
                 <div className="mt-4 pt-3 border-t border-slate-100">
                   <Link

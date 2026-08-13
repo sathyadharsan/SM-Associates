@@ -27,9 +27,9 @@ body {
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(203, 213, 225, 0.78);
-  box-shadow: 0 24px 80px rgba(0, 114, 188, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(203, 213, 225, 0.85);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
   backdrop-filter: blur(18px);
 }
 
