@@ -16,11 +16,11 @@ export default function ClientsPage() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-5 inline-flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.2em] text-brand-500"
+            className="mb-5 inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#0072bc]"
           >
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-500" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#0072bc]/60 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0072bc]" />
             </span>
             Our Clients
           </motion.span>

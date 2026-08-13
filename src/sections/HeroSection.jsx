@@ -316,7 +316,7 @@ export default function HeroSection() {
 
       {/* ═══ Floating trust cards — overlap dark/light boundary ═══ */}
       <div className="relative mx-auto max-w-[1360px] px-6 lg:px-10" style={{ marginTop: '-110px' }}>
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-3">
           {trustCards.map(({ icon: Icon, title, sub, copy }, i) => (
             <motion.div
               key={title}
@@ -324,27 +324,25 @@ export default function HeroSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="rounded-xl border bg-white p-5 shadow-[0_20px_50px_-12px_rgba(10,14,26,0.18)]"
-              style={{ borderColor: C.border }}
+              className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs transition-all duration-200 hover:border-slate-300"
             >
-              <div className="flex items-start gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
-                  style={{ background: `${B}12` }}>
-                  <Icon className="h-4.5 w-4.5" style={{ color: B }} />
+              <div className="flex items-start gap-3.5">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0072bc]/10 text-[#0072bc]">
+                  <Icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-[14px] font-bold leading-snug" style={{ color: C.ink }}>{title}</p>
-                  <p className="text-[12px] font-semibold" style={{ color: B }}>{sub}</p>
+                  <h3 className="text-[15px] font-semibold tracking-tight text-slate-900">{title}</h3>
+                  <p className="mt-0.5 text-xs font-semibold text-[#0072bc]">{sub}</p>
                 </div>
               </div>
-              <p className="mt-3 text-[12.5px] leading-[1.6]" style={{ color: C.sub }}>{copy}</p>
+              <p className="mt-3.5 text-xs leading-relaxed text-slate-600 border-t border-slate-100 pt-3">{copy}</p>
             </motion.div>
           ))}
         </div>
       </div>
 
       {/* ═══ Premium Dashboard KPI Metric Cards ═══ */}
-      <div className="mt-12 lg:mt-16" style={{ borderTop: `1px solid ${C.border}`, background: '#f6f8fb' }}>
+      <div className="mt-12 lg:mt-16 border-t border-slate-200/80 bg-[#fafbfc]">
         <div className="mx-auto max-w-[1360px] px-6 py-8 lg:px-10">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {heroStats.map((stat, i) => (

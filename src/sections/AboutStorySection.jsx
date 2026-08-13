@@ -79,7 +79,7 @@ export default function AboutStorySection() {
             
             {/* Top Left Eyebrow */}
             <div className="lg:col-span-3">
-              <span className="font-mono text-2xl tracking-[0.25em] text-slate-900 font-bold uppercase block pt-2">
+              <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#0072bc] block pt-2">
                 OUR STORY
               </span>
             </div>

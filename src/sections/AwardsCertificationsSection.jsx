@@ -74,8 +74,8 @@ function OrbitalScrollCard({ cert, index, totalCards, scrollYProgress, activeInd
   const scaleOutputs = [];
 
   const radiusX = 39; // Balanced horizontal radius in vw
-  const radiusY = 30; // Vertical arc height in vh
-  const yBaseline = 5; // Bottom elevation in vh
+  const radiusY = 24; // Vertical arc height in vh
+  const yBaseline = -2; // Elevated baseline in vh to position cards closer up under title
 
   for (let k = 0; k <= STEPS; k++) {
     const u = k / STEPS; // Normalized 0 -> 1 along card flight span
@@ -184,7 +184,9 @@ export default function AwardsCertificationsSection() {
   const wordCenterScale = useTransform(scrollYProgress, [0.68, 0.88], [0.7, 1]);
   const wordRightX = useTransform(scrollYProgress, [0.68, 0.88], ['20vw', '0vw']);
   const bgOpacity = useTransform(scrollYProgress, [0.68, 0.78, 1.0], [0, 1, 1]);
-  const lineScaleX = useTransform(scrollYProgress, [0.70, 0.90], [0, 1]);
+
+  // Upward movement of desktop cards container when scrolling into section
+  const cardsContainerY = useTransform(scrollYProgress, [0, 0.25], ['50px', '0px']);
 
   return (
     <div className="relative w-full bg-white text-slate-900" id="awards-certifications">
@@ -201,8 +203,12 @@ export default function AwardsCertificationsSection() {
             const Icon = cert.icon;
             const isActive = activeIndex === idx;
             return (
-              <div
+              <motion.div
                 key={idx}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.215, 0.61, 0.355, 1] }}
                 onClick={() => setActiveIndex(isActive ? null : idx)}
                 className={`flex flex-col justify-between p-6 sm:p-7 rounded-2xl border transition-all duration-300 cursor-pointer ${isActive
                   ? 'bg-gradient-to-br from-[#005291] via-[#0072bc] to-[#021a38] border-[#0072bc] shadow-2xl text-white'
@@ -221,7 +227,7 @@ export default function AwardsCertificationsSection() {
                   <div className="font-extrabold text-base sm:text-lg">{cert.title}</div>
                   <div className={`text-xs mt-1 ${isActive ? 'text-slate-200' : 'text-slate-500'}`}>{cert.subtitle}</div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -245,7 +251,10 @@ export default function AwardsCertificationsSection() {
             </div>
 
             {/* Floating Orbital Cards Container with Animated Background Heading */}
-            <div className="relative flex-1 w-full max-w-7xl mx-auto flex items-center justify-center">
+            <motion.div 
+              style={{ y: cardsContainerY }}
+              className="relative flex-1 w-full max-w-7xl mx-auto flex items-center justify-center"
+            >
               {/* Background Heading & Divider converging into center on scroll */}
               <motion.div 
                 style={{ opacity: bgOpacity }}
@@ -262,8 +271,6 @@ export default function AwardsCertificationsSection() {
                     Trusted.
                   </motion.span>
                 </h2>
-
-
               </motion.div>
 
               {certifications.map((cert, index) => (
@@ -277,7 +284,7 @@ export default function AwardsCertificationsSection() {
                   setActiveIndex={setActiveIndex}
                 />
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       )}

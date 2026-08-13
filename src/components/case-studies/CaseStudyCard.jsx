@@ -16,7 +16,7 @@ function MetricBox({ label, value, example }) {
           SAMPLE DATA
         </span>
       )}
-      <span className="mt-1 text-[9px] font-bold uppercase tracking-wider text-slate-400 block leading-tight text-center">
+      <span className="mt-1 text-[9px] font-bold uppercase tracking-wider text-slate-600 block leading-tight text-center">
         {label}
       </span>
     </div>
@@ -67,13 +67,13 @@ export default function CaseStudyCard({ study, index, onOpen, to, showMetrics = 
           
           {/* Explicit Subtitle / Outcome Highlight */}
           {study.subtitle && (
-            <div className="mt-2.5 flex items-start gap-1.5 text-[11.5px] font-bold text-[#0072bc] bg-[#0072bc]/8 px-2.5 py-1 rounded-lg border border-[#0072bc]/15">
+            <div className="mt-2.5 flex items-start gap-1.5 text-[11.5px] font-bold text-[#0072bc] bg-[#0072bc]/12 px-2.5 py-1 rounded-lg border border-[#0072bc]/25">
               <TrendingUp size={13} className="shrink-0 mt-0.5 text-[#0072bc]" />
               <span className="line-clamp-1">{study.subtitle}</span>
             </div>
           )}
 
-          <p className="mt-2.5 text-[12.5px] leading-relaxed text-slate-500 line-clamp-3">{study.challenge}</p>
+          <p className="mt-2.5 text-[13px] leading-relaxed text-slate-700 font-normal line-clamp-3">{study.challenge}</p>
 
           {showMetrics && (
             <div className="mt-3.5 flex flex-row gap-2">
@@ -112,7 +112,7 @@ export default function CaseStudyCard({ study, index, onOpen, to, showMetrics = 
         exit={{ opacity: 0, y: 10 }}
         transition={{ duration: 0.35, delay: index * 0.05 }}
         whileHover={{ y: -4 }}
-        className="group flex flex-col h-full rounded-[22px] bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-slate-300 transition-all duration-300"
+        className="group flex flex-col h-full rounded-[22px] bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-xs hover:border-slate-300 transition-all duration-300"
       >
         <Link to={to} className="flex flex-col h-full">
           {cardInner}
@@ -129,7 +129,7 @@ export default function CaseStudyCard({ study, index, onOpen, to, showMetrics = 
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.35, delay: index * 0.05 }}
       whileHover={{ y: -4 }}
-      className="group flex flex-col h-full rounded-[22px] bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-slate-300 transition-all duration-300"
+      className="group flex flex-col h-full rounded-[22px] bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-xs hover:border-slate-300 transition-all duration-300"
     >
       {cardInner}
     </motion.div>

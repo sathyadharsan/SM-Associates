@@ -59,7 +59,7 @@ export default function AboutHeroSection() {
             </p>
 
             {/* Right Card Image */}
-            <div className="w-full max-w-[380px] relative rounded-[28px] overflow-hidden shadow-xl shadow-slate-200/90 border border-slate-100 aspect-[4/3.5] bg-slate-100">
+            <div className="w-full max-w-[380px] relative rounded-[28px] overflow-hidden shadow-xs border border-slate-200/90 aspect-[4/3.5] bg-slate-100">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop"
                 alt="SM Associates Enterprise Recovery Collaboration"
