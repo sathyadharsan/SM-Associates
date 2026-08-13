@@ -1,112 +1,79 @@
-node_modules/
-dist/
-
-# Markdown files
-*.md
-
-# Text files
-*.txt
-*.pdf
-*.docx
-
-# ==========================
 # Dependencies
-# ==========================
 node_modules/
 
-# ==========================
 # Build Output
-# ==========================
 dist/
 build/
 out/
 coverage/
 
-# ==========================
 # Environment Variables
-# ==========================
 .env
 .env.*
 !.env.example
 
-# ==========================
 # Logs
-# ==========================
 logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 pnpm-debug.log*
 
-# ==========================
-# IDE Files
-# ==========================
+# IDE & OS Files
 .vscode/
 .idea/
 *.iml
-
-# ==========================
-# OS Files
-# ==========================
 .DS_Store
 Thumbs.db
 
-# ==========================
-# Temporary Files
-# ==========================
+# AI Assistant Configs & Prompts
+.claude/
+CLAUDE.md
+CLAUDE.md.txt
+AGENTS.md
+Agents.md.txt
+prompts/
+*.prompt
+
+# Internal Knowledge, Content Architecture & Scratch Folders
+Knowledge/
+analytics/
+content_architecture/
+scratch/
+docs/
+
+# Document & Spreadsheet Files
+*.txt
+*.pdf
+*.docx
+*.doc
+*.xlsx
+*.xls
+~$*
+*.csv
+
+# Temporary Root Test Screenshots Only
+final_image_map_verification_*.webp
+
+# Markdown files (Except standard README)
+*.md
+!README.md
+
+# Temporary & Archive Files
 tmp/
 temp/
 .cache/
-
-# ==========================
-# Runtime Files
-# ==========================
 *.pid
 *.seed
-
-# ==========================
-# Archives
-# ==========================
 *.zip
 *.tar
 *.gz
 *.rar
 *.7z
-
-# ==========================
-# Secrets
-# ==========================
-*.pem
-*.key
-*.crt
-*.p12
-*.jks
-
-# ==========================
-# AI Prompt Files (Optional)
-# ==========================
-prompts/
-*.prompt
-*.md
-*.txt
-
-# ==========================
-# Backup Files
-# ==========================
 *.bak
 *.old
 *.tmp
 *~
-
-# ==========================
-# Generated Reports
-# ==========================
 reports/
 screenshots/
 
-# ==========================
-# Excel Sheets / Reports
-# ==========================
-*.xlsx
-*.xls
-~$*
