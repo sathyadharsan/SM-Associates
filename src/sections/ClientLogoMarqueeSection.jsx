@@ -36,6 +36,7 @@ export default function ClientLogoMarqueeSection() {
                   src={client.logo}
                   alt={`${client.name} logo`}
                   className="max-h-10 sm:max-h-12 max-w-[140px] sm:max-w-[165px] object-contain opacity-85 group-hover/logo:opacity-100 group-hover/logo:scale-110 transition-all duration-300 filter drop-shadow-xs"
+                  style={client.scale ? { transform: `scale(${client.scale})` } : undefined}
                   loading="lazy"
                   onError={(e) => {
                     e.currentTarget.parentElement.style.display = 'none';
@@ -58,6 +59,7 @@ export default function ClientLogoMarqueeSection() {
                   src={client.logo}
                   alt={`${client.name} logo`}
                   className="max-h-10 sm:max-h-12 max-w-[140px] sm:max-w-[165px] object-contain opacity-85 group-hover/logo:opacity-100 group-hover/logo:scale-110 transition-all duration-300 filter drop-shadow-xs"
+                  style={client.scale ? { transform: `scale(${client.scale})` } : undefined}
                   loading="lazy"
                   onError={(e) => {
                     e.currentTarget.parentElement.style.display = 'none';

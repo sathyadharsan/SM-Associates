@@ -162,7 +162,7 @@ export default function IndustriesServedSection() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          className="text-center mb-14"
+          className="text-center mb-20 lg:mb-28"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.3 }}
@@ -180,13 +180,13 @@ export default function IndustriesServedSection() {
             <div className="h-1.5 w-1.5 rounded-full bg-[#0072bc] shadow-sm shadow-[#0072bc]/40" />
             <div className="h-0.5 w-10 bg-gradient-to-l from-transparent to-[#0072bc]/60 rounded-full" />
           </div>
-          <p className="mt-3 text-base text-slate-500 font-medium max-w-lg mx-auto">
+          <p className="mt-3 text-base sm:text-lg text-slate-500 font-medium max-w-xl mx-auto">
             Calibrated recovery frameworks across 8 regulated lender segments
           </p>
         </motion.div>
 
-        {/* Official Sector Logo Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 sm:gap-5 lg:gap-6">
+        {/* Official Sector Logo Grid - Centered & Shifted Down */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-5 sm:gap-6 lg:gap-8 justify-center items-start max-w-6xl mx-auto mt-10 lg:mt-16">
           {SECTORS.map(({ label, Logo, sub }, i) => (
             <motion.div
               key={label}
@@ -195,7 +195,7 @@ export default function IndustriesServedSection() {
               viewport={{ once: false, margin: '-40px' }}
               transition={{ duration: 0.65, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -6, scale: 1.05 }}
-              className="group flex flex-col items-center gap-2.5 cursor-pointer"
+              className="group flex flex-col items-center gap-2.5 cursor-pointer text-center"
             >
               {/* Official Sector Logo Tile */}
               <div
@@ -205,7 +205,7 @@ export default function IndustriesServedSection() {
               </div>
 
               {/* Label & Statutory Regulatory Badge */}
-              <div className="text-center min-w-0">
+              <div className="text-center min-w-0 w-full">
                 <span
                   className="block text-xs sm:text-[13px] font-bold text-slate-900 leading-tight group-hover:text-[#0072bc] transition-colors duration-200"
                 >
