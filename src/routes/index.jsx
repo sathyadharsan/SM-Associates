@@ -51,8 +51,8 @@ export default function AppRoutes() {
         <Route path="/services" element={<ServicesIndex />} />
         <Route path="/services/*" element={<Navigate to="/services" replace />} />
 
-        {/* Future — single cinematic scroll page, no sub-routes */}
-        <Route path="/future" element={<FuturePage />} />
+        {/* Future — disabled for launch, redirects to Home */}
+        <Route path="/future" element={<Navigate to="/" replace />} />
 
         {/* Insights */}
         <Route path="/insights" element={<InsightsIndex />} />
