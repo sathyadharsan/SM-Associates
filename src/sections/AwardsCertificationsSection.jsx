@@ -75,8 +75,8 @@ function OrbitalScrollCard({ cert, index, totalCards, scrollYProgress, activeInd
   const scaleOutputs = [];
 
   const radiusX = 38; // Symmetric horizontal radius in vw
-  const radiusY = 46; // Vertical arc height in vh
-  const yBaseline = 24; // Symmetric bottom endpoint elevation in vh
+  const radiusY = 32; // Vertical arc height in vh
+  const yBaseline = 5; // Symmetric bottom endpoint elevation in vh
 
   for (let k = 0; k <= STEPS; k++) {
     const u = k / STEPS; // Normalized 0 -> 1 along card flight span
@@ -131,29 +131,26 @@ function OrbitalScrollCard({ cert, index, totalCards, scrollYProgress, activeInd
       className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-auto cursor-pointer select-none"
     >
       <div
-        className={`w-64 sm:w-72 p-5 sm:p-6 rounded-2xl border transition-all duration-300 backdrop-blur-md ${
-          isActive
+        className={`w-64 sm:w-72 p-5 sm:p-6 rounded-2xl border transition-all duration-300 backdrop-blur-md ${isActive
             ? 'bg-gradient-to-br from-[#005291] via-[#0072bc] to-[#021a38] border-[#0072bc] shadow-2xl shadow-[#0072bc]/40 text-white scale-[1.04] ring-2 ring-[#0072bc]/60'
             : 'bg-white/95 border-slate-200/80 shadow-[0_15px_35px_-5px_rgba(0,114,188,0.12),0_5px_15px_rgba(0,0,0,0.06)] text-slate-900 hover:border-[#0072bc]/50 hover:shadow-2xl hover:shadow-[#0072bc]/20'
-        }`}
+          }`}
       >
         <div className="flex items-center justify-between mb-4">
           <div
-            className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
-              isActive
+            className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${isActive
                 ? 'bg-white text-[#0072bc] shadow-md scale-105'
                 : 'bg-blue-50 text-[#0072bc] group-hover:bg-white group-hover:text-[#0072bc]'
-            }`}
+              }`}
           >
             <Icon size={22} strokeWidth={2.2} />
           </div>
 
           <span
-            className={`px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider font-mono ${
-              isActive
+            className={`px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider font-mono ${isActive
                 ? 'bg-white/20 text-white border border-white/30'
                 : 'bg-blue-50 text-[#0072bc] border border-blue-100'
-            }`}
+              }`}
           >
             {cert.badge}
           </span>
@@ -212,11 +209,10 @@ export default function AwardsCertificationsSection() {
               <div
                 key={idx}
                 onClick={() => setActiveIndex(isActive ? null : idx)}
-                className={`flex flex-col justify-between p-6 sm:p-7 rounded-2xl border transition-all duration-300 cursor-pointer ${
-                  isActive
+                className={`flex flex-col justify-between p-6 sm:p-7 rounded-2xl border transition-all duration-300 cursor-pointer ${isActive
                     ? 'bg-gradient-to-br from-[#005291] via-[#0072bc] to-[#021a38] border-[#0072bc] shadow-2xl text-white'
                     : 'bg-white border-slate-200/80 shadow-md text-slate-900 hover:border-[#0072bc]/40 hover:shadow-xl'
-                }`}
+                  }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -241,31 +237,10 @@ export default function AwardsCertificationsSection() {
         <div
           ref={containerRef}
           className="relative hidden lg:block w-full"
-          style={{ height: '220vh' }}
+          style={{ height: '160vh' }}
         >
           {/* Locked Viewport Canvas */}
           <div className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden px-4 pt-16 pb-8">
-            {/* Ambient subtle arc guide line */}
-            <svg
-              className="absolute inset-0 w-full h-full opacity-30 pointer-events-none"
-              viewBox="0 0 1200 800"
-              fill="none"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M 120 620 A 480 370 0 0 1 1080 620"
-                stroke="url(#arcGradient)"
-                strokeWidth="2"
-                strokeDasharray="6 6"
-              />
-              <defs>
-                <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#0072bc" stopOpacity="0.1" />
-                  <stop offset="50%" stopColor="#0072bc" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="#0072bc" stopOpacity="0.1" />
-                </linearGradient>
-              </defs>
-            </svg>
 
             {/* Stable Header Content */}
             <div className="relative z-20 text-center max-w-3xl mx-auto pt-6 pointer-events-auto">
@@ -302,15 +277,6 @@ export default function AwardsCertificationsSection() {
                   setActiveIndex={setActiveIndex}
                 />
               ))}
-            </div>
-
-            {/* Bottom Scroll Cue */}
-            <div className="relative z-20 mx-auto flex items-center gap-3 py-1 pointer-events-auto">
-              <span className="font-mono text-[10.5px] font-bold uppercase tracking-widest text-slate-500 flex items-center gap-1.5">
-                <ArrowDown size={14} className="text-[#0072BC]" />
-                Scroll to scrub regulatory motion timeline
-              </span>
-              <div className="h-1.5 w-1.5 rounded-full bg-[#0072BC] animate-ping" />
             </div>
           </div>
         </div>

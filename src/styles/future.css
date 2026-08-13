@@ -1,0 +1,132 @@
+/**
+ * /future — page styles.
+ *
+ * Ported from the approved Claude Design layout. Everything here is
+ * scoped under .future-story so the page's own paper ground, serif
+ * display face and dark peaks cannot leak into the rest of the site.
+ *
+ * The section markup carries its own inline styles (that is how the
+ * design was authored, and it keeps each scene self-contained). This
+ * file holds only what an inline style cannot express: keyframes, hover
+ * states, viewport-height fallbacks and the reduced-motion edit.
+ */
+
+.future-story {
+  background: #ffffff;
+  color: #15181c;
+  -webkit-font-smoothing: antialiased;
+  /* `clip`, never `hidden`. The design set overflow-x on <body>, where it
+     is harmless; on a wrapper div `hidden` creates a scroll container,
+     and every `position: sticky` scene inside then sticks to that
+     container instead of the viewport — which silently unpins the whole
+     page. `clip` contains the same overflow without becoming a
+     scrollport. */
+  overflow-x: clip;
+  /* Clears the fixed case-marker bar at the foot of the page. */
+  padding-bottom: 46px;
+}
+
+.future-story * {
+  box-sizing: border-box;
+}
+
+.future-story a {
+  color: #0072bc;
+  text-decoration: none;
+}
+
+.future-story a:hover {
+  color: #005a94;
+}
+
+.future-story ::selection {
+  background: #0072bc;
+  color: #fff;
+}
+
+@keyframes future-breathe {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes future-sweep {
+  from {
+    transform: translateX(-110%);
+  }
+  to {
+    transform: translateX(320%);
+  }
+}
+
+/* The two call-to-action treatments. The design expressed these as a
+   custom style-hover attribute its own runtime resolved; in React they
+   become real CSS so hover works without any JS. */
+.future-story .fut-cta-outline:hover {
+  background: #0072bc;
+  color: #ffffff;
+}
+
+.future-story .fut-cta-solid:hover {
+  background: #f8fafc;
+  color: #0072bc;
+}
+
+/* Short viewports: every pinned scene is composed for a full screen, so
+   below a certain height it is scaled down rather than clipped. */
+@media (max-height: 820px) {
+  .future-story [data-scene] {
+    zoom: 0.84;
+  }
+}
+@media (max-height: 700px) {
+  .future-story [data-scene] {
+    zoom: 0.74;
+  }
+}
+@media (max-height: 600px) {
+  .future-story [data-scene] {
+    zoom: 0.66;
+  }
+}
+
+/**
+ * Reduced motion is a different edit of the same page, not a broken one.
+ * Pins release into normal flow, stacked beats become sequential blocks,
+ * and every scene resolves to its most legible state — so all the copy
+ * is present and readable with no scroll-linked movement at all.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .future-story [data-track] {
+    --p: 0.5 !important;
+  }
+  .future-story [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .future-story [data-beat] {
+    opacity: 1 !important;
+  }
+  .future-story [data-stack] {
+    position: relative !important;
+    opacity: 1 !important;
+    transform: none !important;
+    margin-top: 56px !important;
+  }
+  .future-story [data-pin] {
+    height: auto !important;
+  }
+  .future-story [data-pin] > div {
+    position: static !important;
+    height: auto !important;
+    padding: 90px 0 !important;
+    overflow: visible !important;
+  }
+  .future-story [data-scene] {
+    zoom: 1 !important;
+  }
+}

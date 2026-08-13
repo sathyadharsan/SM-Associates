@@ -44,9 +44,7 @@ export default function HomePage() {
       </SectionReveal>
 
       {/* 4. Governance, ISO & IIBF Certification Badges */}
-      <SectionReveal>
-        <AwardsCertificationsSection />
-      </SectionReveal>
+      <AwardsCertificationsSection />
 
       {/* 5. Operating Principles & Brand Vision */}
       <BrandManifestoSection />

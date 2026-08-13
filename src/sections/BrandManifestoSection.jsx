@@ -22,7 +22,7 @@ const DEFAULT_LINES = [
   'Every report reaches the institution the same day it happens.',
 ];
 
-const SEGMENT_VH = 260;
+const SEGMENT_VH = 130;
 
 const rise = { hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } } };
 const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.16 } } };
@@ -91,8 +91,8 @@ function ManifestoStage({ wrapRef, wordRefs, lines }) {
   let wordCounter = 0;
   return (
     <div ref={wrapRef} className="relative z-10 hidden lg:block" style={{ height: `${SEGMENT_VH}vh` }}>
-      {/* Sticky viewport stage positioned higher up */}
-      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden pt-12 sm:pt-16 -mt-12 sm:-mt-20">
+      {/* Sticky viewport stage */}
+      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         <div className="mx-auto w-full max-w-5xl px-8 text-center space-y-6 sm:space-y-8">
           {lines.map((line, li) => {
             const words = line.split(' ');
