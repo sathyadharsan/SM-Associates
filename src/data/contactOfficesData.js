@@ -26,7 +26,7 @@ export const PRIMARY_CONTACT = {
 
 export const LEADERSHIP = [
   { name: 'Shri. M. Jebaraj', role: 'Managing Director', experience: '23+ years', location: 'Egmore, Chennai' },
-  { name: 'Anisley Jebaraj', role: 'Director', experience: 'Operations & Strategy', location: 'Chennai, Tamil Nadu' },
+  { name: 'Anisley Jebaraj', role: 'Director - AI & Technology Operations', experience: 'M.S. ML & Data Analytics (USA) | AI Systems', location: 'Chennai, Tamil Nadu' },
   { name: 'Shri. P. David Raja', role: 'Director', experience: '23+ years', location: 'Thirunindravur, Tamil Nadu' },
 ];
 

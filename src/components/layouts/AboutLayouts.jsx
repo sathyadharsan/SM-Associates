@@ -148,7 +148,7 @@ function PremiumTiltCard({ children, className = '', color = '#0072bc', delay = 
 // sits below the photo on the same white card surface instead of on top
 // of it, so nothing darkens the image and the studio backdrop reads as
 // actual white.
-function LeadershipCard({ name, role, image, quote, description }) {
+function LeadershipCard({ name, role, image, quote, description, education, tags }) {
   return (
     <div className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-md shadow-slate-200/60 transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#0072bc]/15">
       <div className="relative h-[300px] w-full shrink-0 overflow-hidden bg-white sm:h-[320px]">
@@ -170,15 +170,29 @@ function LeadershipCard({ name, role, image, quote, description }) {
         <p className="mt-1 text-sm font-semibold tracking-wide text-[#0072bc]">
           {role}
         </p>
-        <div className="mt-4 h-1 w-12 rounded-full bg-[#0072bc]" />
+        {education && (
+          <p className="mt-1 text-xs font-medium text-slate-500">
+            {education}
+          </p>
+        )}
+        <div className="mt-3 h-1 w-12 rounded-full bg-[#0072bc]" />
 
-        <p className="mt-4 text-sm leading-relaxed text-slate-600">
+        <p className="mt-4 text-sm leading-relaxed text-slate-600 italic">
           &ldquo;{quote}&rdquo;
         </p>
         {description && (
           <p className="mt-3 border-t border-slate-100 pt-3 text-xs leading-relaxed text-slate-500">
             {description}
           </p>
+        )}
+        {tags && tags.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+            {tags.map((tag, idx) => (
+              <span key={idx} className="inline-flex items-center rounded-md bg-sky-50 px-2 py-0.5 text-[11px] font-medium text-[#0072bc] ring-1 ring-inset ring-[#0072bc]/20">
+                {tag}
+              </span>
+            ))}
+          </div>
         )}
       </div>
     </div>
@@ -442,7 +456,9 @@ export function CompanyOverviewLayout({ content }) {
               role="Managing Director & Founder"
               image="/images/jebaraj.M MD.png"
               quote="Our purpose is simple — to protect the financial system's integrity by combining ground execution strength with compliance, technology and ethical operations."
-              description="Founded SM Associates in 2004, establishing specialized recovery and verification operations for premier institutions like SBI Cards, LIC Housing Finance, ICICI Bank, SCB, and Citibank. He has since built a robust enterprise infrastructure for SARFAESI enforcement, resolution, and recovery operations spanning Tamil Nadu, Kerala, Karnataka, Telangana, and Puducherry."
+              description="Founded SM Associates in 2004, establishing specialized recovery and verification operations for premier institutions like SBI Cards, LIC Housing Finance, ICICI Bank, SCB, and Citibank across South India."
+              education="23+ Years Leadership | SARFAESI & Recovery Authority"
+              tags={['SARFAESI Enforcement', 'Empanelment Strategy', 'PAN-South Infrastructure']}
             />
 
             {/* Card 2: P. David Raja */}
@@ -451,16 +467,20 @@ export function CompanyOverviewLayout({ content }) {
               role="Director"
               image="/images/p_david_raja.png"
               quote="Every recovery mandate we take on carries the same discipline — structured execution, complete documentation, and unwavering compliance with the frameworks that govern it."
-              description="Manages SM Associates' recovery and verification operations for premier institutions including SBI Cards, LIC Housing Finance, ICICI Bank, SCB, Citibank, and Axis Bank. He oversees the field execution of SARFAESI enforcement, resolution, and recovery operations spanning Tamil Nadu, Kerala, Karnataka, Telangana, and Puducherry."
+              description="Manages SM Associates' field recovery execution and verification operations for premier institutions including SBI Cards, LIC Housing Finance, ICICI Bank, SCB, Citibank, and Axis Bank."
+              education="23+ Years Leadership | Operational Field Execution"
+              tags={['Field Enforcement', 'Banking Compliance', 'Resolution Operations']}
             />
 
             {/* Card 3: Anisley Jebaraj */}
             <LeadershipCard
               name="Anisley Jebaraj"
-              role="Director"
+              role="Director - AI & Technology Operations"
               image="/images/anisley_jebaraj.jpg"
-              quote="Representing the next generation of recovery operations leadership, driving technology integration, operational excellence, and compliant growth across India."
-              description="Directs operational strategy, client relations, and modernizing recovery operations frameworks for enterprise portfolios."
+              quote="Spearheading SM Associates' transition into AI-powered recovery operations, combining predictive machine learning models, OCR document intelligence, and cloud data architecture with 23+ years of ground execution."
+              description="Directs AI systems integration, enterprise data pipelines, and technology strategy for recovery operations across 100+ institutional banking portfolios."
+              education="M.S. ML & Data Analytics (Northeastern, Boston)"
+              tags={['AI Recovery Systems', 'GPT-4 & OCR Pipelines', 'Azure Data Architecture', 'Predictive Analytics']}
             />
           </div>
         </div>

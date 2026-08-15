@@ -82,7 +82,7 @@ export default function BentoWorkflowSection() {
                 <span>Portfolio Under Recovery</span>
                 <span className="text-[#0072bc] font-mono">ACTIVE</span>
               </div>
-              <div className="text-2xl font-black text-slate-900 mt-1 font-mono">₹485,00,00,000+</div>
+              <div className="text-2xl font-black text-slate-900 mt-1 font-mono">₹485 Cr+</div>
               <div className="w-full bg-slate-100 h-2 rounded-full mt-3 overflow-hidden">
                 <div className="bg-[#0072bc] h-full w-[85%]" />
               </div>

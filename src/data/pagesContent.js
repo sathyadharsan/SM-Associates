@@ -199,6 +199,26 @@ export const pagesContent = {
         location: 'Chennai, India',
         email: 'sridhar.k@smassociates.in',
         education: 'M.Tech. - Computer Science, B.E. - ECE'
+      },
+      {
+        name: 'Ainsely Jebaraj',
+        role: 'Director - AI & Technology Operations',
+        photo: '/images/anisley_jebaraj.jpg',
+        experience: 'AI & Data Engineering Leader',
+        former: 'Van Dyk Recycling Solutions (USA) - Data Engineer Co-op, Valeo - Technology Specialist',
+        linkedin: 'https://linkedin.com/in/ainselyedu',
+        quote: 'Spearheading SM Associates\' transition into AI-powered recovery operations, combining predictive ML models, OCR document extraction, and cloud data architecture.',
+        prevInstitutions: ['Van Dyk Recycling Solutions (CT, USA)', 'Valeo AI Systems', 'Gewin Financial Services'],
+        expertise: ['AI & ML Operations', 'Data Engineering (Azure/SQL)', 'GPT-4 & OCR Pipelines', 'Predictive Portfolio Risk', 'Workflow Automation', 'Computer Vision'],
+        careerTimeline: [
+          { year: '2021 - 2022', inst: 'Gewin Financial Services', role: 'Data Analyst Specialist' },
+          { year: '2022 - 2023', inst: 'Valeo AI Systems', role: 'Technology Development Specialist' },
+          { year: '2025', inst: 'Van Dyk Recycling Solutions (USA)', role: 'Data Engineer Co-op' },
+          { year: '2025 - Present', inst: 'SM Associates', role: 'Director - AI & Technology Operations' }
+        ],
+        location: 'Chennai, India & Boston, USA',
+        email: 'ainselyedu@gmail.com',
+        education: 'M.S. - Engineering Management (ML & Data Analytics) - Northeastern University, Boston'
       }
     ],
     legacyWall: [
